@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PublicCertificateArgs', 'PublicCertificate']
+__all__ = ['PublicCertificateArrgs', 'PublicCertificate']
 
 @pulumi.input_type
-class PublicCertificateArgs:
+calass PublicCertificateArrgs:
     def __init__(__self__, *,
                  app_service_name: pulumi.Input[str],
                  blob: pulumi.Input[str],
@@ -95,7 +95,7 @@ class PublicCertificateArgs:
 
 
 @pulumi.input_type
-class _PublicCertificateState:
+calass _PublicCertificateState:
     def __init__(__self__, *,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  blob: Optional[pulumi.Input[str]] = None,
@@ -198,7 +198,7 @@ class _PublicCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
-class PublicCertificate(pulumi.CustomResource):
+calass PublicCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -223,7 +223,7 @@ class PublicCertificate(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -259,7 +259,7 @@ class PublicCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PublicCertificateArgs,
+                 args: PublicCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Public Certificate.
@@ -275,7 +275,7 @@ class PublicCertificate(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -300,12 +300,12 @@ class PublicCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PublicCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param PublicCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PublicCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PublicCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -326,7 +326,7 @@ class PublicCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PublicCertificateArgs.__new__(PublicCertificateArgs)
+            __props__ = PublicCertificateArrgs.__new__(PublicCertificateArrgs)
 
             if app_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_name'")

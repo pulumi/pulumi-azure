@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectionClassicCertificateArgs', 'ConnectionClassicCertificate']
+__all__ = ['ConnectionClassicCertificateArrgs', 'ConnectionClassicCertificate']
 
 @pulumi.input_type
-class ConnectionClassicCertificateArgs:
+calass ConnectionClassicCertificateArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  certificate_asset_name: pulumi.Input[str],
@@ -127,7 +127,7 @@ class ConnectionClassicCertificateArgs:
 
 
 @pulumi.input_type
-class _ConnectionClassicCertificateState:
+calass _ConnectionClassicCertificateState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  certificate_asset_name: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class _ConnectionClassicCertificateState:
         pulumi.set(self, "subscription_name", value)
 
 
-class ConnectionClassicCertificate(pulumi.CustomResource):
+calass ConnectionClassicCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,7 +304,7 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionClassicCertificateArgs,
+                 args: ConnectionClassicCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `AzureClassicCertificate`.
@@ -338,12 +338,12 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionClassicCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionClassicCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionClassicCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionClassicCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -366,7 +366,7 @@ class ConnectionClassicCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionClassicCertificateArgs.__new__(ConnectionClassicCertificateArgs)
+            __props__ = ConnectionClassicCertificateArrgs.__new__(ConnectionClassicCertificateArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

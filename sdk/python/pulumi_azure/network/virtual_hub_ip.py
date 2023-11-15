@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualHubIpArgs', 'VirtualHubIp']
+__all__ = ['VirtualHubIpArrgs', 'VirtualHubIp']
 
 @pulumi.input_type
-class VirtualHubIpArgs:
+calass VirtualHubIpArrgs:
     def __init__(__self__, *,
                  public_ip_address_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
@@ -113,7 +113,7 @@ class VirtualHubIpArgs:
 
 
 @pulumi.input_type
-class _VirtualHubIpState:
+calass _VirtualHubIpState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _VirtualHubIpState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
-class VirtualHubIp(pulumi.CustomResource):
+calass VirtualHubIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -286,7 +286,7 @@ class VirtualHubIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualHubIpArgs,
+                 args: VirtualHubIpArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Hub IP. This resource is also known as a Route Server.
@@ -334,12 +334,12 @@ class VirtualHubIp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualHubIpArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualHubIpArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubIpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubIpArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -361,7 +361,7 @@ class VirtualHubIp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualHubIpArgs.__new__(VirtualHubIpArgs)
+            __props__ = VirtualHubIpArrgs.__new__(VirtualHubIpArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_address"] = private_ip_address

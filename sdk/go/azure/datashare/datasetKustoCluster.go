@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Share Kusto Cluster Dataset.
@@ -222,12 +221,6 @@ func (i *DatasetKustoCluster) ToDatasetKustoClusterOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterOutput)
 }
 
-func (i *DatasetKustoCluster) ToOutput(ctx context.Context) pulumix.Output[*DatasetKustoCluster] {
-	return pulumix.Output[*DatasetKustoCluster]{
-		OutputState: i.ToDatasetKustoClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetKustoClusterArrayInput is an input type that accepts DatasetKustoClusterArray and DatasetKustoClusterArrayOutput values.
 // You can construct a concrete instance of `DatasetKustoClusterArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i DatasetKustoClusterArray) ToDatasetKustoClusterArrayOutput() DatasetKust
 
 func (i DatasetKustoClusterArray) ToDatasetKustoClusterArrayOutputWithContext(ctx context.Context) DatasetKustoClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterArrayOutput)
-}
-
-func (i DatasetKustoClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetKustoCluster] {
-	return pulumix.Output[[]*DatasetKustoCluster]{
-		OutputState: i.ToDatasetKustoClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetKustoClusterMapInput is an input type that accepts DatasetKustoClusterMap and DatasetKustoClusterMapOutput values.
@@ -284,12 +271,6 @@ func (i DatasetKustoClusterMap) ToDatasetKustoClusterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoClusterMapOutput)
 }
 
-func (i DatasetKustoClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetKustoCluster] {
-	return pulumix.Output[map[string]*DatasetKustoCluster]{
-		OutputState: i.ToDatasetKustoClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetKustoClusterOutput struct{ *pulumi.OutputState }
 
 func (DatasetKustoClusterOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o DatasetKustoClusterOutput) ToDatasetKustoClusterOutput() DatasetKustoClu
 
 func (o DatasetKustoClusterOutput) ToDatasetKustoClusterOutputWithContext(ctx context.Context) DatasetKustoClusterOutput {
 	return o
-}
-
-func (o DatasetKustoClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetKustoCluster] {
-	return pulumix.Output[*DatasetKustoCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Data Share Dataset.
@@ -349,12 +324,6 @@ func (o DatasetKustoClusterArrayOutput) ToDatasetKustoClusterArrayOutputWithCont
 	return o
 }
 
-func (o DatasetKustoClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetKustoCluster] {
-	return pulumix.Output[[]*DatasetKustoCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetKustoClusterArrayOutput) Index(i pulumi.IntInput) DatasetKustoClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetKustoCluster {
 		return vs[0].([]*DatasetKustoCluster)[vs[1].(int)]
@@ -373,12 +342,6 @@ func (o DatasetKustoClusterMapOutput) ToDatasetKustoClusterMapOutput() DatasetKu
 
 func (o DatasetKustoClusterMapOutput) ToDatasetKustoClusterMapOutputWithContext(ctx context.Context) DatasetKustoClusterMapOutput {
 	return o
-}
-
-func (o DatasetKustoClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetKustoCluster] {
-	return pulumix.Output[map[string]*DatasetKustoCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetKustoClusterMapOutput) MapIndex(k pulumi.StringInput) DatasetKustoClusterOutput {

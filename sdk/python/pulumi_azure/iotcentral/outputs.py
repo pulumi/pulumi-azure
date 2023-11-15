@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationIdentity(dict):
+calass ApplicationIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -76,7 +76,7 @@ class ApplicationIdentity(dict):
 
 
 @pulumi.output_type
-class ApplicationNetworkRuleSetIpRule(dict):
+calass ApplicationNetworkRuleSetIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

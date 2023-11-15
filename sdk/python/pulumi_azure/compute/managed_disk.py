@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagedDiskArgs', 'ManagedDisk']
+__all__ = ['ManagedDiskArrgs', 'ManagedDisk']
 
 @pulumi.input_type
-class ManagedDiskArgs:
+calass ManagedDiskArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -27,7 +27,7 @@ class ManagedDiskArgs:
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
+                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input['ManagedDiskEncryptionSettingsArrgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
@@ -329,7 +329,7 @@ class ManagedDiskArgs:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -338,7 +338,7 @@ class ManagedDiskArgs:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @property
@@ -641,7 +641,7 @@ class ManagedDiskArgs:
 
 
 @pulumi.input_type
-class _ManagedDiskState:
+calass _ManagedDiskState:
     def __init__(__self__, *,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
@@ -652,7 +652,7 @@ class _ManagedDiskState:
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
+                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
@@ -694,7 +694,7 @@ class _ManagedDiskState:
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input['ManagedDiskEncryptionSettingsArrgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
@@ -933,7 +933,7 @@ class _ManagedDiskState:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -942,7 +942,7 @@ class _ManagedDiskState:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArrgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @property
@@ -1270,7 +1270,7 @@ class _ManagedDiskState:
         pulumi.set(self, "zone", value)
 
 
-class ManagedDisk(pulumi.CustomResource):
+calass ManagedDisk(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1284,7 +1284,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArrgs']]] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
@@ -1384,7 +1384,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArrgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
@@ -1443,7 +1443,7 @@ class ManagedDisk(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedDiskArgs,
+                 args: ManagedDiskArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a managed disk.
@@ -1503,12 +1503,12 @@ class ManagedDisk(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedDiskArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedDiskArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedDiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedDiskArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1526,7 +1526,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArrgs']]] = None,
                  gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
                  image_reference_id: Optional[pulumi.Input[str]] = None,
@@ -1559,7 +1559,7 @@ class ManagedDisk(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedDiskArgs.__new__(ManagedDiskArgs)
+            __props__ = ManagedDiskArrgs.__new__(ManagedDiskArrgs)
 
             if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
@@ -1621,7 +1621,7 @@ class ManagedDisk(pulumi.CustomResource):
             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
             edge_zone: Optional[pulumi.Input[str]] = None,
-            encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+            encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArrgs']]] = None,
             gallery_image_reference_id: Optional[pulumi.Input[str]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
             image_reference_id: Optional[pulumi.Input[str]] = None,
@@ -1668,7 +1668,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArrgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.

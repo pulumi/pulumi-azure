@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDatasetKustoDatabaseResult:
+calass GetDatasetKustoDatabaseResult:
     """
     A collection of values returned by getDatasetKustoDatabase.
     """
@@ -84,7 +84,7 @@ class GetDatasetKustoDatabaseResult:
         return pulumi.get(self, "share_id")
 
 
-class AwaitableGetDatasetKustoDatabaseResult(GetDatasetKustoDatabaseResult):
+calass AwaitableGetDatasetKustoDatabaseResult(GetDatasetKustoDatabaseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

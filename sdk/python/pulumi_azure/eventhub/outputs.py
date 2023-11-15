@@ -63,7 +63,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DomainIdentity(dict):
+calass DomainIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,7 +146,7 @@ class DomainIdentity(dict):
 
 
 @pulumi.output_type
-class DomainInboundIpRule(dict):
+calass DomainInboundIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -193,7 +193,7 @@ class DomainInboundIpRule(dict):
 
 
 @pulumi.output_type
-class DomainInputMappingDefaultValues(dict):
+calass DomainInputMappingDefaultValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -255,7 +255,7 @@ class DomainInputMappingDefaultValues(dict):
 
 
 @pulumi.output_type
-class DomainInputMappingFields(dict):
+calass DomainInputMappingFields(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -355,7 +355,7 @@ class DomainInputMappingFields(dict):
 
 
 @pulumi.output_type
-class EventGridTopicIdentity(dict):
+calass EventGridTopicIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -438,7 +438,7 @@ class EventGridTopicIdentity(dict):
 
 
 @pulumi.output_type
-class EventGridTopicInboundIpRule(dict):
+calass EventGridTopicInboundIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -485,7 +485,7 @@ class EventGridTopicInboundIpRule(dict):
 
 
 @pulumi.output_type
-class EventGridTopicInputMappingDefaultValues(dict):
+calass EventGridTopicInputMappingDefaultValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -547,7 +547,7 @@ class EventGridTopicInputMappingDefaultValues(dict):
 
 
 @pulumi.output_type
-class EventGridTopicInputMappingFields(dict):
+calass EventGridTopicInputMappingFields(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -647,7 +647,7 @@ class EventGridTopicInputMappingFields(dict):
 
 
 @pulumi.output_type
-class EventHubCaptureDescription(dict):
+calass EventHubCaptureDescription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -677,7 +677,7 @@ class EventHubCaptureDescription(dict):
                  size_limit_in_bytes: Optional[int] = None,
                  skip_empty_archives: Optional[bool] = None):
         """
-        :param 'EventHubCaptureDescriptionDestinationArgs' destination: A `destination` block as defined below.
+        :param 'EventHubCaptureDescriptionDestinationArrgs' destination: A `destination` block as defined below.
         :param bool enabled: Specifies if the Capture Description is Enabled.
         :param str encoding: Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
         :param int interval_in_seconds: Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
@@ -744,7 +744,7 @@ class EventHubCaptureDescription(dict):
 
 
 @pulumi.output_type
-class EventHubCaptureDescriptionDestination(dict):
+calass EventHubCaptureDescriptionDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -820,7 +820,7 @@ class EventHubCaptureDescriptionDestination(dict):
 
 
 @pulumi.output_type
-class EventHubNamespaceIdentity(dict):
+calass EventHubNamespaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -903,7 +903,7 @@ class EventHubNamespaceIdentity(dict):
 
 
 @pulumi.output_type
-class EventHubNamespaceNetworkRulesets(dict):
+calass EventHubNamespaceNetworkRulesets(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -937,12 +937,12 @@ class EventHubNamespaceNetworkRulesets(dict):
                  virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
         """
         :param str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
-        :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArrgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         :param bool public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
                
                > **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         :param bool trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
-        :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
+        :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -998,7 +998,7 @@ class EventHubNamespaceNetworkRulesets(dict):
 
 
 @pulumi.output_type
-class EventHubNamespaceNetworkRulesetsIpRule(dict):
+calass EventHubNamespaceNetworkRulesetsIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1045,7 +1045,7 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
 
 
 @pulumi.output_type
-class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
+calass EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1094,7 +1094,7 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRule(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilter(dict):
+calass EventSubscriptionAdvancedFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1169,27 +1169,27 @@ class EventSubscriptionAdvancedFilter(dict):
                  string_not_ends_withs: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotEndsWith']] = None,
                  string_not_ins: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterStringNotIn']] = None):
         """
-        :param Sequence['EventSubscriptionAdvancedFilterBoolEqualArgs'] bool_equals: Compares a value of an event using a single boolean value.
-        :param Sequence['EventSubscriptionAdvancedFilterIsNotNullArgs'] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
-        :param Sequence['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs'] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
+        :param Sequence['EventSubscriptionAdvancedFilterBoolEqualArrgs'] bool_equals: Compares a value of an event using a single boolean value.
+        :param Sequence['EventSubscriptionAdvancedFilterIsNotNullArrgs'] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
+        :param Sequence['EventSubscriptionAdvancedFilterIsNullOrUndefinedArrgs'] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
                
                Each nested block consists of a key and a value(s) element.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanArgs'] number_greater_thans: Compares a value of an event using a single floating point number.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberInRangeArgs'] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberInArgs'] number_ins: Compares a value of an event using multiple floating point numbers.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs'] number_less_than_or_equals: Compares a value of an event using a single floating point number.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanArgs'] number_less_thans: Compares a value of an event using a single floating point number.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberNotInRangeArgs'] number_not_in_ranges: Compares a value of an event using multiple floating point number ranges.
-        :param Sequence['EventSubscriptionAdvancedFilterNumberNotInArgs'] number_not_ins: Compares a value of an event using multiple floating point numbers.
-        :param Sequence['EventSubscriptionAdvancedFilterStringBeginsWithArgs'] string_begins_withs: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringContainArgs'] string_contains: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringEndsWithArgs'] string_ends_withs: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringInArgs'] string_ins: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs'] string_not_begins_withs: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringNotContainArgs'] string_not_contains: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringNotEndsWithArgs'] string_not_ends_withs: Compares a value of an event using multiple string values.
-        :param Sequence['EventSubscriptionAdvancedFilterStringNotInArgs'] string_not_ins: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrgs'] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberGreaterThanArrgs'] number_greater_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberInRangeArrgs'] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberInArrgs'] number_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrgs'] number_less_than_or_equals: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberLessThanArrgs'] number_less_thans: Compares a value of an event using a single floating point number.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberNotInRangeArrgs'] number_not_in_ranges: Compares a value of an event using multiple floating point number ranges.
+        :param Sequence['EventSubscriptionAdvancedFilterNumberNotInArrgs'] number_not_ins: Compares a value of an event using multiple floating point numbers.
+        :param Sequence['EventSubscriptionAdvancedFilterStringBeginsWithArrgs'] string_begins_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringContainArrgs'] string_contains: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringEndsWithArrgs'] string_ends_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringInArrgs'] string_ins: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringNotBeginsWithArrgs'] string_not_begins_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringNotContainArrgs'] string_not_contains: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringNotEndsWithArrgs'] string_not_ends_withs: Compares a value of an event using multiple string values.
+        :param Sequence['EventSubscriptionAdvancedFilterStringNotInArrgs'] string_not_ins: Compares a value of an event using multiple string values.
         """
         if bool_equals is not None:
             pulumi.set(__self__, "bool_equals", bool_equals)
@@ -1386,7 +1386,7 @@ class EventSubscriptionAdvancedFilter(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterBoolEqual(dict):
+calass EventSubscriptionAdvancedFilterBoolEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: bool):
@@ -1419,7 +1419,7 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterIsNotNull(dict):
+calass EventSubscriptionAdvancedFilterIsNotNull(dict):
     def __init__(__self__, *,
                  key: str):
         """
@@ -1437,7 +1437,7 @@ class EventSubscriptionAdvancedFilterIsNotNull(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
+calass EventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
     def __init__(__self__, *,
                  key: str):
         """
@@ -1455,7 +1455,7 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefined(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
+calass EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
     def __init__(__self__, *,
                  key: str,
                  value: float):
@@ -1488,7 +1488,7 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
+calass EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: float):
@@ -1521,7 +1521,7 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberIn(dict):
+calass EventSubscriptionAdvancedFilterNumberIn(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[float]):
@@ -1554,7 +1554,7 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberInRange(dict):
+calass EventSubscriptionAdvancedFilterNumberInRange(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[Sequence[float]]):
@@ -1587,7 +1587,7 @@ class EventSubscriptionAdvancedFilterNumberInRange(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberLessThan(dict):
+calass EventSubscriptionAdvancedFilterNumberLessThan(dict):
     def __init__(__self__, *,
                  key: str,
                  value: float):
@@ -1620,7 +1620,7 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
+calass EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: float):
@@ -1653,7 +1653,7 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberNotIn(dict):
+calass EventSubscriptionAdvancedFilterNumberNotIn(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[float]):
@@ -1686,7 +1686,7 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
+calass EventSubscriptionAdvancedFilterNumberNotInRange(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[Sequence[float]]):
@@ -1719,7 +1719,7 @@ class EventSubscriptionAdvancedFilterNumberNotInRange(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
+calass EventSubscriptionAdvancedFilterStringBeginsWith(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1752,7 +1752,7 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringContain(dict):
+calass EventSubscriptionAdvancedFilterStringContain(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1785,7 +1785,7 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringEndsWith(dict):
+calass EventSubscriptionAdvancedFilterStringEndsWith(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1818,7 +1818,7 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringIn(dict):
+calass EventSubscriptionAdvancedFilterStringIn(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1851,7 +1851,7 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
+calass EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1884,7 +1884,7 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWith(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringNotContain(dict):
+calass EventSubscriptionAdvancedFilterStringNotContain(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1917,7 +1917,7 @@ class EventSubscriptionAdvancedFilterStringNotContain(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
+calass EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1950,7 +1950,7 @@ class EventSubscriptionAdvancedFilterStringNotEndsWith(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAdvancedFilterStringNotIn(dict):
+calass EventSubscriptionAdvancedFilterStringNotIn(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1983,7 +1983,7 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionAzureFunctionEndpoint(dict):
+calass EventSubscriptionAzureFunctionEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2046,7 +2046,7 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionDeadLetterIdentity(dict):
+calass EventSubscriptionDeadLetterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2093,7 +2093,7 @@ class EventSubscriptionDeadLetterIdentity(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionDeliveryIdentity(dict):
+calass EventSubscriptionDeliveryIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2140,7 +2140,7 @@ class EventSubscriptionDeliveryIdentity(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionDeliveryProperty(dict):
+calass EventSubscriptionDeliveryProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2224,7 +2224,7 @@ class EventSubscriptionDeliveryProperty(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionRetryPolicy(dict):
+calass EventSubscriptionRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2272,7 +2272,7 @@ class EventSubscriptionRetryPolicy(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionStorageBlobDeadLetterDestination(dict):
+calass EventSubscriptionStorageBlobDeadLetterDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2320,7 +2320,7 @@ class EventSubscriptionStorageBlobDeadLetterDestination(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionStorageQueueEndpoint(dict):
+calass EventSubscriptionStorageQueueEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2382,7 +2382,7 @@ class EventSubscriptionStorageQueueEndpoint(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionSubjectFilter(dict):
+calass EventSubscriptionSubjectFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2446,7 +2446,7 @@ class EventSubscriptionSubjectFilter(dict):
 
 
 @pulumi.output_type
-class EventSubscriptionWebhookEndpoint(dict):
+calass EventSubscriptionWebhookEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2549,7 +2549,7 @@ class EventSubscriptionWebhookEndpoint(dict):
 
 
 @pulumi.output_type
-class NamespaceCustomerManagedKey(dict):
+calass NamespaceCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2611,7 +2611,7 @@ class NamespaceCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class NamespaceIdentity(dict):
+calass NamespaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2690,7 +2690,7 @@ class NamespaceIdentity(dict):
 
 
 @pulumi.output_type
-class NamespaceNetworkRuleSet(dict):
+calass NamespaceNetworkRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2725,7 +2725,7 @@ class NamespaceNetworkRuleSet(dict):
         """
         :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-        :param Sequence['NamespaceNetworkRuleSetNetworkRuleArgs'] network_rules: One or more `network_rules` blocks as defined below.
+        :param Sequence['NamespaceNetworkRuleSetNetworkRuleArrgs'] network_rules: One or more `network_rules` blocks as defined below.
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param bool trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -2782,7 +2782,7 @@ class NamespaceNetworkRuleSet(dict):
 
 
 @pulumi.output_type
-class NamespaceNetworkRuleSetNetworkRule(dict):
+calass NamespaceNetworkRuleSetNetworkRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2831,7 +2831,7 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
 
 
 @pulumi.output_type
-class SubscriptionClientScopedSubscription(dict):
+calass SubscriptionClientScopedSubscription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2899,7 +2899,7 @@ class SubscriptionClientScopedSubscription(dict):
 
 
 @pulumi.output_type
-class SubscriptionRuleCorrelationFilter(dict):
+calass SubscriptionRuleCorrelationFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

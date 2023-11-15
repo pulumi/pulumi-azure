@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MongoRoleDefinitionArgs', 'MongoRoleDefinition']
+__all__ = ['MongoRoleDefinitionArrgs', 'MongoRoleDefinition']
 
 @pulumi.input_type
-class MongoRoleDefinitionArgs:
+calass MongoRoleDefinitionArrgs:
     def __init__(__self__, *,
                  cosmos_mongo_database_id: pulumi.Input[str],
                  role_name: pulumi.Input[str],
                  inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None):
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]] = None):
         """
         The set of arguments for constructing a MongoRoleDefinition resource.
         :param pulumi.Input[str] cosmos_mongo_database_id: The resource ID of the Mongo DB. Changing this forces a new resource to be created.
@@ -27,7 +27,7 @@ class MongoRoleDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
                
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]] privileges: A `privilege` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]] privileges: A `privilege` block as defined below.
         """
         pulumi.set(__self__, "cosmos_mongo_database_id", cosmos_mongo_database_id)
         pulumi.set(__self__, "role_name", role_name)
@@ -76,23 +76,23 @@ class MongoRoleDefinitionArgs:
 
     @property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]]:
+    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]]:
         """
         A `privilege` block as defined below.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]]):
+    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]]):
         pulumi.set(self, "privileges", value)
 
 
 @pulumi.input_type
-class _MongoRoleDefinitionState:
+calass _MongoRoleDefinitionState:
     def __init__(__self__, *,
                  cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
                  inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MongoRoleDefinition resources.
@@ -100,7 +100,7 @@ class _MongoRoleDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
                
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]] privileges: A `privilege` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]] privileges: A `privilege` block as defined below.
         :param pulumi.Input[str] role_name: The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
         """
         if cosmos_mongo_database_id is not None:
@@ -140,14 +140,14 @@ class _MongoRoleDefinitionState:
 
     @property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]]:
+    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]]:
         """
         A `privilege` block as defined below.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]]):
+    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArrgs']]]]):
         pulumi.set(self, "privileges", value)
 
     @property
@@ -163,14 +163,14 @@ class _MongoRoleDefinitionState:
         pulumi.set(self, "role_name", value)
 
 
-class MongoRoleDefinition(pulumi.CustomResource):
+calass MongoRoleDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
                  inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArgs']]]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArrgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -189,17 +189,17 @@ class MongoRoleDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongo",
                 ),
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongoRoleBasedAccessControl",
                 ),
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -225,14 +225,14 @@ class MongoRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
                
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArgs']]]] privileges: A `privilege` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArrgs']]]] privileges: A `privilege` block as defined below.
         :param pulumi.Input[str] role_name: The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MongoRoleDefinitionArgs,
+                 args: MongoRoleDefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB Mongo Role Definition.
@@ -250,17 +250,17 @@ class MongoRoleDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongo",
                 ),
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongoRoleBasedAccessControl",
                 ),
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -281,12 +281,12 @@ class MongoRoleDefinition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MongoRoleDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param MongoRoleDefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MongoRoleDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MongoRoleDefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -297,7 +297,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
                  inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArgs']]]]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArrgs']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -306,7 +306,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MongoRoleDefinitionArgs.__new__(MongoRoleDefinitionArgs)
+            __props__ = MongoRoleDefinitionArrgs.__new__(MongoRoleDefinitionArrgs)
 
             if cosmos_mongo_database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmos_mongo_database_id'")
@@ -328,7 +328,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
             inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArgs']]]]] = None,
+            privileges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArrgs']]]]] = None,
             role_name: Optional[pulumi.Input[str]] = None) -> 'MongoRoleDefinition':
         """
         Get an existing MongoRoleDefinition resource's state with the given name, id, and optional extra
@@ -341,7 +341,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inherited_role_names: A list of Mongo Roles which are inherited to the Mongo Role Definition.
                
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArgs']]]] privileges: A `privilege` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoRoleDefinitionPrivilegeArrgs']]]] privileges: A `privilege` block as defined below.
         :param pulumi.Input[str] role_name: The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

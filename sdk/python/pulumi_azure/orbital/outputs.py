@@ -18,14 +18,14 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ContactProfileLink(dict):
+calass ContactProfileLink(dict):
     def __init__(__self__, *,
                  channels: Sequence['outputs.ContactProfileLinkChannel'],
                  direction: str,
                  name: str,
                  polarization: str):
         """
-        :param Sequence['ContactProfileLinkChannelArgs'] channels: A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+        :param Sequence['ContactProfileLinkChannelArrgs'] channels: A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
         :param str direction: Direction of the link. Possible values are `Uplink` and `Downlink`.
         :param str name: Name of the link.
         :param str polarization: Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
@@ -69,7 +69,7 @@ class ContactProfileLink(dict):
 
 
 @pulumi.output_type
-class ContactProfileLinkChannel(dict):
+calass ContactProfileLinkChannel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -105,7 +105,7 @@ class ContactProfileLinkChannel(dict):
         """
         :param float bandwidth_mhz: Bandwidth in MHz.
         :param float center_frequency_mhz: Center frequency in MHz.
-        :param Sequence['ContactProfileLinkChannelEndPointArgs'] end_points: Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+        :param Sequence['ContactProfileLinkChannelEndPointArrgs'] end_points: Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
         :param str name: Name of the channel.
         :param str demodulation_configuration: Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         :param str modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
@@ -169,7 +169,7 @@ class ContactProfileLinkChannel(dict):
 
 
 @pulumi.output_type
-class ContactProfileLinkChannelEndPoint(dict):
+calass ContactProfileLinkChannelEndPoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -240,7 +240,7 @@ class ContactProfileLinkChannelEndPoint(dict):
 
 
 @pulumi.output_type
-class SpacecraftLink(dict):
+calass SpacecraftLink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

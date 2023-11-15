@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ZoneArgs', 'Zone']
+__all__ = ['ZoneArrgs', 'Zone']
 
 @pulumi.input_type
-class ZoneArgs:
+calass ZoneArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
+                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
-        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ZoneSoaRecordArrgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -61,14 +61,14 @@ class ZoneArgs:
 
     @property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
+    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArrgs']]:
         """
         An `soa_record` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soa_record")
 
     @soa_record.setter
-    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArgs']]):
+    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArrgs']]):
         pulumi.set(self, "soa_record", value)
 
     @property
@@ -85,14 +85,14 @@ class ZoneArgs:
 
 
 @pulumi.input_type
-class _ZoneState:
+calass _ZoneState:
     def __init__(__self__, *,
                  max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_record_sets: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
+                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
@@ -101,7 +101,7 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ZoneSoaRecordArrgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if max_number_of_record_sets is not None:
@@ -181,14 +181,14 @@ class _ZoneState:
 
     @property
     @pulumi.getter(name="soaRecord")
-    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
+    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArrgs']]:
         """
         An `soa_record` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "soa_record")
 
     @soa_record.setter
-    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArgs']]):
+    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArrgs']]):
         pulumi.set(self, "soa_record", value)
 
     @property
@@ -204,14 +204,14 @@ class _ZoneState:
         pulumi.set(self, "tags", value)
 
 
-class Zone(pulumi.CustomResource):
+calass Zone(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']]] = None,
+                 soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -239,14 +239,14 @@ class Zone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArrgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ZoneArgs,
+                 args: ZoneArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
@@ -270,12 +270,12 @@ class Zone(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ZoneArgs args: The arguments to use to populate this resource's properties.
+        :param ZoneArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ZoneArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -286,7 +286,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']]] = None,
+                 soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -295,7 +295,7 @@ class Zone(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ZoneArgs.__new__(ZoneArgs)
+            __props__ = ZoneArrgs.__new__(ZoneArrgs)
 
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -321,7 +321,7 @@ class Zone(pulumi.CustomResource):
             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             number_of_record_sets: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']]] = None,
+            soa_record: Optional[pulumi.Input[pulumi.InputType['ZoneSoaRecordArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -335,7 +335,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: (Optional) A list of values that make up the NS record for the zone.
         :param pulumi.Input[int] number_of_record_sets: (Optional) The number of records already in the zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArrgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

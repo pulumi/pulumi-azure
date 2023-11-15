@@ -10,174 +10,174 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationGatewayAuthenticationCertificateArgs',
-    'ApplicationGatewayAutoscaleConfigurationArgs',
-    'ApplicationGatewayBackendAddressPoolArgs',
-    'ApplicationGatewayBackendHttpSettingArgs',
-    'ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs',
-    'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs',
-    'ApplicationGatewayCustomErrorConfigurationArgs',
-    'ApplicationGatewayFrontendIpConfigurationArgs',
-    'ApplicationGatewayFrontendPortArgs',
-    'ApplicationGatewayGatewayIpConfigurationArgs',
-    'ApplicationGatewayGlobalArgs',
-    'ApplicationGatewayHttpListenerArgs',
-    'ApplicationGatewayHttpListenerCustomErrorConfigurationArgs',
-    'ApplicationGatewayIdentityArgs',
-    'ApplicationGatewayPrivateEndpointConnectionArgs',
-    'ApplicationGatewayPrivateLinkConfigurationArgs',
-    'ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs',
-    'ApplicationGatewayProbeArgs',
-    'ApplicationGatewayProbeMatchArgs',
-    'ApplicationGatewayRedirectConfigurationArgs',
-    'ApplicationGatewayRequestRoutingRuleArgs',
-    'ApplicationGatewayRewriteRuleSetArgs',
-    'ApplicationGatewayRewriteRuleSetRewriteRuleArgs',
-    'ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs',
-    'ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs',
-    'ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs',
-    'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs',
-    'ApplicationGatewaySkuArgs',
-    'ApplicationGatewaySslCertificateArgs',
-    'ApplicationGatewaySslPolicyArgs',
-    'ApplicationGatewaySslProfileArgs',
-    'ApplicationGatewaySslProfileSslPolicyArgs',
-    'ApplicationGatewayTrustedClientCertificateArgs',
-    'ApplicationGatewayTrustedRootCertificateArgs',
-    'ApplicationGatewayUrlPathMapArgs',
-    'ApplicationGatewayUrlPathMapPathRuleArgs',
-    'ApplicationGatewayWafConfigurationArgs',
-    'ApplicationGatewayWafConfigurationDisabledRuleGroupArgs',
-    'ApplicationGatewayWafConfigurationExclusionArgs',
-    'ExpressRouteCircuitPeeringIpv6Args',
-    'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs',
-    'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs',
-    'ExpressRouteCircuitSkuArgs',
-    'ExpressRouteConnectionRoutingArgs',
-    'ExpressRouteConnectionRoutingPropagatedRouteTableArgs',
-    'ExpressRoutePortIdentityArgs',
-    'ExpressRoutePortLink1Args',
-    'ExpressRoutePortLink2Args',
-    'FirewallApplicationRuleCollectionRuleArgs',
-    'FirewallApplicationRuleCollectionRuleProtocolArgs',
-    'FirewallIpConfigurationArgs',
-    'FirewallManagementIpConfigurationArgs',
-    'FirewallNatRuleCollectionRuleArgs',
-    'FirewallNetworkRuleCollectionRuleArgs',
-    'FirewallPolicyDnsArgs',
-    'FirewallPolicyExplicitProxyArgs',
-    'FirewallPolicyIdentityArgs',
-    'FirewallPolicyInsightsArgs',
-    'FirewallPolicyInsightsLogAnalyticsWorkspaceArgs',
-    'FirewallPolicyIntrusionDetectionArgs',
-    'FirewallPolicyIntrusionDetectionSignatureOverrideArgs',
-    'FirewallPolicyIntrusionDetectionTrafficBypassArgs',
-    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs',
-    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs',
-    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs',
-    'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs',
-    'FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs',
-    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs',
-    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs',
-    'FirewallPolicyThreatIntelligenceAllowlistArgs',
-    'FirewallPolicyTlsCertificateArgs',
-    'FirewallVirtualHubArgs',
-    'LocalNetworkGatewayBgpSettingsArgs',
-    'NetworkConnectionMonitorEndpointArgs',
-    'NetworkConnectionMonitorEndpointFilterArgs',
-    'NetworkConnectionMonitorEndpointFilterItemArgs',
-    'NetworkConnectionMonitorTestConfigurationArgs',
-    'NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs',
-    'NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs',
-    'NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs',
-    'NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs',
-    'NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs',
-    'NetworkConnectionMonitorTestGroupArgs',
-    'NetworkInterfaceIpConfigurationArgs',
-    'NetworkManagerAdminRuleDestinationArgs',
-    'NetworkManagerAdminRuleSourceArgs',
-    'NetworkManagerConnectivityConfigurationAppliesToGroupArgs',
-    'NetworkManagerConnectivityConfigurationHubArgs',
-    'NetworkManagerCrossTenantScopeArgs',
-    'NetworkManagerScopeArgs',
-    'NetworkPacketCaptureFilterArgs',
-    'NetworkPacketCaptureStorageLocationArgs',
-    'NetworkSecurityGroupSecurityRuleArgs',
-    'NetworkWatcherFlowLogRetentionPolicyArgs',
-    'NetworkWatcherFlowLogTrafficAnalyticsArgs',
-    'PointToPointVpnGatewayConnectionConfigurationArgs',
-    'PointToPointVpnGatewayConnectionConfigurationRouteArgs',
-    'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs',
-    'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs',
-    'ProfileContainerNetworkInterfaceArgs',
-    'ProfileContainerNetworkInterfaceIpConfigurationArgs',
-    'RouteFilterRuleArgs',
-    'RouteMapRuleArgs',
-    'RouteMapRuleActionArgs',
-    'RouteMapRuleActionParameterArgs',
-    'RouteMapRuleMatchCriterionArgs',
-    'RouteTableRouteArgs',
-    'RoutingIntentRoutingPolicyArgs',
-    'SubnetDelegationArgs',
-    'SubnetDelegationServiceDelegationArgs',
-    'SubnetServiceEndpointStoragePolicyDefinitionArgs',
-    'TrafficManagerAzureEndpointCustomHeaderArgs',
-    'TrafficManagerAzureEndpointSubnetArgs',
-    'TrafficManagerExternalEndpointCustomHeaderArgs',
-    'TrafficManagerExternalEndpointSubnetArgs',
-    'TrafficManagerNestedEndpointCustomHeaderArgs',
-    'TrafficManagerNestedEndpointSubnetArgs',
-    'TrafficManagerProfileDnsConfigArgs',
-    'TrafficManagerProfileMonitorConfigArgs',
-    'TrafficManagerProfileMonitorConfigCustomHeaderArgs',
-    'VirtualHubConnectionRoutingArgs',
-    'VirtualHubConnectionRoutingPropagatedRouteTableArgs',
-    'VirtualHubConnectionRoutingStaticVnetRouteArgs',
-    'VirtualHubRouteArgs',
-    'VirtualHubRouteTableRouteArgs',
-    'VirtualNetworkDdosProtectionPlanArgs',
-    'VirtualNetworkEncryptionArgs',
-    'VirtualNetworkGatewayBgpSettingsArgs',
-    'VirtualNetworkGatewayBgpSettingsPeeringAddressArgs',
-    'VirtualNetworkGatewayConnectionCustomBgpAddressesArgs',
-    'VirtualNetworkGatewayConnectionIpsecPolicyArgs',
-    'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs',
-    'VirtualNetworkGatewayCustomRouteArgs',
-    'VirtualNetworkGatewayIpConfigurationArgs',
-    'VirtualNetworkGatewayNatRuleExternalMappingArgs',
-    'VirtualNetworkGatewayNatRuleInternalMappingArgs',
-    'VirtualNetworkGatewayVpnClientConfigurationArgs',
-    'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs',
-    'VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs',
-    'VirtualNetworkSubnetArgs',
-    'VnpGatewayNatRuleExternalMappingArgs',
-    'VnpGatewayNatRuleInternalMappingArgs',
-    'VpnGatewayBgpSettingsArgs',
-    'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs',
-    'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs',
-    'VpnGatewayConnectionRoutingArgs',
-    'VpnGatewayConnectionRoutingPropagatedRouteTableArgs',
-    'VpnGatewayConnectionTrafficSelectorPolicyArgs',
-    'VpnGatewayConnectionVpnLinkArgs',
-    'VpnGatewayConnectionVpnLinkCustomBgpAddressArgs',
-    'VpnGatewayConnectionVpnLinkIpsecPolicyArgs',
-    'VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs',
-    'VpnServerConfigurationClientRevokedCertificateArgs',
-    'VpnServerConfigurationClientRootCertificateArgs',
-    'VpnServerConfigurationIpsecPolicyArgs',
-    'VpnServerConfigurationPolicyGroupPolicyArgs',
-    'VpnServerConfigurationRadiusArgs',
-    'VpnServerConfigurationRadiusClientRootCertificateArgs',
-    'VpnServerConfigurationRadiusServerArgs',
-    'VpnServerConfigurationRadiusServerRootCertificateArgs',
-    'VpnSiteLinkArgs',
-    'VpnSiteLinkBgpArgs',
-    'VpnSiteO365PolicyArgs',
-    'VpnSiteO365PolicyTrafficCategoryArgs',
+    'ApplicationGatewayAuthenticationCertificateArrgs',
+    'ApplicationGatewayAutoscaleConfigurationArrgs',
+    'ApplicationGatewayBackendAddressPoolArrgs',
+    'ApplicationGatewayBackendHttpSettingArrgs',
+    'ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs',
+    'ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs',
+    'ApplicationGatewayCustomErrorConfigurationArrgs',
+    'ApplicationGatewayFrontendIpConfigurationArrgs',
+    'ApplicationGatewayFrontendPortArrgs',
+    'ApplicationGatewayGatewayIpConfigurationArrgs',
+    'ApplicationGatewayGlobalArrgs',
+    'ApplicationGatewayHttpListenerArrgs',
+    'ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs',
+    'ApplicationGatewayIdentityArrgs',
+    'ApplicationGatewayPrivateEndpointConnectionArrgs',
+    'ApplicationGatewayPrivateLinkConfigurationArrgs',
+    'ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs',
+    'ApplicationGatewayProbeArrgs',
+    'ApplicationGatewayProbeMatchArrgs',
+    'ApplicationGatewayRedirectConfigurationArrgs',
+    'ApplicationGatewayRequestRoutingRuleArrgs',
+    'ApplicationGatewayRewriteRuleSetArrgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleArrgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs',
+    'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs',
+    'ApplicationGatewaySkuArrgs',
+    'ApplicationGatewaySslCertificateArrgs',
+    'ApplicationGatewaySslPolicyArrgs',
+    'ApplicationGatewaySslProfileArrgs',
+    'ApplicationGatewaySslProfileSslPolicyArrgs',
+    'ApplicationGatewayTrustedClientCertificateArrgs',
+    'ApplicationGatewayTrustedRootCertificateArrgs',
+    'ApplicationGatewayUrlPathMapArrgs',
+    'ApplicationGatewayUrlPathMapPathRuleArrgs',
+    'ApplicationGatewayWafConfigurationArrgs',
+    'ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs',
+    'ApplicationGatewayWafConfigurationExclusionArrgs',
+    'ExpressRouteCircuitPeeringIpv6Arrgs',
+    'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs',
+    'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArrgs',
+    'ExpressRouteCircuitSkuArrgs',
+    'ExpressRouteConnectionRoutingArrgs',
+    'ExpressRouteConnectionRoutingPropagatedRouteTableArrgs',
+    'ExpressRoutePortIdentityArrgs',
+    'ExpressRoutePortLink1Arrgs',
+    'ExpressRoutePortLink2Arrgs',
+    'FirewallApplicationRuleCollectionRuleArrgs',
+    'FirewallApplicationRuleCollectionRuleProtocolArrgs',
+    'FirewallIpConfigurationArrgs',
+    'FirewallManagementIpConfigurationArrgs',
+    'FirewallNatRuleCollectionRuleArrgs',
+    'FirewallNetworkRuleCollectionRuleArrgs',
+    'FirewallPolicyDnsArrgs',
+    'FirewallPolicyExplicitProxyArrgs',
+    'FirewallPolicyIdentityArrgs',
+    'FirewallPolicyInsightsArrgs',
+    'FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs',
+    'FirewallPolicyIntrusionDetectionArrgs',
+    'FirewallPolicyIntrusionDetectionSignatureOverrideArrgs',
+    'FirewallPolicyIntrusionDetectionTrafficBypassArrgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs',
+    'FirewallPolicyRuleCollectionGroupNatRuleCollectionArrgs',
+    'FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs',
+    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrgs',
+    'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs',
+    'FirewallPolicyThreatIntelligenceAllowlistArrgs',
+    'FirewallPolicyTlsCertificateArrgs',
+    'FirewallVirtualHubArrgs',
+    'LocalNetworkGatewayBgpSettingsArrgs',
+    'NetworkConnectionMonitorEndpointArrgs',
+    'NetworkConnectionMonitorEndpointFilterArrgs',
+    'NetworkConnectionMonitorEndpointFilterItemArrgs',
+    'NetworkConnectionMonitorTestConfigurationArrgs',
+    'NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs',
+    'NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs',
+    'NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs',
+    'NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs',
+    'NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs',
+    'NetworkConnectionMonitorTestGroupArrgs',
+    'NetworkInterfaceIpConfigurationArrgs',
+    'NetworkManagerAdminRuleDestinationArrgs',
+    'NetworkManagerAdminRuleSourceArrgs',
+    'NetworkManagerConnectivityConfigurationAppliesToGroupArrgs',
+    'NetworkManagerConnectivityConfigurationHubArrgs',
+    'NetworkManagerCrossTenantScopeArrgs',
+    'NetworkManagerScopeArrgs',
+    'NetworkPacketCaptureFilterArrgs',
+    'NetworkPacketCaptureStorageLocationArrgs',
+    'NetworkSecurityGroupSecurityRuleArrgs',
+    'NetworkWatcherFlowLogRetentionPolicyArrgs',
+    'NetworkWatcherFlowLogTrafficAnalyticsArrgs',
+    'PointToPointVpnGatewayConnectionConfigurationArrgs',
+    'PointToPointVpnGatewayConnectionConfigurationRouteArrgs',
+    'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs',
+    'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs',
+    'ProfileContainerNetworkInterfaceArrgs',
+    'ProfileContainerNetworkInterfaceIpConfigurationArrgs',
+    'RouteFilterRuleArrgs',
+    'RouteMapRuleArrgs',
+    'RouteMapRuleActionArrgs',
+    'RouteMapRuleActionParameterArrgs',
+    'RouteMapRuleMatchCriterionArrgs',
+    'RouteTableRouteArrgs',
+    'RoutingIntentRoutingPolicyArrgs',
+    'SubnetDelegationArrgs',
+    'SubnetDelegationServiceDelegationArrgs',
+    'SubnetServiceEndpointStoragePolicyDefinitionArrgs',
+    'TrafficManagerAzureEndpointCustomHeaderArrgs',
+    'TrafficManagerAzureEndpointSubnetArrgs',
+    'TrafficManagerExternalEndpointCustomHeaderArrgs',
+    'TrafficManagerExternalEndpointSubnetArrgs',
+    'TrafficManagerNestedEndpointCustomHeaderArrgs',
+    'TrafficManagerNestedEndpointSubnetArrgs',
+    'TrafficManagerProfileDnsConfigArrgs',
+    'TrafficManagerProfileMonitorConfigArrgs',
+    'TrafficManagerProfileMonitorConfigCustomHeaderArrgs',
+    'VirtualHubConnectionRoutingArrgs',
+    'VirtualHubConnectionRoutingPropagatedRouteTableArrgs',
+    'VirtualHubConnectionRoutingStaticVnetRouteArrgs',
+    'VirtualHubRouteArrgs',
+    'VirtualHubRouteTableRouteArrgs',
+    'VirtualNetworkDdosProtectionPlanArrgs',
+    'VirtualNetworkEncryptionArrgs',
+    'VirtualNetworkGatewayBgpSettingsArrgs',
+    'VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs',
+    'VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs',
+    'VirtualNetworkGatewayConnectionIpsecPolicyArrgs',
+    'VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs',
+    'VirtualNetworkGatewayCustomRouteArrgs',
+    'VirtualNetworkGatewayIpConfigurationArrgs',
+    'VirtualNetworkGatewayNatRuleExternalMappingArrgs',
+    'VirtualNetworkGatewayNatRuleInternalMappingArrgs',
+    'VirtualNetworkGatewayVpnClientConfigurationArrgs',
+    'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs',
+    'VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs',
+    'VirtualNetworkSubnetArrgs',
+    'VnpGatewayNatRuleExternalMappingArrgs',
+    'VnpGatewayNatRuleInternalMappingArrgs',
+    'VpnGatewayBgpSettingsArrgs',
+    'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs',
+    'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs',
+    'VpnGatewayConnectionRoutingArrgs',
+    'VpnGatewayConnectionRoutingPropagatedRouteTableArrgs',
+    'VpnGatewayConnectionTrafficSelectorPolicyArrgs',
+    'VpnGatewayConnectionVpnLinkArrgs',
+    'VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs',
+    'VpnGatewayConnectionVpnLinkIpsecPolicyArrgs',
+    'VpnServerConfigurationAzureActiveDirectoryAuthenticationArrgs',
+    'VpnServerConfigurationClientRevokedCertificateArrgs',
+    'VpnServerConfigurationClientRootCertificateArrgs',
+    'VpnServerConfigurationIpsecPolicyArrgs',
+    'VpnServerConfigurationPolicyGroupPolicyArrgs',
+    'VpnServerConfigurationRadiusArrgs',
+    'VpnServerConfigurationRadiusClientRootCertificateArrgs',
+    'VpnServerConfigurationRadiusServerArrgs',
+    'VpnServerConfigurationRadiusServerRootCertificateArrgs',
+    'VpnSiteLinkArrgs',
+    'VpnSiteLinkBgpArrgs',
+    'VpnSiteO365PolicyArrgs',
+    'VpnSiteO365PolicyTrafficCategoryArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationGatewayAuthenticationCertificateArgs:
+calass ApplicationGatewayAuthenticationCertificateArrgs:
     def __init__(__self__, *,
                  data: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -230,7 +230,7 @@ class ApplicationGatewayAuthenticationCertificateArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayAutoscaleConfigurationArgs:
+calass ApplicationGatewayAutoscaleConfigurationArrgs:
     def __init__(__self__, *,
                  min_capacity: pulumi.Input[int],
                  max_capacity: Optional[pulumi.Input[int]] = None):
@@ -268,7 +268,7 @@ class ApplicationGatewayAutoscaleConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayBackendAddressPoolArgs:
+calass ApplicationGatewayBackendAddressPoolArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -338,15 +338,15 @@ class ApplicationGatewayBackendAddressPoolArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayBackendHttpSettingArgs:
+calass ApplicationGatewayBackendHttpSettingArrgs:
     def __init__(__self__, *,
                  cookie_based_affinity: pulumi.Input[str],
                  name: pulumi.Input[str],
                  port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
                  affinity_cookie_name: Optional[pulumi.Input[str]] = None,
-                 authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
-                 connection_draining: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
+                 authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs']]]] = None,
+                 connection_draining: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs']] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -361,8 +361,8 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[int] port: The port which should be used for this Backend HTTP Settings Collection.
         :param pulumi.Input[str] protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param pulumi.Input[str] affinity_cookie_name: The name of the affinity cookie.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_draining: A `connection_draining` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs'] connection_draining: A `connection_draining` block as defined below.
         :param pulumi.Input[str] host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[str] path: The Path which should be used as a prefix for all HTTP requests.
@@ -461,26 +461,26 @@ class ApplicationGatewayBackendHttpSettingArgs:
 
     @property
     @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]:
+    def authentication_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs']]]]:
         """
         One or more `authentication_certificate` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
 
     @authentication_certificates.setter
-    def authentication_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]):
+    def authentication_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs']]]]):
         pulumi.set(self, "authentication_certificates", value)
 
     @property
     @pulumi.getter(name="connectionDraining")
-    def connection_draining(self) -> Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]:
+    def connection_draining(self) -> Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs']]:
         """
         A `connection_draining` block as defined below.
         """
         return pulumi.get(self, "connection_draining")
 
     @connection_draining.setter
-    def connection_draining(self, value: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]):
+    def connection_draining(self, value: Optional[pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs']]):
         pulumi.set(self, "connection_draining", value)
 
     @property
@@ -581,7 +581,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
+calass ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
@@ -619,7 +619,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayBackendHttpSettingConnectionDrainingArgs:
+calass ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs:
     def __init__(__self__, *,
                  drain_timeout_sec: pulumi.Input[int],
                  enabled: pulumi.Input[bool]):
@@ -656,7 +656,7 @@ class ApplicationGatewayBackendHttpSettingConnectionDrainingArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayCustomErrorConfigurationArgs:
+calass ApplicationGatewayCustomErrorConfigurationArrgs:
     def __init__(__self__, *,
                  custom_error_page_url: pulumi.Input[str],
                  status_code: pulumi.Input[str],
@@ -709,7 +709,7 @@ class ApplicationGatewayCustomErrorConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayFrontendIpConfigurationArgs:
+calass ApplicationGatewayFrontendIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
@@ -843,7 +843,7 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayFrontendPortArgs:
+calass ApplicationGatewayFrontendPortArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  port: pulumi.Input[int],
@@ -896,7 +896,7 @@ class ApplicationGatewayFrontendPortArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayGatewayIpConfigurationArgs:
+calass ApplicationGatewayGatewayIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
@@ -949,7 +949,7 @@ class ApplicationGatewayGatewayIpConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayGlobalArgs:
+calass ApplicationGatewayGlobalArrgs:
     def __init__(__self__, *,
                  request_buffering_enabled: pulumi.Input[bool],
                  response_buffering_enabled: pulumi.Input[bool]):
@@ -986,13 +986,13 @@ class ApplicationGatewayGlobalArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayHttpListenerArgs:
+calass ApplicationGatewayHttpListenerArrgs:
     def __init__(__self__, *,
                  frontend_ip_configuration_name: pulumi.Input[str],
                  frontend_port_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]] = None,
+                 custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs']]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  frontend_port_id: Optional[pulumi.Input[str]] = None,
@@ -1009,7 +1009,7 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[str] frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
         :param pulumi.Input[str] name: The Name of the HTTP Listener.
         :param pulumi.Input[str] protocol: The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         :param pulumi.Input[str] frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param pulumi.Input[str] frontend_port_id: The ID of the associated Frontend Port.
@@ -1103,14 +1103,14 @@ class ApplicationGatewayHttpListenerArgs:
 
     @property
     @pulumi.getter(name="customErrorConfigurations")
-    def custom_error_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]:
+    def custom_error_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs']]]]:
         """
         One or more `custom_error_configuration` blocks as defined below.
         """
         return pulumi.get(self, "custom_error_configurations")
 
     @custom_error_configurations.setter
-    def custom_error_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]):
+    def custom_error_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs']]]]):
         pulumi.set(self, "custom_error_configurations", value)
 
     @property
@@ -1249,7 +1249,7 @@ class ApplicationGatewayHttpListenerArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
+calass ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs:
     def __init__(__self__, *,
                  custom_error_page_url: pulumi.Input[str],
                  status_code: pulumi.Input[str],
@@ -1302,7 +1302,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayIdentityArgs:
+calass ApplicationGatewayIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -1339,7 +1339,7 @@ class ApplicationGatewayIdentityArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayPrivateEndpointConnectionArgs:
+calass ApplicationGatewayPrivateEndpointConnectionArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -1378,13 +1378,13 @@ class ApplicationGatewayPrivateEndpointConnectionArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayPrivateLinkConfigurationArgs:
+calass ApplicationGatewayPrivateLinkConfigurationArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs']]],
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
                > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
                
@@ -1401,7 +1401,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs']]]:
         """
         One or more `ip_configuration` blocks as defined below.
 
@@ -1414,7 +1414,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -1443,7 +1443,7 @@ class ApplicationGatewayPrivateLinkConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
+calass ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  primary: pulumi.Input[bool],
@@ -1526,7 +1526,7 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayProbeArgs:
+calass ApplicationGatewayProbeArrgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  name: pulumi.Input[str],
@@ -1536,7 +1536,7 @@ class ApplicationGatewayProbeArgs:
                  unhealthy_threshold: pulumi.Input[int],
                  host: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 match: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']] = None,
+                 match: Optional[pulumi.Input['ApplicationGatewayProbeMatchArrgs']] = None,
                  minimum_servers: Optional[pulumi.Input[int]] = None,
                  pick_host_name_from_backend_http_settings: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None):
@@ -1549,7 +1549,7 @@ class ApplicationGatewayProbeArgs:
         :param pulumi.Input[int] unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
         :param pulumi.Input[str] host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input['ApplicationGatewayProbeMatchArgs'] match: A `match` block as defined above.
+        :param pulumi.Input['ApplicationGatewayProbeMatchArrgs'] match: A `match` block as defined above.
         :param pulumi.Input[int] minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
         :param pulumi.Input[bool] pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
         :param pulumi.Input[int] port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
@@ -1671,14 +1671,14 @@ class ApplicationGatewayProbeArgs:
 
     @property
     @pulumi.getter
-    def match(self) -> Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']]:
+    def match(self) -> Optional[pulumi.Input['ApplicationGatewayProbeMatchArrgs']]:
         """
         A `match` block as defined above.
         """
         return pulumi.get(self, "match")
 
     @match.setter
-    def match(self, value: Optional[pulumi.Input['ApplicationGatewayProbeMatchArgs']]):
+    def match(self, value: Optional[pulumi.Input['ApplicationGatewayProbeMatchArrgs']]):
         pulumi.set(self, "match", value)
 
     @property
@@ -1719,7 +1719,7 @@ class ApplicationGatewayProbeArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayProbeMatchArgs:
+calass ApplicationGatewayProbeMatchArrgs:
     def __init__(__self__, *,
                  status_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  body: Optional[pulumi.Input[str]] = None):
@@ -1757,7 +1757,7 @@ class ApplicationGatewayProbeMatchArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayRedirectConfigurationArgs:
+calass ApplicationGatewayRedirectConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  redirect_type: pulumi.Input[str],
@@ -1886,7 +1886,7 @@ class ApplicationGatewayRedirectConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayRequestRoutingRuleArgs:
+calass ApplicationGatewayRequestRoutingRuleArrgs:
     def __init__(__self__, *,
                  http_listener_name: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -2154,15 +2154,15 @@ class ApplicationGatewayRequestRoutingRuleArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetArgs:
+calass ApplicationGatewayRewriteRuleSetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 rewrite_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]] = None):
+                 rewrite_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] name: Unique name of the rewrite rule set block
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArrgs']]] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
@@ -2196,33 +2196,33 @@ class ApplicationGatewayRewriteRuleSetArgs:
 
     @property
     @pulumi.getter(name="rewriteRules")
-    def rewrite_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]:
+    def rewrite_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArrgs']]]]:
         """
         One or more `rewrite_rule` blocks as defined below.
         """
         return pulumi.get(self, "rewrite_rules")
 
     @rewrite_rules.setter
-    def rewrite_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]):
+    def rewrite_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArrgs']]]]):
         pulumi.set(self, "rewrite_rules", value)
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
+calass ApplicationGatewayRewriteRuleSetRewriteRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  rule_sequence: pulumi.Input[int],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]] = None,
-                 request_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]] = None,
-                 response_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]] = None,
-                 url: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']] = None):
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs']]]] = None,
+                 request_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs']]]] = None,
+                 response_header_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs']]]] = None,
+                 url: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs']] = None):
         """
         :param pulumi.Input[str] name: Unique name of the rewrite rule block
         :param pulumi.Input[int] rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]] conditions: One or more `condition` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
-        :param pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs'] url: One `url` block as defined below
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs']]] conditions: One or more `condition` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs']]] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs']]] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs'] url: One `url` block as defined below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -2261,55 +2261,55 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs']]]]:
         """
         One or more `condition` blocks as defined above.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
     @pulumi.getter(name="requestHeaderConfigurations")
-    def request_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]:
+    def request_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs']]]]:
         """
         One or more `request_header_configuration` blocks as defined above.
         """
         return pulumi.get(self, "request_header_configurations")
 
     @request_header_configurations.setter
-    def request_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]):
+    def request_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs']]]]):
         pulumi.set(self, "request_header_configurations", value)
 
     @property
     @pulumi.getter(name="responseHeaderConfigurations")
-    def response_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]:
+    def response_header_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs']]]]:
         """
         One or more `response_header_configuration` blocks as defined above.
         """
         return pulumi.get(self, "response_header_configurations")
 
     @response_header_configurations.setter
-    def response_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]):
+    def response_header_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs']]]]):
         pulumi.set(self, "response_header_configurations", value)
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]:
+    def url(self) -> Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs']]:
         """
         One `url` block as defined below
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]):
+    def url(self, value: Optional[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs']]):
         pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
+calass ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[str],
                  variable: pulumi.Input[str],
@@ -2378,7 +2378,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs:
+calass ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str]):
@@ -2415,7 +2415,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs:
+calass ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str]):
@@ -2452,7 +2452,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs
 
 
 @pulumi.input_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
+calass ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs:
     def __init__(__self__, *,
                  components: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -2527,7 +2527,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewaySkuArgs:
+calass ApplicationGatewaySkuArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  tier: pulumi.Input[str],
@@ -2584,7 +2584,7 @@ class ApplicationGatewaySkuArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewaySslCertificateArgs:
+calass ApplicationGatewaySslCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None,
@@ -2698,7 +2698,7 @@ class ApplicationGatewaySslCertificateArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewaySslPolicyArgs:
+calass ApplicationGatewaySslPolicyArrgs:
     def __init__(__self__, *,
                  cipher_suites: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disabled_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2793,18 +2793,18 @@ class ApplicationGatewaySslPolicyArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewaySslProfileArgs:
+calass ApplicationGatewaySslProfileArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
-                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']] = None,
+                 ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArrgs']] = None,
                  trusted_client_certificate_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verify_client_cert_issuer_dn: Optional[pulumi.Input[bool]] = None,
                  verify_client_certificate_revocation: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the SSL Profile that is unique within this Application Gateway.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
+        :param pulumi.Input['ApplicationGatewaySslProfileSslPolicyArrgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param pulumi.Input[bool] verify_client_cert_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
         :param pulumi.Input[str] verify_client_certificate_revocation: Specify the method to check client certificate revocation status. Possible value is `OCSP`.
@@ -2847,14 +2847,14 @@ class ApplicationGatewaySslProfileArgs:
 
     @property
     @pulumi.getter(name="sslPolicy")
-    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]:
+    def ssl_policy(self) -> Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArrgs']]:
         """
         a `ssl_policy` block as defined below.
         """
         return pulumi.get(self, "ssl_policy")
 
     @ssl_policy.setter
-    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArgs']]):
+    def ssl_policy(self, value: Optional[pulumi.Input['ApplicationGatewaySslProfileSslPolicyArrgs']]):
         pulumi.set(self, "ssl_policy", value)
 
     @property
@@ -2895,7 +2895,7 @@ class ApplicationGatewaySslProfileArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewaySslProfileSslPolicyArgs:
+calass ApplicationGatewaySslProfileSslPolicyArrgs:
     def __init__(__self__, *,
                  cipher_suites: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disabled_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2990,7 +2990,7 @@ class ApplicationGatewaySslProfileSslPolicyArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayTrustedClientCertificateArgs:
+calass ApplicationGatewayTrustedClientCertificateArrgs:
     def __init__(__self__, *,
                  data: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -3043,7 +3043,7 @@ class ApplicationGatewayTrustedClientCertificateArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayTrustedRootCertificateArgs:
+calass ApplicationGatewayTrustedRootCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None,
@@ -3121,10 +3121,10 @@ class ApplicationGatewayTrustedRootCertificateArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayUrlPathMapArgs:
+calass ApplicationGatewayUrlPathMapArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 path_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]],
+                 path_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArrgs']]],
                  default_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  default_backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  default_backend_http_settings_id: Optional[pulumi.Input[str]] = None,
@@ -3136,7 +3136,7 @@ class ApplicationGatewayUrlPathMapArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Name of the URL Path Map.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]] path_rules: One or more `path_rule` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArrgs']]] path_rules: One or more `path_rule` blocks as defined above.
         :param pulumi.Input[str] default_backend_address_pool_id: The ID of the Default Backend Address Pool.
         :param pulumi.Input[str] default_backend_address_pool_name: The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         :param pulumi.Input[str] default_backend_http_settings_id: The ID of the Default Backend HTTP Settings Collection.
@@ -3183,14 +3183,14 @@ class ApplicationGatewayUrlPathMapArgs:
 
     @property
     @pulumi.getter(name="pathRules")
-    def path_rules(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]]:
+    def path_rules(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArrgs']]]:
         """
         One or more `path_rule` blocks as defined above.
         """
         return pulumi.get(self, "path_rules")
 
     @path_rules.setter
-    def path_rules(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArgs']]]):
+    def path_rules(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapPathRuleArrgs']]]):
         pulumi.set(self, "path_rules", value)
 
     @property
@@ -3302,7 +3302,7 @@ class ApplicationGatewayUrlPathMapArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayUrlPathMapPathRuleArgs:
+calass ApplicationGatewayUrlPathMapPathRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -3499,13 +3499,13 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayWafConfigurationArgs:
+calass ApplicationGatewayWafConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  firewall_mode: pulumi.Input[str],
                  rule_set_version: pulumi.Input[str],
-                 disabled_rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]] = None,
+                 disabled_rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs']]]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArrgs']]]] = None,
                  file_upload_limit_mb: Optional[pulumi.Input[int]] = None,
                  max_request_body_size_kb: Optional[pulumi.Input[int]] = None,
                  request_body_check: Optional[pulumi.Input[bool]] = None,
@@ -3514,8 +3514,8 @@ class ApplicationGatewayWafConfigurationArgs:
         :param pulumi.Input[bool] enabled: Is the Web Application Firewall enabled?
         :param pulumi.Input[str] firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
         :param pulumi.Input[str] rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs']]] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
         :param pulumi.Input[int] file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         :param pulumi.Input[int] max_request_body_size_kb: The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -3575,26 +3575,26 @@ class ApplicationGatewayWafConfigurationArgs:
 
     @property
     @pulumi.getter(name="disabledRuleGroups")
-    def disabled_rule_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]:
+    def disabled_rule_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs']]]]:
         """
         One or more `disabled_rule_group` blocks as defined below.
         """
         return pulumi.get(self, "disabled_rule_groups")
 
     @disabled_rule_groups.setter
-    def disabled_rule_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]):
+    def disabled_rule_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs']]]]):
         pulumi.set(self, "disabled_rule_groups", value)
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @property
@@ -3647,7 +3647,7 @@ class ApplicationGatewayWafConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
+calass ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
@@ -3685,7 +3685,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs:
 
 
 @pulumi.input_type
-class ApplicationGatewayWafConfigurationExclusionArgs:
+calass ApplicationGatewayWafConfigurationExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  selector: Optional[pulumi.Input[str]] = None,
@@ -3739,18 +3739,18 @@ class ApplicationGatewayWafConfigurationExclusionArgs:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringIpv6Args:
+calass ExpressRouteCircuitPeeringIpv6Arrgs:
     def __init__(__self__, *,
                  primary_peer_address_prefix: pulumi.Input[str],
                  secondary_peer_address_prefix: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 microsoft_peering: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']] = None,
+                 microsoft_peering: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs']] = None,
                  route_filter_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
         :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
         :param pulumi.Input[bool] enabled: A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
-        :param pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs'] microsoft_peering: A `microsoft_peering` block as defined below.
+        :param pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs'] microsoft_peering: A `microsoft_peering` block as defined below.
         :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
                
                > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
@@ -3802,14 +3802,14 @@ class ExpressRouteCircuitPeeringIpv6Args:
 
     @property
     @pulumi.getter(name="microsoftPeering")
-    def microsoft_peering(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]:
+    def microsoft_peering(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs']]:
         """
         A `microsoft_peering` block as defined below.
         """
         return pulumi.get(self, "microsoft_peering")
 
     @microsoft_peering.setter
-    def microsoft_peering(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]):
+    def microsoft_peering(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs']]):
         pulumi.set(self, "microsoft_peering", value)
 
     @property
@@ -3828,7 +3828,7 @@ class ExpressRouteCircuitPeeringIpv6Args:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
+calass ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs:
     def __init__(__self__, *,
                  advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3899,7 +3899,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
+calass ExpressRouteCircuitPeeringMicrosoftPeeringConfigArrgs:
     def __init__(__self__, *,
                  advertised_public_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  advertised_communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3969,7 +3969,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitSkuArgs:
+calass ExpressRouteCircuitSkuArrgs:
     def __init__(__self__, *,
                  family: pulumi.Input[str],
                  tier: pulumi.Input[str]):
@@ -4010,17 +4010,17 @@ class ExpressRouteCircuitSkuArgs:
 
 
 @pulumi.input_type
-class ExpressRouteConnectionRoutingArgs:
+calass ExpressRouteConnectionRoutingArrgs:
     def __init__(__self__, *,
                  associated_route_table_id: Optional[pulumi.Input[str]] = None,
                  inbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  outbound_route_map_id: Optional[pulumi.Input[str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']] = None):
+                 propagated_route_table: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArrgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
         :param pulumi.Input[str] inbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for inbound routes.
         :param pulumi.Input[str] outbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for outbound routes.
-        :param pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        :param pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArrgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
@@ -4069,19 +4069,19 @@ class ExpressRouteConnectionRoutingArgs:
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArrgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingPropagatedRouteTableArrgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
 @pulumi.input_type
-class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
+calass ExpressRouteConnectionRoutingPropagatedRouteTableArrgs:
     def __init__(__self__, *,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -4120,7 +4120,7 @@ class ExpressRouteConnectionRoutingPropagatedRouteTableArgs:
 
 
 @pulumi.input_type
-class ExpressRoutePortIdentityArgs:
+calass ExpressRoutePortIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -4157,7 +4157,7 @@ class ExpressRoutePortIdentityArgs:
 
 
 @pulumi.input_type
-class ExpressRoutePortLink1Args:
+calass ExpressRoutePortLink1Arrgs:
     def __init__(__self__, *,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
@@ -4344,7 +4344,7 @@ class ExpressRoutePortLink1Args:
 
 
 @pulumi.input_type
-class ExpressRoutePortLink2Args:
+calass ExpressRoutePortLink2Arrgs:
     def __init__(__self__, *,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
@@ -4531,12 +4531,12 @@ class ExpressRoutePortLink2Args:
 
 
 @pulumi.input_type
-class FirewallApplicationRuleCollectionRuleArgs:
+calass FirewallApplicationRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArrgs']]]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -4544,7 +4544,7 @@ class FirewallApplicationRuleCollectionRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the rule.
         :param pulumi.Input[str] description: Specifies a description for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_tags: A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]] protocols: One or more `protocol` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArrgs']]] protocols: One or more `protocol` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: A list of source IP addresses and/or IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: A list of source IP Group IDs for the rule.
                
@@ -4603,14 +4603,14 @@ class FirewallApplicationRuleCollectionRuleArgs:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]:
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArrgs']]]]:
         """
         One or more `protocol` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]):
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArrgs']]]]):
         pulumi.set(self, "protocols", value)
 
     @property
@@ -4653,7 +4653,7 @@ class FirewallApplicationRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallApplicationRuleCollectionRuleProtocolArgs:
+calass FirewallApplicationRuleCollectionRuleProtocolArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  type: pulumi.Input[str]):
@@ -4690,7 +4690,7 @@ class FirewallApplicationRuleCollectionRuleProtocolArgs:
 
 
 @pulumi.input_type
-class FirewallIpConfigurationArgs:
+calass FirewallIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -4764,7 +4764,7 @@ class FirewallIpConfigurationArgs:
 
 
 @pulumi.input_type
-class FirewallManagementIpConfigurationArgs:
+calass FirewallManagementIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_ip_address_id: pulumi.Input[str],
@@ -4840,7 +4840,7 @@ class FirewallManagementIpConfigurationArgs:
 
 
 @pulumi.input_type
-class FirewallNatRuleCollectionRuleArgs:
+calass FirewallNatRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  destination_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  destination_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -4989,7 +4989,7 @@ class FirewallNatRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallNetworkRuleCollectionRuleArgs:
+calass FirewallNetworkRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  destination_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -5149,7 +5149,7 @@ class FirewallNetworkRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyDnsArgs:
+calass FirewallPolicyDnsArrgs:
     def __init__(__self__, *,
                  proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -5188,7 +5188,7 @@ class FirewallPolicyDnsArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyExplicitProxyArgs:
+calass FirewallPolicyExplicitProxyArrgs:
     def __init__(__self__, *,
                  enable_pac_file: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -5291,7 +5291,7 @@ class FirewallPolicyExplicitProxyArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyIdentityArgs:
+calass FirewallPolicyIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5353,16 +5353,16 @@ class FirewallPolicyIdentityArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyInsightsArgs:
+calass FirewallPolicyInsightsArrgs:
     def __init__(__self__, *,
                  default_log_analytics_workspace_id: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
-                 log_analytics_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]] = None,
+                 log_analytics_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs']]]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] default_log_analytics_workspace_id: The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
         :param pulumi.Input[bool] enabled: Whether the insights functionality is enabled for this Firewall Policy.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]] log_analytics_workspaces: A list of `log_analytics_workspace` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs']]] log_analytics_workspaces: A list of `log_analytics_workspace` block as defined below.
         :param pulumi.Input[int] retention_in_days: The log retention period in days.
         """
         pulumi.set(__self__, "default_log_analytics_workspace_id", default_log_analytics_workspace_id)
@@ -5398,14 +5398,14 @@ class FirewallPolicyInsightsArgs:
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaces")
-    def log_analytics_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]:
+    def log_analytics_workspaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs']]]]:
         """
         A list of `log_analytics_workspace` block as defined below.
         """
         return pulumi.get(self, "log_analytics_workspaces")
 
     @log_analytics_workspaces.setter
-    def log_analytics_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]):
+    def log_analytics_workspaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs']]]]):
         pulumi.set(self, "log_analytics_workspaces", value)
 
     @property
@@ -5422,7 +5422,7 @@ class FirewallPolicyInsightsArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs:
+calass FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs:
     def __init__(__self__, *,
                  firewall_location: pulumi.Input[str],
                  id: pulumi.Input[str]):
@@ -5459,17 +5459,17 @@ class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyIntrusionDetectionArgs:
+calass FirewallPolicyIntrusionDetectionArrgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None,
                  private_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 signature_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]] = None,
-                 traffic_bypasses: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]] = None):
+                 signature_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArrgs']]]] = None,
+                 traffic_bypasses: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArrgs']]]] = None):
         """
         :param pulumi.Input[str] mode: In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ranges: A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]] signature_overrides: One or more `signature_overrides` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArrgs']]] signature_overrides: One or more `signature_overrides` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArrgs']]] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -5506,31 +5506,31 @@ class FirewallPolicyIntrusionDetectionArgs:
 
     @property
     @pulumi.getter(name="signatureOverrides")
-    def signature_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]:
+    def signature_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArrgs']]]]:
         """
         One or more `signature_overrides` blocks as defined below.
         """
         return pulumi.get(self, "signature_overrides")
 
     @signature_overrides.setter
-    def signature_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]):
+    def signature_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArrgs']]]]):
         pulumi.set(self, "signature_overrides", value)
 
     @property
     @pulumi.getter(name="trafficBypasses")
-    def traffic_bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]:
+    def traffic_bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArrgs']]]]:
         """
         One or more `traffic_bypass` blocks as defined below.
         """
         return pulumi.get(self, "traffic_bypasses")
 
     @traffic_bypasses.setter
-    def traffic_bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]):
+    def traffic_bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArrgs']]]]):
         pulumi.set(self, "traffic_bypasses", value)
 
 
 @pulumi.input_type
-class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
+calass FirewallPolicyIntrusionDetectionSignatureOverrideArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
@@ -5569,7 +5569,7 @@ class FirewallPolicyIntrusionDetectionSignatureOverrideArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
+calass FirewallPolicyIntrusionDetectionTrafficBypassArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
@@ -5702,17 +5702,17 @@ class FirewallPolicyIntrusionDetectionTrafficBypassArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
-                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs']]]):
         """
         :param pulumi.Input[str] action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] name: The name which should be used for this application rule collection.
         :param pulumi.Input[int] priority: The priority of the application rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]] rules: One or more `application_rule` (application rule) blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs']]] rules: One or more `application_rule` (application rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5757,19 +5757,19 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs']]]:
         """
         One or more `application_rule` (application rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -5777,7 +5777,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
                  destination_fqdn_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs']]]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_tls: Optional[pulumi.Input[bool]] = None,
@@ -5789,7 +5789,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: One or more `protocols` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs']]] protocols: One or more `protocols` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         :param pulumi.Input[bool] terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
@@ -5891,14 +5891,14 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
 
     @property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]:
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs']]]]:
         """
         One or more `protocols` blocks as defined below.
         """
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]):
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs']]]]):
         pulumi.set(self, "protocols", value)
 
     @property
@@ -5951,7 +5951,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs:
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  type: pulumi.Input[str]):
@@ -5988,17 +5988,17 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
+calass FirewallPolicyRuleCollectionGroupNatRuleCollectionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
-                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs']]]):
         """
         :param pulumi.Input[str] action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         :param pulumi.Input[str] name: The name which should be used for this NAT rule collection.
         :param pulumi.Input[int] priority: The priority of the NAT rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]] rules: A `nat_rule` (NAT rule) block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs']]] rules: A `nat_rule` (NAT rule) block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -6043,19 +6043,19 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs']]]:
         """
         A `nat_rule` (NAT rule) block as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
+calass FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -6223,17 +6223,17 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
+calass FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
-                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs']]]):
         """
         :param pulumi.Input[str] action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] name: The name which should be used for this network rule collection.
         :param pulumi.Input[int] priority: The priority of the network rule collection. The range is `100` - `65000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]] rules: One or more `network_rule` (network rule) blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs']]] rules: One or more `network_rule` (network rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -6278,19 +6278,19 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs']]]:
         """
         One or more `network_rule` (network rule) blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
+calass FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs:
     def __init__(__self__, *,
                  destination_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -6438,7 +6438,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyThreatIntelligenceAllowlistArgs:
+calass FirewallPolicyThreatIntelligenceAllowlistArrgs:
     def __init__(__self__, *,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -6477,7 +6477,7 @@ class FirewallPolicyThreatIntelligenceAllowlistArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyTlsCertificateArgs:
+calass FirewallPolicyTlsCertificateArrgs:
     def __init__(__self__, *,
                  key_vault_secret_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -6514,7 +6514,7 @@ class FirewallPolicyTlsCertificateArgs:
 
 
 @pulumi.input_type
-class FirewallVirtualHubArgs:
+calass FirewallVirtualHubArrgs:
     def __init__(__self__, *,
                  virtual_hub_id: pulumi.Input[str],
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -6584,7 +6584,7 @@ class FirewallVirtualHubArgs:
 
 
 @pulumi.input_type
-class LocalNetworkGatewayBgpSettingsArgs:
+calass LocalNetworkGatewayBgpSettingsArrgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[int],
                  bgp_peering_address: pulumi.Input[str],
@@ -6637,13 +6637,13 @@ class LocalNetworkGatewayBgpSettingsArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorEndpointArgs:
+calass NetworkConnectionMonitorEndpointArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  address: Optional[pulumi.Input[str]] = None,
                  coverage_level: Optional[pulumi.Input[str]] = None,
                  excluded_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 filter: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']] = None,
+                 filter: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArrgs']] = None,
                  included_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  target_resource_type: Optional[pulumi.Input[str]] = None):
@@ -6652,7 +6652,7 @@ class NetworkConnectionMonitorEndpointArgs:
         :param pulumi.Input[str] address: The IP address or domain name of the Network Connection Monitor endpoint.
         :param pulumi.Input[str] coverage_level: The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
-        :param pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs'] filter: A `filter` block as defined below.
+        :param pulumi.Input['NetworkConnectionMonitorEndpointFilterArrgs'] filter: A `filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         :param pulumi.Input[str] target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
         :param pulumi.Input[str] target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
@@ -6723,14 +6723,14 @@ class NetworkConnectionMonitorEndpointArgs:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']]:
+    def filter(self) -> Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArrgs']]:
         """
         A `filter` block as defined below.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']]):
+    def filter(self, value: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArrgs']]):
         pulumi.set(self, "filter", value)
 
     @property
@@ -6771,12 +6771,12 @@ class NetworkConnectionMonitorEndpointArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorEndpointFilterArgs:
+calass NetworkConnectionMonitorEndpointFilterArrgs:
     def __init__(__self__, *,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArrgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]] items: A `item` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArrgs']]] items: A `item` block as defined below.
         :param pulumi.Input[str] type: The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
         """
         if items is not None:
@@ -6786,14 +6786,14 @@ class NetworkConnectionMonitorEndpointFilterArgs:
 
     @property
     @pulumi.getter
-    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]:
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArrgs']]]]:
         """
         A `item` block as defined below.
         """
         return pulumi.get(self, "items")
 
     @items.setter
-    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]):
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArrgs']]]]):
         pulumi.set(self, "items", value)
 
     @property
@@ -6810,7 +6810,7 @@ class NetworkConnectionMonitorEndpointFilterArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorEndpointFilterItemArgs:
+calass NetworkConnectionMonitorEndpointFilterItemArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -6849,24 +6849,24 @@ class NetworkConnectionMonitorEndpointFilterItemArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationArgs:
+calass NetworkConnectionMonitorTestConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 http_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']] = None,
-                 icmp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']] = None,
+                 http_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs']] = None,
+                 icmp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs']] = None,
                  preferred_ip_version: Optional[pulumi.Input[str]] = None,
-                 success_threshold: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']] = None,
-                 tcp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']] = None,
+                 success_threshold: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs']] = None,
+                 tcp_configuration: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs']] = None,
                  test_frequency_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: The name of test configuration for the Network Connection Monitor.
         :param pulumi.Input[str] protocol: The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
-        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs'] http_configuration: A `http_configuration` block as defined below.
-        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs'] icmp_configuration: A `icmp_configuration` block as defined below.
+        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs'] http_configuration: A `http_configuration` block as defined below.
+        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs'] icmp_configuration: A `icmp_configuration` block as defined below.
         :param pulumi.Input[str] preferred_ip_version: The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
-        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs'] success_threshold: A `success_threshold` block as defined below.
-        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs'] tcp_configuration: A `tcp_configuration` block as defined below.
+        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs'] success_threshold: A `success_threshold` block as defined below.
+        :param pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs'] tcp_configuration: A `tcp_configuration` block as defined below.
         :param pulumi.Input[int] test_frequency_in_seconds: The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
         """
         pulumi.set(__self__, "name", name)
@@ -6910,26 +6910,26 @@ class NetworkConnectionMonitorTestConfigurationArgs:
 
     @property
     @pulumi.getter(name="httpConfiguration")
-    def http_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]:
+    def http_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs']]:
         """
         A `http_configuration` block as defined below.
         """
         return pulumi.get(self, "http_configuration")
 
     @http_configuration.setter
-    def http_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]):
+    def http_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs']]):
         pulumi.set(self, "http_configuration", value)
 
     @property
     @pulumi.getter(name="icmpConfiguration")
-    def icmp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]:
+    def icmp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs']]:
         """
         A `icmp_configuration` block as defined below.
         """
         return pulumi.get(self, "icmp_configuration")
 
     @icmp_configuration.setter
-    def icmp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]):
+    def icmp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs']]):
         pulumi.set(self, "icmp_configuration", value)
 
     @property
@@ -6946,26 +6946,26 @@ class NetworkConnectionMonitorTestConfigurationArgs:
 
     @property
     @pulumi.getter(name="successThreshold")
-    def success_threshold(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]:
+    def success_threshold(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs']]:
         """
         A `success_threshold` block as defined below.
         """
         return pulumi.get(self, "success_threshold")
 
     @success_threshold.setter
-    def success_threshold(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]):
+    def success_threshold(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs']]):
         pulumi.set(self, "success_threshold", value)
 
     @property
     @pulumi.getter(name="tcpConfiguration")
-    def tcp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]:
+    def tcp_configuration(self) -> Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs']]:
         """
         A `tcp_configuration` block as defined below.
         """
         return pulumi.get(self, "tcp_configuration")
 
     @tcp_configuration.setter
-    def tcp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]):
+    def tcp_configuration(self, value: Optional[pulumi.Input['NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs']]):
         pulumi.set(self, "tcp_configuration", value)
 
     @property
@@ -6982,20 +6982,20 @@ class NetworkConnectionMonitorTestConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
+calass NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs:
     def __init__(__self__, *,
                  method: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  prefer_https: Optional[pulumi.Input[bool]] = None,
-                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]] = None,
+                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs']]]] = None,
                  valid_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] method: The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
         :param pulumi.Input[str] path: The path component of the URI. It only accepts the absolute path.
         :param pulumi.Input[int] port: The port for the HTTP connection.
         :param pulumi.Input[bool] prefer_https: Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]] request_headers: A `request_header` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs']]] request_headers: A `request_header` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_status_code_ranges: The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
         """
         if method is not None:
@@ -7061,14 +7061,14 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
 
     @property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]:
+    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs']]]]:
         """
         A `request_header` block as defined below.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]):
+    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs']]]]):
         pulumi.set(self, "request_headers", value)
 
     @property
@@ -7085,7 +7085,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs:
+calass NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -7122,7 +7122,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArg
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
+calass NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs:
     def __init__(__self__, *,
                  trace_route_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -7145,7 +7145,7 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
+calass NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs:
     def __init__(__self__, *,
                  checks_failed_percent: Optional[pulumi.Input[int]] = None,
                  round_trip_time_ms: Optional[pulumi.Input[float]] = None):
@@ -7184,7 +7184,7 @@ class NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
+calass NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  destination_port_behavior: Optional[pulumi.Input[str]] = None,
@@ -7238,7 +7238,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkConnectionMonitorTestGroupArgs:
+calass NetworkConnectionMonitorTestGroupArrgs:
     def __init__(__self__, *,
                  destination_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -7321,7 +7321,7 @@ class NetworkConnectionMonitorTestGroupArgs:
 
 
 @pulumi.input_type
-class NetworkInterfaceIpConfigurationArgs:
+calass NetworkInterfaceIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  private_ip_address_allocation: pulumi.Input[str],
@@ -7462,7 +7462,7 @@ class NetworkInterfaceIpConfigurationArgs:
 
 
 @pulumi.input_type
-class NetworkManagerAdminRuleDestinationArgs:
+calass NetworkManagerAdminRuleDestinationArrgs:
     def __init__(__self__, *,
                  address_prefix: pulumi.Input[str],
                  address_prefix_type: pulumi.Input[str]):
@@ -7499,7 +7499,7 @@ class NetworkManagerAdminRuleDestinationArgs:
 
 
 @pulumi.input_type
-class NetworkManagerAdminRuleSourceArgs:
+calass NetworkManagerAdminRuleSourceArrgs:
     def __init__(__self__, *,
                  address_prefix: pulumi.Input[str],
                  address_prefix_type: pulumi.Input[str]):
@@ -7536,7 +7536,7 @@ class NetworkManagerAdminRuleSourceArgs:
 
 
 @pulumi.input_type
-class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
+calass NetworkManagerConnectivityConfigurationAppliesToGroupArrgs:
     def __init__(__self__, *,
                  group_connectivity: pulumi.Input[str],
                  network_group_id: pulumi.Input[str],
@@ -7609,7 +7609,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroupArgs:
 
 
 @pulumi.input_type
-class NetworkManagerConnectivityConfigurationHubArgs:
+calass NetworkManagerConnectivityConfigurationHubArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  resource_type: pulumi.Input[str]):
@@ -7646,7 +7646,7 @@ class NetworkManagerConnectivityConfigurationHubArgs:
 
 
 @pulumi.input_type
-class NetworkManagerCrossTenantScopeArgs:
+calass NetworkManagerCrossTenantScopeArrgs:
     def __init__(__self__, *,
                  management_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -7701,7 +7701,7 @@ class NetworkManagerCrossTenantScopeArgs:
 
 
 @pulumi.input_type
-class NetworkManagerScopeArgs:
+calass NetworkManagerScopeArrgs:
     def __init__(__self__, *,
                  management_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -7740,7 +7740,7 @@ class NetworkManagerScopeArgs:
 
 
 @pulumi.input_type
-class NetworkPacketCaptureFilterArgs:
+calass NetworkPacketCaptureFilterArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  local_ip_address: Optional[pulumi.Input[str]] = None,
@@ -7826,7 +7826,7 @@ class NetworkPacketCaptureFilterArgs:
 
 
 @pulumi.input_type
-class NetworkPacketCaptureStorageLocationArgs:
+calass NetworkPacketCaptureStorageLocationArrgs:
     def __init__(__self__, *,
                  file_path: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -7885,7 +7885,7 @@ class NetworkPacketCaptureStorageLocationArgs:
 
 
 @pulumi.input_type
-class NetworkSecurityGroupSecurityRuleArgs:
+calass NetworkSecurityGroupSecurityRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  direction: pulumi.Input[str],
@@ -8143,7 +8143,7 @@ class NetworkSecurityGroupSecurityRuleArgs:
 
 
 @pulumi.input_type
-class NetworkWatcherFlowLogRetentionPolicyArgs:
+calass NetworkWatcherFlowLogRetentionPolicyArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[int],
                  enabled: pulumi.Input[bool]):
@@ -8180,7 +8180,7 @@ class NetworkWatcherFlowLogRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class NetworkWatcherFlowLogTrafficAnalyticsArgs:
+calass NetworkWatcherFlowLogTrafficAnalyticsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  workspace_id: pulumi.Input[str],
@@ -8263,17 +8263,17 @@ class NetworkWatcherFlowLogTrafficAnalyticsArgs:
 
 
 @pulumi.input_type
-class PointToPointVpnGatewayConnectionConfigurationArgs:
+calass PointToPointVpnGatewayConnectionConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'],
+                 vpn_client_address_pool: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs'],
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
-                 route: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']] = None):
+                 route: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArrgs']] = None):
         """
         :param pulumi.Input[str] name: The Name which should be used for this Connection Configuration.
-        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs'] vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
+        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs'] vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
         :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
-        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs'] route: A `route` block as defined below.
+        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArrgs'] route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
@@ -8296,14 +8296,14 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
 
     @property
     @pulumi.getter(name="vpnClientAddressPool")
-    def vpn_client_address_pool(self) -> pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs']:
+    def vpn_client_address_pool(self) -> pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs']:
         """
         A `vpn_client_address_pool` block as defined below.
         """
         return pulumi.get(self, "vpn_client_address_pool")
 
     @vpn_client_address_pool.setter
-    def vpn_client_address_pool(self, value: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs']):
+    def vpn_client_address_pool(self, value: pulumi.Input['PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs']):
         pulumi.set(self, "vpn_client_address_pool", value)
 
     @property
@@ -8320,29 +8320,29 @@ class PointToPointVpnGatewayConnectionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def route(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]:
+    def route(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArrgs']]:
         """
         A `route` block as defined below.
         """
         return pulumi.get(self, "route")
 
     @route.setter
-    def route(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]):
+    def route(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRouteArrgs']]):
         pulumi.set(self, "route", value)
 
 
 @pulumi.input_type
-class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
+calass PointToPointVpnGatewayConnectionConfigurationRouteArrgs:
     def __init__(__self__, *,
                  associated_route_table_id: pulumi.Input[str],
                  inbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  outbound_route_map_id: Optional[pulumi.Input[str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']] = None):
+                 propagated_route_table: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table_id: The Virtual Hub Route Table resource id associated with this Routing Configuration.
         :param pulumi.Input[str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param pulumi.Input[str] outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        :param pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
         if inbound_route_map_id is not None:
@@ -8390,19 +8390,19 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgs:
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
 @pulumi.input_type
-class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs:
+calass PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs:
     def __init__(__self__, *,
                  ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -8440,7 +8440,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs
 
 
 @pulumi.input_type
-class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs:
+calass PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -8462,12 +8462,12 @@ class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs:
 
 
 @pulumi.input_type
-class ProfileContainerNetworkInterfaceArgs:
+calass ProfileContainerNetworkInterfaceArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArrgs']]],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArrgs']]] ip_configurations: One or more `ip_configuration` blocks as documented below.
         :param pulumi.Input[str] name: Specifies the name of the IP Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -8475,14 +8475,14 @@ class ProfileContainerNetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArrgs']]]:
         """
         One or more `ip_configuration` blocks as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ProfileContainerNetworkInterfaceIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -8499,7 +8499,7 @@ class ProfileContainerNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class ProfileContainerNetworkInterfaceIpConfigurationArgs:
+calass ProfileContainerNetworkInterfaceIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -8536,7 +8536,7 @@ class ProfileContainerNetworkInterfaceIpConfigurationArgs:
 
 
 @pulumi.input_type
-class RouteFilterRuleArgs:
+calass RouteFilterRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  communities: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -8603,16 +8603,16 @@ class RouteFilterRuleArgs:
 
 
 @pulumi.input_type
-class RouteMapRuleArgs:
+calass RouteMapRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]] = None,
-                 match_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArrgs']]]] = None,
+                 match_criterions: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArrgs']]]] = None,
                  next_step_if_matched: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The unique name for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]] actions: An `action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]] match_criterions: A `match_criterion` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArrgs']]] actions: An `action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArrgs']]] match_criterions: A `match_criterion` block as defined below.
         :param pulumi.Input[str] next_step_if_matched: The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
         """
         pulumi.set(__self__, "name", name)
@@ -8637,26 +8637,26 @@ class RouteMapRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArrgs']]]]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionArrgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="matchCriterions")
-    def match_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]:
+    def match_criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArrgs']]]]:
         """
         A `match_criterion` block as defined below.
         """
         return pulumi.get(self, "match_criterions")
 
     @match_criterions.setter
-    def match_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]):
+    def match_criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArrgs']]]]):
         pulumi.set(self, "match_criterions", value)
 
     @property
@@ -8673,12 +8673,12 @@ class RouteMapRuleArgs:
 
 
 @pulumi.input_type
-class RouteMapRuleActionArgs:
+calass RouteMapRuleActionArrgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]],
+                 parameters: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArrgs']]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]] parameters: A `parameter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArrgs']]] parameters: A `parameter` block as defined below.
         :param pulumi.Input[str] type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -8686,14 +8686,14 @@ class RouteMapRuleActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]:
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArrgs']]]:
         """
         A `parameter` block as defined below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]):
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['RouteMapRuleActionParameterArrgs']]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -8710,7 +8710,7 @@ class RouteMapRuleActionArgs:
 
 
 @pulumi.input_type
-class RouteMapRuleActionParameterArgs:
+calass RouteMapRuleActionParameterArrgs:
     def __init__(__self__, *,
                  as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8765,7 +8765,7 @@ class RouteMapRuleActionParameterArgs:
 
 
 @pulumi.input_type
-class RouteMapRuleMatchCriterionArgs:
+calass RouteMapRuleMatchCriterionArrgs:
     def __init__(__self__, *,
                  match_condition: pulumi.Input[str],
                  as_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8835,7 +8835,7 @@ class RouteMapRuleMatchCriterionArgs:
 
 
 @pulumi.input_type
-class RouteTableRouteArgs:
+calass RouteTableRouteArrgs:
     def __init__(__self__, *,
                  address_prefix: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -8903,7 +8903,7 @@ class RouteTableRouteArgs:
 
 
 @pulumi.input_type
-class RoutingIntentRoutingPolicyArgs:
+calass RoutingIntentRoutingPolicyArrgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -8955,13 +8955,13 @@ class RoutingIntentRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class SubnetDelegationArgs:
+calass SubnetDelegationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 service_delegation: pulumi.Input['SubnetDelegationServiceDelegationArgs']):
+                 service_delegation: pulumi.Input['SubnetDelegationServiceDelegationArrgs']):
         """
         :param pulumi.Input[str] name: A name for this delegation.
-        :param pulumi.Input['SubnetDelegationServiceDelegationArgs'] service_delegation: A `service_delegation` block as defined below.
+        :param pulumi.Input['SubnetDelegationServiceDelegationArrgs'] service_delegation: A `service_delegation` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_delegation", service_delegation)
@@ -8980,19 +8980,19 @@ class SubnetDelegationArgs:
 
     @property
     @pulumi.getter(name="serviceDelegation")
-    def service_delegation(self) -> pulumi.Input['SubnetDelegationServiceDelegationArgs']:
+    def service_delegation(self) -> pulumi.Input['SubnetDelegationServiceDelegationArrgs']:
         """
         A `service_delegation` block as defined below.
         """
         return pulumi.get(self, "service_delegation")
 
     @service_delegation.setter
-    def service_delegation(self, value: pulumi.Input['SubnetDelegationServiceDelegationArgs']):
+    def service_delegation(self, value: pulumi.Input['SubnetDelegationServiceDelegationArrgs']):
         pulumi.set(self, "service_delegation", value)
 
 
 @pulumi.input_type
-class SubnetDelegationServiceDelegationArgs:
+calass SubnetDelegationServiceDelegationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -9034,7 +9034,7 @@ class SubnetDelegationServiceDelegationArgs:
 
 
 @pulumi.input_type
-class SubnetServiceEndpointStoragePolicyDefinitionArgs:
+calass SubnetServiceEndpointStoragePolicyDefinitionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  service_resources: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -9107,7 +9107,7 @@ class SubnetServiceEndpointStoragePolicyDefinitionArgs:
 
 
 @pulumi.input_type
-class TrafficManagerAzureEndpointCustomHeaderArgs:
+calass TrafficManagerAzureEndpointCustomHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -9144,7 +9144,7 @@ class TrafficManagerAzureEndpointCustomHeaderArgs:
 
 
 @pulumi.input_type
-class TrafficManagerAzureEndpointSubnetArgs:
+calass TrafficManagerAzureEndpointSubnetArrgs:
     def __init__(__self__, *,
                  first: pulumi.Input[str],
                  last: Optional[pulumi.Input[str]] = None,
@@ -9198,7 +9198,7 @@ class TrafficManagerAzureEndpointSubnetArgs:
 
 
 @pulumi.input_type
-class TrafficManagerExternalEndpointCustomHeaderArgs:
+calass TrafficManagerExternalEndpointCustomHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -9235,7 +9235,7 @@ class TrafficManagerExternalEndpointCustomHeaderArgs:
 
 
 @pulumi.input_type
-class TrafficManagerExternalEndpointSubnetArgs:
+calass TrafficManagerExternalEndpointSubnetArrgs:
     def __init__(__self__, *,
                  first: pulumi.Input[str],
                  last: Optional[pulumi.Input[str]] = None,
@@ -9289,7 +9289,7 @@ class TrafficManagerExternalEndpointSubnetArgs:
 
 
 @pulumi.input_type
-class TrafficManagerNestedEndpointCustomHeaderArgs:
+calass TrafficManagerNestedEndpointCustomHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -9326,7 +9326,7 @@ class TrafficManagerNestedEndpointCustomHeaderArgs:
 
 
 @pulumi.input_type
-class TrafficManagerNestedEndpointSubnetArgs:
+calass TrafficManagerNestedEndpointSubnetArrgs:
     def __init__(__self__, *,
                  first: pulumi.Input[str],
                  last: Optional[pulumi.Input[str]] = None,
@@ -9380,7 +9380,7 @@ class TrafficManagerNestedEndpointSubnetArgs:
 
 
 @pulumi.input_type
-class TrafficManagerProfileDnsConfigArgs:
+calass TrafficManagerProfileDnsConfigArrgs:
     def __init__(__self__, *,
                  relative_name: pulumi.Input[str],
                  ttl: pulumi.Input[int]):
@@ -9417,11 +9417,11 @@ class TrafficManagerProfileDnsConfigArgs:
 
 
 @pulumi.input_type
-class TrafficManagerProfileMonitorConfigArgs:
+calass TrafficManagerProfileMonitorConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArrgs']]]] = None,
                  expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -9430,7 +9430,7 @@ class TrafficManagerProfileMonitorConfigArgs:
         """
         :param pulumi.Input[int] port: The port number used by the monitoring checks.
         :param pulumi.Input[str] protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArrgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
         :param pulumi.Input[int] interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param pulumi.Input[str] path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
@@ -9478,14 +9478,14 @@ class TrafficManagerProfileMonitorConfigArgs:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArrgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArrgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @property
@@ -9550,7 +9550,7 @@ class TrafficManagerProfileMonitorConfigArgs:
 
 
 @pulumi.input_type
-class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
+calass TrafficManagerProfileMonitorConfigCustomHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -9587,21 +9587,21 @@ class TrafficManagerProfileMonitorConfigCustomHeaderArgs:
 
 
 @pulumi.input_type
-class VirtualHubConnectionRoutingArgs:
+calass VirtualHubConnectionRoutingArrgs:
     def __init__(__self__, *,
                  associated_route_table_id: Optional[pulumi.Input[str]] = None,
                  inbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  outbound_route_map_id: Optional[pulumi.Input[str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']] = None,
+                 propagated_route_table: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArrgs']] = None,
                  static_vnet_local_route_override_criteria: Optional[pulumi.Input[str]] = None,
-                 static_vnet_routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]] = None):
+                 static_vnet_routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArrgs']]]] = None):
         """
         :param pulumi.Input[str] associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
         :param pulumi.Input[str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param pulumi.Input[str] outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        :param pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArrgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         :param pulumi.Input[str] static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]] static_vnet_routes: A `static_vnet_route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArrgs']]] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
@@ -9654,14 +9654,14 @@ class VirtualHubConnectionRoutingArgs:
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArrgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: Optional[pulumi.Input['VirtualHubConnectionRoutingPropagatedRouteTableArrgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
     @property
@@ -9678,19 +9678,19 @@ class VirtualHubConnectionRoutingArgs:
 
     @property
     @pulumi.getter(name="staticVnetRoutes")
-    def static_vnet_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]:
+    def static_vnet_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArrgs']]]]:
         """
         A `static_vnet_route` block as defined below.
         """
         return pulumi.get(self, "static_vnet_routes")
 
     @static_vnet_routes.setter
-    def static_vnet_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]):
+    def static_vnet_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArrgs']]]]):
         pulumi.set(self, "static_vnet_routes", value)
 
 
 @pulumi.input_type
-class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
+calass VirtualHubConnectionRoutingPropagatedRouteTableArrgs:
     def __init__(__self__, *,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -9729,7 +9729,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTableArgs:
 
 
 @pulumi.input_type
-class VirtualHubConnectionRoutingStaticVnetRouteArgs:
+calass VirtualHubConnectionRoutingStaticVnetRouteArrgs:
     def __init__(__self__, *,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -9784,7 +9784,7 @@ class VirtualHubConnectionRoutingStaticVnetRouteArgs:
 
 
 @pulumi.input_type
-class VirtualHubRouteArgs:
+calass VirtualHubRouteArrgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  next_hop_ip_address: pulumi.Input[str]):
@@ -9821,7 +9821,7 @@ class VirtualHubRouteArgs:
 
 
 @pulumi.input_type
-class VirtualHubRouteTableRouteArgs:
+calass VirtualHubRouteTableRouteArrgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
                  destinations_type: pulumi.Input[str],
@@ -9908,7 +9908,7 @@ class VirtualHubRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkDdosProtectionPlanArgs:
+calass VirtualNetworkDdosProtectionPlanArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  id: pulumi.Input[str]):
@@ -9945,7 +9945,7 @@ class VirtualNetworkDdosProtectionPlanArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkEncryptionArgs:
+calass VirtualNetworkEncryptionArrgs:
     def __init__(__self__, *,
                  enforcement: pulumi.Input[str]):
         """
@@ -9967,15 +9967,15 @@ class VirtualNetworkEncryptionArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayBgpSettingsArgs:
+calass VirtualNetworkGatewayBgpSettingsArrgs:
     def __init__(__self__, *,
                  asn: Optional[pulumi.Input[int]] = None,
                  peer_weight: Optional[pulumi.Input[int]] = None,
-                 peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]] = None):
+                 peering_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs']]]] = None):
         """
         :param pulumi.Input[int] asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param pulumi.Input[int] peer_weight: The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs']]] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -10010,19 +10010,19 @@ class VirtualNetworkGatewayBgpSettingsArgs:
 
     @property
     @pulumi.getter(name="peeringAddresses")
-    def peering_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]:
+    def peering_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs']]]]:
         """
         A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         return pulumi.get(self, "peering_addresses")
 
     @peering_addresses.setter
-    def peering_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]):
+    def peering_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs']]]]):
         pulumi.set(self, "peering_addresses", value)
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
+calass VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs:
     def __init__(__self__, *,
                  apipa_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -10097,7 +10097,7 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
+calass VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs:
     def __init__(__self__, *,
                  primary: pulumi.Input[str],
                  secondary: Optional[pulumi.Input[str]] = None):
@@ -10135,7 +10135,7 @@ class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
+calass VirtualNetworkGatewayConnectionIpsecPolicyArrgs:
     def __init__(__self__, *,
                  dh_group: pulumi.Input[str],
                  ike_encryption: pulumi.Input[str],
@@ -10268,7 +10268,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
+calass VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs:
     def __init__(__self__, *,
                  local_address_cidrs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  remote_address_cidrs: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -10305,7 +10305,7 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayCustomRouteArgs:
+calass VirtualNetworkGatewayCustomRouteArrgs:
     def __init__(__self__, *,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -10328,7 +10328,7 @@ class VirtualNetworkGatewayCustomRouteArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayIpConfigurationArgs:
+calass VirtualNetworkGatewayIpConfigurationArrgs:
     def __init__(__self__, *,
                  public_ip_address_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
@@ -10397,7 +10397,7 @@ class VirtualNetworkGatewayIpConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayNatRuleExternalMappingArgs:
+calass VirtualNetworkGatewayNatRuleExternalMappingArrgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[str],
                  port_range: Optional[pulumi.Input[str]] = None):
@@ -10435,7 +10435,7 @@ class VirtualNetworkGatewayNatRuleExternalMappingArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayNatRuleInternalMappingArgs:
+calass VirtualNetworkGatewayNatRuleInternalMappingArrgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[str],
                  port_range: Optional[pulumi.Input[str]] = None):
@@ -10473,7 +10473,7 @@ class VirtualNetworkGatewayNatRuleInternalMappingArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayVpnClientConfigurationArgs:
+calass VirtualNetworkGatewayVpnClientConfigurationArrgs:
     def __init__(__self__, *,
                  address_spaces: pulumi.Input[Sequence[pulumi.Input[str]]],
                  aad_audience: Optional[pulumi.Input[str]] = None,
@@ -10481,8 +10481,8 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
                  aad_tenant: Optional[pulumi.Input[str]] = None,
                  radius_server_address: Optional[pulumi.Input[str]] = None,
                  radius_server_secret: Optional[pulumi.Input[str]] = None,
-                 revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]] = None,
-                 root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]] = None,
+                 revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs']]]] = None,
+                 root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs']]]] = None,
                  vpn_auth_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpn_client_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -10493,8 +10493,8 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
         :param pulumi.Input[str] aad_tenant: AzureAD Tenant URL
         :param pulumi.Input[str] radius_server_address: The address of the Radius server.
         :param pulumi.Input[str] radius_server_secret: The secret used by the Radius server.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs']]] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs']]] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
                
@@ -10599,26 +10599,26 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
 
     @property
     @pulumi.getter(name="revokedCertificates")
-    def revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]:
+    def revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs']]]]:
         """
         One or more `revoked_certificate` blocks which are defined below.
         """
         return pulumi.get(self, "revoked_certificates")
 
     @revoked_certificates.setter
-    def revoked_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]):
+    def revoked_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs']]]]):
         pulumi.set(self, "revoked_certificates", value)
 
     @property
     @pulumi.getter(name="rootCertificates")
-    def root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]:
+    def root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs']]]]:
         """
         One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         """
         return pulumi.get(self, "root_certificates")
 
     @root_certificates.setter
-    def root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]):
+    def root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs']]]]):
         pulumi.set(self, "root_certificates", value)
 
     @property
@@ -10653,7 +10653,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
+calass VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  thumbprint: pulumi.Input[str]):
@@ -10690,7 +10690,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
+calass VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):
@@ -10727,7 +10727,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkSubnetArgs:
+calass VirtualNetworkSubnetArrgs:
     def __init__(__self__, *,
                  address_prefix: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -10796,7 +10796,7 @@ class VirtualNetworkSubnetArgs:
 
 
 @pulumi.input_type
-class VnpGatewayNatRuleExternalMappingArgs:
+calass VnpGatewayNatRuleExternalMappingArrgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[str],
                  port_range: Optional[pulumi.Input[str]] = None):
@@ -10834,7 +10834,7 @@ class VnpGatewayNatRuleExternalMappingArgs:
 
 
 @pulumi.input_type
-class VnpGatewayNatRuleInternalMappingArgs:
+calass VnpGatewayNatRuleInternalMappingArrgs:
     def __init__(__self__, *,
                  address_space: pulumi.Input[str],
                  port_range: Optional[pulumi.Input[str]] = None):
@@ -10872,19 +10872,19 @@ class VnpGatewayNatRuleInternalMappingArgs:
 
 
 @pulumi.input_type
-class VpnGatewayBgpSettingsArgs:
+calass VpnGatewayBgpSettingsArrgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[int],
                  peer_weight: pulumi.Input[int],
                  bgp_peering_address: Optional[pulumi.Input[str]] = None,
-                 instance0_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']] = None,
-                 instance1_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']] = None):
+                 instance0_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs']] = None,
+                 instance1_bgp_peering_address: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs']] = None):
         """
         :param pulumi.Input[int] asn: The ASN of the BGP Speaker. Changing this forces a new resource to be created.
         :param pulumi.Input[int] peer_weight: The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         :param pulumi.Input[str] bgp_peering_address: The Address which should be used for the BGP Peering.
-        :param pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs'] instance0_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
-        :param pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs'] instance1_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
+        :param pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs'] instance0_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
+        :param pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs'] instance1_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
         """
         pulumi.set(__self__, "asn", asn)
         pulumi.set(__self__, "peer_weight", peer_weight)
@@ -10933,31 +10933,31 @@ class VpnGatewayBgpSettingsArgs:
 
     @property
     @pulumi.getter(name="instance0BgpPeeringAddress")
-    def instance0_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]:
+    def instance0_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs']]:
         """
         An `instance_bgp_peering_address` block as defined below.
         """
         return pulumi.get(self, "instance0_bgp_peering_address")
 
     @instance0_bgp_peering_address.setter
-    def instance0_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]):
+    def instance0_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs']]):
         pulumi.set(self, "instance0_bgp_peering_address", value)
 
     @property
     @pulumi.getter(name="instance1BgpPeeringAddress")
-    def instance1_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]:
+    def instance1_bgp_peering_address(self) -> Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs']]:
         """
         An `instance_bgp_peering_address` block as defined below.
         """
         return pulumi.get(self, "instance1_bgp_peering_address")
 
     @instance1_bgp_peering_address.setter
-    def instance1_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]):
+    def instance1_bgp_peering_address(self, value: Optional[pulumi.Input['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs']]):
         pulumi.set(self, "instance1_bgp_peering_address", value)
 
 
 @pulumi.input_type
-class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
+calass VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs:
     def __init__(__self__, *,
                  custom_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  default_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -11027,7 +11027,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs:
 
 
 @pulumi.input_type
-class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
+calass VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs:
     def __init__(__self__, *,
                  custom_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  default_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -11097,17 +11097,17 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs:
 
 
 @pulumi.input_type
-class VpnGatewayConnectionRoutingArgs:
+calass VpnGatewayConnectionRoutingArrgs:
     def __init__(__self__, *,
                  associated_route_table: pulumi.Input[str],
                  inbound_route_map_id: Optional[pulumi.Input[str]] = None,
                  outbound_route_map_id: Optional[pulumi.Input[str]] = None,
-                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']] = None):
+                 propagated_route_table: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArrgs']] = None):
         """
         :param pulumi.Input[str] associated_route_table: The ID of the Route Table associated with this VPN Connection.
         :param pulumi.Input[str] inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param pulumi.Input[str] outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs'] propagated_route_table: A `propagated_route_table` block as defined below.
+        :param pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArrgs'] propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table", associated_route_table)
         if inbound_route_map_id is not None:
@@ -11155,19 +11155,19 @@ class VpnGatewayConnectionRoutingArgs:
 
     @property
     @pulumi.getter(name="propagatedRouteTable")
-    def propagated_route_table(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]:
+    def propagated_route_table(self) -> Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArrgs']]:
         """
         A `propagated_route_table` block as defined below.
         """
         return pulumi.get(self, "propagated_route_table")
 
     @propagated_route_table.setter
-    def propagated_route_table(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]):
+    def propagated_route_table(self, value: Optional[pulumi.Input['VpnGatewayConnectionRoutingPropagatedRouteTableArrgs']]):
         pulumi.set(self, "propagated_route_table", value)
 
 
 @pulumi.input_type
-class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
+calass VpnGatewayConnectionRoutingPropagatedRouteTableArrgs:
     def __init__(__self__, *,
                  route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -11205,7 +11205,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTableArgs:
 
 
 @pulumi.input_type
-class VpnGatewayConnectionTrafficSelectorPolicyArgs:
+calass VpnGatewayConnectionTrafficSelectorPolicyArrgs:
     def __init__(__self__, *,
                  local_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
                  remote_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -11242,17 +11242,17 @@ class VpnGatewayConnectionTrafficSelectorPolicyArgs:
 
 
 @pulumi.input_type
-class VpnGatewayConnectionVpnLinkArgs:
+calass VpnGatewayConnectionVpnLinkArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vpn_site_link_id: pulumi.Input[str],
                  bandwidth_mbps: Optional[pulumi.Input[int]] = None,
                  bgp_enabled: Optional[pulumi.Input[bool]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs']]]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
+                 ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArrgs']]]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  policy_based_traffic_selector_enabled: Optional[pulumi.Input[bool]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -11265,10 +11265,10 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[int] bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param pulumi.Input[bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs']]] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArrgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Whether to use local Azure IP to initiate connection? Defaults to `false`.
         :param pulumi.Input[bool] policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
         :param pulumi.Input[str] protocol: The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
@@ -11367,14 +11367,14 @@ class VpnGatewayConnectionVpnLinkArgs:
 
     @property
     @pulumi.getter(name="customBgpAddresses")
-    def custom_bgp_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]:
+    def custom_bgp_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs']]]]:
         """
         One or more `custom_bgp_address` blocks as defined below.
         """
         return pulumi.get(self, "custom_bgp_addresses")
 
     @custom_bgp_addresses.setter
-    def custom_bgp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]):
+    def custom_bgp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs']]]]):
         pulumi.set(self, "custom_bgp_addresses", value)
 
     @property
@@ -11403,14 +11403,14 @@ class VpnGatewayConnectionVpnLinkArgs:
 
     @property
     @pulumi.getter(name="ipsecPolicies")
-    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]:
+    def ipsec_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArrgs']]]]:
         """
         One or more `ipsec_policy` blocks as defined above.
         """
         return pulumi.get(self, "ipsec_policies")
 
     @ipsec_policies.setter
-    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]):
+    def ipsec_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArrgs']]]]):
         pulumi.set(self, "ipsec_policies", value)
 
     @property
@@ -11487,7 +11487,7 @@ class VpnGatewayConnectionVpnLinkArgs:
 
 
 @pulumi.input_type
-class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs:
+calass VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[str],
                  ip_configuration_id: pulumi.Input[str]):
@@ -11524,7 +11524,7 @@ class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs:
 
 
 @pulumi.input_type
-class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
+calass VpnGatewayConnectionVpnLinkIpsecPolicyArrgs:
     def __init__(__self__, *,
                  dh_group: pulumi.Input[str],
                  encryption_algorithm: pulumi.Input[str],
@@ -11651,7 +11651,7 @@ class VpnGatewayConnectionVpnLinkIpsecPolicyArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs:
+calass VpnServerConfigurationAzureActiveDirectoryAuthenticationArrgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[str],
                  issuer: pulumi.Input[str],
@@ -11703,7 +11703,7 @@ class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationClientRevokedCertificateArgs:
+calass VpnServerConfigurationClientRevokedCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  thumbprint: pulumi.Input[str]):
@@ -11740,7 +11740,7 @@ class VpnServerConfigurationClientRevokedCertificateArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationClientRootCertificateArgs:
+calass VpnServerConfigurationClientRootCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):
@@ -11777,7 +11777,7 @@ class VpnServerConfigurationClientRootCertificateArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationIpsecPolicyArgs:
+calass VpnServerConfigurationIpsecPolicyArrgs:
     def __init__(__self__, *,
                  dh_group: pulumi.Input[str],
                  ike_encryption: pulumi.Input[str],
@@ -11904,7 +11904,7 @@ class VpnServerConfigurationIpsecPolicyArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationPolicyGroupPolicyArgs:
+calass VpnServerConfigurationPolicyGroupPolicyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -11956,15 +11956,15 @@ class VpnServerConfigurationPolicyGroupPolicyArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationRadiusArgs:
+calass VpnServerConfigurationRadiusArrgs:
     def __init__(__self__, *,
-                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]] = None,
-                 server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]] = None):
+                 client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArrgs']]]] = None,
+                 server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArrgs']]]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]] servers: One or more `server` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArrgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArrgs']]] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArrgs']]] servers: One or more `server` blocks as defined below.
         """
         if client_root_certificates is not None:
             pulumi.set(__self__, "client_root_certificates", client_root_certificates)
@@ -11975,43 +11975,43 @@ class VpnServerConfigurationRadiusArgs:
 
     @property
     @pulumi.getter(name="clientRootCertificates")
-    def client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]:
+    def client_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArrgs']]]]:
         """
         One or more `client_root_certificate` blocks as defined below.
         """
         return pulumi.get(self, "client_root_certificates")
 
     @client_root_certificates.setter
-    def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]):
+    def client_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArrgs']]]]):
         pulumi.set(self, "client_root_certificates", value)
 
     @property
     @pulumi.getter(name="serverRootCertificates")
-    def server_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]:
+    def server_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArrgs']]]]:
         """
         One or more `server_root_certificate` blocks as defined below.
         """
         return pulumi.get(self, "server_root_certificates")
 
     @server_root_certificates.setter
-    def server_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]):
+    def server_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArrgs']]]]):
         pulumi.set(self, "server_root_certificates", value)
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]:
+    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArrgs']]]]:
         """
         One or more `server` blocks as defined below.
         """
         return pulumi.get(self, "servers")
 
     @servers.setter
-    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]):
+    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArrgs']]]]):
         pulumi.set(self, "servers", value)
 
 
 @pulumi.input_type
-class VpnServerConfigurationRadiusClientRootCertificateArgs:
+calass VpnServerConfigurationRadiusClientRootCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  thumbprint: pulumi.Input[str]):
@@ -12048,7 +12048,7 @@ class VpnServerConfigurationRadiusClientRootCertificateArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationRadiusServerArgs:
+calass VpnServerConfigurationRadiusServerArrgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  score: pulumi.Input[int],
@@ -12100,7 +12100,7 @@ class VpnServerConfigurationRadiusServerArgs:
 
 
 @pulumi.input_type
-class VpnServerConfigurationRadiusServerRootCertificateArgs:
+calass VpnServerConfigurationRadiusServerRootCertificateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_cert_data: pulumi.Input[str]):
@@ -12137,10 +12137,10 @@ class VpnServerConfigurationRadiusServerRootCertificateArgs:
 
 
 @pulumi.input_type
-class VpnSiteLinkArgs:
+calass VpnSiteLinkArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 bgp: Optional[pulumi.Input['VpnSiteLinkBgpArgs']] = None,
+                 bgp: Optional[pulumi.Input['VpnSiteLinkBgpArrgs']] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -12148,7 +12148,7 @@ class VpnSiteLinkArgs:
                  speed_in_mbps: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this VPN Site Link.
-        :param pulumi.Input['VpnSiteLinkBgpArgs'] bgp: A `bgp` block as defined above.
+        :param pulumi.Input['VpnSiteLinkBgpArrgs'] bgp: A `bgp` block as defined above.
                
                > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         :param pulumi.Input[str] fqdn: The FQDN of this VPN Site Link.
@@ -12187,7 +12187,7 @@ class VpnSiteLinkArgs:
 
     @property
     @pulumi.getter
-    def bgp(self) -> Optional[pulumi.Input['VpnSiteLinkBgpArgs']]:
+    def bgp(self) -> Optional[pulumi.Input['VpnSiteLinkBgpArrgs']]:
         """
         A `bgp` block as defined above.
 
@@ -12196,7 +12196,7 @@ class VpnSiteLinkArgs:
         return pulumi.get(self, "bgp")
 
     @bgp.setter
-    def bgp(self, value: Optional[pulumi.Input['VpnSiteLinkBgpArgs']]):
+    def bgp(self, value: Optional[pulumi.Input['VpnSiteLinkBgpArrgs']]):
         pulumi.set(self, "bgp", value)
 
     @property
@@ -12263,7 +12263,7 @@ class VpnSiteLinkArgs:
 
 
 @pulumi.input_type
-class VpnSiteLinkBgpArgs:
+calass VpnSiteLinkBgpArrgs:
     def __init__(__self__, *,
                  asn: pulumi.Input[int],
                  peering_address: pulumi.Input[str]):
@@ -12300,30 +12300,30 @@ class VpnSiteLinkBgpArgs:
 
 
 @pulumi.input_type
-class VpnSiteO365PolicyArgs:
+calass VpnSiteO365PolicyArrgs:
     def __init__(__self__, *,
-                 traffic_category: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']] = None):
+                 traffic_category: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArrgs']] = None):
         """
-        :param pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs'] traffic_category: A `traffic_category` block as defined above.
+        :param pulumi.Input['VpnSiteO365PolicyTrafficCategoryArrgs'] traffic_category: A `traffic_category` block as defined above.
         """
         if traffic_category is not None:
             pulumi.set(__self__, "traffic_category", traffic_category)
 
     @property
     @pulumi.getter(name="trafficCategory")
-    def traffic_category(self) -> Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]:
+    def traffic_category(self) -> Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArrgs']]:
         """
         A `traffic_category` block as defined above.
         """
         return pulumi.get(self, "traffic_category")
 
     @traffic_category.setter
-    def traffic_category(self, value: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArgs']]):
+    def traffic_category(self, value: Optional[pulumi.Input['VpnSiteO365PolicyTrafficCategoryArrgs']]):
         pulumi.set(self, "traffic_category", value)
 
 
 @pulumi.input_type
-class VpnSiteO365PolicyTrafficCategoryArgs:
+calass VpnSiteO365PolicyTrafficCategoryArrgs:
     def __init__(__self__, *,
                  allow_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  default_endpoint_enabled: Optional[pulumi.Input[bool]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StorageInsightsArgs', 'StorageInsights']
+__all__ = ['StorageInsightsArrgs', 'StorageInsights']
 
 @pulumi.input_type
-class StorageInsightsArgs:
+calass StorageInsightsArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
@@ -128,7 +128,7 @@ class StorageInsightsArgs:
 
 
 @pulumi.input_type
-class _StorageInsightsState:
+calass _StorageInsightsState:
     def __init__(__self__, *,
                  blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -247,7 +247,7 @@ class _StorageInsightsState:
         pulumi.set(self, "workspace_id", value)
 
 
-class StorageInsights(pulumi.CustomResource):
+calass StorageInsights(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,7 +309,7 @@ class StorageInsights(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StorageInsightsArgs,
+                 args: StorageInsightsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Storage Insights resource.
@@ -347,12 +347,12 @@ class StorageInsights(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StorageInsightsArgs args: The arguments to use to populate this resource's properties.
+        :param StorageInsightsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StorageInsightsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StorageInsightsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -375,7 +375,7 @@ class StorageInsights(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StorageInsightsArgs.__new__(StorageInsightsArgs)
+            __props__ = StorageInsightsArrgs.__new__(StorageInsightsArrgs)
 
             __props__.__dict__["blob_container_names"] = blob_container_names
             __props__.__dict__["name"] = name

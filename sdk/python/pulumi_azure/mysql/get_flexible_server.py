@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFlexibleServerResult:
+calass GetFlexibleServerResult:
     """
     A collection of values returned by getFlexibleServer.
     """
@@ -247,7 +247,7 @@ class GetFlexibleServerResult:
         return pulumi.get(self, "zone")
 
 
-class AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
+calass AwaitableGetFlexibleServerResult(GetFlexibleServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

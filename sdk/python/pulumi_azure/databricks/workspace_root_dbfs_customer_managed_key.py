@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceRootDbfsCustomerManagedKeyArgs', 'WorkspaceRootDbfsCustomerManagedKey']
+__all__ = ['WorkspaceRootDbfsCustomerManagedKeyArrgs', 'WorkspaceRootDbfsCustomerManagedKey']
 
 @pulumi.input_type
-class WorkspaceRootDbfsCustomerManagedKeyArgs:
+calass WorkspaceRootDbfsCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class WorkspaceRootDbfsCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class _WorkspaceRootDbfsCustomerManagedKeyState:
+calass _WorkspaceRootDbfsCustomerManagedKeyState:
     def __init__(__self__, *,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
         pulumi.set(self, "workspace_id", value)
 
 
-class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
+calass WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +115,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceRootDbfsCustomerManagedKeyArgs,
+                 args: WorkspaceRootDbfsCustomerManagedKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -127,12 +127,12 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceRootDbfsCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceRootDbfsCustomerManagedKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceRootDbfsCustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceRootDbfsCustomerManagedKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -150,7 +150,7 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceRootDbfsCustomerManagedKeyArgs.__new__(WorkspaceRootDbfsCustomerManagedKeyArgs)
+            __props__ = WorkspaceRootDbfsCustomerManagedKeyArrgs.__new__(WorkspaceRootDbfsCustomerManagedKeyArrgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")

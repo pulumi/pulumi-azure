@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FileUploadArgs', 'FileUpload']
+__all__ = ['FileUploadArrgs', 'FileUpload']
 
 @pulumi.input_type
-class FileUploadArgs:
+calass FileUploadArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
@@ -181,7 +181,7 @@ class FileUploadArgs:
 
 
 @pulumi.input_type
-class _FileUploadState:
+calass _FileUploadState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -352,7 +352,7 @@ class _FileUploadState:
         pulumi.set(self, "sas_ttl", value)
 
 
-class FileUpload(pulumi.CustomResource):
+calass FileUpload(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -391,7 +391,7 @@ class FileUpload(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -428,7 +428,7 @@ class FileUpload(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FileUploadArgs,
+                 args: FileUploadArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the File Upload of an IoT Hub.
@@ -453,7 +453,7 @@ class FileUpload(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -472,12 +472,12 @@ class FileUpload(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FileUploadArgs args: The arguments to use to populate this resource's properties.
+        :param FileUploadArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FileUploadArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FileUploadArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -503,7 +503,7 @@ class FileUpload(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FileUploadArgs.__new__(FileUploadArgs)
+            __props__ = FileUploadArrgs.__new__(FileUploadArrgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
             if connection_string is None and not opts.urn:

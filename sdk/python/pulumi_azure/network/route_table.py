@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RouteTableArgs', 'RouteTable']
+__all__ = ['RouteTableArrgs', 'RouteTable']
 
 @pulumi.input_type
-class RouteTableArgs:
+calass RouteTableArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
@@ -28,7 +28,7 @@ class RouteTableArgs:
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
                
                > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -95,7 +95,7 @@ class RouteTableArgs:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]]:
         """
         A list of objects representing routes. Each object accepts the arguments documented below.
 
@@ -104,7 +104,7 @@ class RouteTableArgs:
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
@@ -121,13 +121,13 @@ class RouteTableArgs:
 
 
 @pulumi.input_type
-class _RouteTableState:
+calass _RouteTableState:
     def __init__(__self__, *,
                  disable_bgp_route_propagation: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -136,7 +136,7 @@ class _RouteTableState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
                
                > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.
@@ -207,7 +207,7 @@ class _RouteTableState:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]]:
         """
         A list of objects representing routes. Each object accepts the arguments documented below.
 
@@ -216,7 +216,7 @@ class _RouteTableState:
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArrgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
@@ -244,7 +244,7 @@ class _RouteTableState:
         pulumi.set(self, "tags", value)
 
 
-class RouteTable(pulumi.CustomResource):
+calass RouteTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -253,7 +253,7 @@ class RouteTable(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -273,7 +273,7 @@ class RouteTable(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
+            routes=[azure.network.RouteTableRouteArrgs(
                 name="route1",
                 address_prefix="10.1.0.0/16",
                 next_hop_type="VnetLocal",
@@ -297,7 +297,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArrgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
                
                > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -306,7 +306,7 @@ class RouteTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteTableArgs,
+                 args: RouteTableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route Table
@@ -325,7 +325,7 @@ class RouteTable(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             disable_bgp_route_propagation=False,
-            routes=[azure.network.RouteTableRouteArgs(
+            routes=[azure.network.RouteTableRouteArrgs(
                 name="route1",
                 address_prefix="10.1.0.0/16",
                 next_hop_type="VnetLocal",
@@ -344,12 +344,12 @@ class RouteTable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteTableArgs args: The arguments to use to populate this resource's properties.
+        :param RouteTableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteTableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -362,7 +362,7 @@ class RouteTable(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -371,7 +371,7 @@ class RouteTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteTableArgs.__new__(RouteTableArgs)
+            __props__ = RouteTableArrgs.__new__(RouteTableArrgs)
 
             __props__.__dict__["disable_bgp_route_propagation"] = disable_bgp_route_propagation
             __props__.__dict__["location"] = location
@@ -396,7 +396,7 @@ class RouteTable(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArrgs']]]]] = None,
             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RouteTable':
         """
@@ -410,7 +410,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the route.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArrgs']]]] routes: A list of objects representing routes. Each object accepts the arguments documented below.
                
                > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The collection of Subnets associated with this route table.

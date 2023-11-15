@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceCustomCertificateArgs', 'ServiceCustomCertificate']
+__all__ = ['ServiceCustomCertificateArrgs', 'ServiceCustomCertificate']
 
 @pulumi.input_type
-class ServiceCustomCertificateArgs:
+calass ServiceCustomCertificateArrgs:
     def __init__(__self__, *,
                  custom_certificate_id: pulumi.Input[str],
                  signalr_service_id: pulumi.Input[str],
@@ -74,7 +74,7 @@ class ServiceCustomCertificateArgs:
 
 
 @pulumi.input_type
-class _ServiceCustomCertificateState:
+calass _ServiceCustomCertificateState:
     def __init__(__self__, *,
                  certificate_version: Optional[pulumi.Input[str]] = None,
                  custom_certificate_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _ServiceCustomCertificateState:
         pulumi.set(self, "signalr_service_id", value)
 
 
-class ServiceCustomCertificate(pulumi.CustomResource):
+calass ServiceCustomCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,11 +177,11 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=azurerm_resource_group["test"]["location"],
             resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Premium_P1",
                 capacity=1,
             ),
-            identity=azure.signalr.ServiceIdentityArgs(
+            identity=azure.signalr.ServiceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -190,7 +190,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -203,7 +203,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                         "List",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
@@ -219,7 +219,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -251,7 +251,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceCustomCertificateArgs,
+                 args: ServiceCustomCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR Custom Certificate.
@@ -268,11 +268,11 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=azurerm_resource_group["test"]["location"],
             resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Premium_P1",
                 capacity=1,
             ),
-            identity=azure.signalr.ServiceIdentityArgs(
+            identity=azure.signalr.ServiceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -281,7 +281,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -294,7 +294,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
                         "List",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
@@ -310,7 +310,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -329,12 +329,12 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceCustomCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceCustomCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceCustomCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceCustomCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -353,7 +353,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceCustomCertificateArgs.__new__(ServiceCustomCertificateArgs)
+            __props__ = ServiceCustomCertificateArrgs.__new__(ServiceCustomCertificateArrgs)
 
             if custom_certificate_id is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_certificate_id'")

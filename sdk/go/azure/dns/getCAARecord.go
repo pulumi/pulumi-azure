@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -116,12 +115,6 @@ func (o GetCAARecordResultOutput) ToGetCAARecordResultOutput() GetCAARecordResul
 
 func (o GetCAARecordResultOutput) ToGetCAARecordResultOutputWithContext(ctx context.Context) GetCAARecordResultOutput {
 	return o
-}
-
-func (o GetCAARecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCAARecordResult] {
-	return pulumix.Output[GetCAARecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS CAA Record.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApiOperationTagArgs', 'ApiOperationTag']
+__all__ = ['ApiOperationTagArrgs', 'ApiOperationTag']
 
 @pulumi.input_type
-class ApiOperationTagArgs:
+calass ApiOperationTagArrgs:
     def __init__(__self__, *,
                  api_operation_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ApiOperationTagArgs:
 
 
 @pulumi.input_type
-class _ApiOperationTagState:
+calass _ApiOperationTagState:
     def __init__(__self__, *,
                  api_operation_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _ApiOperationTagState:
         pulumi.set(self, "name", value)
 
 
-class ApiOperationTag(pulumi.CustomResource):
+calass ApiOperationTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,12 +152,12 @@ class ApiOperationTag(pulumi.CustomResource):
             method="DELETE",
             url_template="/users/{id}/delete",
             description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
+            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArrgs(
                 name="id",
                 type="number",
                 required=True,
             )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
+            responses=[azure.apimanagement.ApiOperationResponseArrgs(
                 status_code=200,
             )])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
@@ -183,7 +183,7 @@ class ApiOperationTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiOperationTagArgs,
+                 args: ApiOperationTagArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management API Operation Tag.
@@ -207,12 +207,12 @@ class ApiOperationTag(pulumi.CustomResource):
             method="DELETE",
             url_template="/users/{id}/delete",
             description="This can only be done by the logged in user.",
-            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArgs(
+            template_parameters=[azure.apimanagement.ApiOperationTemplateParameterArrgs(
                 name="id",
                 type="number",
                 required=True,
             )],
-            responses=[azure.apimanagement.ApiOperationResponseArgs(
+            responses=[azure.apimanagement.ApiOperationResponseArrgs(
                 status_code=200,
             )])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
@@ -229,12 +229,12 @@ class ApiOperationTag(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiOperationTagArgs args: The arguments to use to populate this resource's properties.
+        :param ApiOperationTagArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiOperationTagArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiOperationTagArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class ApiOperationTag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiOperationTagArgs.__new__(ApiOperationTagArgs)
+            __props__ = ApiOperationTagArrgs.__new__(ApiOperationTagArrgs)
 
             if api_operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_operation_id'")

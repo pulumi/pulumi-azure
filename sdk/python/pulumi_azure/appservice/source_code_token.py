@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SourceCodeTokenArgs', 'SourceCodeToken']
+__all__ = ['SourceCodeTokenArrgs', 'SourceCodeToken']
 
 @pulumi.input_type
-class SourceCodeTokenArgs:
+calass SourceCodeTokenArrgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -66,7 +66,7 @@ class SourceCodeTokenArgs:
 
 
 @pulumi.input_type
-class _SourceCodeTokenState:
+calass _SourceCodeTokenState:
     def __init__(__self__, *,
                  token: Optional[pulumi.Input[str]] = None,
                  token_secret: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _SourceCodeTokenState:
         pulumi.set(self, "type", value)
 
 
-class SourceCodeToken(pulumi.CustomResource):
+calass SourceCodeToken(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,7 +166,7 @@ class SourceCodeToken(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SourceCodeTokenArgs,
+                 args: SourceCodeTokenArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service source control token.
@@ -195,12 +195,12 @@ class SourceCodeToken(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SourceCodeTokenArgs args: The arguments to use to populate this resource's properties.
+        :param SourceCodeTokenArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SourceCodeTokenArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SourceCodeTokenArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -219,7 +219,7 @@ class SourceCodeToken(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SourceCodeTokenArgs.__new__(SourceCodeTokenArgs)
+            __props__ = SourceCodeTokenArrgs.__new__(SourceCodeTokenArrgs)
 
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")

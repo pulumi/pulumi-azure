@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NamespaceSchemaGroupArgs', 'NamespaceSchemaGroup']
+__all__ = ['NamespaceSchemaGroupArrgs', 'NamespaceSchemaGroup']
 
 @pulumi.input_type
-class NamespaceSchemaGroupArgs:
+calass NamespaceSchemaGroupArrgs:
     def __init__(__self__, *,
                  namespace_id: pulumi.Input[str],
                  schema_compatibility: pulumi.Input[str],
@@ -81,7 +81,7 @@ class NamespaceSchemaGroupArgs:
 
 
 @pulumi.input_type
-class _NamespaceSchemaGroupState:
+calass _NamespaceSchemaGroupState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _NamespaceSchemaGroupState:
         pulumi.set(self, "schema_type", value)
 
 
-class NamespaceSchemaGroup(pulumi.CustomResource):
+calass NamespaceSchemaGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -199,7 +199,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceSchemaGroupArgs,
+                 args: NamespaceSchemaGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -228,12 +228,12 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NamespaceSchemaGroupArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceSchemaGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceSchemaGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceSchemaGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceSchemaGroupArgs.__new__(NamespaceSchemaGroupArgs)
+            __props__ = NamespaceSchemaGroupArrgs.__new__(NamespaceSchemaGroupArrgs)
 
             __props__.__dict__["name"] = name
             if namespace_id is None and not opts.urn:

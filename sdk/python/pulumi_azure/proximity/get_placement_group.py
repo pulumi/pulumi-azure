@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPlacementGroupResult:
+calass GetPlacementGroupResult:
     """
     A collection of values returned by getPlacementGroup.
     """
@@ -67,7 +67,7 @@ class GetPlacementGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
+calass AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

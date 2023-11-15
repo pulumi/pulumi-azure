@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetMysqlArgs', 'DatasetMysql']
+__all__ = ['DatasetMysqlArrgs', 'DatasetMysql']
 
 @pulumi.input_type
-class DatasetMysqlArgs:
+calass DatasetMysqlArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class DatasetMysqlArgs:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatasetMysql resource.
@@ -38,7 +38,7 @@ class DatasetMysqlArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -160,14 +160,14 @@ class DatasetMysqlArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -184,7 +184,7 @@ class DatasetMysqlArgs:
 
 
 @pulumi.input_type
-class _DatasetMysqlState:
+calass _DatasetMysqlState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -194,7 +194,7 @@ class _DatasetMysqlState:
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatasetMysql resources.
@@ -208,7 +208,7 @@ class _DatasetMysqlState:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         if additional_properties is not None:
@@ -332,14 +332,14 @@ class _DatasetMysqlState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetMysqlSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -355,7 +355,7 @@ class _DatasetMysqlState:
         pulumi.set(self, "table_name", value)
 
 
-class DatasetMysql(pulumi.CustomResource):
+calass DatasetMysql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -368,7 +368,7 @@ class DatasetMysql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -412,14 +412,14 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetMysqlArgs,
+                 args: DatasetMysqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MySQL Dataset inside a Azure Data Factory.
@@ -451,12 +451,12 @@ class DatasetMysql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetMysqlArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetMysqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetMysqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetMysqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -473,7 +473,7 @@ class DatasetMysql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -482,7 +482,7 @@ class DatasetMysql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetMysqlArgs.__new__(DatasetMysqlArgs)
+            __props__ = DatasetMysqlArrgs.__new__(DatasetMysqlArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -516,7 +516,7 @@ class DatasetMysql(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArrgs']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetMysql':
         """
         Get an existing DatasetMysql resource's state with the given name, id, and optional extra
@@ -535,7 +535,7 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -11,49 +11,49 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HadoopClusterArgs', 'HadoopCluster']
+__all__ = ['HadoopClusterArrgs', 'HadoopCluster']
 
 @pulumi.input_type
-class HadoopClusterArgs:
+calass HadoopClusterArrgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[str],
-                 component_version: pulumi.Input['HadoopClusterComponentVersionArgs'],
-                 gateway: pulumi.Input['HadoopClusterGatewayArgs'],
+                 component_version: pulumi.Input['HadoopClusterComponentVersionArrgs'],
+                 gateway: pulumi.Input['HadoopClusterGatewayArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 roles: pulumi.Input['HadoopClusterRolesArgs'],
+                 roles: pulumi.Input['HadoopClusterRolesArrgs'],
                  tier: pulumi.Input[str],
-                 compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
-                 extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
+                 compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]] = None,
+                 extension: Optional[pulumi.Input['HadoopClusterExtensionArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
+                 metastores: Optional[pulumi.Input['HadoopClusterMetastoresArrgs']] = None,
+                 monitor: Optional[pulumi.Input['HadoopClusterMonitorArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
-                 security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
-                 storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
+                 network: Optional[pulumi.Input['HadoopClusterNetworkArrgs']] = None,
+                 security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']] = None,
+                 storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HadoopCluster resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
-        :param pulumi.Input['HadoopClusterGatewayArgs'] gateway: A `gateway` block as defined below.
+        :param pulumi.Input['HadoopClusterComponentVersionArrgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['HadoopClusterGatewayArrgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesArrgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
+        :param pulumi.Input['HadoopClusterComputeIsolationArrgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input['HadoopClusterExtensionArrgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
-        :param pulumi.Input['HadoopClusterMonitorArgs'] monitor: A `monitor` block as defined below.
+        :param pulumi.Input['HadoopClusterMetastoresArrgs'] metastores: A `metastores` block as defined below.
+        :param pulumi.Input['HadoopClusterMonitorArrgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterNetworkArgs'] network: A `network` block as defined below.
-        :param pulumi.Input['HadoopClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input['HadoopClusterNetworkArrgs'] network: A `network` block as defined below.
+        :param pulumi.Input['HadoopClusterSecurityProfileArrgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['HadoopClusterStorageAccountGen2Arrgs'] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
@@ -106,26 +106,26 @@ class HadoopClusterArgs:
 
     @property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> pulumi.Input['HadoopClusterComponentVersionArgs']:
+    def component_version(self) -> pulumi.Input['HadoopClusterComponentVersionArrgs']:
         """
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: pulumi.Input['HadoopClusterComponentVersionArgs']):
+    def component_version(self, value: pulumi.Input['HadoopClusterComponentVersionArrgs']):
         pulumi.set(self, "component_version", value)
 
     @property
     @pulumi.getter
-    def gateway(self) -> pulumi.Input['HadoopClusterGatewayArgs']:
+    def gateway(self) -> pulumi.Input['HadoopClusterGatewayArrgs']:
         """
         A `gateway` block as defined below.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: pulumi.Input['HadoopClusterGatewayArgs']):
+    def gateway(self, value: pulumi.Input['HadoopClusterGatewayArrgs']):
         pulumi.set(self, "gateway", value)
 
     @property
@@ -142,14 +142,14 @@ class HadoopClusterArgs:
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Input['HadoopClusterRolesArgs']:
+    def roles(self) -> pulumi.Input['HadoopClusterRolesArrgs']:
         """
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: pulumi.Input['HadoopClusterRolesArgs']):
+    def roles(self, value: pulumi.Input['HadoopClusterRolesArrgs']):
         pulumi.set(self, "roles", value)
 
     @property
@@ -166,38 +166,38 @@ class HadoopClusterArgs:
 
     @property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArgs']]:
+    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArrgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArgs']]):
+    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArrgs']]):
         pulumi.set(self, "extension", value)
 
     @property
@@ -214,26 +214,26 @@ class HadoopClusterArgs:
 
     @property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['HadoopClusterMetastoresArgs']]:
+    def metastores(self) -> Optional[pulumi.Input['HadoopClusterMetastoresArrgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['HadoopClusterMetastoresArgs']]):
+    def metastores(self, value: Optional[pulumi.Input['HadoopClusterMetastoresArrgs']]):
         pulumi.set(self, "metastores", value)
 
     @property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['HadoopClusterMonitorArgs']]:
+    def monitor(self) -> Optional[pulumi.Input['HadoopClusterMonitorArrgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['HadoopClusterMonitorArgs']]):
+    def monitor(self, value: Optional[pulumi.Input['HadoopClusterMonitorArrgs']]):
         pulumi.set(self, "monitor", value)
 
     @property
@@ -250,50 +250,50 @@ class HadoopClusterArgs:
 
     @property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['HadoopClusterNetworkArgs']]:
+    def network(self) -> Optional[pulumi.Input['HadoopClusterNetworkArrgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['HadoopClusterNetworkArgs']]):
+    def network(self, value: Optional[pulumi.Input['HadoopClusterNetworkArrgs']]):
         pulumi.set(self, "network", value)
 
     @property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']]:
+    def security_profile(self) -> Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']]):
+    def security_profile(self, value: Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']]):
         pulumi.set(self, "security_profile", value)
 
     @property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -324,49 +324,49 @@ class HadoopClusterArgs:
 
 
 @pulumi.input_type
-class _HadoopClusterState:
+calass _HadoopClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']] = None,
-                 compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
-                 extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
-                 gateway: Optional[pulumi.Input['HadoopClusterGatewayArgs']] = None,
+                 component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArrgs']] = None,
+                 compute_isolation: Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]] = None,
+                 extension: Optional[pulumi.Input['HadoopClusterExtensionArrgs']] = None,
+                 gateway: Optional[pulumi.Input['HadoopClusterGatewayArrgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
-                 monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
+                 metastores: Optional[pulumi.Input['HadoopClusterMetastoresArrgs']] = None,
+                 monitor: Optional[pulumi.Input['HadoopClusterMonitorArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input['HadoopClusterNetworkArgs']] = None,
+                 network: Optional[pulumi.Input['HadoopClusterNetworkArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input['HadoopClusterRolesArgs']] = None,
-                 security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']] = None,
+                 roles: Optional[pulumi.Input['HadoopClusterRolesArrgs']] = None,
+                 security_profile: Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
-                 storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
+                 storage_account_gen2: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HadoopCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
-        :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
-        :param pulumi.Input['HadoopClusterGatewayArgs'] gateway: A `gateway` block as defined below.
+        :param pulumi.Input['HadoopClusterComponentVersionArrgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['HadoopClusterComputeIsolationArrgs'] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input['HadoopClusterExtensionArrgs'] extension: An `extension` block as defined below.
+        :param pulumi.Input['HadoopClusterGatewayArrgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
-        :param pulumi.Input['HadoopClusterMonitorArgs'] monitor: A `monitor` block as defined below.
+        :param pulumi.Input['HadoopClusterMetastoresArrgs'] metastores: A `metastores` block as defined below.
+        :param pulumi.Input['HadoopClusterMonitorArrgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterNetworkArgs'] network: A `network` block as defined below.
+        :param pulumi.Input['HadoopClusterNetworkArrgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
-        :param pulumi.Input['HadoopClusterSecurityProfileArgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['HadoopClusterRolesArrgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input['HadoopClusterSecurityProfileArrgs'] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
-        :param pulumi.Input['HadoopClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input['HadoopClusterStorageAccountGen2Arrgs'] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
@@ -430,62 +430,62 @@ class _HadoopClusterState:
 
     @property
     @pulumi.getter(name="componentVersion")
-    def component_version(self) -> Optional[pulumi.Input['HadoopClusterComponentVersionArgs']]:
+    def component_version(self) -> Optional[pulumi.Input['HadoopClusterComponentVersionArrgs']]:
         """
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
 
     @component_version.setter
-    def component_version(self, value: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']]):
+    def component_version(self, value: Optional[pulumi.Input['HadoopClusterComponentVersionArrgs']]):
         pulumi.set(self, "component_version", value)
 
     @property
     @pulumi.getter(name="computeIsolation")
-    def compute_isolation(self) -> Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']]:
+    def compute_isolation(self) -> Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']]:
         """
         A `compute_isolation` block as defined below.
         """
         return pulumi.get(self, "compute_isolation")
 
     @compute_isolation.setter
-    def compute_isolation(self, value: Optional[pulumi.Input['HadoopClusterComputeIsolationArgs']]):
+    def compute_isolation(self, value: Optional[pulumi.Input['HadoopClusterComputeIsolationArrgs']]):
         pulumi.set(self, "compute_isolation", value)
 
     @property
     @pulumi.getter(name="diskEncryptions")
-    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
         """
         return pulumi.get(self, "disk_encryptions")
 
     @disk_encryptions.setter
-    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArrgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArgs']]:
+    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArrgs']]:
         """
         An `extension` block as defined below.
         """
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArgs']]):
+    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArrgs']]):
         pulumi.set(self, "extension", value)
 
     @property
     @pulumi.getter
-    def gateway(self) -> Optional[pulumi.Input['HadoopClusterGatewayArgs']]:
+    def gateway(self) -> Optional[pulumi.Input['HadoopClusterGatewayArrgs']]:
         """
         A `gateway` block as defined below.
         """
         return pulumi.get(self, "gateway")
 
     @gateway.setter
-    def gateway(self, value: Optional[pulumi.Input['HadoopClusterGatewayArgs']]):
+    def gateway(self, value: Optional[pulumi.Input['HadoopClusterGatewayArrgs']]):
         pulumi.set(self, "gateway", value)
 
     @property
@@ -514,26 +514,26 @@ class _HadoopClusterState:
 
     @property
     @pulumi.getter
-    def metastores(self) -> Optional[pulumi.Input['HadoopClusterMetastoresArgs']]:
+    def metastores(self) -> Optional[pulumi.Input['HadoopClusterMetastoresArrgs']]:
         """
         A `metastores` block as defined below.
         """
         return pulumi.get(self, "metastores")
 
     @metastores.setter
-    def metastores(self, value: Optional[pulumi.Input['HadoopClusterMetastoresArgs']]):
+    def metastores(self, value: Optional[pulumi.Input['HadoopClusterMetastoresArrgs']]):
         pulumi.set(self, "metastores", value)
 
     @property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['HadoopClusterMonitorArgs']]:
+    def monitor(self) -> Optional[pulumi.Input['HadoopClusterMonitorArrgs']]:
         """
         A `monitor` block as defined below.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['HadoopClusterMonitorArgs']]):
+    def monitor(self, value: Optional[pulumi.Input['HadoopClusterMonitorArrgs']]):
         pulumi.set(self, "monitor", value)
 
     @property
@@ -550,14 +550,14 @@ class _HadoopClusterState:
 
     @property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['HadoopClusterNetworkArgs']]:
+    def network(self) -> Optional[pulumi.Input['HadoopClusterNetworkArrgs']]:
         """
         A `network` block as defined below.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['HadoopClusterNetworkArgs']]):
+    def network(self, value: Optional[pulumi.Input['HadoopClusterNetworkArrgs']]):
         pulumi.set(self, "network", value)
 
     @property
@@ -574,26 +574,26 @@ class _HadoopClusterState:
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input['HadoopClusterRolesArgs']]:
+    def roles(self) -> Optional[pulumi.Input['HadoopClusterRolesArrgs']]:
         """
         A `roles` block as defined below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input['HadoopClusterRolesArgs']]):
+    def roles(self, value: Optional[pulumi.Input['HadoopClusterRolesArrgs']]):
         pulumi.set(self, "roles", value)
 
     @property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']]:
+    def security_profile(self) -> Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']]:
         """
         A `security_profile` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: Optional[pulumi.Input['HadoopClusterSecurityProfileArgs']]):
+    def security_profile(self, value: Optional[pulumi.Input['HadoopClusterSecurityProfileArrgs']]):
         pulumi.set(self, "security_profile", value)
 
     @property
@@ -610,26 +610,26 @@ class _HadoopClusterState:
 
     @property
     @pulumi.getter(name="storageAccountGen2")
-    def storage_account_gen2(self) -> Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']]:
+    def storage_account_gen2(self) -> Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']]:
         """
         A `storage_account_gen2` block as defined below.
         """
         return pulumi.get(self, "storage_account_gen2")
 
     @storage_account_gen2.setter
-    def storage_account_gen2(self, value: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Args']]):
+    def storage_account_gen2(self, value: Optional[pulumi.Input['HadoopClusterStorageAccountGen2Arrgs']]):
         pulumi.set(self, "storage_account_gen2", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]]:
         """
         One or more `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArrgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -671,27 +671,27 @@ class _HadoopClusterState:
         pulumi.set(self, "tls_min_version", value)
 
 
-class HadoopCluster(pulumi.CustomResource):
+calass HadoopCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
+                 component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArrgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArrgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArrgs']]]]] = None,
+                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArrgs']]] = None,
+                 gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArrgs']]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArrgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArrgs']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Arrgs']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -719,31 +719,31 @@ class HadoopCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.HadoopClusterComponentVersionArgs(
+            component_version=azure.hdinsight.HadoopClusterComponentVersionArrgs(
                 hadoop="2.7",
             ),
-            gateway=azure.hdinsight.HadoopClusterGatewayArgs(
+            gateway=azure.hdinsight.HadoopClusterGatewayArrgs(
                 username="acctestusrgw",
                 password="PAssword123!",
             ),
-            storage_accounts=[azure.hdinsight.HadoopClusterStorageAccountArgs(
+            storage_accounts=[azure.hdinsight.HadoopClusterStorageAccountArrgs(
                 storage_container_id=example_container.id,
                 storage_account_key=example_account.primary_access_key,
                 is_default=True,
             )],
-            roles=azure.hdinsight.HadoopClusterRolesArgs(
-                head_node=azure.hdinsight.HadoopClusterRolesHeadNodeArgs(
+            roles=azure.hdinsight.HadoopClusterRolesArrgs(
+                head_node=azure.hdinsight.HadoopClusterRolesHeadNodeArrgs(
                     vm_size="Standard_D3_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
                 ),
-                worker_node=azure.hdinsight.HadoopClusterRolesWorkerNodeArgs(
+                worker_node=azure.hdinsight.HadoopClusterRolesWorkerNodeArrgs(
                     vm_size="Standard_D4_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
                     target_instance_count=3,
                 ),
-                zookeeper_node=azure.hdinsight.HadoopClusterRolesZookeeperNodeArgs(
+                zookeeper_node=azure.hdinsight.HadoopClusterRolesZookeeperNodeArrgs(
                     vm_size="Standard_D3_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
@@ -762,21 +762,21 @@ class HadoopCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArrgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArrgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArrgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArrgs']] extension: An `extension` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArrgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArrgs']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArrgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArrgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArrgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArrgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Arrgs']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
@@ -787,7 +787,7 @@ class HadoopCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HadoopClusterArgs,
+                 args: HadoopClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HDInsight Hadoop Cluster.
@@ -812,31 +812,31 @@ class HadoopCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.HadoopClusterComponentVersionArgs(
+            component_version=azure.hdinsight.HadoopClusterComponentVersionArrgs(
                 hadoop="2.7",
             ),
-            gateway=azure.hdinsight.HadoopClusterGatewayArgs(
+            gateway=azure.hdinsight.HadoopClusterGatewayArrgs(
                 username="acctestusrgw",
                 password="PAssword123!",
             ),
-            storage_accounts=[azure.hdinsight.HadoopClusterStorageAccountArgs(
+            storage_accounts=[azure.hdinsight.HadoopClusterStorageAccountArrgs(
                 storage_container_id=example_container.id,
                 storage_account_key=example_account.primary_access_key,
                 is_default=True,
             )],
-            roles=azure.hdinsight.HadoopClusterRolesArgs(
-                head_node=azure.hdinsight.HadoopClusterRolesHeadNodeArgs(
+            roles=azure.hdinsight.HadoopClusterRolesArrgs(
+                head_node=azure.hdinsight.HadoopClusterRolesHeadNodeArrgs(
                     vm_size="Standard_D3_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
                 ),
-                worker_node=azure.hdinsight.HadoopClusterRolesWorkerNodeArgs(
+                worker_node=azure.hdinsight.HadoopClusterRolesWorkerNodeArrgs(
                     vm_size="Standard_D4_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
                     target_instance_count=3,
                 ),
-                zookeeper_node=azure.hdinsight.HadoopClusterRolesZookeeperNodeArgs(
+                zookeeper_node=azure.hdinsight.HadoopClusterRolesZookeeperNodeArrgs(
                     vm_size="Standard_D3_V2",
                     username="acctestusrvm",
                     password="AccTestvdSC4daf986!",
@@ -853,12 +853,12 @@ class HadoopCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HadoopClusterArgs args: The arguments to use to populate this resource's properties.
+        :param HadoopClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HadoopClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HadoopClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -868,21 +868,21 @@ class HadoopCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
+                 component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArrgs']]] = None,
+                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArrgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArrgs']]]]] = None,
+                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArrgs']]] = None,
+                 gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArrgs']]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArrgs']]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArrgs']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Arrgs']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -893,7 +893,7 @@ class HadoopCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HadoopClusterArgs.__new__(HadoopClusterArgs)
+            __props__ = HadoopClusterArrgs.__new__(HadoopClusterArrgs)
 
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
@@ -939,23 +939,23 @@ class HadoopCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
-            component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
-            compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
-            extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
+            component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArrgs']]] = None,
+            compute_isolation: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArrgs']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArrgs']]]]] = None,
+            extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArrgs']]] = None,
+            gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArrgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
-            monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']]] = None,
+            metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArrgs']]] = None,
+            monitor: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMonitorArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['HadoopClusterNetworkArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']]] = None,
-            security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']]] = None,
+            roles: Optional[pulumi.Input[pulumi.InputType['HadoopClusterRolesArrgs']]] = None,
+            security_profile: Optional[pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArrgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]]] = None,
+            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Arrgs']]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'HadoopCluster':
@@ -967,23 +967,23 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArrgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterComputeIsolationArrgs']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArrgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArrgs']] extension: An `extension` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArrgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArrgs']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterMonitorArrgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterNetworkArrgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterRolesArrgs']] roles: A `roles` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterSecurityProfileArrgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
-        :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountGen2Arrgs']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.

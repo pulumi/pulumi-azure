@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DomainArgs', 'Domain']
+__all__ = ['DomainArrgs', 'Domain']
 
 @pulumi.input_type
-class DomainArgs:
+calass DomainArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
                  auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
+                 identity: Optional[pulumi.Input['DomainIdentityArrgs']] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']] = None,
+                 input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArrgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,10 +34,10 @@ class DomainArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
-        :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DomainIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input['DomainInputMappingDefaultValuesArrgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DomainInputMappingFieldsArrgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -109,50 +109,50 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DomainIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['DomainIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DomainIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['DomainIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['DomainInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> Optional[pulumi.Input['DomainInputMappingFieldsArrgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['DomainInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: Optional[pulumi.Input['DomainInputMappingFieldsArrgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @property
@@ -229,15 +229,15 @@ class DomainArgs:
 
 
 @pulumi.input_type
-class _DomainState:
+calass _DomainState:
     def __init__(__self__, *,
                  auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
                  auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['DomainIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
+                 identity: Optional[pulumi.Input['DomainIdentityArrgs']] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']] = None,
+                 input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArrgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -252,10 +252,10 @@ class _DomainState:
         :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
-        :param pulumi.Input['DomainIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DomainIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input['DomainInputMappingDefaultValuesArrgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DomainInputMappingFieldsArrgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -337,50 +337,50 @@ class _DomainState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DomainIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['DomainIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DomainIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['DomainIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArrgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: Optional[pulumi.Input['DomainInputMappingDefaultValuesArrgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['DomainInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> Optional[pulumi.Input['DomainInputMappingFieldsArrgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['DomainInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: Optional[pulumi.Input['DomainInputMappingFieldsArrgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @property
@@ -495,7 +495,7 @@ class _DomainState:
 warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""", DeprecationWarning)
 
 
-class Domain(pulumi.CustomResource):
+calass Domain(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""", DeprecationWarning)
 
     @overload
@@ -504,10 +504,10 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
                  auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArrgs']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArrgs']]]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArrgs']]] = None,
+                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArrgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -546,10 +546,10 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DomainIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArrgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArrgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArrgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -562,7 +562,7 @@ class Domain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainArgs,
+                 args: DomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Domain
@@ -591,12 +591,12 @@ class Domain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainArgs args: The arguments to use to populate this resource's properties.
+        :param DomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -607,10 +607,10 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
                  auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArrgs']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArrgs']]]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArrgs']]] = None,
+                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArrgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -626,7 +626,7 @@ class Domain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainArgs.__new__(DomainArgs)
+            __props__ = DomainArrgs.__new__(DomainArrgs)
 
             __props__.__dict__["auto_create_topic_with_first_subscription"] = auto_create_topic_with_first_subscription
             __props__.__dict__["auto_delete_topic_with_last_subscription"] = auto_delete_topic_with_last_subscription
@@ -661,10 +661,10 @@ class Domain(pulumi.CustomResource):
             auto_create_topic_with_first_subscription: Optional[pulumi.Input[bool]] = None,
             auto_delete_topic_with_last_subscription: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArgs']]] = None,
-            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
-            input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
-            input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DomainIdentityArrgs']]] = None,
+            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArrgs']]]]] = None,
+            input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArrgs']]] = None,
+            input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArrgs']]] = None,
             input_schema: Optional[pulumi.Input[str]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -684,10 +684,10 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_create_topic_with_first_subscription: Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
         :param pulumi.Input[bool] auto_delete_topic_with_last_subscription: Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Domain.
-        :param pulumi.Input[pulumi.InputType['DomainIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DomainIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArrgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArrgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArrgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

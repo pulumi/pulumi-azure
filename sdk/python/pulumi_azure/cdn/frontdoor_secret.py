@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorSecretArgs', 'FrontdoorSecret']
+__all__ = ['FrontdoorSecretArrgs', 'FrontdoorSecret']
 
 @pulumi.input_type
-class FrontdoorSecretArgs:
+calass FrontdoorSecretArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[str],
-                 secret: pulumi.Input['FrontdoorSecretSecretArgs'],
+                 secret: pulumi.Input['FrontdoorSecretSecretArrgs'],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorSecret resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input['FrontdoorSecretSecretArrgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -44,14 +44,14 @@ class FrontdoorSecretArgs:
 
     @property
     @pulumi.getter
-    def secret(self) -> pulumi.Input['FrontdoorSecretSecretArgs']:
+    def secret(self) -> pulumi.Input['FrontdoorSecretSecretArrgs']:
         """
         A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: pulumi.Input['FrontdoorSecretSecretArgs']):
+    def secret(self, value: pulumi.Input['FrontdoorSecretSecretArrgs']):
         pulumi.set(self, "secret", value)
 
     @property
@@ -68,18 +68,18 @@ class FrontdoorSecretArgs:
 
 
 @pulumi.input_type
-class _FrontdoorSecretState:
+calass _FrontdoorSecretState:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_profile_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input['FrontdoorSecretSecretArgs']] = None):
+                 secret: Optional[pulumi.Input['FrontdoorSecretSecretArrgs']] = None):
         """
         Input properties used for looking up and filtering FrontdoorSecret resources.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input['FrontdoorSecretSecretArgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input['FrontdoorSecretSecretArrgs'] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -128,25 +128,25 @@ class _FrontdoorSecretState:
 
     @property
     @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input['FrontdoorSecretSecretArgs']]:
+    def secret(self) -> Optional[pulumi.Input['FrontdoorSecretSecretArrgs']]:
         """
         A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "secret")
 
     @secret.setter
-    def secret(self, value: Optional[pulumi.Input['FrontdoorSecretSecretArgs']]):
+    def secret(self, value: Optional[pulumi.Input['FrontdoorSecretSecretArrgs']]):
         pulumi.set(self, "secret", value)
 
 
-class FrontdoorSecret(pulumi.CustomResource):
+calass FrontdoorSecret(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']]] = None,
+                 secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArrgs']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Secret.
@@ -168,18 +168,18 @@ class FrontdoorSecret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
+            network_acls=azure.keyvault.KeyVaultNetworkAclsArrgs(
                 default_action="Deny",
                 bypass="AzureServices",
                 ip_rules=["10.0.0.0/24"],
             ),
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=frontdoor.object_id,
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -193,7 +193,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
             ))
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
@@ -201,8 +201,8 @@ class FrontdoorSecret(pulumi.CustomResource):
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
+            secret=azure.cdn.FrontdoorSecretSecretArrgs(
+                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArrgs(
                     key_vault_certificate_id=example_certificate.id,
                 )],
             ))
@@ -220,13 +220,13 @@ class FrontdoorSecret(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArrgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorSecretArgs,
+                 args: FrontdoorSecretArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Secret.
@@ -248,18 +248,18 @@ class FrontdoorSecret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            network_acls=azure.keyvault.KeyVaultNetworkAclsArgs(
+            network_acls=azure.keyvault.KeyVaultNetworkAclsArrgs(
                 default_action="Deny",
                 bypass="AzureServices",
                 ip_rules=["10.0.0.0/24"],
             ),
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=frontdoor.object_id,
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -273,7 +273,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
             ))
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
@@ -281,8 +281,8 @@ class FrontdoorSecret(pulumi.CustomResource):
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            secret=azure.cdn.FrontdoorSecretSecretArgs(
-                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
+            secret=azure.cdn.FrontdoorSecretSecretArrgs(
+                customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArrgs(
                     key_vault_certificate_id=example_certificate.id,
                 )],
             ))
@@ -297,12 +297,12 @@ class FrontdoorSecret(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorSecretArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorSecretArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorSecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorSecretArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -313,7 +313,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']]] = None,
+                 secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,7 +321,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorSecretArgs.__new__(FrontdoorSecretArgs)
+            __props__ = FrontdoorSecretArrgs.__new__(FrontdoorSecretArrgs)
 
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
@@ -344,7 +344,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_profile_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']]] = None) -> 'FrontdoorSecret':
+            secret: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArrgs']]] = None) -> 'FrontdoorSecret':
         """
         Get an existing FrontdoorSecret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -355,7 +355,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[pulumi.InputType['FrontdoorSecretSecretArrgs']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

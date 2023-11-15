@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SourceControlArgs', 'SourceControl']
+__all__ = ['SourceControlArrgs', 'SourceControl']
 
 @pulumi.input_type
-class SourceControlArgs:
+calass SourceControlArrgs:
     def __init__(__self__, *,
                  automation_account_id: pulumi.Input[str],
                  folder_path: pulumi.Input[str],
                  repository_url: pulumi.Input[str],
-                 security: pulumi.Input['SourceControlSecurityArgs'],
+                 security: pulumi.Input['SourceControlSecurityArrgs'],
                  source_control_type: pulumi.Input[str],
                  automatic_sync: Optional[pulumi.Input[bool]] = None,
                  branch: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class SourceControlArgs:
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[str] folder_path: The folder path of the source control. This Path must be relative.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input['SourceControlSecurityArgs'] security: A `security` block as defined below.
+        :param pulumi.Input['SourceControlSecurityArrgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         :param pulumi.Input[bool] automatic_sync: Whether auto async the Source Control.
         :param pulumi.Input[str] branch: Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
@@ -93,14 +93,14 @@ class SourceControlArgs:
 
     @property
     @pulumi.getter
-    def security(self) -> pulumi.Input['SourceControlSecurityArgs']:
+    def security(self) -> pulumi.Input['SourceControlSecurityArrgs']:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: pulumi.Input['SourceControlSecurityArgs']):
+    def security(self, value: pulumi.Input['SourceControlSecurityArrgs']):
         pulumi.set(self, "security", value)
 
     @property
@@ -177,7 +177,7 @@ class SourceControlArgs:
 
 
 @pulumi.input_type
-class _SourceControlState:
+calass _SourceControlState:
     def __init__(__self__, *,
                  automatic_sync: Optional[pulumi.Input[bool]] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class _SourceControlState:
                  name: Optional[pulumi.Input[str]] = None,
                  publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
-                 security: Optional[pulumi.Input['SourceControlSecurityArgs']] = None,
+                 security: Optional[pulumi.Input['SourceControlSecurityArrgs']] = None,
                  source_control_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SourceControl resources.
@@ -199,7 +199,7 @@ class _SourceControlState:
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input['SourceControlSecurityArgs'] security: A `security` block as defined below.
+        :param pulumi.Input['SourceControlSecurityArrgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
         if automatic_sync is not None:
@@ -321,14 +321,14 @@ class _SourceControlState:
 
     @property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input['SourceControlSecurityArgs']]:
+    def security(self) -> Optional[pulumi.Input['SourceControlSecurityArrgs']]:
         """
         A `security` block as defined below.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input['SourceControlSecurityArgs']]):
+    def security(self, value: Optional[pulumi.Input['SourceControlSecurityArrgs']]):
         pulumi.set(self, "security", value)
 
     @property
@@ -344,7 +344,7 @@ class _SourceControlState:
         pulumi.set(self, "source_control_type", value)
 
 
-class SourceControl(pulumi.CustomResource):
+calass SourceControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -357,7 +357,7 @@ class SourceControl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']]] = None,
+                 security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArrgs']]] = None,
                  source_control_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -377,7 +377,7 @@ class SourceControl(pulumi.CustomResource):
         example_source_control = azure.automation.SourceControl("exampleSourceControl",
             automation_account_id=example_account.id,
             folder_path="runbook",
-            security=azure.automation.SourceControlSecurityArgs(
+            security=azure.automation.SourceControlSecurityArrgs(
                 token="ghp_xxx",
                 token_type="PersonalAccessToken",
             ),
@@ -404,14 +404,14 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SourceControlSecurityArrgs']] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SourceControlArgs,
+                 args: SourceControlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Source Control.
@@ -430,7 +430,7 @@ class SourceControl(pulumi.CustomResource):
         example_source_control = azure.automation.SourceControl("exampleSourceControl",
             automation_account_id=example_account.id,
             folder_path="runbook",
-            security=azure.automation.SourceControlSecurityArgs(
+            security=azure.automation.SourceControlSecurityArrgs(
                 token="ghp_xxx",
                 token_type="PersonalAccessToken",
             ),
@@ -448,12 +448,12 @@ class SourceControl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SourceControlArgs args: The arguments to use to populate this resource's properties.
+        :param SourceControlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SourceControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SourceControlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -470,7 +470,7 @@ class SourceControl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']]] = None,
+                 security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArrgs']]] = None,
                  source_control_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -479,7 +479,7 @@ class SourceControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SourceControlArgs.__new__(SourceControlArgs)
+            __props__ = SourceControlArrgs.__new__(SourceControlArrgs)
 
             __props__.__dict__["automatic_sync"] = automatic_sync
             if automation_account_id is None and not opts.urn:
@@ -519,7 +519,7 @@ class SourceControl(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
             repository_url: Optional[pulumi.Input[str]] = None,
-            security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']]] = None,
+            security: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityArrgs']]] = None,
             source_control_type: Optional[pulumi.Input[str]] = None) -> 'SourceControl':
         """
         Get an existing SourceControl resource's state with the given name, id, and optional extra
@@ -536,7 +536,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input[pulumi.InputType['SourceControlSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SourceControlSecurityArrgs']] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

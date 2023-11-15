@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TableArgs', 'Table']
+__all__ = ['TableArrgs', 'Table']
 
 @pulumi.input_type
-class TableArgs:
+calass TableArrgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "storage_account_name", storage_account_name)
@@ -45,14 +45,14 @@ class TableArgs:
 
     @property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]:
+    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]):
+    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]]):
         pulumi.set(self, "acls", value)
 
     @property
@@ -69,14 +69,14 @@ class TableArgs:
 
 
 @pulumi.input_type
-class _TableState:
+calass _TableState:
     def __init__(__self__, *,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
-        :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
@@ -89,14 +89,14 @@ class _TableState:
 
     @property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]:
+    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]]:
         """
         One or more `acl` blocks as defined below.
         """
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]]):
+    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArrgs']]]]):
         pulumi.set(self, "acls", value)
 
     @property
@@ -124,12 +124,12 @@ class _TableState:
         pulumi.set(self, "storage_account_name", value)
 
 
-class Table(pulumi.CustomResource):
+calass Table(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,7 +161,7 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArrgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """
@@ -169,7 +169,7 @@ class Table(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TableArgs,
+                 args: TableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Table within an Azure Storage Account.
@@ -198,12 +198,12 @@ class Table(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TableArgs args: The arguments to use to populate this resource's properties.
+        :param TableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -222,7 +222,7 @@ class Table(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TableArgs.__new__(TableArgs)
+            __props__ = TableArrgs.__new__(TableArrgs)
 
             __props__.__dict__["acls"] = acls
             __props__.__dict__["name"] = name
@@ -239,7 +239,7 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]]] = None,
+            acls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None) -> 'Table':
         """
@@ -249,7 +249,7 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArgs']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAclArrgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         """

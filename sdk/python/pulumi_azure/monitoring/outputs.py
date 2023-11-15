@@ -205,7 +205,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AadDiagnosticSettingEnabledLog(dict):
+calass AadDiagnosticSettingEnabledLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -228,7 +228,7 @@ class AadDiagnosticSettingEnabledLog(dict):
                  retention_policy: 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'):
         """
         :param str category: The log category for the Azure Active Directory Diagnostic.
-        :param 'AadDiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'AadDiagnosticSettingEnabledLogRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "retention_policy", retention_policy)
@@ -251,7 +251,7 @@ class AadDiagnosticSettingEnabledLog(dict):
 
 
 @pulumi.output_type
-class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
+calass AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -282,7 +282,7 @@ class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class AadDiagnosticSettingLog(dict):
+calass AadDiagnosticSettingLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -306,7 +306,7 @@ class AadDiagnosticSettingLog(dict):
                  enabled: Optional[bool] = None):
         """
         :param str category: The log category for the Azure Active Directory Diagnostic.
-        :param 'AadDiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'AadDiagnosticSettingLogRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "category", category)
@@ -340,7 +340,7 @@ class AadDiagnosticSettingLog(dict):
 
 
 @pulumi.output_type
-class AadDiagnosticSettingLogRetentionPolicy(dict):
+calass AadDiagnosticSettingLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -371,7 +371,7 @@ class AadDiagnosticSettingLogRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class ActionGroupArmRoleReceiver(dict):
+calass ActionGroupArmRoleReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -431,7 +431,7 @@ class ActionGroupArmRoleReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupAutomationRunbookReceiver(dict):
+calass ActionGroupAutomationRunbookReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -543,7 +543,7 @@ class ActionGroupAutomationRunbookReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupAzureAppPushReceiver(dict):
+calass ActionGroupAzureAppPushReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -589,7 +589,7 @@ class ActionGroupAzureAppPushReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupAzureFunctionReceiver(dict):
+calass ActionGroupAzureFunctionReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -675,7 +675,7 @@ class ActionGroupAzureFunctionReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupEmailReceiver(dict):
+calass ActionGroupEmailReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -735,7 +735,7 @@ class ActionGroupEmailReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupEventHubReceiver(dict):
+calass ActionGroupEventHubReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -859,7 +859,7 @@ class ActionGroupEventHubReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupItsmReceiver(dict):
+calass ActionGroupItsmReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -946,7 +946,7 @@ class ActionGroupItsmReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupLogicAppReceiver(dict):
+calass ActionGroupLogicAppReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1019,7 +1019,7 @@ class ActionGroupLogicAppReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupSmsReceiver(dict):
+calass ActionGroupSmsReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1078,7 +1078,7 @@ class ActionGroupSmsReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupVoiceReceiver(dict):
+calass ActionGroupVoiceReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1137,7 +1137,7 @@ class ActionGroupVoiceReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupWebhookReceiver(dict):
+calass ActionGroupWebhookReceiver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1167,7 +1167,7 @@ class ActionGroupWebhookReceiver(dict):
         """
         :param str name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param str service_uri: The URI where webhooks should be sent.
-        :param 'ActionGroupWebhookReceiverAadAuthArgs' aad_auth: The `aad_auth` block as defined below
+        :param 'ActionGroupWebhookReceiverAadAuthArrgs' aad_auth: The `aad_auth` block as defined below
                
                > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         :param bool use_common_alert_schema: Enables or disables the common alert schema.
@@ -1215,7 +1215,7 @@ class ActionGroupWebhookReceiver(dict):
 
 
 @pulumi.output_type
-class ActionGroupWebhookReceiverAadAuth(dict):
+calass ActionGroupWebhookReceiverAadAuth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1278,7 +1278,7 @@ class ActionGroupWebhookReceiverAadAuth(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupCondition(dict):
+calass ActionRuleActionGroupCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1311,13 +1311,13 @@ class ActionRuleActionGroupCondition(dict):
                  severity: Optional['outputs.ActionRuleActionGroupConditionSeverity'] = None,
                  target_resource_type: Optional['outputs.ActionRuleActionGroupConditionTargetResourceType'] = None):
         """
-        :param 'ActionRuleActionGroupConditionAlertContextArgs' alert_context: A `alert_context` block as defined below.
-        :param 'ActionRuleActionGroupConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
-        :param 'ActionRuleActionGroupConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'ActionRuleActionGroupConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleActionGroupConditionMonitorServiceArgs' monitor_service: A `monitor_service` as block defined below.
-        :param 'ActionRuleActionGroupConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'ActionRuleActionGroupConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
+        :param 'ActionRuleActionGroupConditionAlertContextArrgs' alert_context: A `alert_context` block as defined below.
+        :param 'ActionRuleActionGroupConditionAlertRuleIdArrgs' alert_rule_id: A `alert_rule_id` block as defined below.
+        :param 'ActionRuleActionGroupConditionDescriptionArrgs' description: A `description` block as defined below.
+        :param 'ActionRuleActionGroupConditionMonitorArrgs' monitor: A `monitor` block as defined below.
+        :param 'ActionRuleActionGroupConditionMonitorServiceArrgs' monitor_service: A `monitor_service` as block defined below.
+        :param 'ActionRuleActionGroupConditionSeverityArrgs' severity: A `severity` block as defined below.
+        :param 'ActionRuleActionGroupConditionTargetResourceTypeArrgs' target_resource_type: A `target_resource_type` block as defined below.
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -1392,7 +1392,7 @@ class ActionRuleActionGroupCondition(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionAlertContext(dict):
+calass ActionRuleActionGroupConditionAlertContext(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1421,7 +1421,7 @@ class ActionRuleActionGroupConditionAlertContext(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionAlertRuleId(dict):
+calass ActionRuleActionGroupConditionAlertRuleId(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1450,7 +1450,7 @@ class ActionRuleActionGroupConditionAlertRuleId(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionDescription(dict):
+calass ActionRuleActionGroupConditionDescription(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1479,7 +1479,7 @@ class ActionRuleActionGroupConditionDescription(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionMonitor(dict):
+calass ActionRuleActionGroupConditionMonitor(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1508,7 +1508,7 @@ class ActionRuleActionGroupConditionMonitor(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionMonitorService(dict):
+calass ActionRuleActionGroupConditionMonitorService(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1537,7 +1537,7 @@ class ActionRuleActionGroupConditionMonitorService(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionSeverity(dict):
+calass ActionRuleActionGroupConditionSeverity(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1566,7 +1566,7 @@ class ActionRuleActionGroupConditionSeverity(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupConditionTargetResourceType(dict):
+calass ActionRuleActionGroupConditionTargetResourceType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1595,7 +1595,7 @@ class ActionRuleActionGroupConditionTargetResourceType(dict):
 
 
 @pulumi.output_type
-class ActionRuleActionGroupScope(dict):
+calass ActionRuleActionGroupScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1641,7 +1641,7 @@ class ActionRuleActionGroupScope(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionCondition(dict):
+calass ActionRuleSuppressionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1674,13 +1674,13 @@ class ActionRuleSuppressionCondition(dict):
                  severity: Optional['outputs.ActionRuleSuppressionConditionSeverity'] = None,
                  target_resource_type: Optional['outputs.ActionRuleSuppressionConditionTargetResourceType'] = None):
         """
-        :param 'ActionRuleSuppressionConditionAlertContextArgs' alert_context: A `alert_context` block as defined below.
-        :param 'ActionRuleSuppressionConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
-        :param 'ActionRuleSuppressionConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'ActionRuleSuppressionConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleSuppressionConditionMonitorServiceArgs' monitor_service: A `monitor_service` as block defined below.
-        :param 'ActionRuleSuppressionConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'ActionRuleSuppressionConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
+        :param 'ActionRuleSuppressionConditionAlertContextArrgs' alert_context: A `alert_context` block as defined below.
+        :param 'ActionRuleSuppressionConditionAlertRuleIdArrgs' alert_rule_id: A `alert_rule_id` block as defined below.
+        :param 'ActionRuleSuppressionConditionDescriptionArrgs' description: A `description` block as defined below.
+        :param 'ActionRuleSuppressionConditionMonitorArrgs' monitor: A `monitor` block as defined below.
+        :param 'ActionRuleSuppressionConditionMonitorServiceArrgs' monitor_service: A `monitor_service` as block defined below.
+        :param 'ActionRuleSuppressionConditionSeverityArrgs' severity: A `severity` block as defined below.
+        :param 'ActionRuleSuppressionConditionTargetResourceTypeArrgs' target_resource_type: A `target_resource_type` block as defined below.
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -1755,7 +1755,7 @@ class ActionRuleSuppressionCondition(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionAlertContext(dict):
+calass ActionRuleSuppressionConditionAlertContext(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1784,7 +1784,7 @@ class ActionRuleSuppressionConditionAlertContext(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionAlertRuleId(dict):
+calass ActionRuleSuppressionConditionAlertRuleId(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1813,7 +1813,7 @@ class ActionRuleSuppressionConditionAlertRuleId(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionDescription(dict):
+calass ActionRuleSuppressionConditionDescription(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1842,7 +1842,7 @@ class ActionRuleSuppressionConditionDescription(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionMonitor(dict):
+calass ActionRuleSuppressionConditionMonitor(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1871,7 +1871,7 @@ class ActionRuleSuppressionConditionMonitor(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionMonitorService(dict):
+calass ActionRuleSuppressionConditionMonitorService(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1900,7 +1900,7 @@ class ActionRuleSuppressionConditionMonitorService(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionSeverity(dict):
+calass ActionRuleSuppressionConditionSeverity(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1929,7 +1929,7 @@ class ActionRuleSuppressionConditionSeverity(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionConditionTargetResourceType(dict):
+calass ActionRuleSuppressionConditionTargetResourceType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -1958,7 +1958,7 @@ class ActionRuleSuppressionConditionTargetResourceType(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionScope(dict):
+calass ActionRuleSuppressionScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2004,7 +2004,7 @@ class ActionRuleSuppressionScope(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionSuppression(dict):
+calass ActionRuleSuppressionSuppression(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2027,7 +2027,7 @@ class ActionRuleSuppressionSuppression(dict):
                  schedule: Optional['outputs.ActionRuleSuppressionSuppressionSchedule'] = None):
         """
         :param str recurrence_type: Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
-        :param 'ActionRuleSuppressionSuppressionScheduleArgs' schedule: A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
+        :param 'ActionRuleSuppressionSuppressionScheduleArrgs' schedule: A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         if schedule is not None:
@@ -2051,7 +2051,7 @@ class ActionRuleSuppressionSuppression(dict):
 
 
 @pulumi.output_type
-class ActionRuleSuppressionSuppressionSchedule(dict):
+calass ActionRuleSuppressionSuppressionSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2127,7 +2127,7 @@ class ActionRuleSuppressionSuppressionSchedule(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertAction(dict):
+calass ActivityLogAlertAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2176,7 +2176,7 @@ class ActivityLogAlertAction(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertCriteria(dict):
+calass ActivityLogAlertCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2262,7 +2262,7 @@ class ActivityLogAlertCriteria(dict):
         :param Sequence[str] resource_groups: A list of names of resource groups monitored by the activity log alert.
                
                > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
-        :param Sequence['ActivityLogAlertCriteriaResourceHealthArgs'] resource_healths: A block to define fine grain resource health settings.
+        :param Sequence['ActivityLogAlertCriteriaResourceHealthArrgs'] resource_healths: A block to define fine grain resource health settings.
         :param str resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param Sequence[str] resource_ids: A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
                
@@ -2275,7 +2275,7 @@ class ActivityLogAlertCriteria(dict):
         :param Sequence[str] resource_types: A list of resource types monitored by the activity log alert.
                
                > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
-        :param Sequence['ActivityLogAlertCriteriaServiceHealthArgs'] service_healths: A block to define fine grain service health settings.
+        :param Sequence['ActivityLogAlertCriteriaServiceHealthArrgs'] service_healths: A block to define fine grain service health settings.
         :param str status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         :param Sequence[str] statuses: A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
                
@@ -2521,7 +2521,7 @@ class ActivityLogAlertCriteria(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertCriteriaResourceHealth(dict):
+calass ActivityLogAlertCriteriaResourceHealth(dict):
     def __init__(__self__, *,
                  currents: Optional[Sequence[str]] = None,
                  previouses: Optional[Sequence[str]] = None,
@@ -2564,7 +2564,7 @@ class ActivityLogAlertCriteriaResourceHealth(dict):
 
 
 @pulumi.output_type
-class ActivityLogAlertCriteriaServiceHealth(dict):
+calass ActivityLogAlertCriteriaServiceHealth(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None,
                  locations: Optional[Sequence[str]] = None,
@@ -2607,7 +2607,7 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupCondition(dict):
+calass AlertProcessingRuleActionGroupCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2654,17 +2654,17 @@ class AlertProcessingRuleActionGroupCondition(dict):
                  target_resource_group: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResourceGroup'] = None,
                  target_resource_type: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResourceType'] = None):
         """
-        :param 'AlertProcessingRuleActionGroupConditionAlertContextArgs' alert_context: A `alert_context` block as defined above.
-        :param 'AlertProcessingRuleActionGroupConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined above.
-        :param 'AlertProcessingRuleActionGroupConditionAlertRuleNameArgs' alert_rule_name: A `alert_rule_name` block as defined above.
-        :param 'AlertProcessingRuleActionGroupConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionMonitorConditionArgs' monitor_condition: A `monitor_condition` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionSignalTypeArgs' signal_type: A `signal_type` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionTargetResourceArgs' target_resource: A `target_resource` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs' target_resource_group: A `target_resource_group` block as defined below.
-        :param 'AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionAlertContextArrgs' alert_context: A `alert_context` block as defined above.
+        :param 'AlertProcessingRuleActionGroupConditionAlertRuleIdArrgs' alert_rule_id: A `alert_rule_id` block as defined above.
+        :param 'AlertProcessingRuleActionGroupConditionAlertRuleNameArrgs' alert_rule_name: A `alert_rule_name` block as defined above.
+        :param 'AlertProcessingRuleActionGroupConditionDescriptionArrgs' description: A `description` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionMonitorConditionArrgs' monitor_condition: A `monitor_condition` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionMonitorServiceArrgs' monitor_service: A `monitor_service` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionSeverityArrgs' severity: A `severity` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionSignalTypeArrgs' signal_type: A `signal_type` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionTargetResourceArrgs' target_resource: A `target_resource` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionTargetResourceGroupArrgs' target_resource_group: A `target_resource_group` block as defined below.
+        :param 'AlertProcessingRuleActionGroupConditionTargetResourceTypeArrgs' target_resource_type: A `target_resource_type` block as defined below.
                
                > **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
         """
@@ -2783,7 +2783,7 @@ class AlertProcessingRuleActionGroupCondition(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionAlertContext(dict):
+calass AlertProcessingRuleActionGroupConditionAlertContext(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2812,7 +2812,7 @@ class AlertProcessingRuleActionGroupConditionAlertContext(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionAlertRuleId(dict):
+calass AlertProcessingRuleActionGroupConditionAlertRuleId(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2841,7 +2841,7 @@ class AlertProcessingRuleActionGroupConditionAlertRuleId(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionAlertRuleName(dict):
+calass AlertProcessingRuleActionGroupConditionAlertRuleName(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2870,7 +2870,7 @@ class AlertProcessingRuleActionGroupConditionAlertRuleName(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionDescription(dict):
+calass AlertProcessingRuleActionGroupConditionDescription(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2899,7 +2899,7 @@ class AlertProcessingRuleActionGroupConditionDescription(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionMonitorCondition(dict):
+calass AlertProcessingRuleActionGroupConditionMonitorCondition(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2928,7 +2928,7 @@ class AlertProcessingRuleActionGroupConditionMonitorCondition(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionMonitorService(dict):
+calass AlertProcessingRuleActionGroupConditionMonitorService(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2957,7 +2957,7 @@ class AlertProcessingRuleActionGroupConditionMonitorService(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionSeverity(dict):
+calass AlertProcessingRuleActionGroupConditionSeverity(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -2986,7 +2986,7 @@ class AlertProcessingRuleActionGroupConditionSeverity(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionSignalType(dict):
+calass AlertProcessingRuleActionGroupConditionSignalType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3015,7 +3015,7 @@ class AlertProcessingRuleActionGroupConditionSignalType(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionTargetResource(dict):
+calass AlertProcessingRuleActionGroupConditionTargetResource(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3044,7 +3044,7 @@ class AlertProcessingRuleActionGroupConditionTargetResource(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionTargetResourceGroup(dict):
+calass AlertProcessingRuleActionGroupConditionTargetResourceGroup(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3073,7 +3073,7 @@ class AlertProcessingRuleActionGroupConditionTargetResourceGroup(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupConditionTargetResourceType(dict):
+calass AlertProcessingRuleActionGroupConditionTargetResourceType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3102,7 +3102,7 @@ class AlertProcessingRuleActionGroupConditionTargetResourceType(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupSchedule(dict):
+calass AlertProcessingRuleActionGroupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3132,7 +3132,7 @@ class AlertProcessingRuleActionGroupSchedule(dict):
         """
         :param str effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param str effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
-        :param 'AlertProcessingRuleActionGroupScheduleRecurrenceArgs' recurrence: A `recurrence` block as defined above.
+        :param 'AlertProcessingRuleActionGroupScheduleRecurrenceArrgs' recurrence: A `recurrence` block as defined above.
         :param str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         """
         if effective_from is not None:
@@ -3178,15 +3178,15 @@ class AlertProcessingRuleActionGroupSchedule(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupScheduleRecurrence(dict):
+calass AlertProcessingRuleActionGroupScheduleRecurrence(dict):
     def __init__(__self__, *,
                  dailies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceDaily']] = None,
                  monthlies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceMonthly']] = None,
                  weeklies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeekly']] = None):
         """
-        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs'] dailies: One or more `daily` blocks as defined above.
-        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs'] monthlies: One or more `monthly` blocks as defined above.
-        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs'] weeklies: One or more `weekly` blocks as defined below.
+        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrgs'] dailies: One or more `daily` blocks as defined above.
+        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrgs'] monthlies: One or more `monthly` blocks as defined above.
+        :param Sequence['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrgs'] weeklies: One or more `weekly` blocks as defined below.
         """
         if dailies is not None:
             pulumi.set(__self__, "dailies", dailies)
@@ -3221,7 +3221,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrence(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupScheduleRecurrenceDaily(dict):
+calass AlertProcessingRuleActionGroupScheduleRecurrenceDaily(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3269,7 +3269,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceDaily(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly(dict):
+calass AlertProcessingRuleActionGroupScheduleRecurrenceMonthly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3332,7 +3332,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
+calass AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3395,7 +3395,7 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionCondition(dict):
+calass AlertProcessingRuleSuppressionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3442,17 +3442,17 @@ class AlertProcessingRuleSuppressionCondition(dict):
                  target_resource_group: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResourceGroup'] = None,
                  target_resource_type: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResourceType'] = None):
         """
-        :param 'AlertProcessingRuleSuppressionConditionAlertContextArgs' alert_context: A `alert_context` block as defined above.
-        :param 'AlertProcessingRuleSuppressionConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined above.
-        :param 'AlertProcessingRuleSuppressionConditionAlertRuleNameArgs' alert_rule_name: A `alert_rule_name` block as defined above.
-        :param 'AlertProcessingRuleSuppressionConditionDescriptionArgs' description: A `description` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionMonitorConditionArgs' monitor_condition: A `monitor_condition` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionSeverityArgs' severity: A `severity` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionSignalTypeArgs' signal_type: A `signal_type` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionTargetResourceArgs' target_resource: A `target_resource` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs' target_resource_group: A `target_resource_group` block as defined below.
-        :param 'AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionAlertContextArrgs' alert_context: A `alert_context` block as defined above.
+        :param 'AlertProcessingRuleSuppressionConditionAlertRuleIdArrgs' alert_rule_id: A `alert_rule_id` block as defined above.
+        :param 'AlertProcessingRuleSuppressionConditionAlertRuleNameArrgs' alert_rule_name: A `alert_rule_name` block as defined above.
+        :param 'AlertProcessingRuleSuppressionConditionDescriptionArrgs' description: A `description` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionMonitorConditionArrgs' monitor_condition: A `monitor_condition` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionMonitorServiceArrgs' monitor_service: A `monitor_service` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionSeverityArrgs' severity: A `severity` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionSignalTypeArrgs' signal_type: A `signal_type` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionTargetResourceArrgs' target_resource: A `target_resource` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionTargetResourceGroupArrgs' target_resource_group: A `target_resource_group` block as defined below.
+        :param 'AlertProcessingRuleSuppressionConditionTargetResourceTypeArrgs' target_resource_type: A `target_resource_type` block as defined below.
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -3567,7 +3567,7 @@ class AlertProcessingRuleSuppressionCondition(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionAlertContext(dict):
+calass AlertProcessingRuleSuppressionConditionAlertContext(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3596,7 +3596,7 @@ class AlertProcessingRuleSuppressionConditionAlertContext(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionAlertRuleId(dict):
+calass AlertProcessingRuleSuppressionConditionAlertRuleId(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3625,7 +3625,7 @@ class AlertProcessingRuleSuppressionConditionAlertRuleId(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionAlertRuleName(dict):
+calass AlertProcessingRuleSuppressionConditionAlertRuleName(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3654,7 +3654,7 @@ class AlertProcessingRuleSuppressionConditionAlertRuleName(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionDescription(dict):
+calass AlertProcessingRuleSuppressionConditionDescription(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3683,7 +3683,7 @@ class AlertProcessingRuleSuppressionConditionDescription(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionMonitorCondition(dict):
+calass AlertProcessingRuleSuppressionConditionMonitorCondition(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3712,7 +3712,7 @@ class AlertProcessingRuleSuppressionConditionMonitorCondition(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionMonitorService(dict):
+calass AlertProcessingRuleSuppressionConditionMonitorService(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3741,7 +3741,7 @@ class AlertProcessingRuleSuppressionConditionMonitorService(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionSeverity(dict):
+calass AlertProcessingRuleSuppressionConditionSeverity(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3770,7 +3770,7 @@ class AlertProcessingRuleSuppressionConditionSeverity(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionSignalType(dict):
+calass AlertProcessingRuleSuppressionConditionSignalType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3799,7 +3799,7 @@ class AlertProcessingRuleSuppressionConditionSignalType(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionTargetResource(dict):
+calass AlertProcessingRuleSuppressionConditionTargetResource(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3828,7 +3828,7 @@ class AlertProcessingRuleSuppressionConditionTargetResource(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionTargetResourceGroup(dict):
+calass AlertProcessingRuleSuppressionConditionTargetResourceGroup(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3857,7 +3857,7 @@ class AlertProcessingRuleSuppressionConditionTargetResourceGroup(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionConditionTargetResourceType(dict):
+calass AlertProcessingRuleSuppressionConditionTargetResourceType(dict):
     def __init__(__self__, *,
                  operator: str,
                  values: Sequence[str]):
@@ -3886,7 +3886,7 @@ class AlertProcessingRuleSuppressionConditionTargetResourceType(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionSchedule(dict):
+calass AlertProcessingRuleSuppressionSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3916,7 +3916,7 @@ class AlertProcessingRuleSuppressionSchedule(dict):
         """
         :param str effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param str effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
-        :param 'AlertProcessingRuleSuppressionScheduleRecurrenceArgs' recurrence: A `recurrence` block as defined above.
+        :param 'AlertProcessingRuleSuppressionScheduleRecurrenceArrgs' recurrence: A `recurrence` block as defined above.
         :param str time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
         """
         if effective_from is not None:
@@ -3962,15 +3962,15 @@ class AlertProcessingRuleSuppressionSchedule(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionScheduleRecurrence(dict):
+calass AlertProcessingRuleSuppressionScheduleRecurrence(dict):
     def __init__(__self__, *,
                  dailies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceDaily']] = None,
                  monthlies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceMonthly']] = None,
                  weeklies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeekly']] = None):
         """
-        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs'] dailies: One or more `daily` blocks as defined above.
-        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs'] monthlies: One or more `monthly` blocks as defined above.
-        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs'] weeklies: One or more `weekly` blocks as defined below.
+        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrgs'] dailies: One or more `daily` blocks as defined above.
+        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrgs'] monthlies: One or more `monthly` blocks as defined above.
+        :param Sequence['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrgs'] weeklies: One or more `weekly` blocks as defined below.
         """
         if dailies is not None:
             pulumi.set(__self__, "dailies", dailies)
@@ -4005,7 +4005,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrence(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionScheduleRecurrenceDaily(dict):
+calass AlertProcessingRuleSuppressionScheduleRecurrenceDaily(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4053,7 +4053,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceDaily(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionScheduleRecurrenceMonthly(dict):
+calass AlertProcessingRuleSuppressionScheduleRecurrenceMonthly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4116,7 +4116,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceMonthly(dict):
 
 
 @pulumi.output_type
-class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
+calass AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4179,7 +4179,7 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
 
 
 @pulumi.output_type
-class AlertPrometheusRuleGroupRule(dict):
+calass AlertPrometheusRuleGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4212,9 +4212,9 @@ class AlertPrometheusRuleGroupRule(dict):
                  severity: Optional[int] = None):
         """
         :param str expression: Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
-        :param Sequence['AlertPrometheusRuleGroupRuleActionArgs'] actions: An `action` block as defined below.
+        :param Sequence['AlertPrometheusRuleGroupRuleActionArrgs'] actions: An `action` block as defined below.
         :param str alert: Specifies the Alert rule name.
-        :param 'AlertPrometheusRuleGroupRuleAlertResolutionArgs' alert_resolution: An `alert_resolution` block as defined below.
+        :param 'AlertPrometheusRuleGroupRuleAlertResolutionArrgs' alert_resolution: An `alert_resolution` block as defined below.
         :param Mapping[str, str] annotations: Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
         :param bool enabled: Is this rule enabled? Possible values are `true` and `false`.
         :param str for_: Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
@@ -4324,7 +4324,7 @@ class AlertPrometheusRuleGroupRule(dict):
 
 
 @pulumi.output_type
-class AlertPrometheusRuleGroupRuleAction(dict):
+calass AlertPrometheusRuleGroupRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4377,7 +4377,7 @@ class AlertPrometheusRuleGroupRuleAction(dict):
 
 
 @pulumi.output_type
-class AlertPrometheusRuleGroupRuleAlertResolution(dict):
+calass AlertPrometheusRuleGroupRuleAlertResolution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4427,13 +4427,13 @@ class AlertPrometheusRuleGroupRuleAlertResolution(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingNotification(dict):
+calass AutoscaleSettingNotification(dict):
     def __init__(__self__, *,
                  email: Optional['outputs.AutoscaleSettingNotificationEmail'] = None,
                  webhooks: Optional[Sequence['outputs.AutoscaleSettingNotificationWebhook']] = None):
         """
-        :param 'AutoscaleSettingNotificationEmailArgs' email: A `email` block as defined below.
-        :param Sequence['AutoscaleSettingNotificationWebhookArgs'] webhooks: One or more `webhook` blocks as defined below.
+        :param 'AutoscaleSettingNotificationEmailArrgs' email: A `email` block as defined below.
+        :param Sequence['AutoscaleSettingNotificationWebhookArrgs'] webhooks: One or more `webhook` blocks as defined below.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -4458,7 +4458,7 @@ class AutoscaleSettingNotification(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingNotificationEmail(dict):
+calass AutoscaleSettingNotificationEmail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4522,7 +4522,7 @@ class AutoscaleSettingNotificationEmail(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingNotificationWebhook(dict):
+calass AutoscaleSettingNotificationWebhook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4569,7 +4569,7 @@ class AutoscaleSettingNotificationWebhook(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingPredictive(dict):
+calass AutoscaleSettingPredictive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4618,7 +4618,7 @@ class AutoscaleSettingPredictive(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfile(dict):
+calass AutoscaleSettingProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4643,11 +4643,11 @@ class AutoscaleSettingProfile(dict):
                  recurrence: Optional['outputs.AutoscaleSettingProfileRecurrence'] = None,
                  rules: Optional[Sequence['outputs.AutoscaleSettingProfileRule']] = None):
         """
-        :param 'AutoscaleSettingProfileCapacityArgs' capacity: A `capacity` block as defined below.
+        :param 'AutoscaleSettingProfileCapacityArrgs' capacity: A `capacity` block as defined below.
         :param str name: Specifies the name of the profile.
-        :param 'AutoscaleSettingProfileFixedDateArgs' fixed_date: A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
-        :param 'AutoscaleSettingProfileRecurrenceArgs' recurrence: A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
-        :param Sequence['AutoscaleSettingProfileRuleArgs'] rules: One or more (up to 10) `rule` blocks as defined below.
+        :param 'AutoscaleSettingProfileFixedDateArrgs' fixed_date: A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        :param 'AutoscaleSettingProfileRecurrenceArrgs' recurrence: A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        :param Sequence['AutoscaleSettingProfileRuleArrgs'] rules: One or more (up to 10) `rule` blocks as defined below.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -4700,7 +4700,7 @@ class AutoscaleSettingProfile(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileCapacity(dict):
+calass AutoscaleSettingProfileCapacity(dict):
     def __init__(__self__, *,
                  default: int,
                  maximum: int,
@@ -4744,7 +4744,7 @@ class AutoscaleSettingProfileCapacity(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileFixedDate(dict):
+calass AutoscaleSettingProfileFixedDate(dict):
     def __init__(__self__, *,
                  end: str,
                  start: str,
@@ -4785,7 +4785,7 @@ class AutoscaleSettingProfileFixedDate(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileRecurrence(dict):
+calass AutoscaleSettingProfileRecurrence(dict):
     def __init__(__self__, *,
                  days: Sequence[str],
                  hours: int,
@@ -4837,7 +4837,7 @@ class AutoscaleSettingProfileRecurrence(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileRule(dict):
+calass AutoscaleSettingProfileRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4861,8 +4861,8 @@ class AutoscaleSettingProfileRule(dict):
                  metric_trigger: 'outputs.AutoscaleSettingProfileRuleMetricTrigger',
                  scale_action: 'outputs.AutoscaleSettingProfileRuleScaleAction'):
         """
-        :param 'AutoscaleSettingProfileRuleMetricTriggerArgs' metric_trigger: A `metric_trigger` block as defined below.
-        :param 'AutoscaleSettingProfileRuleScaleActionArgs' scale_action: A `scale_action` block as defined below.
+        :param 'AutoscaleSettingProfileRuleMetricTriggerArrgs' metric_trigger: A `metric_trigger` block as defined below.
+        :param 'AutoscaleSettingProfileRuleScaleActionArrgs' scale_action: A `scale_action` block as defined below.
         """
         pulumi.set(__self__, "metric_trigger", metric_trigger)
         pulumi.set(__self__, "scale_action", scale_action)
@@ -4885,7 +4885,7 @@ class AutoscaleSettingProfileRule(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileRuleMetricTrigger(dict):
+calass AutoscaleSettingProfileRuleMetricTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4938,7 +4938,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         :param str time_aggregation: Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
         :param str time_grain: Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
         :param str time_window: Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
-        :param Sequence['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs'] dimensions: One or more `dimensions` block as defined below.
+        :param Sequence['AutoscaleSettingProfileRuleMetricTriggerDimensionArrgs'] dimensions: One or more `dimensions` block as defined below.
         :param bool divide_by_instance_count: Whether to enable metric divide by instance count.
         :param str metric_namespace: The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
         """
@@ -5049,7 +5049,7 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
+calass AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -5089,7 +5089,7 @@ class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
 
 
 @pulumi.output_type
-class AutoscaleSettingProfileRuleScaleAction(dict):
+calass AutoscaleSettingProfileRuleScaleAction(dict):
     def __init__(__self__, *,
                  cooldown: str,
                  direction: str,
@@ -5140,7 +5140,7 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataFlow(dict):
+calass DataCollectionRuleDataFlow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5226,7 +5226,7 @@ class DataCollectionRuleDataFlow(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSources(dict):
+calass DataCollectionRuleDataSources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5270,16 +5270,16 @@ class DataCollectionRuleDataSources(dict):
                  windows_event_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']] = None,
                  windows_firewall_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsFirewallLog']] = None):
         """
-        :param 'DataCollectionRuleDataSourcesDataImportArgs' data_import: A `data_import` block as defined above.
-        :param Sequence['DataCollectionRuleDataSourcesExtensionArgs'] extensions: One or more `extension` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesIisLogArgs'] iis_logs: One or more `iis_log` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesPerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesPlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderArgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
-        :param Sequence['DataCollectionRuleDataSourcesWindowsFirewallLogArgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
+        :param 'DataCollectionRuleDataSourcesDataImportArrgs' data_import: A `data_import` block as defined above.
+        :param Sequence['DataCollectionRuleDataSourcesExtensionArrgs'] extensions: One or more `extension` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesIisLogArrgs'] iis_logs: One or more `iis_log` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesLogFileArrgs'] log_files: One or more `log_file` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPerformanceCounterArrgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPlatformTelemetryArrgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderArrgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesSyslogArrgs'] syslogs: One or more `syslog` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesWindowsEventLogArrgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesWindowsFirewallLogArrgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
         """
         if data_import is not None:
             pulumi.set(__self__, "data_import", data_import)
@@ -5384,7 +5384,7 @@ class DataCollectionRuleDataSources(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesDataImport(dict):
+calass DataCollectionRuleDataSourcesDataImport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5405,7 +5405,7 @@ class DataCollectionRuleDataSourcesDataImport(dict):
     def __init__(__self__, *,
                  event_hub_data_sources: Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource']):
         """
-        :param Sequence['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
         """
         pulumi.set(__self__, "event_hub_data_sources", event_hub_data_sources)
 
@@ -5419,7 +5419,7 @@ class DataCollectionRuleDataSourcesDataImport(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
+calass DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5477,7 +5477,7 @@ class DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesExtension(dict):
+calass DataCollectionRuleDataSourcesExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5562,7 +5562,7 @@ class DataCollectionRuleDataSourcesExtension(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesIisLog(dict):
+calass DataCollectionRuleDataSourcesIisLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5620,7 +5620,7 @@ class DataCollectionRuleDataSourcesIisLog(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesLogFile(dict):
+calass DataCollectionRuleDataSourcesLogFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5649,7 +5649,7 @@ class DataCollectionRuleDataSourcesLogFile(dict):
         :param str format: The data format of the log files. possible value is `text`.
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
-        :param 'DataCollectionRuleDataSourcesLogFileSettingsArgs' settings: A `settings` block as defined below.
+        :param 'DataCollectionRuleDataSourcesLogFileSettingsArrgs' settings: A `settings` block as defined below.
         """
         pulumi.set(__self__, "file_patterns", file_patterns)
         pulumi.set(__self__, "format", format)
@@ -5700,11 +5700,11 @@ class DataCollectionRuleDataSourcesLogFile(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesLogFileSettings(dict):
+calass DataCollectionRuleDataSourcesLogFileSettings(dict):
     def __init__(__self__, *,
                  text: 'outputs.DataCollectionRuleDataSourcesLogFileSettingsText'):
         """
-        :param 'DataCollectionRuleDataSourcesLogFileSettingsTextArgs' text: A `text` block as defined below.
+        :param 'DataCollectionRuleDataSourcesLogFileSettingsTextArrgs' text: A `text` block as defined below.
         """
         pulumi.set(__self__, "text", text)
 
@@ -5718,7 +5718,7 @@ class DataCollectionRuleDataSourcesLogFileSettings(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesLogFileSettingsText(dict):
+calass DataCollectionRuleDataSourcesLogFileSettingsText(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5753,7 +5753,7 @@ class DataCollectionRuleDataSourcesLogFileSettingsText(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesPerformanceCounter(dict):
+calass DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5823,7 +5823,7 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesPlatformTelemetry(dict):
+calass DataCollectionRuleDataSourcesPlatformTelemetry(dict):
     def __init__(__self__, *,
                  name: str,
                  streams: Sequence[str]):
@@ -5852,7 +5852,7 @@ class DataCollectionRuleDataSourcesPlatformTelemetry(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
+calass DataCollectionRuleDataSourcesPrometheusForwarder(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5877,7 +5877,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
         """
         :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
-        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
+        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "streams", streams)
@@ -5910,7 +5910,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
+calass DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
     def __init__(__self__, *,
                  label: str,
                  value: str):
@@ -5939,7 +5939,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesSyslog(dict):
+calass DataCollectionRuleDataSourcesSyslog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6014,7 +6014,7 @@ class DataCollectionRuleDataSourcesSyslog(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesWindowsEventLog(dict):
+calass DataCollectionRuleDataSourcesWindowsEventLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6071,7 +6071,7 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
+calass DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
     def __init__(__self__, *,
                  name: str,
                  streams: Sequence[str]):
@@ -6100,7 +6100,7 @@ class DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinations(dict):
+calass DataCollectionRuleDestinations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6142,14 +6142,14 @@ class DataCollectionRuleDestinations(dict):
                  storage_blobs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlob']] = None,
                  storage_table_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageTableDirect']] = None):
         """
-        :param 'DataCollectionRuleDestinationsAzureMonitorMetricsArgs' azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
-        :param 'DataCollectionRuleDestinationsEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
-        :param 'DataCollectionRuleDestinationsEventHubDirectArgs' event_hub_direct: One or more `event_hub` blocks as defined below.
-        :param Sequence['DataCollectionRuleDestinationsLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
-        :param Sequence['DataCollectionRuleDestinationsMonitorAccountArgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
-        :param Sequence['DataCollectionRuleDestinationsStorageBlobDirectArgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
-        :param Sequence['DataCollectionRuleDestinationsStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
-        :param Sequence['DataCollectionRuleDestinationsStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
+        :param 'DataCollectionRuleDestinationsAzureMonitorMetricsArrgs' azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param 'DataCollectionRuleDestinationsEventHubArrgs' event_hub: One or more `event_hub` blocks as defined below.
+        :param 'DataCollectionRuleDestinationsEventHubDirectArrgs' event_hub_direct: One or more `event_hub` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsLogAnalyticArrgs'] log_analytics: One or more `log_analytics` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsMonitorAccountArrgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageBlobDirectArrgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageBlobArrgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageTableDirectArrgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
                
                > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
                
@@ -6242,7 +6242,7 @@ class DataCollectionRuleDestinations(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
+calass DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -6260,7 +6260,7 @@ class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsEventHub(dict):
+calass DataCollectionRuleDestinationsEventHub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6306,7 +6306,7 @@ class DataCollectionRuleDestinationsEventHub(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsEventHubDirect(dict):
+calass DataCollectionRuleDestinationsEventHubDirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6352,7 +6352,7 @@ class DataCollectionRuleDestinationsEventHubDirect(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsLogAnalytic(dict):
+calass DataCollectionRuleDestinationsLogAnalytic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6398,7 +6398,7 @@ class DataCollectionRuleDestinationsLogAnalytic(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsMonitorAccount(dict):
+calass DataCollectionRuleDestinationsMonitorAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6444,7 +6444,7 @@ class DataCollectionRuleDestinationsMonitorAccount(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsStorageBlob(dict):
+calass DataCollectionRuleDestinationsStorageBlob(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6503,7 +6503,7 @@ class DataCollectionRuleDestinationsStorageBlob(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsStorageBlobDirect(dict):
+calass DataCollectionRuleDestinationsStorageBlobDirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6562,7 +6562,7 @@ class DataCollectionRuleDestinationsStorageBlobDirect(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleDestinationsStorageTableDirect(dict):
+calass DataCollectionRuleDestinationsStorageTableDirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6621,7 +6621,7 @@ class DataCollectionRuleDestinationsStorageTableDirect(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleIdentity(dict):
+calass DataCollectionRuleIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6700,7 +6700,7 @@ class DataCollectionRuleIdentity(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleStreamDeclaration(dict):
+calass DataCollectionRuleStreamDeclaration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6722,7 +6722,7 @@ class DataCollectionRuleStreamDeclaration(dict):
                  columns: Sequence['outputs.DataCollectionRuleStreamDeclarationColumn'],
                  stream_name: str):
         """
-        :param Sequence['DataCollectionRuleStreamDeclarationColumnArgs'] columns: One or more `column` blocks as defined above.
+        :param Sequence['DataCollectionRuleStreamDeclarationColumnArrgs'] columns: One or more `column` blocks as defined above.
         :param str stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
         """
         pulumi.set(__self__, "columns", columns)
@@ -6746,7 +6746,7 @@ class DataCollectionRuleStreamDeclaration(dict):
 
 
 @pulumi.output_type
-class DataCollectionRuleStreamDeclarationColumn(dict):
+calass DataCollectionRuleStreamDeclarationColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -6775,7 +6775,7 @@ class DataCollectionRuleStreamDeclarationColumn(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingEnabledLog(dict):
+calass DiagnosticSettingEnabledLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6808,7 +6808,7 @@ class DiagnosticSettingEnabledLog(dict):
                > **NOTE:** Not all resources have category groups available.
                
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
-        :param 'DiagnosticSettingEnabledLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'DiagnosticSettingEnabledLogRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -6856,7 +6856,7 @@ class DiagnosticSettingEnabledLog(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingEnabledLogRetentionPolicy(dict):
+calass DiagnosticSettingEnabledLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  days: Optional[int] = None):
@@ -6892,7 +6892,7 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingLog(dict):
+calass DiagnosticSettingLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6927,7 +6927,7 @@ class DiagnosticSettingLog(dict):
                
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
-        :param 'DiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'DiagnosticSettingLogRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -6985,7 +6985,7 @@ class DiagnosticSettingLog(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingLogRetentionPolicy(dict):
+calass DiagnosticSettingLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  days: Optional[int] = None):
@@ -7021,7 +7021,7 @@ class DiagnosticSettingLogRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingMetric(dict):
+calass DiagnosticSettingMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7048,7 +7048,7 @@ class DiagnosticSettingMetric(dict):
                
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         :param bool enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
-        :param 'DiagnosticSettingMetricRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'DiagnosticSettingMetricRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7091,7 +7091,7 @@ class DiagnosticSettingMetric(dict):
 
 
 @pulumi.output_type
-class DiagnosticSettingMetricRetentionPolicy(dict):
+calass DiagnosticSettingMetricRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  days: Optional[int] = None):
@@ -7127,7 +7127,7 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class LogProfileRetentionPolicy(dict):
+calass LogProfileRetentionPolicy(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  days: Optional[int] = None):
@@ -7157,7 +7157,7 @@ class LogProfileRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class LogzMonitorPlan(dict):
+calass LogzMonitorPlan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7232,7 +7232,7 @@ class LogzMonitorPlan(dict):
 
 
 @pulumi.output_type
-class LogzMonitorUser(dict):
+calass LogzMonitorUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7308,7 +7308,7 @@ class LogzMonitorUser(dict):
 
 
 @pulumi.output_type
-class LogzSubAccountTagRuleTagFilter(dict):
+calass LogzSubAccountTagRuleTagFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -7349,7 +7349,7 @@ class LogzSubAccountTagRuleTagFilter(dict):
 
 
 @pulumi.output_type
-class LogzSubAccountUser(dict):
+calass LogzSubAccountUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7425,7 +7425,7 @@ class LogzSubAccountUser(dict):
 
 
 @pulumi.output_type
-class LogzTagRuleTagFilter(dict):
+calass LogzTagRuleTagFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -7466,7 +7466,7 @@ class LogzTagRuleTagFilter(dict):
 
 
 @pulumi.output_type
-class MetricAlertAction(dict):
+calass MetricAlertAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7515,7 +7515,7 @@ class MetricAlertAction(dict):
 
 
 @pulumi.output_type
-class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
+calass MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7576,7 +7576,7 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
 
 
 @pulumi.output_type
-class MetricAlertCriteria(dict):
+calass MetricAlertCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7612,7 +7612,7 @@ class MetricAlertCriteria(dict):
         :param str metric_namespace: One of the metric namespaces to be monitored.
         :param str operator: The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param float threshold: The criteria threshold value that activates the alert.
-        :param Sequence['MetricAlertCriteriaDimensionArgs'] dimensions: One or more `dimension` blocks as defined below.
+        :param Sequence['MetricAlertCriteriaDimensionArrgs'] dimensions: One or more `dimension` blocks as defined below.
         :param bool skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
         """
         pulumi.set(__self__, "aggregation", aggregation)
@@ -7683,7 +7683,7 @@ class MetricAlertCriteria(dict):
 
 
 @pulumi.output_type
-class MetricAlertCriteriaDimension(dict):
+calass MetricAlertCriteriaDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -7723,7 +7723,7 @@ class MetricAlertCriteriaDimension(dict):
 
 
 @pulumi.output_type
-class MetricAlertDynamicCriteria(dict):
+calass MetricAlertDynamicCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7770,7 +7770,7 @@ class MetricAlertDynamicCriteria(dict):
         :param str metric_name: One of the metric names to be monitored.
         :param str metric_namespace: One of the metric namespaces to be monitored.
         :param str operator: The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
-        :param Sequence['MetricAlertDynamicCriteriaDimensionArgs'] dimensions: One or more `dimension` blocks as defined below.
+        :param Sequence['MetricAlertDynamicCriteriaDimensionArrgs'] dimensions: One or more `dimension` blocks as defined below.
         :param int evaluation_failure_count: The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
         :param int evaluation_total_count: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
         :param str ignore_data_before: The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
@@ -7874,7 +7874,7 @@ class MetricAlertDynamicCriteria(dict):
 
 
 @pulumi.output_type
-class MetricAlertDynamicCriteriaDimension(dict):
+calass MetricAlertDynamicCriteriaDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -7914,7 +7914,7 @@ class MetricAlertDynamicCriteriaDimension(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertAction(dict):
+calass ScheduledQueryRulesAlertAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7977,7 +7977,7 @@ class ScheduledQueryRulesAlertAction(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertTrigger(dict):
+calass ScheduledQueryRulesAlertTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8002,7 +8002,7 @@ class ScheduledQueryRulesAlertTrigger(dict):
         """
         :param str operator: Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         :param float threshold: Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
-        :param 'ScheduledQueryRulesAlertTriggerMetricTriggerArgs' metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+        :param 'ScheduledQueryRulesAlertTriggerMetricTriggerArrgs' metric_trigger: A `metric_trigger` block as defined above. Trigger condition for metric query rule.
         """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
@@ -8035,7 +8035,7 @@ class ScheduledQueryRulesAlertTrigger(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
+calass ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8106,7 +8106,7 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertV2Action(dict):
+calass ScheduledQueryRulesAlertV2Action(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8156,7 +8156,7 @@ class ScheduledQueryRulesAlertV2Action(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertV2Criteria(dict):
+calass ScheduledQueryRulesAlertV2Criteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8194,8 +8194,8 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
         :param str query: The query to run on logs. The results returned by this query are used to populate the alert.
         :param float threshold: Specifies the criteria threshold value that activates the alert.
         :param str time_aggregation_method: The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
-        :param Sequence['ScheduledQueryRulesAlertV2CriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
-        :param 'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs' failing_periods: A `failing_periods` block as defined below.
+        :param Sequence['ScheduledQueryRulesAlertV2CriteriaDimensionArrgs'] dimensions: A `dimension` block as defined below.
+        :param 'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArrgs' failing_periods: A `failing_periods` block as defined below.
         :param str metric_measure_column: Specifies the column containing the metric measure number.
                
                > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
@@ -8282,7 +8282,7 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertV2CriteriaDimension(dict):
+calass ScheduledQueryRulesAlertV2CriteriaDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -8322,7 +8322,7 @@ class ScheduledQueryRulesAlertV2CriteriaDimension(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
+calass ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8378,7 +8378,7 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesLogCriteria(dict):
+calass ScheduledQueryRulesLogCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8400,7 +8400,7 @@ class ScheduledQueryRulesLogCriteria(dict):
                  dimensions: Sequence['outputs.ScheduledQueryRulesLogCriteriaDimension'],
                  metric_name: str):
         """
-        :param Sequence['ScheduledQueryRulesLogCriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['ScheduledQueryRulesLogCriteriaDimensionArrgs'] dimensions: A `dimension` block as defined below.
         :param str metric_name: Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         pulumi.set(__self__, "dimensions", dimensions)
@@ -8424,7 +8424,7 @@ class ScheduledQueryRulesLogCriteria(dict):
 
 
 @pulumi.output_type
-class ScheduledQueryRulesLogCriteriaDimension(dict):
+calass ScheduledQueryRulesLogCriteriaDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -8465,7 +8465,7 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
 
 
 @pulumi.output_type
-class SmartDetectorAlertRuleActionGroup(dict):
+calass SmartDetectorAlertRuleActionGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8526,7 +8526,7 @@ class SmartDetectorAlertRuleActionGroup(dict):
 
 
 @pulumi.output_type
-class GetActionGroupArmRoleReceiverResult(dict):
+calass GetActionGroupArmRoleReceiverResult(dict):
     def __init__(__self__, *,
                  name: str,
                  role_id: str,
@@ -8566,7 +8566,7 @@ class GetActionGroupArmRoleReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupAutomationRunbookReceiverResult(dict):
+calass GetActionGroupAutomationRunbookReceiverResult(dict):
     def __init__(__self__, *,
                  automation_account_id: str,
                  is_global_runbook: bool,
@@ -8650,7 +8650,7 @@ class GetActionGroupAutomationRunbookReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupAzureAppPushReceiverResult(dict):
+calass GetActionGroupAzureAppPushReceiverResult(dict):
     def __init__(__self__, *,
                  email_address: str,
                  name: str):
@@ -8679,7 +8679,7 @@ class GetActionGroupAzureAppPushReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupAzureFunctionReceiverResult(dict):
+calass GetActionGroupAzureFunctionReceiverResult(dict):
     def __init__(__self__, *,
                  function_app_resource_id: str,
                  function_name: str,
@@ -8741,7 +8741,7 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupEmailReceiverResult(dict):
+calass GetActionGroupEmailReceiverResult(dict):
     def __init__(__self__, *,
                  email_address: str,
                  name: str,
@@ -8781,7 +8781,7 @@ class GetActionGroupEmailReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupEventHubReceiverResult(dict):
+calass GetActionGroupEventHubReceiverResult(dict):
     def __init__(__self__, *,
                  event_hub_id: str,
                  event_hub_name: str,
@@ -8869,7 +8869,7 @@ class GetActionGroupEventHubReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupItsmReceiverResult(dict):
+calass GetActionGroupItsmReceiverResult(dict):
     def __init__(__self__, *,
                  connection_id: str,
                  name: str,
@@ -8931,7 +8931,7 @@ class GetActionGroupItsmReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupLogicAppReceiverResult(dict):
+calass GetActionGroupLogicAppReceiverResult(dict):
     def __init__(__self__, *,
                  callback_url: str,
                  name: str,
@@ -8982,7 +8982,7 @@ class GetActionGroupLogicAppReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupSmsReceiverResult(dict):
+calass GetActionGroupSmsReceiverResult(dict):
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -9022,7 +9022,7 @@ class GetActionGroupSmsReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupVoiceReceiverResult(dict):
+calass GetActionGroupVoiceReceiverResult(dict):
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -9062,7 +9062,7 @@ class GetActionGroupVoiceReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupWebhookReceiverResult(dict):
+calass GetActionGroupWebhookReceiverResult(dict):
     def __init__(__self__, *,
                  aad_auths: Sequence['outputs.GetActionGroupWebhookReceiverAadAuthResult'],
                  name: str,
@@ -9109,7 +9109,7 @@ class GetActionGroupWebhookReceiverResult(dict):
 
 
 @pulumi.output_type
-class GetActionGroupWebhookReceiverAadAuthResult(dict):
+calass GetActionGroupWebhookReceiverAadAuthResult(dict):
     def __init__(__self__, *,
                  identifier_uri: str,
                  object_id: str,
@@ -9141,7 +9141,7 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataFlowResult(dict):
+calass GetDataCollectionRuleDataFlowResult(dict):
     def __init__(__self__, *,
                  built_in_transform: str,
                  destinations: Sequence[str],
@@ -9203,7 +9203,7 @@ class GetDataCollectionRuleDataFlowResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceResult(dict):
+calass GetDataCollectionRuleDataSourceResult(dict):
     def __init__(__self__, *,
                  data_imports: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult'],
                  extensions: Sequence['outputs.GetDataCollectionRuleDataSourceExtensionResult'],
@@ -9216,16 +9216,16 @@ class GetDataCollectionRuleDataSourceResult(dict):
                  log_files: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']] = None,
                  platform_telemetries: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']] = None):
         """
-        :param Sequence['GetDataCollectionRuleDataSourceDataImportArgs'] data_imports: A `data_import` block as defined above.
-        :param Sequence['GetDataCollectionRuleDataSourceExtensionArgs'] extensions: One or more `extension` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceIisLogArgs'] iis_logs: One or more `iis_log` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourcePerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderArgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceWindowsFirewallLogArgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourceLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDataSourcePlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceDataImportArrgs'] data_imports: A `data_import` block as defined above.
+        :param Sequence['GetDataCollectionRuleDataSourceExtensionArrgs'] extensions: One or more `extension` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceIisLogArrgs'] iis_logs: One or more `iis_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePerformanceCounterArrgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderArrgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceSyslogArrgs'] syslogs: One or more `syslog` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceWindowsEventLogArrgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceWindowsFirewallLogArrgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileArrgs'] log_files: One or more `log_file` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePlatformTelemetryArrgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
         """
         pulumi.set(__self__, "data_imports", data_imports)
         pulumi.set(__self__, "extensions", extensions)
@@ -9322,11 +9322,11 @@ class GetDataCollectionRuleDataSourceResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceDataImportResult(dict):
+calass GetDataCollectionRuleDataSourceDataImportResult(dict):
     def __init__(__self__, *,
                  event_hub_data_sources: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult']):
         """
-        :param Sequence['GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
         """
         pulumi.set(__self__, "event_hub_data_sources", event_hub_data_sources)
 
@@ -9340,7 +9340,7 @@ class GetDataCollectionRuleDataSourceDataImportResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
+calass GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
     def __init__(__self__, *,
                  consumer_group: str,
                  name: str,
@@ -9380,7 +9380,7 @@ class GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceExtensionResult(dict):
+calass GetDataCollectionRuleDataSourceExtensionResult(dict):
     def __init__(__self__, *,
                  extension_json: str,
                  extension_name: str,
@@ -9442,7 +9442,7 @@ class GetDataCollectionRuleDataSourceExtensionResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceIisLogResult(dict):
+calass GetDataCollectionRuleDataSourceIisLogResult(dict):
     def __init__(__self__, *,
                  log_directories: Sequence[str],
                  name: str,
@@ -9482,7 +9482,7 @@ class GetDataCollectionRuleDataSourceIisLogResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceLogFileResult(dict):
+calass GetDataCollectionRuleDataSourceLogFileResult(dict):
     def __init__(__self__, *,
                  file_patterns: Sequence[str],
                  format: str,
@@ -9493,7 +9493,7 @@ class GetDataCollectionRuleDataSourceLogFileResult(dict):
         :param Sequence[str] file_patterns: Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
         :param str format: The data format of the log files. possible value is `text`.
         :param str name: Specifies the name of the Data Collection Rule.
-        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingArgs'] settings: A `settings` block as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingArrgs'] settings: A `settings` block as defined below.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "file_patterns", file_patterns)
@@ -9544,11 +9544,11 @@ class GetDataCollectionRuleDataSourceLogFileResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
+calass GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
     def __init__(__self__, *,
                  texts: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult']):
         """
-        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingTextArgs'] texts: A `text` block as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingTextArrgs'] texts: A `text` block as defined below.
         """
         pulumi.set(__self__, "texts", texts)
 
@@ -9562,7 +9562,7 @@ class GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
+calass GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
     def __init__(__self__, *,
                  record_start_timestamp_format: str):
         """
@@ -9580,7 +9580,7 @@ class GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
+calass GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
     def __init__(__self__, *,
                  counter_specifiers: Sequence[str],
                  name: str,
@@ -9631,7 +9631,7 @@ class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
+calass GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
     def __init__(__self__, *,
                  name: str,
                  streams: Sequence[str]):
@@ -9660,13 +9660,13 @@ class GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
+calass GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
     def __init__(__self__, *,
                  label_include_filters: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult'],
                  name: str,
                  streams: Sequence[str]):
         """
-        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
+        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
         :param str name: Specifies the name of the Data Collection Rule.
         :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
@@ -9700,7 +9700,7 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult(dict):
+calass GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult(dict):
     def __init__(__self__, *,
                  label: str,
                  value: str):
@@ -9729,7 +9729,7 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceSyslogResult(dict):
+calass GetDataCollectionRuleDataSourceSyslogResult(dict):
     def __init__(__self__, *,
                  facility_names: Sequence[str],
                  log_levels: Sequence[str],
@@ -9780,7 +9780,7 @@ class GetDataCollectionRuleDataSourceSyslogResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
+calass GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
     def __init__(__self__, *,
                  name: str,
                  streams: Sequence[str],
@@ -9820,7 +9820,7 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
+calass GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
     def __init__(__self__, *,
                  name: str,
                  streams: Sequence[str]):
@@ -9849,7 +9849,7 @@ class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationResult(dict):
+calass GetDataCollectionRuleDestinationResult(dict):
     def __init__(__self__, *,
                  azure_monitor_metrics: Sequence['outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult'],
                  log_analytics: Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult'],
@@ -9860,14 +9860,14 @@ class GetDataCollectionRuleDestinationResult(dict):
                  event_hub: Optional['outputs.GetDataCollectionRuleDestinationEventHubResult'] = None,
                  event_hub_direct: Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult'] = None):
         """
-        :param Sequence['GetDataCollectionRuleDestinationAzureMonitorMetricArgs'] azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
-        :param Sequence['GetDataCollectionRuleDestinationLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDestinationMonitorAccountArgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDestinationStorageBlobDirectArgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDestinationStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
-        :param Sequence['GetDataCollectionRuleDestinationStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
-        :param 'GetDataCollectionRuleDestinationEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
-        :param 'GetDataCollectionRuleDestinationEventHubDirectArgs' event_hub_direct: One or more `event_hub_direct` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationAzureMonitorMetricArrgs'] azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param Sequence['GetDataCollectionRuleDestinationLogAnalyticArrgs'] log_analytics: One or more `log_analytics` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationMonitorAccountArrgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageBlobDirectArrgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageBlobArrgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageTableDirectArrgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
+        :param 'GetDataCollectionRuleDestinationEventHubArrgs' event_hub: One or more `event_hub` blocks as defined below.
+        :param 'GetDataCollectionRuleDestinationEventHubDirectArrgs' event_hub_direct: One or more `event_hub_direct` blocks as defined below.
         """
         pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
         pulumi.set(__self__, "log_analytics", log_analytics)
@@ -9946,7 +9946,7 @@ class GetDataCollectionRuleDestinationResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
+calass GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -9964,36 +9964,7 @@ class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationEventHubResult(dict):
-    def __init__(__self__, *,
-                 event_hub_id: str,
-                 name: str):
-        """
-        :param str event_hub_id: The resource ID of the Event Hub.
-        :param str name: Specifies the name of the Data Collection Rule.
-        """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="eventHubId")
-    def event_hub_id(self) -> str:
-        """
-        The resource ID of the Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Specifies the name of the Data Collection Rule.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class GetDataCollectionRuleDestinationEventHubDirectResult(dict):
+calass GetDataCollectionRuleDestinationEventHubResult(dict):
     def __init__(__self__, *,
                  event_hub_id: str,
                  name: str):
@@ -10022,7 +9993,36 @@ class GetDataCollectionRuleDestinationEventHubDirectResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationLogAnalyticResult(dict):
+calass GetDataCollectionRuleDestinationEventHubDirectResult(dict):
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str):
+        """
+        :param str event_hub_id: The resource ID of the Event Hub.
+        :param str name: Specifies the name of the Data Collection Rule.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+calass GetDataCollectionRuleDestinationLogAnalyticResult(dict):
     def __init__(__self__, *,
                  name: str,
                  workspace_resource_id: str):
@@ -10051,7 +10051,7 @@ class GetDataCollectionRuleDestinationLogAnalyticResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationMonitorAccountResult(dict):
+calass GetDataCollectionRuleDestinationMonitorAccountResult(dict):
     def __init__(__self__, *,
                  monitor_account_id: str,
                  name: str):
@@ -10080,7 +10080,7 @@ class GetDataCollectionRuleDestinationMonitorAccountResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationStorageBlobResult(dict):
+calass GetDataCollectionRuleDestinationStorageBlobResult(dict):
     def __init__(__self__, *,
                  container_name: str,
                  name: str,
@@ -10120,7 +10120,7 @@ class GetDataCollectionRuleDestinationStorageBlobResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
+calass GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
     def __init__(__self__, *,
                  container_name: str,
                  name: str,
@@ -10160,7 +10160,7 @@ class GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
+calass GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
     def __init__(__self__, *,
                  name: str,
                  storage_account_id: str,
@@ -10200,7 +10200,7 @@ class GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleIdentityResult(dict):
+calass GetDataCollectionRuleIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -10251,12 +10251,12 @@ class GetDataCollectionRuleIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleStreamDeclarationResult(dict):
+calass GetDataCollectionRuleStreamDeclarationResult(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult'],
                  stream_name: str):
         """
-        :param Sequence['GetDataCollectionRuleStreamDeclarationColumnArgs'] columns: One or more `column` blocks as defined above.
+        :param Sequence['GetDataCollectionRuleStreamDeclarationColumnArrgs'] columns: One or more `column` blocks as defined above.
         :param str stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
         """
         pulumi.set(__self__, "columns", columns)
@@ -10280,7 +10280,7 @@ class GetDataCollectionRuleStreamDeclarationResult(dict):
 
 
 @pulumi.output_type
-class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
+calass GetDataCollectionRuleStreamDeclarationColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -10309,7 +10309,7 @@ class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
 
 
 @pulumi.output_type
-class GetLogProfileRetentionPolicyResult(dict):
+calass GetLogProfileRetentionPolicyResult(dict):
     def __init__(__self__, *,
                  days: int,
                  enabled: bool):
@@ -10338,7 +10338,7 @@ class GetLogProfileRetentionPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetScheduledQueryRulesAlertActionResult(dict):
+calass GetScheduledQueryRulesAlertActionResult(dict):
     def __init__(__self__, *,
                  action_groups: Sequence[str],
                  custom_webhook_payload: str,
@@ -10378,7 +10378,7 @@ class GetScheduledQueryRulesAlertActionResult(dict):
 
 
 @pulumi.output_type
-class GetScheduledQueryRulesAlertTriggerResult(dict):
+calass GetScheduledQueryRulesAlertTriggerResult(dict):
     def __init__(__self__, *,
                  metric_triggers: Sequence['outputs.GetScheduledQueryRulesAlertTriggerMetricTriggerResult'],
                  operator: str,
@@ -10414,7 +10414,7 @@ class GetScheduledQueryRulesAlertTriggerResult(dict):
 
 
 @pulumi.output_type
-class GetScheduledQueryRulesAlertTriggerMetricTriggerResult(dict):
+calass GetScheduledQueryRulesAlertTriggerMetricTriggerResult(dict):
     def __init__(__self__, *,
                  metric_column: str,
                  metric_trigger_type: str,
@@ -10457,12 +10457,12 @@ class GetScheduledQueryRulesAlertTriggerMetricTriggerResult(dict):
 
 
 @pulumi.output_type
-class GetScheduledQueryRulesLogCriteriaResult(dict):
+calass GetScheduledQueryRulesLogCriteriaResult(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.GetScheduledQueryRulesLogCriteriaDimensionResult'],
                  metric_name: str):
         """
-        :param Sequence['GetScheduledQueryRulesLogCriteriaDimensionArgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['GetScheduledQueryRulesLogCriteriaDimensionArrgs'] dimensions: A `dimension` block as defined below.
         :param str metric_name: Name of the metric.
         """
         pulumi.set(__self__, "dimensions", dimensions)
@@ -10486,7 +10486,7 @@ class GetScheduledQueryRulesLogCriteriaResult(dict):
 
 
 @pulumi.output_type
-class GetScheduledQueryRulesLogCriteriaDimensionResult(dict):
+calass GetScheduledQueryRulesLogCriteriaDimensionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,

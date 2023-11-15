@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ActiveRoleAssignmentScheduleArgs',
-    'ActiveRoleAssignmentScheduleExpirationArgs',
-    'ActiveRoleAssignmentTicketArgs',
-    'EligibleRoleAssignmentScheduleArgs',
-    'EligibleRoleAssignmentScheduleExpirationArgs',
-    'EligibleRoleAssignmentTicketArgs',
+    'ActiveRoleAssignmentScheduleArrgs',
+    'ActiveRoleAssignmentScheduleExpirationArrgs',
+    'ActiveRoleAssignmentTicketArrgs',
+    'EligibleRoleAssignmentScheduleArrgs',
+    'EligibleRoleAssignmentScheduleExpirationArrgs',
+    'EligibleRoleAssignmentTicketArrgs',
 ]
 
 @pulumi.input_type
-class ActiveRoleAssignmentScheduleArgs:
+calass ActiveRoleAssignmentScheduleArrgs:
     def __init__(__self__, *,
-                 expiration: Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgs']] = None,
+                 expiration: Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArrgs']] = None,
                  start_date_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgs'] expiration: A `expiration` block as defined above.
+        :param pulumi.Input['ActiveRoleAssignmentScheduleExpirationArrgs'] expiration: A `expiration` block as defined above.
         :param pulumi.Input[str] start_date_time: The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
         """
         if expiration is not None:
@@ -34,14 +34,14 @@ class ActiveRoleAssignmentScheduleArgs:
 
     @property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgs']]:
+    def expiration(self) -> Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArrgs']]:
         """
         A `expiration` block as defined above.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArgs']]):
+    def expiration(self, value: Optional[pulumi.Input['ActiveRoleAssignmentScheduleExpirationArrgs']]):
         pulumi.set(self, "expiration", value)
 
     @property
@@ -58,7 +58,7 @@ class ActiveRoleAssignmentScheduleArgs:
 
 
 @pulumi.input_type
-class ActiveRoleAssignmentScheduleExpirationArgs:
+calass ActiveRoleAssignmentScheduleExpirationArrgs:
     def __init__(__self__, *,
                  duration_days: Optional[pulumi.Input[int]] = None,
                  duration_hours: Optional[pulumi.Input[int]] = None,
@@ -113,7 +113,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
 
 
 @pulumi.input_type
-class ActiveRoleAssignmentTicketArgs:
+calass ActiveRoleAssignmentTicketArrgs:
     def __init__(__self__, *,
                  number: Optional[pulumi.Input[str]] = None,
                  system: Optional[pulumi.Input[str]] = None):
@@ -152,12 +152,12 @@ class ActiveRoleAssignmentTicketArgs:
 
 
 @pulumi.input_type
-class EligibleRoleAssignmentScheduleArgs:
+calass EligibleRoleAssignmentScheduleArrgs:
     def __init__(__self__, *,
-                 expiration: Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgs']] = None,
+                 expiration: Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArrgs']] = None,
                  start_date_time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgs'] expiration: A `expiration` block as defined above.
+        :param pulumi.Input['EligibleRoleAssignmentScheduleExpirationArrgs'] expiration: A `expiration` block as defined above.
         :param pulumi.Input[str] start_date_time: The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         if expiration is not None:
@@ -167,14 +167,14 @@ class EligibleRoleAssignmentScheduleArgs:
 
     @property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgs']]:
+    def expiration(self) -> Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArrgs']]:
         """
         A `expiration` block as defined above.
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArgs']]):
+    def expiration(self, value: Optional[pulumi.Input['EligibleRoleAssignmentScheduleExpirationArrgs']]):
         pulumi.set(self, "expiration", value)
 
     @property
@@ -191,7 +191,7 @@ class EligibleRoleAssignmentScheduleArgs:
 
 
 @pulumi.input_type
-class EligibleRoleAssignmentScheduleExpirationArgs:
+calass EligibleRoleAssignmentScheduleExpirationArrgs:
     def __init__(__self__, *,
                  duration_days: Optional[pulumi.Input[int]] = None,
                  duration_hours: Optional[pulumi.Input[int]] = None,
@@ -246,7 +246,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
 
 
 @pulumi.input_type
-class EligibleRoleAssignmentTicketArgs:
+calass EligibleRoleAssignmentTicketArrgs:
     def __init__(__self__, *,
                  number: Optional[pulumi.Input[str]] = None,
                  system: Optional[pulumi.Input[str]] = None):

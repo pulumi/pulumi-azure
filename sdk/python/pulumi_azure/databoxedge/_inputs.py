@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DeviceDevicePropertyArgs',
-    'OrderContactArgs',
-    'OrderReturnTrackingArgs',
-    'OrderShipmentAddressArgs',
-    'OrderShipmentHistoryArgs',
-    'OrderShipmentTrackingArgs',
-    'OrderStatusArgs',
+    'DeviceDevicePropertyArrgs',
+    'OrderContactArrgs',
+    'OrderReturnTrackingArrgs',
+    'OrderShipmentAddressArrgs',
+    'OrderShipmentHistoryArrgs',
+    'OrderShipmentTrackingArrgs',
+    'OrderStatusArrgs',
 ]
 
 @pulumi.input_type
-class DeviceDevicePropertyArgs:
+calass DeviceDevicePropertyArrgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
                  configured_role_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -203,7 +203,7 @@ class DeviceDevicePropertyArgs:
 
 
 @pulumi.input_type
-class OrderContactArgs:
+calass OrderContactArrgs:
     def __init__(__self__, *,
                  company_name: pulumi.Input[str],
                  emails: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -270,7 +270,7 @@ class OrderContactArgs:
 
 
 @pulumi.input_type
-class OrderReturnTrackingArgs:
+calass OrderReturnTrackingArrgs:
     def __init__(__self__, *,
                  carrier_name: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
@@ -341,7 +341,7 @@ class OrderReturnTrackingArgs:
 
 
 @pulumi.input_type
-class OrderShipmentAddressArgs:
+calass OrderShipmentAddressArrgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  city: pulumi.Input[str],
@@ -423,7 +423,7 @@ class OrderShipmentAddressArgs:
 
 
 @pulumi.input_type
-class OrderShipmentHistoryArgs:
+calass OrderShipmentHistoryArrgs:
     def __init__(__self__, *,
                  additional_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
@@ -478,7 +478,7 @@ class OrderShipmentHistoryArgs:
 
 
 @pulumi.input_type
-class OrderShipmentTrackingArgs:
+calass OrderShipmentTrackingArrgs:
     def __init__(__self__, *,
                  carrier_name: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
@@ -549,7 +549,7 @@ class OrderShipmentTrackingArgs:
 
 
 @pulumi.input_type
-class OrderStatusArgs:
+calass OrderStatusArrgs:
     def __init__(__self__, *,
                  additional_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  comments: Optional[pulumi.Input[str]] = None,

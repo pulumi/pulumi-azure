@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorIotArgs', 'DataConnectorIot']
+__all__ = ['DataConnectorIotArrgs', 'DataConnectorIot']
 
 @pulumi.input_type
-class DataConnectorIotArgs:
+calass DataConnectorIotArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class DataConnectorIotArgs:
 
 
 @pulumi.input_type
-class _DataConnectorIotState:
+calass _DataConnectorIotState:
     def __init__(__self__, *,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _DataConnectorIotState:
         pulumi.set(self, "subscription_id", value)
 
 
-class DataConnectorIot(pulumi.CustomResource):
+calass DataConnectorIot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class DataConnectorIot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorIotArgs,
+                 args: DataConnectorIotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Iot Data Connector.
@@ -196,12 +196,12 @@ class DataConnectorIot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorIotArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorIotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorIotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorIotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -220,7 +220,7 @@ class DataConnectorIot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorIotArgs.__new__(DataConnectorIotArgs)
+            __props__ = DataConnectorIotArrgs.__new__(DataConnectorIotArrgs)
 
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

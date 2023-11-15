@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReplicaSetArgs', 'ReplicaSet']
+__all__ = ['ReplicaSetArrgs', 'ReplicaSet']
 
 @pulumi.input_type
-class ReplicaSetArgs:
+calass ReplicaSetArrgs:
     def __init__(__self__, *,
                  domain_service_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ReplicaSetArgs:
 
 
 @pulumi.input_type
-class _ReplicaSetState:
+calass _ReplicaSetState:
     def __init__(__self__, *,
                  domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain_service_id: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _ReplicaSetState:
         pulumi.set(self, "subnet_id", value)
 
 
-class ReplicaSet(pulumi.CustomResource):
+calass ReplicaSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,7 +201,7 @@ class ReplicaSet(pulumi.CustomResource):
             location=primary_resource_group.location,
             resource_group_name=primary_resource_group.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowSyncWithAzureAD",
                     priority=101,
                     direction="Inbound",
@@ -212,7 +212,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowRD",
                     priority=201,
                     direction="Inbound",
@@ -223,7 +223,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="CorpNetSaw",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowPSRemoting",
                     priority=301,
                     direction="Inbound",
@@ -234,7 +234,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowLDAPS",
                     priority=401,
                     direction="Inbound",
@@ -268,11 +268,11 @@ class ReplicaSet(pulumi.CustomResource):
             domain_name="widgetslogin.net",
             sku="Enterprise",
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
+            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArrgs(
                 location=primary_virtual_network.location,
                 subnet_id=primary_subnet.id,
             ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
+            notifications=azure.domainservices.ServiceNotificationsArrgs(
                 additional_recipients=[
                     "notifyA@example.net",
                     "notifyB@example.org",
@@ -280,7 +280,7 @@ class ReplicaSet(pulumi.CustomResource):
                 notify_dc_admins=True,
                 notify_global_admins=True,
             ),
-            security=azure.domainservices.ServiceSecurityArgs(
+            security=azure.domainservices.ServiceSecurityArrgs(
                 sync_kerberos_passwords=True,
                 sync_ntlm_passwords=True,
                 sync_on_prem_passwords=True,
@@ -305,7 +305,7 @@ class ReplicaSet(pulumi.CustomResource):
             location=replica_resource_group.location,
             resource_group_name=replica_resource_group.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowSyncWithAzureAD",
                     priority=101,
                     direction="Inbound",
@@ -316,7 +316,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowRD",
                     priority=201,
                     direction="Inbound",
@@ -327,7 +327,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="CorpNetSaw",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowPSRemoting",
                     priority=301,
                     direction="Inbound",
@@ -338,7 +338,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowLDAPS",
                     priority=401,
                     direction="Inbound",
@@ -401,7 +401,7 @@ class ReplicaSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicaSetArgs,
+                 args: ReplicaSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Replica Set for an Active Directory Domain Service.
@@ -426,7 +426,7 @@ class ReplicaSet(pulumi.CustomResource):
             location=primary_resource_group.location,
             resource_group_name=primary_resource_group.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowSyncWithAzureAD",
                     priority=101,
                     direction="Inbound",
@@ -437,7 +437,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowRD",
                     priority=201,
                     direction="Inbound",
@@ -448,7 +448,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="CorpNetSaw",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowPSRemoting",
                     priority=301,
                     direction="Inbound",
@@ -459,7 +459,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowLDAPS",
                     priority=401,
                     direction="Inbound",
@@ -493,11 +493,11 @@ class ReplicaSet(pulumi.CustomResource):
             domain_name="widgetslogin.net",
             sku="Enterprise",
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
+            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArrgs(
                 location=primary_virtual_network.location,
                 subnet_id=primary_subnet.id,
             ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
+            notifications=azure.domainservices.ServiceNotificationsArrgs(
                 additional_recipients=[
                     "notifyA@example.net",
                     "notifyB@example.org",
@@ -505,7 +505,7 @@ class ReplicaSet(pulumi.CustomResource):
                 notify_dc_admins=True,
                 notify_global_admins=True,
             ),
-            security=azure.domainservices.ServiceSecurityArgs(
+            security=azure.domainservices.ServiceSecurityArrgs(
                 sync_kerberos_passwords=True,
                 sync_ntlm_passwords=True,
                 sync_on_prem_passwords=True,
@@ -530,7 +530,7 @@ class ReplicaSet(pulumi.CustomResource):
             location=replica_resource_group.location,
             resource_group_name=replica_resource_group.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowSyncWithAzureAD",
                     priority=101,
                     direction="Inbound",
@@ -541,7 +541,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowRD",
                     priority=201,
                     direction="Inbound",
@@ -552,7 +552,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="CorpNetSaw",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowPSRemoting",
                     priority=301,
                     direction="Inbound",
@@ -563,7 +563,7 @@ class ReplicaSet(pulumi.CustomResource):
                     source_address_prefix="AzureActiveDirectoryDomainServices",
                     destination_address_prefix="*",
                 ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                     name="AllowLDAPS",
                     priority=401,
                     direction="Inbound",
@@ -617,12 +617,12 @@ class ReplicaSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicaSetArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicaSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicaSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicaSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -641,7 +641,7 @@ class ReplicaSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicaSetArgs.__new__(ReplicaSetArgs)
+            __props__ = ReplicaSetArrgs.__new__(ReplicaSetArrgs)
 
             if domain_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_id'")

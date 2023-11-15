@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AttachedDatabaseConfigurationSharing(dict):
+calass AttachedDatabaseConfigurationSharing(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -124,7 +124,7 @@ class AttachedDatabaseConfigurationSharing(dict):
 
 
 @pulumi.output_type
-class ClusterIdentity(dict):
+calass ClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -203,7 +203,7 @@ class ClusterIdentity(dict):
 
 
 @pulumi.output_type
-class ClusterOptimizedAutoScale(dict):
+calass ClusterOptimizedAutoScale(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -251,7 +251,7 @@ class ClusterOptimizedAutoScale(dict):
 
 
 @pulumi.output_type
-class ClusterSku(dict):
+calass ClusterSku(dict):
     def __init__(__self__, *,
                  name: str,
                  capacity: Optional[int] = None):
@@ -287,7 +287,7 @@ class ClusterSku(dict):
 
 
 @pulumi.output_type
-class ClusterVirtualNetworkConfiguration(dict):
+calass ClusterVirtualNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

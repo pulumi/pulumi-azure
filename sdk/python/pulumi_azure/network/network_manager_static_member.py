@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerStaticMemberArgs', 'NetworkManagerStaticMember']
+__all__ = ['NetworkManagerStaticMemberArrgs', 'NetworkManagerStaticMember']
 
 @pulumi.input_type
-class NetworkManagerStaticMemberArgs:
+calass NetworkManagerStaticMemberArrgs:
     def __init__(__self__, *,
                  network_group_id: pulumi.Input[str],
                  target_virtual_network_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class NetworkManagerStaticMemberArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerStaticMemberState:
+calass _NetworkManagerStaticMemberState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  network_group_id: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _NetworkManagerStaticMemberState:
         pulumi.set(self, "target_virtual_network_id", value)
 
 
-class NetworkManagerStaticMember(pulumi.CustomResource):
+calass NetworkManagerStaticMember(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,7 +160,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -198,7 +198,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerStaticMemberArgs,
+                 args: NetworkManagerStaticMemberArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Static Member.
@@ -214,7 +214,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -243,12 +243,12 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerStaticMemberArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerStaticMemberArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerStaticMemberArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerStaticMemberArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -267,7 +267,7 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerStaticMemberArgs.__new__(NetworkManagerStaticMemberArgs)
+            __props__ = NetworkManagerStaticMemberArrgs.__new__(NetworkManagerStaticMemberArrgs)
 
             __props__.__dict__["name"] = name
             if network_group_id is None and not opts.urn:

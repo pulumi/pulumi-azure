@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ClusterAzureActiveDirectoryArgs) ToClusterAzureActiveDirectoryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAzureActiveDirectoryOutput)
 }
 
-func (i ClusterAzureActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAzureActiveDirectory] {
-	return pulumix.Output[ClusterAzureActiveDirectory]{
-		OutputState: i.ToClusterAzureActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterAzureActiveDirectoryArgs) ToClusterAzureActiveDirectoryPtrOutput() ClusterAzureActiveDirectoryPtrOutput {
 	return i.ToClusterAzureActiveDirectoryPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *clusterAzureActiveDirectoryPtrType) ToClusterAzureActiveDirectoryPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAzureActiveDirectoryPtrOutput)
 }
 
-func (i *clusterAzureActiveDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAzureActiveDirectory] {
-	return pulumix.Output[*ClusterAzureActiveDirectory]{
-		OutputState: i.ToClusterAzureActiveDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ClusterAzureActiveDirectoryOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ClusterAzureActiveDirectoryOutput) ToClusterAzureActiveDirectoryPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAzureActiveDirectory) *ClusterAzureActiveDirectory {
 		return &v
 	}).(ClusterAzureActiveDirectoryPtrOutput)
-}
-
-func (o ClusterAzureActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAzureActiveDirectory] {
-	return pulumix.Output[ClusterAzureActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Active Directory Client ID which should be used for the Client Application.
@@ -165,12 +146,6 @@ func (o ClusterAzureActiveDirectoryPtrOutput) ToClusterAzureActiveDirectoryPtrOu
 
 func (o ClusterAzureActiveDirectoryPtrOutput) ToClusterAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ClusterAzureActiveDirectoryPtrOutput {
 	return o
-}
-
-func (o ClusterAzureActiveDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAzureActiveDirectory] {
-	return pulumix.Output[*ClusterAzureActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterAzureActiveDirectoryPtrOutput) Elem() ClusterAzureActiveDirectoryOutput {
@@ -254,12 +229,6 @@ func (i ClusterCertificateArgs) ToClusterCertificateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateOutput)
 }
 
-func (i ClusterCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificate] {
-	return pulumix.Output[ClusterCertificate]{
-		OutputState: i.ToClusterCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCertificateArgs) ToClusterCertificatePtrOutput() ClusterCertificatePtrOutput {
 	return i.ToClusterCertificatePtrOutputWithContext(context.Background())
 }
@@ -301,12 +270,6 @@ func (i *clusterCertificatePtrType) ToClusterCertificatePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificatePtrOutput)
 }
 
-func (i *clusterCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCertificate] {
-	return pulumix.Output[*ClusterCertificate]{
-		OutputState: i.ToClusterCertificatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateOutput) ElementType() reflect.Type {
@@ -329,12 +292,6 @@ func (o ClusterCertificateOutput) ToClusterCertificatePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificate) *ClusterCertificate {
 		return &v
 	}).(ClusterCertificatePtrOutput)
-}
-
-func (o ClusterCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificate] {
-	return pulumix.Output[ClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Thumbprint of the Certificate.
@@ -364,12 +321,6 @@ func (o ClusterCertificatePtrOutput) ToClusterCertificatePtrOutput() ClusterCert
 
 func (o ClusterCertificatePtrOutput) ToClusterCertificatePtrOutputWithContext(ctx context.Context) ClusterCertificatePtrOutput {
 	return o
-}
-
-func (o ClusterCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCertificate] {
-	return pulumix.Output[*ClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCertificatePtrOutput) Elem() ClusterCertificateOutput {
@@ -449,12 +400,6 @@ func (i ClusterCertificateCommonNamesArgs) ToClusterCertificateCommonNamesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesOutput)
 }
 
-func (i ClusterCertificateCommonNamesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificateCommonNames] {
-	return pulumix.Output[ClusterCertificateCommonNames]{
-		OutputState: i.ToClusterCertificateCommonNamesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCertificateCommonNamesArgs) ToClusterCertificateCommonNamesPtrOutput() ClusterCertificateCommonNamesPtrOutput {
 	return i.ToClusterCertificateCommonNamesPtrOutputWithContext(context.Background())
 }
@@ -496,12 +441,6 @@ func (i *clusterCertificateCommonNamesPtrType) ToClusterCertificateCommonNamesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesPtrOutput)
 }
 
-func (i *clusterCertificateCommonNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCertificateCommonNames] {
-	return pulumix.Output[*ClusterCertificateCommonNames]{
-		OutputState: i.ToClusterCertificateCommonNamesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCertificateCommonNamesOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesOutput) ElementType() reflect.Type {
@@ -526,12 +465,6 @@ func (o ClusterCertificateCommonNamesOutput) ToClusterCertificateCommonNamesPtrO
 	}).(ClusterCertificateCommonNamesPtrOutput)
 }
 
-func (o ClusterCertificateCommonNamesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificateCommonNames] {
-	return pulumix.Output[ClusterCertificateCommonNames]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `commonNames` block as defined below.
 func (o ClusterCertificateCommonNamesOutput) CommonNames() ClusterCertificateCommonNamesCommonNameArrayOutput {
 	return o.ApplyT(func(v ClusterCertificateCommonNames) []ClusterCertificateCommonNamesCommonName { return v.CommonNames }).(ClusterCertificateCommonNamesCommonNameArrayOutput)
@@ -554,12 +487,6 @@ func (o ClusterCertificateCommonNamesPtrOutput) ToClusterCertificateCommonNamesP
 
 func (o ClusterCertificateCommonNamesPtrOutput) ToClusterCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesPtrOutput {
 	return o
-}
-
-func (o ClusterCertificateCommonNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCertificateCommonNames] {
-	return pulumix.Output[*ClusterCertificateCommonNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCertificateCommonNamesPtrOutput) Elem() ClusterCertificateCommonNamesOutput {
@@ -633,12 +560,6 @@ func (i ClusterCertificateCommonNamesCommonNameArgs) ToClusterCertificateCommonN
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesCommonNameOutput)
 }
 
-func (i ClusterCertificateCommonNamesCommonNameArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificateCommonNamesCommonName] {
-	return pulumix.Output[ClusterCertificateCommonNamesCommonName]{
-		OutputState: i.ToClusterCertificateCommonNamesCommonNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCertificateCommonNamesCommonNameArrayInput is an input type that accepts ClusterCertificateCommonNamesCommonNameArray and ClusterCertificateCommonNamesCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClusterCertificateCommonNamesCommonNameArrayInput` via:
 //
@@ -664,12 +585,6 @@ func (i ClusterCertificateCommonNamesCommonNameArray) ToClusterCertificateCommon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateCommonNamesCommonNameArrayOutput)
 }
 
-func (i ClusterCertificateCommonNamesCommonNameArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCertificateCommonNamesCommonName] {
-	return pulumix.Output[[]ClusterCertificateCommonNamesCommonName]{
-		OutputState: i.ToClusterCertificateCommonNamesCommonNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCertificateCommonNamesCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateCommonNamesCommonNameOutput) ElementType() reflect.Type {
@@ -682,12 +597,6 @@ func (o ClusterCertificateCommonNamesCommonNameOutput) ToClusterCertificateCommo
 
 func (o ClusterCertificateCommonNamesCommonNameOutput) ToClusterCertificateCommonNamesCommonNameOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNameOutput {
 	return o
-}
-
-func (o ClusterCertificateCommonNamesCommonNameOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCertificateCommonNamesCommonName] {
-	return pulumix.Output[ClusterCertificateCommonNamesCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The common or subject name of the certificate.
@@ -714,12 +623,6 @@ func (o ClusterCertificateCommonNamesCommonNameArrayOutput) ToClusterCertificate
 
 func (o ClusterCertificateCommonNamesCommonNameArrayOutput) ToClusterCertificateCommonNamesCommonNameArrayOutputWithContext(ctx context.Context) ClusterCertificateCommonNamesCommonNameArrayOutput {
 	return o
-}
-
-func (o ClusterCertificateCommonNamesCommonNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCertificateCommonNamesCommonName] {
-	return pulumix.Output[[]ClusterCertificateCommonNamesCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterCertificateCommonNamesCommonNameOutput {
@@ -773,12 +676,6 @@ func (i ClusterClientCertificateCommonNameArgs) ToClusterClientCertificateCommon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateCommonNameOutput)
 }
 
-func (i ClusterClientCertificateCommonNameArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClientCertificateCommonName] {
-	return pulumix.Output[ClusterClientCertificateCommonName]{
-		OutputState: i.ToClusterClientCertificateCommonNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterClientCertificateCommonNameArrayInput is an input type that accepts ClusterClientCertificateCommonNameArray and ClusterClientCertificateCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateCommonNameArrayInput` via:
 //
@@ -804,12 +701,6 @@ func (i ClusterClientCertificateCommonNameArray) ToClusterClientCertificateCommo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateCommonNameArrayOutput)
 }
 
-func (i ClusterClientCertificateCommonNameArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClientCertificateCommonName] {
-	return pulumix.Output[[]ClusterClientCertificateCommonName]{
-		OutputState: i.ToClusterClientCertificateCommonNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterClientCertificateCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientCertificateCommonNameOutput) ElementType() reflect.Type {
@@ -822,12 +713,6 @@ func (o ClusterClientCertificateCommonNameOutput) ToClusterClientCertificateComm
 
 func (o ClusterClientCertificateCommonNameOutput) ToClusterClientCertificateCommonNameOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameOutput {
 	return o
-}
-
-func (o ClusterClientCertificateCommonNameOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClientCertificateCommonName] {
-	return pulumix.Output[ClusterClientCertificateCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The common or subject name of the certificate.
@@ -859,12 +744,6 @@ func (o ClusterClientCertificateCommonNameArrayOutput) ToClusterClientCertificat
 
 func (o ClusterClientCertificateCommonNameArrayOutput) ToClusterClientCertificateCommonNameArrayOutputWithContext(ctx context.Context) ClusterClientCertificateCommonNameArrayOutput {
 	return o
-}
-
-func (o ClusterClientCertificateCommonNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClientCertificateCommonName] {
-	return pulumix.Output[[]ClusterClientCertificateCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterClientCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterClientCertificateCommonNameOutput {
@@ -910,12 +789,6 @@ func (i ClusterClientCertificateThumbprintArgs) ToClusterClientCertificateThumbp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateThumbprintOutput)
 }
 
-func (i ClusterClientCertificateThumbprintArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClientCertificateThumbprint] {
-	return pulumix.Output[ClusterClientCertificateThumbprint]{
-		OutputState: i.ToClusterClientCertificateThumbprintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterClientCertificateThumbprintArrayInput is an input type that accepts ClusterClientCertificateThumbprintArray and ClusterClientCertificateThumbprintArrayOutput values.
 // You can construct a concrete instance of `ClusterClientCertificateThumbprintArrayInput` via:
 //
@@ -941,12 +814,6 @@ func (i ClusterClientCertificateThumbprintArray) ToClusterClientCertificateThumb
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientCertificateThumbprintArrayOutput)
 }
 
-func (i ClusterClientCertificateThumbprintArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClientCertificateThumbprint] {
-	return pulumix.Output[[]ClusterClientCertificateThumbprint]{
-		OutputState: i.ToClusterClientCertificateThumbprintArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterClientCertificateThumbprintOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientCertificateThumbprintOutput) ElementType() reflect.Type {
@@ -959,12 +826,6 @@ func (o ClusterClientCertificateThumbprintOutput) ToClusterClientCertificateThum
 
 func (o ClusterClientCertificateThumbprintOutput) ToClusterClientCertificateThumbprintOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintOutput {
 	return o
-}
-
-func (o ClusterClientCertificateThumbprintOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClientCertificateThumbprint] {
-	return pulumix.Output[ClusterClientCertificateThumbprint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
@@ -989,12 +850,6 @@ func (o ClusterClientCertificateThumbprintArrayOutput) ToClusterClientCertificat
 
 func (o ClusterClientCertificateThumbprintArrayOutput) ToClusterClientCertificateThumbprintArrayOutputWithContext(ctx context.Context) ClusterClientCertificateThumbprintArrayOutput {
 	return o
-}
-
-func (o ClusterClientCertificateThumbprintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClientCertificateThumbprint] {
-	return pulumix.Output[[]ClusterClientCertificateThumbprint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) ClusterClientCertificateThumbprintOutput {
@@ -1052,12 +907,6 @@ func (i ClusterDiagnosticsConfigArgs) ToClusterDiagnosticsConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDiagnosticsConfigOutput)
 }
 
-func (i ClusterDiagnosticsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterDiagnosticsConfig] {
-	return pulumix.Output[ClusterDiagnosticsConfig]{
-		OutputState: i.ToClusterDiagnosticsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterDiagnosticsConfigArgs) ToClusterDiagnosticsConfigPtrOutput() ClusterDiagnosticsConfigPtrOutput {
 	return i.ToClusterDiagnosticsConfigPtrOutputWithContext(context.Background())
 }
@@ -1099,12 +948,6 @@ func (i *clusterDiagnosticsConfigPtrType) ToClusterDiagnosticsConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterDiagnosticsConfigPtrOutput)
 }
 
-func (i *clusterDiagnosticsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterDiagnosticsConfig] {
-	return pulumix.Output[*ClusterDiagnosticsConfig]{
-		OutputState: i.ToClusterDiagnosticsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterDiagnosticsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterDiagnosticsConfigOutput) ElementType() reflect.Type {
@@ -1127,12 +970,6 @@ func (o ClusterDiagnosticsConfigOutput) ToClusterDiagnosticsConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDiagnosticsConfig) *ClusterDiagnosticsConfig {
 		return &v
 	}).(ClusterDiagnosticsConfigPtrOutput)
-}
-
-func (o ClusterDiagnosticsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDiagnosticsConfig] {
-	return pulumix.Output[ClusterDiagnosticsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Blob Endpoint of the Storage Account.
@@ -1172,12 +1009,6 @@ func (o ClusterDiagnosticsConfigPtrOutput) ToClusterDiagnosticsConfigPtrOutput()
 
 func (o ClusterDiagnosticsConfigPtrOutput) ToClusterDiagnosticsConfigPtrOutputWithContext(ctx context.Context) ClusterDiagnosticsConfigPtrOutput {
 	return o
-}
-
-func (o ClusterDiagnosticsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDiagnosticsConfig] {
-	return pulumix.Output[*ClusterDiagnosticsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterDiagnosticsConfigPtrOutput) Elem() ClusterDiagnosticsConfigOutput {
@@ -1277,12 +1108,6 @@ func (i ClusterFabricSettingArgs) ToClusterFabricSettingOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterFabricSettingOutput)
 }
 
-func (i ClusterFabricSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterFabricSetting] {
-	return pulumix.Output[ClusterFabricSetting]{
-		OutputState: i.ToClusterFabricSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterFabricSettingArrayInput is an input type that accepts ClusterFabricSettingArray and ClusterFabricSettingArrayOutput values.
 // You can construct a concrete instance of `ClusterFabricSettingArrayInput` via:
 //
@@ -1308,12 +1133,6 @@ func (i ClusterFabricSettingArray) ToClusterFabricSettingArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterFabricSettingArrayOutput)
 }
 
-func (i ClusterFabricSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterFabricSetting] {
-	return pulumix.Output[[]ClusterFabricSetting]{
-		OutputState: i.ToClusterFabricSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterFabricSettingOutput struct{ *pulumi.OutputState }
 
 func (ClusterFabricSettingOutput) ElementType() reflect.Type {
@@ -1326,12 +1145,6 @@ func (o ClusterFabricSettingOutput) ToClusterFabricSettingOutput() ClusterFabric
 
 func (o ClusterFabricSettingOutput) ToClusterFabricSettingOutputWithContext(ctx context.Context) ClusterFabricSettingOutput {
 	return o
-}
-
-func (o ClusterFabricSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterFabricSetting] {
-	return pulumix.Output[ClusterFabricSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Fabric Setting, such as `Security` or `Federation`.
@@ -1356,12 +1169,6 @@ func (o ClusterFabricSettingArrayOutput) ToClusterFabricSettingArrayOutput() Clu
 
 func (o ClusterFabricSettingArrayOutput) ToClusterFabricSettingArrayOutputWithContext(ctx context.Context) ClusterFabricSettingArrayOutput {
 	return o
-}
-
-func (o ClusterFabricSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterFabricSetting] {
-	return pulumix.Output[[]ClusterFabricSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterFabricSettingArrayOutput) Index(i pulumi.IntInput) ClusterFabricSettingOutput {
@@ -1451,12 +1258,6 @@ func (i ClusterNodeTypeArgs) ToClusterNodeTypeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeOutput)
 }
 
-func (i ClusterNodeTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeType] {
-	return pulumix.Output[ClusterNodeType]{
-		OutputState: i.ToClusterNodeTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterNodeTypeArrayInput is an input type that accepts ClusterNodeTypeArray and ClusterNodeTypeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeTypeArrayInput` via:
 //
@@ -1482,12 +1283,6 @@ func (i ClusterNodeTypeArray) ToClusterNodeTypeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeArrayOutput)
 }
 
-func (i ClusterNodeTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNodeType] {
-	return pulumix.Output[[]ClusterNodeType]{
-		OutputState: i.ToClusterNodeTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeTypeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeOutput) ElementType() reflect.Type {
@@ -1500,12 +1295,6 @@ func (o ClusterNodeTypeOutput) ToClusterNodeTypeOutput() ClusterNodeTypeOutput {
 
 func (o ClusterNodeTypeOutput) ToClusterNodeTypeOutputWithContext(ctx context.Context) ClusterNodeTypeOutput {
 	return o
-}
-
-func (o ClusterNodeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeType] {
-	return pulumix.Output[ClusterNodeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `applicationPorts` block as defined below.
@@ -1587,12 +1376,6 @@ func (o ClusterNodeTypeArrayOutput) ToClusterNodeTypeArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ClusterNodeTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNodeType] {
-	return pulumix.Output[[]ClusterNodeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterNodeTypeArrayOutput) Index(i pulumi.IntInput) ClusterNodeTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNodeType {
 		return vs[0].([]ClusterNodeType)[vs[1].(int)]
@@ -1636,12 +1419,6 @@ func (i ClusterNodeTypeApplicationPortsArgs) ToClusterNodeTypeApplicationPortsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeApplicationPortsOutput)
 }
 
-func (i ClusterNodeTypeApplicationPortsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTypeApplicationPorts] {
-	return pulumix.Output[ClusterNodeTypeApplicationPorts]{
-		OutputState: i.ToClusterNodeTypeApplicationPortsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNodeTypeApplicationPortsArgs) ToClusterNodeTypeApplicationPortsPtrOutput() ClusterNodeTypeApplicationPortsPtrOutput {
 	return i.ToClusterNodeTypeApplicationPortsPtrOutputWithContext(context.Background())
 }
@@ -1683,12 +1460,6 @@ func (i *clusterNodeTypeApplicationPortsPtrType) ToClusterNodeTypeApplicationPor
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 
-func (i *clusterNodeTypeApplicationPortsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNodeTypeApplicationPorts] {
-	return pulumix.Output[*ClusterNodeTypeApplicationPorts]{
-		OutputState: i.ToClusterNodeTypeApplicationPortsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeTypeApplicationPortsOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeApplicationPortsOutput) ElementType() reflect.Type {
@@ -1713,12 +1484,6 @@ func (o ClusterNodeTypeApplicationPortsOutput) ToClusterNodeTypeApplicationPorts
 	}).(ClusterNodeTypeApplicationPortsPtrOutput)
 }
 
-func (o ClusterNodeTypeApplicationPortsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTypeApplicationPorts] {
-	return pulumix.Output[ClusterNodeTypeApplicationPorts]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The end of the Application Port Range on this Node Type.
 func (o ClusterNodeTypeApplicationPortsOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeApplicationPorts) int { return v.EndPort }).(pulumi.IntOutput)
@@ -1741,12 +1506,6 @@ func (o ClusterNodeTypeApplicationPortsPtrOutput) ToClusterNodeTypeApplicationPo
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) ToClusterNodeTypeApplicationPortsPtrOutputWithContext(ctx context.Context) ClusterNodeTypeApplicationPortsPtrOutput {
 	return o
-}
-
-func (o ClusterNodeTypeApplicationPortsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNodeTypeApplicationPorts] {
-	return pulumix.Output[*ClusterNodeTypeApplicationPorts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNodeTypeApplicationPortsPtrOutput) Elem() ClusterNodeTypeApplicationPortsOutput {
@@ -1816,12 +1575,6 @@ func (i ClusterNodeTypeEphemeralPortsArgs) ToClusterNodeTypeEphemeralPortsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeEphemeralPortsOutput)
 }
 
-func (i ClusterNodeTypeEphemeralPortsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTypeEphemeralPorts] {
-	return pulumix.Output[ClusterNodeTypeEphemeralPorts]{
-		OutputState: i.ToClusterNodeTypeEphemeralPortsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterNodeTypeEphemeralPortsArgs) ToClusterNodeTypeEphemeralPortsPtrOutput() ClusterNodeTypeEphemeralPortsPtrOutput {
 	return i.ToClusterNodeTypeEphemeralPortsPtrOutputWithContext(context.Background())
 }
@@ -1863,12 +1616,6 @@ func (i *clusterNodeTypeEphemeralPortsPtrType) ToClusterNodeTypeEphemeralPortsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
-func (i *clusterNodeTypeEphemeralPortsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterNodeTypeEphemeralPorts] {
-	return pulumix.Output[*ClusterNodeTypeEphemeralPorts]{
-		OutputState: i.ToClusterNodeTypeEphemeralPortsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeTypeEphemeralPortsOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeTypeEphemeralPortsOutput) ElementType() reflect.Type {
@@ -1893,12 +1640,6 @@ func (o ClusterNodeTypeEphemeralPortsOutput) ToClusterNodeTypeEphemeralPortsPtrO
 	}).(ClusterNodeTypeEphemeralPortsPtrOutput)
 }
 
-func (o ClusterNodeTypeEphemeralPortsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNodeTypeEphemeralPorts] {
-	return pulumix.Output[ClusterNodeTypeEphemeralPorts]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The end of the Ephemeral Port Range on this Node Type.
 func (o ClusterNodeTypeEphemeralPortsOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterNodeTypeEphemeralPorts) int { return v.EndPort }).(pulumi.IntOutput)
@@ -1921,12 +1662,6 @@ func (o ClusterNodeTypeEphemeralPortsPtrOutput) ToClusterNodeTypeEphemeralPortsP
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) ToClusterNodeTypeEphemeralPortsPtrOutputWithContext(ctx context.Context) ClusterNodeTypeEphemeralPortsPtrOutput {
 	return o
-}
-
-func (o ClusterNodeTypeEphemeralPortsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterNodeTypeEphemeralPorts] {
-	return pulumix.Output[*ClusterNodeTypeEphemeralPorts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNodeTypeEphemeralPortsPtrOutput) Elem() ClusterNodeTypeEphemeralPortsOutput {
@@ -2000,12 +1735,6 @@ func (i ClusterReverseProxyCertificateArgs) ToClusterReverseProxyCertificateOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateOutput)
 }
 
-func (i ClusterReverseProxyCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificate] {
-	return pulumix.Output[ClusterReverseProxyCertificate]{
-		OutputState: i.ToClusterReverseProxyCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterReverseProxyCertificateArgs) ToClusterReverseProxyCertificatePtrOutput() ClusterReverseProxyCertificatePtrOutput {
 	return i.ToClusterReverseProxyCertificatePtrOutputWithContext(context.Background())
 }
@@ -2047,12 +1776,6 @@ func (i *clusterReverseProxyCertificatePtrType) ToClusterReverseProxyCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificatePtrOutput)
 }
 
-func (i *clusterReverseProxyCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterReverseProxyCertificate] {
-	return pulumix.Output[*ClusterReverseProxyCertificate]{
-		OutputState: i.ToClusterReverseProxyCertificatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterReverseProxyCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterReverseProxyCertificateOutput) ElementType() reflect.Type {
@@ -2075,12 +1798,6 @@ func (o ClusterReverseProxyCertificateOutput) ToClusterReverseProxyCertificatePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterReverseProxyCertificate) *ClusterReverseProxyCertificate {
 		return &v
 	}).(ClusterReverseProxyCertificatePtrOutput)
-}
-
-func (o ClusterReverseProxyCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificate] {
-	return pulumix.Output[ClusterReverseProxyCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Thumbprint of the Certificate.
@@ -2110,12 +1827,6 @@ func (o ClusterReverseProxyCertificatePtrOutput) ToClusterReverseProxyCertificat
 
 func (o ClusterReverseProxyCertificatePtrOutput) ToClusterReverseProxyCertificatePtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificatePtrOutput {
 	return o
-}
-
-func (o ClusterReverseProxyCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterReverseProxyCertificate] {
-	return pulumix.Output[*ClusterReverseProxyCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterReverseProxyCertificatePtrOutput) Elem() ClusterReverseProxyCertificateOutput {
@@ -2195,12 +1906,6 @@ func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCert
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesOutput)
 }
 
-func (i ClusterReverseProxyCertificateCommonNamesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificateCommonNames] {
-	return pulumix.Output[ClusterReverseProxyCertificateCommonNames]{
-		OutputState: i.ToClusterReverseProxyCertificateCommonNamesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterReverseProxyCertificateCommonNamesArgs) ToClusterReverseProxyCertificateCommonNamesPtrOutput() ClusterReverseProxyCertificateCommonNamesPtrOutput {
 	return i.ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(context.Background())
 }
@@ -2242,12 +1947,6 @@ func (i *clusterReverseProxyCertificateCommonNamesPtrType) ToClusterReverseProxy
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesPtrOutput)
 }
 
-func (i *clusterReverseProxyCertificateCommonNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterReverseProxyCertificateCommonNames] {
-	return pulumix.Output[*ClusterReverseProxyCertificateCommonNames]{
-		OutputState: i.ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterReverseProxyCertificateCommonNamesOutput struct{ *pulumi.OutputState }
 
 func (ClusterReverseProxyCertificateCommonNamesOutput) ElementType() reflect.Type {
@@ -2270,12 +1969,6 @@ func (o ClusterReverseProxyCertificateCommonNamesOutput) ToClusterReverseProxyCe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterReverseProxyCertificateCommonNames) *ClusterReverseProxyCertificateCommonNames {
 		return &v
 	}).(ClusterReverseProxyCertificateCommonNamesPtrOutput)
-}
-
-func (o ClusterReverseProxyCertificateCommonNamesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificateCommonNames] {
-	return pulumix.Output[ClusterReverseProxyCertificateCommonNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `commonNames` block as defined below.
@@ -2302,12 +1995,6 @@ func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToClusterReverseProx
 
 func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToClusterReverseProxyCertificateCommonNamesPtrOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesPtrOutput {
 	return o
-}
-
-func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterReverseProxyCertificateCommonNames] {
-	return pulumix.Output[*ClusterReverseProxyCertificateCommonNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterReverseProxyCertificateCommonNamesPtrOutput) Elem() ClusterReverseProxyCertificateCommonNamesOutput {
@@ -2381,12 +2068,6 @@ func (i ClusterReverseProxyCertificateCommonNamesCommonNameArgs) ToClusterRevers
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesCommonNameOutput)
 }
 
-func (i ClusterReverseProxyCertificateCommonNamesCommonNameArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificateCommonNamesCommonName] {
-	return pulumix.Output[ClusterReverseProxyCertificateCommonNamesCommonName]{
-		OutputState: i.ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput is an input type that accepts ClusterReverseProxyCertificateCommonNamesCommonNameArray and ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput values.
 // You can construct a concrete instance of `ClusterReverseProxyCertificateCommonNamesCommonNameArrayInput` via:
 //
@@ -2412,12 +2093,6 @@ func (i ClusterReverseProxyCertificateCommonNamesCommonNameArray) ToClusterRever
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput)
 }
 
-func (i ClusterReverseProxyCertificateCommonNamesCommonNameArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterReverseProxyCertificateCommonNamesCommonName] {
-	return pulumix.Output[[]ClusterReverseProxyCertificateCommonNamesCommonName]{
-		OutputState: i.ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterReverseProxyCertificateCommonNamesCommonNameOutput struct{ *pulumi.OutputState }
 
 func (ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ElementType() reflect.Type {
@@ -2430,12 +2105,6 @@ func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ToClusterReve
 
 func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
 	return o
-}
-
-func (o ClusterReverseProxyCertificateCommonNamesCommonNameOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterReverseProxyCertificateCommonNamesCommonName] {
-	return pulumix.Output[ClusterReverseProxyCertificateCommonNamesCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The common or subject name of the certificate.
@@ -2464,12 +2133,6 @@ func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ToCluste
 
 func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ToClusterReverseProxyCertificateCommonNamesCommonNameArrayOutputWithContext(ctx context.Context) ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput {
 	return o
-}
-
-func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterReverseProxyCertificateCommonNamesCommonName] {
-	return pulumix.Output[[]ClusterReverseProxyCertificateCommonNamesCommonName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterReverseProxyCertificateCommonNamesCommonNameArrayOutput) Index(i pulumi.IntInput) ClusterReverseProxyCertificateCommonNamesCommonNameOutput {
@@ -2543,12 +2206,6 @@ func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput)
 }
 
-func (i ClusterUpgradePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicy] {
-	return pulumix.Output[ClusterUpgradePolicy]{
-		OutputState: i.ToClusterUpgradePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
 	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
 }
@@ -2590,12 +2247,6 @@ func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyPtrOutput)
 }
 
-func (i *clusterUpgradePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicy] {
-	return pulumix.Output[*ClusterUpgradePolicy]{
-		OutputState: i.ToClusterUpgradePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradePolicyOutput) ElementType() reflect.Type {
@@ -2618,12 +2269,6 @@ func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicy) *ClusterUpgradePolicy {
 		return &v
 	}).(ClusterUpgradePolicyPtrOutput)
-}
-
-func (o ClusterUpgradePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicy] {
-	return pulumix.Output[ClusterUpgradePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `deltaHealthPolicy` block as defined below
@@ -2683,12 +2328,6 @@ func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutput() Cluster
 
 func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
 	return o
-}
-
-func (o ClusterUpgradePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicy] {
-	return pulumix.Output[*ClusterUpgradePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
@@ -2832,12 +2471,6 @@ func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyDeltaHealthPolicyOutput)
 }
 
-func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicyDeltaHealthPolicy] {
-	return pulumix.Output[ClusterUpgradePolicyDeltaHealthPolicy]{
-		OutputState: i.ToClusterUpgradePolicyDeltaHealthPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterUpgradePolicyDeltaHealthPolicyArgs) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutput() ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
 	return i.ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(context.Background())
 }
@@ -2879,12 +2512,6 @@ func (i *clusterUpgradePolicyDeltaHealthPolicyPtrType) ToClusterUpgradePolicyDel
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
 }
 
-func (i *clusterUpgradePolicyDeltaHealthPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicyDeltaHealthPolicy] {
-	return pulumix.Output[*ClusterUpgradePolicyDeltaHealthPolicy]{
-		OutputState: i.ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterUpgradePolicyDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradePolicyDeltaHealthPolicyOutput) ElementType() reflect.Type {
@@ -2907,12 +2534,6 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToClusterUpgradePolicyDelta
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicyDeltaHealthPolicy) *ClusterUpgradePolicyDeltaHealthPolicy {
 		return &v
 	}).(ClusterUpgradePolicyDeltaHealthPolicyPtrOutput)
-}
-
-func (o ClusterUpgradePolicyDeltaHealthPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicyDeltaHealthPolicy] {
-	return pulumix.Output[ClusterUpgradePolicyDeltaHealthPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
@@ -2944,12 +2565,6 @@ func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToClusterUpgradePolicyDe
 
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToClusterUpgradePolicyDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyDeltaHealthPolicyPtrOutput {
 	return o
-}
-
-func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicyDeltaHealthPolicy] {
-	return pulumix.Output[*ClusterUpgradePolicyDeltaHealthPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterUpgradePolicyDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyDeltaHealthPolicyOutput {
@@ -3029,12 +2644,6 @@ func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyHealthPolicyOutput)
 }
 
-func (i ClusterUpgradePolicyHealthPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicyHealthPolicy] {
-	return pulumix.Output[ClusterUpgradePolicyHealthPolicy]{
-		OutputState: i.ToClusterUpgradePolicyHealthPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterUpgradePolicyHealthPolicyArgs) ToClusterUpgradePolicyHealthPolicyPtrOutput() ClusterUpgradePolicyHealthPolicyPtrOutput {
 	return i.ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(context.Background())
 }
@@ -3076,12 +2685,6 @@ func (i *clusterUpgradePolicyHealthPolicyPtrType) ToClusterUpgradePolicyHealthPo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyHealthPolicyPtrOutput)
 }
 
-func (i *clusterUpgradePolicyHealthPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicyHealthPolicy] {
-	return pulumix.Output[*ClusterUpgradePolicyHealthPolicy]{
-		OutputState: i.ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterUpgradePolicyHealthPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradePolicyHealthPolicyOutput) ElementType() reflect.Type {
@@ -3106,12 +2709,6 @@ func (o ClusterUpgradePolicyHealthPolicyOutput) ToClusterUpgradePolicyHealthPoli
 	}).(ClusterUpgradePolicyHealthPolicyPtrOutput)
 }
 
-func (o ClusterUpgradePolicyHealthPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterUpgradePolicyHealthPolicy] {
-	return pulumix.Output[ClusterUpgradePolicyHealthPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
 func (o ClusterUpgradePolicyHealthPolicyOutput) MaxUnhealthyApplicationsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterUpgradePolicyHealthPolicy) *int { return v.MaxUnhealthyApplicationsPercent }).(pulumi.IntPtrOutput)
@@ -3134,12 +2731,6 @@ func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToClusterUpgradePolicyHealthP
 
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToClusterUpgradePolicyHealthPolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyHealthPolicyPtrOutput {
 	return o
-}
-
-func (o ClusterUpgradePolicyHealthPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterUpgradePolicyHealthPolicy] {
-	return pulumix.Output[*ClusterUpgradePolicyHealthPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterUpgradePolicyHealthPolicyPtrOutput) Elem() ClusterUpgradePolicyHealthPolicyOutput {
@@ -3209,12 +2800,6 @@ func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationOutput)
 }
 
-func (i ManagedClusterAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthentication] {
-	return pulumix.Output[ManagedClusterAuthentication]{
-		OutputState: i.ToManagedClusterAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedClusterAuthenticationArgs) ToManagedClusterAuthenticationPtrOutput() ManagedClusterAuthenticationPtrOutput {
 	return i.ToManagedClusterAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -3256,12 +2841,6 @@ func (i *managedClusterAuthenticationPtrType) ToManagedClusterAuthenticationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationPtrOutput)
 }
 
-func (i *managedClusterAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedClusterAuthentication] {
-	return pulumix.Output[*ManagedClusterAuthentication]{
-		OutputState: i.ToManagedClusterAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAuthenticationOutput) ElementType() reflect.Type {
@@ -3284,12 +2863,6 @@ func (o ManagedClusterAuthenticationOutput) ToManagedClusterAuthenticationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAuthentication) *ManagedClusterAuthentication {
 		return &v
 	}).(ManagedClusterAuthenticationPtrOutput)
-}
-
-func (o ManagedClusterAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthentication] {
-	return pulumix.Output[ManagedClusterAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `activeDirectory` block as defined above.
@@ -3316,12 +2889,6 @@ func (o ManagedClusterAuthenticationPtrOutput) ToManagedClusterAuthenticationPtr
 
 func (o ManagedClusterAuthenticationPtrOutput) ToManagedClusterAuthenticationPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationPtrOutput {
 	return o
-}
-
-func (o ManagedClusterAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedClusterAuthentication] {
-	return pulumix.Output[*ManagedClusterAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterAuthenticationPtrOutput) Elem() ManagedClusterAuthenticationOutput {
@@ -3395,12 +2962,6 @@ func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthent
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationActiveDirectoryOutput)
 }
 
-func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthenticationActiveDirectory] {
-	return pulumix.Output[ManagedClusterAuthenticationActiveDirectory]{
-		OutputState: i.ToManagedClusterAuthenticationActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedClusterAuthenticationActiveDirectoryArgs) ToManagedClusterAuthenticationActiveDirectoryPtrOutput() ManagedClusterAuthenticationActiveDirectoryPtrOutput {
 	return i.ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
 }
@@ -3442,12 +3003,6 @@ func (i *managedClusterAuthenticationActiveDirectoryPtrType) ToManagedClusterAut
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
 }
 
-func (i *managedClusterAuthenticationActiveDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedClusterAuthenticationActiveDirectory] {
-	return pulumix.Output[*ManagedClusterAuthenticationActiveDirectory]{
-		OutputState: i.ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
@@ -3470,12 +3025,6 @@ func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToManagedClusterAuthe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAuthenticationActiveDirectory) *ManagedClusterAuthenticationActiveDirectory {
 		return &v
 	}).(ManagedClusterAuthenticationActiveDirectoryPtrOutput)
-}
-
-func (o ManagedClusterAuthenticationActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthenticationActiveDirectory] {
-	return pulumix.Output[ManagedClusterAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Client Application.
@@ -3505,12 +3054,6 @@ func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ToManagedClusterAu
 
 func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ToManagedClusterAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) ManagedClusterAuthenticationActiveDirectoryPtrOutput {
 	return o
-}
-
-func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedClusterAuthenticationActiveDirectory] {
-	return pulumix.Output[*ManagedClusterAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterAuthenticationActiveDirectoryPtrOutput) Elem() ManagedClusterAuthenticationActiveDirectoryOutput {
@@ -3594,12 +3137,6 @@ func (i ManagedClusterAuthenticationCertificateArgs) ToManagedClusterAuthenticat
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationCertificateOutput)
 }
 
-func (i ManagedClusterAuthenticationCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthenticationCertificate] {
-	return pulumix.Output[ManagedClusterAuthenticationCertificate]{
-		OutputState: i.ToManagedClusterAuthenticationCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterAuthenticationCertificateArrayInput is an input type that accepts ManagedClusterAuthenticationCertificateArray and ManagedClusterAuthenticationCertificateArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterAuthenticationCertificateArrayInput` via:
 //
@@ -3625,12 +3162,6 @@ func (i ManagedClusterAuthenticationCertificateArray) ToManagedClusterAuthentica
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAuthenticationCertificateArrayOutput)
 }
 
-func (i ManagedClusterAuthenticationCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterAuthenticationCertificate] {
-	return pulumix.Output[[]ManagedClusterAuthenticationCertificate]{
-		OutputState: i.ToManagedClusterAuthenticationCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterAuthenticationCertificateOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAuthenticationCertificateOutput) ElementType() reflect.Type {
@@ -3643,12 +3174,6 @@ func (o ManagedClusterAuthenticationCertificateOutput) ToManagedClusterAuthentic
 
 func (o ManagedClusterAuthenticationCertificateOutput) ToManagedClusterAuthenticationCertificateOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateOutput {
 	return o
-}
-
-func (o ManagedClusterAuthenticationCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterAuthenticationCertificate] {
-	return pulumix.Output[ManagedClusterAuthenticationCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The certificate's CN.
@@ -3678,12 +3203,6 @@ func (o ManagedClusterAuthenticationCertificateArrayOutput) ToManagedClusterAuth
 
 func (o ManagedClusterAuthenticationCertificateArrayOutput) ToManagedClusterAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterAuthenticationCertificateArrayOutput {
 	return o
-}
-
-func (o ManagedClusterAuthenticationCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterAuthenticationCertificate] {
-	return pulumix.Output[[]ManagedClusterAuthenticationCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) ManagedClusterAuthenticationCertificateOutput {
@@ -3733,12 +3252,6 @@ func (i ManagedClusterCustomFabricSettingArgs) ToManagedClusterCustomFabricSetti
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterCustomFabricSettingOutput)
 }
 
-func (i ManagedClusterCustomFabricSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterCustomFabricSetting] {
-	return pulumix.Output[ManagedClusterCustomFabricSetting]{
-		OutputState: i.ToManagedClusterCustomFabricSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterCustomFabricSettingArrayInput is an input type that accepts ManagedClusterCustomFabricSettingArray and ManagedClusterCustomFabricSettingArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterCustomFabricSettingArrayInput` via:
 //
@@ -3764,12 +3277,6 @@ func (i ManagedClusterCustomFabricSettingArray) ToManagedClusterCustomFabricSett
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterCustomFabricSettingArrayOutput)
 }
 
-func (i ManagedClusterCustomFabricSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterCustomFabricSetting] {
-	return pulumix.Output[[]ManagedClusterCustomFabricSetting]{
-		OutputState: i.ToManagedClusterCustomFabricSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterCustomFabricSettingOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterCustomFabricSettingOutput) ElementType() reflect.Type {
@@ -3782,12 +3289,6 @@ func (o ManagedClusterCustomFabricSettingOutput) ToManagedClusterCustomFabricSet
 
 func (o ManagedClusterCustomFabricSettingOutput) ToManagedClusterCustomFabricSettingOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingOutput {
 	return o
-}
-
-func (o ManagedClusterCustomFabricSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterCustomFabricSetting] {
-	return pulumix.Output[ManagedClusterCustomFabricSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameter name.
@@ -3817,12 +3318,6 @@ func (o ManagedClusterCustomFabricSettingArrayOutput) ToManagedClusterCustomFabr
 
 func (o ManagedClusterCustomFabricSettingArrayOutput) ToManagedClusterCustomFabricSettingArrayOutputWithContext(ctx context.Context) ManagedClusterCustomFabricSettingArrayOutput {
 	return o
-}
-
-func (o ManagedClusterCustomFabricSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterCustomFabricSetting] {
-	return pulumix.Output[[]ManagedClusterCustomFabricSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterCustomFabricSettingArrayOutput) Index(i pulumi.IntInput) ManagedClusterCustomFabricSettingOutput {
@@ -3880,12 +3375,6 @@ func (i ManagedClusterLbRuleArgs) ToManagedClusterLbRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLbRuleOutput)
 }
 
-func (i ManagedClusterLbRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterLbRule] {
-	return pulumix.Output[ManagedClusterLbRule]{
-		OutputState: i.ToManagedClusterLbRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterLbRuleArrayInput is an input type that accepts ManagedClusterLbRuleArray and ManagedClusterLbRuleArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterLbRuleArrayInput` via:
 //
@@ -3911,12 +3400,6 @@ func (i ManagedClusterLbRuleArray) ToManagedClusterLbRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLbRuleArrayOutput)
 }
 
-func (i ManagedClusterLbRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterLbRule] {
-	return pulumix.Output[[]ManagedClusterLbRule]{
-		OutputState: i.ToManagedClusterLbRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterLbRuleOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLbRuleOutput) ElementType() reflect.Type {
@@ -3929,12 +3412,6 @@ func (o ManagedClusterLbRuleOutput) ToManagedClusterLbRuleOutput() ManagedCluste
 
 func (o ManagedClusterLbRuleOutput) ToManagedClusterLbRuleOutputWithContext(ctx context.Context) ManagedClusterLbRuleOutput {
 	return o
-}
-
-func (o ManagedClusterLbRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterLbRule] {
-	return pulumix.Output[ManagedClusterLbRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // LB Backend port.
@@ -3974,12 +3451,6 @@ func (o ManagedClusterLbRuleArrayOutput) ToManagedClusterLbRuleArrayOutput() Man
 
 func (o ManagedClusterLbRuleArrayOutput) ToManagedClusterLbRuleArrayOutputWithContext(ctx context.Context) ManagedClusterLbRuleArrayOutput {
 	return o
-}
-
-func (o ManagedClusterLbRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterLbRule] {
-	return pulumix.Output[[]ManagedClusterLbRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterLbRuleArrayOutput) Index(i pulumi.IntInput) ManagedClusterLbRuleOutput {
@@ -4089,12 +3560,6 @@ func (i ManagedClusterNodeTypeArgs) ToManagedClusterNodeTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeOutput)
 }
 
-func (i ManagedClusterNodeTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeType] {
-	return pulumix.Output[ManagedClusterNodeType]{
-		OutputState: i.ToManagedClusterNodeTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterNodeTypeArrayInput is an input type that accepts ManagedClusterNodeTypeArray and ManagedClusterNodeTypeArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterNodeTypeArrayInput` via:
 //
@@ -4120,12 +3585,6 @@ func (i ManagedClusterNodeTypeArray) ToManagedClusterNodeTypeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeArrayOutput)
 }
 
-func (i ManagedClusterNodeTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeType] {
-	return pulumix.Output[[]ManagedClusterNodeType]{
-		OutputState: i.ToManagedClusterNodeTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterNodeTypeOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterNodeTypeOutput) ElementType() reflect.Type {
@@ -4138,12 +3597,6 @@ func (o ManagedClusterNodeTypeOutput) ToManagedClusterNodeTypeOutput() ManagedCl
 
 func (o ManagedClusterNodeTypeOutput) ToManagedClusterNodeTypeOutputWithContext(ctx context.Context) ManagedClusterNodeTypeOutput {
 	return o
-}
-
-func (o ManagedClusterNodeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeType] {
-	return pulumix.Output[ManagedClusterNodeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
@@ -4250,12 +3703,6 @@ func (o ManagedClusterNodeTypeArrayOutput) ToManagedClusterNodeTypeArrayOutputWi
 	return o
 }
 
-func (o ManagedClusterNodeTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeType] {
-	return pulumix.Output[[]ManagedClusterNodeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedClusterNodeTypeArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterNodeType {
 		return vs[0].([]ManagedClusterNodeType)[vs[1].(int)]
@@ -4299,12 +3746,6 @@ func (i ManagedClusterNodeTypeVmSecretArgs) ToManagedClusterNodeTypeVmSecretOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretOutput)
 }
 
-func (i ManagedClusterNodeTypeVmSecretArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeTypeVmSecret] {
-	return pulumix.Output[ManagedClusterNodeTypeVmSecret]{
-		OutputState: i.ToManagedClusterNodeTypeVmSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterNodeTypeVmSecretArrayInput is an input type that accepts ManagedClusterNodeTypeVmSecretArray and ManagedClusterNodeTypeVmSecretArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretArrayInput` via:
 //
@@ -4330,12 +3771,6 @@ func (i ManagedClusterNodeTypeVmSecretArray) ToManagedClusterNodeTypeVmSecretArr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretArrayOutput)
 }
 
-func (i ManagedClusterNodeTypeVmSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeTypeVmSecret] {
-	return pulumix.Output[[]ManagedClusterNodeTypeVmSecret]{
-		OutputState: i.ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterNodeTypeVmSecretOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterNodeTypeVmSecretOutput) ElementType() reflect.Type {
@@ -4348,12 +3783,6 @@ func (o ManagedClusterNodeTypeVmSecretOutput) ToManagedClusterNodeTypeVmSecretOu
 
 func (o ManagedClusterNodeTypeVmSecretOutput) ToManagedClusterNodeTypeVmSecretOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretOutput {
 	return o
-}
-
-func (o ManagedClusterNodeTypeVmSecretOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeTypeVmSecret] {
-	return pulumix.Output[ManagedClusterNodeTypeVmSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `certificates` blocks as defined above.
@@ -4380,12 +3809,6 @@ func (o ManagedClusterNodeTypeVmSecretArrayOutput) ToManagedClusterNodeTypeVmSec
 
 func (o ManagedClusterNodeTypeVmSecretArrayOutput) ToManagedClusterNodeTypeVmSecretArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretArrayOutput {
 	return o
-}
-
-func (o ManagedClusterNodeTypeVmSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeTypeVmSecret] {
-	return pulumix.Output[[]ManagedClusterNodeTypeVmSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterNodeTypeVmSecretArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeVmSecretOutput {
@@ -4431,12 +3854,6 @@ func (i ManagedClusterNodeTypeVmSecretCertificateArgs) ToManagedClusterNodeTypeV
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretCertificateOutput)
 }
 
-func (i ManagedClusterNodeTypeVmSecretCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeTypeVmSecretCertificate] {
-	return pulumix.Output[ManagedClusterNodeTypeVmSecretCertificate]{
-		OutputState: i.ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedClusterNodeTypeVmSecretCertificateArrayInput is an input type that accepts ManagedClusterNodeTypeVmSecretCertificateArray and ManagedClusterNodeTypeVmSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterNodeTypeVmSecretCertificateArrayInput` via:
 //
@@ -4462,12 +3879,6 @@ func (i ManagedClusterNodeTypeVmSecretCertificateArray) ToManagedClusterNodeType
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterNodeTypeVmSecretCertificateArrayOutput)
 }
 
-func (i ManagedClusterNodeTypeVmSecretCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeTypeVmSecretCertificate] {
-	return pulumix.Output[[]ManagedClusterNodeTypeVmSecretCertificate]{
-		OutputState: i.ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedClusterNodeTypeVmSecretCertificateOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterNodeTypeVmSecretCertificateOutput) ElementType() reflect.Type {
@@ -4480,12 +3891,6 @@ func (o ManagedClusterNodeTypeVmSecretCertificateOutput) ToManagedClusterNodeTyp
 
 func (o ManagedClusterNodeTypeVmSecretCertificateOutput) ToManagedClusterNodeTypeVmSecretCertificateOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateOutput {
 	return o
-}
-
-func (o ManagedClusterNodeTypeVmSecretCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedClusterNodeTypeVmSecretCertificate] {
-	return pulumix.Output[ManagedClusterNodeTypeVmSecretCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The certificate store on the Virtual Machine to which the certificate should be added.
@@ -4510,12 +3915,6 @@ func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ToManagedClusterNo
 
 func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ToManagedClusterNodeTypeVmSecretCertificateArrayOutputWithContext(ctx context.Context) ManagedClusterNodeTypeVmSecretCertificateArrayOutput {
 	return o
-}
-
-func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedClusterNodeTypeVmSecretCertificate] {
-	return pulumix.Output[[]ManagedClusterNodeTypeVmSecretCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedClusterNodeTypeVmSecretCertificateArrayOutput) Index(i pulumi.IntInput) ManagedClusterNodeTypeVmSecretCertificateOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Share Kusto Database Dataset.
@@ -230,12 +229,6 @@ func (i *DatasetKustoDatabase) ToDatasetKustoDatabaseOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseOutput)
 }
 
-func (i *DatasetKustoDatabase) ToOutput(ctx context.Context) pulumix.Output[*DatasetKustoDatabase] {
-	return pulumix.Output[*DatasetKustoDatabase]{
-		OutputState: i.ToDatasetKustoDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetKustoDatabaseArrayInput is an input type that accepts DatasetKustoDatabaseArray and DatasetKustoDatabaseArrayOutput values.
 // You can construct a concrete instance of `DatasetKustoDatabaseArrayInput` via:
 //
@@ -259,12 +252,6 @@ func (i DatasetKustoDatabaseArray) ToDatasetKustoDatabaseArrayOutput() DatasetKu
 
 func (i DatasetKustoDatabaseArray) ToDatasetKustoDatabaseArrayOutputWithContext(ctx context.Context) DatasetKustoDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseArrayOutput)
-}
-
-func (i DatasetKustoDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetKustoDatabase] {
-	return pulumix.Output[[]*DatasetKustoDatabase]{
-		OutputState: i.ToDatasetKustoDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetKustoDatabaseMapInput is an input type that accepts DatasetKustoDatabaseMap and DatasetKustoDatabaseMapOutput values.
@@ -292,12 +279,6 @@ func (i DatasetKustoDatabaseMap) ToDatasetKustoDatabaseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetKustoDatabaseMapOutput)
 }
 
-func (i DatasetKustoDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetKustoDatabase] {
-	return pulumix.Output[map[string]*DatasetKustoDatabase]{
-		OutputState: i.ToDatasetKustoDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetKustoDatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatasetKustoDatabaseOutput) ElementType() reflect.Type {
@@ -310,12 +291,6 @@ func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutput() DatasetKustoD
 
 func (o DatasetKustoDatabaseOutput) ToDatasetKustoDatabaseOutputWithContext(ctx context.Context) DatasetKustoDatabaseOutput {
 	return o
-}
-
-func (o DatasetKustoDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetKustoDatabase] {
-	return pulumix.Output[*DatasetKustoDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Data Share Dataset.
@@ -357,12 +332,6 @@ func (o DatasetKustoDatabaseArrayOutput) ToDatasetKustoDatabaseArrayOutputWithCo
 	return o
 }
 
-func (o DatasetKustoDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetKustoDatabase] {
-	return pulumix.Output[[]*DatasetKustoDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetKustoDatabaseArrayOutput) Index(i pulumi.IntInput) DatasetKustoDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetKustoDatabase {
 		return vs[0].([]*DatasetKustoDatabase)[vs[1].(int)]
@@ -381,12 +350,6 @@ func (o DatasetKustoDatabaseMapOutput) ToDatasetKustoDatabaseMapOutput() Dataset
 
 func (o DatasetKustoDatabaseMapOutput) ToDatasetKustoDatabaseMapOutputWithContext(ctx context.Context) DatasetKustoDatabaseMapOutput {
 	return o
-}
-
-func (o DatasetKustoDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetKustoDatabase] {
-	return pulumix.Output[map[string]*DatasetKustoDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetKustoDatabaseMapOutput) MapIndex(k pulumi.StringInput) DatasetKustoDatabaseOutput {

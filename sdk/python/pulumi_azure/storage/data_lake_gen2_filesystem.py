@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataLakeGen2FilesystemArgs', 'DataLakeGen2Filesystem']
+__all__ = ['DataLakeGen2FilesystemArrgs', 'DataLakeGen2Filesystem']
 
 @pulumi.input_type
-class DataLakeGen2FilesystemArgs:
+calass DataLakeGen2FilesystemArrgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class DataLakeGen2FilesystemArgs:
         """
         The set of arguments for constructing a DataLakeGen2Filesystem resource.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -59,14 +59,14 @@ class DataLakeGen2FilesystemArgs:
 
     @property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
+    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
+    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]]):
         pulumi.set(self, "aces", value)
 
     @property
@@ -121,9 +121,9 @@ class DataLakeGen2FilesystemArgs:
 
 
 @pulumi.input_type
-class _DataLakeGen2FilesystemState:
+calass _DataLakeGen2FilesystemState:
     def __init__(__self__, *,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class _DataLakeGen2FilesystemState:
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -155,14 +155,14 @@ class _DataLakeGen2FilesystemState:
 
     @property
     @pulumi.getter
-    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
+    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]]:
         """
         One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         """
         return pulumi.get(self, "aces")
 
     @aces.setter
-    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
+    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArrgs']]]]):
         pulumi.set(self, "aces", value)
 
     @property
@@ -228,12 +228,12 @@ class _DataLakeGen2FilesystemState:
         pulumi.set(self, "storage_account_id", value)
 
 
-class DataLakeGen2Filesystem(pulumi.CustomResource):
+calass DataLakeGen2Filesystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArrgs']]]]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -276,7 +276,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArrgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
@@ -289,7 +289,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataLakeGen2FilesystemArgs,
+                 args: DataLakeGen2FilesystemArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Lake Gen2 File System within an Azure Storage Account.
@@ -326,12 +326,12 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataLakeGen2FilesystemArgs args: The arguments to use to populate this resource's properties.
+        :param DataLakeGen2FilesystemArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataLakeGen2FilesystemArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataLakeGen2FilesystemArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -340,7 +340,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArrgs']]]]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -353,7 +353,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataLakeGen2FilesystemArgs.__new__(DataLakeGen2FilesystemArgs)
+            __props__ = DataLakeGen2FilesystemArrgs.__new__(DataLakeGen2FilesystemArrgs)
 
             __props__.__dict__["aces"] = aces
             __props__.__dict__["group"] = group
@@ -373,7 +373,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]]] = None,
+            aces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArrgs']]]]] = None,
             group: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
@@ -386,7 +386,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeGen2FilesystemAceArrgs']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
                > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.

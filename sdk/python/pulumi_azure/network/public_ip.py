@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PublicIpArgs', 'PublicIp']
+__all__ = ['PublicIpArrgs', 'PublicIp']
 
 @pulumi.input_type
-class PublicIpArgs:
+calass PublicIpArrgs:
     def __init__(__self__, *,
                  allocation_method: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -318,7 +318,7 @@ class PublicIpArgs:
 
 
 @pulumi.input_type
-class _PublicIpState:
+calass _PublicIpState:
     def __init__(__self__, *,
                  allocation_method: Optional[pulumi.Input[str]] = None,
                  ddos_protection_mode: Optional[pulumi.Input[str]] = None,
@@ -657,7 +657,7 @@ class _PublicIpState:
         pulumi.set(self, "zones", value)
 
 
-class PublicIp(pulumi.CustomResource):
+calass PublicIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -747,7 +747,7 @@ class PublicIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PublicIpArgs,
+                 args: PublicIpArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Public IP Address.
@@ -779,12 +779,12 @@ class PublicIp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PublicIpArgs args: The arguments to use to populate this resource's properties.
+        :param PublicIpArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PublicIpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PublicIpArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -817,7 +817,7 @@ class PublicIp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PublicIpArgs.__new__(PublicIpArgs)
+            __props__ = PublicIpArrgs.__new__(PublicIpArrgs)
 
             if allocation_method is None and not opts.urn:
                 raise TypeError("Missing required property 'allocation_method'")

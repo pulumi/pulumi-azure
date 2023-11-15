@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LabAutoShutdown(dict):
+calass LabAutoShutdown(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -118,7 +118,7 @@ class LabAutoShutdown(dict):
 
 
 @pulumi.output_type
-class LabConnectionSetting(dict):
+calass LabConnectionSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -176,7 +176,7 @@ class LabConnectionSetting(dict):
 
 
 @pulumi.output_type
-class LabNetwork(dict):
+calass LabNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -240,7 +240,7 @@ class LabNetwork(dict):
 
 
 @pulumi.output_type
-class LabRoster(dict):
+calass LabRoster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -332,7 +332,7 @@ class LabRoster(dict):
 
 
 @pulumi.output_type
-class LabSecurity(dict):
+calass LabSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -381,7 +381,7 @@ class LabSecurity(dict):
 
 
 @pulumi.output_type
-class LabVirtualMachine(dict):
+calass LabVirtualMachine(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -421,12 +421,12 @@ class LabVirtualMachine(dict):
                  shared_password_enabled: Optional[bool] = None,
                  usage_quota: Optional[str] = None):
         """
-        :param 'LabVirtualMachineAdminUserArgs' admin_user: An `admin_user` block as defined below.
-        :param 'LabVirtualMachineImageReferenceArgs' image_reference: An `image_reference` block as defined below.
-        :param 'LabVirtualMachineSkuArgs' sku: A `sku` block as defined below.
+        :param 'LabVirtualMachineAdminUserArrgs' admin_user: An `admin_user` block as defined below.
+        :param 'LabVirtualMachineImageReferenceArrgs' image_reference: An `image_reference` block as defined below.
+        :param 'LabVirtualMachineSkuArrgs' sku: A `sku` block as defined below.
         :param bool additional_capability_gpu_drivers_installed: Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
         :param str create_option: The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
-        :param 'LabVirtualMachineNonAdminUserArgs' non_admin_user: A `non_admin_user` block as defined below.
+        :param 'LabVirtualMachineNonAdminUserArrgs' non_admin_user: A `non_admin_user` block as defined below.
         :param bool shared_password_enabled: Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
         :param str usage_quota: The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
         """
@@ -510,7 +510,7 @@ class LabVirtualMachine(dict):
 
 
 @pulumi.output_type
-class LabVirtualMachineAdminUser(dict):
+calass LabVirtualMachineAdminUser(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -539,7 +539,7 @@ class LabVirtualMachineAdminUser(dict):
 
 
 @pulumi.output_type
-class LabVirtualMachineImageReference(dict):
+calass LabVirtualMachineImageReference(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  offer: Optional[str] = None,
@@ -606,7 +606,7 @@ class LabVirtualMachineImageReference(dict):
 
 
 @pulumi.output_type
-class LabVirtualMachineNonAdminUser(dict):
+calass LabVirtualMachineNonAdminUser(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -635,7 +635,7 @@ class LabVirtualMachineNonAdminUser(dict):
 
 
 @pulumi.output_type
-class LabVirtualMachineSku(dict):
+calass LabVirtualMachineSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str):
@@ -668,7 +668,7 @@ class LabVirtualMachineSku(dict):
 
 
 @pulumi.output_type
-class ScheduleRecurrence(dict):
+calass ScheduleRecurrence(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -740,7 +740,7 @@ class ScheduleRecurrence(dict):
 
 
 @pulumi.output_type
-class ServicePlanDefaultAutoShutdown(dict):
+calass ServicePlanDefaultAutoShutdown(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -822,7 +822,7 @@ class ServicePlanDefaultAutoShutdown(dict):
 
 
 @pulumi.output_type
-class ServicePlanDefaultConnection(dict):
+calass ServicePlanDefaultConnection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -916,7 +916,7 @@ class ServicePlanDefaultConnection(dict):
 
 
 @pulumi.output_type
-class ServicePlanSupport(dict):
+calass ServicePlanSupport(dict):
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  instructions: Optional[str] = None,

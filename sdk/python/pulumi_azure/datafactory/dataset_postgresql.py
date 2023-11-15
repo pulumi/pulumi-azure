@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetPostgresqlArgs', 'DatasetPostgresql']
+__all__ = ['DatasetPostgresqlArrgs', 'DatasetPostgresql']
 
 @pulumi.input_type
-class DatasetPostgresqlArgs:
+calass DatasetPostgresqlArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class DatasetPostgresqlArgs:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatasetPostgresql resource.
@@ -36,7 +36,7 @@ class DatasetPostgresqlArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset PostgreSQL.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset PostgreSQL.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -156,14 +156,14 @@ class DatasetPostgresqlArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -180,7 +180,7 @@ class DatasetPostgresqlArgs:
 
 
 @pulumi.input_type
-class _DatasetPostgresqlState:
+calass _DatasetPostgresqlState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -190,7 +190,7 @@ class _DatasetPostgresqlState:
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatasetPostgresql resources.
@@ -202,7 +202,7 @@ class _DatasetPostgresqlState:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset PostgreSQL.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset PostgreSQL.
         """
         if additional_properties is not None:
@@ -324,14 +324,14 @@ class _DatasetPostgresqlState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -347,7 +347,7 @@ class _DatasetPostgresqlState:
         pulumi.set(self, "table_name", value)
 
 
-class DatasetPostgresql(pulumi.CustomResource):
+calass DatasetPostgresql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -360,7 +360,7 @@ class DatasetPostgresql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -402,14 +402,14 @@ class DatasetPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset PostgreSQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset PostgreSQL.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetPostgresqlArgs,
+                 args: DatasetPostgresqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a PostgreSQL Dataset inside a Azure Data Factory.
@@ -441,12 +441,12 @@ class DatasetPostgresql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetPostgresqlArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetPostgresqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetPostgresqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetPostgresqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -463,7 +463,7 @@ class DatasetPostgresql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -472,7 +472,7 @@ class DatasetPostgresql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetPostgresqlArgs.__new__(DatasetPostgresqlArgs)
+            __props__ = DatasetPostgresqlArrgs.__new__(DatasetPostgresqlArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -506,7 +506,7 @@ class DatasetPostgresql(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArrgs']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetPostgresql':
         """
         Get an existing DatasetPostgresql resource's state with the given name, id, and optional extra
@@ -523,7 +523,7 @@ class DatasetPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset PostgreSQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetPostgresqlSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset PostgreSQL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

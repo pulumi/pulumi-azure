@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContactArgs', 'Contact']
+__all__ = ['ContactArrgs', 'Contact']
 
 @pulumi.input_type
-class ContactArgs:
+calass ContactArrgs:
     def __init__(__self__, *,
                  alert_notifications: pulumi.Input[bool],
                  alerts_to_admins: pulumi.Input[bool],
@@ -97,7 +97,7 @@ class ContactArgs:
 
 
 @pulumi.input_type
-class _ContactState:
+calass _ContactState:
     def __init__(__self__, *,
                  alert_notifications: Optional[pulumi.Input[bool]] = None,
                  alerts_to_admins: Optional[pulumi.Input[bool]] = None,
@@ -184,7 +184,7 @@ class _ContactState:
         pulumi.set(self, "phone", value)
 
 
-class Contact(pulumi.CustomResource):
+calass Contact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -233,7 +233,7 @@ class Contact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContactArgs,
+                 args: ContactArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the subscription's Security Center Contact.
@@ -262,12 +262,12 @@ class Contact(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContactArgs args: The arguments to use to populate this resource's properties.
+        :param ContactArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContactArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -288,7 +288,7 @@ class Contact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContactArgs.__new__(ContactArgs)
+            __props__ = ContactArrgs.__new__(ContactArrgs)
 
             if alert_notifications is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_notifications'")

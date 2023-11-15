@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSasResult:
+calass GetSasResult:
     """
     A collection of values returned by getSas.
     """
@@ -62,7 +62,7 @@ class GetSasResult:
         return pulumi.get(self, "sas")
 
 
-class AwaitableGetSasResult(GetSasResult):
+calass AwaitableGetSasResult(GetSasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

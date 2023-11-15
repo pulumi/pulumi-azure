@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetManagedHardwareSecurityModuleResult:
+calass GetManagedHardwareSecurityModuleResult:
     """
     A collection of values returned by getManagedHardwareSecurityModule.
     """
@@ -139,7 +139,7 @@ class GetManagedHardwareSecurityModuleResult:
         return pulumi.get(self, "tenant_id")
 
 
-class AwaitableGetManagedHardwareSecurityModuleResult(GetManagedHardwareSecurityModuleResult):
+calass AwaitableGetManagedHardwareSecurityModuleResult(GetManagedHardwareSecurityModuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

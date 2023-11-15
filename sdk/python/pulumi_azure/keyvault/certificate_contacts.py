@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertificateContactsArgs', 'CertificateContacts']
+__all__ = ['CertificateContactsArrgs', 'CertificateContacts']
 
 @pulumi.input_type
-class CertificateContactsArgs:
+calass CertificateContactsArrgs:
     def __init__(__self__, *,
-                 contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]],
+                 contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a CertificateContacts resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "contacts", contacts)
@@ -28,14 +28,14 @@ class CertificateContactsArgs:
 
     @property
     @pulumi.getter
-    def contacts(self) -> pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]:
+    def contacts(self) -> pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]]:
         """
         One or more `contact` blocks as defined below.
         """
         return pulumi.get(self, "contacts")
 
     @contacts.setter
-    def contacts(self, value: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]):
+    def contacts(self, value: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]]):
         pulumi.set(self, "contacts", value)
 
     @property
@@ -52,13 +52,13 @@ class CertificateContactsArgs:
 
 
 @pulumi.input_type
-class _CertificateContactsState:
+calass _CertificateContactsState:
     def __init__(__self__, *,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CertificateContacts resources.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         if contacts is not None:
@@ -68,14 +68,14 @@ class _CertificateContactsState:
 
     @property
     @pulumi.getter
-    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]]:
+    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]]]:
         """
         One or more `contact` blocks as defined below.
         """
         return pulumi.get(self, "contacts")
 
     @contacts.setter
-    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]]):
+    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArrgs']]]]):
         pulumi.set(self, "contacts", value)
 
     @property
@@ -91,12 +91,12 @@ class _CertificateContactsState:
         pulumi.set(self, "key_vault_id", value)
 
 
-class CertificateContacts(pulumi.CustomResource):
+calass CertificateContacts(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArrgs']]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -129,12 +129,12 @@ class CertificateContacts(pulumi.CustomResource):
         example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
             key_vault_id=example_key_vault.id,
             contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
+                azure.keyvault.CertificateContactsContactArrgs(
                     email="example@example.com",
                     name="example",
                     phone="01234567890",
                 ),
-                azure.keyvault.CertificateContactsContactArgs(
+                azure.keyvault.CertificateContactsContactArrgs(
                     email="example2@example.com",
                 ),
             ],
@@ -151,14 +151,14 @@ class CertificateContacts(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArrgs']]]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateContactsArgs,
+                 args: CertificateContactsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Key Vault Certificate Contacts.
@@ -190,12 +190,12 @@ class CertificateContacts(pulumi.CustomResource):
         example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
             key_vault_id=example_key_vault.id,
             contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
+                azure.keyvault.CertificateContactsContactArrgs(
                     email="example@example.com",
                     name="example",
                     phone="01234567890",
                 ),
-                azure.keyvault.CertificateContactsContactArgs(
+                azure.keyvault.CertificateContactsContactArrgs(
                     email="example2@example.com",
                 ),
             ],
@@ -211,12 +211,12 @@ class CertificateContacts(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateContactsArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateContactsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateContactsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateContactsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class CertificateContacts(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArrgs']]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -234,7 +234,7 @@ class CertificateContacts(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateContactsArgs.__new__(CertificateContactsArgs)
+            __props__ = CertificateContactsArrgs.__new__(CertificateContactsArrgs)
 
             if contacts is None and not opts.urn:
                 raise TypeError("Missing required property 'contacts'")
@@ -252,7 +252,7 @@ class CertificateContacts(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArrgs']]]]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None) -> 'CertificateContacts':
         """
         Get an existing CertificateContacts resource's state with the given name, id, and optional extra
@@ -261,7 +261,7 @@ class CertificateContacts(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArrgs']]]] contacts: One or more `contact` blocks as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

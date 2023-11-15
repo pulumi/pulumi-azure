@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssessmentPolicyArgs', 'AssessmentPolicy']
+__all__ = ['AssessmentPolicyArrgs', 'AssessmentPolicy']
 
 @pulumi.input_type
-class AssessmentPolicyArgs:
+calass AssessmentPolicyArrgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  display_name: pulumi.Input[str],
@@ -146,7 +146,7 @@ class AssessmentPolicyArgs:
 
 
 @pulumi.input_type
-class _AssessmentPolicyState:
+calass _AssessmentPolicyState:
     def __init__(__self__, *,
                  categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -297,7 +297,7 @@ class _AssessmentPolicyState:
         pulumi.set(self, "user_impact", value)
 
 
-class AssessmentPolicy(pulumi.CustomResource):
+calass AssessmentPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -349,7 +349,7 @@ class AssessmentPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssessmentPolicyArgs,
+                 args: AssessmentPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Security Center Assessment Metadata for Azure Security Center.
@@ -375,12 +375,12 @@ class AssessmentPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssessmentPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param AssessmentPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssessmentPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -404,7 +404,7 @@ class AssessmentPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssessmentPolicyArgs.__new__(AssessmentPolicyArgs)
+            __props__ = AssessmentPolicyArrgs.__new__(AssessmentPolicyArrgs)
 
             __props__.__dict__["categories"] = categories
             if description is None and not opts.urn:

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Connection Monitor.
@@ -377,12 +376,6 @@ func (i *NetworkConnectionMonitor) ToNetworkConnectionMonitorOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorOutput)
 }
 
-func (i *NetworkConnectionMonitor) ToOutput(ctx context.Context) pulumix.Output[*NetworkConnectionMonitor] {
-	return pulumix.Output[*NetworkConnectionMonitor]{
-		OutputState: i.ToNetworkConnectionMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkConnectionMonitorArrayInput is an input type that accepts NetworkConnectionMonitorArray and NetworkConnectionMonitorArrayOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorArrayInput` via:
 //
@@ -406,12 +399,6 @@ func (i NetworkConnectionMonitorArray) ToNetworkConnectionMonitorArrayOutput() N
 
 func (i NetworkConnectionMonitorArray) ToNetworkConnectionMonitorArrayOutputWithContext(ctx context.Context) NetworkConnectionMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorArrayOutput)
-}
-
-func (i NetworkConnectionMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkConnectionMonitor] {
-	return pulumix.Output[[]*NetworkConnectionMonitor]{
-		OutputState: i.ToNetworkConnectionMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkConnectionMonitorMapInput is an input type that accepts NetworkConnectionMonitorMap and NetworkConnectionMonitorMapOutput values.
@@ -439,12 +426,6 @@ func (i NetworkConnectionMonitorMap) ToNetworkConnectionMonitorMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkConnectionMonitorMapOutput)
 }
 
-func (i NetworkConnectionMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkConnectionMonitor] {
-	return pulumix.Output[map[string]*NetworkConnectionMonitor]{
-		OutputState: i.ToNetworkConnectionMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkConnectionMonitorOutput struct{ *pulumi.OutputState }
 
 func (NetworkConnectionMonitorOutput) ElementType() reflect.Type {
@@ -457,12 +438,6 @@ func (o NetworkConnectionMonitorOutput) ToNetworkConnectionMonitorOutput() Netwo
 
 func (o NetworkConnectionMonitorOutput) ToNetworkConnectionMonitorOutputWithContext(ctx context.Context) NetworkConnectionMonitorOutput {
 	return o
-}
-
-func (o NetworkConnectionMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkConnectionMonitor] {
-	return pulumix.Output[*NetworkConnectionMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `endpoint` block as defined below.
@@ -526,12 +501,6 @@ func (o NetworkConnectionMonitorArrayOutput) ToNetworkConnectionMonitorArrayOutp
 	return o
 }
 
-func (o NetworkConnectionMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkConnectionMonitor] {
-	return pulumix.Output[[]*NetworkConnectionMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkConnectionMonitorArrayOutput) Index(i pulumi.IntInput) NetworkConnectionMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkConnectionMonitor {
 		return vs[0].([]*NetworkConnectionMonitor)[vs[1].(int)]
@@ -550,12 +519,6 @@ func (o NetworkConnectionMonitorMapOutput) ToNetworkConnectionMonitorMapOutput()
 
 func (o NetworkConnectionMonitorMapOutput) ToNetworkConnectionMonitorMapOutputWithContext(ctx context.Context) NetworkConnectionMonitorMapOutput {
 	return o
-}
-
-func (o NetworkConnectionMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkConnectionMonitor] {
-	return pulumix.Output[map[string]*NetworkConnectionMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkConnectionMonitorMapOutput) MapIndex(k pulumi.StringInput) NetworkConnectionMonitorOutput {

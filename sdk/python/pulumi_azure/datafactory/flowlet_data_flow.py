@@ -11,33 +11,33 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FlowletDataFlowArgs', 'FlowletDataFlow']
+__all__ = ['FlowletDataFlowArrgs', 'FlowletDataFlow']
 
 @pulumi.input_type
-class FlowletDataFlowArgs:
+calass FlowletDataFlowArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
-                 sinks: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]],
-                 sources: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]],
+                 sinks: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]],
+                 sources: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]] = None):
         """
         The set of arguments for constructing a FlowletDataFlow resource.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]] transformations: One or more `transformation` blocks as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "sinks", sinks)
@@ -71,26 +71,26 @@ class FlowletDataFlowArgs:
 
     @property
     @pulumi.getter
-    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]:
+    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]]:
         """
         One or more `sink` blocks as defined below.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]):
+    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]]):
         pulumi.set(self, "sinks", value)
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]:
+    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]]:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]):
+    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]]):
         pulumi.set(self, "sources", value)
 
     @property
@@ -167,19 +167,19 @@ class FlowletDataFlowArgs:
 
     @property
     @pulumi.getter
-    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
+    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]]:
         """
         One or more `transformation` blocks as defined below.
         """
         return pulumi.get(self, "transformations")
 
     @transformations.setter
-    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
+    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]]):
         pulumi.set(self, "transformations", value)
 
 
 @pulumi.input_type
-class _FlowletDataFlowState:
+calass _FlowletDataFlowState:
     def __init__(__self__, *,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
@@ -188,9 +188,9 @@ class _FlowletDataFlowState:
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]] = None):
         """
         Input properties used for looking up and filtering FlowletDataFlow resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
@@ -200,9 +200,9 @@ class _FlowletDataFlowState:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]] transformations: One or more `transformation` blocks as defined below.
         """
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -311,42 +311,42 @@ class _FlowletDataFlowState:
 
     @property
     @pulumi.getter
-    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]]]:
         """
         One or more `sink` blocks as defined below.
         """
         return pulumi.get(self, "sinks")
 
     @sinks.setter
-    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArrgs']]]]):
         pulumi.set(self, "sinks", value)
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]]]:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArrgs']]]]):
         pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter
-    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]:
+    def transformations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]]:
         """
         One or more `transformation` blocks as defined below.
         """
         return pulumi.get(self, "transformations")
 
     @transformations.setter
-    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]]):
+    def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArrgs']]]]):
         pulumi.set(self, "transformations", value)
 
 
-class FlowletDataFlow(pulumi.CustomResource):
+calass FlowletDataFlow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -358,9 +358,9 @@ class FlowletDataFlow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArgs']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArrgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArrgs']]]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Flowlet Data Flow inside an Azure Data Factory.
@@ -390,7 +390,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
+            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArrgs(
                 container="container",
                 path="foo/bar/",
                 filename="foo.txt",
@@ -399,7 +399,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
+            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArrgs(
                 container="container",
                 path="foo/bar/",
                 filename="bar.txt",
@@ -407,15 +407,15 @@ class FlowletDataFlow(pulumi.CustomResource):
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -433,15 +433,15 @@ class FlowletDataFlow(pulumi.CustomResource):
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -459,21 +459,21 @@ class FlowletDataFlow(pulumi.CustomResource):
         \"\"\")
         example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("exampleFlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                flowlet=azure.datafactory.FlowletDataFlowSourceFlowletArgs(
+                flowlet=azure.datafactory.FlowletDataFlowSourceFlowletArrgs(
                     name=example1_flowlet_data_flow.name,
                 ),
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                flowlet=azure.datafactory.FlowletDataFlowSinkFlowletArgs(
+                flowlet=azure.datafactory.FlowletDataFlowSinkFlowletArrgs(
                     name=example2_flowlet_data_flow.name,
                 ),
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -508,15 +508,15 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArrgs']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArrgs']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArrgs']]]] transformations: One or more `transformation` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlowletDataFlowArgs,
+                 args: FlowletDataFlowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Flowlet Data Flow inside an Azure Data Factory.
@@ -546,7 +546,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
+            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArrgs(
                 container="container",
                 path="foo/bar/",
                 filename="foo.txt",
@@ -555,7 +555,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
+            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArrgs(
                 container="container",
                 path="foo/bar/",
                 filename="bar.txt",
@@ -563,15 +563,15 @@ class FlowletDataFlow(pulumi.CustomResource):
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -589,15 +589,15 @@ class FlowletDataFlow(pulumi.CustomResource):
         \"\"\")
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -615,21 +615,21 @@ class FlowletDataFlow(pulumi.CustomResource):
         \"\"\")
         example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("exampleFlowletDataFlow",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+            sources=[azure.datafactory.FlowletDataFlowSourceArrgs(
                 name="source1",
-                flowlet=azure.datafactory.FlowletDataFlowSourceFlowletArgs(
+                flowlet=azure.datafactory.FlowletDataFlowSourceFlowletArrgs(
                     name=example1_flowlet_data_flow.name,
                 ),
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+            sinks=[azure.datafactory.FlowletDataFlowSinkArrgs(
                 name="sink1",
-                flowlet=azure.datafactory.FlowletDataFlowSinkFlowletArgs(
+                flowlet=azure.datafactory.FlowletDataFlowSinkFlowletArrgs(
                     name=example2_flowlet_data_flow.name,
                 ),
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArrgs(
                     name=example_linked_custom_service.name,
                 ),
             )],
@@ -656,12 +656,12 @@ class FlowletDataFlow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FlowletDataFlowArgs args: The arguments to use to populate this resource's properties.
+        :param FlowletDataFlowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlowletDataFlowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlowletDataFlowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -677,9 +677,9 @@ class FlowletDataFlow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArgs']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArrgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArrgs']]]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -687,7 +687,7 @@ class FlowletDataFlow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlowletDataFlowArgs.__new__(FlowletDataFlowArgs)
+            __props__ = FlowletDataFlowArrgs.__new__(FlowletDataFlowArrgs)
 
             __props__.__dict__["annotations"] = annotations
             if data_factory_id is None and not opts.urn:
@@ -722,9 +722,9 @@ class FlowletDataFlow(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             script: Optional[pulumi.Input[str]] = None,
             script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArgs']]]]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArgs']]]]] = None,
-            transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArgs']]]]] = None) -> 'FlowletDataFlow':
+            sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArrgs']]]]] = None,
+            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArrgs']]]]] = None,
+            transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArrgs']]]]] = None) -> 'FlowletDataFlow':
         """
         Get an existing FlowletDataFlow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -739,9 +739,9 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSinkArrgs']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowSourceArrgs']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowletDataFlowTransformationArrgs']]]] transformations: One or more `transformation` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

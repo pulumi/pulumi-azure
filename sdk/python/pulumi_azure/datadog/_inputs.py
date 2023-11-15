@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MonitorDatadogOrganizationArgs',
-    'MonitorIdentityArgs',
-    'MonitorTagRuleLogArgs',
-    'MonitorTagRuleLogFilterArgs',
-    'MonitorTagRuleMetricArgs',
-    'MonitorTagRuleMetricFilterArgs',
-    'MonitorUserArgs',
+    'MonitorDatadogOrganizationArrgs',
+    'MonitorIdentityArrgs',
+    'MonitorTagRuleLogArrgs',
+    'MonitorTagRuleLogFilterArrgs',
+    'MonitorTagRuleMetricArrgs',
+    'MonitorTagRuleMetricFilterArrgs',
+    'MonitorUserArrgs',
 ]
 
 @pulumi.input_type
-class MonitorDatadogOrganizationArgs:
+calass MonitorDatadogOrganizationArrgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
                  application_key: pulumi.Input[str],
@@ -153,7 +153,7 @@ class MonitorDatadogOrganizationArgs:
 
 
 @pulumi.input_type
-class MonitorIdentityArgs:
+calass MonitorIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -211,15 +211,15 @@ class MonitorIdentityArgs:
 
 
 @pulumi.input_type
-class MonitorTagRuleLogArgs:
+calass MonitorTagRuleLogArrgs:
     def __init__(__self__, *,
                  aad_log_enabled: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArrgs']]]] = None,
                  resource_log_enabled: Optional[pulumi.Input[bool]] = None,
                  subscription_log_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]] filters: A `filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArrgs']]] filters: A `filter` block as defined below.
                
                > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param pulumi.Input[bool] resource_log_enabled: Whether Azure resource logs should be sent for the Monitor resource?
@@ -248,7 +248,7 @@ class MonitorTagRuleLogArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArrgs']]]]:
         """
         A `filter` block as defined below.
 
@@ -257,7 +257,7 @@ class MonitorTagRuleLogArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -286,7 +286,7 @@ class MonitorTagRuleLogArgs:
 
 
 @pulumi.input_type
-class MonitorTagRuleLogFilterArgs:
+calass MonitorTagRuleLogFilterArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -338,11 +338,11 @@ class MonitorTagRuleLogFilterArgs:
 
 
 @pulumi.input_type
-class MonitorTagRuleMetricArgs:
+calass MonitorTagRuleMetricArrgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]] filters: A `filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArrgs']]] filters: A `filter` block as defined below.
                
                > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
@@ -351,7 +351,7 @@ class MonitorTagRuleMetricArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArrgs']]]]:
         """
         A `filter` block as defined below.
 
@@ -360,12 +360,12 @@ class MonitorTagRuleMetricArgs:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type
-class MonitorTagRuleMetricFilterArgs:
+calass MonitorTagRuleMetricFilterArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -417,7 +417,7 @@ class MonitorTagRuleMetricFilterArgs:
 
 
 @pulumi.input_type
-class MonitorUserArgs:
+calass MonitorUserArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  name: pulumi.Input[str],

@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AttachedDatabaseConfigurationSharingArgs',
-    'ClusterIdentityArgs',
-    'ClusterOptimizedAutoScaleArgs',
-    'ClusterSkuArgs',
-    'ClusterVirtualNetworkConfigurationArgs',
+    'AttachedDatabaseConfigurationSharingArrgs',
+    'ClusterIdentityArrgs',
+    'ClusterOptimizedAutoScaleArrgs',
+    'ClusterSkuArrgs',
+    'ClusterVirtualNetworkConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class AttachedDatabaseConfigurationSharingArgs:
+calass AttachedDatabaseConfigurationSharingArrgs:
     def __init__(__self__, *,
                  external_tables_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_tables_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -121,7 +121,7 @@ class AttachedDatabaseConfigurationSharingArgs:
 
 
 @pulumi.input_type
-class ClusterIdentityArgs:
+calass ClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -195,7 +195,7 @@ class ClusterIdentityArgs:
 
 
 @pulumi.input_type
-class ClusterOptimizedAutoScaleArgs:
+calass ClusterOptimizedAutoScaleArrgs:
     def __init__(__self__, *,
                  maximum_instances: pulumi.Input[int],
                  minimum_instances: pulumi.Input[int]):
@@ -232,7 +232,7 @@ class ClusterOptimizedAutoScaleArgs:
 
 
 @pulumi.input_type
-class ClusterSkuArgs:
+calass ClusterSkuArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None):
@@ -276,7 +276,7 @@ class ClusterSkuArgs:
 
 
 @pulumi.input_type
-class ClusterVirtualNetworkConfigurationArgs:
+calass ClusterVirtualNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  data_management_public_ip_id: pulumi.Input[str],
                  engine_public_ip_id: pulumi.Input[str],

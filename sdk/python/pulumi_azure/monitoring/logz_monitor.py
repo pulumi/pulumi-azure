@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LogzMonitorArgs', 'LogzMonitor']
+__all__ = ['LogzMonitorArrgs', 'LogzMonitor']
 
 @pulumi.input_type
-class LogzMonitorArgs:
+calass LogzMonitorArrgs:
     def __init__(__self__, *,
-                 plan: pulumi.Input['LogzMonitorPlanArgs'],
+                 plan: pulumi.Input['LogzMonitorPlanArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 user: pulumi.Input['LogzMonitorUserArgs'],
+                 user: pulumi.Input['LogzMonitorUserArrgs'],
                  company_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
@@ -27,9 +27,9 @@ class LogzMonitorArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LogzMonitor resource.
-        :param pulumi.Input['LogzMonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LogzMonitorPlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input['LogzMonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LogzMonitorUserArrgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[bool] enabled: Whether the resource monitoring is enabled? Defaults to `true`.
         :param pulumi.Input[str] enterprise_app_id: The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
@@ -57,14 +57,14 @@ class LogzMonitorArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> pulumi.Input['LogzMonitorPlanArgs']:
+    def plan(self) -> pulumi.Input['LogzMonitorPlanArrgs']:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: pulumi.Input['LogzMonitorPlanArgs']):
+    def plan(self, value: pulumi.Input['LogzMonitorPlanArrgs']):
         pulumi.set(self, "plan", value)
 
     @property
@@ -81,14 +81,14 @@ class LogzMonitorArgs:
 
     @property
     @pulumi.getter
-    def user(self) -> pulumi.Input['LogzMonitorUserArgs']:
+    def user(self) -> pulumi.Input['LogzMonitorUserArrgs']:
         """
         A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: pulumi.Input['LogzMonitorUserArgs']):
+    def user(self, value: pulumi.Input['LogzMonitorUserArrgs']):
         pulumi.set(self, "user", value)
 
     @property
@@ -167,7 +167,7 @@ class LogzMonitorArgs:
 
 
 @pulumi.input_type
-class _LogzMonitorState:
+calass _LogzMonitorState:
     def __init__(__self__, *,
                  company_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -175,11 +175,11 @@ class _LogzMonitorState:
                  location: Optional[pulumi.Input[str]] = None,
                  logz_organization_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input['LogzMonitorPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['LogzMonitorPlanArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_sign_on_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input['LogzMonitorUserArgs']] = None):
+                 user: Optional[pulumi.Input['LogzMonitorUserArrgs']] = None):
         """
         Input properties used for looking up and filtering LogzMonitor resources.
         :param pulumi.Input[str] company_name: Name of the Logz organization. Changing this forces a new logz Monitor to be created.
@@ -190,11 +190,11 @@ class _LogzMonitorState:
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input['LogzMonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LogzMonitorPlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] single_sign_on_url: The single sign on url associated with the logz organization of this logz Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
-        :param pulumi.Input['LogzMonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LogzMonitorUserArrgs'] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         if company_name is not None:
             pulumi.set(__self__, "company_name", company_name)
@@ -295,14 +295,14 @@ class _LogzMonitorState:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['LogzMonitorPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['LogzMonitorPlanArrgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['LogzMonitorPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['LogzMonitorPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -343,18 +343,18 @@ class _LogzMonitorState:
 
     @property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['LogzMonitorUserArgs']]:
+    def user(self) -> Optional[pulumi.Input['LogzMonitorUserArrgs']]:
         """
         A `user` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['LogzMonitorUserArgs']]):
+    def user(self, value: Optional[pulumi.Input['LogzMonitorUserArrgs']]):
         pulumi.set(self, "user", value)
 
 
-class LogzMonitor(pulumi.CustomResource):
+calass LogzMonitor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -364,10 +364,10 @@ class LogzMonitor(pulumi.CustomResource):
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArrgs']]] = None,
                  __props__=None):
         """
         Manages a logz Monitor.
@@ -382,12 +382,12 @@ class LogzMonitor(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -412,16 +412,16 @@ class LogzMonitor(pulumi.CustomResource):
                > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArrgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogzMonitorArgs,
+                 args: LogzMonitorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Monitor.
@@ -436,12 +436,12 @@ class LogzMonitor(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -458,12 +458,12 @@ class LogzMonitor(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogzMonitorArgs args: The arguments to use to populate this resource's properties.
+        :param LogzMonitorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogzMonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogzMonitorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -477,10 +477,10 @@ class LogzMonitor(pulumi.CustomResource):
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,7 +488,7 @@ class LogzMonitor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogzMonitorArgs.__new__(LogzMonitorArgs)
+            __props__ = LogzMonitorArrgs.__new__(LogzMonitorArrgs)
 
             __props__.__dict__["company_name"] = company_name
             __props__.__dict__["enabled"] = enabled
@@ -523,11 +523,11 @@ class LogzMonitor(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             logz_organization_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['LogzMonitorPlanArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             single_sign_on_url: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']]] = None) -> 'LogzMonitor':
+            user: Optional[pulumi.Input[pulumi.InputType['LogzMonitorUserArrgs']]] = None) -> 'LogzMonitor':
         """
         Get an existing LogzMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -543,11 +543,11 @@ class LogzMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] logz_organization_id: The ID associated with the logz organization of this logz Monitor.
         :param pulumi.Input[str] name: The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LogzMonitorPlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] single_sign_on_url: The single sign on url associated with the logz organization of this logz Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the logz Monitor.
-        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LogzMonitorUserArrgs']] user: A `user` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TransformArgs', 'Transform']
+__all__ = ['TransformArrgs', 'Transform']
 
 @pulumi.input_type
-class TransformArgs:
+calass TransformArrgs:
     def __init__(__self__, *,
                  media_services_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]] = None):
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]] = None):
         """
         The set of arguments for constructing a Transform resource.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         """
         pulumi.set(__self__, "media_services_account_name", media_services_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -88,31 +88,31 @@ class TransformArgs:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]:
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]]:
         """
         One or more `output` blocks as defined below. At least one `output` must be defined.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]):
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]]):
         pulumi.set(self, "outputs", value)
 
 
 @pulumi.input_type
-class _TransformState:
+calass _TransformState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Transform resources.
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         if description is not None:
@@ -164,14 +164,14 @@ class _TransformState:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]:
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]]:
         """
         One or more `output` blocks as defined below. At least one `output` must be defined.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]):
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArrgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @property
@@ -187,7 +187,7 @@ class _TransformState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class Transform(pulumi.CustomResource):
+calass Transform(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -195,7 +195,7 @@ class Transform(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -216,7 +216,7 @@ class Transform(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -224,10 +224,10 @@ class Transform(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
+            outputs=[azure.media.TransformOutputArrgs(
                 relative_priority="Normal",
                 on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                builtin_preset=azure.media.TransformOutputBuiltinPresetArrgs(
                     preset_name="AACGoodQualityAudio",
                 ),
             )])
@@ -247,7 +247,7 @@ class Transform(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -256,12 +256,12 @@ class Transform(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Normal",
                     on_error_action="ContinueJob",
-                    builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                    builtin_preset=azure.media.TransformOutputBuiltinPresetArrgs(
                         preset_name="AACGoodQualityAudio",
-                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArgs(
+                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArrgs(
                             complexity="Balanced",
                             interleave_output="NonInterleavedOutput",
                             key_frame_interval_in_seconds=123122.5,
@@ -273,10 +273,10 @@ class Transform(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="ContinueJob",
-                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArgs(
+                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArrgs(
                         audio_language="en-US",
                         audio_analysis_mode="Basic",
                         experimental_options={
@@ -284,10 +284,10 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="StopProcessingJob",
-                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArgs(
+                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArrgs(
                         analysis_resolution="StandardDefinition",
                         blur_type="Med",
                         face_redactor_mode="Combined",
@@ -296,10 +296,10 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Normal",
                     on_error_action="StopProcessingJob",
-                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArgs(
+                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArrgs(
                         audio_language="en-US",
                         audio_analysis_mode="Basic",
                         insights_type="AllInsights",
@@ -308,31 +308,31 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="ContinueJob",
-                    custom_preset=azure.media.TransformOutputCustomPresetArgs(
+                    custom_preset=azure.media.TransformOutputCustomPresetArrgs(
                         codecs=[
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArrgs(
                                     bitrate=128000,
                                     channels=2,
                                     sampling_rate=48000,
                                     profile="AacLc",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArrgs(
                                     label="test",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArrgs(
                                     label="test",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArrgs(
                                     key_frame_interval="PT1S",
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
@@ -340,7 +340,7 @@ class Transform(pulumi.CustomResource):
                                     rate_control_mode="ABR",
                                     complexity="Quality",
                                     layers=[
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
+                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArrgs(
                                             width="64",
                                             height="64",
                                             bitrate=1045000,
@@ -355,7 +355,7 @@ class Transform(pulumi.CustomResource):
                                             crf=23,
                                             entropy_mode="Cabac",
                                         ),
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
+                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArrgs(
                                             width="64",
                                             height="64",
                                             bitrate=1000,
@@ -374,14 +374,14 @@ class Transform(pulumi.CustomResource):
                                     ],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArrgs(
                                     key_frame_interval="PT2S",
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     scene_change_detection_enabled=False,
                                     complexity="Speed",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArrgs(
                                         width="64",
                                         height="64",
                                         bitrate=1045000,
@@ -399,15 +399,15 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArrgs(
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     start="10",
                                     range="100%%",
                                     sprite_column=1,
                                     step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArrgs(
                                         quality=70,
                                         height="180",
                                         label="test",
@@ -415,14 +415,14 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArrgs(
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     start="{Best}",
                                     range="80",
                                     step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArrgs(
                                         height="180",
                                         label="test",
                                         width="120",
@@ -431,15 +431,15 @@ class Transform(pulumi.CustomResource):
                             ),
                         ],
                         formats=[
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArrgs(
                                     filename_pattern="test{Basename}",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Arrgs(
                                     filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArgs(
+                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArrgs(
                                         labels=[
                                             "test",
                                             "ppe",
@@ -447,45 +447,45 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                png=azure.media.TransformOutputCustomPresetFormatPngArrgs(
                                     filename_pattern="test{Basename}",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArrgs(
                                     filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs(
+                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs(
                                         labels=["prod"],
                                     )],
                                 ),
                             ),
                         ],
-                        filter=azure.media.TransformOutputCustomPresetFilterArgs(
-                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArgs(
+                        filter=azure.media.TransformOutputCustomPresetFilterArrgs(
+                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArrgs(
                                 height="240",
                                 left="30",
                                 top="360",
                                 width="70",
                             ),
-                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArgs(
+                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArrgs(
                                 parity="TopFieldFirst",
                                 mode="AutoPixelAdaptive",
                             ),
-                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArgs(
+                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArrgs(
                                 duration="PT5S",
                                 fade_color="0xFF0000",
                                 start="10",
                             ),
-                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArgs(
+                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArrgs(
                                 duration="90%%",
                                 fade_color="#FF0C7B",
                                 start="10%%",
                             ),
                             rotation="Auto",
                             overlays=[
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArgs(
+                                azure.media.TransformOutputCustomPresetFilterOverlayArrgs(
+                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArrgs(
                                         input_label="label.jpg",
                                         start="PT5S",
                                         end="PT30S",
@@ -494,8 +494,8 @@ class Transform(pulumi.CustomResource):
                                         audio_gain_level=1,
                                     ),
                                 ),
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArgs(
+                                azure.media.TransformOutputCustomPresetFilterOverlayArrgs(
+                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArrgs(
                                         input_label="label.jpg",
                                         start="PT5S",
                                         end="PT30S",
@@ -503,13 +503,13 @@ class Transform(pulumi.CustomResource):
                                         fade_out_duration="PT2S",
                                         audio_gain_level=1,
                                         opacity=1,
-                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs(
+                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArrgs(
                                             height="180",
                                             left="20",
                                             top="240",
                                             width="140",
                                         ),
-                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs(
+                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs(
                                             height="240",
                                             left="30",
                                             top="360",
@@ -537,14 +537,14 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArrgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TransformArgs,
+                 args: TransformArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Transform.
@@ -564,7 +564,7 @@ class Transform(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -572,10 +572,10 @@ class Transform(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
-            outputs=[azure.media.TransformOutputArgs(
+            outputs=[azure.media.TransformOutputArrgs(
                 relative_priority="Normal",
                 on_error_action="ContinueJob",
-                builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                builtin_preset=azure.media.TransformOutputBuiltinPresetArrgs(
                     preset_name="AACGoodQualityAudio",
                 ),
             )])
@@ -595,7 +595,7 @@ class Transform(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -604,12 +604,12 @@ class Transform(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Normal",
                     on_error_action="ContinueJob",
-                    builtin_preset=azure.media.TransformOutputBuiltinPresetArgs(
+                    builtin_preset=azure.media.TransformOutputBuiltinPresetArrgs(
                         preset_name="AACGoodQualityAudio",
-                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArgs(
+                        preset_configuration=azure.media.TransformOutputBuiltinPresetPresetConfigurationArrgs(
                             complexity="Balanced",
                             interleave_output="NonInterleavedOutput",
                             key_frame_interval_in_seconds=123122.5,
@@ -621,10 +621,10 @@ class Transform(pulumi.CustomResource):
                         ),
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="ContinueJob",
-                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArgs(
+                    audio_analyzer_preset=azure.media.TransformOutputAudioAnalyzerPresetArrgs(
                         audio_language="en-US",
                         audio_analysis_mode="Basic",
                         experimental_options={
@@ -632,10 +632,10 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="StopProcessingJob",
-                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArgs(
+                    face_detector_preset=azure.media.TransformOutputFaceDetectorPresetArrgs(
                         analysis_resolution="StandardDefinition",
                         blur_type="Med",
                         face_redactor_mode="Combined",
@@ -644,10 +644,10 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Normal",
                     on_error_action="StopProcessingJob",
-                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArgs(
+                    video_analyzer_preset=azure.media.TransformOutputVideoAnalyzerPresetArrgs(
                         audio_language="en-US",
                         audio_analysis_mode="Basic",
                         insights_type="AllInsights",
@@ -656,31 +656,31 @@ class Transform(pulumi.CustomResource):
                         },
                     ),
                 ),
-                azure.media.TransformOutputArgs(
+                azure.media.TransformOutputArrgs(
                     relative_priority="Low",
                     on_error_action="ContinueJob",
-                    custom_preset=azure.media.TransformOutputCustomPresetArgs(
+                    custom_preset=azure.media.TransformOutputCustomPresetArrgs(
                         codecs=[
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                aac_audio=azure.media.TransformOutputCustomPresetCodecAacAudioArrgs(
                                     bitrate=128000,
                                     channels=2,
                                     sampling_rate=48000,
                                     profile="AacLc",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                copy_audio=azure.media.TransformOutputCustomPresetCodecCopyAudioArrgs(
                                     label="test",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                copy_video=azure.media.TransformOutputCustomPresetCodecCopyVideoArrgs(
                                     label="test",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                h264_video=azure.media.TransformOutputCustomPresetCodecH264VideoArrgs(
                                     key_frame_interval="PT1S",
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
@@ -688,7 +688,7 @@ class Transform(pulumi.CustomResource):
                                     rate_control_mode="ABR",
                                     complexity="Quality",
                                     layers=[
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
+                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArrgs(
                                             width="64",
                                             height="64",
                                             bitrate=1045000,
@@ -703,7 +703,7 @@ class Transform(pulumi.CustomResource):
                                             crf=23,
                                             entropy_mode="Cabac",
                                         ),
-                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArgs(
+                                        azure.media.TransformOutputCustomPresetCodecH264VideoLayerArrgs(
                                             width="64",
                                             height="64",
                                             bitrate=1000,
@@ -722,14 +722,14 @@ class Transform(pulumi.CustomResource):
                                     ],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                h265_video=azure.media.TransformOutputCustomPresetCodecH265VideoArrgs(
                                     key_frame_interval="PT2S",
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     scene_change_detection_enabled=False,
                                     complexity="Speed",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecH265VideoLayerArrgs(
                                         width="64",
                                         height="64",
                                         bitrate=1045000,
@@ -747,15 +747,15 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                jpg_image=azure.media.TransformOutputCustomPresetCodecJpgImageArrgs(
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     start="10",
                                     range="100%%",
                                     sprite_column=1,
                                     step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecJpgImageLayerArrgs(
                                         quality=70,
                                         height="180",
                                         label="test",
@@ -763,14 +763,14 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetCodecArgs(
-                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArgs(
+                            azure.media.TransformOutputCustomPresetCodecArrgs(
+                                png_image=azure.media.TransformOutputCustomPresetCodecPngImageArrgs(
                                     stretch_mode="AutoSize",
                                     sync_mode="Auto",
                                     start="{Best}",
                                     range="80",
                                     step="10",
-                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArgs(
+                                    layers=[azure.media.TransformOutputCustomPresetCodecPngImageLayerArrgs(
                                         height="180",
                                         label="test",
                                         width="120",
@@ -779,15 +779,15 @@ class Transform(pulumi.CustomResource):
                             ),
                         ],
                         formats=[
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                jpg=azure.media.TransformOutputCustomPresetFormatJpgArrgs(
                                     filename_pattern="test{Basename}",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Args(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                mp4=azure.media.TransformOutputCustomPresetFormatMp4Arrgs(
                                     filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArgs(
+                                    output_files=[azure.media.TransformOutputCustomPresetFormatMp4OutputFileArrgs(
                                         labels=[
                                             "test",
                                             "ppe",
@@ -795,45 +795,45 @@ class Transform(pulumi.CustomResource):
                                     )],
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                png=azure.media.TransformOutputCustomPresetFormatPngArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                png=azure.media.TransformOutputCustomPresetFormatPngArrgs(
                                     filename_pattern="test{Basename}",
                                 ),
                             ),
-                            azure.media.TransformOutputCustomPresetFormatArgs(
-                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArgs(
+                            azure.media.TransformOutputCustomPresetFormatArrgs(
+                                transport_stream=azure.media.TransformOutputCustomPresetFormatTransportStreamArrgs(
                                     filename_pattern="test{Bitrate}",
-                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs(
+                                    output_files=[azure.media.TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs(
                                         labels=["prod"],
                                     )],
                                 ),
                             ),
                         ],
-                        filter=azure.media.TransformOutputCustomPresetFilterArgs(
-                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArgs(
+                        filter=azure.media.TransformOutputCustomPresetFilterArrgs(
+                            crop_rectangle=azure.media.TransformOutputCustomPresetFilterCropRectangleArrgs(
                                 height="240",
                                 left="30",
                                 top="360",
                                 width="70",
                             ),
-                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArgs(
+                            deinterlace=azure.media.TransformOutputCustomPresetFilterDeinterlaceArrgs(
                                 parity="TopFieldFirst",
                                 mode="AutoPixelAdaptive",
                             ),
-                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArgs(
+                            fade_in=azure.media.TransformOutputCustomPresetFilterFadeInArrgs(
                                 duration="PT5S",
                                 fade_color="0xFF0000",
                                 start="10",
                             ),
-                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArgs(
+                            fade_out=azure.media.TransformOutputCustomPresetFilterFadeOutArrgs(
                                 duration="90%%",
                                 fade_color="#FF0C7B",
                                 start="10%%",
                             ),
                             rotation="Auto",
                             overlays=[
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArgs(
+                                azure.media.TransformOutputCustomPresetFilterOverlayArrgs(
+                                    audio=azure.media.TransformOutputCustomPresetFilterOverlayAudioArrgs(
                                         input_label="label.jpg",
                                         start="PT5S",
                                         end="PT30S",
@@ -842,8 +842,8 @@ class Transform(pulumi.CustomResource):
                                         audio_gain_level=1,
                                     ),
                                 ),
-                                azure.media.TransformOutputCustomPresetFilterOverlayArgs(
-                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArgs(
+                                azure.media.TransformOutputCustomPresetFilterOverlayArrgs(
+                                    video=azure.media.TransformOutputCustomPresetFilterOverlayVideoArrgs(
                                         input_label="label.jpg",
                                         start="PT5S",
                                         end="PT30S",
@@ -851,13 +851,13 @@ class Transform(pulumi.CustomResource):
                                         fade_out_duration="PT2S",
                                         audio_gain_level=1,
                                         opacity=1,
-                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs(
+                                        position=azure.media.TransformOutputCustomPresetFilterOverlayVideoPositionArrgs(
                                             height="180",
                                             left="20",
                                             top="240",
                                             width="140",
                                         ),
-                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs(
+                                        crop_rectangle=azure.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs(
                                             height="240",
                                             left="30",
                                             top="360",
@@ -881,12 +881,12 @@ class Transform(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransformArgs args: The arguments to use to populate this resource's properties.
+        :param TransformArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransformArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransformArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -898,7 +898,7 @@ class Transform(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -907,7 +907,7 @@ class Transform(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransformArgs.__new__(TransformArgs)
+            __props__ = TransformArrgs.__new__(TransformArrgs)
 
             __props__.__dict__["description"] = description
             if media_services_account_name is None and not opts.urn:
@@ -931,7 +931,7 @@ class Transform(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Transform':
         """
         Get an existing Transform resource's state with the given name, id, and optional extra
@@ -943,7 +943,7 @@ class Transform(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
         :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransformOutputArrgs']]]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

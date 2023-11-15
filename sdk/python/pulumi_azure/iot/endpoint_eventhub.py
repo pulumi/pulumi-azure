@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointEventhubArgs', 'EndpointEventhub']
+__all__ = ['EndpointEventhubArrgs', 'EndpointEventhub']
 
 @pulumi.input_type
-class EndpointEventhubArgs:
+calass EndpointEventhubArrgs:
     def __init__(__self__, *,
                  iothub_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -150,7 +150,7 @@ class EndpointEventhubArgs:
 
 
 @pulumi.input_type
-class _EndpointEventhubState:
+calass _EndpointEventhubState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -289,7 +289,7 @@ class _EndpointEventhubState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class EndpointEventhub(pulumi.CustomResource):
+calass EndpointEventhub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class EndpointEventhub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -372,7 +372,7 @@ class EndpointEventhub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointEventhubArgs,
+                 args: EndpointEventhubArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub EventHub Endpoint
@@ -405,7 +405,7 @@ class EndpointEventhub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -427,12 +427,12 @@ class EndpointEventhub(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointEventhubArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointEventhubArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointEventhubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointEventhubArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -456,7 +456,7 @@ class EndpointEventhub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointEventhubArgs.__new__(EndpointEventhubArgs)
+            __props__ = EndpointEventhubArrgs.__new__(EndpointEventhubArrgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)

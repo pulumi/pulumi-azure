@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationGroupArgs', 'ApplicationGroup']
+__all__ = ['ApplicationGroupArrgs', 'ApplicationGroup']
 
 @pulumi.input_type
-class ApplicationGroupArgs:
+calass ApplicationGroupArrgs:
     def __init__(__self__, *,
                  host_pool_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -161,7 +161,7 @@ class ApplicationGroupArgs:
 
 
 @pulumi.input_type
-class _ApplicationGroupState:
+calass _ApplicationGroupState:
     def __init__(__self__, *,
                  default_desktop_display_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -312,7 +312,7 @@ class _ApplicationGroupState:
         pulumi.set(self, "type", value)
 
 
-class ApplicationGroup(pulumi.CustomResource):
+calass ApplicationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -388,7 +388,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationGroupArgs,
+                 args: ApplicationGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Application Group.
@@ -436,12 +436,12 @@ class ApplicationGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -466,7 +466,7 @@ class ApplicationGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
+            __props__ = ApplicationGroupArrgs.__new__(ApplicationGroupArrgs)
 
             __props__.__dict__["default_desktop_display_name"] = default_desktop_display_name
             __props__.__dict__["description"] = description

@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LabAutoShutdownArgs',
-    'LabConnectionSettingArgs',
-    'LabNetworkArgs',
-    'LabRosterArgs',
-    'LabSecurityArgs',
-    'LabVirtualMachineArgs',
-    'LabVirtualMachineAdminUserArgs',
-    'LabVirtualMachineImageReferenceArgs',
-    'LabVirtualMachineNonAdminUserArgs',
-    'LabVirtualMachineSkuArgs',
-    'ScheduleRecurrenceArgs',
-    'ServicePlanDefaultAutoShutdownArgs',
-    'ServicePlanDefaultConnectionArgs',
-    'ServicePlanSupportArgs',
+    'LabAutoShutdownArrgs',
+    'LabConnectionSettingArrgs',
+    'LabNetworkArrgs',
+    'LabRosterArrgs',
+    'LabSecurityArrgs',
+    'LabVirtualMachineArrgs',
+    'LabVirtualMachineAdminUserArrgs',
+    'LabVirtualMachineImageReferenceArrgs',
+    'LabVirtualMachineNonAdminUserArrgs',
+    'LabVirtualMachineSkuArrgs',
+    'ScheduleRecurrenceArrgs',
+    'ServicePlanDefaultAutoShutdownArrgs',
+    'ServicePlanDefaultConnectionArrgs',
+    'ServicePlanSupportArrgs',
 ]
 
 @pulumi.input_type
-class LabAutoShutdownArgs:
+calass LabAutoShutdownArrgs:
     def __init__(__self__, *,
                  disconnect_delay: Optional[pulumi.Input[str]] = None,
                  idle_delay: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class LabAutoShutdownArgs:
 
 
 @pulumi.input_type
-class LabConnectionSettingArgs:
+calass LabConnectionSettingArrgs:
     def __init__(__self__, *,
                  client_rdp_access: Optional[pulumi.Input[str]] = None,
                  client_ssh_access: Optional[pulumi.Input[str]] = None):
@@ -157,7 +157,7 @@ class LabConnectionSettingArgs:
 
 
 @pulumi.input_type
-class LabNetworkArgs:
+calass LabNetworkArrgs:
     def __init__(__self__, *,
                  load_balancer_id: Optional[pulumi.Input[str]] = None,
                  public_ip_id: Optional[pulumi.Input[str]] = None,
@@ -212,7 +212,7 @@ class LabNetworkArgs:
 
 
 @pulumi.input_type
-class LabRosterArgs:
+calass LabRosterArrgs:
     def __init__(__self__, *,
                  active_directory_group_id: Optional[pulumi.Input[str]] = None,
                  lms_instance: Optional[pulumi.Input[str]] = None,
@@ -299,7 +299,7 @@ class LabRosterArgs:
 
 
 @pulumi.input_type
-class LabSecurityArgs:
+calass LabSecurityArrgs:
     def __init__(__self__, *,
                  open_access_enabled: pulumi.Input[bool],
                  registration_code: Optional[pulumi.Input[str]] = None):
@@ -337,23 +337,23 @@ class LabSecurityArgs:
 
 
 @pulumi.input_type
-class LabVirtualMachineArgs:
+calass LabVirtualMachineArrgs:
     def __init__(__self__, *,
-                 admin_user: pulumi.Input['LabVirtualMachineAdminUserArgs'],
-                 image_reference: pulumi.Input['LabVirtualMachineImageReferenceArgs'],
-                 sku: pulumi.Input['LabVirtualMachineSkuArgs'],
+                 admin_user: pulumi.Input['LabVirtualMachineAdminUserArrgs'],
+                 image_reference: pulumi.Input['LabVirtualMachineImageReferenceArrgs'],
+                 sku: pulumi.Input['LabVirtualMachineSkuArrgs'],
                  additional_capability_gpu_drivers_installed: Optional[pulumi.Input[bool]] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
-                 non_admin_user: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArgs']] = None,
+                 non_admin_user: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArrgs']] = None,
                  shared_password_enabled: Optional[pulumi.Input[bool]] = None,
                  usage_quota: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LabVirtualMachineAdminUserArgs'] admin_user: An `admin_user` block as defined below.
-        :param pulumi.Input['LabVirtualMachineImageReferenceArgs'] image_reference: An `image_reference` block as defined below.
-        :param pulumi.Input['LabVirtualMachineSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input['LabVirtualMachineAdminUserArrgs'] admin_user: An `admin_user` block as defined below.
+        :param pulumi.Input['LabVirtualMachineImageReferenceArrgs'] image_reference: An `image_reference` block as defined below.
+        :param pulumi.Input['LabVirtualMachineSkuArrgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[bool] additional_capability_gpu_drivers_installed: Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_option: The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LabVirtualMachineNonAdminUserArgs'] non_admin_user: A `non_admin_user` block as defined below.
+        :param pulumi.Input['LabVirtualMachineNonAdminUserArrgs'] non_admin_user: A `non_admin_user` block as defined below.
         :param pulumi.Input[bool] shared_password_enabled: Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_quota: The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
         """
@@ -373,38 +373,38 @@ class LabVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="adminUser")
-    def admin_user(self) -> pulumi.Input['LabVirtualMachineAdminUserArgs']:
+    def admin_user(self) -> pulumi.Input['LabVirtualMachineAdminUserArrgs']:
         """
         An `admin_user` block as defined below.
         """
         return pulumi.get(self, "admin_user")
 
     @admin_user.setter
-    def admin_user(self, value: pulumi.Input['LabVirtualMachineAdminUserArgs']):
+    def admin_user(self, value: pulumi.Input['LabVirtualMachineAdminUserArrgs']):
         pulumi.set(self, "admin_user", value)
 
     @property
     @pulumi.getter(name="imageReference")
-    def image_reference(self) -> pulumi.Input['LabVirtualMachineImageReferenceArgs']:
+    def image_reference(self) -> pulumi.Input['LabVirtualMachineImageReferenceArrgs']:
         """
         An `image_reference` block as defined below.
         """
         return pulumi.get(self, "image_reference")
 
     @image_reference.setter
-    def image_reference(self, value: pulumi.Input['LabVirtualMachineImageReferenceArgs']):
+    def image_reference(self, value: pulumi.Input['LabVirtualMachineImageReferenceArrgs']):
         pulumi.set(self, "image_reference", value)
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['LabVirtualMachineSkuArgs']:
+    def sku(self) -> pulumi.Input['LabVirtualMachineSkuArrgs']:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['LabVirtualMachineSkuArgs']):
+    def sku(self, value: pulumi.Input['LabVirtualMachineSkuArrgs']):
         pulumi.set(self, "sku", value)
 
     @property
@@ -433,14 +433,14 @@ class LabVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="nonAdminUser")
-    def non_admin_user(self) -> Optional[pulumi.Input['LabVirtualMachineNonAdminUserArgs']]:
+    def non_admin_user(self) -> Optional[pulumi.Input['LabVirtualMachineNonAdminUserArrgs']]:
         """
         A `non_admin_user` block as defined below.
         """
         return pulumi.get(self, "non_admin_user")
 
     @non_admin_user.setter
-    def non_admin_user(self, value: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArgs']]):
+    def non_admin_user(self, value: Optional[pulumi.Input['LabVirtualMachineNonAdminUserArrgs']]):
         pulumi.set(self, "non_admin_user", value)
 
     @property
@@ -469,7 +469,7 @@ class LabVirtualMachineArgs:
 
 
 @pulumi.input_type
-class LabVirtualMachineAdminUserArgs:
+calass LabVirtualMachineAdminUserArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -506,7 +506,7 @@ class LabVirtualMachineAdminUserArgs:
 
 
 @pulumi.input_type
-class LabVirtualMachineImageReferenceArgs:
+calass LabVirtualMachineImageReferenceArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
@@ -593,7 +593,7 @@ class LabVirtualMachineImageReferenceArgs:
 
 
 @pulumi.input_type
-class LabVirtualMachineNonAdminUserArgs:
+calass LabVirtualMachineNonAdminUserArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -630,7 +630,7 @@ class LabVirtualMachineNonAdminUserArgs:
 
 
 @pulumi.input_type
-class LabVirtualMachineSkuArgs:
+calass LabVirtualMachineSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
@@ -671,7 +671,7 @@ class LabVirtualMachineSkuArgs:
 
 
 @pulumi.input_type
-class ScheduleRecurrenceArgs:
+calass ScheduleRecurrenceArrgs:
     def __init__(__self__, *,
                  expiration_date: pulumi.Input[str],
                  frequency: pulumi.Input[str],
@@ -740,7 +740,7 @@ class ScheduleRecurrenceArgs:
 
 
 @pulumi.input_type
-class ServicePlanDefaultAutoShutdownArgs:
+calass ServicePlanDefaultAutoShutdownArrgs:
     def __init__(__self__, *,
                  disconnect_delay: Optional[pulumi.Input[str]] = None,
                  idle_delay: Optional[pulumi.Input[str]] = None,
@@ -815,7 +815,7 @@ class ServicePlanDefaultAutoShutdownArgs:
 
 
 @pulumi.input_type
-class ServicePlanDefaultConnectionArgs:
+calass ServicePlanDefaultConnectionArrgs:
     def __init__(__self__, *,
                  client_rdp_access: Optional[pulumi.Input[str]] = None,
                  client_ssh_access: Optional[pulumi.Input[str]] = None,
@@ -902,7 +902,7 @@ class ServicePlanDefaultConnectionArgs:
 
 
 @pulumi.input_type
-class ServicePlanSupportArgs:
+calass ServicePlanSupportArrgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  instructions: Optional[pulumi.Input[str]] = None,

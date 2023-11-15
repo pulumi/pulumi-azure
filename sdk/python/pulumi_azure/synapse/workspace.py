@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkspaceArgs', 'Workspace']
+__all__ = ['WorkspaceArrgs', 'Workspace']
 
 @pulumi.input_type
-class WorkspaceArgs:
+calass WorkspaceArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
-                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
-                 azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArrgs']] = None,
+                 azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
+                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
-                 identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+                 github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArrgs']] = None,
+                 identity: Optional[pulumi.Input['WorkspaceIdentityArrgs']] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class WorkspaceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
+                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -42,14 +42,14 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
-        :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input['WorkspaceAadAdminArrgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input['WorkspaceAzureDevopsRepoArrgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArrgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkspaceGithubRepoArrgs'] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input['WorkspaceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
@@ -57,7 +57,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
-        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
+        :param pulumi.Input['WorkspaceSqlAadAdminArrgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -132,26 +132,26 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="aadAdmin")
-    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
+    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArrgs']]:
         """
         An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         """
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
-    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArgs']]):
+    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArrgs']]):
         pulumi.set(self, "aad_admin", value)
 
     @property
     @pulumi.getter(name="azureDevopsRepo")
-    def azure_devops_repo(self) -> Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]:
+    def azure_devops_repo(self) -> Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']]:
         """
         An `azure_devops_repo` block as defined below.
         """
         return pulumi.get(self, "azure_devops_repo")
 
     @azure_devops_repo.setter
-    def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
+    def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']]):
         pulumi.set(self, "azure_devops_repo", value)
 
     @property
@@ -180,14 +180,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']]:
         """
         A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @property
@@ -204,26 +204,26 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="githubRepo")
-    def github_repo(self) -> Optional[pulumi.Input['WorkspaceGithubRepoArgs']]:
+    def github_repo(self) -> Optional[pulumi.Input['WorkspaceGithubRepoArrgs']]:
         """
         A `github_repo` block as defined below.
         """
         return pulumi.get(self, "github_repo")
 
     @github_repo.setter
-    def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArgs']]):
+    def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArrgs']]):
         pulumi.set(self, "github_repo", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -312,14 +312,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="sqlAadAdmin")
-    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
+    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']]:
         """
         An `sql_aad_admin` block as defined below.
         """
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
-    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
+    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']]):
         pulumi.set(self, "sql_aad_admin", value)
 
     @property
@@ -372,17 +372,17 @@ class WorkspaceArgs:
 
 
 @pulumi.input_type
-class _WorkspaceState:
+calass _WorkspaceState:
     def __init__(__self__, *,
-                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
-                 azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArrgs']] = None,
+                 azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
+                 customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
-                 identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+                 github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArrgs']] = None,
+                 identity: Optional[pulumi.Input['WorkspaceIdentityArrgs']] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -391,7 +391,7 @@ class _WorkspaceState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
+                 sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -399,15 +399,15 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
-        :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input['WorkspaceAadAdminArrgs'] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input['WorkspaceAzureDevopsRepoArrgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input['WorkspaceCustomerManagedKeyArrgs'] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkspaceGithubRepoArrgs'] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input['WorkspaceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
@@ -416,7 +416,7 @@ class _WorkspaceState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
+        :param pulumi.Input['WorkspaceSqlAadAdminArrgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -472,26 +472,26 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="aadAdmin")
-    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
+    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArrgs']]:
         """
         An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
         """
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
-    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArgs']]):
+    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArrgs']]):
         pulumi.set(self, "aad_admin", value)
 
     @property
     @pulumi.getter(name="azureDevopsRepo")
-    def azure_devops_repo(self) -> Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]:
+    def azure_devops_repo(self) -> Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']]:
         """
         An `azure_devops_repo` block as defined below.
         """
         return pulumi.get(self, "azure_devops_repo")
 
     @azure_devops_repo.setter
-    def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
+    def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArrgs']]):
         pulumi.set(self, "azure_devops_repo", value)
 
     @property
@@ -532,14 +532,14 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="customerManagedKey")
-    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]:
+    def customer_managed_key(self) -> Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']]:
         """
         A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         """
         return pulumi.get(self, "customer_managed_key")
 
     @customer_managed_key.setter
-    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']]):
+    def customer_managed_key(self, value: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArrgs']]):
         pulumi.set(self, "customer_managed_key", value)
 
     @property
@@ -556,26 +556,26 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="githubRepo")
-    def github_repo(self) -> Optional[pulumi.Input['WorkspaceGithubRepoArgs']]:
+    def github_repo(self) -> Optional[pulumi.Input['WorkspaceGithubRepoArrgs']]:
         """
         A `github_repo` block as defined below.
         """
         return pulumi.get(self, "github_repo")
 
     @github_repo.setter
-    def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArgs']]):
+    def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArrgs']]):
         pulumi.set(self, "github_repo", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -676,14 +676,14 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="sqlAadAdmin")
-    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
+    def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']]:
         """
         An `sql_aad_admin` block as defined below.
         """
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
-    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]):
+    def sql_aad_admin(self, value: Optional[pulumi.Input['WorkspaceSqlAadAdminArrgs']]):
         pulumi.set(self, "sql_aad_admin", value)
 
     @property
@@ -747,19 +747,19 @@ class _WorkspaceState:
         pulumi.set(self, "tags", value)
 
 
-class Workspace(pulumi.CustomResource):
+calass Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
-                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArrgs']]] = None,
+                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArrgs']]] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArrgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -768,7 +768,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
+                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArrgs']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -799,12 +799,12 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -859,11 +859,11 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
+            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArrgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -902,14 +902,14 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArrgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArrgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArrgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArrgs']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
@@ -918,7 +918,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArrgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -929,7 +929,7 @@ class Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceArgs,
+                 args: WorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Workspace.
@@ -955,12 +955,12 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -1015,11 +1015,11 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
+            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArrgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -1057,12 +1057,12 @@ class Workspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1071,14 +1071,14 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
-                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArrgs']]] = None,
+                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArrgs']]] = None,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  compute_subnet_id: Optional[pulumi.Input[str]] = None,
-                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
+                 customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArrgs']]] = None,
                  data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
                  linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1087,7 +1087,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purview_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
+                 sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArrgs']]] = None,
                  sql_administrator_login: Optional[pulumi.Input[str]] = None,
                  sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
                  sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1100,7 +1100,7 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
+            __props__ = WorkspaceArrgs.__new__(WorkspaceArrgs)
 
             __props__.__dict__["aad_admin"] = aad_admin
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
@@ -1141,15 +1141,15 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
-            azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+            aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArrgs']]] = None,
+            azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArrgs']]] = None,
             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
             compute_subnet_id: Optional[pulumi.Input[str]] = None,
             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']]] = None,
+            customer_managed_key: Optional[pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArrgs']]] = None,
             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
-            github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+            github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
             linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1158,7 +1158,7 @@ class Workspace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purview_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']]] = None,
+            sql_aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArrgs']]] = None,
             sql_administrator_login: Optional[pulumi.Input[str]] = None,
             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
             sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1171,15 +1171,15 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArrgs']] aad_admin: An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArrgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
-        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
+        :param pulumi.Input[pulumi.InputType['WorkspaceCustomerManagedKeyArrgs']] customer_managed_key: A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
         :param pulumi.Input[bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArrgs']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
@@ -1188,7 +1188,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArrgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?

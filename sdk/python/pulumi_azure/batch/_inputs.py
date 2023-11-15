@@ -10,49 +10,49 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountEncryptionArgs',
-    'AccountIdentityArgs',
-    'AccountKeyVaultReferenceArgs',
-    'AccountNetworkProfileArgs',
-    'AccountNetworkProfileAccountAccessArgs',
-    'AccountNetworkProfileAccountAccessIpRuleArgs',
-    'AccountNetworkProfileNodeManagementAccessArgs',
-    'AccountNetworkProfileNodeManagementAccessIpRuleArgs',
-    'PoolAutoScaleArgs',
-    'PoolCertificateArgs',
-    'PoolContainerConfigurationArgs',
-    'PoolContainerConfigurationContainerRegistryArgs',
-    'PoolDataDiskArgs',
-    'PoolDiskEncryptionArgs',
-    'PoolExtensionArgs',
-    'PoolFixedScaleArgs',
-    'PoolIdentityArgs',
-    'PoolMountArgs',
-    'PoolMountAzureBlobFileSystemArgs',
-    'PoolMountAzureFileShareArgs',
-    'PoolMountCifsMountArgs',
-    'PoolMountNfsMountArgs',
-    'PoolNetworkConfigurationArgs',
-    'PoolNetworkConfigurationEndpointConfigurationArgs',
-    'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs',
-    'PoolNodePlacementArgs',
-    'PoolStartTaskArgs',
-    'PoolStartTaskContainerArgs',
-    'PoolStartTaskContainerRegistryArgs',
-    'PoolStartTaskResourceFileArgs',
-    'PoolStartTaskUserIdentityArgs',
-    'PoolStartTaskUserIdentityAutoUserArgs',
-    'PoolStorageImageReferenceArgs',
-    'PoolTaskSchedulingPolicyArgs',
-    'PoolUserAccountArgs',
-    'PoolUserAccountLinuxUserConfigurationArgs',
-    'PoolUserAccountWindowsUserConfigurationArgs',
-    'PoolWindowArgs',
-    'GetAccountEncryptionArgs',
+    'AccountEncryptionArrgs',
+    'AccountIdentityArrgs',
+    'AccountKeyVaultReferenceArrgs',
+    'AccountNetworkProfileArrgs',
+    'AccountNetworkProfileAccountAccessArrgs',
+    'AccountNetworkProfileAccountAccessIpRuleArrgs',
+    'AccountNetworkProfileNodeManagementAccessArrgs',
+    'AccountNetworkProfileNodeManagementAccessIpRuleArrgs',
+    'PoolAutoScaleArrgs',
+    'PoolCertificateArrgs',
+    'PoolContainerConfigurationArrgs',
+    'PoolContainerConfigurationContainerRegistryArrgs',
+    'PoolDataDiskArrgs',
+    'PoolDiskEncryptionArrgs',
+    'PoolExtensionArrgs',
+    'PoolFixedScaleArrgs',
+    'PoolIdentityArrgs',
+    'PoolMountArrgs',
+    'PoolMountAzureBlobFileSystemArrgs',
+    'PoolMountAzureFileShareArrgs',
+    'PoolMountCifsMountArrgs',
+    'PoolMountNfsMountArrgs',
+    'PoolNetworkConfigurationArrgs',
+    'PoolNetworkConfigurationEndpointConfigurationArrgs',
+    'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs',
+    'PoolNodePlacementArrgs',
+    'PoolStartTaskArrgs',
+    'PoolStartTaskContainerArrgs',
+    'PoolStartTaskContainerRegistryArrgs',
+    'PoolStartTaskResourceFileArrgs',
+    'PoolStartTaskUserIdentityArrgs',
+    'PoolStartTaskUserIdentityAutoUserArrgs',
+    'PoolStorageImageReferenceArrgs',
+    'PoolTaskSchedulingPolicyArrgs',
+    'PoolUserAccountArrgs',
+    'PoolUserAccountLinuxUserConfigurationArrgs',
+    'PoolUserAccountWindowsUserConfigurationArrgs',
+    'PoolWindowArrgs',
+    'GetAccountEncryptionArrgs',
 ]
 
 @pulumi.input_type
-class AccountEncryptionArgs:
+calass AccountEncryptionArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str]):
         """
@@ -74,7 +74,7 @@ class AccountEncryptionArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -148,7 +148,7 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountKeyVaultReferenceArgs:
+calass AccountKeyVaultReferenceArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  url: pulumi.Input[str]):
@@ -185,13 +185,13 @@ class AccountKeyVaultReferenceArgs:
 
 
 @pulumi.input_type
-class AccountNetworkProfileArgs:
+calass AccountNetworkProfileArrgs:
     def __init__(__self__, *,
-                 account_access: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArgs']] = None,
-                 node_management_access: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs']] = None):
+                 account_access: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArrgs']] = None,
+                 node_management_access: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArrgs']] = None):
         """
-        :param pulumi.Input['AccountNetworkProfileAccountAccessArgs'] account_access: An `account_access` block as defined below.
-        :param pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs'] node_management_access: A `node_management_access` block as defined below.
+        :param pulumi.Input['AccountNetworkProfileAccountAccessArrgs'] account_access: An `account_access` block as defined below.
+        :param pulumi.Input['AccountNetworkProfileNodeManagementAccessArrgs'] node_management_access: A `node_management_access` block as defined below.
                
                > **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
         """
@@ -202,19 +202,19 @@ class AccountNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="accountAccess")
-    def account_access(self) -> Optional[pulumi.Input['AccountNetworkProfileAccountAccessArgs']]:
+    def account_access(self) -> Optional[pulumi.Input['AccountNetworkProfileAccountAccessArrgs']]:
         """
         An `account_access` block as defined below.
         """
         return pulumi.get(self, "account_access")
 
     @account_access.setter
-    def account_access(self, value: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArgs']]):
+    def account_access(self, value: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArrgs']]):
         pulumi.set(self, "account_access", value)
 
     @property
     @pulumi.getter(name="nodeManagementAccess")
-    def node_management_access(self) -> Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs']]:
+    def node_management_access(self) -> Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArrgs']]:
         """
         A `node_management_access` block as defined below.
 
@@ -223,18 +223,18 @@ class AccountNetworkProfileArgs:
         return pulumi.get(self, "node_management_access")
 
     @node_management_access.setter
-    def node_management_access(self, value: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs']]):
+    def node_management_access(self, value: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArrgs']]):
         pulumi.set(self, "node_management_access", value)
 
 
 @pulumi.input_type
-class AccountNetworkProfileAccountAccessArgs:
+calass AccountNetworkProfileAccountAccessArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -255,19 +255,19 @@ class AccountNetworkProfileAccountAccessArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
 @pulumi.input_type
-class AccountNetworkProfileAccountAccessIpRuleArgs:
+calass AccountNetworkProfileAccountAccessIpRuleArrgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None):
@@ -305,13 +305,13 @@ class AccountNetworkProfileAccountAccessIpRuleArgs:
 
 
 @pulumi.input_type
-class AccountNetworkProfileNodeManagementAccessArgs:
+calass AccountNetworkProfileNodeManagementAccessArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -332,19 +332,19 @@ class AccountNetworkProfileNodeManagementAccessArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
 @pulumi.input_type
-class AccountNetworkProfileNodeManagementAccessIpRuleArgs:
+calass AccountNetworkProfileNodeManagementAccessIpRuleArrgs:
     def __init__(__self__, *,
                  ip_range: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None):
@@ -382,7 +382,7 @@ class AccountNetworkProfileNodeManagementAccessIpRuleArgs:
 
 
 @pulumi.input_type
-class PoolAutoScaleArgs:
+calass PoolAutoScaleArrgs:
     def __init__(__self__, *,
                  formula: pulumi.Input[str],
                  evaluation_interval: Optional[pulumi.Input[str]] = None):
@@ -420,7 +420,7 @@ class PoolAutoScaleArgs:
 
 
 @pulumi.input_type
-class PoolCertificateArgs:
+calass PoolCertificateArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  store_location: pulumi.Input[str],
@@ -493,14 +493,14 @@ class PoolCertificateArgs:
 
 
 @pulumi.input_type
-class PoolContainerConfigurationArgs:
+calass PoolContainerConfigurationArrgs:
     def __init__(__self__, *,
                  container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArrgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] container_image_names: A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArrgs']]] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of container configuration. Possible value is `DockerCompatible`.
         """
         if container_image_names is not None:
@@ -524,14 +524,14 @@ class PoolContainerConfigurationArgs:
 
     @property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]]:
+    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArrgs']]]]:
         """
         One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "container_registries")
 
     @container_registries.setter
-    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]]):
+    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArrgs']]]]):
         pulumi.set(self, "container_registries", value)
 
     @property
@@ -548,7 +548,7 @@ class PoolContainerConfigurationArgs:
 
 
 @pulumi.input_type
-class PoolContainerConfigurationContainerRegistryArgs:
+calass PoolContainerConfigurationContainerRegistryArrgs:
     def __init__(__self__, *,
                  registry_server: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
@@ -618,7 +618,7 @@ class PoolContainerConfigurationContainerRegistryArgs:
 
 
 @pulumi.input_type
-class PoolDataDiskArgs:
+calass PoolDataDiskArrgs:
     def __init__(__self__, *,
                  disk_size_gb: pulumi.Input[int],
                  lun: pulumi.Input[int],
@@ -687,7 +687,7 @@ class PoolDataDiskArgs:
 
 
 @pulumi.input_type
-class PoolDiskEncryptionArgs:
+calass PoolDiskEncryptionArrgs:
     def __init__(__self__, *,
                  disk_encryption_target: pulumi.Input[str]):
         """
@@ -709,7 +709,7 @@ class PoolDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class PoolExtensionArgs:
+calass PoolExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -861,7 +861,7 @@ class PoolExtensionArgs:
 
 
 @pulumi.input_type
-class PoolFixedScaleArgs:
+calass PoolFixedScaleArrgs:
     def __init__(__self__, *,
                  node_deallocation_method: Optional[pulumi.Input[str]] = None,
                  resize_timeout: Optional[pulumi.Input[str]] = None,
@@ -932,7 +932,7 @@ class PoolFixedScaleArgs:
 
 
 @pulumi.input_type
-class PoolIdentityArgs:
+calass PoolIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -969,17 +969,17 @@ class PoolIdentityArgs:
 
 
 @pulumi.input_type
-class PoolMountArgs:
+calass PoolMountArrgs:
     def __init__(__self__, *,
-                 azure_blob_file_system: Optional[pulumi.Input['PoolMountAzureBlobFileSystemArgs']] = None,
-                 azure_file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]] = None,
-                 cifs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]] = None,
-                 nfs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]] = None):
+                 azure_blob_file_system: Optional[pulumi.Input['PoolMountAzureBlobFileSystemArrgs']] = None,
+                 azure_file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArrgs']]]] = None,
+                 cifs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArrgs']]]] = None,
+                 nfs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArrgs']]]] = None):
         """
-        :param pulumi.Input['PoolMountAzureBlobFileSystemArgs'] azure_blob_file_system: A `azure_blob_file_system` block defined as below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]] azure_file_shares: A `azure_file_share` block defined as below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]] cifs_mounts: A `cifs_mount` block defined as below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]] nfs_mounts: A `nfs_mount` block defined as below.
+        :param pulumi.Input['PoolMountAzureBlobFileSystemArrgs'] azure_blob_file_system: A `azure_blob_file_system` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArrgs']]] azure_file_shares: A `azure_file_share` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArrgs']]] cifs_mounts: A `cifs_mount` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArrgs']]] nfs_mounts: A `nfs_mount` block defined as below.
         """
         if azure_blob_file_system is not None:
             pulumi.set(__self__, "azure_blob_file_system", azure_blob_file_system)
@@ -992,55 +992,55 @@ class PoolMountArgs:
 
     @property
     @pulumi.getter(name="azureBlobFileSystem")
-    def azure_blob_file_system(self) -> Optional[pulumi.Input['PoolMountAzureBlobFileSystemArgs']]:
+    def azure_blob_file_system(self) -> Optional[pulumi.Input['PoolMountAzureBlobFileSystemArrgs']]:
         """
         A `azure_blob_file_system` block defined as below.
         """
         return pulumi.get(self, "azure_blob_file_system")
 
     @azure_blob_file_system.setter
-    def azure_blob_file_system(self, value: Optional[pulumi.Input['PoolMountAzureBlobFileSystemArgs']]):
+    def azure_blob_file_system(self, value: Optional[pulumi.Input['PoolMountAzureBlobFileSystemArrgs']]):
         pulumi.set(self, "azure_blob_file_system", value)
 
     @property
     @pulumi.getter(name="azureFileShares")
-    def azure_file_shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]]:
+    def azure_file_shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArrgs']]]]:
         """
         A `azure_file_share` block defined as below.
         """
         return pulumi.get(self, "azure_file_shares")
 
     @azure_file_shares.setter
-    def azure_file_shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]]):
+    def azure_file_shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArrgs']]]]):
         pulumi.set(self, "azure_file_shares", value)
 
     @property
     @pulumi.getter(name="cifsMounts")
-    def cifs_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]]:
+    def cifs_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArrgs']]]]:
         """
         A `cifs_mount` block defined as below.
         """
         return pulumi.get(self, "cifs_mounts")
 
     @cifs_mounts.setter
-    def cifs_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]]):
+    def cifs_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArrgs']]]]):
         pulumi.set(self, "cifs_mounts", value)
 
     @property
     @pulumi.getter(name="nfsMounts")
-    def nfs_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]]:
+    def nfs_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArrgs']]]]:
         """
         A `nfs_mount` block defined as below.
         """
         return pulumi.get(self, "nfs_mounts")
 
     @nfs_mounts.setter
-    def nfs_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]]):
+    def nfs_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArrgs']]]]):
         pulumi.set(self, "nfs_mounts", value)
 
 
 @pulumi.input_type
-class PoolMountAzureBlobFileSystemArgs:
+calass PoolMountAzureBlobFileSystemArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  container_name: pulumi.Input[str],
@@ -1156,7 +1156,7 @@ class PoolMountAzureBlobFileSystemArgs:
 
 
 @pulumi.input_type
-class PoolMountAzureFileShareArgs:
+calass PoolMountAzureFileShareArrgs:
     def __init__(__self__, *,
                  account_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -1239,7 +1239,7 @@ class PoolMountAzureFileShareArgs:
 
 
 @pulumi.input_type
-class PoolMountCifsMountArgs:
+calass PoolMountCifsMountArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  relative_mount_path: pulumi.Input[str],
@@ -1322,7 +1322,7 @@ class PoolMountCifsMountArgs:
 
 
 @pulumi.input_type
-class PoolMountNfsMountArgs:
+calass PoolMountNfsMountArrgs:
     def __init__(__self__, *,
                  relative_mount_path: pulumi.Input[str],
                  source: pulumi.Input[str],
@@ -1375,18 +1375,18 @@ class PoolMountNfsMountArgs:
 
 
 @pulumi.input_type
-class PoolNetworkConfigurationArgs:
+calass PoolNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_vnet_assignment_scope: Optional[pulumi.Input[str]] = None,
-                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]] = None,
+                 endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArrgs']]]] = None,
                  public_address_provisioning_type: Optional[pulumi.Input[str]] = None,
                  public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] accelerated_networking_enabled: Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArrgs']]] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
@@ -1430,14 +1430,14 @@ class PoolNetworkConfigurationArgs:
 
     @property
     @pulumi.getter(name="endpointConfigurations")
-    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]]:
+    def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArrgs']]]]:
         """
         A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "endpoint_configurations")
 
     @endpoint_configurations.setter
-    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]]):
+    def endpoint_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArrgs']]]]):
         pulumi.set(self, "endpoint_configurations", value)
 
     @property
@@ -1478,19 +1478,19 @@ class PoolNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class PoolNetworkConfigurationEndpointConfigurationArgs:
+calass PoolNetworkConfigurationEndpointConfigurationArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_port_range: pulumi.Input[str],
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]] = None):
+                 network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs']]]] = None):
         """
         :param pulumi.Input[int] backend_port: The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
         :param pulumi.Input[str] frontend_port_range: The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs']]] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range", frontend_port_range)
@@ -1549,19 +1549,19 @@ class PoolNetworkConfigurationEndpointConfigurationArgs:
 
     @property
     @pulumi.getter(name="networkSecurityGroupRules")
-    def network_security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]]:
+    def network_security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs']]]]:
         """
         A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_security_group_rules")
 
     @network_security_group_rules.setter
-    def network_security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]]):
+    def network_security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs']]]]):
         pulumi.set(self, "network_security_group_rules", value)
 
 
 @pulumi.input_type
-class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs:
+calass PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  priority: pulumi.Input[int],
@@ -1629,7 +1629,7 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs:
 
 
 @pulumi.input_type
-class PoolNodePlacementArgs:
+calass PoolNodePlacementArrgs:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None):
         """
@@ -1652,21 +1652,21 @@ class PoolNodePlacementArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskArgs:
+calass PoolStartTaskArrgs:
     def __init__(__self__, *,
                  command_line: pulumi.Input[str],
-                 user_identity: pulumi.Input['PoolStartTaskUserIdentityArgs'],
+                 user_identity: pulumi.Input['PoolStartTaskUserIdentityArrgs'],
                  common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]] = None,
-                 resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArrgs']]]] = None,
+                 resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArrgs']]]] = None,
                  task_retry_maximum: Optional[pulumi.Input[int]] = None,
                  wait_for_success: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] command_line: The command line executed by the start task.
-        :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
+        :param pulumi.Input['PoolStartTaskUserIdentityArrgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArrgs']]] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArrgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         :param pulumi.Input[int] task_retry_maximum: The number of retry count.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
@@ -1697,14 +1697,14 @@ class PoolStartTaskArgs:
 
     @property
     @pulumi.getter(name="userIdentity")
-    def user_identity(self) -> pulumi.Input['PoolStartTaskUserIdentityArgs']:
+    def user_identity(self) -> pulumi.Input['PoolStartTaskUserIdentityArrgs']:
         """
         A `user_identity` block that describes the user identity under which the start task runs as defined below.
         """
         return pulumi.get(self, "user_identity")
 
     @user_identity.setter
-    def user_identity(self, value: pulumi.Input['PoolStartTaskUserIdentityArgs']):
+    def user_identity(self, value: pulumi.Input['PoolStartTaskUserIdentityArrgs']):
         pulumi.set(self, "user_identity", value)
 
     @property
@@ -1721,26 +1721,26 @@ class PoolStartTaskArgs:
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]]:
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArrgs']]]]:
         """
         A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]]):
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArrgs']]]]):
         pulumi.set(self, "containers", value)
 
     @property
     @pulumi.getter(name="resourceFiles")
-    def resource_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]]:
+    def resource_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArrgs']]]]:
         """
         One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         """
         return pulumi.get(self, "resource_files")
 
     @resource_files.setter
-    def resource_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]]):
+    def resource_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArrgs']]]]):
         pulumi.set(self, "resource_files", value)
 
     @property
@@ -1769,15 +1769,15 @@ class PoolStartTaskArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskContainerArgs:
+calass PoolStartTaskContainerArrgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArrgs']]]] = None,
                  run_options: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] image_name: The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]] registries: The same reference as `container_registries` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArrgs']]] registries: The same reference as `container_registries` block defined as below.
         :param pulumi.Input[str] run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param pulumi.Input[str] working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
         """
@@ -1803,14 +1803,14 @@ class PoolStartTaskContainerArgs:
 
     @property
     @pulumi.getter
-    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]]:
+    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArrgs']]]]:
         """
         The same reference as `container_registries` block defined as below.
         """
         return pulumi.get(self, "registries")
 
     @registries.setter
-    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]]):
+    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArrgs']]]]):
         pulumi.set(self, "registries", value)
 
     @property
@@ -1839,7 +1839,7 @@ class PoolStartTaskContainerArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskContainerRegistryArgs:
+calass PoolStartTaskContainerRegistryArrgs:
     def __init__(__self__, *,
                  registry_server: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
@@ -1909,7 +1909,7 @@ class PoolStartTaskContainerRegistryArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskResourceFileArgs:
+calass PoolStartTaskResourceFileArrgs:
     def __init__(__self__, *,
                  auto_storage_container_name: Optional[pulumi.Input[str]] = None,
                  blob_prefix: Optional[pulumi.Input[str]] = None,
@@ -2032,12 +2032,12 @@ class PoolStartTaskResourceFileArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskUserIdentityArgs:
+calass PoolStartTaskUserIdentityArrgs:
     def __init__(__self__, *,
-                 auto_user: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']] = None,
+                 auto_user: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArrgs']] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
+        :param pulumi.Input['PoolStartTaskUserIdentityAutoUserArrgs'] auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
                
                > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
@@ -2049,7 +2049,7 @@ class PoolStartTaskUserIdentityArgs:
 
     @property
     @pulumi.getter(name="autoUser")
-    def auto_user(self) -> Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']]:
+    def auto_user(self) -> Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArrgs']]:
         """
         A `auto_user` block that describes the user identity under which the start task runs as defined below.
 
@@ -2058,7 +2058,7 @@ class PoolStartTaskUserIdentityArgs:
         return pulumi.get(self, "auto_user")
 
     @auto_user.setter
-    def auto_user(self, value: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']]):
+    def auto_user(self, value: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArrgs']]):
         pulumi.set(self, "auto_user", value)
 
     @property
@@ -2075,7 +2075,7 @@ class PoolStartTaskUserIdentityArgs:
 
 
 @pulumi.input_type
-class PoolStartTaskUserIdentityAutoUserArgs:
+calass PoolStartTaskUserIdentityAutoUserArrgs:
     def __init__(__self__, *,
                  elevation_level: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
@@ -2114,7 +2114,7 @@ class PoolStartTaskUserIdentityAutoUserArgs:
 
 
 @pulumi.input_type
-class PoolStorageImageReferenceArgs:
+calass PoolStorageImageReferenceArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
@@ -2205,7 +2205,7 @@ class PoolStorageImageReferenceArgs:
 
 
 @pulumi.input_type
-class PoolTaskSchedulingPolicyArgs:
+calass PoolTaskSchedulingPolicyArrgs:
     def __init__(__self__, *,
                  node_fill_type: Optional[pulumi.Input[str]] = None):
         """
@@ -2228,19 +2228,19 @@ class PoolTaskSchedulingPolicyArgs:
 
 
 @pulumi.input_type
-class PoolUserAccountArgs:
+calass PoolUserAccountArrgs:
     def __init__(__self__, *,
                  elevation_level: pulumi.Input[str],
                  name: pulumi.Input[str],
                  password: pulumi.Input[str],
-                 linux_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]] = None,
-                 windows_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]] = None):
+                 linux_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArrgs']]]] = None,
+                 windows_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArrgs']]]] = None):
         """
         :param pulumi.Input[str] elevation_level: The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         :param pulumi.Input[str] name: The name of the user account.
         :param pulumi.Input[str] password: The password for the user account.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArrgs']]] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArrgs']]] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
         pulumi.set(__self__, "elevation_level", elevation_level)
         pulumi.set(__self__, "name", name)
@@ -2288,31 +2288,31 @@ class PoolUserAccountArgs:
 
     @property
     @pulumi.getter(name="linuxUserConfigurations")
-    def linux_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]]:
+    def linux_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArrgs']]]]:
         """
         The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         """
         return pulumi.get(self, "linux_user_configurations")
 
     @linux_user_configurations.setter
-    def linux_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]]):
+    def linux_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArrgs']]]]):
         pulumi.set(self, "linux_user_configurations", value)
 
     @property
     @pulumi.getter(name="windowsUserConfigurations")
-    def windows_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]]:
+    def windows_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArrgs']]]]:
         """
         The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
         return pulumi.get(self, "windows_user_configurations")
 
     @windows_user_configurations.setter
-    def windows_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]]):
+    def windows_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArrgs']]]]):
         pulumi.set(self, "windows_user_configurations", value)
 
 
 @pulumi.input_type
-class PoolUserAccountLinuxUserConfigurationArgs:
+calass PoolUserAccountLinuxUserConfigurationArrgs:
     def __init__(__self__, *,
                  gid: Optional[pulumi.Input[int]] = None,
                  ssh_private_key: Optional[pulumi.Input[str]] = None,
@@ -2367,7 +2367,7 @@ class PoolUserAccountLinuxUserConfigurationArgs:
 
 
 @pulumi.input_type
-class PoolUserAccountWindowsUserConfigurationArgs:
+calass PoolUserAccountWindowsUserConfigurationArrgs:
     def __init__(__self__, *,
                  login_mode: pulumi.Input[str]):
         """
@@ -2389,7 +2389,7 @@ class PoolUserAccountWindowsUserConfigurationArgs:
 
 
 @pulumi.input_type
-class PoolWindowArgs:
+calass PoolWindowArrgs:
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None):
         """
@@ -2412,7 +2412,7 @@ class PoolWindowArgs:
 
 
 @pulumi.input_type
-class GetAccountEncryptionArgs:
+calass GetAccountEncryptionArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: str):
         """

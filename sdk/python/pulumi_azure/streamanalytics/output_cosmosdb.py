@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OutputCosmosdbArgs', 'OutputCosmosdb']
+__all__ = ['OutputCosmosdbArrgs', 'OutputCosmosdb']
 
 @pulumi.input_type
-class OutputCosmosdbArgs:
+calass OutputCosmosdbArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  cosmosdb_account_key: pulumi.Input[str],
@@ -128,7 +128,7 @@ class OutputCosmosdbArgs:
 
 
 @pulumi.input_type
-class _OutputCosmosdbState:
+calass _OutputCosmosdbState:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
                  cosmosdb_account_key: Optional[pulumi.Input[str]] = None,
@@ -247,7 +247,7 @@ class _OutputCosmosdbState:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
-class OutputCosmosdb(pulumi.CustomResource):
+calass OutputCosmosdb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -277,12 +277,12 @@ class OutputCosmosdb(pulumi.CustomResource):
             location=example_resource_group.location,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -325,7 +325,7 @@ class OutputCosmosdb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputCosmosdbArgs,
+                 args: OutputCosmosdbArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to CosmosDB.
@@ -344,12 +344,12 @@ class OutputCosmosdb(pulumi.CustomResource):
             location=example_resource_group.location,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -379,12 +379,12 @@ class OutputCosmosdb(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputCosmosdbArgs args: The arguments to use to populate this resource's properties.
+        :param OutputCosmosdbArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputCosmosdbArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputCosmosdbArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -407,7 +407,7 @@ class OutputCosmosdb(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputCosmosdbArgs.__new__(OutputCosmosdbArgs)
+            __props__ = OutputCosmosdbArrgs.__new__(OutputCosmosdbArrgs)
 
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")

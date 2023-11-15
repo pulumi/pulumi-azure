@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AuthomationRuleArgs', 'AuthomationRule']
+__all__ = ['AuthomationRuleArrgs', 'AuthomationRule']
 
 @pulumi.input_type
-class AuthomationRuleArgs:
+calass AuthomationRuleArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  log_analytics_workspace_id: pulumi.Input[str],
                  order: pulumi.Input[int],
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]] = None,
+                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,12 +33,12 @@ class AuthomationRuleArgs:
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]] conditions: One or more `condition` blocks as defined below.
                
                > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[bool] enabled: Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
@@ -110,19 +110,19 @@ class AuthomationRuleArgs:
 
     @property
     @pulumi.getter(name="actionIncidents")
-    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
+    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]]:
         """
         One or more `action_incident` blocks as defined below.
         """
         return pulumi.get(self, "action_incidents")
 
     @action_incidents.setter
-    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
+    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]]):
         pulumi.set(self, "action_incidents", value)
 
     @property
     @pulumi.getter(name="actionPlaybooks")
-    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
+    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]]:
         """
         One or more `action_playbook` blocks as defined below.
 
@@ -131,7 +131,7 @@ class AuthomationRuleArgs:
         return pulumi.get(self, "action_playbooks")
 
     @action_playbooks.setter
-    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
+    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]]):
         pulumi.set(self, "action_playbooks", value)
 
     @property
@@ -148,7 +148,7 @@ class AuthomationRuleArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]]:
         """
         One or more `condition` blocks as defined below.
 
@@ -160,7 +160,7 @@ class AuthomationRuleArgs:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -225,12 +225,12 @@ class AuthomationRuleArgs:
 
 
 @pulumi.input_type
-class _AuthomationRuleState:
+calass _AuthomationRuleState:
     def __init__(__self__, *,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]] = None,
+                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]] = None,
+                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -241,12 +241,12 @@ class _AuthomationRuleState:
                  triggers_when: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AuthomationRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]] conditions: One or more `condition` blocks as defined below.
                
                > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
@@ -288,19 +288,19 @@ class _AuthomationRuleState:
 
     @property
     @pulumi.getter(name="actionIncidents")
-    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]:
+    def action_incidents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]]:
         """
         One or more `action_incident` blocks as defined below.
         """
         return pulumi.get(self, "action_incidents")
 
     @action_incidents.setter
-    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArgs']]]]):
+    def action_incidents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionIncidentArrgs']]]]):
         pulumi.set(self, "action_incidents", value)
 
     @property
     @pulumi.getter(name="actionPlaybooks")
-    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]:
+    def action_playbooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]]:
         """
         One or more `action_playbook` blocks as defined below.
 
@@ -309,7 +309,7 @@ class _AuthomationRuleState:
         return pulumi.get(self, "action_playbooks")
 
     @action_playbooks.setter
-    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArgs']]]]):
+    def action_playbooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleActionPlaybookArrgs']]]]):
         pulumi.set(self, "action_playbooks", value)
 
     @property
@@ -326,7 +326,7 @@ class _AuthomationRuleState:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]]:
         """
         One or more `condition` blocks as defined below.
 
@@ -338,7 +338,7 @@ class _AuthomationRuleState:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthomationRuleConditionArrgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -441,17 +441,17 @@ class _AuthomationRuleState:
 warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
 
 
-class AuthomationRule(pulumi.CustomResource):
+calass AuthomationRule(pulumi.CustomResource):
     warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArrgs']]]]] = None,
+                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArrgs']]]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArrgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -480,7 +480,7 @@ class AuthomationRule(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="automation_rule1",
             order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArrgs(
                 order=1,
                 status="Active",
             )])
@@ -496,12 +496,12 @@ class AuthomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArrgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArrgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArrgs']]]] conditions: One or more `condition` blocks as defined below.
                
                > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.
@@ -517,7 +517,7 @@ class AuthomationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AuthomationRuleArgs,
+                 args: AuthomationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Automation Rule.
@@ -538,7 +538,7 @@ class AuthomationRule(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="automation_rule1",
             order=1,
-            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArgs(
+            action_incidents=[azure.sentinel.AutomationRuleActionIncidentArrgs(
                 order=1,
                 status="Active",
             )])
@@ -553,12 +553,12 @@ class AuthomationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AuthomationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param AuthomationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AuthomationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AuthomationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -567,10 +567,10 @@ class AuthomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
-                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+                 action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArrgs']]]]] = None,
+                 action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArrgs']]]]] = None,
                  condition_json: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArrgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -587,7 +587,7 @@ class AuthomationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AuthomationRuleArgs.__new__(AuthomationRuleArgs)
+            __props__ = AuthomationRuleArrgs.__new__(AuthomationRuleArrgs)
 
             __props__.__dict__["action_incidents"] = action_incidents
             __props__.__dict__["action_playbooks"] = action_playbooks
@@ -617,10 +617,10 @@ class AuthomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]]] = None,
-            action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]]] = None,
+            action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArrgs']]]]] = None,
+            action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArrgs']]]]] = None,
             condition_json: Optional[pulumi.Input[str]] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]]] = None,
+            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArrgs']]]]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             expiration: Optional[pulumi.Input[str]] = None,
@@ -636,12 +636,12 @@ class AuthomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionIncidentArrgs']]]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleActionPlaybookArrgs']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArgs']]]] conditions: One or more `condition` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthomationRuleConditionArrgs']]]] conditions: One or more `condition` blocks as defined below.
                
                > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         :param pulumi.Input[str] display_name: The display name which should be used for this Sentinel Automation Rule.

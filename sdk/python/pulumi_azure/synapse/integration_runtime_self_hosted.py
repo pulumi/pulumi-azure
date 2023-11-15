@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationRuntimeSelfHostedArgs', 'IntegrationRuntimeSelfHosted']
+__all__ = ['IntegrationRuntimeSelfHostedArrgs', 'IntegrationRuntimeSelfHosted']
 
 @pulumi.input_type
-class IntegrationRuntimeSelfHostedArgs:
+calass IntegrationRuntimeSelfHostedArrgs:
     def __init__(__self__, *,
                  synapse_workspace_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class IntegrationRuntimeSelfHostedArgs:
 
 
 @pulumi.input_type
-class _IntegrationRuntimeSelfHostedState:
+calass _IntegrationRuntimeSelfHostedState:
     def __init__(__self__, *,
                  authorization_key_primary: Optional[pulumi.Input[str]] = None,
                  authorization_key_secondary: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _IntegrationRuntimeSelfHostedState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
-class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
+calass IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,7 +189,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -217,7 +217,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationRuntimeSelfHostedArgs,
+                 args: IntegrationRuntimeSelfHostedArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Self-hosted Integration Runtime.
@@ -245,7 +245,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -264,12 +264,12 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationRuntimeSelfHostedArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationRuntimeSelfHostedArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeSelfHostedArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeSelfHostedArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -288,7 +288,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationRuntimeSelfHostedArgs.__new__(IntegrationRuntimeSelfHostedArgs)
+            __props__ = IntegrationRuntimeSelfHostedArrgs.__new__(IntegrationRuntimeSelfHostedArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

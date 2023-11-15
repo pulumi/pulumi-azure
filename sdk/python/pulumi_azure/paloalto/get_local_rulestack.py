@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLocalRulestackResult:
+calass GetLocalRulestackResult:
     """
     A collection of values returned by getLocalRulestack.
     """
@@ -131,7 +131,7 @@ class GetLocalRulestackResult:
         return pulumi.get(self, "vulnerability_profile")
 
 
-class AwaitableGetLocalRulestackResult(GetLocalRulestackResult):
+calass AwaitableGetLocalRulestackResult(GetLocalRulestackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

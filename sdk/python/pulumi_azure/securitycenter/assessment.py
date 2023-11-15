@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AssessmentArgs', 'Assessment']
+__all__ = ['AssessmentArrgs', 'Assessment']
 
 @pulumi.input_type
-class AssessmentArgs:
+calass AssessmentArrgs:
     def __init__(__self__, *,
                  assessment_policy_id: pulumi.Input[str],
-                 status: pulumi.Input['AssessmentStatusArgs'],
+                 status: pulumi.Input['AssessmentStatusArrgs'],
                  target_resource_id: pulumi.Input[str],
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
+        :param pulumi.Input['AssessmentStatusArrgs'] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         """
@@ -47,14 +47,14 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input['AssessmentStatusArgs']:
+    def status(self) -> pulumi.Input['AssessmentStatusArrgs']:
         """
         A `status` block as defined below.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input['AssessmentStatusArgs']):
+    def status(self, value: pulumi.Input['AssessmentStatusArrgs']):
         pulumi.set(self, "status", value)
 
     @property
@@ -83,17 +83,17 @@ class AssessmentArgs:
 
 
 @pulumi.input_type
-class _AssessmentState:
+calass _AssessmentState:
     def __init__(__self__, *,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_policy_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
+                 status: Optional[pulumi.Input['AssessmentStatusArrgs']] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Assessment resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
+        :param pulumi.Input['AssessmentStatusArrgs'] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         if additional_data is not None:
@@ -131,14 +131,14 @@ class _AssessmentState:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['AssessmentStatusArgs']]:
+    def status(self) -> Optional[pulumi.Input['AssessmentStatusArrgs']]:
         """
         A `status` block as defined below.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['AssessmentStatusArgs']]):
+    def status(self, value: Optional[pulumi.Input['AssessmentStatusArrgs']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -154,14 +154,14 @@ class _AssessmentState:
         pulumi.set(self, "target_resource_id", value)
 
 
-class Assessment(pulumi.CustomResource):
+calass Assessment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_policy_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArrgs']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -188,24 +188,24 @@ class Assessment(pulumi.CustomResource):
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArrgs(
                 storage_account_type="Standard_LRS",
                 caching="ReadWrite",
             ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArrgs(
                 name="example",
                 primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs(
                     name="internal",
                     primary=True,
                     subnet_id=internal.id,
@@ -218,7 +218,7 @@ class Assessment(pulumi.CustomResource):
         example_assessment = azure.securitycenter.Assessment("exampleAssessment",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
+            status=azure.securitycenter.AssessmentStatusArrgs(
                 code="Healthy",
             ))
         ```
@@ -235,14 +235,14 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: A `status` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AssessmentStatusArrgs']] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssessmentArgs,
+                 args: AssessmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Security Center Assessment for Azure Security Center.
@@ -268,24 +268,24 @@ class Assessment(pulumi.CustomResource):
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArrgs(
                 storage_account_type="Standard_LRS",
                 caching="ReadWrite",
             ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArrgs(
                 name="example",
                 primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs(
                     name="internal",
                     primary=True,
                     subnet_id=internal.id,
@@ -298,7 +298,7 @@ class Assessment(pulumi.CustomResource):
         example_assessment = azure.securitycenter.Assessment("exampleAssessment",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            status=azure.securitycenter.AssessmentStatusArgs(
+            status=azure.securitycenter.AssessmentStatusArrgs(
                 code="Healthy",
             ))
         ```
@@ -312,12 +312,12 @@ class Assessment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssessmentArgs args: The arguments to use to populate this resource's properties.
+        :param AssessmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,7 +328,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  assessment_policy_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+                 status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArrgs']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -337,7 +337,7 @@ class Assessment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssessmentArgs.__new__(AssessmentArgs)
+            __props__ = AssessmentArrgs.__new__(AssessmentArrgs)
 
             __props__.__dict__["additional_data"] = additional_data
             if assessment_policy_id is None and not opts.urn:
@@ -361,7 +361,7 @@ class Assessment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             assessment_policy_id: Optional[pulumi.Input[str]] = None,
-            status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
+            status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArrgs']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'Assessment':
         """
         Get an existing Assessment resource's state with the given name, id, and optional extra
@@ -372,7 +372,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[pulumi.InputType['AssessmentStatusArgs']] status: A `status` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AssessmentStatusArrgs']] status: A `status` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

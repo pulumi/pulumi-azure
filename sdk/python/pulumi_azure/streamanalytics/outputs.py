@@ -29,7 +29,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FunctionJavaScriptUDFInput(dict):
+calass FunctionJavaScriptUDFInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -76,7 +76,7 @@ class FunctionJavaScriptUDFInput(dict):
 
 
 @pulumi.output_type
-class FunctionJavaScriptUDFOutput(dict):
+calass FunctionJavaScriptUDFOutput(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -94,7 +94,7 @@ class FunctionJavaScriptUDFOutput(dict):
 
 
 @pulumi.output_type
-class FunctionJavascriptUdaInput(dict):
+calass FunctionJavascriptUdaInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -141,7 +141,7 @@ class FunctionJavascriptUdaInput(dict):
 
 
 @pulumi.output_type
-class FunctionJavascriptUdaOutput(dict):
+calass FunctionJavascriptUdaOutput(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -159,7 +159,7 @@ class FunctionJavascriptUdaOutput(dict):
 
 
 @pulumi.output_type
-class JobIdentity(dict):
+calass JobIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -220,7 +220,7 @@ class JobIdentity(dict):
 
 
 @pulumi.output_type
-class JobJobStorageAccount(dict):
+calass JobJobStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -282,7 +282,7 @@ class JobJobStorageAccount(dict):
 
 
 @pulumi.output_type
-class OutputBlobSerialization(dict):
+calass OutputBlobSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -369,7 +369,7 @@ class OutputBlobSerialization(dict):
 
 
 @pulumi.output_type
-class OutputEventHubSerialization(dict):
+calass OutputEventHubSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -452,7 +452,7 @@ class OutputEventHubSerialization(dict):
 
 
 @pulumi.output_type
-class OutputServiceBusQueueSerialization(dict):
+calass OutputServiceBusQueueSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -535,7 +535,7 @@ class OutputServiceBusQueueSerialization(dict):
 
 
 @pulumi.output_type
-class OutputServicebusTopicSerialization(dict):
+calass OutputServicebusTopicSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -618,7 +618,7 @@ class OutputServicebusTopicSerialization(dict):
 
 
 @pulumi.output_type
-class ReferenceInputBlobSerialization(dict):
+calass ReferenceInputBlobSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -685,7 +685,7 @@ class ReferenceInputBlobSerialization(dict):
 
 
 @pulumi.output_type
-class StreamInputBlobSerialization(dict):
+calass StreamInputBlobSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -752,7 +752,7 @@ class StreamInputBlobSerialization(dict):
 
 
 @pulumi.output_type
-class StreamInputEventHubSerialization(dict):
+calass StreamInputEventHubSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -819,7 +819,7 @@ class StreamInputEventHubSerialization(dict):
 
 
 @pulumi.output_type
-class StreamInputEventHubV2Serialization(dict):
+calass StreamInputEventHubV2Serialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -886,7 +886,7 @@ class StreamInputEventHubV2Serialization(dict):
 
 
 @pulumi.output_type
-class StreamInputIotHubSerialization(dict):
+calass StreamInputIotHubSerialization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -953,7 +953,7 @@ class StreamInputIotHubSerialization(dict):
 
 
 @pulumi.output_type
-class GetJobIdentityResult(dict):
+calass GetJobIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,

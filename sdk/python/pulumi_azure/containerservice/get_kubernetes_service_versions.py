@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKubernetesServiceVersionsResult:
+calass GetKubernetesServiceVersionsResult:
     """
     A collection of values returned by getKubernetesServiceVersions.
     """
@@ -81,7 +81,7 @@ class GetKubernetesServiceVersionsResult:
         return pulumi.get(self, "versions")
 
 
-class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsResult):
+calass AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

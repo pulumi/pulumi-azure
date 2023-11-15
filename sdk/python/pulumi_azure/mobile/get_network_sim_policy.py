@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkSimPolicyResult:
+calass GetNetworkSimPolicyResult:
     """
     A collection of values returned by getNetworkSimPolicy.
     """
@@ -129,7 +129,7 @@ class GetNetworkSimPolicyResult:
         return pulumi.get(self, "user_equipment_aggregate_maximum_bit_rates")
 
 
-class AwaitableGetNetworkSimPolicyResult(GetNetworkSimPolicyResult):
+calass AwaitableGetNetworkSimPolicyResult(GetNetworkSimPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

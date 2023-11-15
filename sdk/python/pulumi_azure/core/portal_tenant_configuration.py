@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PortalTenantConfigurationArgs', 'PortalTenantConfiguration']
+__all__ = ['PortalTenantConfigurationArrgs', 'PortalTenantConfiguration']
 
 @pulumi.input_type
-class PortalTenantConfigurationArgs:
+calass PortalTenantConfigurationArrgs:
     def __init__(__self__, *,
                  private_markdown_storage_enforced: pulumi.Input[bool]):
         """
@@ -39,7 +39,7 @@ class PortalTenantConfigurationArgs:
 
 
 @pulumi.input_type
-class _PortalTenantConfigurationState:
+calass _PortalTenantConfigurationState:
     def __init__(__self__, *,
                  private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None):
         """
@@ -66,7 +66,7 @@ class _PortalTenantConfigurationState:
         pulumi.set(self, "private_markdown_storage_enforced", value)
 
 
-class PortalTenantConfiguration(pulumi.CustomResource):
+calass PortalTenantConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -111,7 +111,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PortalTenantConfigurationArgs,
+                 args: PortalTenantConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Portal Tenant Configuration.
@@ -142,12 +142,12 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PortalTenantConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param PortalTenantConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PortalTenantConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PortalTenantConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -164,7 +164,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PortalTenantConfigurationArgs.__new__(PortalTenantConfigurationArgs)
+            __props__ = PortalTenantConfigurationArrgs.__new__(PortalTenantConfigurationArrgs)
 
             if private_markdown_storage_enforced is None and not opts.urn:
                 raise TypeError("Missing required property 'private_markdown_storage_enforced'")

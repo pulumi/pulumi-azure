@@ -11,24 +11,24 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LedgerArgs', 'Ledger']
+__all__ = ['LedgerArrgs', 'Ledger']
 
 @pulumi.input_type
-class LedgerArgs:
+calass LedgerArrgs:
     def __init__(__self__, *,
-                 azuread_based_service_principals: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]],
+                 azuread_based_service_principals: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]],
                  ledger_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Ledger resource.
-        :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
         :param pulumi.Input[str] ledger_type: Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Confidential Ledger.
@@ -47,14 +47,14 @@ class LedgerArgs:
 
     @property
     @pulumi.getter(name="azureadBasedServicePrincipals")
-    def azuread_based_service_principals(self) -> pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]:
+    def azuread_based_service_principals(self) -> pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]]:
         """
         A list of `azuread_based_service_principal` blocks as defined below.
         """
         return pulumi.get(self, "azuread_based_service_principals")
 
     @azuread_based_service_principals.setter
-    def azuread_based_service_principals(self, value: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]):
+    def azuread_based_service_principals(self, value: pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]]):
         pulumi.set(self, "azuread_based_service_principals", value)
 
     @property
@@ -83,14 +83,14 @@ class LedgerArgs:
 
     @property
     @pulumi.getter(name="certificateBasedSecurityPrincipals")
-    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
+    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]]:
         """
         A list of `certificate_based_security_principal` blocks as defined below.
         """
         return pulumi.get(self, "certificate_based_security_principals")
 
     @certificate_based_security_principals.setter
-    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
+    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]]):
         pulumi.set(self, "certificate_based_security_principals", value)
 
     @property
@@ -131,10 +131,10 @@ class LedgerArgs:
 
 
 @pulumi.input_type
-class _LedgerState:
+calass _LedgerState:
     def __init__(__self__, *,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]]] = None,
+                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]] = None,
                  identity_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ledger_endpoint: Optional[pulumi.Input[str]] = None,
                  ledger_type: Optional[pulumi.Input[str]] = None,
@@ -144,8 +144,8 @@ class _LedgerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Ledger resources.
-        :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
         :param pulumi.Input[str] identity_service_endpoint: The Identity Service Endpoint for this Confidential Ledger.
         :param pulumi.Input[str] ledger_endpoint: The Endpoint for this Confidential Ledger.
         :param pulumi.Input[str] ledger_type: Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
@@ -175,26 +175,26 @@ class _LedgerState:
 
     @property
     @pulumi.getter(name="azureadBasedServicePrincipals")
-    def azuread_based_service_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]:
+    def azuread_based_service_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]]]:
         """
         A list of `azuread_based_service_principal` blocks as defined below.
         """
         return pulumi.get(self, "azuread_based_service_principals")
 
     @azuread_based_service_principals.setter
-    def azuread_based_service_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]]):
+    def azuread_based_service_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArrgs']]]]):
         pulumi.set(self, "azuread_based_service_principals", value)
 
     @property
     @pulumi.getter(name="certificateBasedSecurityPrincipals")
-    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]:
+    def certificate_based_security_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]]:
         """
         A list of `certificate_based_security_principal` blocks as defined below.
         """
         return pulumi.get(self, "certificate_based_security_principals")
 
     @certificate_based_security_principals.setter
-    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]]):
+    def certificate_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArrgs']]]]):
         pulumi.set(self, "certificate_based_security_principals", value)
 
     @property
@@ -282,13 +282,13 @@ class _LedgerState:
         pulumi.set(self, "tags", value)
 
 
-class Ledger(pulumi.CustomResource):
+calass Ledger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArgs']]]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArgs']]]]] = None,
+                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArrgs']]]]] = None,
+                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArrgs']]]]] = None,
                  ledger_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -310,7 +310,7 @@ class Ledger(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             ledger_type="Private",
-            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArgs(
+            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArrgs(
                 principal_id=current.object_id,
                 tenant_id=current.tenant_id,
                 ledger_role_name="Administrator",
@@ -327,8 +327,8 @@ class Ledger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArgs']]]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArgs']]]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArrgs']]]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArrgs']]]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
         :param pulumi.Input[str] ledger_type: Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
@@ -339,7 +339,7 @@ class Ledger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LedgerArgs,
+                 args: LedgerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Confidential Ledger.
@@ -356,7 +356,7 @@ class Ledger(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             ledger_type="Private",
-            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArgs(
+            azuread_based_service_principals=[azure.confidentialledger.LedgerAzureadBasedServicePrincipalArrgs(
                 principal_id=current.object_id,
                 tenant_id=current.tenant_id,
                 ledger_role_name="Administrator",
@@ -372,12 +372,12 @@ class Ledger(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LedgerArgs args: The arguments to use to populate this resource's properties.
+        :param LedgerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LedgerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LedgerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -386,8 +386,8 @@ class Ledger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArgs']]]]] = None,
-                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArgs']]]]] = None,
+                 azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArrgs']]]]] = None,
+                 certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArrgs']]]]] = None,
                  ledger_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -400,7 +400,7 @@ class Ledger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LedgerArgs.__new__(LedgerArgs)
+            __props__ = LedgerArrgs.__new__(LedgerArrgs)
 
             if azuread_based_service_principals is None and not opts.urn:
                 raise TypeError("Missing required property 'azuread_based_service_principals'")
@@ -427,8 +427,8 @@ class Ledger(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArgs']]]]] = None,
-            certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArgs']]]]] = None,
+            azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArrgs']]]]] = None,
+            certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArrgs']]]]] = None,
             identity_service_endpoint: Optional[pulumi.Input[str]] = None,
             ledger_endpoint: Optional[pulumi.Input[str]] = None,
             ledger_type: Optional[pulumi.Input[str]] = None,
@@ -443,8 +443,8 @@ class Ledger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArgs']]]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArgs']]]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerAzureadBasedServicePrincipalArrgs']]]] azuread_based_service_principals: A list of `azuread_based_service_principal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LedgerCertificateBasedSecurityPrincipalArrgs']]]] certificate_based_security_principals: A list of `certificate_based_security_principal` blocks as defined below.
         :param pulumi.Input[str] identity_service_endpoint: The Identity Service Endpoint for this Confidential Ledger.
         :param pulumi.Input[str] ledger_endpoint: The Endpoint for this Confidential Ledger.
         :param pulumi.Input[str] ledger_type: Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.

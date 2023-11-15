@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataCollectionEndpointArgs', 'DataCollectionEndpoint']
+__all__ = ['DataCollectionEndpointArrgs', 'DataCollectionEndpoint']
 
 @pulumi.input_type
-class DataCollectionEndpointArgs:
+calass DataCollectionEndpointArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class DataCollectionEndpointArgs:
 
 
 @pulumi.input_type
-class _DataCollectionEndpointState:
+calass _DataCollectionEndpointState:
     def __init__(__self__, *,
                  configuration_access_endpoint: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -282,7 +282,7 @@ class _DataCollectionEndpointState:
         pulumi.set(self, "tags", value)
 
 
-class DataCollectionEndpoint(pulumi.CustomResource):
+calass DataCollectionEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -338,7 +338,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataCollectionEndpointArgs,
+                 args: DataCollectionEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Collection Endpoint.
@@ -370,12 +370,12 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param DataCollectionEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataCollectionEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataCollectionEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -398,7 +398,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataCollectionEndpointArgs.__new__(DataCollectionEndpointArgs)
+            __props__ = DataCollectionEndpointArrgs.__new__(DataCollectionEndpointArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kind"] = kind

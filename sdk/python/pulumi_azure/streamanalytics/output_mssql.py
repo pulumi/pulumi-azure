@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OutputMssqlArgs', 'OutputMssql']
+__all__ = ['OutputMssqlArrgs', 'OutputMssql']
 
 @pulumi.input_type
-class OutputMssqlArgs:
+calass OutputMssqlArrgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -191,7 +191,7 @@ class OutputMssqlArgs:
 
 
 @pulumi.input_type
-class _OutputMssqlState:
+calass _OutputMssqlState:
     def __init__(__self__, *,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
@@ -374,7 +374,7 @@ class _OutputMssqlState:
         pulumi.set(self, "user", value)
 
 
-class OutputMssql(pulumi.CustomResource):
+calass OutputMssql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -453,7 +453,7 @@ class OutputMssql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputMssqlArgs,
+                 args: OutputMssqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
@@ -500,12 +500,12 @@ class OutputMssql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputMssqlArgs args: The arguments to use to populate this resource's properties.
+        :param OutputMssqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputMssqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputMssqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -532,7 +532,7 @@ class OutputMssql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputMssqlArgs.__new__(OutputMssqlArgs)
+            __props__ = OutputMssqlArrgs.__new__(OutputMssqlArrgs)
 
             __props__.__dict__["authentication_mode"] = authentication_mode
             if database is None and not opts.urn:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationRuntimeRuleArgs', 'IntegrationRuntimeRule']
+__all__ = ['IntegrationRuntimeRuleArrgs', 'IntegrationRuntimeRule']
 
 @pulumi.input_type
-class IntegrationRuntimeRuleArgs:
+calass IntegrationRuntimeRuleArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  cleanup_enabled: Optional[pulumi.Input[bool]] = None,
@@ -163,7 +163,7 @@ class IntegrationRuntimeRuleArgs:
 
 
 @pulumi.input_type
-class _IntegrationRuntimeRuleState:
+calass _IntegrationRuntimeRuleState:
     def __init__(__self__, *,
                  cleanup_enabled: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[str]] = None,
@@ -314,7 +314,7 @@ class _IntegrationRuntimeRuleState:
         pulumi.set(self, "virtual_network_enabled", value)
 
 
-class IntegrationRuntimeRule(pulumi.CustomResource):
+calass IntegrationRuntimeRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -371,7 +371,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationRuntimeRuleArgs,
+                 args: IntegrationRuntimeRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Factory Azure Integration Runtime.
@@ -400,12 +400,12 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationRuntimeRuleArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationRuntimeRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -430,7 +430,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationRuntimeRuleArgs.__new__(IntegrationRuntimeRuleArgs)
+            __props__ = IntegrationRuntimeRuleArrgs.__new__(IntegrationRuntimeRuleArrgs)
 
             __props__.__dict__["cleanup_enabled"] = cleanup_enabled
             __props__.__dict__["compute_type"] = compute_type

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualHubConnectionResult:
+calass GetVirtualHubConnectionResult:
     """
     A collection of values returned by getVirtualHubConnection.
     """
@@ -107,7 +107,7 @@ class GetVirtualHubConnectionResult:
         return pulumi.get(self, "virtual_hub_name")
 
 
-class AwaitableGetVirtualHubConnectionResult(GetVirtualHubConnectionResult):
+calass AwaitableGetVirtualHubConnectionResult(GetVirtualHubConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationSecurityGroupAssociationArgs', 'ApplicationSecurityGroupAssociation']
+__all__ = ['ApplicationSecurityGroupAssociationArrgs', 'ApplicationSecurityGroupAssociation']
 
 @pulumi.input_type
-class ApplicationSecurityGroupAssociationArgs:
+calass ApplicationSecurityGroupAssociationArrgs:
     def __init__(__self__, *,
                  application_security_group_id: pulumi.Input[str],
                  private_endpoint_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ApplicationSecurityGroupAssociationArgs:
 
 
 @pulumi.input_type
-class _ApplicationSecurityGroupAssociationState:
+calass _ApplicationSecurityGroupAssociationState:
     def __init__(__self__, *,
                  application_security_group_id: Optional[pulumi.Input[str]] = None,
                  private_endpoint_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ApplicationSecurityGroupAssociationState:
         pulumi.set(self, "private_endpoint_id", value)
 
 
-class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
+calass ApplicationSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             sku="Standard",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -140,7 +140,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             auto_approval_subscription_ids=[current.subscription_id],
             visibility_subscription_ids=[current.subscription_id],
-            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
+            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArrgs(
                 name="primaryIpConfiguration",
                 primary=True,
                 subnet_id=service.id,
@@ -150,7 +150,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=endpoint.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArrgs(
                 name=example_link_service.name,
                 is_manual_connection=False,
                 private_connection_resource_id=example_link_service.id,
@@ -180,7 +180,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationSecurityGroupAssociationArgs,
+                 args: ApplicationSecurityGroupAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an association between Private Endpoint and Application Security Group.
@@ -216,7 +216,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             sku="Standard",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -225,7 +225,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             auto_approval_subscription_ids=[current.subscription_id],
             visibility_subscription_ids=[current.subscription_id],
-            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
+            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArrgs(
                 name="primaryIpConfiguration",
                 primary=True,
                 subnet_id=service.id,
@@ -235,7 +235,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=endpoint.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArrgs(
                 name=example_link_service.name,
                 is_manual_connection=False,
                 private_connection_resource_id=example_link_service.id,
@@ -257,12 +257,12 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationSecurityGroupAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSecurityGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSecurityGroupAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -280,7 +280,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationSecurityGroupAssociationArgs.__new__(ApplicationSecurityGroupAssociationArgs)
+            __props__ = ApplicationSecurityGroupAssociationArrgs.__new__(ApplicationSecurityGroupAssociationArrgs)
 
             if application_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_security_group_id'")

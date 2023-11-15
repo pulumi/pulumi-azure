@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDefinitionResult:
+calass GetDefinitionResult:
     """
     A collection of values returned by getDefinition.
     """
@@ -59,7 +59,7 @@ class GetDefinitionResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetDefinitionResult(GetDefinitionResult):
+calass AwaitableGetDefinitionResult(GetDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

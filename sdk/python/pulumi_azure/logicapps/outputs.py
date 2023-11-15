@@ -51,7 +51,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ActionHttpRunAfter(dict):
+calass ActionHttpRunAfter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,7 +99,7 @@ class ActionHttpRunAfter(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountAgreementGuestIdentity(dict):
+calass IntegrationAccountAgreementGuestIdentity(dict):
     def __init__(__self__, *,
                  qualifier: str,
                  value: str):
@@ -128,7 +128,7 @@ class IntegrationAccountAgreementGuestIdentity(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountAgreementHostIdentity(dict):
+calass IntegrationAccountAgreementHostIdentity(dict):
     def __init__(__self__, *,
                  qualifier: str,
                  value: str):
@@ -157,7 +157,7 @@ class IntegrationAccountAgreementHostIdentity(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
+calass IntegrationAccountBatchConfigurationReleaseCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
         """
         :param int batch_size: The batch size in bytes for the Logic App Integration Batch Configuration.
         :param int message_count: The message count for the Logic App Integration Batch Configuration.
-        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs' recurrence: A `recurrence` block as documented below.
+        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs' recurrence: A `recurrence` block as documented below.
         """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
@@ -219,7 +219,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteria(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -252,7 +252,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
         :param str frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         :param int interval: The number of `frequency`s between runs.
         :param str end_time: The end time of the schedule, formatted as an RFC3339 string.
-        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs' schedule: A `schedule` block as documented below.
+        :param 'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs' schedule: A `schedule` block as documented below.
         :param str start_time: The start time of the schedule, formatted as an RFC3339 string.
         :param str time_zone: The timezone of the start/end time.
         """
@@ -317,7 +317,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict):
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -347,7 +347,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict
         :param Sequence[int] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
         :param Sequence[int] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
         :param Sequence[int] month_days: A list of days of the month that the job should execute on.
-        :param Sequence['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below.
+        :param Sequence['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs'] monthlies: A `monthly` block as documented below.
         :param Sequence[str] week_days: A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         if hours is not None:
@@ -403,7 +403,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(dict
 
 
 @pulumi.output_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly(dict):
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly(dict):
     def __init__(__self__, *,
                  week: int,
                  weekday: str):
@@ -432,7 +432,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
 
 
 @pulumi.output_type
-class IntegrationAccountCertificateKeyVaultKey(dict):
+calass IntegrationAccountCertificateKeyVaultKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -494,7 +494,7 @@ class IntegrationAccountCertificateKeyVaultKey(dict):
 
 
 @pulumi.output_type
-class IntegrationAccountPartnerBusinessIdentity(dict):
+calass IntegrationAccountPartnerBusinessIdentity(dict):
     def __init__(__self__, *,
                  qualifier: str,
                  value: str):
@@ -523,7 +523,7 @@ class IntegrationAccountPartnerBusinessIdentity(dict):
 
 
 @pulumi.output_type
-class StandardConnectionString(dict):
+calass StandardConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -563,7 +563,7 @@ class StandardConnectionString(dict):
 
 
 @pulumi.output_type
-class StandardIdentity(dict):
+calass StandardIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -646,7 +646,7 @@ class StandardIdentity(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfig(dict):
+calass StandardSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -728,20 +728,20 @@ class StandardSiteConfig(dict):
         :param bool always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The Auto-swap slot name.
-        :param 'StandardSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param 'StandardSiteConfigCorsArrgs' cors: A `cors` block as defined below.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this Logic App health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['StandardSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['StandardSiteConfigIpRestrictionArrgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param str min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['StandardSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        :param Sequence['StandardSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
@@ -972,7 +972,7 @@ class StandardSiteConfig(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfigCors(dict):
+calass StandardSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1021,7 +1021,7 @@ class StandardSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfigIpRestriction(dict):
+calass StandardSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1053,7 +1053,7 @@ class StandardSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'StandardSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'StandardSiteConfigIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1137,7 +1137,7 @@ class StandardSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfigIpRestrictionHeaders(dict):
+calass StandardSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1215,7 +1215,7 @@ class StandardSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfigScmIpRestriction(dict):
+calass StandardSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1247,7 +1247,7 @@ class StandardSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'StandardSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'StandardSiteConfigScmIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1331,7 +1331,7 @@ class StandardSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class StandardSiteConfigScmIpRestrictionHeaders(dict):
+calass StandardSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1409,7 +1409,7 @@ class StandardSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class StandardSiteCredential(dict):
+calass StandardSiteCredential(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
@@ -1440,7 +1440,7 @@ class StandardSiteCredential(dict):
 
 
 @pulumi.output_type
-class TriggerRecurrenceSchedule(dict):
+calass TriggerRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1504,7 +1504,7 @@ class TriggerRecurrenceSchedule(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControl(dict):
+calass WorkflowAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1528,10 +1528,10 @@ class WorkflowAccessControl(dict):
                  trigger: Optional['outputs.WorkflowAccessControlTrigger'] = None,
                  workflow_management: Optional['outputs.WorkflowAccessControlWorkflowManagement'] = None):
         """
-        :param 'WorkflowAccessControlActionArgs' action: A `action` block as defined below.
-        :param 'WorkflowAccessControlContentArgs' content: A `content` block as defined below.
-        :param 'WorkflowAccessControlTriggerArgs' trigger: A `trigger` block as defined below.
-        :param 'WorkflowAccessControlWorkflowManagementArgs' workflow_management: A `workflow_management` block as defined below.
+        :param 'WorkflowAccessControlActionArrgs' action: A `action` block as defined below.
+        :param 'WorkflowAccessControlContentArrgs' content: A `content` block as defined below.
+        :param 'WorkflowAccessControlTriggerArrgs' trigger: A `trigger` block as defined below.
+        :param 'WorkflowAccessControlWorkflowManagementArrgs' workflow_management: A `workflow_management` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1576,7 +1576,7 @@ class WorkflowAccessControl(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlAction(dict):
+calass WorkflowAccessControlAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1611,7 +1611,7 @@ class WorkflowAccessControlAction(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlContent(dict):
+calass WorkflowAccessControlContent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1646,7 +1646,7 @@ class WorkflowAccessControlContent(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlTrigger(dict):
+calass WorkflowAccessControlTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1671,7 +1671,7 @@ class WorkflowAccessControlTrigger(dict):
                  open_authentication_policies: Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy']] = None):
         """
         :param Sequence[str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
-        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs'] open_authentication_policies: A `open_authentication_policy` block as defined below.
+        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs'] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
         pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
@@ -1695,12 +1695,12 @@ class WorkflowAccessControlTrigger(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlTriggerOpenAuthenticationPolicy(dict):
+calass WorkflowAccessControlTriggerOpenAuthenticationPolicy(dict):
     def __init__(__self__, *,
                  claims: Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim'],
                  name: str):
         """
-        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs'] claims: A `claim` block as defined below.
+        :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs'] claims: A `claim` block as defined below.
         :param str name: The OAuth policy name for the Logic App Workflow.
         """
         pulumi.set(__self__, "claims", claims)
@@ -1724,7 +1724,7 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicy(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim(dict):
+calass WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1753,7 +1753,7 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim(dict):
 
 
 @pulumi.output_type
-class WorkflowAccessControlWorkflowManagement(dict):
+calass WorkflowAccessControlWorkflowManagement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1788,7 +1788,7 @@ class WorkflowAccessControlWorkflowManagement(dict):
 
 
 @pulumi.output_type
-class WorkflowIdentity(dict):
+calass WorkflowIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1867,7 +1867,7 @@ class WorkflowIdentity(dict):
 
 
 @pulumi.output_type
-class GetStandardConnectionStringResult(dict):
+calass GetStandardConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -1903,7 +1903,7 @@ class GetStandardConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetStandardIdentityResult(dict):
+calass GetStandardIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -1943,7 +1943,7 @@ class GetStandardIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigResult(dict):
+calass GetStandardSiteConfigResult(dict):
     def __init__(__self__, *,
                  app_scale_limit: int,
                  auto_swap_slot_name: str,
@@ -2103,7 +2103,7 @@ class GetStandardSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigCorsResult(dict):
+calass GetStandardSiteConfigCorsResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -2123,7 +2123,7 @@ class GetStandardSiteConfigCorsResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigIpRestrictionResult(dict):
+calass GetStandardSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  headers: 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult',
                  name: str,
@@ -2188,7 +2188,7 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
+calass GetStandardSiteConfigIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Optional[Sequence[str]] = None,
                  x_fd_health_probe: Optional[str] = None,
@@ -2225,7 +2225,7 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigScmIpRestrictionResult(dict):
+calass GetStandardSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  headers: 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult',
                  name: str,
@@ -2290,7 +2290,7 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
+calass GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Optional[Sequence[str]] = None,
                  x_fd_health_probe: Optional[str] = None,
@@ -2327,7 +2327,7 @@ class GetStandardSiteConfigScmIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetStandardSiteCredentialResult(dict):
+calass GetStandardSiteCredentialResult(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -2346,7 +2346,7 @@ class GetStandardSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetWorkflowIdentityResult(dict):
+calass GetWorkflowIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,

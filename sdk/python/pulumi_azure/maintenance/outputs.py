@@ -23,15 +23,15 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationInstallPatches(dict):
+calass ConfigurationInstallPatches(dict):
     def __init__(__self__, *,
                  linuxes: Optional[Sequence['outputs.ConfigurationInstallPatchesLinux']] = None,
                  reboot: Optional[str] = None,
                  windows: Optional[Sequence['outputs.ConfigurationInstallPatchesWindow']] = None):
         """
-        :param Sequence['ConfigurationInstallPatchesLinuxArgs'] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        :param Sequence['ConfigurationInstallPatchesLinuxArrgs'] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         :param str reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
-        :param Sequence['ConfigurationInstallPatchesWindowArgs'] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        :param Sequence['ConfigurationInstallPatchesWindowArrgs'] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         if linuxes is not None:
             pulumi.set(__self__, "linuxes", linuxes)
@@ -66,7 +66,7 @@ class ConfigurationInstallPatches(dict):
 
 
 @pulumi.output_type
-class ConfigurationInstallPatchesLinux(dict):
+calass ConfigurationInstallPatchesLinux(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -130,7 +130,7 @@ class ConfigurationInstallPatchesLinux(dict):
 
 
 @pulumi.output_type
-class ConfigurationInstallPatchesWindow(dict):
+calass ConfigurationInstallPatchesWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -194,7 +194,7 @@ class ConfigurationInstallPatchesWindow(dict):
 
 
 @pulumi.output_type
-class ConfigurationWindow(dict):
+calass ConfigurationWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -282,15 +282,15 @@ class ConfigurationWindow(dict):
 
 
 @pulumi.output_type
-class GetConfigurationInstallPatchResult(dict):
+calass GetConfigurationInstallPatchResult(dict):
     def __init__(__self__, *,
                  linuxes: Sequence['outputs.GetConfigurationInstallPatchLinuxResult'],
                  reboot: str,
                  windows: Sequence['outputs.GetConfigurationInstallPatchWindowResult']):
         """
-        :param Sequence['GetConfigurationInstallPatchLinuxArgs'] linuxes: A `linux` block as defined below.
+        :param Sequence['GetConfigurationInstallPatchLinuxArrgs'] linuxes: A `linux` block as defined below.
         :param str reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
-        :param Sequence['GetConfigurationInstallPatchWindowArgs'] windows: A `windows` block as defined below.
+        :param Sequence['GetConfigurationInstallPatchWindowArrgs'] windows: A `windows` block as defined below.
         """
         pulumi.set(__self__, "linuxes", linuxes)
         pulumi.set(__self__, "reboot", reboot)
@@ -322,7 +322,7 @@ class GetConfigurationInstallPatchResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationInstallPatchLinuxResult(dict):
+calass GetConfigurationInstallPatchLinuxResult(dict):
     def __init__(__self__, *,
                  classifications_to_includes: Sequence[str],
                  package_names_mask_to_excludes: Sequence[str],
@@ -362,7 +362,7 @@ class GetConfigurationInstallPatchLinuxResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationInstallPatchWindowResult(dict):
+calass GetConfigurationInstallPatchWindowResult(dict):
     def __init__(__self__, *,
                  classifications_to_includes: Sequence[str],
                  kb_numbers_to_excludes: Sequence[str],
@@ -402,7 +402,7 @@ class GetConfigurationInstallPatchWindowResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationWindowResult(dict):
+calass GetConfigurationWindowResult(dict):
     def __init__(__self__, *,
                  duration: str,
                  expiration_date_time: str,
@@ -464,7 +464,7 @@ class GetConfigurationWindowResult(dict):
 
 
 @pulumi.output_type
-class GetPublicConfigurationsConfigResult(dict):
+calass GetPublicConfigurationsConfigResult(dict):
     def __init__(__self__, *,
                  description: str,
                  duration: str,

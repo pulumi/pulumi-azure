@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetScheduledQueryRulesAlertResult:
+calass GetScheduledQueryRulesAlertResult:
     """
     A collection of values returned by getScheduledQueryRulesAlert.
     """
@@ -203,7 +203,7 @@ class GetScheduledQueryRulesAlertResult:
         return pulumi.get(self, "triggers")
 
 
-class AwaitableGetScheduledQueryRulesAlertResult(GetScheduledQueryRulesAlertResult):
+calass AwaitableGetScheduledQueryRulesAlertResult(GetScheduledQueryRulesAlertResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

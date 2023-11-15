@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Assignment of an API Management API Tag to an API.
@@ -176,12 +175,6 @@ func (i *ApiTag) ToApiTagOutputWithContext(ctx context.Context) ApiTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagOutput)
 }
 
-func (i *ApiTag) ToOutput(ctx context.Context) pulumix.Output[*ApiTag] {
-	return pulumix.Output[*ApiTag]{
-		OutputState: i.ToApiTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiTagArrayInput is an input type that accepts ApiTagArray and ApiTagArrayOutput values.
 // You can construct a concrete instance of `ApiTagArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i ApiTagArray) ToApiTagArrayOutput() ApiTagArrayOutput {
 
 func (i ApiTagArray) ToApiTagArrayOutputWithContext(ctx context.Context) ApiTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagArrayOutput)
-}
-
-func (i ApiTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiTag] {
-	return pulumix.Output[[]*ApiTag]{
-		OutputState: i.ToApiTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiTagMapInput is an input type that accepts ApiTagMap and ApiTagMapOutput values.
@@ -238,12 +225,6 @@ func (i ApiTagMap) ToApiTagMapOutputWithContext(ctx context.Context) ApiTagMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagMapOutput)
 }
 
-func (i ApiTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiTag] {
-	return pulumix.Output[map[string]*ApiTag]{
-		OutputState: i.ToApiTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiTagOutput struct{ *pulumi.OutputState }
 
 func (ApiTagOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o ApiTagOutput) ToApiTagOutput() ApiTagOutput {
 
 func (o ApiTagOutput) ToApiTagOutputWithContext(ctx context.Context) ApiTagOutput {
 	return o
-}
-
-func (o ApiTagOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiTag] {
-	return pulumix.Output[*ApiTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
@@ -288,12 +263,6 @@ func (o ApiTagArrayOutput) ToApiTagArrayOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o ApiTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiTag] {
-	return pulumix.Output[[]*ApiTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiTagArrayOutput) Index(i pulumi.IntInput) ApiTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiTag {
 		return vs[0].([]*ApiTag)[vs[1].(int)]
@@ -312,12 +281,6 @@ func (o ApiTagMapOutput) ToApiTagMapOutput() ApiTagMapOutput {
 
 func (o ApiTagMapOutput) ToApiTagMapOutputWithContext(ctx context.Context) ApiTagMapOutput {
 	return o
-}
-
-func (o ApiTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiTag] {
-	return pulumix.Output[map[string]*ApiTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiTagMapOutput) MapIndex(k pulumi.StringInput) ApiTagOutput {

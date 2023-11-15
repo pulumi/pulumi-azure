@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServiceIdentity(dict):
+calass ServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -78,7 +78,7 @@ class ServiceIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceQueryKey(dict):
+calass ServiceQueryKey(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  name: Optional[str] = None):
@@ -109,7 +109,7 @@ class ServiceQueryKey(dict):
 
 
 @pulumi.output_type
-class GetServiceIdentityResult(dict):
+calass GetServiceIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -149,7 +149,7 @@ class GetServiceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetServiceQueryKeyResult(dict):
+calass GetServiceQueryKeyResult(dict):
     def __init__(__self__, *,
                  key: str,
                  name: str):

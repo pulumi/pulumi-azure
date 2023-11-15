@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKey']
+__all__ = ['WorkspaceCustomerManagedKeyArrgs', 'WorkspaceCustomerManagedKey']
 
 @pulumi.input_type
-class WorkspaceCustomerManagedKeyArgs:
+calass WorkspaceCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str]):
@@ -56,7 +56,7 @@ class WorkspaceCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class _WorkspaceCustomerManagedKeyState:
+calass _WorkspaceCustomerManagedKeyState:
     def __init__(__self__, *,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -101,7 +101,7 @@ class _WorkspaceCustomerManagedKeyState:
         pulumi.set(self, "workspace_id", value)
 
 
-class WorkspaceCustomerManagedKey(pulumi.CustomResource):
+calass WorkspaceCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -127,7 +127,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceCustomerManagedKeyArgs,
+                 args: WorkspaceCustomerManagedKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -139,12 +139,12 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceCustomerManagedKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceCustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceCustomerManagedKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -162,7 +162,7 @@ class WorkspaceCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceCustomerManagedKeyArgs.__new__(WorkspaceCustomerManagedKeyArgs)
+            __props__ = WorkspaceCustomerManagedKeyArrgs.__new__(WorkspaceCustomerManagedKeyArrgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")

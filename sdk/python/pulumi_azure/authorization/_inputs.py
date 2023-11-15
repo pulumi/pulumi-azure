@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RoleDefinitionPermissionArgs',
+    'RoleDefinitionPermissionArrgs',
 ]
 
 @pulumi.input_type
-class RoleDefinitionPermissionArgs:
+calass RoleDefinitionPermissionArrgs:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ChannelDirectLineSite(dict):
+calass ChannelDirectLineSite(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,7 +196,7 @@ class ChannelDirectLineSite(dict):
 
 
 @pulumi.output_type
-class ChannelFacebookPage(dict):
+calass ChannelFacebookPage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,7 +242,7 @@ class ChannelFacebookPage(dict):
 
 
 @pulumi.output_type
-class ChannelLineLineChannel(dict):
+calass ChannelLineLineChannel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -288,7 +288,7 @@ class ChannelLineLineChannel(dict):
 
 
 @pulumi.output_type
-class ChannelWebChatSite(dict):
+calass ChannelWebChatSite(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

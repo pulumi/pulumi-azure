@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CacheArgs', 'Cache']
+__all__ = ['CacheArrgs', 'Cache']
 
 @pulumi.input_type
-class CacheArgs:
+calass CacheArrgs:
     def __init__(__self__, *,
                  cache_size_in_gb: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
-                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-                 dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']] = None,
+                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']] = None,
+                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']] = None,
+                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArrgs']] = None,
+                 dns: Optional[pulumi.Input['CacheDnsArrgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArrgs']] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -44,14 +44,14 @@ class CacheArgs:
                > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
-        :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input['CacheDefaultAccessPolicyArrgs'] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input['CacheDirectoryActiveDirectoryArrgs'] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input['CacheDirectoryFlatFileArrgs'] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input['CacheDirectoryLdapArrgs'] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
-        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CacheDnsArrgs'] dns: A `dns` block as defined below.
+        :param pulumi.Input['CacheIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
@@ -156,43 +156,43 @@ class CacheArgs:
 
     @property
     @pulumi.getter(name="defaultAccessPolicy")
-    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
+    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']]:
         """
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
 
     @default_access_policy.setter
-    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
+    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']]):
         pulumi.set(self, "default_access_policy", value)
 
     @property
     @pulumi.getter(name="directoryActiveDirectory")
-    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']]:
         """
         A `directory_active_directory` block as defined below.
         """
         return pulumi.get(self, "directory_active_directory")
 
     @directory_active_directory.setter
-    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']]):
         pulumi.set(self, "directory_active_directory", value)
 
     @property
     @pulumi.getter(name="directoryFlatFile")
-    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']]:
         """
         A `directory_flat_file` block as defined below.
         """
         return pulumi.get(self, "directory_flat_file")
 
     @directory_flat_file.setter
-    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']]):
         pulumi.set(self, "directory_flat_file", value)
 
     @property
     @pulumi.getter(name="directoryLdap")
-    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArrgs']]:
         """
         A `directory_ldap` block as defined below.
 
@@ -201,31 +201,31 @@ class CacheArgs:
         return pulumi.get(self, "directory_ldap")
 
     @directory_ldap.setter
-    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArrgs']]):
         pulumi.set(self, "directory_ldap", value)
 
     @property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['CacheDnsArgs']]:
+    def dns(self) -> Optional[pulumi.Input['CacheDnsArrgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
+    def dns(self, value: Optional[pulumi.Input['CacheDnsArrgs']]):
         pulumi.set(self, "dns", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -302,16 +302,16 @@ class CacheArgs:
 
 
 @pulumi.input_type
-class _CacheState:
+calass _CacheState:
     def __init__(__self__, *,
                  automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
-                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
-                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
-                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
-                 dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']] = None,
+                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']] = None,
+                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']] = None,
+                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArrgs']] = None,
+                 dns: Optional[pulumi.Input['CacheDnsArrgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArrgs']] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -328,14 +328,14 @@ class _CacheState:
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input['CacheDefaultAccessPolicyArrgs'] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input['CacheDirectoryActiveDirectoryArrgs'] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input['CacheDirectoryFlatFileArrgs'] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input['CacheDirectoryLdapArrgs'] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
-        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CacheDnsArrgs'] dns: A `dns` block as defined below.
+        :param pulumi.Input['CacheIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
@@ -414,43 +414,43 @@ class _CacheState:
 
     @property
     @pulumi.getter(name="defaultAccessPolicy")
-    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
+    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']]:
         """
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
 
     @default_access_policy.setter
-    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
+    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArrgs']]):
         pulumi.set(self, "default_access_policy", value)
 
     @property
     @pulumi.getter(name="directoryActiveDirectory")
-    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']]:
         """
         A `directory_active_directory` block as defined below.
         """
         return pulumi.get(self, "directory_active_directory")
 
     @directory_active_directory.setter
-    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArrgs']]):
         pulumi.set(self, "directory_active_directory", value)
 
     @property
     @pulumi.getter(name="directoryFlatFile")
-    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']]:
         """
         A `directory_flat_file` block as defined below.
         """
         return pulumi.get(self, "directory_flat_file")
 
     @directory_flat_file.setter
-    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArrgs']]):
         pulumi.set(self, "directory_flat_file", value)
 
     @property
     @pulumi.getter(name="directoryLdap")
-    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArrgs']]:
         """
         A `directory_ldap` block as defined below.
 
@@ -459,31 +459,31 @@ class _CacheState:
         return pulumi.get(self, "directory_ldap")
 
     @directory_ldap.setter
-    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArrgs']]):
         pulumi.set(self, "directory_ldap", value)
 
     @property
     @pulumi.getter
-    def dns(self) -> Optional[pulumi.Input['CacheDnsArgs']]:
+    def dns(self) -> Optional[pulumi.Input['CacheDnsArrgs']]:
         """
         A `dns` block as defined below.
         """
         return pulumi.get(self, "dns")
 
     @dns.setter
-    def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
+    def dns(self, value: Optional[pulumi.Input['CacheDnsArrgs']]):
         pulumi.set(self, "dns", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -609,19 +609,19 @@ class _CacheState:
         pulumi.set(self, "tags", value)
 
 
-class Cache(pulumi.CustomResource):
+calass Cache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-                 default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
-                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
-                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
-                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
-                 dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArrgs']]] = None,
+                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArrgs']]] = None,
+                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArrgs']]] = None,
+                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArrgs']]] = None,
+                 dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -674,14 +674,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArrgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArrgs']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArrgs']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArrgs']] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CacheDnsArrgs']] dns: A `dns` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
@@ -698,7 +698,7 @@ class Cache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CacheArgs,
+                 args: CacheArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HPC Cache.
@@ -737,12 +737,12 @@ class Cache(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CacheArgs args: The arguments to use to populate this resource's properties.
+        :param CacheArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CacheArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CacheArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -753,12 +753,12 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-                 default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
-                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
-                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
-                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
-                 dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArrgs']]] = None,
+                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArrgs']]] = None,
+                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArrgs']]] = None,
+                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArrgs']]] = None,
+                 dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -775,7 +775,7 @@ class Cache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CacheArgs.__new__(CacheArgs)
+            __props__ = CacheArrgs.__new__(CacheArrgs)
 
             __props__.__dict__["automatically_rotate_key_to_latest_enabled"] = automatically_rotate_key_to_latest_enabled
             if cache_size_in_gb is None and not opts.urn:
@@ -815,12 +815,12 @@ class Cache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             automatically_rotate_key_to_latest_enabled: Optional[pulumi.Input[bool]] = None,
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
-            default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
-            directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
-            directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
-            directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
-            dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+            default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArrgs']]] = None,
+            directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArrgs']]] = None,
+            directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArrgs']]] = None,
+            directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArrgs']]] = None,
+            dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -842,14 +842,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArrgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArrgs']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArrgs']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArrgs']] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
-        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['CacheDnsArrgs']] dns: A `dns` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.

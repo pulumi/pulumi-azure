@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalRulestackOutboundTrustCertificateAssociationArgs', 'LocalRulestackOutboundTrustCertificateAssociation']
+__all__ = ['LocalRulestackOutboundTrustCertificateAssociationArrgs', 'LocalRulestackOutboundTrustCertificateAssociation']
 
 @pulumi.input_type
-class LocalRulestackOutboundTrustCertificateAssociationArgs:
+calass LocalRulestackOutboundTrustCertificateAssociationArrgs:
     def __init__(__self__, *,
                  certificate_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class LocalRulestackOutboundTrustCertificateAssociationArgs:
 
 
 @pulumi.input_type
-class _LocalRulestackOutboundTrustCertificateAssociationState:
+calass _LocalRulestackOutboundTrustCertificateAssociationState:
     def __init__(__self__, *,
                  certificate_id: Optional[pulumi.Input[str]] = None):
         """
@@ -58,7 +58,7 @@ class _LocalRulestackOutboundTrustCertificateAssociationState:
         pulumi.set(self, "certificate_id", value)
 
 
-class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
+calass LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -92,7 +92,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalRulestackOutboundTrustCertificateAssociationArgs,
+                 args: LocalRulestackOutboundTrustCertificateAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Outbound Trust Certificate Association.
@@ -114,12 +114,12 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalRulestackOutboundTrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRulestackOutboundTrustCertificateAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackOutboundTrustCertificateAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackOutboundTrustCertificateAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -136,7 +136,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalRulestackOutboundTrustCertificateAssociationArgs.__new__(LocalRulestackOutboundTrustCertificateAssociationArgs)
+            __props__ = LocalRulestackOutboundTrustCertificateAssociationArrgs.__new__(LocalRulestackOutboundTrustCertificateAssociationArrgs)
 
             if certificate_id is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_id'")

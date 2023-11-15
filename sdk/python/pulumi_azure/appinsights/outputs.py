@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class StandardWebTestRequest(dict):
+calass StandardWebTestRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -53,7 +53,7 @@ class StandardWebTestRequest(dict):
         :param str url: The WebTest request URL.
         :param str body: The WebTest request body.
         :param bool follow_redirects_enabled: Should the following of redirects be enabled? Defaults to `true`.
-        :param Sequence['StandardWebTestRequestHeaderArgs'] headers: One or more `header` blocks as defined above.
+        :param Sequence['StandardWebTestRequestHeaderArrgs'] headers: One or more `header` blocks as defined above.
         :param str http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
         :param bool parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
@@ -119,7 +119,7 @@ class StandardWebTestRequest(dict):
 
 
 @pulumi.output_type
-class StandardWebTestRequestHeader(dict):
+calass StandardWebTestRequestHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -148,7 +148,7 @@ class StandardWebTestRequestHeader(dict):
 
 
 @pulumi.output_type
-class StandardWebTestValidationRules(dict):
+calass StandardWebTestValidationRules(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -176,7 +176,7 @@ class StandardWebTestValidationRules(dict):
                  ssl_cert_remaining_lifetime: Optional[int] = None,
                  ssl_check_enabled: Optional[bool] = None):
         """
-        :param 'StandardWebTestValidationRulesContentArgs' content: A `content` block as defined above.
+        :param 'StandardWebTestValidationRulesContentArrgs' content: A `content` block as defined above.
         :param int expected_status_code: The expected status code of the response. Default is '200', '0' means 'response code < 400'
         :param int ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param bool ssl_check_enabled: Should the SSL check be enabled?
@@ -224,7 +224,7 @@ class StandardWebTestValidationRules(dict):
 
 
 @pulumi.output_type
-class StandardWebTestValidationRulesContent(dict):
+calass StandardWebTestValidationRulesContent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -287,7 +287,7 @@ class StandardWebTestValidationRulesContent(dict):
 
 
 @pulumi.output_type
-class WorkbookIdentity(dict):
+calass WorkbookIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -362,7 +362,7 @@ class WorkbookIdentity(dict):
 
 
 @pulumi.output_type
-class WorkbookTemplateGallery(dict):
+calass WorkbookTemplateGallery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

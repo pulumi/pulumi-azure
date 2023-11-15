@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PrivateCloudCircuit(dict):
+calass PrivateCloudCircuit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class PrivateCloudCircuit(dict):
 
 
 @pulumi.output_type
-class PrivateCloudManagementCluster(dict):
+calass PrivateCloudManagementCluster(dict):
     def __init__(__self__, *,
                  size: int,
                  hosts: Optional[Sequence[str]] = None,
@@ -137,7 +137,7 @@ class PrivateCloudManagementCluster(dict):
 
 
 @pulumi.output_type
-class GetPrivateCloudCircuitResult(dict):
+calass GetPrivateCloudCircuitResult(dict):
     def __init__(__self__, *,
                  express_route_id: str,
                  express_route_private_peering_id: str,
@@ -188,7 +188,7 @@ class GetPrivateCloudCircuitResult(dict):
 
 
 @pulumi.output_type
-class GetPrivateCloudManagementClusterResult(dict):
+calass GetPrivateCloudManagementClusterResult(dict):
     def __init__(__self__, *,
                  hosts: Sequence[str],
                  id: int,

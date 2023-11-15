@@ -10,87 +10,87 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointCustomDomainCdnManagedHttpsArgs',
-    'EndpointCustomDomainUserManagedHttpsArgs',
-    'EndpointDeliveryRuleArgs',
-    'EndpointDeliveryRuleCacheExpirationActionArgs',
-    'EndpointDeliveryRuleCacheKeyQueryStringActionArgs',
-    'EndpointDeliveryRuleCookiesConditionArgs',
-    'EndpointDeliveryRuleDeviceConditionArgs',
-    'EndpointDeliveryRuleHttpVersionConditionArgs',
-    'EndpointDeliveryRuleModifyRequestHeaderActionArgs',
-    'EndpointDeliveryRuleModifyResponseHeaderActionArgs',
-    'EndpointDeliveryRulePostArgConditionArgs',
-    'EndpointDeliveryRuleQueryStringConditionArgs',
-    'EndpointDeliveryRuleRemoteAddressConditionArgs',
-    'EndpointDeliveryRuleRequestBodyConditionArgs',
-    'EndpointDeliveryRuleRequestHeaderConditionArgs',
-    'EndpointDeliveryRuleRequestMethodConditionArgs',
-    'EndpointDeliveryRuleRequestSchemeConditionArgs',
-    'EndpointDeliveryRuleRequestUriConditionArgs',
-    'EndpointDeliveryRuleUrlFileExtensionConditionArgs',
-    'EndpointDeliveryRuleUrlFileNameConditionArgs',
-    'EndpointDeliveryRuleUrlPathConditionArgs',
-    'EndpointDeliveryRuleUrlRedirectActionArgs',
-    'EndpointDeliveryRuleUrlRewriteActionArgs',
-    'EndpointGeoFilterArgs',
-    'EndpointGlobalDeliveryRuleArgs',
-    'EndpointGlobalDeliveryRuleCacheExpirationActionArgs',
-    'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs',
-    'EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs',
-    'EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs',
-    'EndpointGlobalDeliveryRuleUrlRedirectActionArgs',
-    'EndpointGlobalDeliveryRuleUrlRewriteActionArgs',
-    'EndpointOriginArgs',
-    'FrontdoorCustomDomainTlsArgs',
-    'FrontdoorFirewallPolicyCustomRuleArgs',
-    'FrontdoorFirewallPolicyCustomRuleMatchConditionArgs',
-    'FrontdoorFirewallPolicyManagedRuleArgs',
-    'FrontdoorFirewallPolicyManagedRuleExclusionArgs',
-    'FrontdoorFirewallPolicyManagedRuleOverrideArgs',
-    'FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs',
-    'FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs',
-    'FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs',
-    'FrontdoorOriginGroupHealthProbeArgs',
-    'FrontdoorOriginGroupLoadBalancingArgs',
-    'FrontdoorOriginPrivateLinkArgs',
-    'FrontdoorRouteCacheArgs',
-    'FrontdoorRuleActionsArgs',
-    'FrontdoorRuleActionsRequestHeaderActionArgs',
-    'FrontdoorRuleActionsResponseHeaderActionArgs',
-    'FrontdoorRuleActionsRouteConfigurationOverrideActionArgs',
-    'FrontdoorRuleActionsUrlRedirectActionArgs',
-    'FrontdoorRuleActionsUrlRewriteActionArgs',
-    'FrontdoorRuleConditionsArgs',
-    'FrontdoorRuleConditionsClientPortConditionArgs',
-    'FrontdoorRuleConditionsCookiesConditionArgs',
-    'FrontdoorRuleConditionsHostNameConditionArgs',
-    'FrontdoorRuleConditionsHttpVersionConditionArgs',
-    'FrontdoorRuleConditionsIsDeviceConditionArgs',
-    'FrontdoorRuleConditionsPostArgsConditionArgs',
-    'FrontdoorRuleConditionsQueryStringConditionArgs',
-    'FrontdoorRuleConditionsRemoteAddressConditionArgs',
-    'FrontdoorRuleConditionsRequestBodyConditionArgs',
-    'FrontdoorRuleConditionsRequestHeaderConditionArgs',
-    'FrontdoorRuleConditionsRequestMethodConditionArgs',
-    'FrontdoorRuleConditionsRequestSchemeConditionArgs',
-    'FrontdoorRuleConditionsRequestUriConditionArgs',
-    'FrontdoorRuleConditionsServerPortConditionArgs',
-    'FrontdoorRuleConditionsSocketAddressConditionArgs',
-    'FrontdoorRuleConditionsSslProtocolConditionArgs',
-    'FrontdoorRuleConditionsUrlFileExtensionConditionArgs',
-    'FrontdoorRuleConditionsUrlFilenameConditionArgs',
-    'FrontdoorRuleConditionsUrlPathConditionArgs',
-    'FrontdoorSecretSecretArgs',
-    'FrontdoorSecretSecretCustomerCertificateArgs',
-    'FrontdoorSecurityPolicySecurityPoliciesArgs',
-    'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs',
-    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs',
-    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs',
+    'EndpointCustomDomainCdnManagedHttpsArrgs',
+    'EndpointCustomDomainUserManagedHttpsArrgs',
+    'EndpointDeliveryRuleArrgs',
+    'EndpointDeliveryRuleCacheExpirationActionArrgs',
+    'EndpointDeliveryRuleCacheKeyQueryStringActionArrgs',
+    'EndpointDeliveryRuleCookiesConditionArrgs',
+    'EndpointDeliveryRuleDeviceConditionArrgs',
+    'EndpointDeliveryRuleHttpVersionConditionArrgs',
+    'EndpointDeliveryRuleModifyRequestHeaderActionArrgs',
+    'EndpointDeliveryRuleModifyResponseHeaderActionArrgs',
+    'EndpointDeliveryRulePostArgConditionArrgs',
+    'EndpointDeliveryRuleQueryStringConditionArrgs',
+    'EndpointDeliveryRuleRemoteAddressConditionArrgs',
+    'EndpointDeliveryRuleRequestBodyConditionArrgs',
+    'EndpointDeliveryRuleRequestHeaderConditionArrgs',
+    'EndpointDeliveryRuleRequestMethodConditionArrgs',
+    'EndpointDeliveryRuleRequestSchemeConditionArrgs',
+    'EndpointDeliveryRuleRequestUriConditionArrgs',
+    'EndpointDeliveryRuleUrlFileExtensionConditionArrgs',
+    'EndpointDeliveryRuleUrlFileNameConditionArrgs',
+    'EndpointDeliveryRuleUrlPathConditionArrgs',
+    'EndpointDeliveryRuleUrlRedirectActionArrgs',
+    'EndpointDeliveryRuleUrlRewriteActionArrgs',
+    'EndpointGeoFilterArrgs',
+    'EndpointGlobalDeliveryRuleArrgs',
+    'EndpointGlobalDeliveryRuleCacheExpirationActionArrgs',
+    'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs',
+    'EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs',
+    'EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs',
+    'EndpointGlobalDeliveryRuleUrlRedirectActionArrgs',
+    'EndpointGlobalDeliveryRuleUrlRewriteActionArrgs',
+    'EndpointOriginArrgs',
+    'FrontdoorCustomDomainTlsArrgs',
+    'FrontdoorFirewallPolicyCustomRuleArrgs',
+    'FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs',
+    'FrontdoorFirewallPolicyManagedRuleArrgs',
+    'FrontdoorFirewallPolicyManagedRuleExclusionArrgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideArrgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs',
+    'FrontdoorOriginGroupHealthProbeArrgs',
+    'FrontdoorOriginGroupLoadBalancingArrgs',
+    'FrontdoorOriginPrivateLinkArrgs',
+    'FrontdoorRouteCacheArrgs',
+    'FrontdoorRuleActionsArrgs',
+    'FrontdoorRuleActionsRequestHeaderActionArrgs',
+    'FrontdoorRuleActionsResponseHeaderActionArrgs',
+    'FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs',
+    'FrontdoorRuleActionsUrlRedirectActionArrgs',
+    'FrontdoorRuleActionsUrlRewriteActionArrgs',
+    'FrontdoorRuleConditionsArrgs',
+    'FrontdoorRuleConditionsClientPortConditionArrgs',
+    'FrontdoorRuleConditionsCookiesConditionArrgs',
+    'FrontdoorRuleConditionsHostNameConditionArrgs',
+    'FrontdoorRuleConditionsHttpVersionConditionArrgs',
+    'FrontdoorRuleConditionsIsDeviceConditionArrgs',
+    'FrontdoorRuleConditionsPostArgsConditionArrgs',
+    'FrontdoorRuleConditionsQueryStringConditionArrgs',
+    'FrontdoorRuleConditionsRemoteAddressConditionArrgs',
+    'FrontdoorRuleConditionsRequestBodyConditionArrgs',
+    'FrontdoorRuleConditionsRequestHeaderConditionArrgs',
+    'FrontdoorRuleConditionsRequestMethodConditionArrgs',
+    'FrontdoorRuleConditionsRequestSchemeConditionArrgs',
+    'FrontdoorRuleConditionsRequestUriConditionArrgs',
+    'FrontdoorRuleConditionsServerPortConditionArrgs',
+    'FrontdoorRuleConditionsSocketAddressConditionArrgs',
+    'FrontdoorRuleConditionsSslProtocolConditionArrgs',
+    'FrontdoorRuleConditionsUrlFileExtensionConditionArrgs',
+    'FrontdoorRuleConditionsUrlFilenameConditionArrgs',
+    'FrontdoorRuleConditionsUrlPathConditionArrgs',
+    'FrontdoorSecretSecretArrgs',
+    'FrontdoorSecretSecretCustomerCertificateArrgs',
+    'FrontdoorSecurityPolicySecurityPoliciesArrgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs',
 ]
 
 @pulumi.input_type
-class EndpointCustomDomainCdnManagedHttpsArgs:
+calass EndpointCustomDomainCdnManagedHttpsArrgs:
     def __init__(__self__, *,
                  certificate_type: pulumi.Input[str],
                  protocol_type: pulumi.Input[str],
@@ -143,7 +143,7 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
 
 
 @pulumi.input_type
-class EndpointCustomDomainUserManagedHttpsArgs:
+calass EndpointCustomDomainUserManagedHttpsArrgs:
     def __init__(__self__, *,
                  key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -208,53 +208,53 @@ class EndpointCustomDomainUserManagedHttpsArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleArgs:
+calass EndpointDeliveryRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  order: pulumi.Input[int],
-                 cache_expiration_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs']] = None,
-                 cache_key_query_string_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs']] = None,
-                 cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]]] = None,
-                 device_condition: Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArgs']] = None,
-                 http_version_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgs']]]] = None,
-                 modify_request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgs']]]] = None,
-                 modify_response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgs']]]] = None,
-                 post_arg_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgs']]]] = None,
-                 query_string_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgs']]]] = None,
-                 remote_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgs']]]] = None,
-                 request_body_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgs']]]] = None,
-                 request_header_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgs']]]] = None,
-                 request_method_condition: Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArgs']] = None,
-                 request_scheme_condition: Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArgs']] = None,
-                 request_uri_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgs']]]] = None,
-                 url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgs']]]] = None,
-                 url_file_name_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgs']]]] = None,
-                 url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]]] = None,
-                 url_redirect_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgs']] = None,
-                 url_rewrite_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs']] = None):
+                 cache_expiration_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArrgs']] = None,
+                 cache_key_query_string_action: Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArrgs']] = None,
+                 cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArrgs']]]] = None,
+                 device_condition: Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArrgs']] = None,
+                 http_version_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArrgs']]]] = None,
+                 modify_request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArrgs']]]] = None,
+                 modify_response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArrgs']]]] = None,
+                 post_arg_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArrgs']]]] = None,
+                 query_string_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArrgs']]]] = None,
+                 remote_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArrgs']]]] = None,
+                 request_body_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArrgs']]]] = None,
+                 request_header_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArrgs']]]] = None,
+                 request_method_condition: Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArrgs']] = None,
+                 request_scheme_condition: Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArrgs']] = None,
+                 request_uri_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArrgs']]]] = None,
+                 url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArrgs']]]] = None,
+                 url_file_name_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArrgs']]]] = None,
+                 url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArrgs']]]] = None,
+                 url_redirect_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArrgs']] = None,
+                 url_rewrite_action: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArrgs']] = None):
         """
         :param pulumi.Input[str] name: The Name which should be used for this Delivery Rule.
         :param pulumi.Input[int] order: The order used for this rule. The order values should be sequential and begin at `1`.
-        :param pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs'] cache_expiration_action: A `cache_expiration_action` block as defined above.
-        :param pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs'] cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]] cookies_conditions: A `cookies_condition` block as defined above.
-        :param pulumi.Input['EndpointDeliveryRuleDeviceConditionArgs'] device_condition: A `device_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgs']]] http_version_conditions: A `http_version_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgs']]] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgs']]] modify_response_header_actions: A `modify_response_header_action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgs']]] post_arg_conditions: A `post_arg_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgs']]] query_string_conditions: A `query_string_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgs']]] remote_address_conditions: A `remote_address_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgs']]] request_body_conditions: A `request_body_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgs']]] request_header_conditions: A `request_header_condition` block as defined below.
-        :param pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArgs'] request_method_condition: A `request_method_condition` block as defined below.
-        :param pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArgs'] request_scheme_condition: A `request_scheme_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgs']]] request_uri_conditions: A `request_uri_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgs']]] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgs']]] url_file_name_conditions: A `url_file_name_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]] url_path_conditions: A `url_path_condition` block as defined below.
-        :param pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgs'] url_redirect_action: A `url_redirect_action` block as defined below.
-        :param pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs'] url_rewrite_action: A `url_rewrite_action` block as defined below.
+        :param pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArrgs'] cache_expiration_action: A `cache_expiration_action` block as defined above.
+        :param pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArrgs'] cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArrgs']]] cookies_conditions: A `cookies_condition` block as defined above.
+        :param pulumi.Input['EndpointDeliveryRuleDeviceConditionArrgs'] device_condition: A `device_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArrgs']]] http_version_conditions: A `http_version_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArrgs']]] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArrgs']]] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArrgs']]] post_arg_conditions: A `post_arg_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArrgs']]] query_string_conditions: A `query_string_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArrgs']]] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArrgs']]] request_body_conditions: A `request_body_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArrgs']]] request_header_conditions: A `request_header_condition` block as defined below.
+        :param pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArrgs'] request_method_condition: A `request_method_condition` block as defined below.
+        :param pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArrgs'] request_scheme_condition: A `request_scheme_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArrgs']]] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArrgs']]] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArrgs']]] url_file_name_conditions: A `url_file_name_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArrgs']]] url_path_conditions: A `url_path_condition` block as defined below.
+        :param pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArrgs'] url_redirect_action: A `url_redirect_action` block as defined below.
+        :param pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArrgs'] url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -325,247 +325,247 @@ class EndpointDeliveryRuleArgs:
 
     @property
     @pulumi.getter(name="cacheExpirationAction")
-    def cache_expiration_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs']]:
+    def cache_expiration_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArrgs']]:
         """
         A `cache_expiration_action` block as defined above.
         """
         return pulumi.get(self, "cache_expiration_action")
 
     @cache_expiration_action.setter
-    def cache_expiration_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgs']]):
+    def cache_expiration_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArrgs']]):
         pulumi.set(self, "cache_expiration_action", value)
 
     @property
     @pulumi.getter(name="cacheKeyQueryStringAction")
-    def cache_key_query_string_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs']]:
+    def cache_key_query_string_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArrgs']]:
         """
         A `cache_key_query_string_action` block as defined above.
         """
         return pulumi.get(self, "cache_key_query_string_action")
 
     @cache_key_query_string_action.setter
-    def cache_key_query_string_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgs']]):
+    def cache_key_query_string_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArrgs']]):
         pulumi.set(self, "cache_key_query_string_action", value)
 
     @property
     @pulumi.getter(name="cookiesConditions")
-    def cookies_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]]]:
+    def cookies_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArrgs']]]]:
         """
         A `cookies_condition` block as defined above.
         """
         return pulumi.get(self, "cookies_conditions")
 
     @cookies_conditions.setter
-    def cookies_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]]]):
+    def cookies_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArrgs']]]]):
         pulumi.set(self, "cookies_conditions", value)
 
     @property
     @pulumi.getter(name="deviceCondition")
-    def device_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArgs']]:
+    def device_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArrgs']]:
         """
         A `device_condition` block as defined below.
         """
         return pulumi.get(self, "device_condition")
 
     @device_condition.setter
-    def device_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArgs']]):
+    def device_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleDeviceConditionArrgs']]):
         pulumi.set(self, "device_condition", value)
 
     @property
     @pulumi.getter(name="httpVersionConditions")
-    def http_version_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgs']]]]:
+    def http_version_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArrgs']]]]:
         """
         A `http_version_condition` block as defined below.
         """
         return pulumi.get(self, "http_version_conditions")
 
     @http_version_conditions.setter
-    def http_version_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgs']]]]):
+    def http_version_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArrgs']]]]):
         pulumi.set(self, "http_version_conditions", value)
 
     @property
     @pulumi.getter(name="modifyRequestHeaderActions")
-    def modify_request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgs']]]]:
+    def modify_request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArrgs']]]]:
         """
         A `modify_request_header_action` block as defined below.
         """
         return pulumi.get(self, "modify_request_header_actions")
 
     @modify_request_header_actions.setter
-    def modify_request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgs']]]]):
+    def modify_request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArrgs']]]]):
         pulumi.set(self, "modify_request_header_actions", value)
 
     @property
     @pulumi.getter(name="modifyResponseHeaderActions")
-    def modify_response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgs']]]]:
+    def modify_response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArrgs']]]]:
         """
         A `modify_response_header_action` block as defined below.
         """
         return pulumi.get(self, "modify_response_header_actions")
 
     @modify_response_header_actions.setter
-    def modify_response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgs']]]]):
+    def modify_response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArrgs']]]]):
         pulumi.set(self, "modify_response_header_actions", value)
 
     @property
     @pulumi.getter(name="postArgConditions")
-    def post_arg_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgs']]]]:
+    def post_arg_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArrgs']]]]:
         """
         A `post_arg_condition` block as defined below.
         """
         return pulumi.get(self, "post_arg_conditions")
 
     @post_arg_conditions.setter
-    def post_arg_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgs']]]]):
+    def post_arg_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArrgs']]]]):
         pulumi.set(self, "post_arg_conditions", value)
 
     @property
     @pulumi.getter(name="queryStringConditions")
-    def query_string_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgs']]]]:
+    def query_string_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArrgs']]]]:
         """
         A `query_string_condition` block as defined below.
         """
         return pulumi.get(self, "query_string_conditions")
 
     @query_string_conditions.setter
-    def query_string_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgs']]]]):
+    def query_string_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArrgs']]]]):
         pulumi.set(self, "query_string_conditions", value)
 
     @property
     @pulumi.getter(name="remoteAddressConditions")
-    def remote_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgs']]]]:
+    def remote_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArrgs']]]]:
         """
         A `remote_address_condition` block as defined below.
         """
         return pulumi.get(self, "remote_address_conditions")
 
     @remote_address_conditions.setter
-    def remote_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgs']]]]):
+    def remote_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArrgs']]]]):
         pulumi.set(self, "remote_address_conditions", value)
 
     @property
     @pulumi.getter(name="requestBodyConditions")
-    def request_body_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgs']]]]:
+    def request_body_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArrgs']]]]:
         """
         A `request_body_condition` block as defined below.
         """
         return pulumi.get(self, "request_body_conditions")
 
     @request_body_conditions.setter
-    def request_body_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgs']]]]):
+    def request_body_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArrgs']]]]):
         pulumi.set(self, "request_body_conditions", value)
 
     @property
     @pulumi.getter(name="requestHeaderConditions")
-    def request_header_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgs']]]]:
+    def request_header_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArrgs']]]]:
         """
         A `request_header_condition` block as defined below.
         """
         return pulumi.get(self, "request_header_conditions")
 
     @request_header_conditions.setter
-    def request_header_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgs']]]]):
+    def request_header_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArrgs']]]]):
         pulumi.set(self, "request_header_conditions", value)
 
     @property
     @pulumi.getter(name="requestMethodCondition")
-    def request_method_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArgs']]:
+    def request_method_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArrgs']]:
         """
         A `request_method_condition` block as defined below.
         """
         return pulumi.get(self, "request_method_condition")
 
     @request_method_condition.setter
-    def request_method_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArgs']]):
+    def request_method_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArrgs']]):
         pulumi.set(self, "request_method_condition", value)
 
     @property
     @pulumi.getter(name="requestSchemeCondition")
-    def request_scheme_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArgs']]:
+    def request_scheme_condition(self) -> Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArrgs']]:
         """
         A `request_scheme_condition` block as defined below.
         """
         return pulumi.get(self, "request_scheme_condition")
 
     @request_scheme_condition.setter
-    def request_scheme_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArgs']]):
+    def request_scheme_condition(self, value: Optional[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArrgs']]):
         pulumi.set(self, "request_scheme_condition", value)
 
     @property
     @pulumi.getter(name="requestUriConditions")
-    def request_uri_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgs']]]]:
+    def request_uri_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArrgs']]]]:
         """
         A `request_uri_condition` block as defined below.
         """
         return pulumi.get(self, "request_uri_conditions")
 
     @request_uri_conditions.setter
-    def request_uri_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgs']]]]):
+    def request_uri_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArrgs']]]]):
         pulumi.set(self, "request_uri_conditions", value)
 
     @property
     @pulumi.getter(name="urlFileExtensionConditions")
-    def url_file_extension_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgs']]]]:
+    def url_file_extension_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArrgs']]]]:
         """
         A `url_file_extension_condition` block as defined below.
         """
         return pulumi.get(self, "url_file_extension_conditions")
 
     @url_file_extension_conditions.setter
-    def url_file_extension_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgs']]]]):
+    def url_file_extension_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArrgs']]]]):
         pulumi.set(self, "url_file_extension_conditions", value)
 
     @property
     @pulumi.getter(name="urlFileNameConditions")
-    def url_file_name_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgs']]]]:
+    def url_file_name_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArrgs']]]]:
         """
         A `url_file_name_condition` block as defined below.
         """
         return pulumi.get(self, "url_file_name_conditions")
 
     @url_file_name_conditions.setter
-    def url_file_name_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgs']]]]):
+    def url_file_name_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArrgs']]]]):
         pulumi.set(self, "url_file_name_conditions", value)
 
     @property
     @pulumi.getter(name="urlPathConditions")
-    def url_path_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]]]:
+    def url_path_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArrgs']]]]:
         """
         A `url_path_condition` block as defined below.
         """
         return pulumi.get(self, "url_path_conditions")
 
     @url_path_conditions.setter
-    def url_path_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]]]):
+    def url_path_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArrgs']]]]):
         pulumi.set(self, "url_path_conditions", value)
 
     @property
     @pulumi.getter(name="urlRedirectAction")
-    def url_redirect_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgs']]:
+    def url_redirect_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArrgs']]:
         """
         A `url_redirect_action` block as defined below.
         """
         return pulumi.get(self, "url_redirect_action")
 
     @url_redirect_action.setter
-    def url_redirect_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgs']]):
+    def url_redirect_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArrgs']]):
         pulumi.set(self, "url_redirect_action", value)
 
     @property
     @pulumi.getter(name="urlRewriteAction")
-    def url_rewrite_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs']]:
+    def url_rewrite_action(self) -> Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArrgs']]:
         """
         A `url_rewrite_action` block as defined below.
         """
         return pulumi.get(self, "url_rewrite_action")
 
     @url_rewrite_action.setter
-    def url_rewrite_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgs']]):
+    def url_rewrite_action(self, value: Optional[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArrgs']]):
         pulumi.set(self, "url_rewrite_action", value)
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleCacheExpirationActionArgs:
+calass EndpointDeliveryRuleCacheExpirationActionArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str],
                  duration: Optional[pulumi.Input[str]] = None):
@@ -603,7 +603,7 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
+calass EndpointDeliveryRuleCacheKeyQueryStringActionArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
@@ -641,7 +641,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleCookiesConditionArgs:
+calass EndpointDeliveryRuleCookiesConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
@@ -726,7 +726,7 @@ class EndpointDeliveryRuleCookiesConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleDeviceConditionArgs:
+calass EndpointDeliveryRuleDeviceConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -780,7 +780,7 @@ class EndpointDeliveryRuleDeviceConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleHttpVersionConditionArgs:
+calass EndpointDeliveryRuleHttpVersionConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -834,7 +834,7 @@ class EndpointDeliveryRuleHttpVersionConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleModifyRequestHeaderActionArgs:
+calass EndpointDeliveryRuleModifyRequestHeaderActionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -887,7 +887,7 @@ class EndpointDeliveryRuleModifyRequestHeaderActionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
+calass EndpointDeliveryRuleModifyResponseHeaderActionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -940,7 +940,7 @@ class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRulePostArgConditionArgs:
+calass EndpointDeliveryRulePostArgConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
@@ -1025,7 +1025,7 @@ class EndpointDeliveryRulePostArgConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleQueryStringConditionArgs:
+calass EndpointDeliveryRuleQueryStringConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1095,7 +1095,7 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRemoteAddressConditionArgs:
+calass EndpointDeliveryRuleRemoteAddressConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1149,7 +1149,7 @@ class EndpointDeliveryRuleRemoteAddressConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRequestBodyConditionArgs:
+calass EndpointDeliveryRuleRequestBodyConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1219,7 +1219,7 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRequestHeaderConditionArgs:
+calass EndpointDeliveryRuleRequestHeaderConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  selector: pulumi.Input[str],
@@ -1304,7 +1304,7 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRequestMethodConditionArgs:
+calass EndpointDeliveryRuleRequestMethodConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -1358,7 +1358,7 @@ class EndpointDeliveryRuleRequestMethodConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRequestSchemeConditionArgs:
+calass EndpointDeliveryRuleRequestSchemeConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -1412,7 +1412,7 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleRequestUriConditionArgs:
+calass EndpointDeliveryRuleRequestUriConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1482,7 +1482,7 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
+calass EndpointDeliveryRuleUrlFileExtensionConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1552,7 +1552,7 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleUrlFileNameConditionArgs:
+calass EndpointDeliveryRuleUrlFileNameConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1622,7 +1622,7 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleUrlPathConditionArgs:
+calass EndpointDeliveryRuleUrlPathConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1692,7 +1692,7 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleUrlRedirectActionArgs:
+calass EndpointDeliveryRuleUrlRedirectActionArrgs:
     def __init__(__self__, *,
                  redirect_type: pulumi.Input[str],
                  fragment: Optional[pulumi.Input[str]] = None,
@@ -1794,7 +1794,7 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
 
 
 @pulumi.input_type
-class EndpointDeliveryRuleUrlRewriteActionArgs:
+calass EndpointDeliveryRuleUrlRewriteActionArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  source_pattern: pulumi.Input[str],
@@ -1847,7 +1847,7 @@ class EndpointDeliveryRuleUrlRewriteActionArgs:
 
 
 @pulumi.input_type
-class EndpointGeoFilterArgs:
+calass EndpointGeoFilterArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1899,21 +1899,21 @@ class EndpointGeoFilterArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleArgs:
+calass EndpointGlobalDeliveryRuleArrgs:
     def __init__(__self__, *,
-                 cache_expiration_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArgs']] = None,
-                 cache_key_query_string_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs']] = None,
-                 modify_request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs']]]] = None,
-                 modify_response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]]] = None,
-                 url_redirect_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgs']] = None,
-                 url_rewrite_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgs']] = None):
+                 cache_expiration_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArrgs']] = None,
+                 cache_key_query_string_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs']] = None,
+                 modify_request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs']]]] = None,
+                 modify_response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs']]]] = None,
+                 url_redirect_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArrgs']] = None,
+                 url_rewrite_action: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArrgs']] = None):
         """
-        :param pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArgs'] cache_expiration_action: A `cache_expiration_action` block as defined above.
-        :param pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs'] cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs']]] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]] modify_response_header_actions: A `modify_response_header_action` block as defined below.
-        :param pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgs'] url_redirect_action: A `url_redirect_action` block as defined below.
-        :param pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgs'] url_rewrite_action: A `url_rewrite_action` block as defined below.
+        :param pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArrgs'] cache_expiration_action: A `cache_expiration_action` block as defined above.
+        :param pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs'] cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs']]] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs']]] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArrgs'] url_redirect_action: A `url_redirect_action` block as defined below.
+        :param pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArrgs'] url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
         if cache_expiration_action is not None:
             pulumi.set(__self__, "cache_expiration_action", cache_expiration_action)
@@ -1930,79 +1930,79 @@ class EndpointGlobalDeliveryRuleArgs:
 
     @property
     @pulumi.getter(name="cacheExpirationAction")
-    def cache_expiration_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArgs']]:
+    def cache_expiration_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArrgs']]:
         """
         A `cache_expiration_action` block as defined above.
         """
         return pulumi.get(self, "cache_expiration_action")
 
     @cache_expiration_action.setter
-    def cache_expiration_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArgs']]):
+    def cache_expiration_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArrgs']]):
         pulumi.set(self, "cache_expiration_action", value)
 
     @property
     @pulumi.getter(name="cacheKeyQueryStringAction")
-    def cache_key_query_string_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs']]:
+    def cache_key_query_string_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs']]:
         """
         A `cache_key_query_string_action` block as defined above.
         """
         return pulumi.get(self, "cache_key_query_string_action")
 
     @cache_key_query_string_action.setter
-    def cache_key_query_string_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs']]):
+    def cache_key_query_string_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs']]):
         pulumi.set(self, "cache_key_query_string_action", value)
 
     @property
     @pulumi.getter(name="modifyRequestHeaderActions")
-    def modify_request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs']]]]:
+    def modify_request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs']]]]:
         """
         A `modify_request_header_action` block as defined below.
         """
         return pulumi.get(self, "modify_request_header_actions")
 
     @modify_request_header_actions.setter
-    def modify_request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs']]]]):
+    def modify_request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs']]]]):
         pulumi.set(self, "modify_request_header_actions", value)
 
     @property
     @pulumi.getter(name="modifyResponseHeaderActions")
-    def modify_response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]]]:
+    def modify_response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs']]]]:
         """
         A `modify_response_header_action` block as defined below.
         """
         return pulumi.get(self, "modify_response_header_actions")
 
     @modify_response_header_actions.setter
-    def modify_response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]]]):
+    def modify_response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs']]]]):
         pulumi.set(self, "modify_response_header_actions", value)
 
     @property
     @pulumi.getter(name="urlRedirectAction")
-    def url_redirect_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgs']]:
+    def url_redirect_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArrgs']]:
         """
         A `url_redirect_action` block as defined below.
         """
         return pulumi.get(self, "url_redirect_action")
 
     @url_redirect_action.setter
-    def url_redirect_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgs']]):
+    def url_redirect_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArrgs']]):
         pulumi.set(self, "url_redirect_action", value)
 
     @property
     @pulumi.getter(name="urlRewriteAction")
-    def url_rewrite_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgs']]:
+    def url_rewrite_action(self) -> Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArrgs']]:
         """
         A `url_rewrite_action` block as defined below.
         """
         return pulumi.get(self, "url_rewrite_action")
 
     @url_rewrite_action.setter
-    def url_rewrite_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgs']]):
+    def url_rewrite_action(self, value: Optional[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArrgs']]):
         pulumi.set(self, "url_rewrite_action", value)
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
+calass EndpointGlobalDeliveryRuleCacheExpirationActionArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str],
                  duration: Optional[pulumi.Input[str]] = None):
@@ -2040,7 +2040,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
+calass EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
@@ -2078,7 +2078,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs:
+calass EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -2131,7 +2131,7 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs:
+calass EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -2184,7 +2184,7 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
+calass EndpointGlobalDeliveryRuleUrlRedirectActionArrgs:
     def __init__(__self__, *,
                  redirect_type: pulumi.Input[str],
                  fragment: Optional[pulumi.Input[str]] = None,
@@ -2286,7 +2286,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
 
 
 @pulumi.input_type
-class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
+calass EndpointGlobalDeliveryRuleUrlRewriteActionArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  source_pattern: pulumi.Input[str],
@@ -2339,7 +2339,7 @@ class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
 
 
 @pulumi.input_type
-class EndpointOriginArgs:
+calass EndpointOriginArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -2408,7 +2408,7 @@ class EndpointOriginArgs:
 
 
 @pulumi.input_type
-class FrontdoorCustomDomainTlsArgs:
+calass FrontdoorCustomDomainTlsArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_secret_id: Optional[pulumi.Input[str]] = None,
                  certificate_type: Optional[pulumi.Input[str]] = None,
@@ -2467,13 +2467,13 @@ class FrontdoorCustomDomainTlsArgs:
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyCustomRuleArgs:
+calass FrontdoorFirewallPolicyCustomRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]]] = None,
+                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs']]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rate_limit_duration_in_minutes: Optional[pulumi.Input[int]] = None,
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
@@ -2482,7 +2482,7 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param pulumi.Input[str] type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param pulumi.Input[bool] enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param pulumi.Input[int] priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -2551,14 +2551,14 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]]]:
+    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs']]]]:
         """
         One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]]]):
+    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs']]]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -2599,7 +2599,7 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
+calass FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_variable: pulumi.Input[str],
@@ -2699,19 +2699,19 @@ class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleArgs:
+calass FrontdoorFirewallPolicyManagedRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  type: pulumi.Input[str],
                  version: pulumi.Input[str],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArrgs']]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArrgs']]]] = None):
         """
         :param pulumi.Input[str] action: The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
         :param pulumi.Input[str] type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
         :param pulumi.Input[str] version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]] overrides: One or more `override` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArrgs']]] overrides: One or more `override` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
@@ -2759,31 +2759,31 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArrgs']]]]:
         """
         One or more `override` blocks as defined below.
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
+calass FrontdoorFirewallPolicyManagedRuleExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -2843,15 +2843,15 @@ class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleOverrideArgs:
+calass FrontdoorFirewallPolicyManagedRuleOverrideArrgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] rule_group_name: The managed rule group to override.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs']]] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -2873,31 +2873,31 @@ class FrontdoorFirewallPolicyManagedRuleOverrideArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs']]]]:
         """
         One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
+calass FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -2957,19 +2957,19 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
+calass FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  rule_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]] = None):
         """
         :param pulumi.Input[str] action: The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
                
                ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
         :param pulumi.Input[bool] enabled: Is the managed rule override enabled or disabled. Defaults to `false`
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -3018,19 +3018,19 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
 
 @pulumi.input_type
-class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
+calass FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -3090,7 +3090,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
 
 
 @pulumi.input_type
-class FrontdoorOriginGroupHealthProbeArgs:
+calass FrontdoorOriginGroupHealthProbeArrgs:
     def __init__(__self__, *,
                  interval_in_seconds: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -3163,7 +3163,7 @@ class FrontdoorOriginGroupHealthProbeArgs:
 
 
 @pulumi.input_type
-class FrontdoorOriginGroupLoadBalancingArgs:
+calass FrontdoorOriginGroupLoadBalancingArrgs:
     def __init__(__self__, *,
                  additional_latency_in_milliseconds: Optional[pulumi.Input[int]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None,
@@ -3218,7 +3218,7 @@ class FrontdoorOriginGroupLoadBalancingArgs:
 
 
 @pulumi.input_type
-class FrontdoorOriginPrivateLinkArgs:
+calass FrontdoorOriginPrivateLinkArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  private_link_target_id: pulumi.Input[str],
@@ -3295,7 +3295,7 @@ class FrontdoorOriginPrivateLinkArgs:
 
 
 @pulumi.input_type
-class FrontdoorRouteCacheArgs:
+calass FrontdoorRouteCacheArrgs:
     def __init__(__self__, *,
                  compression_enabled: Optional[pulumi.Input[bool]] = None,
                  content_types_to_compresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3374,19 +3374,19 @@ class FrontdoorRouteCacheArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsArgs:
+calass FrontdoorRuleActionsArrgs:
     def __init__(__self__, *,
-                 request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]] = None,
-                 response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]] = None,
-                 route_configuration_override_action: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']] = None,
-                 url_redirect_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']] = None,
-                 url_rewrite_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']] = None):
+                 request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArrgs']]]] = None,
+                 response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArrgs']]]] = None,
+                 route_configuration_override_action: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs']] = None,
+                 url_redirect_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArrgs']] = None,
+                 url_rewrite_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]] request_header_actions: A `request_header_action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]] response_header_actions: A `response_header_action` block as defined below.
-        :param pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs'] route_configuration_override_action: A `route_configuration_override_action` block as defined below.
-        :param pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs'] url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
-        :param pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs'] url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArrgs']]] request_header_actions: A `request_header_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArrgs']]] response_header_actions: A `response_header_action` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs'] route_configuration_override_action: A `route_configuration_override_action` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArrgs'] url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        :param pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArrgs'] url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
         """
         if request_header_actions is not None:
             pulumi.set(__self__, "request_header_actions", request_header_actions)
@@ -3401,67 +3401,67 @@ class FrontdoorRuleActionsArgs:
 
     @property
     @pulumi.getter(name="requestHeaderActions")
-    def request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]]:
+    def request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArrgs']]]]:
         """
         A `request_header_action` block as defined below.
         """
         return pulumi.get(self, "request_header_actions")
 
     @request_header_actions.setter
-    def request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]]):
+    def request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArrgs']]]]):
         pulumi.set(self, "request_header_actions", value)
 
     @property
     @pulumi.getter(name="responseHeaderActions")
-    def response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]]:
+    def response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArrgs']]]]:
         """
         A `response_header_action` block as defined below.
         """
         return pulumi.get(self, "response_header_actions")
 
     @response_header_actions.setter
-    def response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]]):
+    def response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArrgs']]]]):
         pulumi.set(self, "response_header_actions", value)
 
     @property
     @pulumi.getter(name="routeConfigurationOverrideAction")
-    def route_configuration_override_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']]:
+    def route_configuration_override_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs']]:
         """
         A `route_configuration_override_action` block as defined below.
         """
         return pulumi.get(self, "route_configuration_override_action")
 
     @route_configuration_override_action.setter
-    def route_configuration_override_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']]):
+    def route_configuration_override_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs']]):
         pulumi.set(self, "route_configuration_override_action", value)
 
     @property
     @pulumi.getter(name="urlRedirectAction")
-    def url_redirect_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']]:
+    def url_redirect_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArrgs']]:
         """
         A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
         """
         return pulumi.get(self, "url_redirect_action")
 
     @url_redirect_action.setter
-    def url_redirect_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']]):
+    def url_redirect_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArrgs']]):
         pulumi.set(self, "url_redirect_action", value)
 
     @property
     @pulumi.getter(name="urlRewriteAction")
-    def url_rewrite_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']]:
+    def url_rewrite_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArrgs']]:
         """
         A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
         """
         return pulumi.get(self, "url_rewrite_action")
 
     @url_rewrite_action.setter
-    def url_rewrite_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']]):
+    def url_rewrite_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArrgs']]):
         pulumi.set(self, "url_rewrite_action", value)
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsRequestHeaderActionArgs:
+calass FrontdoorRuleActionsRequestHeaderActionArrgs:
     def __init__(__self__, *,
                  header_action: pulumi.Input[str],
                  header_name: pulumi.Input[str],
@@ -3522,7 +3522,7 @@ class FrontdoorRuleActionsRequestHeaderActionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsResponseHeaderActionArgs:
+calass FrontdoorRuleActionsResponseHeaderActionArrgs:
     def __init__(__self__, *,
                  header_action: pulumi.Input[str],
                  header_name: pulumi.Input[str],
@@ -3583,7 +3583,7 @@ class FrontdoorRuleActionsResponseHeaderActionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
+calass FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs:
     def __init__(__self__, *,
                  cache_behavior: Optional[pulumi.Input[str]] = None,
                  cache_duration: Optional[pulumi.Input[str]] = None,
@@ -3714,7 +3714,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsUrlRedirectActionArgs:
+calass FrontdoorRuleActionsUrlRedirectActionArrgs:
     def __init__(__self__, *,
                  destination_hostname: pulumi.Input[str],
                  redirect_type: pulumi.Input[str],
@@ -3815,7 +3815,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleActionsUrlRewriteActionArgs:
+calass FrontdoorRuleActionsUrlRewriteActionArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  source_pattern: pulumi.Input[str],
@@ -3868,47 +3868,47 @@ class FrontdoorRuleActionsUrlRewriteActionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsArgs:
+calass FrontdoorRuleConditionsArrgs:
     def __init__(__self__, *,
-                 client_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]] = None,
-                 cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]] = None,
-                 host_name_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]] = None,
-                 http_version_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]] = None,
-                 is_device_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]] = None,
-                 post_args_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]] = None,
-                 query_string_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]] = None,
-                 remote_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]] = None,
-                 request_body_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]] = None,
-                 request_header_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]] = None,
-                 request_method_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]] = None,
-                 request_scheme_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]] = None,
-                 request_uri_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]] = None,
-                 server_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]] = None,
-                 socket_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]] = None,
-                 ssl_protocol_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]] = None,
-                 url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]] = None,
-                 url_filename_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]] = None,
-                 url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]] = None):
+                 client_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArrgs']]]] = None,
+                 cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArrgs']]]] = None,
+                 host_name_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArrgs']]]] = None,
+                 http_version_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArrgs']]]] = None,
+                 is_device_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArrgs']]]] = None,
+                 post_args_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArrgs']]]] = None,
+                 query_string_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArrgs']]]] = None,
+                 remote_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArrgs']]]] = None,
+                 request_body_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArrgs']]]] = None,
+                 request_header_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArrgs']]]] = None,
+                 request_method_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArrgs']]]] = None,
+                 request_scheme_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArrgs']]]] = None,
+                 request_uri_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArrgs']]]] = None,
+                 server_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArrgs']]]] = None,
+                 socket_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArrgs']]]] = None,
+                 ssl_protocol_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArrgs']]]] = None,
+                 url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArrgs']]]] = None,
+                 url_filename_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArrgs']]]] = None,
+                 url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]] client_port_conditions: A `client_port_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]] cookies_conditions: A `cookies_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]] host_name_conditions: A `host_name_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]] http_version_conditions: A `http_version_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]] is_device_conditions: A `is_device_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]] post_args_conditions: A `post_args_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]] query_string_conditions: A `query_string_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]] remote_address_conditions: A `remote_address_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]] request_body_conditions: A `request_body_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]] request_header_conditions: A `request_header_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]] request_method_conditions: A `request_method_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]] request_scheme_conditions: A `request_scheme_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]] request_uri_conditions: A `request_uri_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]] server_port_conditions: A `server_port_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]] socket_address_conditions: A `socket_address_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]] url_filename_conditions: A `url_filename_condition` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]] url_path_conditions: A `url_path_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArrgs']]] client_port_conditions: A `client_port_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArrgs']]] cookies_conditions: A `cookies_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArrgs']]] host_name_conditions: A `host_name_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArrgs']]] http_version_conditions: A `http_version_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArrgs']]] is_device_conditions: A `is_device_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArrgs']]] post_args_conditions: A `post_args_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArrgs']]] query_string_conditions: A `query_string_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArrgs']]] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArrgs']]] request_body_conditions: A `request_body_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArrgs']]] request_header_conditions: A `request_header_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArrgs']]] request_method_conditions: A `request_method_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArrgs']]] request_scheme_conditions: A `request_scheme_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArrgs']]] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArrgs']]] server_port_conditions: A `server_port_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArrgs']]] socket_address_conditions: A `socket_address_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArrgs']]] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArrgs']]] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArrgs']]] url_filename_conditions: A `url_filename_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArrgs']]] url_path_conditions: A `url_path_condition` block as defined below.
         """
         if client_port_conditions is not None:
             pulumi.set(__self__, "client_port_conditions", client_port_conditions)
@@ -3951,235 +3951,235 @@ class FrontdoorRuleConditionsArgs:
 
     @property
     @pulumi.getter(name="clientPortConditions")
-    def client_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]]:
+    def client_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArrgs']]]]:
         """
         A `client_port_condition` block as defined below.
         """
         return pulumi.get(self, "client_port_conditions")
 
     @client_port_conditions.setter
-    def client_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]]):
+    def client_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArrgs']]]]):
         pulumi.set(self, "client_port_conditions", value)
 
     @property
     @pulumi.getter(name="cookiesConditions")
-    def cookies_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]]:
+    def cookies_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArrgs']]]]:
         """
         A `cookies_condition` block as defined below.
         """
         return pulumi.get(self, "cookies_conditions")
 
     @cookies_conditions.setter
-    def cookies_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]]):
+    def cookies_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArrgs']]]]):
         pulumi.set(self, "cookies_conditions", value)
 
     @property
     @pulumi.getter(name="hostNameConditions")
-    def host_name_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]]:
+    def host_name_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArrgs']]]]:
         """
         A `host_name_condition` block as defined below.
         """
         return pulumi.get(self, "host_name_conditions")
 
     @host_name_conditions.setter
-    def host_name_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]]):
+    def host_name_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArrgs']]]]):
         pulumi.set(self, "host_name_conditions", value)
 
     @property
     @pulumi.getter(name="httpVersionConditions")
-    def http_version_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]]:
+    def http_version_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArrgs']]]]:
         """
         A `http_version_condition` block as defined below.
         """
         return pulumi.get(self, "http_version_conditions")
 
     @http_version_conditions.setter
-    def http_version_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]]):
+    def http_version_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArrgs']]]]):
         pulumi.set(self, "http_version_conditions", value)
 
     @property
     @pulumi.getter(name="isDeviceConditions")
-    def is_device_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]]:
+    def is_device_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArrgs']]]]:
         """
         A `is_device_condition` block as defined below.
         """
         return pulumi.get(self, "is_device_conditions")
 
     @is_device_conditions.setter
-    def is_device_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]]):
+    def is_device_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArrgs']]]]):
         pulumi.set(self, "is_device_conditions", value)
 
     @property
     @pulumi.getter(name="postArgsConditions")
-    def post_args_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]]:
+    def post_args_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArrgs']]]]:
         """
         A `post_args_condition` block as defined below.
         """
         return pulumi.get(self, "post_args_conditions")
 
     @post_args_conditions.setter
-    def post_args_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]]):
+    def post_args_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArrgs']]]]):
         pulumi.set(self, "post_args_conditions", value)
 
     @property
     @pulumi.getter(name="queryStringConditions")
-    def query_string_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]]:
+    def query_string_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArrgs']]]]:
         """
         A `query_string_condition` block as defined below.
         """
         return pulumi.get(self, "query_string_conditions")
 
     @query_string_conditions.setter
-    def query_string_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]]):
+    def query_string_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArrgs']]]]):
         pulumi.set(self, "query_string_conditions", value)
 
     @property
     @pulumi.getter(name="remoteAddressConditions")
-    def remote_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]]:
+    def remote_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArrgs']]]]:
         """
         A `remote_address_condition` block as defined below.
         """
         return pulumi.get(self, "remote_address_conditions")
 
     @remote_address_conditions.setter
-    def remote_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]]):
+    def remote_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArrgs']]]]):
         pulumi.set(self, "remote_address_conditions", value)
 
     @property
     @pulumi.getter(name="requestBodyConditions")
-    def request_body_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]]:
+    def request_body_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArrgs']]]]:
         """
         A `request_body_condition` block as defined below.
         """
         return pulumi.get(self, "request_body_conditions")
 
     @request_body_conditions.setter
-    def request_body_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]]):
+    def request_body_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArrgs']]]]):
         pulumi.set(self, "request_body_conditions", value)
 
     @property
     @pulumi.getter(name="requestHeaderConditions")
-    def request_header_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]]:
+    def request_header_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArrgs']]]]:
         """
         A `request_header_condition` block as defined below.
         """
         return pulumi.get(self, "request_header_conditions")
 
     @request_header_conditions.setter
-    def request_header_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]]):
+    def request_header_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArrgs']]]]):
         pulumi.set(self, "request_header_conditions", value)
 
     @property
     @pulumi.getter(name="requestMethodConditions")
-    def request_method_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]]:
+    def request_method_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArrgs']]]]:
         """
         A `request_method_condition` block as defined below.
         """
         return pulumi.get(self, "request_method_conditions")
 
     @request_method_conditions.setter
-    def request_method_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]]):
+    def request_method_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArrgs']]]]):
         pulumi.set(self, "request_method_conditions", value)
 
     @property
     @pulumi.getter(name="requestSchemeConditions")
-    def request_scheme_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]]:
+    def request_scheme_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArrgs']]]]:
         """
         A `request_scheme_condition` block as defined below.
         """
         return pulumi.get(self, "request_scheme_conditions")
 
     @request_scheme_conditions.setter
-    def request_scheme_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]]):
+    def request_scheme_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArrgs']]]]):
         pulumi.set(self, "request_scheme_conditions", value)
 
     @property
     @pulumi.getter(name="requestUriConditions")
-    def request_uri_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]]:
+    def request_uri_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArrgs']]]]:
         """
         A `request_uri_condition` block as defined below.
         """
         return pulumi.get(self, "request_uri_conditions")
 
     @request_uri_conditions.setter
-    def request_uri_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]]):
+    def request_uri_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArrgs']]]]):
         pulumi.set(self, "request_uri_conditions", value)
 
     @property
     @pulumi.getter(name="serverPortConditions")
-    def server_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]]:
+    def server_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArrgs']]]]:
         """
         A `server_port_condition` block as defined below.
         """
         return pulumi.get(self, "server_port_conditions")
 
     @server_port_conditions.setter
-    def server_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]]):
+    def server_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArrgs']]]]):
         pulumi.set(self, "server_port_conditions", value)
 
     @property
     @pulumi.getter(name="socketAddressConditions")
-    def socket_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]]:
+    def socket_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArrgs']]]]:
         """
         A `socket_address_condition` block as defined below.
         """
         return pulumi.get(self, "socket_address_conditions")
 
     @socket_address_conditions.setter
-    def socket_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]]):
+    def socket_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArrgs']]]]):
         pulumi.set(self, "socket_address_conditions", value)
 
     @property
     @pulumi.getter(name="sslProtocolConditions")
-    def ssl_protocol_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]]:
+    def ssl_protocol_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArrgs']]]]:
         """
         A `ssl_protocol_condition` block as defined below.
         """
         return pulumi.get(self, "ssl_protocol_conditions")
 
     @ssl_protocol_conditions.setter
-    def ssl_protocol_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]]):
+    def ssl_protocol_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArrgs']]]]):
         pulumi.set(self, "ssl_protocol_conditions", value)
 
     @property
     @pulumi.getter(name="urlFileExtensionConditions")
-    def url_file_extension_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]]:
+    def url_file_extension_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArrgs']]]]:
         """
         A `url_file_extension_condition` block as defined below.
         """
         return pulumi.get(self, "url_file_extension_conditions")
 
     @url_file_extension_conditions.setter
-    def url_file_extension_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]]):
+    def url_file_extension_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArrgs']]]]):
         pulumi.set(self, "url_file_extension_conditions", value)
 
     @property
     @pulumi.getter(name="urlFilenameConditions")
-    def url_filename_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]]:
+    def url_filename_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArrgs']]]]:
         """
         A `url_filename_condition` block as defined below.
         """
         return pulumi.get(self, "url_filename_conditions")
 
     @url_filename_conditions.setter
-    def url_filename_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]]):
+    def url_filename_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArrgs']]]]):
         pulumi.set(self, "url_filename_conditions", value)
 
     @property
     @pulumi.getter(name="urlPathConditions")
-    def url_path_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]]:
+    def url_path_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArrgs']]]]:
         """
         A `url_path_condition` block as defined below.
         """
         return pulumi.get(self, "url_path_conditions")
 
     @url_path_conditions.setter
-    def url_path_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]]):
+    def url_path_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArrgs']]]]):
         pulumi.set(self, "url_path_conditions", value)
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsClientPortConditionArgs:
+calass FrontdoorRuleConditionsClientPortConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4233,7 +4233,7 @@ class FrontdoorRuleConditionsClientPortConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsCookiesConditionArgs:
+calass FrontdoorRuleConditionsCookiesConditionArrgs:
     def __init__(__self__, *,
                  cookie_name: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -4318,7 +4318,7 @@ class FrontdoorRuleConditionsCookiesConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsHostNameConditionArgs:
+calass FrontdoorRuleConditionsHostNameConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4388,7 +4388,7 @@ class FrontdoorRuleConditionsHostNameConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsHttpVersionConditionArgs:
+calass FrontdoorRuleConditionsHttpVersionConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -4442,7 +4442,7 @@ class FrontdoorRuleConditionsHttpVersionConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsIsDeviceConditionArgs:
+calass FrontdoorRuleConditionsIsDeviceConditionArrgs:
     def __init__(__self__, *,
                  match_values: Optional[pulumi.Input[str]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -4497,7 +4497,7 @@ class FrontdoorRuleConditionsIsDeviceConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsPostArgsConditionArgs:
+calass FrontdoorRuleConditionsPostArgsConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  post_args_name: pulumi.Input[str],
@@ -4582,7 +4582,7 @@ class FrontdoorRuleConditionsPostArgsConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsQueryStringConditionArgs:
+calass FrontdoorRuleConditionsQueryStringConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4652,7 +4652,7 @@ class FrontdoorRuleConditionsQueryStringConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRemoteAddressConditionArgs:
+calass FrontdoorRuleConditionsRemoteAddressConditionArrgs:
     def __init__(__self__, *,
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -4711,7 +4711,7 @@ class FrontdoorRuleConditionsRemoteAddressConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRequestBodyConditionArgs:
+calass FrontdoorRuleConditionsRequestBodyConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
@@ -4780,7 +4780,7 @@ class FrontdoorRuleConditionsRequestBodyConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRequestHeaderConditionArgs:
+calass FrontdoorRuleConditionsRequestHeaderConditionArrgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -4865,7 +4865,7 @@ class FrontdoorRuleConditionsRequestHeaderConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRequestMethodConditionArgs:
+calass FrontdoorRuleConditionsRequestMethodConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -4919,7 +4919,7 @@ class FrontdoorRuleConditionsRequestMethodConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRequestSchemeConditionArgs:
+calass FrontdoorRuleConditionsRequestSchemeConditionArrgs:
     def __init__(__self__, *,
                  match_values: Optional[pulumi.Input[str]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -4974,7 +4974,7 @@ class FrontdoorRuleConditionsRequestSchemeConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsRequestUriConditionArgs:
+calass FrontdoorRuleConditionsRequestUriConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5044,7 +5044,7 @@ class FrontdoorRuleConditionsRequestUriConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsServerPortConditionArgs:
+calass FrontdoorRuleConditionsServerPortConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
@@ -5097,7 +5097,7 @@ class FrontdoorRuleConditionsServerPortConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsSocketAddressConditionArgs:
+calass FrontdoorRuleConditionsSocketAddressConditionArrgs:
     def __init__(__self__, *,
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -5160,7 +5160,7 @@ class FrontdoorRuleConditionsSocketAddressConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsSslProtocolConditionArgs:
+calass FrontdoorRuleConditionsSslProtocolConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
@@ -5214,7 +5214,7 @@ class FrontdoorRuleConditionsSslProtocolConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
+calass FrontdoorRuleConditionsUrlFileExtensionConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
@@ -5283,7 +5283,7 @@ class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsUrlFilenameConditionArgs:
+calass FrontdoorRuleConditionsUrlFilenameConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5357,7 +5357,7 @@ class FrontdoorRuleConditionsUrlFilenameConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorRuleConditionsUrlPathConditionArgs:
+calass FrontdoorRuleConditionsUrlPathConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5427,29 +5427,29 @@ class FrontdoorRuleConditionsUrlPathConditionArgs:
 
 
 @pulumi.input_type
-class FrontdoorSecretSecretArgs:
+calass FrontdoorSecretSecretArrgs:
     def __init__(__self__, *,
-                 customer_certificates: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]):
+                 customer_certificates: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArrgs']]] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         pulumi.set(__self__, "customer_certificates", customer_certificates)
 
     @property
     @pulumi.getter(name="customerCertificates")
-    def customer_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]:
+    def customer_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArrgs']]]:
         """
         A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         return pulumi.get(self, "customer_certificates")
 
     @customer_certificates.setter
-    def customer_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]):
+    def customer_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArrgs']]]):
         pulumi.set(self, "customer_certificates", value)
 
 
 @pulumi.input_type
-class FrontdoorSecretSecretCustomerCertificateArgs:
+calass FrontdoorSecretSecretCustomerCertificateArrgs:
     def __init__(__self__, *,
                  key_vault_certificate_id: pulumi.Input[str],
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -5491,34 +5491,34 @@ class FrontdoorSecretSecretCustomerCertificateArgs:
 
 
 @pulumi.input_type
-class FrontdoorSecurityPolicySecurityPoliciesArgs:
+calass FrontdoorSecurityPolicySecurityPoliciesArrgs:
     def __init__(__self__, *,
-                 firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']):
+                 firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs']):
         """
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs'] firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs'] firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "firewall", firewall)
 
     @property
     @pulumi.getter
-    def firewall(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']:
+    def firewall(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs']:
         """
         An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "firewall")
 
     @firewall.setter
-    def firewall(self, value: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']):
+    def firewall(self, value: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs']):
         pulumi.set(self, "firewall", value)
 
 
 @pulumi.input_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
+calass FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs:
     def __init__(__self__, *,
-                 association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'],
+                 association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs'],
                  cdn_frontdoor_firewall_policy_id: pulumi.Input[str]):
         """
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'] association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs'] association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[str] cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "association", association)
@@ -5526,14 +5526,14 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
 
     @property
     @pulumi.getter
-    def association(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs']:
+    def association(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs']:
         """
         An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "association")
 
     @association.setter
-    def association(self, value: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs']):
+    def association(self, value: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs']):
         pulumi.set(self, "association", value)
 
     @property
@@ -5550,12 +5550,12 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
 
 
 @pulumi.input_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
+calass FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs:
     def __init__(__self__, *,
-                 domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]],
+                 domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs']]],
                  patterns_to_match: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs']]] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[str] patterns_to_match: The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "domains", domains)
@@ -5563,14 +5563,14 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
 
     @property
     @pulumi.getter
-    def domains(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]]:
+    def domains(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs']]]:
         """
         One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]]):
+    def domains(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs']]]):
         pulumi.set(self, "domains", value)
 
     @property
@@ -5587,7 +5587,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
 
 
 @pulumi.input_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
+calass FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_domain_id: pulumi.Input[str],
                  active: Optional[pulumi.Input[bool]] = None):

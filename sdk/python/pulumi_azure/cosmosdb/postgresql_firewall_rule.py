@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PostgresqlFirewallRuleArgs', 'PostgresqlFirewallRule']
+__all__ = ['PostgresqlFirewallRuleArrgs', 'PostgresqlFirewallRule']
 
 @pulumi.input_type
-class PostgresqlFirewallRuleArgs:
+calass PostgresqlFirewallRuleArrgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[str],
                  end_ip_address: pulumi.Input[str],
@@ -81,7 +81,7 @@ class PostgresqlFirewallRuleArgs:
 
 
 @pulumi.input_type
-class _PostgresqlFirewallRuleState:
+calass _PostgresqlFirewallRuleState:
     def __init__(__self__, *,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _PostgresqlFirewallRuleState:
         pulumi.set(self, "start_ip_address", value)
 
 
-class PostgresqlFirewallRule(pulumi.CustomResource):
+calass PostgresqlFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,7 +204,7 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PostgresqlFirewallRuleArgs,
+                 args: PostgresqlFirewallRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB for PostgreSQL Firewall Rule.
@@ -238,12 +238,12 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PostgresqlFirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param PostgresqlFirewallRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PostgresqlFirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PostgresqlFirewallRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -263,7 +263,7 @@ class PostgresqlFirewallRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PostgresqlFirewallRuleArgs.__new__(PostgresqlFirewallRuleArgs)
+            __props__ = PostgresqlFirewallRuleArrgs.__new__(PostgresqlFirewallRuleArrgs)
 
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")

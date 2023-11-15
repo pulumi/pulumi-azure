@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerManagementGroupConnectionArgs', 'NetworkManagerManagementGroupConnection']
+__all__ = ['NetworkManagerManagementGroupConnectionArrgs', 'NetworkManagerManagementGroupConnection']
 
 @pulumi.input_type
-class NetworkManagerManagementGroupConnectionArgs:
+calass NetworkManagerManagementGroupConnectionArrgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[str],
                  network_manager_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class NetworkManagerManagementGroupConnectionArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerManagementGroupConnectionState:
+calass _NetworkManagerManagementGroupConnectionState:
     def __init__(__self__, *,
                  connection_state: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _NetworkManagerManagementGroupConnectionState:
         pulumi.set(self, "network_manager_id", value)
 
 
-class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
+calass NetworkManagerManagementGroupConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,7 +203,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -233,7 +233,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerManagementGroupConnectionArgs,
+                 args: NetworkManagerManagementGroupConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Management Group Connection which may cross tenants.
@@ -259,7 +259,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -279,12 +279,12 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerManagementGroupConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerManagementGroupConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerManagementGroupConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerManagementGroupConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -304,7 +304,7 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerManagementGroupConnectionArgs.__new__(NetworkManagerManagementGroupConnectionArgs)
+            __props__ = NetworkManagerManagementGroupConnectionArrgs.__new__(NetworkManagerManagementGroupConnectionArrgs)
 
             __props__.__dict__["description"] = description
             if management_group_id is None and not opts.urn:

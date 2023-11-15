@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerSecurityAdminConfigurationArgs', 'NetworkManagerSecurityAdminConfiguration']
+__all__ = ['NetworkManagerSecurityAdminConfigurationArrgs', 'NetworkManagerSecurityAdminConfiguration']
 
 @pulumi.input_type
-class NetworkManagerSecurityAdminConfigurationArgs:
+calass NetworkManagerSecurityAdminConfigurationArrgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[str],
                  apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class NetworkManagerSecurityAdminConfigurationArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerSecurityAdminConfigurationState:
+calass _NetworkManagerSecurityAdminConfigurationState:
     def __init__(__self__, *,
                  apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _NetworkManagerSecurityAdminConfigurationState:
         pulumi.set(self, "network_manager_id", value)
 
 
-class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
+calass NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,7 +186,7 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerSecurityAdminConfigurationArgs,
+                 args: NetworkManagerSecurityAdminConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Security Admin Configuration.
@@ -200,12 +200,12 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerSecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerSecurityAdminConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerSecurityAdminConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerSecurityAdminConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerSecurityAdminConfigurationArgs.__new__(NetworkManagerSecurityAdminConfigurationArgs)
+            __props__ = NetworkManagerSecurityAdminConfigurationArrgs.__new__(NetworkManagerSecurityAdminConfigurationArrgs)
 
             __props__.__dict__["apply_on_network_intent_policy_based_services"] = apply_on_network_intent_policy_based_services
             __props__.__dict__["description"] = description

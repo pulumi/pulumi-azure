@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectionServicePrincipalArgs', 'ConnectionServicePrincipal']
+__all__ = ['ConnectionServicePrincipalArrgs', 'ConnectionServicePrincipal']
 
 @pulumi.input_type
-class ConnectionServicePrincipalArgs:
+calass ConnectionServicePrincipalArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  automation_account_name: pulumi.Input[str],
@@ -142,7 +142,7 @@ class ConnectionServicePrincipalArgs:
 
 
 @pulumi.input_type
-class _ConnectionServicePrincipalState:
+calass _ConnectionServicePrincipalState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
@@ -277,7 +277,7 @@ class _ConnectionServicePrincipalState:
         pulumi.set(self, "tenant_id", value)
 
 
-class ConnectionServicePrincipal(pulumi.CustomResource):
+calass ConnectionServicePrincipal(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -338,7 +338,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionServicePrincipalArgs,
+                 args: ConnectionServicePrincipalArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `AzureServicePrincipal`.
@@ -373,12 +373,12 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionServicePrincipalArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionServicePrincipalArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionServicePrincipalArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionServicePrincipalArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -402,7 +402,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionServicePrincipalArgs.__new__(ConnectionServicePrincipalArgs)
+            __props__ = ConnectionServicePrincipalArrgs.__new__(ConnectionServicePrincipalArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

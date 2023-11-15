@@ -601,7 +601,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppConnectionAuthentication(dict):
+calass AppConnectionAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -712,7 +712,7 @@ class AppConnectionAuthentication(dict):
 
 
 @pulumi.output_type
-class AppConnectionSecretStore(dict):
+calass AppConnectionSecretStore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -747,7 +747,7 @@ class AppConnectionSecretStore(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettings(dict):
+calass AppServiceAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -796,20 +796,20 @@ class AppServiceAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Is Authentication enabled?
-        :param 'AppServiceAuthSettingsActiveDirectoryArgs' active_directory: A `active_directory` block as defined below.
+        :param 'AppServiceAuthSettingsActiveDirectoryArrgs' active_directory: A `active_directory` block as defined below.
         :param Mapping[str, str] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param 'AppServiceAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'AppServiceAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'AppServiceAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'AppServiceAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'AppServiceAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'AppServiceAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param 'AppServiceAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'AppServiceAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -956,7 +956,7 @@ class AppServiceAuthSettings(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettingsActiveDirectory(dict):
+calass AppServiceAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1019,7 +1019,7 @@ class AppServiceAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettingsFacebook(dict):
+calass AppServiceAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1081,7 +1081,7 @@ class AppServiceAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettingsGoogle(dict):
+calass AppServiceAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1143,7 +1143,7 @@ class AppServiceAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettingsMicrosoft(dict):
+calass AppServiceAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1205,7 +1205,7 @@ class AppServiceAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class AppServiceAuthSettingsTwitter(dict):
+calass AppServiceAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1253,7 +1253,7 @@ class AppServiceAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class AppServiceBackup(dict):
+calass AppServiceBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1278,7 +1278,7 @@ class AppServiceBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: Specifies the name for this Backup.
-        :param 'AppServiceBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'AppServiceBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to a Storage Container where Backups should be saved.
         :param bool enabled: Is this Backup enabled? Defaults to `true`.
         """
@@ -1322,7 +1322,7 @@ class AppServiceBackup(dict):
 
 
 @pulumi.output_type
-class AppServiceBackupSchedule(dict):
+calass AppServiceBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1412,7 +1412,7 @@ class AppServiceBackupSchedule(dict):
 
 
 @pulumi.output_type
-class AppServiceConnectionString(dict):
+calass AppServiceConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -1452,7 +1452,7 @@ class AppServiceConnectionString(dict):
 
 
 @pulumi.output_type
-class AppServiceIdentity(dict):
+calass AppServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1531,7 +1531,7 @@ class AppServiceIdentity(dict):
 
 
 @pulumi.output_type
-class AppServiceLogs(dict):
+calass AppServiceLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1561,10 +1561,10 @@ class AppServiceLogs(dict):
                  failed_request_tracing_enabled: Optional[bool] = None,
                  http_logs: Optional['outputs.AppServiceLogsHttpLogs'] = None):
         """
-        :param 'AppServiceLogsApplicationLogsArgs' application_logs: An `application_logs` block as defined below.
+        :param 'AppServiceLogsApplicationLogsArrgs' application_logs: An `application_logs` block as defined below.
         :param bool detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
         :param bool failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
-        :param 'AppServiceLogsHttpLogsArgs' http_logs: An `http_logs` block as defined below.
+        :param 'AppServiceLogsHttpLogsArrgs' http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -1609,7 +1609,7 @@ class AppServiceLogs(dict):
 
 
 @pulumi.output_type
-class AppServiceLogsApplicationLogs(dict):
+calass AppServiceLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1633,7 +1633,7 @@ class AppServiceLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.AppServiceLogsApplicationLogsAzureBlobStorage'] = None,
                  file_system_level: Optional[str] = None):
         """
-        :param 'AppServiceLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'AppServiceLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         :param str file_system_level: Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
         """
         if azure_blob_storage is not None:
@@ -1659,7 +1659,7 @@ class AppServiceLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
+calass AppServiceLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1718,7 +1718,7 @@ class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class AppServiceLogsHttpLogs(dict):
+calass AppServiceLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1742,8 +1742,8 @@ class AppServiceLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.AppServiceLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.AppServiceLogsHttpLogsFileSystem'] = None):
         """
-        :param 'AppServiceLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
-        :param 'AppServiceLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined below.
+        :param 'AppServiceLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'AppServiceLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined below.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -1768,7 +1768,7 @@ class AppServiceLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class AppServiceLogsHttpLogsAzureBlobStorage(dict):
+calass AppServiceLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1816,7 +1816,7 @@ class AppServiceLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class AppServiceLogsHttpLogsFileSystem(dict):
+calass AppServiceLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1864,7 +1864,7 @@ class AppServiceLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfig(dict):
+calass AppServiceSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1982,13 +1982,13 @@ class AppServiceSiteConfig(dict):
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param 'AppServiceSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param 'AppServiceSiteConfigCorsArrgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param Sequence['AppServiceSiteConfigIpRestrictionArgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param Sequence['AppServiceSiteConfigIpRestrictionArrgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -2007,7 +2007,7 @@ class AppServiceSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['AppServiceSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -2346,7 +2346,7 @@ class AppServiceSiteConfig(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfigCors(dict):
+calass AppServiceSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2395,7 +2395,7 @@ class AppServiceSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfigIpRestriction(dict):
+calass AppServiceSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2427,7 +2427,7 @@ class AppServiceSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'AppServiceSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'AppServiceSiteConfigIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2511,7 +2511,7 @@ class AppServiceSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfigIpRestrictionHeaders(dict):
+calass AppServiceSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2589,7 +2589,7 @@ class AppServiceSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfigScmIpRestriction(dict):
+calass AppServiceSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2621,7 +2621,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'AppServiceSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'AppServiceSiteConfigScmIpRestrictionHeadersArrgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2705,7 +2705,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteConfigScmIpRestrictionHeaders(dict):
+calass AppServiceSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2783,7 +2783,7 @@ class AppServiceSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class AppServiceSiteCredential(dict):
+calass AppServiceSiteCredential(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
@@ -2814,7 +2814,7 @@ class AppServiceSiteCredential(dict):
 
 
 @pulumi.output_type
-class AppServiceSourceControl(dict):
+calass AppServiceSourceControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2904,7 +2904,7 @@ class AppServiceSourceControl(dict):
 
 
 @pulumi.output_type
-class AppServiceStorageAccount(dict):
+calass AppServiceStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3001,7 +3001,7 @@ class AppServiceStorageAccount(dict):
 
 
 @pulumi.output_type
-class CertificateOrderCertificate(dict):
+calass CertificateOrderCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3079,7 +3079,7 @@ class CertificateOrderCertificate(dict):
 
 
 @pulumi.output_type
-class ConnectionAuthentication(dict):
+calass ConnectionAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3190,7 +3190,7 @@ class ConnectionAuthentication(dict):
 
 
 @pulumi.output_type
-class ConnectionSecretStore(dict):
+calass ConnectionSecretStore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3225,7 +3225,7 @@ class ConnectionSecretStore(dict):
 
 
 @pulumi.output_type
-class EnvironmentClusterSetting(dict):
+calass EnvironmentClusterSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3254,7 +3254,7 @@ class EnvironmentClusterSetting(dict):
 
 
 @pulumi.output_type
-class EnvironmentV3ClusterSetting(dict):
+calass EnvironmentV3ClusterSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3283,7 +3283,7 @@ class EnvironmentV3ClusterSetting(dict):
 
 
 @pulumi.output_type
-class EnvironmentV3InboundNetworkDependency(dict):
+calass EnvironmentV3InboundNetworkDependency(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3343,7 +3343,7 @@ class EnvironmentV3InboundNetworkDependency(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettings(dict):
+calass FunctionAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3392,20 +3392,20 @@ class FunctionAppAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Is Authentication enabled?
-        :param 'FunctionAppAuthSettingsActiveDirectoryArgs' active_directory: A `active_directory` block as defined below.
+        :param 'FunctionAppAuthSettingsActiveDirectoryArrgs' active_directory: A `active_directory` block as defined below.
         :param Mapping[str, str] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param 'FunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'FunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'FunctionAppAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'FunctionAppAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'FunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'FunctionAppAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param 'FunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'FunctionAppAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3552,7 +3552,7 @@ class FunctionAppAuthSettings(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettingsActiveDirectory(dict):
+calass FunctionAppAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3615,7 +3615,7 @@ class FunctionAppAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettingsFacebook(dict):
+calass FunctionAppAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3677,7 +3677,7 @@ class FunctionAppAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettingsGoogle(dict):
+calass FunctionAppAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3739,7 +3739,7 @@ class FunctionAppAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettingsMicrosoft(dict):
+calass FunctionAppAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3801,7 +3801,7 @@ class FunctionAppAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class FunctionAppAuthSettingsTwitter(dict):
+calass FunctionAppAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3849,7 +3849,7 @@ class FunctionAppAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class FunctionAppConnectionString(dict):
+calass FunctionAppConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -3889,7 +3889,7 @@ class FunctionAppConnectionString(dict):
 
 
 @pulumi.output_type
-class FunctionAppFunctionFile(dict):
+calass FunctionAppFunctionFile(dict):
     def __init__(__self__, *,
                  content: str,
                  name: str):
@@ -3918,7 +3918,7 @@ class FunctionAppFunctionFile(dict):
 
 
 @pulumi.output_type
-class FunctionAppIdentity(dict):
+calass FunctionAppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3997,7 +3997,7 @@ class FunctionAppIdentity(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfig(dict):
+calass FunctionAppSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4081,13 +4081,13 @@ class FunctionAppSiteConfig(dict):
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
                
                > **NOTE:** This attribute is only used for slots.
-        :param 'FunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param 'FunctionAppSiteConfigCorsArrgs' cors: A `cors` block as defined below.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
@@ -4095,7 +4095,7 @@ class FunctionAppSiteConfig(dict):
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -4331,7 +4331,7 @@ class FunctionAppSiteConfig(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfigCors(dict):
+calass FunctionAppSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4380,7 +4380,7 @@ class FunctionAppSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfigIpRestriction(dict):
+calass FunctionAppSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4412,7 +4412,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'FunctionAppSiteConfigIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -4496,7 +4496,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfigIpRestrictionHeaders(dict):
+calass FunctionAppSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4574,7 +4574,7 @@ class FunctionAppSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfigScmIpRestriction(dict):
+calass FunctionAppSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4606,7 +4606,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'FunctionAppSiteConfigScmIpRestrictionHeadersArrgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -4690,7 +4690,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteConfigScmIpRestrictionHeaders(dict):
+calass FunctionAppSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4768,7 +4768,7 @@ class FunctionAppSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class FunctionAppSiteCredential(dict):
+calass FunctionAppSiteCredential(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
@@ -4799,7 +4799,7 @@ class FunctionAppSiteCredential(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettings(dict):
+calass FunctionAppSlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4848,20 +4848,20 @@ class FunctionAppSlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Is Authentication enabled?
-        :param 'FunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined below.
+        :param 'FunctionAppSlotAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined below.
         :param Mapping[str, str] additional_login_params: login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param 'FunctionAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'FunctionAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'FunctionAppSlotAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'FunctionAppSlotAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'FunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'FunctionAppSlotAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param 'FunctionAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'FunctionAppSlotAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -5008,7 +5008,7 @@ class FunctionAppSlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettingsActiveDirectory(dict):
+calass FunctionAppSlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5071,7 +5071,7 @@ class FunctionAppSlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettingsFacebook(dict):
+calass FunctionAppSlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5133,7 +5133,7 @@ class FunctionAppSlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettingsGoogle(dict):
+calass FunctionAppSlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5195,7 +5195,7 @@ class FunctionAppSlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettingsMicrosoft(dict):
+calass FunctionAppSlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5257,7 +5257,7 @@ class FunctionAppSlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotAuthSettingsTwitter(dict):
+calass FunctionAppSlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5305,7 +5305,7 @@ class FunctionAppSlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotConnectionString(dict):
+calass FunctionAppSlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -5345,7 +5345,7 @@ class FunctionAppSlotConnectionString(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotIdentity(dict):
+calass FunctionAppSlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5424,7 +5424,7 @@ class FunctionAppSlotIdentity(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfig(dict):
+calass FunctionAppSlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5506,19 +5506,19 @@ class FunctionAppSlotSiteConfig(dict):
         :param bool always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param 'FunctionAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param 'FunctionAppSlotSiteConfigCorsArrgs' cors: A `cors` block as defined below.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArrgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param str java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['FunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -5750,7 +5750,7 @@ class FunctionAppSlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfigCors(dict):
+calass FunctionAppSlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5799,7 +5799,7 @@ class FunctionAppSlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfigIpRestriction(dict):
+calass FunctionAppSlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5831,7 +5831,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5915,7 +5915,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
+calass FunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5993,7 +5993,7 @@ class FunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfigScmIpRestriction(dict):
+calass FunctionAppSlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6025,7 +6025,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -6109,7 +6109,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
+calass FunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6187,7 +6187,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class FunctionAppSlotSiteCredential(dict):
+calass FunctionAppSlotSiteCredential(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
@@ -6218,7 +6218,7 @@ class FunctionAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class FunctionAppSourceControl(dict):
+calass FunctionAppSourceControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6308,7 +6308,7 @@ class FunctionAppSourceControl(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettings(dict):
+calass LinuxFunctionAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6358,23 +6358,23 @@ class LinuxFunctionAppAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param 'LinuxFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'LinuxFunctionAppAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'LinuxFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'LinuxFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'LinuxFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'LinuxFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'LinuxFunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -6533,7 +6533,7 @@ class LinuxFunctionAppAuthSettings(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsActiveDirectory(dict):
+calass LinuxFunctionAppAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6614,7 +6614,7 @@ class LinuxFunctionAppAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsFacebook(dict):
+calass LinuxFunctionAppAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6691,7 +6691,7 @@ class LinuxFunctionAppAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsGithub(dict):
+calass LinuxFunctionAppAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6768,7 +6768,7 @@ class LinuxFunctionAppAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsGoogle(dict):
+calass LinuxFunctionAppAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6845,7 +6845,7 @@ class LinuxFunctionAppAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsMicrosoft(dict):
+calass LinuxFunctionAppAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6922,7 +6922,7 @@ class LinuxFunctionAppAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsTwitter(dict):
+calass LinuxFunctionAppAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6985,7 +6985,7 @@ class LinuxFunctionAppAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2(dict):
+calass LinuxFunctionAppAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7067,33 +7067,33 @@ class LinuxFunctionAppAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.LinuxFunctionAppAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'LinuxFunctionAppAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'LinuxFunctionAppAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'LinuxFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'LinuxFunctionAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'LinuxFunctionAppAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'LinuxFunctionAppAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'LinuxFunctionAppAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -7324,7 +7324,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
+calass LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7520,7 +7520,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
+calass LinuxFunctionAppAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7582,7 +7582,7 @@ class LinuxFunctionAppAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
+calass LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7617,7 +7617,7 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
+calass LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7786,7 +7786,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
+calass LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7866,7 +7866,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
+calass LinuxFunctionAppAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7928,7 +7928,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
+calass LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8008,7 +8008,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2Login(dict):
+calass LinuxFunctionAppAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8188,7 +8188,7 @@ class LinuxFunctionAppAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
+calass LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8268,7 +8268,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
+calass LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8320,7 +8320,7 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppBackup(dict):
+calass LinuxFunctionAppBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8345,7 +8345,7 @@ class LinuxFunctionAppBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'LinuxFunctionAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'LinuxFunctionAppBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -8389,7 +8389,7 @@ class LinuxFunctionAppBackup(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppBackupSchedule(dict):
+calass LinuxFunctionAppBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8493,7 +8493,7 @@ class LinuxFunctionAppBackupSchedule(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppConnectionString(dict):
+calass LinuxFunctionAppConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -8533,7 +8533,7 @@ class LinuxFunctionAppConnectionString(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppIdentity(dict):
+calass LinuxFunctionAppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8612,7 +8612,7 @@ class LinuxFunctionAppIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfig(dict):
+calass LinuxFunctionAppSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8743,22 +8743,22 @@ class LinuxFunctionAppSiteConfig(dict):
         :param str api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param str app_command_line: The App command line to launch.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param 'LinuxFunctionAppSiteConfigAppServiceLogsArgs' app_service_logs: An `app_service_logs` block as defined above.
+        :param 'LinuxFunctionAppSiteConfigAppServiceLogsArrgs' app_service_logs: An `app_service_logs` block as defined above.
         :param str application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
-        :param 'LinuxFunctionAppSiteConfigApplicationStackArgs' application_stack: An `application_stack` block as defined above.
+        :param 'LinuxFunctionAppSiteConfigApplicationStackArrgs' application_stack: An `application_stack` block as defined above.
                
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'LinuxFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'LinuxFunctionAppSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -8768,7 +8768,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
@@ -9136,7 +9136,7 @@ class LinuxFunctionAppSiteConfig(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
+calass LinuxFunctionAppSiteConfigAppServiceLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9190,7 +9190,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogs(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigApplicationStack(dict):
+calass LinuxFunctionAppSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9230,7 +9230,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
+        :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArrgs'] dockers: One or more `docker` blocks as defined below.
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
@@ -9322,7 +9322,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
+calass LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9419,7 +9419,7 @@ class LinuxFunctionAppSiteConfigApplicationStackDocker(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigCors(dict):
+calass LinuxFunctionAppSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9469,7 +9469,7 @@ class LinuxFunctionAppSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigIpRestriction(dict):
+calass LinuxFunctionAppSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9501,7 +9501,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -9585,7 +9585,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
+calass LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9663,7 +9663,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
+calass LinuxFunctionAppSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9695,7 +9695,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -9779,7 +9779,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
+calass LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9857,7 +9857,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSiteCredential(dict):
+calass LinuxFunctionAppSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -9888,7 +9888,7 @@ class LinuxFunctionAppSiteCredential(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettings(dict):
+calass LinuxFunctionAppSlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9938,23 +9938,23 @@ class LinuxFunctionAppSlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled?
-        :param 'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'LinuxFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
-        :param 'LinuxFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
-        :param 'LinuxFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsFacebookArrgs' facebook: a `facebook` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsGithubArrgs' github: a `github` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsGoogleArrgs' google: a `google` block as detailed below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs' microsoft: a `microsoft` block as detailed below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'LinuxFunctionAppSlotAuthSettingsTwitterArgs' twitter: a `twitter` block as detailed below.
+        :param 'LinuxFunctionAppSlotAuthSettingsTwitterArrgs' twitter: a `twitter` block as detailed below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -10113,7 +10113,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
+calass LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10194,7 +10194,7 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsFacebook(dict):
+calass LinuxFunctionAppSlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10271,7 +10271,7 @@ class LinuxFunctionAppSlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsGithub(dict):
+calass LinuxFunctionAppSlotAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10348,7 +10348,7 @@ class LinuxFunctionAppSlotAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
+calass LinuxFunctionAppSlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10425,7 +10425,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsMicrosoft(dict):
+calass LinuxFunctionAppSlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10502,7 +10502,7 @@ class LinuxFunctionAppSlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsTwitter(dict):
+calass LinuxFunctionAppSlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10565,7 +10565,7 @@ class LinuxFunctionAppSlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10647,33 +10647,33 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.LinuxFunctionAppSlotAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'LinuxFunctionAppSlotAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -10904,7 +10904,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11100,7 +11100,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11162,7 +11162,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11197,7 +11197,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11366,7 +11366,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11446,7 +11446,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11508,7 +11508,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11588,7 +11588,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2Login(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11768,7 +11768,7 @@ class LinuxFunctionAppSlotAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11848,7 +11848,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
+calass LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11900,7 +11900,7 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotBackup(dict):
+calass LinuxFunctionAppSlotBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11925,7 +11925,7 @@ class LinuxFunctionAppSlotBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'LinuxFunctionAppSlotBackupScheduleArgs' schedule: a `schedule` block as detailed below.
+        :param 'LinuxFunctionAppSlotBackupScheduleArrgs' schedule: a `schedule` block as detailed below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -11969,7 +11969,7 @@ class LinuxFunctionAppSlotBackup(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotBackupSchedule(dict):
+calass LinuxFunctionAppSlotBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12077,7 +12077,7 @@ class LinuxFunctionAppSlotBackupSchedule(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotConnectionString(dict):
+calass LinuxFunctionAppSlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -12117,7 +12117,7 @@ class LinuxFunctionAppSlotConnectionString(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotIdentity(dict):
+calass LinuxFunctionAppSlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12196,7 +12196,7 @@ class LinuxFunctionAppSlotIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfig(dict):
+calass LinuxFunctionAppSlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12328,14 +12328,14 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param str app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param 'LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs' app_service_logs: an `app_service_logs` block as detailed below.
+        :param 'LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs' app_service_logs: an `app_service_logs` block as detailed below.
         :param str application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
-        :param 'LinuxFunctionAppSlotSiteConfigApplicationStackArgs' application_stack: an `application_stack` block as detailed below.
+        :param 'LinuxFunctionAppSlotSiteConfigApplicationStackArrgs' application_stack: an `application_stack` block as detailed below.
         :param str auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'LinuxFunctionAppSlotSiteConfigCorsArgs' cors: a `cors` block as detailed below.
+        :param 'LinuxFunctionAppSlotSiteConfigCorsArrgs' cors: a `cors` block as detailed below.
         :param Sequence[str] default_documents: a `default_documents` block as detailed below.
         :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -12343,7 +12343,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param Sequence['LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs'] ip_restrictions: an `ip_restriction` block as detailed below.
         :param str linux_fx_version: The Linux FX Version
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -12354,7 +12354,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param bool runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param Sequence['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param Sequence['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Linux Function App.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
@@ -12738,7 +12738,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
+calass LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12792,7 +12792,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogs(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
+calass LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12832,7 +12832,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs'] dockers: a `docker` block as detailed below.
+        :param Sequence['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs'] dockers: a `docker` block as detailed below.
         :param str dotnet_version: The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
@@ -12924,7 +12924,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
+calass LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13021,7 +13021,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDocker(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigCors(dict):
+calass LinuxFunctionAppSlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13071,7 +13071,7 @@ class LinuxFunctionAppSlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
+calass LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13103,7 +13103,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
+        :param 'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -13187,7 +13187,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
+calass LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13265,7 +13265,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
+calass LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13297,7 +13297,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
+        :param 'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -13381,7 +13381,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
+calass LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13459,7 +13459,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotSiteCredential(dict):
+calass LinuxFunctionAppSlotSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -13490,7 +13490,7 @@ class LinuxFunctionAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppSlotStorageAccount(dict):
+calass LinuxFunctionAppSlotStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13587,7 +13587,7 @@ class LinuxFunctionAppSlotStorageAccount(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppStickySettings(dict):
+calass LinuxFunctionAppStickySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13637,7 +13637,7 @@ class LinuxFunctionAppStickySettings(dict):
 
 
 @pulumi.output_type
-class LinuxFunctionAppStorageAccount(dict):
+calass LinuxFunctionAppStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13734,7 +13734,7 @@ class LinuxFunctionAppStorageAccount(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettings(dict):
+calass LinuxWebAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13784,23 +13784,23 @@ class LinuxWebAppAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param 'LinuxWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'LinuxWebAppAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'LinuxWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'LinuxWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'LinuxWebAppAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'LinuxWebAppAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'LinuxWebAppAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'LinuxWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'LinuxWebAppAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'LinuxWebAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'LinuxWebAppAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -13959,7 +13959,7 @@ class LinuxWebAppAuthSettings(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsActiveDirectory(dict):
+calass LinuxWebAppAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14040,7 +14040,7 @@ class LinuxWebAppAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsFacebook(dict):
+calass LinuxWebAppAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14117,7 +14117,7 @@ class LinuxWebAppAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsGithub(dict):
+calass LinuxWebAppAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14194,7 +14194,7 @@ class LinuxWebAppAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsGoogle(dict):
+calass LinuxWebAppAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14271,7 +14271,7 @@ class LinuxWebAppAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsMicrosoft(dict):
+calass LinuxWebAppAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14348,7 +14348,7 @@ class LinuxWebAppAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsTwitter(dict):
+calass LinuxWebAppAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14411,7 +14411,7 @@ class LinuxWebAppAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2(dict):
+calass LinuxWebAppAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14493,33 +14493,33 @@ class LinuxWebAppAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.LinuxWebAppAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'LinuxWebAppAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'LinuxWebAppAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings. 
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['LinuxWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'LinuxWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'LinuxWebAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'LinuxWebAppAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'LinuxWebAppAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'LinuxWebAppAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'LinuxWebAppAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -14750,7 +14750,7 @@ class LinuxWebAppAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
+calass LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14946,7 +14946,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2AppleV2(dict):
+calass LinuxWebAppAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15008,7 +15008,7 @@ class LinuxWebAppAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
+calass LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15043,7 +15043,7 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
+calass LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15208,7 +15208,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2FacebookV2(dict):
+calass LinuxWebAppAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15288,7 +15288,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2GithubV2(dict):
+calass LinuxWebAppAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15350,7 +15350,7 @@ class LinuxWebAppAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2GoogleV2(dict):
+calass LinuxWebAppAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15430,7 +15430,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2Login(dict):
+calass LinuxWebAppAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15610,7 +15610,7 @@ class LinuxWebAppAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
+calass LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15690,7 +15690,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppAuthSettingsV2TwitterV2(dict):
+calass LinuxWebAppAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15742,7 +15742,7 @@ class LinuxWebAppAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppBackup(dict):
+calass LinuxWebAppBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15767,7 +15767,7 @@ class LinuxWebAppBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'LinuxWebAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'LinuxWebAppBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -15811,7 +15811,7 @@ class LinuxWebAppBackup(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppBackupSchedule(dict):
+calass LinuxWebAppBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15915,7 +15915,7 @@ class LinuxWebAppBackupSchedule(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppConnectionString(dict):
+calass LinuxWebAppConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -15955,7 +15955,7 @@ class LinuxWebAppConnectionString(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppIdentity(dict):
+calass LinuxWebAppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16034,7 +16034,7 @@ class LinuxWebAppIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogs(dict):
+calass LinuxWebAppLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16064,10 +16064,10 @@ class LinuxWebAppLogs(dict):
                  failed_request_tracing: Optional[bool] = None,
                  http_logs: Optional['outputs.LinuxWebAppLogsHttpLogs'] = None):
         """
-        :param 'LinuxWebAppLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
+        :param 'LinuxWebAppLogsApplicationLogsArrgs' application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Should detailed error messages be enabled?
         :param bool failed_request_tracing: Should the failed request tracing be enabled?
-        :param 'LinuxWebAppLogsHttpLogsArgs' http_logs: An `http_logs` block as defined above.
+        :param 'LinuxWebAppLogsHttpLogsArrgs' http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -16112,7 +16112,7 @@ class LinuxWebAppLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogsApplicationLogs(dict):
+calass LinuxWebAppLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16137,7 +16137,7 @@ class LinuxWebAppLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.LinuxWebAppLogsApplicationLogsAzureBlobStorage'] = None):
         """
         :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param 'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -16161,7 +16161,7 @@ class LinuxWebAppLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
+calass LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16220,7 +16220,7 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogsHttpLogs(dict):
+calass LinuxWebAppLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16244,8 +16244,8 @@ class LinuxWebAppLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.LinuxWebAppLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.LinuxWebAppLogsHttpLogsFileSystem'] = None):
         """
-        :param 'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined below.
-        :param 'LinuxWebAppLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
+        :param 'LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: A `azure_blob_storage_http` block as defined below.
+        :param 'LinuxWebAppLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -16270,7 +16270,7 @@ class LinuxWebAppLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogsHttpLogsAzureBlobStorage(dict):
+calass LinuxWebAppLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16319,7 +16319,7 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppLogsHttpLogsFileSystem(dict):
+calass LinuxWebAppLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16367,7 +16367,7 @@ class LinuxWebAppLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfig(dict):
+calass LinuxWebAppSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16485,24 +16485,24 @@ class LinuxWebAppSiteConfig(dict):
         :param str api_definition_url: The URL to the API Definition for this Linux Web App.
         :param str api_management_api_id: The API Management API ID this Linux Web App is associated with.
         :param str app_command_line: The App command line to launch.
-        :param 'LinuxWebAppSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
+        :param 'LinuxWebAppSiteConfigApplicationStackArrgs' application_stack: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        :param 'LinuxWebAppSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param 'LinuxWebAppSiteConfigAutoHealSettingArrgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'LinuxWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'LinuxWebAppSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
-        :param Sequence['LinuxWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['LinuxWebAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param Sequence['LinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['LinuxWebAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
@@ -16823,7 +16823,7 @@ class LinuxWebAppSiteConfig(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigApplicationStack(dict):
+calass LinuxWebAppSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17073,13 +17073,13 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSetting(dict):
+calass LinuxWebAppSiteConfigAutoHealSetting(dict):
     def __init__(__self__, *,
                  action: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingAction'] = None,
                  trigger: Optional['outputs.LinuxWebAppSiteConfigAutoHealSettingTrigger'] = None):
         """
-        :param 'LinuxWebAppSiteConfigAutoHealSettingActionArgs' action: A `action` block as defined above.
-        :param 'LinuxWebAppSiteConfigAutoHealSettingTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'LinuxWebAppSiteConfigAutoHealSettingActionArrgs' action: A `action` block as defined above.
+        :param 'LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -17104,7 +17104,7 @@ class LinuxWebAppSiteConfigAutoHealSetting(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSettingAction(dict):
+calass LinuxWebAppSiteConfigAutoHealSettingAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17153,7 +17153,7 @@ class LinuxWebAppSiteConfigAutoHealSettingAction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
+calass LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17178,9 +17178,9 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
                  slow_requests: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
-        :param 'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
-        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
+        :param 'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs' requests: A `requests` block as defined above.
+        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
@@ -17215,7 +17215,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTrigger(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -17244,7 +17244,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17313,7 +17313,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17410,7 +17410,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigCors(dict):
+calass LinuxWebAppSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17460,7 +17460,7 @@ class LinuxWebAppSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigIpRestriction(dict):
+calass LinuxWebAppSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17492,7 +17492,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxWebAppSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -17576,7 +17576,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
+calass LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17654,7 +17654,7 @@ class LinuxWebAppSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigScmIpRestriction(dict):
+calass LinuxWebAppSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17686,7 +17686,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -17770,7 +17770,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
+calass LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17848,7 +17848,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSiteCredential(dict):
+calass LinuxWebAppSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -17875,7 +17875,7 @@ class LinuxWebAppSiteCredential(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettings(dict):
+calass LinuxWebAppSlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17925,23 +17925,23 @@ class LinuxWebAppSlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param 'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'LinuxWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'LinuxWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'LinuxWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'LinuxWebAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -18100,7 +18100,7 @@ class LinuxWebAppSlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsActiveDirectory(dict):
+calass LinuxWebAppSlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18181,7 +18181,7 @@ class LinuxWebAppSlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsFacebook(dict):
+calass LinuxWebAppSlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18258,7 +18258,7 @@ class LinuxWebAppSlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsGithub(dict):
+calass LinuxWebAppSlotAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18335,7 +18335,7 @@ class LinuxWebAppSlotAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsGoogle(dict):
+calass LinuxWebAppSlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18412,7 +18412,7 @@ class LinuxWebAppSlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsMicrosoft(dict):
+calass LinuxWebAppSlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18489,7 +18489,7 @@ class LinuxWebAppSlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsTwitter(dict):
+calass LinuxWebAppSlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18552,7 +18552,7 @@ class LinuxWebAppSlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18634,33 +18634,33 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.LinuxWebAppSlotAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'LinuxWebAppSlotAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'LinuxWebAppSlotAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'LinuxWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'LinuxWebAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'LinuxWebAppSlotAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'LinuxWebAppSlotAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -18891,7 +18891,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19087,7 +19087,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19149,7 +19149,7 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19184,7 +19184,7 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19349,7 +19349,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19429,7 +19429,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19491,7 +19491,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19571,7 +19571,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2Login(dict):
+calass LinuxWebAppSlotAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19751,7 +19751,7 @@ class LinuxWebAppSlotAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19831,7 +19831,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
+calass LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19883,7 +19883,7 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotBackup(dict):
+calass LinuxWebAppSlotBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19908,7 +19908,7 @@ class LinuxWebAppSlotBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'LinuxWebAppSlotBackupScheduleArgs' schedule: An `schedule` block as defined below.
+        :param 'LinuxWebAppSlotBackupScheduleArrgs' schedule: An `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -19952,7 +19952,7 @@ class LinuxWebAppSlotBackup(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotBackupSchedule(dict):
+calass LinuxWebAppSlotBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20056,7 +20056,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotConnectionString(dict):
+calass LinuxWebAppSlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -20096,7 +20096,7 @@ class LinuxWebAppSlotConnectionString(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotIdentity(dict):
+calass LinuxWebAppSlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20175,7 +20175,7 @@ class LinuxWebAppSlotIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogs(dict):
+calass LinuxWebAppSlotLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20205,10 +20205,10 @@ class LinuxWebAppSlotLogs(dict):
                  failed_request_tracing: Optional[bool] = None,
                  http_logs: Optional['outputs.LinuxWebAppSlotLogsHttpLogs'] = None):
         """
-        :param 'LinuxWebAppSlotLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
+        :param 'LinuxWebAppSlotLogsApplicationLogsArrgs' application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Should detailed error messages be enabled?
         :param bool failed_request_tracing: Should the failed request tracing be enabled?
-        :param 'LinuxWebAppSlotLogsHttpLogsArgs' http_logs: An `http_logs` block as defined above.
+        :param 'LinuxWebAppSlotLogsHttpLogsArrgs' http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -20253,7 +20253,7 @@ class LinuxWebAppSlotLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogsApplicationLogs(dict):
+calass LinuxWebAppSlotLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20278,7 +20278,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None):
         """
         :param str file_system_level: Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
-        :param 'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -20302,7 +20302,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
+calass LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20361,7 +20361,7 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogsHttpLogs(dict):
+calass LinuxWebAppSlotLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20385,8 +20385,8 @@ class LinuxWebAppSlotLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.LinuxWebAppSlotLogsHttpLogsFileSystem'] = None):
         """
-        :param 'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param 'LinuxWebAppSlotLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
+        :param 'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param 'LinuxWebAppSlotLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -20411,7 +20411,7 @@ class LinuxWebAppSlotLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
+calass LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20460,7 +20460,7 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotLogsHttpLogsFileSystem(dict):
+calass LinuxWebAppSlotLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20508,7 +20508,7 @@ class LinuxWebAppSlotLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfig(dict):
+calass LinuxWebAppSlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20627,27 +20627,27 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param str api_definition_url: The URL to the API Definition for this Linux Web App Slot.
         :param str api_management_api_id: The API Management API ID this Linux Web App Slot is associated with.
         :param str app_command_line: The App command line to launch.
-        :param 'LinuxWebAppSlotSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
+        :param 'LinuxWebAppSlotSiteConfigApplicationStackArrgs' application_stack: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingArrgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str auto_swap_slot_name: The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
                > **Note:** This must be a valid slot name on the target Linux Web App.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'LinuxWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'LinuxWebAppSlotSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
-        :param Sequence['LinuxWebAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param Sequence['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
@@ -20978,7 +20978,7 @@ class LinuxWebAppSlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigApplicationStack(dict):
+calass LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21228,13 +21228,13 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSetting(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSetting(dict):
     def __init__(__self__, *,
                  action: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingAction'] = None,
                  trigger: Optional['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTrigger'] = None):
         """
-        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs' action: A `action` block as defined above.
-        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs' action: A `action` block as defined above.
+        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -21259,7 +21259,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSetting(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingAction(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSettingAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21308,7 +21308,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingAction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21333,9 +21333,9 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
                  slow_requests: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest']] = None,
                  status_codes: Optional[Sequence['outputs.LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
-        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
-        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
+        :param 'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs' requests: A `requests` block as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
@@ -21370,7 +21370,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -21399,7 +21399,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21468,7 +21468,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21565,7 +21565,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigCors(dict):
+calass LinuxWebAppSlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21615,7 +21615,7 @@ class LinuxWebAppSlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigIpRestriction(dict):
+calass LinuxWebAppSlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21647,7 +21647,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -21731,7 +21731,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
+calass LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21809,7 +21809,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
+calass LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21841,7 +21841,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -21925,7 +21925,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
+calass LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22003,7 +22003,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotSiteCredential(dict):
+calass LinuxWebAppSlotSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -22030,7 +22030,7 @@ class LinuxWebAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppSlotStorageAccount(dict):
+calass LinuxWebAppSlotStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22127,7 +22127,7 @@ class LinuxWebAppSlotStorageAccount(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppStickySettings(dict):
+calass LinuxWebAppStickySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22177,7 +22177,7 @@ class LinuxWebAppStickySettings(dict):
 
 
 @pulumi.output_type
-class LinuxWebAppStorageAccount(dict):
+calass LinuxWebAppStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22274,7 +22274,7 @@ class LinuxWebAppStorageAccount(dict):
 
 
 @pulumi.output_type
-class PlanSku(dict):
+calass PlanSku(dict):
     def __init__(__self__, *,
                  size: str,
                  tier: str,
@@ -22315,7 +22315,7 @@ class PlanSku(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettings(dict):
+calass SlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22364,20 +22364,20 @@ class SlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Is Authentication enabled?
-        :param 'SlotAuthSettingsActiveDirectoryArgs' active_directory: A `active_directory` block as defined below.
+        :param 'SlotAuthSettingsActiveDirectoryArrgs' active_directory: A `active_directory` block as defined below.
         :param Mapping[str, str] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param 'SlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'SlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'SlotAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'SlotAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'SlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'SlotAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The runtime version of the Authentication/Authorization module.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param bool token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param 'SlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'SlotAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -22524,7 +22524,7 @@ class SlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettingsActiveDirectory(dict):
+calass SlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22587,7 +22587,7 @@ class SlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettingsFacebook(dict):
+calass SlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22649,7 +22649,7 @@ class SlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettingsGoogle(dict):
+calass SlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22711,7 +22711,7 @@ class SlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettingsMicrosoft(dict):
+calass SlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22773,7 +22773,7 @@ class SlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class SlotAuthSettingsTwitter(dict):
+calass SlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22821,7 +22821,7 @@ class SlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class SlotConnectionString(dict):
+calass SlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -22861,7 +22861,7 @@ class SlotConnectionString(dict):
 
 
 @pulumi.output_type
-class SlotIdentity(dict):
+calass SlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22940,7 +22940,7 @@ class SlotIdentity(dict):
 
 
 @pulumi.output_type
-class SlotLogs(dict):
+calass SlotLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22970,10 +22970,10 @@ class SlotLogs(dict):
                  failed_request_tracing_enabled: Optional[bool] = None,
                  http_logs: Optional['outputs.SlotLogsHttpLogs'] = None):
         """
-        :param 'SlotLogsApplicationLogsArgs' application_logs: An `application_logs` block as defined below.
+        :param 'SlotLogsApplicationLogsArrgs' application_logs: An `application_logs` block as defined below.
         :param bool detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
         :param bool failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
-        :param 'SlotLogsHttpLogsArgs' http_logs: An `http_logs` block as defined below.
+        :param 'SlotLogsHttpLogsArrgs' http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -23018,7 +23018,7 @@ class SlotLogs(dict):
 
 
 @pulumi.output_type
-class SlotLogsApplicationLogs(dict):
+calass SlotLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23042,7 +23042,7 @@ class SlotLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.SlotLogsApplicationLogsAzureBlobStorage'] = None,
                  file_system_level: Optional[str] = None):
         """
-        :param 'SlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'SlotLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         :param str file_system_level: The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
         """
         if azure_blob_storage is not None:
@@ -23068,7 +23068,7 @@ class SlotLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class SlotLogsApplicationLogsAzureBlobStorage(dict):
+calass SlotLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23127,7 +23127,7 @@ class SlotLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class SlotLogsHttpLogs(dict):
+calass SlotLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23151,8 +23151,8 @@ class SlotLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.SlotLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.SlotLogsHttpLogsFileSystem'] = None):
         """
-        :param 'SlotLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
-        :param 'SlotLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined below.
+        :param 'SlotLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'SlotLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined below.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -23177,7 +23177,7 @@ class SlotLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class SlotLogsHttpLogsAzureBlobStorage(dict):
+calass SlotLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23225,7 +23225,7 @@ class SlotLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class SlotLogsHttpLogsFileSystem(dict):
+calass SlotLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23273,7 +23273,7 @@ class SlotLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfig(dict):
+calass SlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23391,13 +23391,13 @@ class SlotSiteConfig(dict):
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         :param str app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param str auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param 'SlotSiteConfigCorsArgs' cors: A `cors` block as defined below.
+        :param 'SlotSiteConfigCorsArrgs' cors: A `cors` block as defined below.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param str ftps_state: State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param Sequence['SlotSiteConfigIpRestrictionArgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param Sequence['SlotSiteConfigIpRestrictionArrgs'] ip_restrictions: A list of objects representing ip restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -23416,7 +23416,7 @@ class SlotSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['SlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -23751,7 +23751,7 @@ class SlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfigCors(dict):
+calass SlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23800,7 +23800,7 @@ class SlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfigIpRestriction(dict):
+calass SlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23832,7 +23832,7 @@ class SlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param 'SlotSiteConfigIpRestrictionHeadersArrgs' headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -23916,7 +23916,7 @@ class SlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfigIpRestrictionHeaders(dict):
+calass SlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23994,7 +23994,7 @@ class SlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfigScmIpRestriction(dict):
+calass SlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24026,7 +24026,7 @@ class SlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'SlotSiteConfigScmIpRestrictionHeadersArrgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -24110,7 +24110,7 @@ class SlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class SlotSiteConfigScmIpRestrictionHeaders(dict):
+calass SlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24188,7 +24188,7 @@ class SlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class SlotSiteCredential(dict):
+calass SlotSiteCredential(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  username: Optional[str] = None):
@@ -24219,7 +24219,7 @@ class SlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class SlotStorageAccount(dict):
+calass SlotStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24316,7 +24316,7 @@ class SlotStorageAccount(dict):
 
 
 @pulumi.output_type
-class SourceControlGithubActionConfiguration(dict):
+calass SourceControlGithubActionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24346,8 +24346,8 @@ class SourceControlGithubActionConfiguration(dict):
                  generate_workflow_file: Optional[bool] = None,
                  linux_action: Optional[bool] = None):
         """
-        :param 'SourceControlGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
-        :param 'SourceControlGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as defined above.
+        :param 'SourceControlGithubActionConfigurationCodeConfigurationArrgs' code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+        :param 'SourceControlGithubActionConfigurationContainerConfigurationArrgs' container_configuration: A `container_configuration` block as defined above.
         :param bool generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
         """
         if code_configuration is not None:
@@ -24390,7 +24390,7 @@ class SourceControlGithubActionConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceControlGithubActionConfigurationCodeConfiguration(dict):
+calass SourceControlGithubActionConfigurationCodeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24438,7 +24438,7 @@ class SourceControlGithubActionConfigurationCodeConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceControlGithubActionConfigurationContainerConfiguration(dict):
+calass SourceControlGithubActionConfigurationContainerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24514,7 +24514,7 @@ class SourceControlGithubActionConfigurationContainerConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceControlSlotGithubActionConfiguration(dict):
+calass SourceControlSlotGithubActionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24544,8 +24544,8 @@ class SourceControlSlotGithubActionConfiguration(dict):
                  generate_workflow_file: Optional[bool] = None,
                  linux_action: Optional[bool] = None):
         """
-        :param 'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
-        :param 'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as detailed below.
+        :param 'SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs' code_configuration: A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
+        :param 'SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs' container_configuration: A `container_configuration` block as detailed below.
         :param bool generate_workflow_file: Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
         :param bool linux_action: Denotes this action uses a Linux base image.
         """
@@ -24592,7 +24592,7 @@ class SourceControlSlotGithubActionConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
+calass SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24640,7 +24640,7 @@ class SourceControlSlotGithubActionConfigurationCodeConfiguration(dict):
 
 
 @pulumi.output_type
-class SourceControlSlotGithubActionConfigurationContainerConfiguration(dict):
+calass SourceControlSlotGithubActionConfigurationContainerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24716,7 +24716,7 @@ class SourceControlSlotGithubActionConfigurationContainerConfiguration(dict):
 
 
 @pulumi.output_type
-class StaticSiteIdentity(dict):
+calass StaticSiteIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24787,7 +24787,7 @@ class StaticSiteIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettings(dict):
+calass WindowsFunctionAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24837,23 +24837,23 @@ class WindowsFunctionAppAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
-        :param 'WindowsFunctionAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'WindowsFunctionAppAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'WindowsFunctionAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'WindowsFunctionAppAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'WindowsFunctionAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'WindowsFunctionAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'WindowsFunctionAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -25012,7 +25012,7 @@ class WindowsFunctionAppAuthSettings(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsActiveDirectory(dict):
+calass WindowsFunctionAppAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25093,7 +25093,7 @@ class WindowsFunctionAppAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsFacebook(dict):
+calass WindowsFunctionAppAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25170,7 +25170,7 @@ class WindowsFunctionAppAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsGithub(dict):
+calass WindowsFunctionAppAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25247,7 +25247,7 @@ class WindowsFunctionAppAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsGoogle(dict):
+calass WindowsFunctionAppAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25324,7 +25324,7 @@ class WindowsFunctionAppAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsMicrosoft(dict):
+calass WindowsFunctionAppAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25401,7 +25401,7 @@ class WindowsFunctionAppAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsTwitter(dict):
+calass WindowsFunctionAppAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25464,7 +25464,7 @@ class WindowsFunctionAppAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2(dict):
+calass WindowsFunctionAppAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25546,33 +25546,33 @@ class WindowsFunctionAppAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.WindowsFunctionAppAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'WindowsFunctionAppAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'WindowsFunctionAppAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'WindowsFunctionAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'WindowsFunctionAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'WindowsFunctionAppAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'WindowsFunctionAppAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'WindowsFunctionAppAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -25803,7 +25803,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
+calass WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25999,7 +25999,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
+calass WindowsFunctionAppAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26061,7 +26061,7 @@ class WindowsFunctionAppAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
+calass WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26096,7 +26096,7 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
+calass WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26265,7 +26265,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
+calass WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26345,7 +26345,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
+calass WindowsFunctionAppAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26407,7 +26407,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
+calass WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26487,7 +26487,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2Login(dict):
+calass WindowsFunctionAppAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26667,7 +26667,7 @@ class WindowsFunctionAppAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
+calass WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26747,7 +26747,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
+calass WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26799,7 +26799,7 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppBackup(dict):
+calass WindowsFunctionAppBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26824,7 +26824,7 @@ class WindowsFunctionAppBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'WindowsFunctionAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'WindowsFunctionAppBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -26868,7 +26868,7 @@ class WindowsFunctionAppBackup(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppBackupSchedule(dict):
+calass WindowsFunctionAppBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26972,7 +26972,7 @@ class WindowsFunctionAppBackupSchedule(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppConnectionString(dict):
+calass WindowsFunctionAppConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -27012,7 +27012,7 @@ class WindowsFunctionAppConnectionString(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppIdentity(dict):
+calass WindowsFunctionAppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27091,7 +27091,7 @@ class WindowsFunctionAppIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfig(dict):
+calass WindowsFunctionAppSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27216,20 +27216,20 @@ class WindowsFunctionAppSiteConfig(dict):
         :param str api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param str app_command_line: The App command line to launch.
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param 'WindowsFunctionAppSiteConfigAppServiceLogsArgs' app_service_logs: An `app_service_logs` block as defined above.
+        :param 'WindowsFunctionAppSiteConfigAppServiceLogsArrgs' app_service_logs: An `app_service_logs` block as defined above.
         :param str application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
-        :param 'WindowsFunctionAppSiteConfigApplicationStackArgs' application_stack: An `application_stack` block as defined above.
+        :param 'WindowsFunctionAppSiteConfigApplicationStackArrgs' application_stack: An `application_stack` block as defined above.
                
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
-        :param 'WindowsFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'WindowsFunctionAppSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Function App.
         :param int elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this Windows Function App health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['WindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['WindowsFunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -27239,7 +27239,7 @@ class WindowsFunctionAppSiteConfig(dict):
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
@@ -27587,7 +27587,7 @@ class WindowsFunctionAppSiteConfig(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
+calass WindowsFunctionAppSiteConfigAppServiceLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27641,7 +27641,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogs(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigApplicationStack(dict):
+calass WindowsFunctionAppSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27751,7 +27751,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigCors(dict):
+calass WindowsFunctionAppSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27801,7 +27801,7 @@ class WindowsFunctionAppSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigIpRestriction(dict):
+calass WindowsFunctionAppSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27833,7 +27833,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -27917,7 +27917,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
+calass WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27995,7 +27995,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
+calass WindowsFunctionAppSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28027,7 +28027,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -28111,7 +28111,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
+calass WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28189,7 +28189,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSiteCredential(dict):
+calass WindowsFunctionAppSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -28220,7 +28220,7 @@ class WindowsFunctionAppSiteCredential(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettings(dict):
+calass WindowsFunctionAppSlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28270,23 +28270,23 @@ class WindowsFunctionAppSlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled?
-        :param 'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'WindowsFunctionAppSlotAuthSettingsFacebookArgs' facebook: a `facebook` block as detailed below.
-        :param 'WindowsFunctionAppSlotAuthSettingsGithubArgs' github: a `github` block as detailed below.
-        :param 'WindowsFunctionAppSlotAuthSettingsGoogleArgs' google: a `google` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsFacebookArrgs' facebook: a `facebook` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsGithubArrgs' github: a `github` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsGoogleArrgs' google: a `google` block as detailed below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs' microsoft: a `microsoft` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs' microsoft: a `microsoft` block as detailed below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'WindowsFunctionAppSlotAuthSettingsTwitterArgs' twitter: a `twitter` block as detailed below.
+        :param 'WindowsFunctionAppSlotAuthSettingsTwitterArrgs' twitter: a `twitter` block as detailed below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -28445,7 +28445,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
+calass WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28526,7 +28526,7 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsFacebook(dict):
+calass WindowsFunctionAppSlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28603,7 +28603,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsGithub(dict):
+calass WindowsFunctionAppSlotAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28680,7 +28680,7 @@ class WindowsFunctionAppSlotAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
+calass WindowsFunctionAppSlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28757,7 +28757,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsMicrosoft(dict):
+calass WindowsFunctionAppSlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28834,7 +28834,7 @@ class WindowsFunctionAppSlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsTwitter(dict):
+calass WindowsFunctionAppSlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28897,7 +28897,7 @@ class WindowsFunctionAppSlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28979,33 +28979,33 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.WindowsFunctionAppSlotAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'WindowsFunctionAppSlotAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -29236,7 +29236,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29432,7 +29432,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29494,7 +29494,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29529,7 +29529,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29698,7 +29698,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29778,7 +29778,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29840,7 +29840,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29920,7 +29920,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2Login(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30100,7 +30100,7 @@ class WindowsFunctionAppSlotAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30180,7 +30180,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
+calass WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30232,7 +30232,7 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotBackup(dict):
+calass WindowsFunctionAppSlotBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30257,7 +30257,7 @@ class WindowsFunctionAppSlotBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'WindowsFunctionAppSlotBackupScheduleArgs' schedule: a `schedule` block as detailed below.
+        :param 'WindowsFunctionAppSlotBackupScheduleArrgs' schedule: a `schedule` block as detailed below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -30301,7 +30301,7 @@ class WindowsFunctionAppSlotBackup(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotBackupSchedule(dict):
+calass WindowsFunctionAppSlotBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30409,7 +30409,7 @@ class WindowsFunctionAppSlotBackupSchedule(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotConnectionString(dict):
+calass WindowsFunctionAppSlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -30449,7 +30449,7 @@ class WindowsFunctionAppSlotConnectionString(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotIdentity(dict):
+calass WindowsFunctionAppSlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30528,7 +30528,7 @@ class WindowsFunctionAppSlotIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfig(dict):
+calass WindowsFunctionAppSlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30654,12 +30654,12 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param str api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param str app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param 'WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs' app_service_logs: an `app_service_logs` block as detailed below.
+        :param 'WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs' app_service_logs: an `app_service_logs` block as detailed below.
         :param str application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
-        :param 'WindowsFunctionAppSlotSiteConfigApplicationStackArgs' application_stack: an `application_stack` block as detailed below.
+        :param 'WindowsFunctionAppSlotSiteConfigApplicationStackArrgs' application_stack: an `application_stack` block as detailed below.
         :param str auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
-        :param 'WindowsFunctionAppSlotSiteConfigCorsArgs' cors: a `cors` block as detailed below.
+        :param 'WindowsFunctionAppSlotSiteConfigCorsArrgs' cors: a `cors` block as detailed below.
         :param Sequence[str] default_documents: a `default_documents` block as detailed below.
         :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -30667,7 +30667,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param Sequence['WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs'] ip_restrictions: an `ip_restriction` block as detailed below.
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -30677,7 +30677,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param bool runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param Sequence['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param Sequence['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
@@ -31042,7 +31042,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
+calass WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31096,7 +31096,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogs(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
+calass WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31202,7 +31202,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigCors(dict):
+calass WindowsFunctionAppSlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31252,7 +31252,7 @@ class WindowsFunctionAppSlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
+calass WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31284,7 +31284,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
+        :param 'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -31368,7 +31368,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
+calass WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31446,7 +31446,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
+calass WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31478,7 +31478,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
+        :param 'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -31562,7 +31562,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
+calass WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31640,7 +31640,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotSiteCredential(dict):
+calass WindowsFunctionAppSlotSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -31671,7 +31671,7 @@ class WindowsFunctionAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppSlotStorageAccount(dict):
+calass WindowsFunctionAppSlotStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31768,7 +31768,7 @@ class WindowsFunctionAppSlotStorageAccount(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppStickySettings(dict):
+calass WindowsFunctionAppStickySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31818,7 +31818,7 @@ class WindowsFunctionAppStickySettings(dict):
 
 
 @pulumi.output_type
-class WindowsFunctionAppStorageAccount(dict):
+calass WindowsFunctionAppStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31915,7 +31915,7 @@ class WindowsFunctionAppStorageAccount(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettings(dict):
+calass WindowsWebAppAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31965,23 +31965,23 @@ class WindowsWebAppAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
-        :param 'WindowsWebAppAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'WindowsWebAppAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'WindowsWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'WindowsWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'WindowsWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'WindowsWebAppAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'WindowsWebAppAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'WindowsWebAppAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'WindowsWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'WindowsWebAppAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'WindowsWebAppAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'WindowsWebAppAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -32140,7 +32140,7 @@ class WindowsWebAppAuthSettings(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsActiveDirectory(dict):
+calass WindowsWebAppAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32221,7 +32221,7 @@ class WindowsWebAppAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsFacebook(dict):
+calass WindowsWebAppAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32298,7 +32298,7 @@ class WindowsWebAppAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsGithub(dict):
+calass WindowsWebAppAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32375,7 +32375,7 @@ class WindowsWebAppAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsGoogle(dict):
+calass WindowsWebAppAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32452,7 +32452,7 @@ class WindowsWebAppAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsMicrosoft(dict):
+calass WindowsWebAppAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32529,7 +32529,7 @@ class WindowsWebAppAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsTwitter(dict):
+calass WindowsWebAppAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32592,7 +32592,7 @@ class WindowsWebAppAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2(dict):
+calass WindowsWebAppAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32674,33 +32674,33 @@ class WindowsWebAppAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.WindowsWebAppAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'WindowsWebAppAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'WindowsWebAppAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['WindowsWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'WindowsWebAppAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'WindowsWebAppAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'WindowsWebAppAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'WindowsWebAppAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'WindowsWebAppAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'WindowsWebAppAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -32931,7 +32931,7 @@ class WindowsWebAppAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
+calass WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33127,7 +33127,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2AppleV2(dict):
+calass WindowsWebAppAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33189,7 +33189,7 @@ class WindowsWebAppAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
+calass WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33224,7 +33224,7 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
+calass WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33393,7 +33393,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2FacebookV2(dict):
+calass WindowsWebAppAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33473,7 +33473,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2GithubV2(dict):
+calass WindowsWebAppAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33535,7 +33535,7 @@ class WindowsWebAppAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2GoogleV2(dict):
+calass WindowsWebAppAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33615,7 +33615,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2Login(dict):
+calass WindowsWebAppAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33795,7 +33795,7 @@ class WindowsWebAppAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
+calass WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33875,7 +33875,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppAuthSettingsV2TwitterV2(dict):
+calass WindowsWebAppAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33927,7 +33927,7 @@ class WindowsWebAppAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppBackup(dict):
+calass WindowsWebAppBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -33952,7 +33952,7 @@ class WindowsWebAppBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'WindowsWebAppBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'WindowsWebAppBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -33996,7 +33996,7 @@ class WindowsWebAppBackup(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppBackupSchedule(dict):
+calass WindowsWebAppBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34100,7 +34100,7 @@ class WindowsWebAppBackupSchedule(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppConnectionString(dict):
+calass WindowsWebAppConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -34140,7 +34140,7 @@ class WindowsWebAppConnectionString(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppIdentity(dict):
+calass WindowsWebAppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34219,7 +34219,7 @@ class WindowsWebAppIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogs(dict):
+calass WindowsWebAppLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34249,10 +34249,10 @@ class WindowsWebAppLogs(dict):
                  failed_request_tracing: Optional[bool] = None,
                  http_logs: Optional['outputs.WindowsWebAppLogsHttpLogs'] = None):
         """
-        :param 'WindowsWebAppLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
+        :param 'WindowsWebAppLogsApplicationLogsArrgs' application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Should detailed error messages be enabled.
         :param bool failed_request_tracing: Should tracing be enabled for failed requests.
-        :param 'WindowsWebAppLogsHttpLogsArgs' http_logs: A `http_logs` block as defined above.
+        :param 'WindowsWebAppLogsHttpLogsArrgs' http_logs: A `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -34297,7 +34297,7 @@ class WindowsWebAppLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogsApplicationLogs(dict):
+calass WindowsWebAppLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34322,7 +34322,7 @@ class WindowsWebAppLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.WindowsWebAppLogsApplicationLogsAzureBlobStorage'] = None):
         """
         :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param 'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -34346,7 +34346,7 @@ class WindowsWebAppLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
+calass WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34405,7 +34405,7 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogsHttpLogs(dict):
+calass WindowsWebAppLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34429,8 +34429,8 @@ class WindowsWebAppLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.WindowsWebAppLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.WindowsWebAppLogsHttpLogsFileSystem'] = None):
         """
-        :param 'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param 'WindowsWebAppLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
+        :param 'WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param 'WindowsWebAppLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -34455,7 +34455,7 @@ class WindowsWebAppLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogsHttpLogsAzureBlobStorage(dict):
+calass WindowsWebAppLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34504,7 +34504,7 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppLogsHttpLogsFileSystem(dict):
+calass WindowsWebAppLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34552,7 +34552,7 @@ class WindowsWebAppLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfig(dict):
+calass WindowsWebAppSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -34676,28 +34676,28 @@ class WindowsWebAppSiteConfig(dict):
         :param str api_definition_url: The URL to the API Definition for this Windows Web App.
         :param str api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
         :param str app_command_line: The App command line to launch.
-        :param 'WindowsWebAppSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
+        :param 'WindowsWebAppSiteConfigApplicationStackArrgs' application_stack: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        :param 'WindowsWebAppSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param 'WindowsWebAppSiteConfigAutoHealSettingArrgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'WindowsWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'WindowsWebAppSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Web App.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
-        :param Sequence['WindowsWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['WindowsWebAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param Sequence['WindowsWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['WindowsWebAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
-        :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param Sequence['WindowsWebAppSiteConfigVirtualApplicationArrgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows App Service.
@@ -35032,7 +35032,7 @@ class WindowsWebAppSiteConfig(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigApplicationStack(dict):
+calass WindowsWebAppSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35346,13 +35346,13 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSetting(dict):
+calass WindowsWebAppSiteConfigAutoHealSetting(dict):
     def __init__(__self__, *,
                  action: 'outputs.WindowsWebAppSiteConfigAutoHealSettingAction',
                  trigger: 'outputs.WindowsWebAppSiteConfigAutoHealSettingTrigger'):
         """
-        :param 'WindowsWebAppSiteConfigAutoHealSettingActionArgs' action: An `action` block as defined above.
-        :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'WindowsWebAppSiteConfigAutoHealSettingActionArrgs' action: An `action` block as defined above.
+        :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
@@ -35375,7 +35375,7 @@ class WindowsWebAppSiteConfigAutoHealSetting(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingAction(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35403,7 +35403,7 @@ class WindowsWebAppSiteConfigAutoHealSettingAction(dict):
                  minimum_process_execution_time: Optional[str] = None):
         """
         :param str action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
-        :param 'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs' custom_action: A `custom_action` block as defined below.
+        :param 'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs' custom_action: A `custom_action` block as defined below.
         :param str minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -35438,7 +35438,7 @@ class WindowsWebAppSiteConfigAutoHealSettingAction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(dict):
     def __init__(__self__, *,
                  executable: str,
                  parameters: Optional[str] = None):
@@ -35468,7 +35468,7 @@ class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35497,9 +35497,9 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
-        :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
-        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
+        :param 'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs' requests: A `requests` block as defined above.
+        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
@@ -35544,7 +35544,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTrigger(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -35573,7 +35573,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerRequests(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35642,7 +35642,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35739,7 +35739,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigCors(dict):
+calass WindowsWebAppSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35789,7 +35789,7 @@ class WindowsWebAppSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigIpRestriction(dict):
+calass WindowsWebAppSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35821,7 +35821,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsWebAppSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -35905,7 +35905,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
+calass WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -35983,7 +35983,7 @@ class WindowsWebAppSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigScmIpRestriction(dict):
+calass WindowsWebAppSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36015,7 +36015,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -36099,7 +36099,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
+calass WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36177,7 +36177,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigVirtualApplication(dict):
+calass WindowsWebAppSiteConfigVirtualApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36208,7 +36208,7 @@ class WindowsWebAppSiteConfigVirtualApplication(dict):
         :param str physical_path: The physical path for the Virtual Application.
         :param bool preload: Should pre-loading be enabled.
         :param str virtual_path: The Virtual Path for the Virtual Application.
-        :param Sequence['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        :param Sequence['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
         pulumi.set(__self__, "physical_path", physical_path)
         pulumi.set(__self__, "preload", preload)
@@ -36250,7 +36250,7 @@ class WindowsWebAppSiteConfigVirtualApplication(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(dict):
+calass WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36300,7 +36300,7 @@ class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSiteCredential(dict):
+calass WindowsWebAppSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -36331,7 +36331,7 @@ class WindowsWebAppSiteCredential(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettings(dict):
+calass WindowsWebAppSlotAuthSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36381,23 +36381,23 @@ class WindowsWebAppSlotAuthSettings(dict):
                  unauthenticated_client_action: Optional[str] = None):
         """
         :param bool enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
-        :param 'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs' active_directory: An `active_directory` block as defined above.
+        :param 'WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs' active_directory: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param 'WindowsWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
-        :param 'WindowsWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
-        :param 'WindowsWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsFacebookArrgs' facebook: A `facebook` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsGithubArrgs' github: A `github` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsGoogleArrgs' google: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param 'WindowsWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsMicrosoftArrgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param bool token_store_enabled: Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param 'WindowsWebAppSlotAuthSettingsTwitterArgs' twitter: A `twitter` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsTwitterArrgs' twitter: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -36556,7 +36556,7 @@ class WindowsWebAppSlotAuthSettings(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsActiveDirectory(dict):
+calass WindowsWebAppSlotAuthSettingsActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36637,7 +36637,7 @@ class WindowsWebAppSlotAuthSettingsActiveDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsFacebook(dict):
+calass WindowsWebAppSlotAuthSettingsFacebook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36714,7 +36714,7 @@ class WindowsWebAppSlotAuthSettingsFacebook(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsGithub(dict):
+calass WindowsWebAppSlotAuthSettingsGithub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36791,7 +36791,7 @@ class WindowsWebAppSlotAuthSettingsGithub(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsGoogle(dict):
+calass WindowsWebAppSlotAuthSettingsGoogle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36868,7 +36868,7 @@ class WindowsWebAppSlotAuthSettingsGoogle(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsMicrosoft(dict):
+calass WindowsWebAppSlotAuthSettingsMicrosoft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36945,7 +36945,7 @@ class WindowsWebAppSlotAuthSettingsMicrosoft(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsTwitter(dict):
+calass WindowsWebAppSlotAuthSettingsTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37008,7 +37008,7 @@ class WindowsWebAppSlotAuthSettingsTwitter(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37090,33 +37090,33 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
                  twitter_v2: Optional['outputs.WindowsWebAppSlotAuthSettingsV2TwitterV2'] = None,
                  unauthenticated_action: Optional[str] = None):
         """
-        :param 'WindowsWebAppSlotAuthSettingsV2LoginArgs' login: A `login` block as defined below.
-        :param 'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args' active_directory_v2: An `active_directory_v2` block as defined below.
-        :param 'WindowsWebAppSlotAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2LoginArrgs' login: A `login` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs' active_directory_v2: An `active_directory_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param 'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param Sequence['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param 'WindowsWebAppSlotAuthSettingsV2FacebookV2Args' facebook_v2: A `facebook_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs' facebook_v2: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param 'WindowsWebAppSlotAuthSettingsV2GithubV2Args' github_v2: A `github_v2` block as defined below.
-        :param 'WindowsWebAppSlotAuthSettingsV2GoogleV2Args' google_v2: A `google_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs' github_v2: A `github_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs' google_v2: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param 'WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args' microsoft_v2: A `microsoft_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs' microsoft_v2: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Should the authentication flow be used for all requests.
         :param bool require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param 'WindowsWebAppSlotAuthSettingsV2TwitterV2Args' twitter_v2: A `twitter_v2` block as defined below.
+        :param 'WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs' twitter_v2: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -37347,7 +37347,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37543,7 +37543,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37605,7 +37605,7 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37640,7 +37640,7 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37805,7 +37805,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37885,7 +37885,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37947,7 +37947,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38027,7 +38027,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2Login(dict):
+calass WindowsWebAppSlotAuthSettingsV2Login(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38207,7 +38207,7 @@ class WindowsWebAppSlotAuthSettingsV2Login(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38287,7 +38287,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
+calass WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38339,7 +38339,7 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotBackup(dict):
+calass WindowsWebAppSlotBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38364,7 +38364,7 @@ class WindowsWebAppSlotBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'WindowsWebAppSlotBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'WindowsWebAppSlotBackupScheduleArrgs' schedule: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -38408,7 +38408,7 @@ class WindowsWebAppSlotBackup(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotBackupSchedule(dict):
+calass WindowsWebAppSlotBackupSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38512,7 +38512,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotConnectionString(dict):
+calass WindowsWebAppSlotConnectionString(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -38552,7 +38552,7 @@ class WindowsWebAppSlotConnectionString(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotIdentity(dict):
+calass WindowsWebAppSlotIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38631,7 +38631,7 @@ class WindowsWebAppSlotIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogs(dict):
+calass WindowsWebAppSlotLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38661,10 +38661,10 @@ class WindowsWebAppSlotLogs(dict):
                  failed_request_tracing: Optional[bool] = None,
                  http_logs: Optional['outputs.WindowsWebAppSlotLogsHttpLogs'] = None):
         """
-        :param 'WindowsWebAppSlotLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
+        :param 'WindowsWebAppSlotLogsApplicationLogsArrgs' application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Should detailed error messages be enabled.
         :param bool failed_request_tracing: Should failed request tracing be enabled.
-        :param 'WindowsWebAppSlotLogsHttpLogsArgs' http_logs: An `http_logs` block as defined above.
+        :param 'WindowsWebAppSlotLogsHttpLogsArrgs' http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -38709,7 +38709,7 @@ class WindowsWebAppSlotLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogsApplicationLogs(dict):
+calass WindowsWebAppSlotLogsApplicationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38734,7 +38734,7 @@ class WindowsWebAppSlotLogsApplicationLogs(dict):
                  azure_blob_storage: Optional['outputs.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None):
         """
         :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param 'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param 'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -38758,7 +38758,7 @@ class WindowsWebAppSlotLogsApplicationLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
+calass WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38817,7 +38817,7 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogsHttpLogs(dict):
+calass WindowsWebAppSlotLogsHttpLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38841,8 +38841,8 @@ class WindowsWebAppSlotLogsHttpLogs(dict):
                  azure_blob_storage: Optional['outputs.WindowsWebAppSlotLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.WindowsWebAppSlotLogsHttpLogsFileSystem'] = None):
         """
-        :param 'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param 'WindowsWebAppSlotLogsHttpLogsFileSystemArgs' file_system: A `file_system` block as defined above.
+        :param 'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs' azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param 'WindowsWebAppSlotLogsHttpLogsFileSystemArrgs' file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -38867,7 +38867,7 @@ class WindowsWebAppSlotLogsHttpLogs(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
+calass WindowsWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38916,7 +38916,7 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotLogsHttpLogsFileSystem(dict):
+calass WindowsWebAppSlotLogsHttpLogsFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -38964,7 +38964,7 @@ class WindowsWebAppSlotLogsHttpLogsFileSystem(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfig(dict):
+calass WindowsWebAppSlotSiteConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39086,31 +39086,31 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param str api_definition_url: The URL to the API Definition for this Windows Web App Slot.
         :param str api_management_api_id: The API Management API ID this Windows Web App Slot os associated with.
         :param str app_command_line: The App command line to launch.
-        :param 'WindowsWebAppSlotSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
+        :param 'WindowsWebAppSlotSiteConfigApplicationStackArrgs' application_stack: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingArrgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str auto_swap_slot_name: The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
                > **Note:** This must be a valid slot name on the target Windows Web App Slot.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param 'WindowsWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'WindowsWebAppSlotSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
-        :param Sequence['WindowsWebAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param Sequence['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
-        :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationArgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationArrgs'] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Windows App Service Slot.
@@ -39448,7 +39448,7 @@ class WindowsWebAppSlotSiteConfig(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigApplicationStack(dict):
+calass WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39746,13 +39746,13 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSetting(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSetting(dict):
     def __init__(__self__, *,
                  action: 'outputs.WindowsWebAppSlotSiteConfigAutoHealSettingAction',
                  trigger: 'outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTrigger'):
         """
-        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs' action: A `action` block as defined above.
-        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs' action: A `action` block as defined above.
+        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
@@ -39775,7 +39775,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSetting(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39803,7 +39803,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
                  minimum_process_execution_time: Optional[str] = None):
         """
         :param str action_type: Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
-        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs' custom_action: A `custom_action` block as defined below.
+        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs' custom_action: A `custom_action` block as defined below.
         :param str minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -39838,7 +39838,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingAction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction(dict):
     def __init__(__self__, *,
                  executable: str,
                  parameters: Optional[str] = None):
@@ -39868,7 +39868,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39897,9 +39897,9 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
                  status_codes: Optional[Sequence['outputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode']] = None):
         """
         :param int private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
-        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs' requests: A `requests` block as defined above.
-        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: One or more `slow_request` blocks as defined above.
-        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: One or more `status_code` blocks as defined above.
+        :param 'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs' requests: A `requests` block as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: One or more `slow_request` blocks as defined above.
+        :param Sequence['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
@@ -39944,7 +39944,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -39973,7 +39973,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40042,7 +40042,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40139,7 +40139,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigCors(dict):
+calass WindowsWebAppSlotSiteConfigCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40189,7 +40189,7 @@ class WindowsWebAppSlotSiteConfigCors(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigIpRestriction(dict):
+calass WindowsWebAppSlotSiteConfigIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40221,7 +40221,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -40305,7 +40305,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
+calass WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40383,7 +40383,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
+calass WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40415,7 +40415,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: The action to take. Possible values are `Allow` or `Deny`.
-        :param 'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
+        :param 'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
         :param int priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -40499,7 +40499,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
+calass WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40577,7 +40577,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeaders(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
+calass WindowsWebAppSlotSiteConfigVirtualApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40608,7 +40608,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
         :param str physical_path: The physical path for the Virtual Application.
         :param bool preload: Should pre-loading be enabled.
         :param str virtual_path: The Virtual Path for the Virtual Application.
-        :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        :param Sequence['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs'] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
         pulumi.set(__self__, "physical_path", physical_path)
         pulumi.set(__self__, "preload", preload)
@@ -40650,7 +40650,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplication(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory(dict):
+calass WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40700,7 +40700,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotSiteCredential(dict):
+calass WindowsWebAppSlotSiteCredential(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  password: Optional[str] = None):
@@ -40727,7 +40727,7 @@ class WindowsWebAppSlotSiteCredential(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppSlotStorageAccount(dict):
+calass WindowsWebAppSlotStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40824,7 +40824,7 @@ class WindowsWebAppSlotStorageAccount(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppStickySettings(dict):
+calass WindowsWebAppStickySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40874,7 +40874,7 @@ class WindowsWebAppStickySettings(dict):
 
 
 @pulumi.output_type
-class WindowsWebAppStorageAccount(dict):
+calass WindowsWebAppStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40971,7 +40971,7 @@ class WindowsWebAppStorageAccount(dict):
 
 
 @pulumi.output_type
-class GetAppServiceConnectionStringResult(dict):
+calass GetAppServiceConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -41011,7 +41011,7 @@ class GetAppServiceConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceEnvironmentClusterSettingResult(dict):
+calass GetAppServiceEnvironmentClusterSettingResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -41040,7 +41040,7 @@ class GetAppServiceEnvironmentClusterSettingResult(dict):
 
 
 @pulumi.output_type
-class GetAppServicePlanSkuResult(dict):
+calass GetAppServicePlanSkuResult(dict):
     def __init__(__self__, *,
                  capacity: int,
                  size: str,
@@ -41080,7 +41080,7 @@ class GetAppServicePlanSkuResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigResult(dict):
+calass GetAppServiceSiteConfigResult(dict):
     def __init__(__self__, *,
                  acr_use_managed_identity_credentials: bool,
                  acr_user_managed_identity_client_id: str,
@@ -41117,13 +41117,13 @@ class GetAppServiceSiteConfigResult(dict):
         :param str acr_user_managed_identity_client_id: The User Managed Identity Client Id.
         :param bool always_on: Is the app loaded at all times?
         :param str app_command_line: App command line to launch.
-        :param Sequence['GetAppServiceSiteConfigCorArgs'] cors: A `cors` block as defined above.
+        :param Sequence['GetAppServiceSiteConfigCorArrgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param str health_check_path: The health check path to be pinged by App Service.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
-        :param Sequence['GetAppServiceSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['GetAppServiceSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str java_container: The Java Container in use.
         :param str java_container_version: The version of the Java Container in use.
         :param str java_version: The version of Java in use.
@@ -41136,7 +41136,7 @@ class GetAppServiceSiteConfigResult(dict):
         :param str python_version: The version of Python used in this App Service.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled in this App Service?
         :param str remote_debugging_version: Which version of Visual Studio is the Remote Debugger compatible with?
-        :param Sequence['GetAppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['GetAppServiceSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_type: The type of Source Control enabled for this App Service.
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main.
         :param bool use32_bit_worker_process: Does the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -41417,7 +41417,7 @@ class GetAppServiceSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigCorResult(dict):
+calass GetAppServiceSiteConfigCorResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: bool):
@@ -41446,7 +41446,7 @@ class GetAppServiceSiteConfigCorResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigIpRestrictionResult(dict):
+calass GetAppServiceSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: 'outputs.GetAppServiceSiteConfigIpRestrictionHeadersResult',
@@ -41526,7 +41526,7 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigIpRestrictionHeadersResult(dict):
+calass GetAppServiceSiteConfigIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -41559,7 +41559,7 @@ class GetAppServiceSiteConfigIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
+calass GetAppServiceSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: 'outputs.GetAppServiceSiteConfigScmIpRestrictionHeadersResult',
@@ -41639,7 +41639,7 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteConfigScmIpRestrictionHeadersResult(dict):
+calass GetAppServiceSiteConfigScmIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -41672,7 +41672,7 @@ class GetAppServiceSiteConfigScmIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSiteCredentialResult(dict):
+calass GetAppServiceSiteCredentialResult(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -41691,7 +41691,7 @@ class GetAppServiceSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetAppServiceSourceControlResult(dict):
+calass GetAppServiceSourceControlResult(dict):
     def __init__(__self__, *,
                  branch: str,
                  manual_integration: bool,
@@ -41753,7 +41753,7 @@ class GetAppServiceSourceControlResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateOrderCertificateResult(dict):
+calass GetCertificateOrderCertificateResult(dict):
     def __init__(__self__, *,
                  certificate_name: str,
                  key_vault_id: str,
@@ -41804,7 +41804,7 @@ class GetCertificateOrderCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetEnvironmentV3ClusterSettingResult(dict):
+calass GetEnvironmentV3ClusterSettingResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -41833,7 +41833,7 @@ class GetEnvironmentV3ClusterSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEnvironmentV3InboundNetworkDependencyResult(dict):
+calass GetEnvironmentV3InboundNetworkDependencyResult(dict):
     def __init__(__self__, *,
                  description: str,
                  ip_addresses: Sequence[str],
@@ -41873,7 +41873,7 @@ class GetEnvironmentV3InboundNetworkDependencyResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppConnectionStringResult(dict):
+calass GetFunctionAppConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -41913,7 +41913,7 @@ class GetFunctionAppConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppIdentityResult(dict):
+calass GetFunctionAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -41964,7 +41964,7 @@ class GetFunctionAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigResult(dict):
+calass GetFunctionAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
                  app_scale_limit: int,
@@ -41990,18 +41990,18 @@ class GetFunctionAppSiteConfigResult(dict):
         """
         :param bool always_on: Is the app loaded at all times?
         :param int app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param 'GetFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
+        :param 'GetFunctionAppSiteConfigCorsArrgs' cors: A `cors` block as defined above.
         :param str dotnet_framework_version: The version of the .NET framework's CLR used in this App Service.
         :param int elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param str ftps_state: State of FTP / FTPS service for this AppService.
         :param bool http2_enabled: Is HTTP2 Enabled on this App Service?
-        :param Sequence['GetFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['GetFunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str java_version: Java version hosted by the function app in Azure.
         :param str linux_fx_version: Linux App Framework and version for the AppService.
         :param str min_tls_version: The minimum supported TLS version for this App Service.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Is Runtime Scale Monitoring Enabled on this function app?
-        :param Sequence['GetFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['GetFunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_type: The type of Source Control enabled for this App Service.
         :param bool scm_use_main_ip_restriction: IP security restrictions for scm to use main.
         :param bool use32_bit_worker_process: Does the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -42194,7 +42194,7 @@ class GetFunctionAppSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigCorsResult(dict):
+calass GetFunctionAppSiteConfigCorsResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -42214,7 +42214,7 @@ class GetFunctionAppSiteConfigCorsResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigIpRestrictionResult(dict):
+calass GetFunctionAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: 'outputs.GetFunctionAppSiteConfigIpRestrictionHeadersResult',
@@ -42294,7 +42294,7 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigIpRestrictionHeadersResult(dict):
+calass GetFunctionAppSiteConfigIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -42327,7 +42327,7 @@ class GetFunctionAppSiteConfigIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
+calass GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: 'outputs.GetFunctionAppSiteConfigScmIpRestrictionHeadersResult',
@@ -42407,7 +42407,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteConfigScmIpRestrictionHeadersResult(dict):
+calass GetFunctionAppSiteConfigScmIpRestrictionHeadersResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -42440,7 +42440,7 @@ class GetFunctionAppSiteConfigScmIpRestrictionHeadersResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSiteCredentialResult(dict):
+calass GetFunctionAppSiteCredentialResult(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -42469,7 +42469,7 @@ class GetFunctionAppSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionAppSourceControlResult(dict):
+calass GetFunctionAppSourceControlResult(dict):
     def __init__(__self__, *,
                  branch: str,
                  manual_integration: bool,
@@ -42531,7 +42531,7 @@ class GetFunctionAppSourceControlResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingResult(dict):
+calass GetLinuxFunctionAppAuthSettingResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetLinuxFunctionAppAuthSettingActiveDirectoryResult'],
                  additional_login_parameters: Mapping[str, str],
@@ -42549,20 +42549,20 @@ class GetLinuxFunctionAppAuthSettingResult(dict):
                  twitters: Sequence['outputs.GetLinuxFunctionAppAuthSettingTwitterResult'],
                  unauthenticated_client_action: str):
         """
-        :param Sequence['GetLinuxFunctionAppAuthSettingActiveDirectoryArgs'] active_directories: An `active_directory` block as defined above.
+        :param Sequence['GetLinuxFunctionAppAuthSettingActiveDirectoryArrgs'] active_directories: An `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: A map of login parameters sent to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param bool enabled: Is this backup job enabled?
-        :param Sequence['GetLinuxFunctionAppAuthSettingFacebookArgs'] facebooks: A `facebook` block as defined below.
-        :param Sequence['GetLinuxFunctionAppAuthSettingGithubArgs'] githubs: A `github` block as defined below.
-        :param Sequence['GetLinuxFunctionAppAuthSettingGoogleArgs'] googles: A `google` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingFacebookArrgs'] facebooks: A `facebook` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingGithubArrgs'] githubs: A `github` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingGoogleArrgs'] googles: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
-        :param Sequence['GetLinuxFunctionAppAuthSettingMicrosoftArgs'] microsofts: A `microsoft` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingMicrosoftArrgs'] microsofts: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API.
         :param bool token_store_enabled: Is the Token Store configuration Enabled.
-        :param Sequence['GetLinuxFunctionAppAuthSettingTwitterArgs'] twitters: A `twitter` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingTwitterArrgs'] twitters: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to taken when an unauthenticated client attempts to access the app.
         """
         pulumi.set(__self__, "active_directories", active_directories)
@@ -42703,7 +42703,7 @@ class GetLinuxFunctionAppAuthSettingResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingActiveDirectoryResult(dict):
+calass GetLinuxFunctionAppAuthSettingActiveDirectoryResult(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -42754,7 +42754,7 @@ class GetLinuxFunctionAppAuthSettingActiveDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingFacebookResult(dict):
+calass GetLinuxFunctionAppAuthSettingFacebookResult(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -42805,7 +42805,7 @@ class GetLinuxFunctionAppAuthSettingFacebookResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingGithubResult(dict):
+calass GetLinuxFunctionAppAuthSettingGithubResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -42856,7 +42856,7 @@ class GetLinuxFunctionAppAuthSettingGithubResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingGoogleResult(dict):
+calass GetLinuxFunctionAppAuthSettingGoogleResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -42907,7 +42907,7 @@ class GetLinuxFunctionAppAuthSettingGoogleResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingMicrosoftResult(dict):
+calass GetLinuxFunctionAppAuthSettingMicrosoftResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -42958,7 +42958,7 @@ class GetLinuxFunctionAppAuthSettingMicrosoftResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingTwitterResult(dict):
+calass GetLinuxFunctionAppAuthSettingTwitterResult(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str,
@@ -42998,7 +42998,7 @@ class GetLinuxFunctionAppAuthSettingTwitterResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2Result(dict):
     def __init__(__self__, *,
                  active_directory_v2s: Sequence['outputs.GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result'],
                  apple_v2s: Sequence['outputs.GetLinuxFunctionAppAuthSettingsV2AppleV2Result'],
@@ -43023,27 +43023,27 @@ class GetLinuxFunctionAppAuthSettingsV2Result(dict):
                  twitter_v2s: Sequence['outputs.GetLinuxFunctionAppAuthSettingsV2TwitterV2Result'],
                  unauthenticated_action: str):
         """
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2s: An `active_directory_v2` block as defined below.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2AppleV2Args'] apple_v2s: An `apple_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2s: An `active_directory_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2AppleV2Arrgs'] apple_v2s: An `apple_v2` block as defined below.
         :param bool auth_enabled: Are the AuthV2 Settings enabled.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2s: A `facebook_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2s: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2GithubV2Args'] github_v2s: A `github_v2` block as defined below.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2GoogleV2Args'] google_v2s: A `google_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2GithubV2Arrgs'] github_v2s: A `github_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2GoogleV2Arrgs'] google_v2s: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2LoginArgs'] logins: A `login` block as defined below.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2s: A `microsoft_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2LoginArrgs'] logins: A `login` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2s: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Is the authentication flow used for all requests.
         :param bool require_https: Is HTTPS required on connections?
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
-        :param Sequence['GetLinuxFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2s: A `twitter_v2` block as defined below.
+        :param Sequence['GetLinuxFunctionAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2s: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication.
         """
         pulumi.set(__self__, "active_directory_v2s", active_directory_v2s)
@@ -43247,7 +43247,7 @@ class GetLinuxFunctionAppAuthSettingsV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     def __init__(__self__, *,
                  allowed_applications: Sequence[str],
                  allowed_audiences: Sequence[str],
@@ -43386,7 +43386,7 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2AppleV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2AppleV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -43426,7 +43426,7 @@ class GetLinuxFunctionAppAuthSettingsV2AppleV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
@@ -43444,7 +43444,7 @@ class GetLinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
     def __init__(__self__, *,
                  authorisation_endpoint: str,
                  certification_uri: str,
@@ -43572,7 +43572,7 @@ class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2FacebookV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2FacebookV2Result(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret_setting_name: str,
@@ -43623,7 +43623,7 @@ class GetLinuxFunctionAppAuthSettingsV2FacebookV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2GithubV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2GithubV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -43663,7 +43663,7 @@ class GetLinuxFunctionAppAuthSettingsV2GithubV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2GoogleV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2GoogleV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -43714,7 +43714,7 @@ class GetLinuxFunctionAppAuthSettingsV2GoogleV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2LoginResult(dict):
+calass GetLinuxFunctionAppAuthSettingsV2LoginResult(dict):
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Sequence[str],
                  cookie_expiration_convention: str,
@@ -43842,7 +43842,7 @@ class GetLinuxFunctionAppAuthSettingsV2LoginResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -43893,7 +43893,7 @@ class GetLinuxFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppAuthSettingsV2TwitterV2Result(dict):
+calass GetLinuxFunctionAppAuthSettingsV2TwitterV2Result(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret_setting_name: str):
@@ -43922,7 +43922,7 @@ class GetLinuxFunctionAppAuthSettingsV2TwitterV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppBackupResult(dict):
+calass GetLinuxFunctionAppBackupResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  name: str,
@@ -43931,7 +43931,7 @@ class GetLinuxFunctionAppBackupResult(dict):
         """
         :param bool enabled: Is this backup job enabled?
         :param str name: The name which should be used for this Linux Function App.
-        :param Sequence['GetLinuxFunctionAppBackupScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param Sequence['GetLinuxFunctionAppBackupScheduleArrgs'] schedules: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -43973,7 +43973,7 @@ class GetLinuxFunctionAppBackupResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppBackupScheduleResult(dict):
+calass GetLinuxFunctionAppBackupScheduleResult(dict):
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: str,
@@ -44042,7 +44042,7 @@ class GetLinuxFunctionAppBackupScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppConnectionStringResult(dict):
+calass GetLinuxFunctionAppConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -44082,7 +44082,7 @@ class GetLinuxFunctionAppConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppIdentityResult(dict):
+calass GetLinuxFunctionAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -44133,7 +44133,7 @@ class GetLinuxFunctionAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigResult(dict):
+calass GetLinuxFunctionAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
                  api_definition_url: str,
@@ -44177,20 +44177,20 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param str api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param str app_command_line: The App command line that is launched.
         :param int app_scale_limit: The number of workers this function app can scale out to.
-        :param Sequence['GetLinuxFunctionAppSiteConfigAppServiceLogArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigAppServiceLogArrgs'] app_service_logs: An `app_service_logs` block as defined above.
         :param str application_insights_connection_string: The Connection String that links the Linux Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key that connects the Linux Function App to Application Insights.
-        :param Sequence['GetLinuxFunctionAppSiteConfigApplicationStackArgs'] application_stacks: An `application_stack` block as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigApplicationStackArrgs'] application_stacks: An `application_stack` block as defined above.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity that is used for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Do connections for Azure Container Registry use Managed Identity?
-        :param Sequence['GetLinuxFunctionAppSiteConfigCorArgs'] cors: A `cors` block as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigCorArrgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: A list of Default Documents for the Linux Web App.
         :param int elastic_instance_minimum: The number of minimum instances for this Linux Function App.
         :param str ftps_state: State of FTP / FTPS service for this function app.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
         :param str health_check_path: The path that is checked for this function app health.
         :param bool http2_enabled: Is the HTTP2 protocol enabled?
-        :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode.
         :param str managed_pipeline_mode: Managed pipeline mode.
         :param str minimum_tls_version: The minimum version of TLS required for SSL requests.
@@ -44198,7 +44198,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
         :param bool remote_debugging_enabled: Is Remote Debugging enabled?
         :param str remote_debugging_version: The Remote Debugging Version.
         :param bool runtime_scale_monitoring_enabled: Is Scale Monitoring of the Functions Runtime enabled?
-        :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The minimum version of TLS for SSL requests to the SCM site.
         :param bool scm_use_main_ip_restriction: Is the Linux Function App `ip_restriction` configuration used for the SCM also?
         :param bool use32_bit_worker: Does the Linux Web App use a 32-bit worker process?
@@ -44524,7 +44524,7 @@ class GetLinuxFunctionAppSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigAppServiceLogResult(dict):
+calass GetLinuxFunctionAppSiteConfigAppServiceLogResult(dict):
     def __init__(__self__, *,
                  disk_quota_mb: int,
                  retention_period_days: int):
@@ -44553,7 +44553,7 @@ class GetLinuxFunctionAppSiteConfigAppServiceLogResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
+calass GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
     def __init__(__self__, *,
                  dockers: Sequence['outputs.GetLinuxFunctionAppSiteConfigApplicationStackDockerResult'],
                  dotnet_version: str,
@@ -44564,7 +44564,7 @@ class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
                  use_custom_runtime: bool,
                  use_dotnet_isolated_runtime: bool):
         """
-        :param Sequence['GetLinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
+        :param Sequence['GetLinuxFunctionAppSiteConfigApplicationStackDockerArrgs'] dockers: One or more `docker` blocks as defined below.
         :param str dotnet_version: The version of .NET used.
         :param str java_version: The Version of Java used.
         :param str node_version: The version of Node used.
@@ -44644,7 +44644,7 @@ class GetLinuxFunctionAppSiteConfigApplicationStackResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigApplicationStackDockerResult(dict):
+calass GetLinuxFunctionAppSiteConfigApplicationStackDockerResult(dict):
     def __init__(__self__, *,
                  image_name: str,
                  image_tag: str,
@@ -44706,7 +44706,7 @@ class GetLinuxFunctionAppSiteConfigApplicationStackDockerResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigCorResult(dict):
+calass GetLinuxFunctionAppSiteConfigCorResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: bool):
@@ -44735,7 +44735,7 @@ class GetLinuxFunctionAppSiteConfigCorResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
+calass GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetLinuxFunctionAppSiteConfigIpRestrictionHeaderResult'],
@@ -44746,7 +44746,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: The action taken.
-        :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigIpRestrictionHeaderArrgs'] headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range matched.
         :param str name: The name which should be used for this Linux Function App.
         :param int priority: The priority value of this `ip_restriction`.
@@ -44819,7 +44819,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
+calass GetLinuxFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -44870,7 +44870,7 @@ class GetLinuxFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
+calass GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult'],
@@ -44881,7 +44881,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: The action taken.
-        :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderArgs'] headers: A `headers` block as defined above.
+        :param Sequence['GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderArrgs'] headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range matched.
         :param str name: The name which should be used for this Linux Function App.
         :param int priority: The priority value of this `ip_restriction`.
@@ -44954,7 +44954,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
+calass GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -45005,7 +45005,7 @@ class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppSiteCredentialResult(dict):
+calass GetLinuxFunctionAppSiteCredentialResult(dict):
     def __init__(__self__, *,
                  name: str,
                  password: str):
@@ -45034,7 +45034,7 @@ class GetLinuxFunctionAppSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxFunctionAppStickySettingResult(dict):
+calass GetLinuxFunctionAppStickySettingResult(dict):
     def __init__(__self__, *,
                  app_setting_names: Sequence[str],
                  connection_string_names: Sequence[str]):
@@ -45063,7 +45063,7 @@ class GetLinuxFunctionAppStickySettingResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingResult(dict):
+calass GetLinuxWebAppAuthSettingResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetLinuxWebAppAuthSettingActiveDirectoryResult'],
                  additional_login_parameters: Mapping[str, str],
@@ -45081,20 +45081,20 @@ class GetLinuxWebAppAuthSettingResult(dict):
                  twitters: Sequence['outputs.GetLinuxWebAppAuthSettingTwitterResult'],
                  unauthenticated_client_action: str):
         """
-        :param Sequence['GetLinuxWebAppAuthSettingActiveDirectoryArgs'] active_directories: A `active_directory` block as defined above.
+        :param Sequence['GetLinuxWebAppAuthSettingActiveDirectoryArrgs'] active_directories: A `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: A `additional_login_parameters` block as defined above.
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param bool enabled: Is the Backup enabled?
-        :param Sequence['GetLinuxWebAppAuthSettingFacebookArgs'] facebooks: A `facebook` block as defined below.
-        :param Sequence['GetLinuxWebAppAuthSettingGithubArgs'] githubs: A `github` block as defined below.
-        :param Sequence['GetLinuxWebAppAuthSettingGoogleArgs'] googles: A `google` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingFacebookArrgs'] facebooks: A `facebook` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingGithubArrgs'] githubs: A `github` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingGoogleArrgs'] googles: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
-        :param Sequence['GetLinuxWebAppAuthSettingMicrosoftArgs'] microsofts: A `microsoft` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingMicrosoftArrgs'] microsofts: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API.
         :param bool token_store_enabled: Is the Token Store configuration Enabled.
-        :param Sequence['GetLinuxWebAppAuthSettingTwitterArgs'] twitters: A `twitter` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingTwitterArrgs'] twitters: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
         pulumi.set(__self__, "active_directories", active_directories)
@@ -45235,7 +45235,7 @@ class GetLinuxWebAppAuthSettingResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingActiveDirectoryResult(dict):
+calass GetLinuxWebAppAuthSettingActiveDirectoryResult(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -45286,7 +45286,7 @@ class GetLinuxWebAppAuthSettingActiveDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingFacebookResult(dict):
+calass GetLinuxWebAppAuthSettingFacebookResult(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -45337,7 +45337,7 @@ class GetLinuxWebAppAuthSettingFacebookResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingGithubResult(dict):
+calass GetLinuxWebAppAuthSettingGithubResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -45388,7 +45388,7 @@ class GetLinuxWebAppAuthSettingGithubResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingGoogleResult(dict):
+calass GetLinuxWebAppAuthSettingGoogleResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -45439,7 +45439,7 @@ class GetLinuxWebAppAuthSettingGoogleResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingMicrosoftResult(dict):
+calass GetLinuxWebAppAuthSettingMicrosoftResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -45490,7 +45490,7 @@ class GetLinuxWebAppAuthSettingMicrosoftResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingTwitterResult(dict):
+calass GetLinuxWebAppAuthSettingTwitterResult(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str,
@@ -45530,7 +45530,7 @@ class GetLinuxWebAppAuthSettingTwitterResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2Result(dict):
     def __init__(__self__, *,
                  active_directory_v2s: Sequence['outputs.GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result'],
                  apple_v2s: Sequence['outputs.GetLinuxWebAppAuthSettingsV2AppleV2Result'],
@@ -45555,27 +45555,27 @@ class GetLinuxWebAppAuthSettingsV2Result(dict):
                  twitter_v2s: Sequence['outputs.GetLinuxWebAppAuthSettingsV2TwitterV2Result'],
                  unauthenticated_action: str):
         """
-        :param Sequence['GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2s: An `active_directory_v2` block as defined below.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2AppleV2Args'] apple_v2s: An `apple_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2s: An `active_directory_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2AppleV2Arrgs'] apple_v2s: An `apple_v2` block as defined below.
         :param bool auth_enabled: Are the AuthV2 Settings enabled.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2FacebookV2Args'] facebook_v2s: A `facebook_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2s: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2GithubV2Args'] github_v2s: A `github_v2` block as defined below.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2GoogleV2Args'] google_v2s: A `google_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2GithubV2Arrgs'] github_v2s: A `github_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2GoogleV2Arrgs'] google_v2s: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2LoginArgs'] logins: A `login` block as defined below.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2s: A `microsoft_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2LoginArrgs'] logins: A `login` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2s: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Is the authentication flow used for all requests.
         :param bool require_https: Is HTTPS required on connections?
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
-        :param Sequence['GetLinuxWebAppAuthSettingsV2TwitterV2Args'] twitter_v2s: A `twitter_v2` block as defined below.
+        :param Sequence['GetLinuxWebAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2s: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication.
         """
         pulumi.set(__self__, "active_directory_v2s", active_directory_v2s)
@@ -45779,7 +45779,7 @@ class GetLinuxWebAppAuthSettingsV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     def __init__(__self__, *,
                  allowed_applications: Sequence[str],
                  allowed_audiences: Sequence[str],
@@ -45918,7 +45918,7 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2AppleV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2AppleV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -45958,7 +45958,7 @@ class GetLinuxWebAppAuthSettingsV2AppleV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
@@ -45976,7 +45976,7 @@ class GetLinuxWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
     def __init__(__self__, *,
                  authorisation_endpoint: str,
                  certification_uri: str,
@@ -46104,7 +46104,7 @@ class GetLinuxWebAppAuthSettingsV2CustomOidcV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2FacebookV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2FacebookV2Result(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret_setting_name: str,
@@ -46155,7 +46155,7 @@ class GetLinuxWebAppAuthSettingsV2FacebookV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2GithubV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2GithubV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -46195,7 +46195,7 @@ class GetLinuxWebAppAuthSettingsV2GithubV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2GoogleV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2GoogleV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -46246,7 +46246,7 @@ class GetLinuxWebAppAuthSettingsV2GoogleV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2LoginResult(dict):
+calass GetLinuxWebAppAuthSettingsV2LoginResult(dict):
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Sequence[str],
                  cookie_expiration_convention: str,
@@ -46374,7 +46374,7 @@ class GetLinuxWebAppAuthSettingsV2LoginResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2MicrosoftV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2MicrosoftV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -46425,7 +46425,7 @@ class GetLinuxWebAppAuthSettingsV2MicrosoftV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppAuthSettingsV2TwitterV2Result(dict):
+calass GetLinuxWebAppAuthSettingsV2TwitterV2Result(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret_setting_name: str):
@@ -46454,7 +46454,7 @@ class GetLinuxWebAppAuthSettingsV2TwitterV2Result(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppBackupResult(dict):
+calass GetLinuxWebAppBackupResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  name: str,
@@ -46463,7 +46463,7 @@ class GetLinuxWebAppBackupResult(dict):
         """
         :param bool enabled: Is the Backup enabled?
         :param str name: The name of this Linux Web App.
-        :param Sequence['GetLinuxWebAppBackupScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param Sequence['GetLinuxWebAppBackupScheduleArrgs'] schedules: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -46505,7 +46505,7 @@ class GetLinuxWebAppBackupResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppBackupScheduleResult(dict):
+calass GetLinuxWebAppBackupScheduleResult(dict):
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: str,
@@ -46578,7 +46578,7 @@ class GetLinuxWebAppBackupScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppConnectionStringResult(dict):
+calass GetLinuxWebAppConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -46618,7 +46618,7 @@ class GetLinuxWebAppConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppIdentityResult(dict):
+calass GetLinuxWebAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -46669,17 +46669,17 @@ class GetLinuxWebAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogResult(dict):
+calass GetLinuxWebAppLogResult(dict):
     def __init__(__self__, *,
                  application_logs: Sequence['outputs.GetLinuxWebAppLogApplicationLogResult'],
                  detailed_error_messages: bool,
                  failed_request_tracing: bool,
                  http_logs: Sequence['outputs.GetLinuxWebAppLogHttpLogResult']):
         """
-        :param Sequence['GetLinuxWebAppLogApplicationLogArgs'] application_logs: A `application_logs` block as defined above.
+        :param Sequence['GetLinuxWebAppLogApplicationLogArrgs'] application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Is Detailed Error Messaging enabled.
         :param bool failed_request_tracing: Is Failed Request Tracing enabled.
-        :param Sequence['GetLinuxWebAppLogHttpLogArgs'] http_logs: An `http_logs` block as defined above.
+        :param Sequence['GetLinuxWebAppLogHttpLogArrgs'] http_logs: An `http_logs` block as defined above.
         """
         pulumi.set(__self__, "application_logs", application_logs)
         pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
@@ -46720,12 +46720,12 @@ class GetLinuxWebAppLogResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogApplicationLogResult(dict):
+calass GetLinuxWebAppLogApplicationLogResult(dict):
     def __init__(__self__, *,
                  azure_blob_storages: Sequence['outputs.GetLinuxWebAppLogApplicationLogAzureBlobStorageResult'],
                  file_system_level: str):
         """
-        :param Sequence['GetLinuxWebAppLogApplicationLogAzureBlobStorageArgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
+        :param Sequence['GetLinuxWebAppLogApplicationLogAzureBlobStorageArrgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
         :param str file_system_level: The logging level.
         """
         pulumi.set(__self__, "azure_blob_storages", azure_blob_storages)
@@ -46749,7 +46749,7 @@ class GetLinuxWebAppLogApplicationLogResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
+calass GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
     def __init__(__self__, *,
                  level: str,
                  retention_in_days: int,
@@ -46789,13 +46789,13 @@ class GetLinuxWebAppLogApplicationLogAzureBlobStorageResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogHttpLogResult(dict):
+calass GetLinuxWebAppLogHttpLogResult(dict):
     def __init__(__self__, *,
                  azure_blob_storages: Sequence['outputs.GetLinuxWebAppLogHttpLogAzureBlobStorageResult'],
                  file_systems: Sequence['outputs.GetLinuxWebAppLogHttpLogFileSystemResult']):
         """
-        :param Sequence['GetLinuxWebAppLogHttpLogAzureBlobStorageArgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
-        :param Sequence['GetLinuxWebAppLogHttpLogFileSystemArgs'] file_systems: A `file_system` block as defined above.
+        :param Sequence['GetLinuxWebAppLogHttpLogAzureBlobStorageArrgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
+        :param Sequence['GetLinuxWebAppLogHttpLogFileSystemArrgs'] file_systems: A `file_system` block as defined above.
         """
         pulumi.set(__self__, "azure_blob_storages", azure_blob_storages)
         pulumi.set(__self__, "file_systems", file_systems)
@@ -46818,7 +46818,7 @@ class GetLinuxWebAppLogHttpLogResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogHttpLogAzureBlobStorageResult(dict):
+calass GetLinuxWebAppLogHttpLogAzureBlobStorageResult(dict):
     def __init__(__self__, *,
                  retention_in_days: int,
                  sas_url: str):
@@ -46847,7 +46847,7 @@ class GetLinuxWebAppLogHttpLogAzureBlobStorageResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppLogHttpLogFileSystemResult(dict):
+calass GetLinuxWebAppLogHttpLogFileSystemResult(dict):
     def __init__(__self__, *,
                  retention_in_days: int,
                  retention_in_mb: int):
@@ -46876,7 +46876,7 @@ class GetLinuxWebAppLogHttpLogFileSystemResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigResult(dict):
+calass GetLinuxWebAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
                  api_definition_url: str,
@@ -46915,19 +46915,19 @@ class GetLinuxWebAppSiteConfigResult(dict):
         :param str api_definition_url: The ID of the APIM configuration for this Linux Web App.
         :param str api_management_api_id: The ID of the API Management API for this Linux Web App.
         :param str app_command_line: The command line used to launch this app.
-        :param Sequence['GetLinuxWebAppSiteConfigApplicationStackArgs'] application_stacks: A `application_stack` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigApplicationStackArrgs'] application_stacks: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Are Auto heal rules be enabled.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingArgs'] auto_heal_settings: A `auto_heal_setting` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingArrgs'] auto_heal_settings: A `auto_heal_setting` block as defined above.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Do connections for Azure Container Registry use Managed Identity.
-        :param Sequence['GetLinuxWebAppSiteConfigCorArgs'] cors: A `cors` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigCorArrgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: The list of Default Documents for the Linux Web App.
         :param bool detailed_error_logging_enabled: Is Detailed Error Logging enabled.
         :param str ftps_state: The State of FTP / FTPS service.
         :param int health_check_eviction_time_in_min: (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check endpoint.
         :param bool http2_enabled: Is HTTP2.0 enabled.
-        :param Sequence['GetLinuxWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: A `ip_restriction` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigIpRestrictionArrgs'] ip_restrictions: A `ip_restriction` block as defined above.
         :param str linux_fx_version: The `LinuxFXVersion` string.
         :param str load_balancing_mode: The site Load Balancing Mode.
         :param bool local_mysql_enabled: Is the Local MySQL enabled.
@@ -46935,7 +46935,7 @@ class GetLinuxWebAppSiteConfigResult(dict):
         :param str minimum_tls_version: The Minimum version of TLS for requests.
         :param bool remote_debugging_enabled: Is Remote Debugging enabled.
         :param str remote_debugging_version: The Remote Debugging Version.
-        :param Sequence['GetLinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A `scm_ip_restriction` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A `scm_ip_restriction` block as defined above.
         :param str scm_minimum_tls_version: The Minimum version of TLS for requests to SCM.
         :param str scm_type: The Source Control Management Type in use.
         :param bool scm_use_main_ip_restriction: Is the Linux Web App `ip_restriction` configuration used for the SCM also.
@@ -47235,7 +47235,7 @@ class GetLinuxWebAppSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
+calass GetLinuxWebAppSiteConfigApplicationStackResult(dict):
     def __init__(__self__, *,
                  docker_image: str,
                  docker_image_name: str,
@@ -47395,13 +47395,13 @@ class GetLinuxWebAppSiteConfigApplicationStackResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingActionResult'],
                  triggers: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult']):
         """
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingActionArgs'] actions: A `action` block as defined above.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerArgs'] triggers: A `trigger` block as defined below.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingActionArrgs'] actions: A `action` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerArrgs'] triggers: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "triggers", triggers)
@@ -47424,7 +47424,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingActionResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingActionResult(dict):
     def __init__(__self__, *,
                  action_type: str,
                  minimum_process_execution_time: str):
@@ -47453,15 +47453,15 @@ class GetLinuxWebAppSiteConfigAutoHealSettingActionResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
     def __init__(__self__, *,
                  requests: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
                  status_codes: Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult'],
                  slow_requests: Optional[Sequence['outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult']] = None):
         """
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArgs'] requests: A `requests` block as defined above.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
-        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestArrgs'] requests: A `requests` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: A `status_code` block as defined above.
+        :param Sequence['GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: A `slow_request` block as defined above.
         """
         pulumi.set(__self__, "requests", requests)
         pulumi.set(__self__, "status_codes", status_codes)
@@ -47494,7 +47494,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -47523,7 +47523,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str,
@@ -47574,7 +47574,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
+calass GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str,
@@ -47647,7 +47647,7 @@ class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigCorResult(dict):
+calass GetLinuxWebAppSiteConfigCorResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: bool):
@@ -47676,7 +47676,7 @@ class GetLinuxWebAppSiteConfigCorResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
+calass GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetLinuxWebAppSiteConfigIpRestrictionHeaderResult'],
@@ -47744,7 +47744,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
+calass GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -47777,7 +47777,7 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
+calass GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult'],
@@ -47845,7 +47845,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
+calass GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -47878,7 +47878,7 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppSiteCredentialResult(dict):
+calass GetLinuxWebAppSiteCredentialResult(dict):
     def __init__(__self__, *,
                  name: str,
                  password: str):
@@ -47907,7 +47907,7 @@ class GetLinuxWebAppSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppStickySettingResult(dict):
+calass GetLinuxWebAppStickySettingResult(dict):
     def __init__(__self__, *,
                  app_setting_names: Sequence[str],
                  connection_string_names: Sequence[str]):
@@ -47936,7 +47936,7 @@ class GetLinuxWebAppStickySettingResult(dict):
 
 
 @pulumi.output_type
-class GetLinuxWebAppStorageAccountResult(dict):
+calass GetLinuxWebAppStorageAccountResult(dict):
     def __init__(__self__, *,
                  access_key: str,
                  account_name: str,
@@ -48009,7 +48009,7 @@ class GetLinuxWebAppStorageAccountResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingResult(dict):
+calass GetWindowsFunctionAppAuthSettingResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetWindowsFunctionAppAuthSettingActiveDirectoryResult'],
                  additional_login_parameters: Mapping[str, str],
@@ -48027,20 +48027,20 @@ class GetWindowsFunctionAppAuthSettingResult(dict):
                  twitters: Sequence['outputs.GetWindowsFunctionAppAuthSettingTwitterResult'],
                  unauthenticated_client_action: str):
         """
-        :param Sequence['GetWindowsFunctionAppAuthSettingActiveDirectoryArgs'] active_directories: A `active_directory` block as defined above.
+        :param Sequence['GetWindowsFunctionAppAuthSettingActiveDirectoryArrgs'] active_directories: A `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param bool enabled: Is the Backup Job enabled?
-        :param Sequence['GetWindowsFunctionAppAuthSettingFacebookArgs'] facebooks: A `facebook` block as defined below.
-        :param Sequence['GetWindowsFunctionAppAuthSettingGithubArgs'] githubs: A `github` block as defined below.
-        :param Sequence['GetWindowsFunctionAppAuthSettingGoogleArgs'] googles: A `google` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingFacebookArrgs'] facebooks: A `facebook` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingGithubArrgs'] githubs: A `github` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingGoogleArrgs'] googles: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
-        :param Sequence['GetWindowsFunctionAppAuthSettingMicrosoftArgs'] microsofts: A `microsoft` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingMicrosoftArrgs'] microsofts: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API.
         :param bool token_store_enabled: Is the Token Store configuration Enabled.
-        :param Sequence['GetWindowsFunctionAppAuthSettingTwitterArgs'] twitters: A `twitter` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingTwitterArrgs'] twitters: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
         pulumi.set(__self__, "active_directories", active_directories)
@@ -48181,7 +48181,7 @@ class GetWindowsFunctionAppAuthSettingResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingActiveDirectoryResult(dict):
+calass GetWindowsFunctionAppAuthSettingActiveDirectoryResult(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -48232,7 +48232,7 @@ class GetWindowsFunctionAppAuthSettingActiveDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingFacebookResult(dict):
+calass GetWindowsFunctionAppAuthSettingFacebookResult(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -48283,7 +48283,7 @@ class GetWindowsFunctionAppAuthSettingFacebookResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingGithubResult(dict):
+calass GetWindowsFunctionAppAuthSettingGithubResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -48334,7 +48334,7 @@ class GetWindowsFunctionAppAuthSettingGithubResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingGoogleResult(dict):
+calass GetWindowsFunctionAppAuthSettingGoogleResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -48385,7 +48385,7 @@ class GetWindowsFunctionAppAuthSettingGoogleResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingMicrosoftResult(dict):
+calass GetWindowsFunctionAppAuthSettingMicrosoftResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -48436,7 +48436,7 @@ class GetWindowsFunctionAppAuthSettingMicrosoftResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingTwitterResult(dict):
+calass GetWindowsFunctionAppAuthSettingTwitterResult(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str,
@@ -48476,7 +48476,7 @@ class GetWindowsFunctionAppAuthSettingTwitterResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2Result(dict):
     def __init__(__self__, *,
                  active_directory_v2s: Sequence['outputs.GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result'],
                  apple_v2s: Sequence['outputs.GetWindowsFunctionAppAuthSettingsV2AppleV2Result'],
@@ -48501,27 +48501,27 @@ class GetWindowsFunctionAppAuthSettingsV2Result(dict):
                  twitter_v2s: Sequence['outputs.GetWindowsFunctionAppAuthSettingsV2TwitterV2Result'],
                  unauthenticated_action: str):
         """
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2s: An `active_directory_v2` block as defined below.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2AppleV2Args'] apple_v2s: An `apple_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2s: An `active_directory_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2AppleV2Arrgs'] apple_v2s: An `apple_v2` block as defined below.
         :param bool auth_enabled: Are the AuthV2 Settings enabled.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2s: A `facebook_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2s: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2GithubV2Args'] github_v2s: A `github_v2` block as defined below.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2GoogleV2Args'] google_v2s: A `google_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2GithubV2Arrgs'] github_v2s: A `github_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2GoogleV2Arrgs'] google_v2s: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2LoginArgs'] logins: A `login` block as defined below.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2s: A `microsoft_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2LoginArrgs'] logins: A `login` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2s: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Is the authentication flow used for all requests.
         :param bool require_https: Is HTTPS required on connections?
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
-        :param Sequence['GetWindowsFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2s: A `twitter_v2` block as defined below.
+        :param Sequence['GetWindowsFunctionAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2s: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication.
         """
         pulumi.set(__self__, "active_directory_v2s", active_directory_v2s)
@@ -48725,7 +48725,7 @@ class GetWindowsFunctionAppAuthSettingsV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     def __init__(__self__, *,
                  allowed_applications: Sequence[str],
                  allowed_audiences: Sequence[str],
@@ -48864,7 +48864,7 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2AppleV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2AppleV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -48904,7 +48904,7 @@ class GetWindowsFunctionAppAuthSettingsV2AppleV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
@@ -48922,7 +48922,7 @@ class GetWindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
     def __init__(__self__, *,
                  authorisation_endpoint: str,
                  certification_uri: str,
@@ -49050,7 +49050,7 @@ class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2FacebookV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2FacebookV2Result(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret_setting_name: str,
@@ -49101,7 +49101,7 @@ class GetWindowsFunctionAppAuthSettingsV2FacebookV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2GithubV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2GithubV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -49141,7 +49141,7 @@ class GetWindowsFunctionAppAuthSettingsV2GithubV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2GoogleV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2GoogleV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -49192,7 +49192,7 @@ class GetWindowsFunctionAppAuthSettingsV2GoogleV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2LoginResult(dict):
+calass GetWindowsFunctionAppAuthSettingsV2LoginResult(dict):
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Sequence[str],
                  cookie_expiration_convention: str,
@@ -49320,7 +49320,7 @@ class GetWindowsFunctionAppAuthSettingsV2LoginResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -49371,7 +49371,7 @@ class GetWindowsFunctionAppAuthSettingsV2MicrosoftV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppAuthSettingsV2TwitterV2Result(dict):
+calass GetWindowsFunctionAppAuthSettingsV2TwitterV2Result(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret_setting_name: str):
@@ -49400,7 +49400,7 @@ class GetWindowsFunctionAppAuthSettingsV2TwitterV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppBackupResult(dict):
+calass GetWindowsFunctionAppBackupResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  name: str,
@@ -49409,7 +49409,7 @@ class GetWindowsFunctionAppBackupResult(dict):
         """
         :param bool enabled: Is the Backup Job enabled?
         :param str name: The name of this Windows Function App.
-        :param Sequence['GetWindowsFunctionAppBackupScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param Sequence['GetWindowsFunctionAppBackupScheduleArrgs'] schedules: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -49451,7 +49451,7 @@ class GetWindowsFunctionAppBackupResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppBackupScheduleResult(dict):
+calass GetWindowsFunctionAppBackupScheduleResult(dict):
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: str,
@@ -49520,7 +49520,7 @@ class GetWindowsFunctionAppBackupScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppConnectionStringResult(dict):
+calass GetWindowsFunctionAppConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -49560,7 +49560,7 @@ class GetWindowsFunctionAppConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppIdentityResult(dict):
+calass GetWindowsFunctionAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -49611,7 +49611,7 @@ class GetWindowsFunctionAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigResult(dict):
+calass GetWindowsFunctionAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
                  api_definition_url: str,
@@ -49653,11 +49653,11 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
         :param str api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param str app_command_line: The App command line to launch.
         :param int app_scale_limit: The number of workers this function app can scale out to.
-        :param Sequence['GetWindowsFunctionAppSiteConfigAppServiceLogArgs'] app_service_logs: A `app_service_logs` block as defined above.
+        :param Sequence['GetWindowsFunctionAppSiteConfigAppServiceLogArrgs'] app_service_logs: A `app_service_logs` block as defined above.
         :param str application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
         :param str application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
-        :param Sequence['GetWindowsFunctionAppSiteConfigApplicationStackArgs'] application_stacks: A `application_stack` block as defined above.
-        :param Sequence['GetWindowsFunctionAppSiteConfigCorArgs'] cors: A `cors` block as defined above.
+        :param Sequence['GetWindowsFunctionAppSiteConfigApplicationStackArrgs'] application_stacks: A `application_stack` block as defined above.
+        :param Sequence['GetWindowsFunctionAppSiteConfigCorArrgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: A list of Default Documents for the Windows Web App.
         :param bool detailed_error_logging_enabled: Is detailed error logging enabled?
         :param int elastic_instance_minimum: The number of minimum instances for this Windows Function App.
@@ -49665,7 +49665,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
         :param str health_check_path: The path to be checked for this Windows Function App health.
         :param bool http2_enabled: Is the HTTP2 protocol enabled?
-        :param Sequence['GetWindowsFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param Sequence['GetWindowsFunctionAppSiteConfigIpRestrictionArrgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing mode.
         :param str managed_pipeline_mode: The Managed pipeline mode.
         :param str minimum_tls_version: The minimum version of TLS required for SSL requests.
@@ -49673,7 +49673,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
         :param bool remote_debugging_enabled: Is Remote Debugging enabled?
         :param str remote_debugging_version: The Remote Debugging Version.
         :param bool runtime_scale_monitoring_enabled: Is Scale Monitoring of the Functions Runtime enabled?
-        :param Sequence['GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param Sequence['GetWindowsFunctionAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The minimum version of TLS required for SSL requests to the SCM site.
         :param str scm_type: The SCM type.
         :param bool scm_use_main_ip_restriction: Is the `ip_restriction` configuration used for the SCM?.
@@ -49992,7 +49992,7 @@ class GetWindowsFunctionAppSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigAppServiceLogResult(dict):
+calass GetWindowsFunctionAppSiteConfigAppServiceLogResult(dict):
     def __init__(__self__, *,
                  disk_quota_mb: int,
                  retention_period_days: int):
@@ -50021,7 +50021,7 @@ class GetWindowsFunctionAppSiteConfigAppServiceLogResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigApplicationStackResult(dict):
+calass GetWindowsFunctionAppSiteConfigApplicationStackResult(dict):
     def __init__(__self__, *,
                  dotnet_version: str,
                  java_version: str,
@@ -50090,7 +50090,7 @@ class GetWindowsFunctionAppSiteConfigApplicationStackResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigCorResult(dict):
+calass GetWindowsFunctionAppSiteConfigCorResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: bool):
@@ -50119,7 +50119,7 @@ class GetWindowsFunctionAppSiteConfigCorResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
+calass GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult'],
@@ -50183,7 +50183,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
+calass GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -50216,7 +50216,7 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
+calass GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult'],
@@ -50280,7 +50280,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
+calass GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -50313,7 +50313,7 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppSiteCredentialResult(dict):
+calass GetWindowsFunctionAppSiteCredentialResult(dict):
     def __init__(__self__, *,
                  name: str,
                  password: str):
@@ -50342,7 +50342,7 @@ class GetWindowsFunctionAppSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFunctionAppStickySettingResult(dict):
+calass GetWindowsFunctionAppStickySettingResult(dict):
     def __init__(__self__, *,
                  app_setting_names: Sequence[str],
                  connection_string_names: Sequence[str]):
@@ -50371,7 +50371,7 @@ class GetWindowsFunctionAppStickySettingResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingResult(dict):
+calass GetWindowsWebAppAuthSettingResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetWindowsWebAppAuthSettingActiveDirectoryResult'],
                  additional_login_parameters: Mapping[str, str],
@@ -50389,20 +50389,20 @@ class GetWindowsWebAppAuthSettingResult(dict):
                  twitters: Sequence['outputs.GetWindowsWebAppAuthSettingTwitterResult'],
                  unauthenticated_client_action: str):
         """
-        :param Sequence['GetWindowsWebAppAuthSettingActiveDirectoryArgs'] active_directories: A `active_directory` block as defined above.
+        :param Sequence['GetWindowsWebAppAuthSettingActiveDirectoryArrgs'] active_directories: A `active_directory` block as defined above.
         :param Mapping[str, str] additional_login_parameters: A `additional_login_parameters` block as defined above.
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param bool enabled: Is the Backup enabled?
-        :param Sequence['GetWindowsWebAppAuthSettingFacebookArgs'] facebooks: A `facebook` block as defined below.
-        :param Sequence['GetWindowsWebAppAuthSettingGithubArgs'] githubs: A `github` block as defined below.
-        :param Sequence['GetWindowsWebAppAuthSettingGoogleArgs'] googles: A `google` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingFacebookArrgs'] facebooks: A `facebook` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingGithubArrgs'] githubs: A `github` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingGoogleArrgs'] googles: A `google` block as defined below.
         :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
-        :param Sequence['GetWindowsWebAppAuthSettingMicrosoftArgs'] microsofts: A `microsoft` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingMicrosoftArrgs'] microsofts: A `microsoft` block as defined below.
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API.
         :param bool token_store_enabled: Is the Token Store configuration Enabled.
-        :param Sequence['GetWindowsWebAppAuthSettingTwitterArgs'] twitters: A `twitter` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingTwitterArrgs'] twitters: A `twitter` block as defined below.
         :param str unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
         pulumi.set(__self__, "active_directories", active_directories)
@@ -50543,7 +50543,7 @@ class GetWindowsWebAppAuthSettingResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingActiveDirectoryResult(dict):
+calass GetWindowsWebAppAuthSettingActiveDirectoryResult(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -50594,7 +50594,7 @@ class GetWindowsWebAppAuthSettingActiveDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingFacebookResult(dict):
+calass GetWindowsWebAppAuthSettingFacebookResult(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -50645,7 +50645,7 @@ class GetWindowsWebAppAuthSettingFacebookResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingGithubResult(dict):
+calass GetWindowsWebAppAuthSettingGithubResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -50696,7 +50696,7 @@ class GetWindowsWebAppAuthSettingGithubResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingGoogleResult(dict):
+calass GetWindowsWebAppAuthSettingGoogleResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -50747,7 +50747,7 @@ class GetWindowsWebAppAuthSettingGoogleResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingMicrosoftResult(dict):
+calass GetWindowsWebAppAuthSettingMicrosoftResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -50798,7 +50798,7 @@ class GetWindowsWebAppAuthSettingMicrosoftResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingTwitterResult(dict):
+calass GetWindowsWebAppAuthSettingTwitterResult(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str,
@@ -50838,7 +50838,7 @@ class GetWindowsWebAppAuthSettingTwitterResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2Result(dict):
     def __init__(__self__, *,
                  active_directory_v2s: Sequence['outputs.GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result'],
                  apple_v2s: Sequence['outputs.GetWindowsWebAppAuthSettingsV2AppleV2Result'],
@@ -50863,27 +50863,27 @@ class GetWindowsWebAppAuthSettingsV2Result(dict):
                  twitter_v2s: Sequence['outputs.GetWindowsWebAppAuthSettingsV2TwitterV2Result'],
                  unauthenticated_action: str):
         """
-        :param Sequence['GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2s: An `active_directory_v2` block as defined below.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2AppleV2Args'] apple_v2s: An `apple_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2s: An `active_directory_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2AppleV2Arrgs'] apple_v2s: An `apple_v2` block as defined below.
         :param bool auth_enabled: Are the AuthV2 Settings enabled.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2s: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2CustomOidcV2Arrgs'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
         :param Sequence[str] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2FacebookV2Args'] facebook_v2s: A `facebook_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2s: A `facebook_v2` block as defined below.
         :param str forward_proxy_convention: The convention used to determine the url of the request made.
         :param str forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param str forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2GithubV2Args'] github_v2s: A `github_v2` block as defined below.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2GoogleV2Args'] google_v2s: A `google_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2GithubV2Arrgs'] github_v2s: A `github_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2GoogleV2Arrgs'] google_v2s: A `google_v2` block as defined below.
         :param str http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2LoginArgs'] logins: A `login` block as defined below.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2s: A `microsoft_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2LoginArrgs'] logins: A `login` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2s: A `microsoft_v2` block as defined below.
         :param bool require_authentication: Is the authentication flow used for all requests.
         :param bool require_https: Is HTTPS required on connections?
         :param str runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App.
-        :param Sequence['GetWindowsWebAppAuthSettingsV2TwitterV2Args'] twitter_v2s: A `twitter_v2` block as defined below.
+        :param Sequence['GetWindowsWebAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2s: A `twitter_v2` block as defined below.
         :param str unauthenticated_action: The action to take for requests made without authentication.
         """
         pulumi.set(__self__, "active_directory_v2s", active_directory_v2s)
@@ -51087,7 +51087,7 @@ class GetWindowsWebAppAuthSettingsV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
     def __init__(__self__, *,
                  allowed_applications: Sequence[str],
                  allowed_audiences: Sequence[str],
@@ -51226,7 +51226,7 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2AppleV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2AppleV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -51266,7 +51266,7 @@ class GetWindowsWebAppAuthSettingsV2AppleV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
@@ -51284,7 +51284,7 @@ class GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
     def __init__(__self__, *,
                  authorisation_endpoint: str,
                  certification_uri: str,
@@ -51412,7 +51412,7 @@ class GetWindowsWebAppAuthSettingsV2CustomOidcV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2FacebookV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2FacebookV2Result(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_secret_setting_name: str,
@@ -51463,7 +51463,7 @@ class GetWindowsWebAppAuthSettingsV2FacebookV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2GithubV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2GithubV2Result(dict):
     def __init__(__self__, *,
                  client_id: str,
                  client_secret_setting_name: str,
@@ -51503,7 +51503,7 @@ class GetWindowsWebAppAuthSettingsV2GithubV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2GoogleV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2GoogleV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -51554,7 +51554,7 @@ class GetWindowsWebAppAuthSettingsV2GoogleV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2LoginResult(dict):
+calass GetWindowsWebAppAuthSettingsV2LoginResult(dict):
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Sequence[str],
                  cookie_expiration_convention: str,
@@ -51682,7 +51682,7 @@ class GetWindowsWebAppAuthSettingsV2LoginResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2MicrosoftV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2MicrosoftV2Result(dict):
     def __init__(__self__, *,
                  allowed_audiences: Sequence[str],
                  client_id: str,
@@ -51733,7 +51733,7 @@ class GetWindowsWebAppAuthSettingsV2MicrosoftV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppAuthSettingsV2TwitterV2Result(dict):
+calass GetWindowsWebAppAuthSettingsV2TwitterV2Result(dict):
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret_setting_name: str):
@@ -51762,7 +51762,7 @@ class GetWindowsWebAppAuthSettingsV2TwitterV2Result(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppBackupResult(dict):
+calass GetWindowsWebAppBackupResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  name: str,
@@ -51771,7 +51771,7 @@ class GetWindowsWebAppBackupResult(dict):
         """
         :param bool enabled: Is the Backup enabled?
         :param str name: The name of this Windows Web App.
-        :param Sequence['GetWindowsWebAppBackupScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param Sequence['GetWindowsWebAppBackupScheduleArrgs'] schedules: A `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -51813,7 +51813,7 @@ class GetWindowsWebAppBackupResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppBackupScheduleResult(dict):
+calass GetWindowsWebAppBackupScheduleResult(dict):
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: str,
@@ -51886,7 +51886,7 @@ class GetWindowsWebAppBackupScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppConnectionStringResult(dict):
+calass GetWindowsWebAppConnectionStringResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -51926,7 +51926,7 @@ class GetWindowsWebAppConnectionStringResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppIdentityResult(dict):
+calass GetWindowsWebAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -51977,17 +51977,17 @@ class GetWindowsWebAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogResult(dict):
+calass GetWindowsWebAppLogResult(dict):
     def __init__(__self__, *,
                  application_logs: Sequence['outputs.GetWindowsWebAppLogApplicationLogResult'],
                  detailed_error_messages: bool,
                  failed_request_tracing: bool,
                  http_logs: Sequence['outputs.GetWindowsWebAppLogHttpLogResult']):
         """
-        :param Sequence['GetWindowsWebAppLogApplicationLogArgs'] application_logs: A `application_logs` block as defined above.
+        :param Sequence['GetWindowsWebAppLogApplicationLogArrgs'] application_logs: A `application_logs` block as defined above.
         :param bool detailed_error_messages: Is Detailed Error Messaging enabled.
         :param bool failed_request_tracing: Is Failed Request Tracing enabled.
-        :param Sequence['GetWindowsWebAppLogHttpLogArgs'] http_logs: An `http_logs` block as defined above.
+        :param Sequence['GetWindowsWebAppLogHttpLogArrgs'] http_logs: An `http_logs` block as defined above.
         """
         pulumi.set(__self__, "application_logs", application_logs)
         pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
@@ -52028,12 +52028,12 @@ class GetWindowsWebAppLogResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogApplicationLogResult(dict):
+calass GetWindowsWebAppLogApplicationLogResult(dict):
     def __init__(__self__, *,
                  azure_blob_storages: Sequence['outputs.GetWindowsWebAppLogApplicationLogAzureBlobStorageResult'],
                  file_system_level: str):
         """
-        :param Sequence['GetWindowsWebAppLogApplicationLogAzureBlobStorageArgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
+        :param Sequence['GetWindowsWebAppLogApplicationLogAzureBlobStorageArrgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
         :param str file_system_level: The logging level.
         """
         pulumi.set(__self__, "azure_blob_storages", azure_blob_storages)
@@ -52057,7 +52057,7 @@ class GetWindowsWebAppLogApplicationLogResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
+calass GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
     def __init__(__self__, *,
                  level: str,
                  retention_in_days: int,
@@ -52097,13 +52097,13 @@ class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogHttpLogResult(dict):
+calass GetWindowsWebAppLogHttpLogResult(dict):
     def __init__(__self__, *,
                  azure_blob_storages: Sequence['outputs.GetWindowsWebAppLogHttpLogAzureBlobStorageResult'],
                  file_systems: Sequence['outputs.GetWindowsWebAppLogHttpLogFileSystemResult']):
         """
-        :param Sequence['GetWindowsWebAppLogHttpLogAzureBlobStorageArgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
-        :param Sequence['GetWindowsWebAppLogHttpLogFileSystemArgs'] file_systems: A `file_system` block as defined above.
+        :param Sequence['GetWindowsWebAppLogHttpLogAzureBlobStorageArrgs'] azure_blob_storages: A `azure_blob_storage` block as defined above.
+        :param Sequence['GetWindowsWebAppLogHttpLogFileSystemArrgs'] file_systems: A `file_system` block as defined above.
         """
         pulumi.set(__self__, "azure_blob_storages", azure_blob_storages)
         pulumi.set(__self__, "file_systems", file_systems)
@@ -52126,7 +52126,7 @@ class GetWindowsWebAppLogHttpLogResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogHttpLogAzureBlobStorageResult(dict):
+calass GetWindowsWebAppLogHttpLogAzureBlobStorageResult(dict):
     def __init__(__self__, *,
                  retention_in_days: int,
                  sas_url: str):
@@ -52155,7 +52155,7 @@ class GetWindowsWebAppLogHttpLogAzureBlobStorageResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppLogHttpLogFileSystemResult(dict):
+calass GetWindowsWebAppLogHttpLogFileSystemResult(dict):
     def __init__(__self__, *,
                  retention_in_days: int,
                  retention_in_mb: int):
@@ -52184,7 +52184,7 @@ class GetWindowsWebAppLogHttpLogFileSystemResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigResult(dict):
+calass GetWindowsWebAppSiteConfigResult(dict):
     def __init__(__self__, *,
                  always_on: bool,
                  api_definition_url: str,
@@ -52224,30 +52224,30 @@ class GetWindowsWebAppSiteConfigResult(dict):
         :param str api_definition_url: The ID of the APIM configuration for this Windows Web App.
         :param str api_management_api_id: The ID of the API Management setting linked to the Windows Web App.
         :param str app_command_line: The command line used to launch this app.
-        :param Sequence['GetWindowsWebAppSiteConfigApplicationStackArgs'] application_stacks: A `application_stack` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigApplicationStackArrgs'] application_stacks: A `application_stack` block as defined above.
         :param bool auto_heal_enabled: Are Auto heal rules to be enabled.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingArgs'] auto_heal_settings: A `auto_heal_setting` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingArrgs'] auto_heal_settings: A `auto_heal_setting` block as defined above.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Do connections for Azure Container Registry use Managed Identity.
-        :param Sequence['GetWindowsWebAppSiteConfigCorArgs'] cors: A `cors` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigCorArrgs'] cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: The list of Default Documents for the Windows Web App.
         :param bool detailed_error_logging_enabled: Is Detailed Error Logging enabled.
         :param str ftps_state: The State of FTP / FTPS service.
         :param int health_check_eviction_time_in_min: (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check endpoint.
         :param bool http2_enabled: Is HTTP2.0 enabled.
-        :param Sequence['GetWindowsWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: A `ip_restriction` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigIpRestrictionArrgs'] ip_restrictions: A `ip_restriction` block as defined above.
         :param str load_balancing_mode: The site Load Balancing Mode.
         :param bool local_mysql_enabled: Is the Local MySQL enabled.
         :param str managed_pipeline_mode: The Managed Pipeline Mode.
         :param str minimum_tls_version: The Minimum version of TLS for requests.
         :param str remote_debugging_version: The Remote Debugging Version.
-        :param Sequence['GetWindowsWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A `scm_ip_restriction` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigScmIpRestrictionArrgs'] scm_ip_restrictions: A `scm_ip_restriction` block as defined above.
         :param str scm_minimum_tls_version: The Minimum version of TLS for requests to SCM.
         :param str scm_type: The Source Control Management Type in use.
         :param bool scm_use_main_ip_restriction: Is the Windows Web App `ip_restriction` configuration used for the SCM also.
         :param bool use32_bit_worker: Does the Windows Web App use a 32-bit worker.
-        :param Sequence['GetWindowsWebAppSiteConfigVirtualApplicationArgs'] virtual_applications: A `virtual_application` block as defined below.
+        :param Sequence['GetWindowsWebAppSiteConfigVirtualApplicationArrgs'] virtual_applications: A `virtual_application` block as defined below.
         :param bool vnet_route_all_enabled: Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
         :param bool websockets_enabled: Are Web Sockets enabled?
         :param str windows_fx_version: The string representation of the Windows FX Version.
@@ -52550,7 +52550,7 @@ class GetWindowsWebAppSiteConfigResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
+calass GetWindowsWebAppSiteConfigApplicationStackResult(dict):
     def __init__(__self__, *,
                  current_stack: str,
                  docker_container_name: str,
@@ -52738,13 +52738,13 @@ class GetWindowsWebAppSiteConfigApplicationStackResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingActionResult'],
                  triggers: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult']):
         """
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingActionArgs'] actions: A `action` block as defined above.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerArgs'] triggers: A `trigger` block as defined below.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingActionArrgs'] actions: A `action` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerArrgs'] triggers: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "triggers", triggers)
@@ -52767,14 +52767,14 @@ class GetWindowsWebAppSiteConfigAutoHealSettingResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingActionResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingActionResult(dict):
     def __init__(__self__, *,
                  action_type: str,
                  custom_actions: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult'],
                  minimum_process_execution_time: str):
         """
         :param str action_type: The predefined action to be taken to an Auto Heal trigger.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs'] custom_actions: A `custom_action` block as defined below.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs'] custom_actions: A `custom_action` block as defined below.
         :param str minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -52807,7 +52807,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingActionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult(dict):
     def __init__(__self__, *,
                  executable: str,
                  parameters: str):
@@ -52836,7 +52836,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
     def __init__(__self__, *,
                  private_memory_kb: int,
                  requests: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult'],
@@ -52844,9 +52844,9 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
                  status_codes: Sequence['outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult']):
         """
         :param int private_memory_kb: The amount of Private Memory used.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArgs'] requests: A `requests` block as defined above.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs'] slow_requests: A `slow_request` block as defined above.
-        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs'] status_codes: A `status_code` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestArrgs'] requests: A `requests` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs'] slow_requests: A `slow_request` block as defined above.
+        :param Sequence['GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs'] status_codes: A `status_code` block as defined above.
         """
         pulumi.set(__self__, "private_memory_kb", private_memory_kb)
         pulumi.set(__self__, "requests", requests)
@@ -52887,7 +52887,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str):
@@ -52916,7 +52916,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str,
@@ -52967,7 +52967,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
+calass GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: str,
@@ -53040,7 +53040,7 @@ class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigCorResult(dict):
+calass GetWindowsWebAppSiteConfigCorResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: bool):
@@ -53069,7 +53069,7 @@ class GetWindowsWebAppSiteConfigCorResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
+calass GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetWindowsWebAppSiteConfigIpRestrictionHeaderResult'],
@@ -53137,7 +53137,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
+calass GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -53170,7 +53170,7 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
+calass GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  headers: Sequence['outputs.GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult'],
@@ -53238,7 +53238,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
+calass GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     def __init__(__self__, *,
                  x_azure_fdids: Sequence[str],
                  x_fd_health_probes: Sequence[str],
@@ -53271,7 +53271,7 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigVirtualApplicationResult(dict):
+calass GetWindowsWebAppSiteConfigVirtualApplicationResult(dict):
     def __init__(__self__, *,
                  physical_path: str,
                  preload: bool,
@@ -53280,7 +53280,7 @@ class GetWindowsWebAppSiteConfigVirtualApplicationResult(dict):
         """
         :param str physical_path: The path on disk to the Virtual Directory
         :param bool preload: Is this Application Pre-loaded at startup.
-        :param Sequence['GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs'] virtual_directories: A `virtual_directory` block as defined below.
+        :param Sequence['GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs'] virtual_directories: A `virtual_directory` block as defined below.
         :param str virtual_path: The Virtual Path of the Virtual Directory.
         """
         pulumi.set(__self__, "physical_path", physical_path)
@@ -53322,7 +53322,7 @@ class GetWindowsWebAppSiteConfigVirtualApplicationResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult(dict):
+calass GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult(dict):
     def __init__(__self__, *,
                  physical_path: str,
                  virtual_path: str):
@@ -53351,7 +53351,7 @@ class GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppSiteCredentialResult(dict):
+calass GetWindowsWebAppSiteCredentialResult(dict):
     def __init__(__self__, *,
                  name: str,
                  password: str):
@@ -53380,7 +53380,7 @@ class GetWindowsWebAppSiteCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppStickySettingResult(dict):
+calass GetWindowsWebAppStickySettingResult(dict):
     def __init__(__self__, *,
                  app_setting_names: Sequence[str],
                  connection_string_names: Sequence[str]):
@@ -53409,7 +53409,7 @@ class GetWindowsWebAppStickySettingResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsWebAppStorageAccountResult(dict):
+calass GetWindowsWebAppStorageAccountResult(dict):
     def __init__(__self__, *,
                  access_key: str,
                  account_name: str,

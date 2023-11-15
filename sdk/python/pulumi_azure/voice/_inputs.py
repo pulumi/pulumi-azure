@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServicesCommunicationsGatewayServiceLocationArgs',
+    'ServicesCommunicationsGatewayServiceLocationArrgs',
 ]
 
 @pulumi.input_type
-class ServicesCommunicationsGatewayServiceLocationArgs:
+calass ServicesCommunicationsGatewayServiceLocationArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],

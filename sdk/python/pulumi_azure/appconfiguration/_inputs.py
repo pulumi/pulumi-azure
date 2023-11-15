@@ -10,27 +10,27 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationFeatureTargetingFilterArgs',
-    'ConfigurationFeatureTargetingFilterGroupArgs',
-    'ConfigurationFeatureTimewindowFilterArgs',
-    'ConfigurationStoreEncryptionArgs',
-    'ConfigurationStoreIdentityArgs',
-    'ConfigurationStorePrimaryReadKeyArgs',
-    'ConfigurationStorePrimaryWriteKeyArgs',
-    'ConfigurationStoreReplicaArgs',
-    'ConfigurationStoreSecondaryReadKeyArgs',
-    'ConfigurationStoreSecondaryWriteKeyArgs',
+    'ConfigurationFeatureTargetingFilterArrgs',
+    'ConfigurationFeatureTargetingFilterGroupArrgs',
+    'ConfigurationFeatureTimewindowFilterArrgs',
+    'ConfigurationStoreEncryptionArrgs',
+    'ConfigurationStoreIdentityArrgs',
+    'ConfigurationStorePrimaryReadKeyArrgs',
+    'ConfigurationStorePrimaryWriteKeyArrgs',
+    'ConfigurationStoreReplicaArrgs',
+    'ConfigurationStoreSecondaryReadKeyArrgs',
+    'ConfigurationStoreSecondaryWriteKeyArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationFeatureTargetingFilterArgs:
+calass ConfigurationFeatureTargetingFilterArrgs:
     def __init__(__self__, *,
                  default_rollout_percentage: pulumi.Input[int],
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArrgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] default_rollout_percentage: A number representing the percentage of the entire user base.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]] groups: One or more blocks of type `groups` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArrgs']]] groups: One or more blocks of type `groups` as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of users to target for this feature.
         """
         pulumi.set(__self__, "default_rollout_percentage", default_rollout_percentage)
@@ -53,14 +53,14 @@ class ConfigurationFeatureTargetingFilterArgs:
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]]:
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArrgs']]]]:
         """
         One or more blocks of type `groups` as defined below.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]]):
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArrgs']]]]):
         pulumi.set(self, "groups", value)
 
     @property
@@ -77,7 +77,7 @@ class ConfigurationFeatureTargetingFilterArgs:
 
 
 @pulumi.input_type
-class ConfigurationFeatureTargetingFilterGroupArgs:
+calass ConfigurationFeatureTargetingFilterGroupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  rollout_percentage: pulumi.Input[int]):
@@ -114,7 +114,7 @@ class ConfigurationFeatureTargetingFilterGroupArgs:
 
 
 @pulumi.input_type
-class ConfigurationFeatureTimewindowFilterArgs:
+calass ConfigurationFeatureTimewindowFilterArrgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
@@ -153,7 +153,7 @@ class ConfigurationFeatureTimewindowFilterArgs:
 
 
 @pulumi.input_type
-class ConfigurationStoreEncryptionArgs:
+calass ConfigurationStoreEncryptionArrgs:
     def __init__(__self__, *,
                  identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_identifier: Optional[pulumi.Input[str]] = None):
@@ -192,7 +192,7 @@ class ConfigurationStoreEncryptionArgs:
 
 
 @pulumi.input_type
-class ConfigurationStoreIdentityArgs:
+calass ConfigurationStoreIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -266,7 +266,7 @@ class ConfigurationStoreIdentityArgs:
 
 
 @pulumi.input_type
-class ConfigurationStorePrimaryReadKeyArgs:
+calass ConfigurationStorePrimaryReadKeyArrgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -321,7 +321,7 @@ class ConfigurationStorePrimaryReadKeyArgs:
 
 
 @pulumi.input_type
-class ConfigurationStorePrimaryWriteKeyArgs:
+calass ConfigurationStorePrimaryWriteKeyArrgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -376,7 +376,7 @@ class ConfigurationStorePrimaryWriteKeyArgs:
 
 
 @pulumi.input_type
-class ConfigurationStoreReplicaArgs:
+calass ConfigurationStoreReplicaArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -445,7 +445,7 @@ class ConfigurationStoreReplicaArgs:
 
 
 @pulumi.input_type
-class ConfigurationStoreSecondaryReadKeyArgs:
+calass ConfigurationStoreSecondaryReadKeyArrgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -500,7 +500,7 @@ class ConfigurationStoreSecondaryReadKeyArgs:
 
 
 @pulumi.input_type
-class ConfigurationStoreSecondaryWriteKeyArgs:
+calass ConfigurationStoreSecondaryWriteKeyArrgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CreatorArgs', 'Creator']
+__all__ = ['CreatorArrgs', 'Creator']
 
 @pulumi.input_type
-class CreatorArgs:
+calass CreatorArrgs:
     def __init__(__self__, *,
                  maps_account_id: pulumi.Input[str],
                  storage_units: pulumi.Input[int],
@@ -98,7 +98,7 @@ class CreatorArgs:
 
 
 @pulumi.input_type
-class _CreatorState:
+calass _CreatorState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  maps_account_id: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _CreatorState:
         pulumi.set(self, "tags", value)
 
 
-class Creator(pulumi.CustomResource):
+calass Creator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,7 +241,7 @@ class Creator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CreatorArgs,
+                 args: CreatorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Maps Creator.
@@ -277,12 +277,12 @@ class Creator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CreatorArgs args: The arguments to use to populate this resource's properties.
+        :param CreatorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CreatorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CreatorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -303,7 +303,7 @@ class Creator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CreatorArgs.__new__(CreatorArgs)
+            __props__ = CreatorArrgs.__new__(CreatorArrgs)
 
             __props__.__dict__["location"] = location
             if maps_account_id is None and not opts.urn:

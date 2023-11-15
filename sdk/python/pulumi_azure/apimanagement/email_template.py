@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmailTemplateArgs', 'EmailTemplate']
+__all__ = ['EmailTemplateArrgs', 'EmailTemplate']
 
 @pulumi.input_type
-class EmailTemplateArgs:
+calass EmailTemplateArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  body: pulumi.Input[str],
@@ -99,7 +99,7 @@ class EmailTemplateArgs:
 
 
 @pulumi.input_type
-class _EmailTemplateState:
+calass _EmailTemplateState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class _EmailTemplateState:
         pulumi.set(self, "title", value)
 
 
-class EmailTemplate(pulumi.CustomResource):
+calass EmailTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -289,7 +289,7 @@ class EmailTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailTemplateArgs,
+                 args: EmailTemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Email Template.
@@ -334,12 +334,12 @@ class EmailTemplate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param EmailTemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailTemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -360,7 +360,7 @@ class EmailTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailTemplateArgs.__new__(EmailTemplateArgs)
+            __props__ = EmailTemplateArrgs.__new__(EmailTemplateArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")

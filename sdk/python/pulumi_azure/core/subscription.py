@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubscriptionArgs', 'Subscription']
+__all__ = ['SubscriptionArrgs', 'Subscription']
 
 @pulumi.input_type
-class SubscriptionArgs:
+calass SubscriptionArrgs:
     def __init__(__self__, *,
                  subscription_name: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
@@ -123,7 +123,7 @@ class SubscriptionArgs:
 
 
 @pulumi.input_type
-class _SubscriptionState:
+calass _SubscriptionState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
                  billing_scope_id: Optional[pulumi.Input[str]] = None,
@@ -250,7 +250,7 @@ class _SubscriptionState:
         pulumi.set(self, "workload", value)
 
 
-class Subscription(pulumi.CustomResource):
+calass Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -340,7 +340,7 @@ class Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionArgs,
+                 args: SubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -404,12 +404,12 @@ class Subscription(pulumi.CustomResource):
          In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -431,7 +431,7 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
+            __props__ = SubscriptionArrgs.__new__(SubscriptionArrgs)
 
             __props__.__dict__["alias"] = alias
             __props__.__dict__["billing_scope_id"] = billing_scope_id

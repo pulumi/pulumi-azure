@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCacheResult:
+calass GetCacheResult:
     """
     A collection of values returned by getCache.
     """
@@ -263,7 +263,7 @@ class GetCacheResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetCacheResult(GetCacheResult):
+calass AwaitableGetCacheResult(GetCacheResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

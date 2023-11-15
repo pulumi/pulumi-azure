@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNatGatewayResult:
+calass GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
@@ -139,7 +139,7 @@ class GetNatGatewayResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetNatGatewayResult(GetNatGatewayResult):
+calass AwaitableGetNatGatewayResult(GetNatGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

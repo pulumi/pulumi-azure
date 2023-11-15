@@ -11,36 +11,36 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FileSystemArgs', 'FileSystem']
+__all__ = ['FileSystemArrgs', 'FileSystem']
 
 @pulumi.input_type
-class FileSystemArgs:
+calass FileSystemArrgs:
     def __init__(__self__, *,
-                 maintenance_window: pulumi.Input['FileSystemMaintenanceWindowArgs'],
+                 maintenance_window: pulumi.Input['FileSystemMaintenanceWindowArrgs'],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  storage_capacity_in_tb: pulumi.Input[int],
                  subnet_id: pulumi.Input[str],
                  zones: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
-                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
-                 identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
+                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']] = None,
+                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArrgs']] = None,
+                 identity: Optional[pulumi.Input['FileSystemIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
-        :param pulumi.Input['FileSystemMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['FileSystemMaintenanceWindowArrgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
-        :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input['FileSystemEncryptionKeyArrgs'] encryption_key: An `encryption_key` block as defined below.
                
                > **NOTE:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input['FileSystemHsmSettingArgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemHsmSettingArrgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
@@ -66,14 +66,14 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> pulumi.Input['FileSystemMaintenanceWindowArgs']:
+    def maintenance_window(self) -> pulumi.Input['FileSystemMaintenanceWindowArrgs']:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: pulumi.Input['FileSystemMaintenanceWindowArgs']):
+    def maintenance_window(self, value: pulumi.Input['FileSystemMaintenanceWindowArrgs']):
         pulumi.set(self, "maintenance_window", value)
 
     @property
@@ -138,7 +138,7 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]:
+    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']]:
         """
         An `encryption_key` block as defined below.
 
@@ -147,31 +147,31 @@ class FileSystemArgs:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]):
+    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']]):
         pulumi.set(self, "encryption_key", value)
 
     @property
     @pulumi.getter(name="hsmSetting")
-    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArgs']]:
+    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArrgs']]:
         """
         A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hsm_setting")
 
     @hsm_setting.setter
-    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArgs']]):
+    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArrgs']]):
         pulumi.set(self, "hsm_setting", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -212,13 +212,13 @@ class FileSystemArgs:
 
 
 @pulumi.input_type
-class _FileSystemState:
+calass _FileSystemState:
     def __init__(__self__, *,
-                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
-                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
-                 identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
+                 encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']] = None,
+                 hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArrgs']] = None,
+                 identity: Optional[pulumi.Input['FileSystemIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
+                 maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -228,13 +228,13 @@ class _FileSystemState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FileSystem resources.
-        :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input['FileSystemEncryptionKeyArrgs'] encryption_key: An `encryption_key` block as defined below.
                
                > **NOTE:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input['FileSystemHsmSettingArgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemHsmSettingArrgs'] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['FileSystemIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['FileSystemMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['FileSystemMaintenanceWindowArrgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
@@ -270,7 +270,7 @@ class _FileSystemState:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]:
+    def encryption_key(self) -> Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']]:
         """
         An `encryption_key` block as defined below.
 
@@ -279,31 +279,31 @@ class _FileSystemState:
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']]):
+    def encryption_key(self, value: Optional[pulumi.Input['FileSystemEncryptionKeyArrgs']]):
         pulumi.set(self, "encryption_key", value)
 
     @property
     @pulumi.getter(name="hsmSetting")
-    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArgs']]:
+    def hsm_setting(self) -> Optional[pulumi.Input['FileSystemHsmSettingArrgs']]:
         """
         A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hsm_setting")
 
     @hsm_setting.setter
-    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArgs']]):
+    def hsm_setting(self, value: Optional[pulumi.Input['FileSystemHsmSettingArrgs']]):
         pulumi.set(self, "hsm_setting", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['FileSystemIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['FileSystemIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -320,14 +320,14 @@ class _FileSystemState:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> Optional[pulumi.Input['FileSystemMaintenanceWindowArrgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: Optional[pulumi.Input['FileSystemMaintenanceWindowArrgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @property
@@ -415,16 +415,16 @@ class _FileSystemState:
         pulumi.set(self, "zones", value)
 
 
-class FileSystem(pulumi.CustomResource):
+calass FileSystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArgs']]] = None,
-                 hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArrgs']]] = None,
+                 hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -446,13 +446,13 @@ class FileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArgs']] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArrgs']] encryption_key: An `encryption_key` block as defined below.
                
                > **NOTE:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemHsmSettingArgs']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FileSystemHsmSettingArrgs']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FileSystemIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArrgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
@@ -465,7 +465,7 @@ class FileSystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FileSystemArgs,
+                 args: FileSystemArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Managed Lustre File System.
@@ -479,12 +479,12 @@ class FileSystem(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FileSystemArgs args: The arguments to use to populate this resource's properties.
+        :param FileSystemArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FileSystemArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FileSystemArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -493,11 +493,11 @@ class FileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArgs']]] = None,
-                 hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']]] = None,
+                 encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArrgs']]] = None,
+                 hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -512,7 +512,7 @@ class FileSystem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FileSystemArgs.__new__(FileSystemArgs)
+            __props__ = FileSystemArrgs.__new__(FileSystemArrgs)
 
             __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["hsm_setting"] = hsm_setting
@@ -548,11 +548,11 @@ class FileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArgs']]] = None,
-            hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']]] = None,
+            encryption_key: Optional[pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArrgs']]] = None,
+            hsm_setting: Optional[pulumi.Input[pulumi.InputType['FileSystemHsmSettingArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']]] = None,
+            maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -567,13 +567,13 @@ class FileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArgs']] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FileSystemEncryptionKeyArrgs']] encryption_key: An `encryption_key` block as defined below.
                
                > **NOTE:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemHsmSettingArgs']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FileSystemHsmSettingArrgs']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['FileSystemIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArrgs']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.

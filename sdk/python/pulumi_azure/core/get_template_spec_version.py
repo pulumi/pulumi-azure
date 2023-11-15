@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTemplateSpecVersionResult:
+calass GetTemplateSpecVersionResult:
     """
     A collection of values returned by getTemplateSpecVersion.
     """
@@ -81,7 +81,7 @@ class GetTemplateSpecVersionResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
+calass AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

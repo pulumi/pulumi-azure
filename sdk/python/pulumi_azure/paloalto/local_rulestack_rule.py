@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocalRulestackRuleArgs', 'LocalRulestackRule']
+__all__ = ['LocalRulestackRuleArrgs', 'LocalRulestackRule']
 
 @pulumi.input_type
-class LocalRulestackRuleArgs:
+calass LocalRulestackRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  applications: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 destination: pulumi.Input['LocalRulestackRuleDestinationArgs'],
+                 destination: pulumi.Input['LocalRulestackRuleDestinationArrgs'],
                  priority: pulumi.Input[int],
                  rulestack_id: pulumi.Input[str],
-                 source: pulumi.Input['LocalRulestackRuleSourceArgs'],
+                 source: pulumi.Input['LocalRulestackRuleSourceArrgs'],
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
+                 category: Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']] = None,
                  decryption_rule_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -39,14 +39,14 @@ class LocalRulestackRuleArgs:
         The set of arguments for constructing a LocalRulestackRule resource.
         :param pulumi.Input[str] action: The action to take on the rule being triggered.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
-        :param pulumi.Input['LocalRulestackRuleDestinationArgs'] destination: One or more `destination` blocks as defined below.
+        :param pulumi.Input['LocalRulestackRuleDestinationArrgs'] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[int] priority: The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
                
                > **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
-        :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
+        :param pulumi.Input['LocalRulestackRuleSourceArrgs'] source: One or more `source` blocks as defined below.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
-        :param pulumi.Input['LocalRulestackRuleCategoryArgs'] category: A `category` block as defined below.
+        :param pulumi.Input['LocalRulestackRuleCategoryArrgs'] category: A `category` block as defined below.
         :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
@@ -118,14 +118,14 @@ class LocalRulestackRuleArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['LocalRulestackRuleDestinationArgs']:
+    def destination(self) -> pulumi.Input['LocalRulestackRuleDestinationArrgs']:
         """
         One or more `destination` blocks as defined below.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['LocalRulestackRuleDestinationArgs']):
+    def destination(self, value: pulumi.Input['LocalRulestackRuleDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -156,14 +156,14 @@ class LocalRulestackRuleArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input['LocalRulestackRuleSourceArgs']:
+    def source(self) -> pulumi.Input['LocalRulestackRuleSourceArrgs']:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input['LocalRulestackRuleSourceArgs']):
+    def source(self, value: pulumi.Input['LocalRulestackRuleSourceArrgs']):
         pulumi.set(self, "source", value)
 
     @property
@@ -180,14 +180,14 @@ class LocalRulestackRuleArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']]:
+    def category(self) -> Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']]:
         """
         A `category` block as defined below.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']]):
+    def category(self, value: Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']]):
         pulumi.set(self, "category", value)
 
     @property
@@ -324,15 +324,15 @@ class LocalRulestackRuleArgs:
 
 
 @pulumi.input_type
-class _LocalRulestackRuleState:
+calass _LocalRulestackRuleState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']] = None,
+                 category: Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']] = None,
                  decryption_rule_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']] = None,
+                 destination: Optional[pulumi.Input['LocalRulestackRuleDestinationArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  inspection_certificate_id: Optional[pulumi.Input[str]] = None,
                  logging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -343,17 +343,17 @@ class _LocalRulestackRuleState:
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']] = None,
+                 source: Optional[pulumi.Input['LocalRulestackRuleSourceArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackRule resources.
         :param pulumi.Input[str] action: The action to take on the rule being triggered.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
-        :param pulumi.Input['LocalRulestackRuleCategoryArgs'] category: A `category` block as defined below.
+        :param pulumi.Input['LocalRulestackRuleCategoryArrgs'] category: A `category` block as defined below.
         :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
-        :param pulumi.Input['LocalRulestackRuleDestinationArgs'] destination: One or more `destination` blocks as defined below.
+        :param pulumi.Input['LocalRulestackRuleDestinationArrgs'] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] inspection_certificate_id: The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
         :param pulumi.Input[bool] logging_enabled: Should Logging be enabled? Defaults to `false`.
@@ -366,7 +366,7 @@ class _LocalRulestackRuleState:
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
-        :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
+        :param pulumi.Input['LocalRulestackRuleSourceArrgs'] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
         if action is not None:
@@ -446,14 +446,14 @@ class _LocalRulestackRuleState:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']]:
+    def category(self) -> Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']]:
         """
         A `category` block as defined below.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input['LocalRulestackRuleCategoryArgs']]):
+    def category(self, value: Optional[pulumi.Input['LocalRulestackRuleCategoryArrgs']]):
         pulumi.set(self, "category", value)
 
     @property
@@ -482,14 +482,14 @@ class _LocalRulestackRuleState:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']]:
+    def destination(self) -> Optional[pulumi.Input['LocalRulestackRuleDestinationArrgs']]:
         """
         One or more `destination` blocks as defined below.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input['LocalRulestackRuleDestinationArgs']]):
+    def destination(self, value: Optional[pulumi.Input['LocalRulestackRuleDestinationArrgs']]):
         pulumi.set(self, "destination", value)
 
     @property
@@ -616,14 +616,14 @@ class _LocalRulestackRuleState:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['LocalRulestackRuleSourceArgs']]:
+    def source(self) -> Optional[pulumi.Input['LocalRulestackRuleSourceArrgs']]:
         """
         One or more `source` blocks as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['LocalRulestackRuleSourceArgs']]):
+    def source(self, value: Optional[pulumi.Input['LocalRulestackRuleSourceArrgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -639,7 +639,7 @@ class _LocalRulestackRuleState:
         pulumi.set(self, "tags", value)
 
 
-class LocalRulestackRule(pulumi.CustomResource):
+calass LocalRulestackRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -647,10 +647,10 @@ class LocalRulestackRule(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']]] = None,
+                 category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArrgs']]] = None,
                  decryption_rule_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  inspection_certificate_id: Optional[pulumi.Input[str]] = None,
                  logging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -661,7 +661,7 @@ class LocalRulestackRule(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -682,10 +682,10 @@ class LocalRulestackRule(pulumi.CustomResource):
             priority=1000,
             action="Allow",
             applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
+            source=azure.paloalto.LocalRulestackRuleSourceArrgs(
                 cidrs=["10.0.0.0/8"],
             ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
+            destination=azure.paloalto.LocalRulestackRuleDestinationArrgs(
                 cidrs=["192.168.16.0/24"],
             ))
         ```
@@ -703,10 +703,10 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[str] action: The action to take on the rule being triggered.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArrgs']] category: A `category` block as defined below.
         :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']] destination: One or more `destination` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArrgs']] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] inspection_certificate_id: The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
         :param pulumi.Input[bool] logging_enabled: Should Logging be enabled? Defaults to `false`.
@@ -719,14 +719,14 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArgs']] source: One or more `source` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArrgs']] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalRulestackRuleArgs,
+                 args: LocalRulestackRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack Rule.
@@ -746,10 +746,10 @@ class LocalRulestackRule(pulumi.CustomResource):
             priority=1000,
             action="Allow",
             applications=["any"],
-            source=azure.paloalto.LocalRulestackRuleSourceArgs(
+            source=azure.paloalto.LocalRulestackRuleSourceArrgs(
                 cidrs=["10.0.0.0/8"],
             ),
-            destination=azure.paloalto.LocalRulestackRuleDestinationArgs(
+            destination=azure.paloalto.LocalRulestackRuleDestinationArrgs(
                 cidrs=["192.168.16.0/24"],
             ))
         ```
@@ -763,12 +763,12 @@ class LocalRulestackRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalRulestackRuleArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRulestackRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -780,10 +780,10 @@ class LocalRulestackRule(pulumi.CustomResource):
                  action: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_comment: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']]] = None,
+                 category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArrgs']]] = None,
                  decryption_rule_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  inspection_certificate_id: Optional[pulumi.Input[str]] = None,
                  logging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -794,7 +794,7 @@ class LocalRulestackRule(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -803,7 +803,7 @@ class LocalRulestackRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalRulestackRuleArgs.__new__(LocalRulestackRuleArgs)
+            __props__ = LocalRulestackRuleArrgs.__new__(LocalRulestackRuleArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
@@ -849,10 +849,10 @@ class LocalRulestackRule(pulumi.CustomResource):
             action: Optional[pulumi.Input[str]] = None,
             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             audit_comment: Optional[pulumi.Input[str]] = None,
-            category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']]] = None,
+            category: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArrgs']]] = None,
             decryption_rule_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']]] = None,
+            destination: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArrgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             inspection_certificate_id: Optional[pulumi.Input[str]] = None,
             logging_enabled: Optional[pulumi.Input[bool]] = None,
@@ -863,7 +863,7 @@ class LocalRulestackRule(pulumi.CustomResource):
             protocol: Optional[pulumi.Input[str]] = None,
             protocol_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             rulestack_id: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArgs']]] = None,
+            source: Optional[pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LocalRulestackRule':
         """
         Get an existing LocalRulestackRule resource's state with the given name, id, and optional extra
@@ -875,10 +875,10 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[str] action: The action to take on the rule being triggered.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArrgs']] category: A `category` block as defined below.
         :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']] destination: One or more `destination` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArrgs']] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] inspection_certificate_id: The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
         :param pulumi.Input[bool] logging_enabled: Should Logging be enabled? Defaults to `false`.
@@ -891,7 +891,7 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
-        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArgs']] source: One or more `source` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LocalRulestackRuleSourceArrgs']] source: One or more `source` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

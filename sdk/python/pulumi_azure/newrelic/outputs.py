@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class MonitorPlan(dict):
+calass MonitorPlan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -94,7 +94,7 @@ class MonitorPlan(dict):
 
 
 @pulumi.output_type
-class MonitorUser(dict):
+calass MonitorUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -166,7 +166,7 @@ class MonitorUser(dict):
 
 
 @pulumi.output_type
-class TagRuleLogTagFilter(dict):
+calass TagRuleLogTagFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -206,7 +206,7 @@ class TagRuleLogTagFilter(dict):
 
 
 @pulumi.output_type
-class TagRuleMetricTagFilter(dict):
+calass TagRuleMetricTagFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,

@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRecommendationsRecommendationResult(dict):
+calass GetRecommendationsRecommendationResult(dict):
     def __init__(__self__, *,
                  category: str,
                  description: str,

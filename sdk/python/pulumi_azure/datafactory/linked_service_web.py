@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceWebArgs', 'LinkedServiceWeb']
+__all__ = ['LinkedServiceWebArrgs', 'LinkedServiceWeb']
 
 @pulumi.input_type
-class LinkedServiceWebArgs:
+calass LinkedServiceWebArrgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -197,7 +197,7 @@ class LinkedServiceWebArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceWebState:
+calass _LinkedServiceWebState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -384,7 +384,7 @@ class _LinkedServiceWebState:
         pulumi.set(self, "username", value)
 
 
-class LinkedServiceWeb(pulumi.CustomResource):
+calass LinkedServiceWeb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -448,7 +448,7 @@ class LinkedServiceWeb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceWebArgs,
+                 args: LinkedServiceWebArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Web Server and Azure Data Factory.
@@ -478,12 +478,12 @@ class LinkedServiceWeb(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceWebArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceWebArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceWebArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceWebArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -510,7 +510,7 @@ class LinkedServiceWeb(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceWebArgs.__new__(LinkedServiceWebArgs)
+            __props__ = LinkedServiceWebArrgs.__new__(LinkedServiceWebArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

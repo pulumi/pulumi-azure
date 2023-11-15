@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GlobalVMShutdownScheduleNotificationSettingsArgs',
-    'LinuxVirtualMachineGalleryImageReferenceArgs',
-    'LinuxVirtualMachineInboundNatRuleArgs',
-    'ScheduleDailyRecurrenceArgs',
-    'ScheduleHourlyRecurrenceArgs',
-    'ScheduleNotificationSettingsArgs',
-    'ScheduleWeeklyRecurrenceArgs',
-    'VirtualNetworkSubnetArgs',
-    'WindowsVirtualMachineGalleryImageReferenceArgs',
-    'WindowsVirtualMachineInboundNatRuleArgs',
+    'GlobalVMShutdownScheduleNotificationSettingsArrgs',
+    'LinuxVirtualMachineGalleryImageReferenceArrgs',
+    'LinuxVirtualMachineInboundNatRuleArrgs',
+    'ScheduleDailyRecurrenceArrgs',
+    'ScheduleHourlyRecurrenceArrgs',
+    'ScheduleNotificationSettingsArrgs',
+    'ScheduleWeeklyRecurrenceArrgs',
+    'VirtualNetworkSubnetArrgs',
+    'WindowsVirtualMachineGalleryImageReferenceArrgs',
+    'WindowsVirtualMachineInboundNatRuleArrgs',
 ]
 
 @pulumi.input_type
-class GlobalVMShutdownScheduleNotificationSettingsArgs:
+calass GlobalVMShutdownScheduleNotificationSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  email: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,7 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineGalleryImageReferenceArgs:
+calass LinuxVirtualMachineGalleryImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -160,7 +160,7 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineInboundNatRuleArgs:
+calass LinuxVirtualMachineInboundNatRuleArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -213,7 +213,7 @@ class LinuxVirtualMachineInboundNatRuleArgs:
 
 
 @pulumi.input_type
-class ScheduleDailyRecurrenceArgs:
+calass ScheduleDailyRecurrenceArrgs:
     def __init__(__self__, *,
                  time: pulumi.Input[str]):
         """
@@ -235,7 +235,7 @@ class ScheduleDailyRecurrenceArgs:
 
 
 @pulumi.input_type
-class ScheduleHourlyRecurrenceArgs:
+calass ScheduleHourlyRecurrenceArrgs:
     def __init__(__self__, *,
                  minute: pulumi.Input[int]):
         """
@@ -257,7 +257,7 @@ class ScheduleHourlyRecurrenceArgs:
 
 
 @pulumi.input_type
-class ScheduleNotificationSettingsArgs:
+calass ScheduleNotificationSettingsArrgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None,
                  time_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -312,7 +312,7 @@ class ScheduleNotificationSettingsArgs:
 
 
 @pulumi.input_type
-class ScheduleWeeklyRecurrenceArgs:
+calass ScheduleWeeklyRecurrenceArrgs:
     def __init__(__self__, *,
                  time: pulumi.Input[str],
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -350,7 +350,7 @@ class ScheduleWeeklyRecurrenceArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkSubnetArgs:
+calass VirtualNetworkSubnetArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  use_in_virtual_machine_creation: Optional[pulumi.Input[str]] = None,
@@ -405,7 +405,7 @@ class VirtualNetworkSubnetArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineGalleryImageReferenceArgs:
+calass WindowsVirtualMachineGalleryImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -472,7 +472,7 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineInboundNatRuleArgs:
+calass WindowsVirtualMachineInboundNatRuleArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],

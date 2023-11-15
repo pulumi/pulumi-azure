@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BackupPolicyDiskArgs', 'BackupPolicyDisk']
+__all__ = ['BackupPolicyDiskArrgs', 'BackupPolicyDisk']
 
 @pulumi.input_type
-class BackupPolicyDiskArgs:
+calass BackupPolicyDiskArrgs:
     def __init__(__self__, *,
                  backup_repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[str]]],
                  default_retention_duration: pulumi.Input[str],
                  vault_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None):
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]] = None):
         """
         The set of arguments for constructing a BackupPolicyDisk resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         """
         pulumi.set(__self__, "backup_repeating_time_intervals", backup_repeating_time_intervals)
         pulumi.set(__self__, "default_retention_duration", default_retention_duration)
@@ -87,31 +87,31 @@ class BackupPolicyDiskArgs:
 
     @property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]]:
+    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]]):
+    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
 
 @pulumi.input_type
-class _BackupPolicyDiskState:
+calass _BackupPolicyDiskState:
     def __init__(__self__, *,
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_retention_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyDisk resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         """
         if backup_repeating_time_intervals is not None:
@@ -163,14 +163,14 @@ class _BackupPolicyDiskState:
 
     @property
     @pulumi.getter(name="retentionRules")
-    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]]:
+    def retention_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]]:
         """
         One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         """
         return pulumi.get(self, "retention_rules")
 
     @retention_rules.setter
-    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArgs']]]]):
+    def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyDiskRetentionRuleArrgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
     @property
@@ -186,7 +186,7 @@ class _BackupPolicyDiskState:
         pulumi.set(self, "vault_id", value)
 
 
-class BackupPolicyDisk(pulumi.CustomResource):
+calass BackupPolicyDisk(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_retention_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArrgs']]]]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -217,19 +217,19 @@ class BackupPolicyDisk(pulumi.CustomResource):
             backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
             default_retention_duration="P7D",
             retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArrgs(
                     name="Daily",
                     duration="P7D",
                     priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArrgs(
                         absolute_criteria="FirstOfDay",
                     ),
                 ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArrgs(
                     name="Weekly",
                     duration="P7D",
                     priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArrgs(
                         absolute_criteria="FirstOfWeek",
                     ),
                 ),
@@ -249,14 +249,14 @@ class BackupPolicyDisk(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArrgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupPolicyDiskArgs,
+                 args: BackupPolicyDiskArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy Disk.
@@ -278,19 +278,19 @@ class BackupPolicyDisk(pulumi.CustomResource):
             backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
             default_retention_duration="P7D",
             retention_rules=[
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArrgs(
                     name="Daily",
                     duration="P7D",
                     priority=25,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArrgs(
                         absolute_criteria="FirstOfDay",
                     ),
                 ),
-                azure.dataprotection.BackupPolicyDiskRetentionRuleArgs(
+                azure.dataprotection.BackupPolicyDiskRetentionRuleArrgs(
                     name="Weekly",
                     duration="P7D",
                     priority=20,
-                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs(
+                    criteria=azure.dataprotection.BackupPolicyDiskRetentionRuleCriteriaArrgs(
                         absolute_criteria="FirstOfWeek",
                     ),
                 ),
@@ -306,12 +306,12 @@ class BackupPolicyDisk(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackupPolicyDiskArgs args: The arguments to use to populate this resource's properties.
+        :param BackupPolicyDiskArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyDiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyDiskArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -323,7 +323,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_retention_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArrgs']]]]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -332,7 +332,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupPolicyDiskArgs.__new__(BackupPolicyDiskArgs)
+            __props__ = BackupPolicyDiskArrgs.__new__(BackupPolicyDiskArrgs)
 
             if backup_repeating_time_intervals is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_repeating_time_intervals'")
@@ -358,7 +358,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_retention_duration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArgs']]]]] = None,
+            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArrgs']]]]] = None,
             vault_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyDisk':
         """
         Get an existing BackupPolicyDisk resource's state with the given name, id, and optional extra
@@ -370,7 +370,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyDiskRetentionRuleArrgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

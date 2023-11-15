@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkMappingArgs', 'NetworkMapping']
+__all__ = ['NetworkMappingArrgs', 'NetworkMapping']
 
 @pulumi.input_type
-class NetworkMappingArgs:
+calass NetworkMappingArrgs:
     def __init__(__self__, *,
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -126,7 +126,7 @@ class NetworkMappingArgs:
 
 
 @pulumi.input_type
-class _NetworkMappingState:
+calass _NetworkMappingState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
@@ -245,7 +245,7 @@ class _NetworkMappingState:
         pulumi.set(self, "target_recovery_fabric_name", value)
 
 
-class NetworkMapping(pulumi.CustomResource):
+calass NetworkMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -322,7 +322,7 @@ class NetworkMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkMappingArgs,
+                 args: NetworkMappingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
@@ -375,12 +375,12 @@ class NetworkMapping(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkMappingArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkMappingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkMappingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -403,7 +403,7 @@ class NetworkMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkMappingArgs.__new__(NetworkMappingArgs)
+            __props__ = NetworkMappingArrgs.__new__(NetworkMappingArrgs)
 
             __props__.__dict__["name"] = name
             if recovery_vault_name is None and not opts.urn:

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccountSASResult:
+calass GetAccountSASResult:
     """
     A collection of values returned by getAccountSAS.
     """
@@ -120,7 +120,7 @@ class GetAccountSASResult:
         return pulumi.get(self, "start")
 
 
-class AwaitableGetAccountSASResult(GetAccountSASResult):
+calass AwaitableGetAccountSASResult(GetAccountSASResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -143,9 +143,9 @@ def get_account_sas(connection_string: Optional[str] = None,
                     expiry: Optional[str] = None,
                     https_only: Optional[bool] = None,
                     ip_addresses: Optional[str] = None,
-                    permissions: Optional[pulumi.InputType['GetAccountSASPermissionsArgs']] = None,
-                    resource_types: Optional[pulumi.InputType['GetAccountSASResourceTypesArgs']] = None,
-                    services: Optional[pulumi.InputType['GetAccountSASServicesArgs']] = None,
+                    permissions: Optional[pulumi.InputType['GetAccountSASPermissionsArrgs']] = None,
+                    resource_types: Optional[pulumi.InputType['GetAccountSASResourceTypesArrgs']] = None,
+                    services: Optional[pulumi.InputType['GetAccountSASServicesArrgs']] = None,
                     signed_version: Optional[str] = None,
                     start: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountSASResult:
@@ -175,12 +175,12 @@ def get_account_sas(connection_string: Optional[str] = None,
     example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
-        resource_types=azure.storage.GetAccountSASResourceTypesArgs(
+        resource_types=azure.storage.GetAccountSASResourceTypesArrgs(
             service=True,
             container=False,
             object=False,
         ),
-        services=azure.storage.GetAccountSASServicesArgs(
+        services=azure.storage.GetAccountSASServicesArrgs(
             blob=True,
             queue=False,
             table=False,
@@ -188,7 +188,7 @@ def get_account_sas(connection_string: Optional[str] = None,
         ),
         start="2018-03-21T00:00:00Z",
         expiry="2020-03-21T00:00:00Z",
-        permissions=azure.storage.GetAccountSASPermissionsArgs(
+        permissions=azure.storage.GetAccountSASPermissionsArrgs(
             read=True,
             write=True,
             delete=False,
@@ -210,9 +210,9 @@ def get_account_sas(connection_string: Optional[str] = None,
            > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
-    :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
-    :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
-    :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
+    :param pulumi.InputType['GetAccountSASPermissionsArrgs'] permissions: A `permissions` block as defined below.
+    :param pulumi.InputType['GetAccountSASResourceTypesArrgs'] resource_types: A `resource_types` block as defined below.
+    :param pulumi.InputType['GetAccountSASServicesArrgs'] services: A `services` block as defined below.
     :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
@@ -248,9 +248,9 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
                            expiry: Optional[pulumi.Input[str]] = None,
                            https_only: Optional[pulumi.Input[Optional[bool]]] = None,
                            ip_addresses: Optional[pulumi.Input[Optional[str]]] = None,
-                           permissions: Optional[pulumi.Input[pulumi.InputType['GetAccountSASPermissionsArgs']]] = None,
-                           resource_types: Optional[pulumi.Input[pulumi.InputType['GetAccountSASResourceTypesArgs']]] = None,
-                           services: Optional[pulumi.Input[pulumi.InputType['GetAccountSASServicesArgs']]] = None,
+                           permissions: Optional[pulumi.Input[pulumi.InputType['GetAccountSASPermissionsArrgs']]] = None,
+                           resource_types: Optional[pulumi.Input[pulumi.InputType['GetAccountSASResourceTypesArrgs']]] = None,
+                           services: Optional[pulumi.Input[pulumi.InputType['GetAccountSASServicesArrgs']]] = None,
                            signed_version: Optional[pulumi.Input[Optional[str]]] = None,
                            start: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountSASResult]:
@@ -280,12 +280,12 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
-        resource_types=azure.storage.GetAccountSASResourceTypesArgs(
+        resource_types=azure.storage.GetAccountSASResourceTypesArrgs(
             service=True,
             container=False,
             object=False,
         ),
-        services=azure.storage.GetAccountSASServicesArgs(
+        services=azure.storage.GetAccountSASServicesArrgs(
             blob=True,
             queue=False,
             table=False,
@@ -293,7 +293,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
         ),
         start="2018-03-21T00:00:00Z",
         expiry="2020-03-21T00:00:00Z",
-        permissions=azure.storage.GetAccountSASPermissionsArgs(
+        permissions=azure.storage.GetAccountSASPermissionsArrgs(
             read=True,
             write=True,
             delete=False,
@@ -315,9 +315,9 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
            > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
-    :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
-    :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
-    :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
+    :param pulumi.InputType['GetAccountSASPermissionsArrgs'] permissions: A `permissions` block as defined below.
+    :param pulumi.InputType['GetAccountSASResourceTypesArrgs'] resource_types: A `resource_types` block as defined below.
+    :param pulumi.InputType['GetAccountSASServicesArrgs'] services: A `services` block as defined below.
     :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
     :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """

@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudBuilderArgs', 'SpringCloudBuilder']
+__all__ = ['SpringCloudBuilderArrgs', 'SpringCloudBuilder']
 
 @pulumi.input_type
-class SpringCloudBuilderArgs:
+calass SpringCloudBuilderArrgs:
     def __init__(__self__, *,
-                 build_pack_groups: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]],
+                 build_pack_groups: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]],
                  spring_cloud_service_id: pulumi.Input[str],
-                 stack: pulumi.Input['SpringCloudBuilderStackArgs'],
+                 stack: pulumi.Input['SpringCloudBuilderStackArrgs'],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudBuilder resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
-        :param pulumi.Input['SpringCloudBuilderStackArgs'] stack: A `stack` block as defined below.
+        :param pulumi.Input['SpringCloudBuilderStackArrgs'] stack: A `stack` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         """
         pulumi.set(__self__, "build_pack_groups", build_pack_groups)
@@ -35,14 +35,14 @@ class SpringCloudBuilderArgs:
 
     @property
     @pulumi.getter(name="buildPackGroups")
-    def build_pack_groups(self) -> pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]:
+    def build_pack_groups(self) -> pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]]:
         """
         One or more `build_pack_group` blocks as defined below.
         """
         return pulumi.get(self, "build_pack_groups")
 
     @build_pack_groups.setter
-    def build_pack_groups(self, value: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]):
+    def build_pack_groups(self, value: pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]]):
         pulumi.set(self, "build_pack_groups", value)
 
     @property
@@ -59,14 +59,14 @@ class SpringCloudBuilderArgs:
 
     @property
     @pulumi.getter
-    def stack(self) -> pulumi.Input['SpringCloudBuilderStackArgs']:
+    def stack(self) -> pulumi.Input['SpringCloudBuilderStackArrgs']:
         """
         A `stack` block as defined below.
         """
         return pulumi.get(self, "stack")
 
     @stack.setter
-    def stack(self, value: pulumi.Input['SpringCloudBuilderStackArgs']):
+    def stack(self, value: pulumi.Input['SpringCloudBuilderStackArrgs']):
         pulumi.set(self, "stack", value)
 
     @property
@@ -83,18 +83,18 @@ class SpringCloudBuilderArgs:
 
 
 @pulumi.input_type
-class _SpringCloudBuilderState:
+calass _SpringCloudBuilderState:
     def __init__(__self__, *,
-                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]] = None,
+                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 stack: Optional[pulumi.Input['SpringCloudBuilderStackArgs']] = None):
+                 stack: Optional[pulumi.Input['SpringCloudBuilderStackArrgs']] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuilder resources.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
-        :param pulumi.Input['SpringCloudBuilderStackArgs'] stack: A `stack` block as defined below.
+        :param pulumi.Input['SpringCloudBuilderStackArrgs'] stack: A `stack` block as defined below.
         """
         if build_pack_groups is not None:
             pulumi.set(__self__, "build_pack_groups", build_pack_groups)
@@ -107,14 +107,14 @@ class _SpringCloudBuilderState:
 
     @property
     @pulumi.getter(name="buildPackGroups")
-    def build_pack_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]]:
+    def build_pack_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]]]:
         """
         One or more `build_pack_group` blocks as defined below.
         """
         return pulumi.get(self, "build_pack_groups")
 
     @build_pack_groups.setter
-    def build_pack_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArgs']]]]):
+    def build_pack_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudBuilderBuildPackGroupArrgs']]]]):
         pulumi.set(self, "build_pack_groups", value)
 
     @property
@@ -143,26 +143,26 @@ class _SpringCloudBuilderState:
 
     @property
     @pulumi.getter
-    def stack(self) -> Optional[pulumi.Input['SpringCloudBuilderStackArgs']]:
+    def stack(self) -> Optional[pulumi.Input['SpringCloudBuilderStackArrgs']]:
         """
         A `stack` block as defined below.
         """
         return pulumi.get(self, "stack")
 
     @stack.setter
-    def stack(self, value: Optional[pulumi.Input['SpringCloudBuilderStackArgs']]):
+    def stack(self, value: Optional[pulumi.Input['SpringCloudBuilderStackArrgs']]):
         pulumi.set(self, "stack", value)
 
 
-class SpringCloudBuilder(pulumi.CustomResource):
+calass SpringCloudBuilder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArgs']]]]] = None,
+                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArgs']]] = None,
+                 stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArrgs']]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud Builder.
@@ -182,11 +182,11 @@ class SpringCloudBuilder(pulumi.CustomResource):
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArrgs(
                 name="mix",
                 build_pack_ids=["tanzu-buildpacks/java-azure"],
             )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+            stack=azure.appplatform.SpringCloudBuilderStackArrgs(
                 id="io.buildpacks.stacks.bionic",
                 version="base",
             ))
@@ -202,16 +202,16 @@ class SpringCloudBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArgs']]]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArrgs']]]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArgs']] stack: A `stack` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArrgs']] stack: A `stack` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudBuilderArgs,
+                 args: SpringCloudBuilderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Builder.
@@ -231,11 +231,11 @@ class SpringCloudBuilder(pulumi.CustomResource):
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
+            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArrgs(
                 name="mix",
                 build_pack_ids=["tanzu-buildpacks/java-azure"],
             )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
+            stack=azure.appplatform.SpringCloudBuilderStackArrgs(
                 id="io.buildpacks.stacks.bionic",
                 version="base",
             ))
@@ -250,12 +250,12 @@ class SpringCloudBuilder(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudBuilderArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudBuilderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudBuilderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudBuilderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -264,10 +264,10 @@ class SpringCloudBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArgs']]]]] = None,
+                 build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArgs']]] = None,
+                 stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,7 +275,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudBuilderArgs.__new__(SpringCloudBuilderArgs)
+            __props__ = SpringCloudBuilderArrgs.__new__(SpringCloudBuilderArrgs)
 
             if build_pack_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'build_pack_groups'")
@@ -297,10 +297,10 @@ class SpringCloudBuilder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArgs']]]]] = None,
+            build_pack_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-            stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArgs']]] = None) -> 'SpringCloudBuilder':
+            stack: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArrgs']]] = None) -> 'SpringCloudBuilder':
         """
         Get an existing SpringCloudBuilder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -308,10 +308,10 @@ class SpringCloudBuilder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArgs']]]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudBuilderBuildPackGroupArrgs']]]] build_pack_groups: One or more `build_pack_group` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArgs']] stack: A `stack` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudBuilderStackArrgs']] stack: A `stack` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

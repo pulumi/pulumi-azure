@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBudgetResourceGroupResult:
+calass GetBudgetResourceGroupResult:
     """
     A collection of values returned by getBudgetResourceGroup.
     """
@@ -110,7 +110,7 @@ class GetBudgetResourceGroupResult:
         return pulumi.get(self, "time_periods")
 
 
-class AwaitableGetBudgetResourceGroupResult(GetBudgetResourceGroupResult):
+calass AwaitableGetBudgetResourceGroupResult(GetBudgetResourceGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

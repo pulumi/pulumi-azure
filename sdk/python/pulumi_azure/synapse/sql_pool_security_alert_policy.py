@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlPoolSecurityAlertPolicyArgs', 'SqlPoolSecurityAlertPolicy']
+__all__ = ['SqlPoolSecurityAlertPolicyArrgs', 'SqlPoolSecurityAlertPolicy']
 
 @pulumi.input_type
-class SqlPoolSecurityAlertPolicyArgs:
+calass SqlPoolSecurityAlertPolicyArrgs:
     def __init__(__self__, *,
                  policy_state: pulumi.Input[str],
                  sql_pool_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class SqlPoolSecurityAlertPolicyArgs:
 
 
 @pulumi.input_type
-class _SqlPoolSecurityAlertPolicyState:
+calass _SqlPoolSecurityAlertPolicyState:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
@@ -281,7 +281,7 @@ class _SqlPoolSecurityAlertPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
-class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
+calass SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -319,12 +319,12 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -374,7 +374,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlPoolSecurityAlertPolicyArgs,
+                 args: SqlPoolSecurityAlertPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for a Synapse SQL Pool.
@@ -400,12 +400,12 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -441,12 +441,12 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlPoolSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SqlPoolSecurityAlertPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolSecurityAlertPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolSecurityAlertPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -470,7 +470,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlPoolSecurityAlertPolicyArgs.__new__(SqlPoolSecurityAlertPolicyArgs)
+            __props__ = SqlPoolSecurityAlertPolicyArrgs.__new__(SqlPoolSecurityAlertPolicyArrgs)
 
             __props__.__dict__["disabled_alerts"] = disabled_alerts
             __props__.__dict__["email_account_admins_enabled"] = email_account_admins_enabled

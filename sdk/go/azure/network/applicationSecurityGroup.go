@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Security Group.
@@ -178,12 +177,6 @@ func (i *ApplicationSecurityGroup) ToApplicationSecurityGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupOutput)
 }
 
-func (i *ApplicationSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSecurityGroup] {
-	return pulumix.Output[*ApplicationSecurityGroup]{
-		OutputState: i.ToApplicationSecurityGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationSecurityGroupArrayInput is an input type that accepts ApplicationSecurityGroupArray and ApplicationSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationSecurityGroupArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i ApplicationSecurityGroupArray) ToApplicationSecurityGroupArrayOutput() A
 
 func (i ApplicationSecurityGroupArray) ToApplicationSecurityGroupArrayOutputWithContext(ctx context.Context) ApplicationSecurityGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupArrayOutput)
-}
-
-func (i ApplicationSecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSecurityGroup] {
-	return pulumix.Output[[]*ApplicationSecurityGroup]{
-		OutputState: i.ToApplicationSecurityGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApplicationSecurityGroupMapInput is an input type that accepts ApplicationSecurityGroupMap and ApplicationSecurityGroupMapOutput values.
@@ -240,12 +227,6 @@ func (i ApplicationSecurityGroupMap) ToApplicationSecurityGroupMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSecurityGroupMapOutput)
 }
 
-func (i ApplicationSecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSecurityGroup] {
-	return pulumix.Output[map[string]*ApplicationSecurityGroup]{
-		OutputState: i.ToApplicationSecurityGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSecurityGroupOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutput() Appli
 
 func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutputWithContext(ctx context.Context) ApplicationSecurityGroupOutput {
 	return o
-}
-
-func (o ApplicationSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSecurityGroup] {
-	return pulumix.Output[*ApplicationSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -300,12 +275,6 @@ func (o ApplicationSecurityGroupArrayOutput) ToApplicationSecurityGroupArrayOutp
 	return o
 }
 
-func (o ApplicationSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationSecurityGroup] {
-	return pulumix.Output[[]*ApplicationSecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationSecurityGroupArrayOutput) Index(i pulumi.IntInput) ApplicationSecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationSecurityGroup {
 		return vs[0].([]*ApplicationSecurityGroup)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o ApplicationSecurityGroupMapOutput) ToApplicationSecurityGroupMapOutput()
 
 func (o ApplicationSecurityGroupMapOutput) ToApplicationSecurityGroupMapOutputWithContext(ctx context.Context) ApplicationSecurityGroupMapOutput {
 	return o
-}
-
-func (o ApplicationSecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationSecurityGroup] {
-	return pulumix.Output[map[string]*ApplicationSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) ApplicationSecurityGroupOutput {

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSharedImageResult:
+calass GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
@@ -192,7 +192,7 @@ class GetSharedImageResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSharedImageResult(GetSharedImageResult):
+calass AwaitableGetSharedImageResult(GetSharedImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

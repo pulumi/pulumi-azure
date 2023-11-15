@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DscNodeConfigurationArgs', 'DscNodeConfiguration']
+__all__ = ['DscNodeConfigurationArrgs', 'DscNodeConfiguration']
 
 @pulumi.input_type
-class DscNodeConfigurationArgs:
+calass DscNodeConfigurationArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  content_embedded: pulumi.Input[str],
@@ -81,7 +81,7 @@ class DscNodeConfigurationArgs:
 
 
 @pulumi.input_type
-class _DscNodeConfigurationState:
+calass _DscNodeConfigurationState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
@@ -164,7 +164,7 @@ class _DscNodeConfigurationState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class DscNodeConfiguration(pulumi.CustomResource):
+calass DscNodeConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DscNodeConfigurationArgs,
+                 args: DscNodeConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation DSC Node Configuration.
@@ -298,12 +298,12 @@ class DscNodeConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DscNodeConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param DscNodeConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DscNodeConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DscNodeConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -323,7 +323,7 @@ class DscNodeConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DscNodeConfigurationArgs.__new__(DscNodeConfigurationArgs)
+            __props__ = DscNodeConfigurationArrgs.__new__(DscNodeConfigurationArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

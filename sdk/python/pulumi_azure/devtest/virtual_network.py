@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
+__all__ = ['VirtualNetworkArrgs', 'VirtualNetwork']
 
 @pulumi.input_type
-class VirtualNetworkArgs:
+calass VirtualNetworkArrgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
+                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
@@ -28,7 +28,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description for the Virtual Network.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        :param pulumi.Input['VirtualNetworkSubnetArgs'] subnet: A `subnet` block as defined below.
+        :param pulumi.Input['VirtualNetworkSubnetArrgs'] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "lab_name", lab_name)
@@ -92,14 +92,14 @@ class VirtualNetworkArgs:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArrgs']]:
         """
         A `subnet` block as defined below.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArrgs']]):
         pulumi.set(self, "subnet", value)
 
     @property
@@ -116,13 +116,13 @@ class VirtualNetworkArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkState:
+calass _VirtualNetworkState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArgs']] = None,
+                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None):
         """
@@ -131,7 +131,7 @@ class _VirtualNetworkState:
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['VirtualNetworkSubnetArgs'] subnet: A `subnet` block as defined below.
+        :param pulumi.Input['VirtualNetworkSubnetArrgs'] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Virtual Network.
         """
@@ -200,14 +200,14 @@ class _VirtualNetworkState:
 
     @property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArrgs']]:
         """
         A `subnet` block as defined below.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArrgs']]):
         pulumi.set(self, "subnet", value)
 
     @property
@@ -235,7 +235,7 @@ class _VirtualNetworkState:
         pulumi.set(self, "unique_identifier", value)
 
 
-class VirtualNetwork(pulumi.CustomResource):
+calass VirtualNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -244,7 +244,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  lab_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -266,7 +266,7 @@ class VirtualNetwork(pulumi.CustomResource):
         example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
             lab_name=example_lab.name,
             resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+            subnet=azure.devtest.VirtualNetworkSubnetArrgs(
                 use_public_ip_address="Allow",
                 use_in_virtual_machine_creation="Allow",
             ))
@@ -286,14 +286,14 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']] subnet: A `subnet` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArrgs']] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkArgs,
+                 args: VirtualNetworkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Network within a DevTest Lab.
@@ -314,7 +314,7 @@ class VirtualNetwork(pulumi.CustomResource):
         example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
             lab_name=example_lab.name,
             resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+            subnet=azure.devtest.VirtualNetworkSubnetArrgs(
                 use_public_ip_address="Allow",
                 use_in_virtual_machine_creation="Allow",
             ))
@@ -329,12 +329,12 @@ class VirtualNetwork(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -347,7 +347,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  lab_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]] = None,
+                 subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -356,7 +356,7 @@ class VirtualNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
+            __props__ = VirtualNetworkArrgs.__new__(VirtualNetworkArrgs)
 
             __props__.__dict__["description"] = description
             if lab_name is None and not opts.urn:
@@ -383,7 +383,7 @@ class VirtualNetwork(pulumi.CustomResource):
             lab_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]] = None,
+            subnet: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_identifier: Optional[pulumi.Input[str]] = None) -> 'VirtualNetwork':
         """
@@ -397,7 +397,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']] subnet: A `subnet` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArrgs']] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Virtual Network.
         """

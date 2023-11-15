@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedCustomServiceArgs', 'LinkedCustomService']
+__all__ = ['LinkedCustomServiceArrgs', 'LinkedCustomService']
 
 @pulumi.input_type
-class LinkedCustomServiceArgs:
+calass LinkedCustomServiceArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -22,7 +22,7 @@ class LinkedCustomServiceArgs:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
+                 integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -33,7 +33,7 @@ class LinkedCustomServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs'] integration_runtime: An `integration_runtime` block as defined below.
+        :param pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs'] integration_runtime: An `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -127,14 +127,14 @@ class LinkedCustomServiceArgs:
 
     @property
     @pulumi.getter(name="integrationRuntime")
-    def integration_runtime(self) -> Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']]:
+    def integration_runtime(self) -> Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']]:
         """
         An `integration_runtime` block as defined below.
         """
         return pulumi.get(self, "integration_runtime")
 
     @integration_runtime.setter
-    def integration_runtime(self, value: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']]):
+    def integration_runtime(self, value: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']]):
         pulumi.set(self, "integration_runtime", value)
 
     @property
@@ -163,13 +163,13 @@ class LinkedCustomServiceArgs:
 
 
 @pulumi.input_type
-class _LinkedCustomServiceState:
+calass _LinkedCustomServiceState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
+                 integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class _LinkedCustomServiceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs'] integration_runtime: An `integration_runtime` block as defined below.
+        :param pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs'] integration_runtime: An `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] type: The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
@@ -255,14 +255,14 @@ class _LinkedCustomServiceState:
 
     @property
     @pulumi.getter(name="integrationRuntime")
-    def integration_runtime(self) -> Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']]:
+    def integration_runtime(self) -> Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']]:
         """
         An `integration_runtime` block as defined below.
         """
         return pulumi.get(self, "integration_runtime")
 
     @integration_runtime.setter
-    def integration_runtime(self, value: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']]):
+    def integration_runtime(self, value: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArrgs']]):
         pulumi.set(self, "integration_runtime", value)
 
     @property
@@ -314,7 +314,7 @@ class _LinkedCustomServiceState:
         pulumi.set(self, "type_properties_json", value)
 
 
-class LinkedCustomService(pulumi.CustomResource):
+calass LinkedCustomService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,7 +323,7 @@ class LinkedCustomService(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArgs']]] = None,
+                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -342,7 +342,7 @@ class LinkedCustomService(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -384,7 +384,7 @@ class LinkedCustomService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArgs']] integration_runtime: An `integration_runtime` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArrgs']] integration_runtime: An `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] type: The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
@@ -394,7 +394,7 @@ class LinkedCustomService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedCustomServiceArgs,
+                 args: LinkedCustomServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
@@ -409,7 +409,7 @@ class LinkedCustomService(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -446,12 +446,12 @@ class LinkedCustomService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedCustomServiceArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedCustomServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedCustomServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedCustomServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -464,7 +464,7 @@ class LinkedCustomService(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArgs']]] = None,
+                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -476,7 +476,7 @@ class LinkedCustomService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedCustomServiceArgs.__new__(LinkedCustomServiceArgs)
+            __props__ = LinkedCustomServiceArrgs.__new__(LinkedCustomServiceArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -507,7 +507,7 @@ class LinkedCustomService(pulumi.CustomResource):
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArgs']]] = None,
+            integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -523,7 +523,7 @@ class LinkedCustomService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArgs']] integration_runtime: An `integration_runtime` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedCustomServiceIntegrationRuntimeArrgs']] integration_runtime: An `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] type: The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.

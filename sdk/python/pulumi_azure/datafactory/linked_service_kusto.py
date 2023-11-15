@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceKustoArgs', 'LinkedServiceKusto']
+__all__ = ['LinkedServiceKustoArrgs', 'LinkedServiceKusto']
 
 @pulumi.input_type
-class LinkedServiceKustoArgs:
+calass LinkedServiceKustoArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  kusto_database_name: pulumi.Input[str],
@@ -237,7 +237,7 @@ class LinkedServiceKustoArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceKustoState:
+calass _LinkedServiceKustoState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -464,7 +464,7 @@ class _LinkedServiceKustoState:
         pulumi.set(self, "use_managed_identity", value)
 
 
-class LinkedServiceKusto(pulumi.CustomResource):
+calass LinkedServiceKusto(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -496,13 +496,13 @@ class LinkedServiceKusto(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -559,7 +559,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceKustoArgs,
+                 args: LinkedServiceKustoArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
@@ -574,13 +574,13 @@ class LinkedServiceKusto(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -612,12 +612,12 @@ class LinkedServiceKusto(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceKustoArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceKustoArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceKustoArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceKustoArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -646,7 +646,7 @@ class LinkedServiceKusto(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceKustoArgs.__new__(LinkedServiceKustoArgs)
+            __props__ = LinkedServiceKustoArrgs.__new__(LinkedServiceKustoArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

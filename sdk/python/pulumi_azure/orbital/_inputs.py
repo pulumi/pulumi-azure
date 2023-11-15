@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ContactProfileLinkArgs',
-    'ContactProfileLinkChannelArgs',
-    'ContactProfileLinkChannelEndPointArgs',
-    'SpacecraftLinkArgs',
+    'ContactProfileLinkArrgs',
+    'ContactProfileLinkChannelArrgs',
+    'ContactProfileLinkChannelEndPointArrgs',
+    'SpacecraftLinkArrgs',
 ]
 
 @pulumi.input_type
-class ContactProfileLinkArgs:
+calass ContactProfileLinkArrgs:
     def __init__(__self__, *,
-                 channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]],
+                 channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArrgs']]],
                  direction: pulumi.Input[str],
                  name: pulumi.Input[str],
                  polarization: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArrgs']]] channels: A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] direction: Direction of the link. Possible values are `Uplink` and `Downlink`.
         :param pulumi.Input[str] name: Name of the link.
         :param pulumi.Input[str] polarization: Polarization of the link. Possible values are `LHCP`, `RHCP`, `linearVertical` and `linearHorizontal`.
@@ -36,14 +36,14 @@ class ContactProfileLinkArgs:
 
     @property
     @pulumi.getter
-    def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]:
+    def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArrgs']]]:
         """
         A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "channels")
 
     @channels.setter
-    def channels(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]):
+    def channels(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArrgs']]]):
         pulumi.set(self, "channels", value)
 
     @property
@@ -84,18 +84,18 @@ class ContactProfileLinkArgs:
 
 
 @pulumi.input_type
-class ContactProfileLinkChannelArgs:
+calass ContactProfileLinkChannelArrgs:
     def __init__(__self__, *,
                  bandwidth_mhz: pulumi.Input[float],
                  center_frequency_mhz: pulumi.Input[float],
-                 end_points: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgs']]],
+                 end_points: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArrgs']]],
                  name: pulumi.Input[str],
                  demodulation_configuration: Optional[pulumi.Input[str]] = None,
                  modulation_configuration: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[float] bandwidth_mhz: Bandwidth in MHz.
         :param pulumi.Input[float] center_frequency_mhz: Center frequency in MHz.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgs']]] end_points: Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArrgs']]] end_points: Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
         :param pulumi.Input[str] name: Name of the channel.
         :param pulumi.Input[str] demodulation_configuration: Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         :param pulumi.Input[str] modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
@@ -135,14 +135,14 @@ class ContactProfileLinkChannelArgs:
 
     @property
     @pulumi.getter(name="endPoints")
-    def end_points(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgs']]]:
+    def end_points(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArrgs']]]:
         """
         Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
         """
         return pulumi.get(self, "end_points")
 
     @end_points.setter
-    def end_points(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArgs']]]):
+    def end_points(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelEndPointArrgs']]]):
         pulumi.set(self, "end_points", value)
 
     @property
@@ -183,7 +183,7 @@ class ContactProfileLinkChannelArgs:
 
 
 @pulumi.input_type
-class ContactProfileLinkChannelEndPointArgs:
+calass ContactProfileLinkChannelEndPointArrgs:
     def __init__(__self__, *,
                  end_point_name: pulumi.Input[str],
                  port: pulumi.Input[str],
@@ -251,7 +251,7 @@ class ContactProfileLinkChannelEndPointArgs:
 
 
 @pulumi.input_type
-class SpacecraftLinkArgs:
+calass SpacecraftLinkArrgs:
     def __init__(__self__, *,
                  bandwidth_mhz: pulumi.Input[float],
                  center_frequency_mhz: pulumi.Input[float],

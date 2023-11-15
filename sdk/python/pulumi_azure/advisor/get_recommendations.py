@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRecommendationsResult:
+calass GetRecommendationsResult:
     """
     A collection of values returned by getRecommendations.
     """
@@ -63,7 +63,7 @@ class GetRecommendationsResult:
         return pulumi.get(self, "recommendations")
 
 
-class AwaitableGetRecommendationsResult(GetRecommendationsResult):
+calass AwaitableGetRecommendationsResult(GetRecommendationsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

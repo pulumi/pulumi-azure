@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualHubRouteTableRouteInitArgs', 'VirtualHubRouteTableRoute']
+__all__ = ['VirtualHubRouteTableRouteInitArrgs', 'VirtualHubRouteTableRoute']
 
 @pulumi.input_type
-class VirtualHubRouteTableRouteInitArgs:
+calass VirtualHubRouteTableRouteInitArrgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
                  destinations_type: pulumi.Input[str],
@@ -112,7 +112,7 @@ class VirtualHubRouteTableRouteInitArgs:
 
 
 @pulumi.input_type
-class _VirtualHubRouteTableRouteState:
+calass _VirtualHubRouteTableRouteState:
     def __init__(__self__, *,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destinations_type: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _VirtualHubRouteTableRouteState:
         pulumi.set(self, "route_table_id", value)
 
 
-class VirtualHubRouteTableRoute(pulumi.CustomResource):
+calass VirtualHubRouteTableRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
+            routing=azure.network.VirtualHubConnectionRoutingArrgs(
                 associated_route_table_id=example_virtual_hub_route_table.id,
             ))
         example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute",
@@ -299,7 +299,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualHubRouteTableRouteInitArgs,
+                 args: VirtualHubRouteTableRouteInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route in a Virtual Hub Route Table.
@@ -341,7 +341,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         example_virtual_hub_connection = azure.network.VirtualHubConnection("exampleVirtualHubConnection",
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id,
-            routing=azure.network.VirtualHubConnectionRoutingArgs(
+            routing=azure.network.VirtualHubConnectionRoutingArrgs(
                 associated_route_table_id=example_virtual_hub_route_table.id,
             ))
         example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute",
@@ -361,12 +361,12 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualHubRouteTableRouteInitArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualHubRouteTableRouteInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubRouteTableRouteInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubRouteTableRouteInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -388,7 +388,7 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualHubRouteTableRouteInitArgs.__new__(VirtualHubRouteTableRouteInitArgs)
+            __props__ = VirtualHubRouteTableRouteInitArrgs.__new__(VirtualHubRouteTableRouteInitArrgs)
 
             if destinations is None and not opts.urn:
                 raise TypeError("Missing required property 'destinations'")

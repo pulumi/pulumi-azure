@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TrafficManagerProfileArgs', 'TrafficManagerProfile']
+__all__ = ['TrafficManagerProfileArrgs', 'TrafficManagerProfile']
 
 @pulumi.input_type
-class TrafficManagerProfileArgs:
+calass TrafficManagerProfileArrgs:
     def __init__(__self__, *,
-                 dns_config: pulumi.Input['TrafficManagerProfileDnsConfigArgs'],
-                 monitor_config: pulumi.Input['TrafficManagerProfileMonitorConfigArgs'],
+                 dns_config: pulumi.Input['TrafficManagerProfileDnsConfigArrgs'],
+                 monitor_config: pulumi.Input['TrafficManagerProfileMonitorConfigArrgs'],
                  resource_group_name: pulumi.Input[str],
                  traffic_routing_method: pulumi.Input[str],
                  max_return: Optional[pulumi.Input[int]] = None,
@@ -27,8 +27,8 @@ class TrafficManagerProfileArgs:
                  traffic_view_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TrafficManagerProfile resource.
-        :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
-        :param pulumi.Input['TrafficManagerProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input['TrafficManagerProfileDnsConfigArrgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input['TrafficManagerProfileMonitorConfigArrgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
@@ -56,26 +56,26 @@ class TrafficManagerProfileArgs:
 
     @property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> pulumi.Input['TrafficManagerProfileDnsConfigArgs']:
+    def dns_config(self) -> pulumi.Input['TrafficManagerProfileDnsConfigArrgs']:
         """
         This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: pulumi.Input['TrafficManagerProfileDnsConfigArgs']):
+    def dns_config(self, value: pulumi.Input['TrafficManagerProfileDnsConfigArrgs']):
         pulumi.set(self, "dns_config", value)
 
     @property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> pulumi.Input['TrafficManagerProfileMonitorConfigArgs']:
+    def monitor_config(self) -> pulumi.Input['TrafficManagerProfileMonitorConfigArrgs']:
         """
         This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         """
         return pulumi.get(self, "monitor_config")
 
     @monitor_config.setter
-    def monitor_config(self, value: pulumi.Input['TrafficManagerProfileMonitorConfigArgs']):
+    def monitor_config(self, value: pulumi.Input['TrafficManagerProfileMonitorConfigArrgs']):
         pulumi.set(self, "monitor_config", value)
 
     @property
@@ -166,12 +166,12 @@ class TrafficManagerProfileArgs:
 
 
 @pulumi.input_type
-class _TrafficManagerProfileState:
+calass _TrafficManagerProfileState:
     def __init__(__self__, *,
-                 dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']] = None,
+                 dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArrgs']] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  max_return: Optional[pulumi.Input[int]] = None,
-                 monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']] = None,
+                 monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -180,12 +180,12 @@ class _TrafficManagerProfileState:
                  traffic_view_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerProfile resources.
-        :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input['TrafficManagerProfileDnsConfigArrgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input['TrafficManagerProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input['TrafficManagerProfileMonitorConfigArrgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -216,14 +216,14 @@ class _TrafficManagerProfileState:
 
     @property
     @pulumi.getter(name="dnsConfig")
-    def dns_config(self) -> Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']]:
+    def dns_config(self) -> Optional[pulumi.Input['TrafficManagerProfileDnsConfigArrgs']]:
         """
         This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         """
         return pulumi.get(self, "dns_config")
 
     @dns_config.setter
-    def dns_config(self, value: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']]):
+    def dns_config(self, value: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArrgs']]):
         pulumi.set(self, "dns_config", value)
 
     @property
@@ -254,14 +254,14 @@ class _TrafficManagerProfileState:
 
     @property
     @pulumi.getter(name="monitorConfig")
-    def monitor_config(self) -> Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']]:
+    def monitor_config(self) -> Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArrgs']]:
         """
         This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         """
         return pulumi.get(self, "monitor_config")
 
     @monitor_config.setter
-    def monitor_config(self, value: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']]):
+    def monitor_config(self, value: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArrgs']]):
         pulumi.set(self, "monitor_config", value)
 
     @property
@@ -337,14 +337,14 @@ class _TrafficManagerProfileState:
         pulumi.set(self, "traffic_view_enabled", value)
 
 
-class TrafficManagerProfile(pulumi.CustomResource):
+calass TrafficManagerProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
+                 dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArrgs']]] = None,
                  max_return: Optional[pulumi.Input[int]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -371,11 +371,11 @@ class TrafficManagerProfile(pulumi.CustomResource):
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name=server.hex,
                 ttl=100,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=80,
                 path="/",
@@ -398,11 +398,11 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArrgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArrgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -414,7 +414,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficManagerProfileArgs,
+                 args: TrafficManagerProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
@@ -435,11 +435,11 @@ class TrafficManagerProfile(pulumi.CustomResource):
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name=server.hex,
                 ttl=100,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=80,
                 path="/",
@@ -461,12 +461,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrafficManagerProfileArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficManagerProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficManagerProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficManagerProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -475,9 +475,9 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
+                 dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArrgs']]] = None,
                  max_return: Optional[pulumi.Input[int]] = None,
-                 monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
+                 monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  profile_status: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -491,7 +491,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficManagerProfileArgs.__new__(TrafficManagerProfileArgs)
+            __props__ = TrafficManagerProfileArrgs.__new__(TrafficManagerProfileArrgs)
 
             if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
@@ -523,10 +523,10 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']]] = None,
+            dns_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArrgs']]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             max_return: Optional[pulumi.Input[int]] = None,
-            monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']]] = None,
+            monitor_config: Optional[pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             profile_status: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -540,12 +540,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileDnsConfigArrgs']] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
         :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[pulumi.InputType['TrafficManagerProfileMonitorConfigArrgs']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
         :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

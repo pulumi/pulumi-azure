@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudAppRedisAssociationArgs', 'SpringCloudAppRedisAssociation']
+__all__ = ['SpringCloudAppRedisAssociationArrgs', 'SpringCloudAppRedisAssociation']
 
 @pulumi.input_type
-class SpringCloudAppRedisAssociationArgs:
+calass SpringCloudAppRedisAssociationArrgs:
     def __init__(__self__, *,
                  redis_access_key: pulumi.Input[str],
                  redis_cache_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class SpringCloudAppRedisAssociationArgs:
 
 
 @pulumi.input_type
-class _SpringCloudAppRedisAssociationState:
+calass _SpringCloudAppRedisAssociationState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  redis_access_key: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _SpringCloudAppRedisAssociationState:
         pulumi.set(self, "ssl_enabled", value)
 
 
-class SpringCloudAppRedisAssociation(pulumi.CustomResource):
+calass SpringCloudAppRedisAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,7 +245,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudAppRedisAssociationArgs,
+                 args: SpringCloudAppRedisAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a Redis Cache.
@@ -286,12 +286,12 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudAppRedisAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudAppRedisAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppRedisAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppRedisAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -312,7 +312,7 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudAppRedisAssociationArgs.__new__(SpringCloudAppRedisAssociationArgs)
+            __props__ = SpringCloudAppRedisAssociationArrgs.__new__(SpringCloudAppRedisAssociationArrgs)
 
             __props__.__dict__["name"] = name
             if redis_access_key is None and not opts.urn:

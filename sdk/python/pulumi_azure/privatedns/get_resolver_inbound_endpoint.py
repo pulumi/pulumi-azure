@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverInboundEndpointResult:
+calass GetResolverInboundEndpointResult:
     """
     A collection of values returned by getResolverInboundEndpoint.
     """
@@ -85,7 +85,7 @@ class GetResolverInboundEndpointResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetResolverInboundEndpointResult(GetResolverInboundEndpointResult):
+calass AwaitableGetResolverInboundEndpointResult(GetResolverInboundEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

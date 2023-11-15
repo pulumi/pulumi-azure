@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccessPolicyArgs', 'AccessPolicy']
+__all__ = ['AccessPolicyArrgs', 'AccessPolicy']
 
 @pulumi.input_type
-class AccessPolicyArgs:
+calass AccessPolicyArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -145,7 +145,7 @@ class AccessPolicyArgs:
 
 
 @pulumi.input_type
-class _AccessPolicyState:
+calass _AccessPolicyState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  certificate_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -280,7 +280,7 @@ class _AccessPolicyState:
         pulumi.set(self, "tenant_id", value)
 
 
-class AccessPolicy(pulumi.CustomResource):
+calass AccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -365,7 +365,7 @@ class AccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessPolicyArgs,
+                 args: AccessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Access Policy.
@@ -424,12 +424,12 @@ class AccessPolicy(pulumi.CustomResource):
          where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 
         :param str resource_name: The name of the resource.
-        :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param AccessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -453,7 +453,7 @@ class AccessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
+            __props__ = AccessPolicyArrgs.__new__(AccessPolicyArrgs)
 
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["certificate_permissions"] = certificate_permissions

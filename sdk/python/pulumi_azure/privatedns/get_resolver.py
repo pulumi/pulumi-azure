@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverResult:
+calass GetResolverResult:
     """
     A collection of values returned by getResolver.
     """
@@ -84,7 +84,7 @@ class GetResolverResult:
         return pulumi.get(self, "virtual_network_id")
 
 
-class AwaitableGetResolverResult(GetResolverResult):
+calass AwaitableGetResolverResult(GetResolverResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

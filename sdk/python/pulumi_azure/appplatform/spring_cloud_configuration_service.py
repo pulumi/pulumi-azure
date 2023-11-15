@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudConfigurationServiceArgs', 'SpringCloudConfigurationService']
+__all__ = ['SpringCloudConfigurationServiceArrgs', 'SpringCloudConfigurationService']
 
 @pulumi.input_type
-class SpringCloudConfigurationServiceArgs:
+calass SpringCloudConfigurationServiceArrgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]] = None):
         """
         The set of arguments for constructing a SpringCloudConfigurationService resource.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]] repositories: One or more `repository` blocks as defined below.
         """
         pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
         if generation is not None:
@@ -73,29 +73,29 @@ class SpringCloudConfigurationServiceArgs:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]]):
         pulumi.set(self, "repositories", value)
 
 
 @pulumi.input_type
-class _SpringCloudConfigurationServiceState:
+calass _SpringCloudConfigurationServiceState:
     def __init__(__self__, *,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConfigurationService resources.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         if generation is not None:
@@ -133,14 +133,14 @@ class _SpringCloudConfigurationServiceState:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArrgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @property
@@ -156,14 +156,14 @@ class _SpringCloudConfigurationServiceState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
-class SpringCloudConfigurationService(pulumi.CustomResource):
+calass SpringCloudConfigurationService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArrgs']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -184,7 +184,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             sku_name="E0")
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
+            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArrgs(
                 name="fake",
                 label="master",
                 patterns=["app/dev"],
@@ -211,14 +211,14 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArrgs']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudConfigurationServiceArgs,
+                 args: SpringCloudConfigurationServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Configuration Service.
@@ -238,7 +238,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             sku_name="E0")
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("exampleSpringCloudConfigurationService",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
+            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArrgs(
                 name="fake",
                 label="master",
                 patterns=["app/dev"],
@@ -262,12 +262,12 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudConfigurationServiceArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudConfigurationServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudConfigurationServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudConfigurationServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -278,7 +278,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArrgs']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,7 +287,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudConfigurationServiceArgs.__new__(SpringCloudConfigurationServiceArgs)
+            __props__ = SpringCloudConfigurationServiceArrgs.__new__(SpringCloudConfigurationServiceArrgs)
 
             __props__.__dict__["generation"] = generation
             __props__.__dict__["name"] = name
@@ -307,7 +307,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             generation: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArrgs']]]]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConfigurationService':
         """
         Get an existing SpringCloudConfigurationService resource's state with the given name, id, and optional extra
@@ -318,7 +318,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArrgs']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

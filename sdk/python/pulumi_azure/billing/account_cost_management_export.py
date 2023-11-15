@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountCostManagementExportArgs', 'AccountCostManagementExport']
+__all__ = ['AccountCostManagementExportArrgs', 'AccountCostManagementExport']
 
 @pulumi.input_type
-class AccountCostManagementExportArgs:
+calass AccountCostManagementExportArrgs:
     def __init__(__self__, *,
                  billing_account_id: pulumi.Input[str],
-                 export_data_options: pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'],
-                 export_data_storage_location: pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'],
+                 export_data_options: pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs'],
+                 export_data_storage_location: pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs'],
                  recurrence_period_end_date: pulumi.Input[str],
                  recurrence_period_start_date: pulumi.Input[str],
                  recurrence_type: pulumi.Input[str],
@@ -27,8 +27,8 @@ class AccountCostManagementExportArgs:
         """
         The set of arguments for constructing a AccountCostManagementExport resource.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs'] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
@@ -60,26 +60,26 @@ class AccountCostManagementExportArgs:
 
     @property
     @pulumi.getter(name="exportDataOptions")
-    def export_data_options(self) -> pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']:
+    def export_data_options(self) -> pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs']:
         """
         A `export_data_options` block as defined below.
         """
         return pulumi.get(self, "export_data_options")
 
     @export_data_options.setter
-    def export_data_options(self, value: pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']):
+    def export_data_options(self, value: pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs']):
         pulumi.set(self, "export_data_options", value)
 
     @property
     @pulumi.getter(name="exportDataStorageLocation")
-    def export_data_storage_location(self) -> pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']:
+    def export_data_storage_location(self) -> pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs']:
         """
         A `export_data_storage_location` block as defined below.
         """
         return pulumi.get(self, "export_data_storage_location")
 
     @export_data_storage_location.setter
-    def export_data_storage_location(self, value: pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']):
+    def export_data_storage_location(self, value: pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs']):
         pulumi.set(self, "export_data_storage_location", value)
 
     @property
@@ -144,12 +144,12 @@ class AccountCostManagementExportArgs:
 
 
 @pulumi.input_type
-class _AccountCostManagementExportState:
+calass _AccountCostManagementExportState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 export_data_options: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']] = None,
-                 export_data_storage_location: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']] = None,
+                 export_data_options: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs']] = None,
+                 export_data_storage_location: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -158,8 +158,8 @@ class _AccountCostManagementExportState:
         Input properties used for looking up and filtering AccountCostManagementExport resources.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccountCostManagementExportExportDataOptionsArgs'] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs'] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs'] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
@@ -208,26 +208,26 @@ class _AccountCostManagementExportState:
 
     @property
     @pulumi.getter(name="exportDataOptions")
-    def export_data_options(self) -> Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']]:
+    def export_data_options(self) -> Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs']]:
         """
         A `export_data_options` block as defined below.
         """
         return pulumi.get(self, "export_data_options")
 
     @export_data_options.setter
-    def export_data_options(self, value: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArgs']]):
+    def export_data_options(self, value: Optional[pulumi.Input['AccountCostManagementExportExportDataOptionsArrgs']]):
         pulumi.set(self, "export_data_options", value)
 
     @property
     @pulumi.getter(name="exportDataStorageLocation")
-    def export_data_storage_location(self) -> Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']]:
+    def export_data_storage_location(self) -> Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs']]:
         """
         A `export_data_storage_location` block as defined below.
         """
         return pulumi.get(self, "export_data_storage_location")
 
     @export_data_storage_location.setter
-    def export_data_storage_location(self, value: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArgs']]):
+    def export_data_storage_location(self, value: Optional[pulumi.Input['AccountCostManagementExportExportDataStorageLocationArrgs']]):
         pulumi.set(self, "export_data_storage_location", value)
 
     @property
@@ -279,15 +279,15 @@ class _AccountCostManagementExportState:
         pulumi.set(self, "recurrence_type", value)
 
 
-class AccountCostManagementExport(pulumi.CustomResource):
+calass AccountCostManagementExport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']]] = None,
-                 export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']]] = None,
+                 export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArrgs']]] = None,
+                 export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -314,11 +314,11 @@ class AccountCostManagementExport(pulumi.CustomResource):
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
+            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArrgs(
                 container_id=example_container.resource_manager_id,
                 root_folder_path="/root/updated",
             ),
-            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
+            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArrgs(
                 type="Usage",
                 time_frame="WeekToDate",
             ))
@@ -336,8 +336,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArrgs']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArrgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.
@@ -347,7 +347,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountCostManagementExportArgs,
+                 args: AccountCostManagementExportArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cost Management Export for a Billing Account.
@@ -370,11 +370,11 @@ class AccountCostManagementExport(pulumi.CustomResource):
             recurrence_type="Monthly",
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
-            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArgs(
+            export_data_storage_location=azure.billing.AccountCostManagementExportExportDataStorageLocationArrgs(
                 container_id=example_container.resource_manager_id,
                 root_folder_path="/root/updated",
             ),
-            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArgs(
+            export_data_options=azure.billing.AccountCostManagementExportExportDataOptionsArrgs(
                 type="Usage",
                 time_frame="WeekToDate",
             ))
@@ -389,12 +389,12 @@ class AccountCostManagementExport(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountCostManagementExportArgs args: The arguments to use to populate this resource's properties.
+        :param AccountCostManagementExportArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountCostManagementExportArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountCostManagementExportArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -405,8 +405,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[bool]] = None,
                  billing_account_id: Optional[pulumi.Input[str]] = None,
-                 export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']]] = None,
-                 export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']]] = None,
+                 export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArrgs']]] = None,
+                 export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
                  recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -418,7 +418,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountCostManagementExportArgs.__new__(AccountCostManagementExportArgs)
+            __props__ = AccountCostManagementExportArrgs.__new__(AccountCostManagementExportArrgs)
 
             __props__.__dict__["active"] = active
             if billing_account_id is None and not opts.urn:
@@ -452,8 +452,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: Optional[pulumi.Input[bool]] = None,
             billing_account_id: Optional[pulumi.Input[str]] = None,
-            export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']]] = None,
-            export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']]] = None,
+            export_data_options: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArrgs']]] = None,
+            export_data_storage_location: Optional[pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
             recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
@@ -467,8 +467,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArgs']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataOptionsArrgs']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountCostManagementExportExportDataStorageLocationArrgs']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recurrence_period_end_date: The date the export will stop capturing information.
         :param pulumi.Input[str] recurrence_period_start_date: The date the export will start capturing information.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorAzureActiveDirectoryArgs', 'DataConnectorAzureActiveDirectory']
+__all__ = ['DataConnectorAzureActiveDirectoryArrgs', 'DataConnectorAzureActiveDirectory']
 
 @pulumi.input_type
-class DataConnectorAzureActiveDirectoryArgs:
+calass DataConnectorAzureActiveDirectoryArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class DataConnectorAzureActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class _DataConnectorAzureActiveDirectoryState:
+calass _DataConnectorAzureActiveDirectoryState:
     def __init__(__self__, *,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class _DataConnectorAzureActiveDirectoryState:
         pulumi.set(self, "tenant_id", value)
 
 
-class DataConnectorAzureActiveDirectory(pulumi.CustomResource):
+calass DataConnectorAzureActiveDirectory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class DataConnectorAzureActiveDirectory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorAzureActiveDirectoryArgs,
+                 args: DataConnectorAzureActiveDirectoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Active Directory Data Connector.
@@ -206,12 +206,12 @@ class DataConnectorAzureActiveDirectory(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorAzureActiveDirectoryArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorAzureActiveDirectoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAzureActiveDirectoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAzureActiveDirectoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -230,7 +230,7 @@ class DataConnectorAzureActiveDirectory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorAzureActiveDirectoryArgs.__new__(DataConnectorAzureActiveDirectoryArgs)
+            __props__ = DataConnectorAzureActiveDirectoryArrgs.__new__(DataConnectorAzureActiveDirectoryArrgs)
 
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

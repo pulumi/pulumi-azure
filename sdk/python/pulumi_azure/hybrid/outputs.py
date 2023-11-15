@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetComputeMachineAgentConfigurationResult(dict):
+calass GetComputeMachineAgentConfigurationResult(dict):
     def __init__(__self__, *,
                  extensions_allow_lists: Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsAllowListResult'],
                  extensions_block_lists: Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsBlockListResult'],
@@ -40,8 +40,8 @@ class GetComputeMachineAgentConfigurationResult(dict):
                  proxy_bypasses: Sequence[str],
                  proxy_url: str):
         """
-        :param Sequence['GetComputeMachineAgentConfigurationExtensionsAllowListArgs'] extensions_allow_lists: A `extensions_allow_list` block as defined below.
-        :param Sequence['GetComputeMachineAgentConfigurationExtensionsBlockListArgs'] extensions_block_lists: A `extensions_block_list` block as defined below.
+        :param Sequence['GetComputeMachineAgentConfigurationExtensionsAllowListArrgs'] extensions_allow_lists: A `extensions_allow_list` block as defined below.
+        :param Sequence['GetComputeMachineAgentConfigurationExtensionsBlockListArrgs'] extensions_block_lists: A `extensions_block_list` block as defined below.
         :param bool extensions_enabled: Specifies whether the extension service is enabled or disabled.
         :param bool guest_configuration_enabled: Specified whether the guest configuration service is enabled or disabled.
         :param Sequence[str] incoming_connections_ports: Specifies the list of ports that the agent will be able to listen on.
@@ -114,7 +114,7 @@ class GetComputeMachineAgentConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineAgentConfigurationExtensionsAllowListResult(dict):
+calass GetComputeMachineAgentConfigurationExtensionsAllowListResult(dict):
     def __init__(__self__, *,
                  publisher: str,
                  type: str):
@@ -143,7 +143,7 @@ class GetComputeMachineAgentConfigurationExtensionsAllowListResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineAgentConfigurationExtensionsBlockListResult(dict):
+calass GetComputeMachineAgentConfigurationExtensionsBlockListResult(dict):
     def __init__(__self__, *,
                  publisher: str,
                  type: str):
@@ -172,7 +172,7 @@ class GetComputeMachineAgentConfigurationExtensionsBlockListResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineCloudMetadataResult(dict):
+calass GetComputeMachineCloudMetadataResult(dict):
     def __init__(__self__, *,
                  provider: str):
         """
@@ -190,14 +190,14 @@ class GetComputeMachineCloudMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineErrorDetailResult(dict):
+calass GetComputeMachineErrorDetailResult(dict):
     def __init__(__self__, *,
                  additional_infos: Sequence['outputs.GetComputeMachineErrorDetailAdditionalInfoResult'],
                  code: str,
                  message: str,
                  target: str):
         """
-        :param Sequence['GetComputeMachineErrorDetailAdditionalInfoArgs'] additional_infos: A `additional_info` block as defined above.
+        :param Sequence['GetComputeMachineErrorDetailAdditionalInfoArrgs'] additional_infos: A `additional_info` block as defined above.
         :param str code: The error code.
         :param str message: The error message.
         :param str target: The error target.
@@ -241,7 +241,7 @@ class GetComputeMachineErrorDetailResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineErrorDetailAdditionalInfoResult(dict):
+calass GetComputeMachineErrorDetailAdditionalInfoResult(dict):
     def __init__(__self__, *,
                  info: str,
                  type: str):
@@ -270,7 +270,7 @@ class GetComputeMachineErrorDetailAdditionalInfoResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineIdentityResult(dict):
+calass GetComputeMachineIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -310,7 +310,7 @@ class GetComputeMachineIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineLocationDataResult(dict):
+calass GetComputeMachineLocationDataResult(dict):
     def __init__(__self__, *,
                  city: str,
                  country_or_region: str,
@@ -361,15 +361,15 @@ class GetComputeMachineLocationDataResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineOsProfileResult(dict):
+calass GetComputeMachineOsProfileResult(dict):
     def __init__(__self__, *,
                  computer_name: str,
                  linux_configurations: Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationResult'],
                  windows_configurations: Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationResult']):
         """
         :param str computer_name: Specifies the host OS name of the hybrid machine.
-        :param Sequence['GetComputeMachineOsProfileLinuxConfigurationArgs'] linux_configurations: A `linux_configuration` block as defined above.
-        :param Sequence['GetComputeMachineOsProfileWindowsConfigurationArgs'] windows_configurations: A `windows_configuration` block as defined below.
+        :param Sequence['GetComputeMachineOsProfileLinuxConfigurationArrgs'] linux_configurations: A `linux_configuration` block as defined above.
+        :param Sequence['GetComputeMachineOsProfileWindowsConfigurationArrgs'] windows_configurations: A `windows_configuration` block as defined below.
         """
         pulumi.set(__self__, "computer_name", computer_name)
         pulumi.set(__self__, "linux_configurations", linux_configurations)
@@ -401,11 +401,11 @@ class GetComputeMachineOsProfileResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineOsProfileLinuxConfigurationResult(dict):
+calass GetComputeMachineOsProfileLinuxConfigurationResult(dict):
     def __init__(__self__, *,
                  patch_settings: Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult']):
         """
-        :param Sequence['GetComputeMachineOsProfileLinuxConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
+        :param Sequence['GetComputeMachineOsProfileLinuxConfigurationPatchSettingArrgs'] patch_settings: A `patch_settings` block as defined above.
         """
         pulumi.set(__self__, "patch_settings", patch_settings)
 
@@ -419,7 +419,7 @@ class GetComputeMachineOsProfileLinuxConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult(dict):
+calass GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult(dict):
     def __init__(__self__, *,
                  assessment_mode: str,
                  patch_mode: str):
@@ -448,11 +448,11 @@ class GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineOsProfileWindowsConfigurationResult(dict):
+calass GetComputeMachineOsProfileWindowsConfigurationResult(dict):
     def __init__(__self__, *,
                  patch_settings: Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult']):
         """
-        :param Sequence['GetComputeMachineOsProfileWindowsConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
+        :param Sequence['GetComputeMachineOsProfileWindowsConfigurationPatchSettingArrgs'] patch_settings: A `patch_settings` block as defined above.
         """
         pulumi.set(__self__, "patch_settings", patch_settings)
 
@@ -466,7 +466,7 @@ class GetComputeMachineOsProfileWindowsConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult(dict):
+calass GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult(dict):
     def __init__(__self__, *,
                  assessment_mode: str,
                  patch_mode: str):
@@ -495,13 +495,13 @@ class GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineServiceStatusResult(dict):
+calass GetComputeMachineServiceStatusResult(dict):
     def __init__(__self__, *,
                  extension_services: Sequence['outputs.GetComputeMachineServiceStatusExtensionServiceResult'],
                  guest_configuration_services: Sequence['outputs.GetComputeMachineServiceStatusGuestConfigurationServiceResult']):
         """
-        :param Sequence['GetComputeMachineServiceStatusExtensionServiceArgs'] extension_services: A `extension_service` block as defined above.
-        :param Sequence['GetComputeMachineServiceStatusGuestConfigurationServiceArgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
+        :param Sequence['GetComputeMachineServiceStatusExtensionServiceArrgs'] extension_services: A `extension_service` block as defined above.
+        :param Sequence['GetComputeMachineServiceStatusGuestConfigurationServiceArrgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
         """
         pulumi.set(__self__, "extension_services", extension_services)
         pulumi.set(__self__, "guest_configuration_services", guest_configuration_services)
@@ -524,7 +524,7 @@ class GetComputeMachineServiceStatusResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineServiceStatusExtensionServiceResult(dict):
+calass GetComputeMachineServiceStatusExtensionServiceResult(dict):
     def __init__(__self__, *,
                  startup_type: str,
                  status: str):
@@ -553,7 +553,7 @@ class GetComputeMachineServiceStatusExtensionServiceResult(dict):
 
 
 @pulumi.output_type
-class GetComputeMachineServiceStatusGuestConfigurationServiceResult(dict):
+calass GetComputeMachineServiceStatusGuestConfigurationServiceResult(dict):
     def __init__(__self__, *,
                  startup_type: str,
                  status: str):

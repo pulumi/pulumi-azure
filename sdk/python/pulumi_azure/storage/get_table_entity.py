@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTableEntityResult:
+calass GetTableEntityResult:
     """
     A collection of values returned by getTableEntity.
     """
@@ -78,7 +78,7 @@ class GetTableEntityResult:
         return pulumi.get(self, "table_name")
 
 
-class AwaitableGetTableEntityResult(GetTableEntityResult):
+calass AwaitableGetTableEntityResult(GetTableEntityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

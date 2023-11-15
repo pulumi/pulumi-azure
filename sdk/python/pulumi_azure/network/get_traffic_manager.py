@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTrafficManagerResult:
+calass GetTrafficManagerResult:
     """
     A collection of values returned by getTrafficManager.
     """
@@ -43,7 +43,7 @@ class GetTrafficManagerResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetTrafficManagerResult(GetTrafficManagerResult):
+calass AwaitableGetTrafficManagerResult(GetTrafficManagerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

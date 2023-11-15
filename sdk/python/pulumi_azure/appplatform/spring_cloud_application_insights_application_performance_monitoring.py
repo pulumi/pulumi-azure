@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs', 'SpringCloudApplicationInsightsApplicationPerformanceMonitoring']
+__all__ = ['SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs', 'SpringCloudApplicationInsightsApplicationPerformanceMonitoring']
 
 @pulumi.input_type
-class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
+calass SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs:
 
 
 @pulumi.input_type
-class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
+calass _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  globally_enabled: Optional[pulumi.Input[bool]] = None,
@@ -282,7 +282,7 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
-class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.CustomResource):
+calass SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -349,7 +349,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs,
+                 args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -390,12 +390,12 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -419,7 +419,7 @@ class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.Cust
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs.__new__(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs)
+            __props__ = SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs.__new__(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrgs)
 
             __props__.__dict__["connection_string"] = connection_string
             __props__.__dict__["globally_enabled"] = globally_enabled

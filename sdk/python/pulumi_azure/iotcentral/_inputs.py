@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationIdentityArgs',
-    'ApplicationNetworkRuleSetIpRuleArgs',
+    'ApplicationIdentityArrgs',
+    'ApplicationNetworkRuleSetIpRuleArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationIdentityArgs:
+calass ApplicationIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,7 @@ class ApplicationIdentityArgs:
 
 
 @pulumi.input_type
-class ApplicationNetworkRuleSetIpRuleArgs:
+calass ApplicationNetworkRuleSetIpRuleArrgs:
     def __init__(__self__, *,
                  ip_mask: pulumi.Input[str],
                  name: pulumi.Input[str]):

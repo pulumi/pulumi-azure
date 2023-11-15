@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDatabaseResult:
+calass GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
@@ -156,7 +156,7 @@ class GetDatabaseResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDatabaseResult(GetDatabaseResult):
+calass AwaitableGetDatabaseResult(GetDatabaseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -83,7 +83,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountEncryption(dict):
+calass AccountEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -118,7 +118,7 @@ class AccountEncryption(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -197,7 +197,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountKeyVaultReference(dict):
+calass AccountKeyVaultReference(dict):
     def __init__(__self__, *,
                  id: str,
                  url: str):
@@ -226,7 +226,7 @@ class AccountKeyVaultReference(dict):
 
 
 @pulumi.output_type
-class AccountNetworkProfile(dict):
+calass AccountNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -250,8 +250,8 @@ class AccountNetworkProfile(dict):
                  account_access: Optional['outputs.AccountNetworkProfileAccountAccess'] = None,
                  node_management_access: Optional['outputs.AccountNetworkProfileNodeManagementAccess'] = None):
         """
-        :param 'AccountNetworkProfileAccountAccessArgs' account_access: An `account_access` block as defined below.
-        :param 'AccountNetworkProfileNodeManagementAccessArgs' node_management_access: A `node_management_access` block as defined below.
+        :param 'AccountNetworkProfileAccountAccessArrgs' account_access: An `account_access` block as defined below.
+        :param 'AccountNetworkProfileNodeManagementAccessArrgs' node_management_access: A `node_management_access` block as defined below.
                
                > **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
         """
@@ -280,7 +280,7 @@ class AccountNetworkProfile(dict):
 
 
 @pulumi.output_type
-class AccountNetworkProfileAccountAccess(dict):
+calass AccountNetworkProfileAccountAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -305,7 +305,7 @@ class AccountNetworkProfileAccountAccess(dict):
                  ip_rules: Optional[Sequence['outputs.AccountNetworkProfileAccountAccessIpRule']] = None):
         """
         :param str default_action: Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param Sequence['AccountNetworkProfileAccountAccessIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['AccountNetworkProfileAccountAccessIpRuleArrgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -330,7 +330,7 @@ class AccountNetworkProfileAccountAccess(dict):
 
 
 @pulumi.output_type
-class AccountNetworkProfileAccountAccessIpRule(dict):
+calass AccountNetworkProfileAccountAccessIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -377,7 +377,7 @@ class AccountNetworkProfileAccountAccessIpRule(dict):
 
 
 @pulumi.output_type
-class AccountNetworkProfileNodeManagementAccess(dict):
+calass AccountNetworkProfileNodeManagementAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -402,7 +402,7 @@ class AccountNetworkProfileNodeManagementAccess(dict):
                  ip_rules: Optional[Sequence['outputs.AccountNetworkProfileNodeManagementAccessIpRule']] = None):
         """
         :param str default_action: Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param Sequence['AccountNetworkProfileNodeManagementAccessIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['AccountNetworkProfileNodeManagementAccessIpRuleArrgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -427,7 +427,7 @@ class AccountNetworkProfileNodeManagementAccess(dict):
 
 
 @pulumi.output_type
-class AccountNetworkProfileNodeManagementAccessIpRule(dict):
+calass AccountNetworkProfileNodeManagementAccessIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class AccountNetworkProfileNodeManagementAccessIpRule(dict):
 
 
 @pulumi.output_type
-class PoolAutoScale(dict):
+calass PoolAutoScale(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -521,7 +521,7 @@ class PoolAutoScale(dict):
 
 
 @pulumi.output_type
-class PoolCertificate(dict):
+calass PoolCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -597,7 +597,7 @@ class PoolCertificate(dict):
 
 
 @pulumi.output_type
-class PoolContainerConfiguration(dict):
+calass PoolContainerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -623,7 +623,7 @@ class PoolContainerConfiguration(dict):
                  type: Optional[str] = None):
         """
         :param Sequence[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
-        :param Sequence['PoolContainerConfigurationContainerRegistryArgs'] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+        :param Sequence['PoolContainerConfigurationContainerRegistryArrgs'] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         :param str type: The type of container configuration. Possible value is `DockerCompatible`.
         """
         if container_image_names is not None:
@@ -659,7 +659,7 @@ class PoolContainerConfiguration(dict):
 
 
 @pulumi.output_type
-class PoolContainerConfigurationContainerRegistry(dict):
+calass PoolContainerConfigurationContainerRegistry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -734,7 +734,7 @@ class PoolContainerConfigurationContainerRegistry(dict):
 
 
 @pulumi.output_type
-class PoolDataDisk(dict):
+calass PoolDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -806,7 +806,7 @@ class PoolDataDisk(dict):
 
 
 @pulumi.output_type
-class PoolDiskEncryption(dict):
+calass PoolDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -841,7 +841,7 @@ class PoolDiskEncryption(dict):
 
 
 @pulumi.output_type
-class PoolExtension(dict):
+calass PoolExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -984,7 +984,7 @@ class PoolExtension(dict):
 
 
 @pulumi.output_type
-class PoolFixedScale(dict):
+calass PoolFixedScale(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1062,7 +1062,7 @@ class PoolFixedScale(dict):
 
 
 @pulumi.output_type
-class PoolIdentity(dict):
+calass PoolIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1108,7 +1108,7 @@ class PoolIdentity(dict):
 
 
 @pulumi.output_type
-class PoolMount(dict):
+calass PoolMount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1138,10 +1138,10 @@ class PoolMount(dict):
                  cifs_mounts: Optional[Sequence['outputs.PoolMountCifsMount']] = None,
                  nfs_mounts: Optional[Sequence['outputs.PoolMountNfsMount']] = None):
         """
-        :param 'PoolMountAzureBlobFileSystemArgs' azure_blob_file_system: A `azure_blob_file_system` block defined as below.
-        :param Sequence['PoolMountAzureFileShareArgs'] azure_file_shares: A `azure_file_share` block defined as below.
-        :param Sequence['PoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
-        :param Sequence['PoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
+        :param 'PoolMountAzureBlobFileSystemArrgs' azure_blob_file_system: A `azure_blob_file_system` block defined as below.
+        :param Sequence['PoolMountAzureFileShareArrgs'] azure_file_shares: A `azure_file_share` block defined as below.
+        :param Sequence['PoolMountCifsMountArrgs'] cifs_mounts: A `cifs_mount` block defined as below.
+        :param Sequence['PoolMountNfsMountArrgs'] nfs_mounts: A `nfs_mount` block defined as below.
         """
         if azure_blob_file_system is not None:
             pulumi.set(__self__, "azure_blob_file_system", azure_blob_file_system)
@@ -1186,7 +1186,7 @@ class PoolMount(dict):
 
 
 @pulumi.output_type
-class PoolMountAzureBlobFileSystem(dict):
+calass PoolMountAzureBlobFileSystem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1303,7 +1303,7 @@ class PoolMountAzureBlobFileSystem(dict):
 
 
 @pulumi.output_type
-class PoolMountAzureFileShare(dict):
+calass PoolMountAzureFileShare(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1391,7 +1391,7 @@ class PoolMountAzureFileShare(dict):
 
 
 @pulumi.output_type
-class PoolMountCifsMount(dict):
+calass PoolMountCifsMount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1475,7 +1475,7 @@ class PoolMountCifsMount(dict):
 
 
 @pulumi.output_type
-class PoolMountNfsMount(dict):
+calass PoolMountNfsMount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1535,7 +1535,7 @@ class PoolMountNfsMount(dict):
 
 
 @pulumi.output_type
-class PoolNetworkConfiguration(dict):
+calass PoolNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1573,7 +1573,7 @@ class PoolNetworkConfiguration(dict):
         """
         :param bool accelerated_networking_enabled: Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
         :param str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
-        :param Sequence['PoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        :param Sequence['PoolNetworkConfigurationEndpointConfigurationArrgs'] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param str public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
@@ -1641,7 +1641,7 @@ class PoolNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class PoolNetworkConfigurationEndpointConfiguration(dict):
+calass PoolNetworkConfigurationEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1674,7 +1674,7 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
         :param str frontend_port_range: The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
         :param str name: The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
         :param str protocol: The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
-        :param Sequence['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        :param Sequence['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs'] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_port_range", frontend_port_range)
@@ -1725,7 +1725,7 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
 
 
 @pulumi.output_type
-class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict):
+calass PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1796,7 +1796,7 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
 
 
 @pulumi.output_type
-class PoolNodePlacement(dict):
+calass PoolNodePlacement(dict):
     def __init__(__self__, *,
                  policy: Optional[str] = None):
         """
@@ -1815,7 +1815,7 @@ class PoolNodePlacement(dict):
 
 
 @pulumi.output_type
-class PoolStartTask(dict):
+calass PoolStartTask(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1853,10 +1853,10 @@ class PoolStartTask(dict):
                  wait_for_success: Optional[bool] = None):
         """
         :param str command_line: The command line executed by the start task.
-        :param 'PoolStartTaskUserIdentityArgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
+        :param 'PoolStartTaskUserIdentityArrgs' user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
         :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param Sequence['PoolStartTaskContainerArgs'] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-        :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+        :param Sequence['PoolStartTaskContainerArrgs'] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        :param Sequence['PoolStartTaskResourceFileArrgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         :param int task_retry_maximum: The number of retry count.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
@@ -1931,7 +1931,7 @@ class PoolStartTask(dict):
 
 
 @pulumi.output_type
-class PoolStartTaskContainer(dict):
+calass PoolStartTaskContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1960,7 +1960,7 @@ class PoolStartTaskContainer(dict):
                  working_directory: Optional[str] = None):
         """
         :param str image_name: The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
-        :param Sequence['PoolStartTaskContainerRegistryArgs'] registries: The same reference as `container_registries` block defined as below.
+        :param Sequence['PoolStartTaskContainerRegistryArrgs'] registries: The same reference as `container_registries` block defined as below.
         :param str run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param str working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
         """
@@ -2006,7 +2006,7 @@ class PoolStartTaskContainer(dict):
 
 
 @pulumi.output_type
-class PoolStartTaskContainerRegistry(dict):
+calass PoolStartTaskContainerRegistry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2081,7 +2081,7 @@ class PoolStartTaskContainerRegistry(dict):
 
 
 @pulumi.output_type
-class PoolStartTaskResourceFile(dict):
+calass PoolStartTaskResourceFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2205,7 +2205,7 @@ class PoolStartTaskResourceFile(dict):
 
 
 @pulumi.output_type
-class PoolStartTaskUserIdentity(dict):
+calass PoolStartTaskUserIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2229,7 +2229,7 @@ class PoolStartTaskUserIdentity(dict):
                  auto_user: Optional['outputs.PoolStartTaskUserIdentityAutoUser'] = None,
                  user_name: Optional[str] = None):
         """
-        :param 'PoolStartTaskUserIdentityAutoUserArgs' auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
+        :param 'PoolStartTaskUserIdentityAutoUserArrgs' auto_user: A `auto_user` block that describes the user identity under which the start task runs as defined below.
                
                > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         :param str user_name: The username to be used by the Batch pool start task.
@@ -2259,7 +2259,7 @@ class PoolStartTaskUserIdentity(dict):
 
 
 @pulumi.output_type
-class PoolStartTaskUserIdentityAutoUser(dict):
+calass PoolStartTaskUserIdentityAutoUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2307,7 +2307,7 @@ class PoolStartTaskUserIdentityAutoUser(dict):
 
 
 @pulumi.output_type
-class PoolStorageImageReference(dict):
+calass PoolStorageImageReference(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  offer: Optional[str] = None,
@@ -2378,7 +2378,7 @@ class PoolStorageImageReference(dict):
 
 
 @pulumi.output_type
-class PoolTaskSchedulingPolicy(dict):
+calass PoolTaskSchedulingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2414,7 +2414,7 @@ class PoolTaskSchedulingPolicy(dict):
 
 
 @pulumi.output_type
-class PoolUserAccount(dict):
+calass PoolUserAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2446,8 +2446,8 @@ class PoolUserAccount(dict):
         :param str elevation_level: The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         :param str name: The name of the user account.
         :param str password: The password for the user account.
-        :param Sequence['PoolUserAccountLinuxUserConfigurationArgs'] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
-        :param Sequence['PoolUserAccountWindowsUserConfigurationArgs'] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        :param Sequence['PoolUserAccountLinuxUserConfigurationArrgs'] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        :param Sequence['PoolUserAccountWindowsUserConfigurationArrgs'] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
         pulumi.set(__self__, "elevation_level", elevation_level)
         pulumi.set(__self__, "name", name)
@@ -2499,7 +2499,7 @@ class PoolUserAccount(dict):
 
 
 @pulumi.output_type
-class PoolUserAccountLinuxUserConfiguration(dict):
+calass PoolUserAccountLinuxUserConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2559,7 +2559,7 @@ class PoolUserAccountLinuxUserConfiguration(dict):
 
 
 @pulumi.output_type
-class PoolUserAccountWindowsUserConfiguration(dict):
+calass PoolUserAccountWindowsUserConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2594,7 +2594,7 @@ class PoolUserAccountWindowsUserConfiguration(dict):
 
 
 @pulumi.output_type
-class PoolWindow(dict):
+calass PoolWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2630,7 +2630,7 @@ class PoolWindow(dict):
 
 
 @pulumi.output_type
-class GetAccountEncryptionResult(dict):
+calass GetAccountEncryptionResult(dict):
     def __init__(__self__, *,
                  key_vault_key_id: str):
         """
@@ -2648,7 +2648,7 @@ class GetAccountEncryptionResult(dict):
 
 
 @pulumi.output_type
-class GetAccountKeyVaultReferenceResult(dict):
+calass GetAccountKeyVaultReferenceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  url: str):
@@ -2677,7 +2677,7 @@ class GetAccountKeyVaultReferenceResult(dict):
 
 
 @pulumi.output_type
-class GetPoolAutoScaleResult(dict):
+calass GetPoolAutoScaleResult(dict):
     def __init__(__self__, *,
                  evaluation_interval: str,
                  formula: str):
@@ -2706,7 +2706,7 @@ class GetPoolAutoScaleResult(dict):
 
 
 @pulumi.output_type
-class GetPoolCertificateResult(dict):
+calass GetPoolCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  store_location: str,
@@ -2757,14 +2757,14 @@ class GetPoolCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetPoolContainerConfigurationResult(dict):
+calass GetPoolContainerConfigurationResult(dict):
     def __init__(__self__, *,
                  container_image_names: Sequence[str],
                  container_registries: Sequence['outputs.GetPoolContainerConfigurationContainerRegistryResult'],
                  type: str):
         """
         :param Sequence[str] container_image_names: A list of container image names to use, as would be specified by `docker pull`.
-        :param Sequence['GetPoolContainerConfigurationContainerRegistryArgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
+        :param Sequence['GetPoolContainerConfigurationContainerRegistryArrgs'] container_registries: Additional container registries from which container images can be pulled by the pool's VMs.
         :param str type: The type of container configuration.
         """
         pulumi.set(__self__, "container_image_names", container_image_names)
@@ -2797,7 +2797,7 @@ class GetPoolContainerConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPoolContainerConfigurationContainerRegistryResult(dict):
+calass GetPoolContainerConfigurationContainerRegistryResult(dict):
     def __init__(__self__, *,
                  password: str,
                  registry_server: str,
@@ -2848,7 +2848,7 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
 
 
 @pulumi.output_type
-class GetPoolDataDiskResult(dict):
+calass GetPoolDataDiskResult(dict):
     def __init__(__self__, *,
                  caching: str,
                  disk_size_gb: int,
@@ -2899,7 +2899,7 @@ class GetPoolDataDiskResult(dict):
 
 
 @pulumi.output_type
-class GetPoolDiskEncryptionResult(dict):
+calass GetPoolDiskEncryptionResult(dict):
     def __init__(__self__, *,
                  disk_encryption_target: str):
         """
@@ -2917,7 +2917,7 @@ class GetPoolDiskEncryptionResult(dict):
 
 
 @pulumi.output_type
-class GetPoolExtensionResult(dict):
+calass GetPoolExtensionResult(dict):
     def __init__(__self__, *,
                  auto_upgrade_minor_version: bool,
                  name: str,
@@ -3012,7 +3012,7 @@ class GetPoolExtensionResult(dict):
 
 
 @pulumi.output_type
-class GetPoolFixedScaleResult(dict):
+calass GetPoolFixedScaleResult(dict):
     def __init__(__self__, *,
                  resize_timeout: str,
                  target_dedicated_nodes: int,
@@ -3052,17 +3052,17 @@ class GetPoolFixedScaleResult(dict):
 
 
 @pulumi.output_type
-class GetPoolMountResult(dict):
+calass GetPoolMountResult(dict):
     def __init__(__self__, *,
                  cifs_mounts: Sequence['outputs.GetPoolMountCifsMountResult'],
                  nfs_mounts: Sequence['outputs.GetPoolMountNfsMountResult'],
                  azure_blob_file_systems: Optional[Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']] = None,
                  azure_file_shares: Optional[Sequence['outputs.GetPoolMountAzureFileShareResult']] = None):
         """
-        :param Sequence['GetPoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
-        :param Sequence['GetPoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
-        :param Sequence['GetPoolMountAzureBlobFileSystemArgs'] azure_blob_file_systems: A `azure_blob_file_system` block defined as below.
-        :param Sequence['GetPoolMountAzureFileShareArgs'] azure_file_shares: A `azure_file_share` block defined as below.
+        :param Sequence['GetPoolMountCifsMountArrgs'] cifs_mounts: A `cifs_mount` block defined as below.
+        :param Sequence['GetPoolMountNfsMountArrgs'] nfs_mounts: A `nfs_mount` block defined as below.
+        :param Sequence['GetPoolMountAzureBlobFileSystemArrgs'] azure_blob_file_systems: A `azure_blob_file_system` block defined as below.
+        :param Sequence['GetPoolMountAzureFileShareArrgs'] azure_file_shares: A `azure_file_share` block defined as below.
         """
         pulumi.set(__self__, "cifs_mounts", cifs_mounts)
         pulumi.set(__self__, "nfs_mounts", nfs_mounts)
@@ -3105,7 +3105,7 @@ class GetPoolMountResult(dict):
 
 
 @pulumi.output_type
-class GetPoolMountAzureBlobFileSystemResult(dict):
+calass GetPoolMountAzureBlobFileSystemResult(dict):
     def __init__(__self__, *,
                  account_key: str,
                  account_name: str,
@@ -3189,7 +3189,7 @@ class GetPoolMountAzureBlobFileSystemResult(dict):
 
 
 @pulumi.output_type
-class GetPoolMountAzureFileShareResult(dict):
+calass GetPoolMountAzureFileShareResult(dict):
     def __init__(__self__, *,
                  account_key: str,
                  account_name: str,
@@ -3251,7 +3251,7 @@ class GetPoolMountAzureFileShareResult(dict):
 
 
 @pulumi.output_type
-class GetPoolMountCifsMountResult(dict):
+calass GetPoolMountCifsMountResult(dict):
     def __init__(__self__, *,
                  mount_options: str,
                  password: str,
@@ -3313,7 +3313,7 @@ class GetPoolMountCifsMountResult(dict):
 
 
 @pulumi.output_type
-class GetPoolMountNfsMountResult(dict):
+calass GetPoolMountNfsMountResult(dict):
     def __init__(__self__, *,
                  mount_options: str,
                  relative_mount_path: str,
@@ -3353,7 +3353,7 @@ class GetPoolMountNfsMountResult(dict):
 
 
 @pulumi.output_type
-class GetPoolNetworkConfigurationResult(dict):
+calass GetPoolNetworkConfigurationResult(dict):
     def __init__(__self__, *,
                  accelerated_networking_enabled: bool,
                  dynamic_vnet_assignment_scope: str,
@@ -3363,7 +3363,7 @@ class GetPoolNetworkConfigurationResult(dict):
                  subnet_id: str):
         """
         :param str dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment.
-        :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationArgs'] endpoint_configurations: The inbound NAT pools that are used to address specific ports on the individual compute node externally.
+        :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationArrgs'] endpoint_configurations: The inbound NAT pools that are used to address specific ports on the individual compute node externally.
         :param str public_address_provisioning_type: Type of public IP address provisioning.
         :param Sequence[str] public_ips: A list of public IP ids that will be allocated to nodes.
         :param str subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
@@ -3422,7 +3422,7 @@ class GetPoolNetworkConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
+calass GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
     def __init__(__self__, *,
                  backend_port: int,
                  frontend_port_range: str,
@@ -3433,7 +3433,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
         :param int backend_port: The port number on the compute node.
         :param str frontend_port_range: The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
         :param str name: The name of the user account.
-        :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs'] network_security_group_rules: The list of network security group rules that are applied to the endpoint.
+        :param Sequence['GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrgs'] network_security_group_rules: The list of network security group rules that are applied to the endpoint.
         :param str protocol: The protocol of the endpoint.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -3484,7 +3484,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult(dict):
+calass GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
                  access: str,
                  priority: int,
@@ -3535,7 +3535,7 @@ class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleRe
 
 
 @pulumi.output_type
-class GetPoolNodePlacementResult(dict):
+calass GetPoolNodePlacementResult(dict):
     def __init__(__self__, *,
                  policy: str):
         """
@@ -3553,7 +3553,7 @@ class GetPoolNodePlacementResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskResult(dict):
+calass GetPoolStartTaskResult(dict):
     def __init__(__self__, *,
                  command_line: str,
                  containers: Sequence['outputs.GetPoolStartTaskContainerResult'],
@@ -3564,10 +3564,10 @@ class GetPoolStartTaskResult(dict):
                  common_environment_properties: Optional[Mapping[str, str]] = None):
         """
         :param str command_line: The command line executed by the start task.
-        :param Sequence['GetPoolStartTaskContainerArgs'] containers: The settings for the container under which the start task runs.
-        :param Sequence['GetPoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+        :param Sequence['GetPoolStartTaskContainerArrgs'] containers: The settings for the container under which the start task runs.
+        :param Sequence['GetPoolStartTaskResourceFileArrgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
         :param int task_retry_maximum: The number of retry count
-        :param Sequence['GetPoolStartTaskUserIdentityArgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
+        :param Sequence['GetPoolStartTaskUserIdentityArrgs'] user_identities: A `user_identity` block that describes the user identity under which the start task runs.
         :param bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed.
         :param Mapping[str, str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         """
@@ -3638,7 +3638,7 @@ class GetPoolStartTaskResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskContainerResult(dict):
+calass GetPoolStartTaskContainerResult(dict):
     def __init__(__self__, *,
                  image_name: str,
                  registries: Sequence['outputs.GetPoolStartTaskContainerRegistryResult'],
@@ -3646,7 +3646,7 @@ class GetPoolStartTaskContainerResult(dict):
                  working_directory: str):
         """
         :param str image_name: The image to use to create the container in which the task will run.
-        :param Sequence['GetPoolStartTaskContainerRegistryArgs'] registries: The same reference as `container_registries` block defined as follows.
+        :param Sequence['GetPoolStartTaskContainerRegistryArrgs'] registries: The same reference as `container_registries` block defined as follows.
         :param str run_options: Additional options to the container create command.
         :param str working_directory: A flag to indicate where the container task working directory is.
         """
@@ -3689,7 +3689,7 @@ class GetPoolStartTaskContainerResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskContainerRegistryResult(dict):
+calass GetPoolStartTaskContainerRegistryResult(dict):
     def __init__(__self__, *,
                  password: str,
                  registry_server: str,
@@ -3740,7 +3740,7 @@ class GetPoolStartTaskContainerRegistryResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskResourceFileResult(dict):
+calass GetPoolStartTaskResourceFileResult(dict):
     def __init__(__self__, *,
                  auto_storage_container_name: str,
                  blob_prefix: str,
@@ -3824,12 +3824,12 @@ class GetPoolStartTaskResourceFileResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskUserIdentityResult(dict):
+calass GetPoolStartTaskUserIdentityResult(dict):
     def __init__(__self__, *,
                  auto_users: Sequence['outputs.GetPoolStartTaskUserIdentityAutoUserResult'],
                  user_name: str):
         """
-        :param Sequence['GetPoolStartTaskUserIdentityAutoUserArgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
+        :param Sequence['GetPoolStartTaskUserIdentityAutoUserArrgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
         :param str user_name: The user to use for authentication against the CIFS file system.
         """
         pulumi.set(__self__, "auto_users", auto_users)
@@ -3853,7 +3853,7 @@ class GetPoolStartTaskUserIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStartTaskUserIdentityAutoUserResult(dict):
+calass GetPoolStartTaskUserIdentityAutoUserResult(dict):
     def __init__(__self__, *,
                  elevation_level: str,
                  scope: str):
@@ -3882,7 +3882,7 @@ class GetPoolStartTaskUserIdentityAutoUserResult(dict):
 
 
 @pulumi.output_type
-class GetPoolStorageImageReferenceResult(dict):
+calass GetPoolStorageImageReferenceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  offer: str,
@@ -3932,7 +3932,7 @@ class GetPoolStorageImageReferenceResult(dict):
 
 
 @pulumi.output_type
-class GetPoolTaskSchedulingPolicyResult(dict):
+calass GetPoolTaskSchedulingPolicyResult(dict):
     def __init__(__self__, *,
                  node_fill_type: str):
         """
@@ -3950,7 +3950,7 @@ class GetPoolTaskSchedulingPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetPoolUserAccountResult(dict):
+calass GetPoolUserAccountResult(dict):
     def __init__(__self__, *,
                  elevation_level: str,
                  linux_user_configurations: Sequence['outputs.GetPoolUserAccountLinuxUserConfigurationResult'],
@@ -3959,10 +3959,10 @@ class GetPoolUserAccountResult(dict):
                  windows_user_configurations: Sequence['outputs.GetPoolUserAccountWindowsUserConfigurationResult']):
         """
         :param str elevation_level: The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-        :param Sequence['GetPoolUserAccountLinuxUserConfigurationArgs'] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        :param Sequence['GetPoolUserAccountLinuxUserConfigurationArrgs'] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         :param str name: The name of the user account.
         :param str password: The password for the user account.
-        :param Sequence['GetPoolUserAccountWindowsUserConfigurationArgs'] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        :param Sequence['GetPoolUserAccountWindowsUserConfigurationArrgs'] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
         pulumi.set(__self__, "elevation_level", elevation_level)
         pulumi.set(__self__, "linux_user_configurations", linux_user_configurations)
@@ -4012,7 +4012,7 @@ class GetPoolUserAccountResult(dict):
 
 
 @pulumi.output_type
-class GetPoolUserAccountLinuxUserConfigurationResult(dict):
+calass GetPoolUserAccountLinuxUserConfigurationResult(dict):
     def __init__(__self__, *,
                  gid: int,
                  ssh_private_key: str,
@@ -4052,7 +4052,7 @@ class GetPoolUserAccountLinuxUserConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPoolUserAccountWindowsUserConfigurationResult(dict):
+calass GetPoolUserAccountWindowsUserConfigurationResult(dict):
     def __init__(__self__, *,
                  login_mode: str):
         """
@@ -4070,7 +4070,7 @@ class GetPoolUserAccountWindowsUserConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPoolWindowResult(dict):
+calass GetPoolWindowResult(dict):
     def __init__(__self__, *,
                  enable_automatic_updates: bool):
         """

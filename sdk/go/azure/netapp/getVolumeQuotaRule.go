@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Volume Quota Rule.
@@ -113,12 +112,6 @@ func (o LookupVolumeQuotaRuleResultOutput) ToLookupVolumeQuotaRuleResultOutput()
 
 func (o LookupVolumeQuotaRuleResultOutput) ToLookupVolumeQuotaRuleResultOutputWithContext(ctx context.Context) LookupVolumeQuotaRuleResultOutput {
 	return o
-}
-
-func (o LookupVolumeQuotaRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVolumeQuotaRuleResult] {
-	return pulumix.Output[LookupVolumeQuotaRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

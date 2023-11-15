@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KubernetesFleetManagerArgs', 'KubernetesFleetManager']
+__all__ = ['KubernetesFleetManagerArrgs', 'KubernetesFleetManager']
 
 @pulumi.input_type
-class KubernetesFleetManagerArgs:
+calass KubernetesFleetManagerArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 hub_profile: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']] = None,
+                 hub_profile: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KubernetesFleetManager resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
-        :param pulumi.Input['KubernetesFleetManagerHubProfileArgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+        :param pulumi.Input['KubernetesFleetManagerHubProfileArrgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
@@ -53,14 +53,14 @@ class KubernetesFleetManagerArgs:
 
     @property
     @pulumi.getter(name="hubProfile")
-    def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]:
+    def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']]:
         """
         A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         """
         return pulumi.get(self, "hub_profile")
 
     @hub_profile.setter
-    def hub_profile(self, value: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]):
+    def hub_profile(self, value: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']]):
         pulumi.set(self, "hub_profile", value)
 
     @property
@@ -101,16 +101,16 @@ class KubernetesFleetManagerArgs:
 
 
 @pulumi.input_type
-class _KubernetesFleetManagerState:
+calass _KubernetesFleetManagerState:
     def __init__(__self__, *,
-                 hub_profile: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']] = None,
+                 hub_profile: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering KubernetesFleetManager resources.
-        :param pulumi.Input['KubernetesFleetManagerHubProfileArgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+        :param pulumi.Input['KubernetesFleetManagerHubProfileArrgs'] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -129,14 +129,14 @@ class _KubernetesFleetManagerState:
 
     @property
     @pulumi.getter(name="hubProfile")
-    def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]:
+    def hub_profile(self) -> Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']]:
         """
         A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         """
         return pulumi.get(self, "hub_profile")
 
     @hub_profile.setter
-    def hub_profile(self, value: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArgs']]):
+    def hub_profile(self, value: Optional[pulumi.Input['KubernetesFleetManagerHubProfileArrgs']]):
         pulumi.set(self, "hub_profile", value)
 
     @property
@@ -188,12 +188,12 @@ class _KubernetesFleetManagerState:
         pulumi.set(self, "tags", value)
 
 
-class KubernetesFleetManager(pulumi.CustomResource):
+calass KubernetesFleetManager(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']]] = None,
+                 hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -243,7 +243,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArrgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -253,7 +253,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KubernetesFleetManagerArgs,
+                 args: KubernetesFleetManagerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -298,12 +298,12 @@ class KubernetesFleetManager(pulumi.CustomResource):
          * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Fleet Manager exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Fleet Manager exists. For example `example-resource-group`. * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
 
         :param str resource_name: The name of the resource.
-        :param KubernetesFleetManagerArgs args: The arguments to use to populate this resource's properties.
+        :param KubernetesFleetManagerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KubernetesFleetManagerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KubernetesFleetManagerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -312,7 +312,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']]] = None,
+                 hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -324,7 +324,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KubernetesFleetManagerArgs.__new__(KubernetesFleetManagerArgs)
+            __props__ = KubernetesFleetManagerArrgs.__new__(KubernetesFleetManagerArrgs)
 
             __props__.__dict__["hub_profile"] = hub_profile
             __props__.__dict__["location"] = location
@@ -343,7 +343,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']]] = None,
+            hub_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -355,7 +355,7 @@ class KubernetesFleetManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesFleetManagerHubProfileArrgs']] hub_profile: A `hub_profile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] location: The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] name: Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceKeyArgs', 'WorkspaceKey']
+__all__ = ['WorkspaceKeyArrgs', 'WorkspaceKey']
 
 @pulumi.input_type
-class WorkspaceKeyArgs:
+calass WorkspaceKeyArrgs:
     def __init__(__self__, *,
                  active: pulumi.Input[bool],
                  customer_managed_key_name: pulumi.Input[str],
@@ -85,7 +85,7 @@ class WorkspaceKeyArgs:
 
 
 @pulumi.input_type
-class _WorkspaceKeyState:
+calass _WorkspaceKeyState:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None,
                  customer_managed_key_name: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class _WorkspaceKeyState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
-class WorkspaceKey(pulumi.CustomResource):
+calass WorkspaceKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -223,11 +223,11 @@ class WorkspaceKey(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
+            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArrgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -271,7 +271,7 @@ class WorkspaceKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceKeyArgs,
+                 args: WorkspaceKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Synapse Workspace keys
@@ -326,11 +326,11 @@ class WorkspaceKey(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
+            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArrgs(
                 key_versionless_id=example_key.versionless_id,
                 key_name="enckey",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -362,12 +362,12 @@ class WorkspaceKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceKeyArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -387,7 +387,7 @@ class WorkspaceKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceKeyArgs.__new__(WorkspaceKeyArgs)
+            __props__ = WorkspaceKeyArrgs.__new__(WorkspaceKeyArrgs)
 
             if active is None and not opts.urn:
                 raise TypeError("Missing required property 'active'")

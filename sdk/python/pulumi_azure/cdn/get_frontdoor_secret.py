@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorSecretResult:
+calass GetFrontdoorSecretResult:
     """
     A collection of values returned by getFrontdoorSecret.
     """
@@ -82,7 +82,7 @@ class GetFrontdoorSecretResult:
         return pulumi.get(self, "secrets")
 
 
-class AwaitableGetFrontdoorSecretResult(GetFrontdoorSecretResult):
+calass AwaitableGetFrontdoorSecretResult(GetFrontdoorSecretResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

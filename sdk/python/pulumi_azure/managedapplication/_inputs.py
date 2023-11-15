@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationPlanArgs',
-    'DefinitionAuthorizationArgs',
+    'ApplicationPlanArrgs',
+    'DefinitionAuthorizationArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationPlanArgs:
+calass ApplicationPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -102,7 +102,7 @@ class ApplicationPlanArgs:
 
 
 @pulumi.input_type
-class DefinitionAuthorizationArgs:
+calass DefinitionAuthorizationArrgs:
     def __init__(__self__, *,
                  role_definition_id: pulumi.Input[str],
                  service_principal_id: pulumi.Input[str]):

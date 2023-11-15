@@ -10,417 +10,417 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AppConnectionAuthenticationArgs',
-    'AppConnectionSecretStoreArgs',
-    'AppServiceAuthSettingsArgs',
-    'AppServiceAuthSettingsActiveDirectoryArgs',
-    'AppServiceAuthSettingsFacebookArgs',
-    'AppServiceAuthSettingsGoogleArgs',
-    'AppServiceAuthSettingsMicrosoftArgs',
-    'AppServiceAuthSettingsTwitterArgs',
-    'AppServiceBackupArgs',
-    'AppServiceBackupScheduleArgs',
-    'AppServiceConnectionStringArgs',
-    'AppServiceIdentityArgs',
-    'AppServiceLogsArgs',
-    'AppServiceLogsApplicationLogsArgs',
-    'AppServiceLogsApplicationLogsAzureBlobStorageArgs',
-    'AppServiceLogsHttpLogsArgs',
-    'AppServiceLogsHttpLogsAzureBlobStorageArgs',
-    'AppServiceLogsHttpLogsFileSystemArgs',
-    'AppServiceSiteConfigArgs',
-    'AppServiceSiteConfigCorsArgs',
-    'AppServiceSiteConfigIpRestrictionArgs',
-    'AppServiceSiteConfigIpRestrictionHeadersArgs',
-    'AppServiceSiteConfigScmIpRestrictionArgs',
-    'AppServiceSiteConfigScmIpRestrictionHeadersArgs',
-    'AppServiceSiteCredentialArgs',
-    'AppServiceSourceControlArgs',
-    'AppServiceStorageAccountArgs',
-    'CertificateOrderCertificateArgs',
-    'ConnectionAuthenticationArgs',
-    'ConnectionSecretStoreArgs',
-    'EnvironmentClusterSettingArgs',
-    'EnvironmentV3ClusterSettingArgs',
-    'EnvironmentV3InboundNetworkDependencyArgs',
-    'FunctionAppAuthSettingsArgs',
-    'FunctionAppAuthSettingsActiveDirectoryArgs',
-    'FunctionAppAuthSettingsFacebookArgs',
-    'FunctionAppAuthSettingsGoogleArgs',
-    'FunctionAppAuthSettingsMicrosoftArgs',
-    'FunctionAppAuthSettingsTwitterArgs',
-    'FunctionAppConnectionStringArgs',
-    'FunctionAppFunctionFileArgs',
-    'FunctionAppIdentityArgs',
-    'FunctionAppSiteConfigArgs',
-    'FunctionAppSiteConfigCorsArgs',
-    'FunctionAppSiteConfigIpRestrictionArgs',
-    'FunctionAppSiteConfigIpRestrictionHeadersArgs',
-    'FunctionAppSiteConfigScmIpRestrictionArgs',
-    'FunctionAppSiteConfigScmIpRestrictionHeadersArgs',
-    'FunctionAppSiteCredentialArgs',
-    'FunctionAppSlotAuthSettingsArgs',
-    'FunctionAppSlotAuthSettingsActiveDirectoryArgs',
-    'FunctionAppSlotAuthSettingsFacebookArgs',
-    'FunctionAppSlotAuthSettingsGoogleArgs',
-    'FunctionAppSlotAuthSettingsMicrosoftArgs',
-    'FunctionAppSlotAuthSettingsTwitterArgs',
-    'FunctionAppSlotConnectionStringArgs',
-    'FunctionAppSlotIdentityArgs',
-    'FunctionAppSlotSiteConfigArgs',
-    'FunctionAppSlotSiteConfigCorsArgs',
-    'FunctionAppSlotSiteConfigIpRestrictionArgs',
-    'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
-    'FunctionAppSlotSiteConfigScmIpRestrictionArgs',
-    'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
-    'FunctionAppSlotSiteCredentialArgs',
-    'FunctionAppSourceControlArgs',
-    'LinuxFunctionAppAuthSettingsArgs',
-    'LinuxFunctionAppAuthSettingsActiveDirectoryArgs',
-    'LinuxFunctionAppAuthSettingsFacebookArgs',
-    'LinuxFunctionAppAuthSettingsGithubArgs',
-    'LinuxFunctionAppAuthSettingsGoogleArgs',
-    'LinuxFunctionAppAuthSettingsMicrosoftArgs',
-    'LinuxFunctionAppAuthSettingsTwitterArgs',
-    'LinuxFunctionAppAuthSettingsV2Args',
-    'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
-    'LinuxFunctionAppAuthSettingsV2AppleV2Args',
-    'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
-    'LinuxFunctionAppAuthSettingsV2CustomOidcV2Args',
-    'LinuxFunctionAppAuthSettingsV2FacebookV2Args',
-    'LinuxFunctionAppAuthSettingsV2GithubV2Args',
-    'LinuxFunctionAppAuthSettingsV2GoogleV2Args',
-    'LinuxFunctionAppAuthSettingsV2LoginArgs',
-    'LinuxFunctionAppAuthSettingsV2MicrosoftV2Args',
-    'LinuxFunctionAppAuthSettingsV2TwitterV2Args',
-    'LinuxFunctionAppBackupArgs',
-    'LinuxFunctionAppBackupScheduleArgs',
-    'LinuxFunctionAppConnectionStringArgs',
-    'LinuxFunctionAppIdentityArgs',
-    'LinuxFunctionAppSiteConfigArgs',
-    'LinuxFunctionAppSiteConfigAppServiceLogsArgs',
-    'LinuxFunctionAppSiteConfigApplicationStackArgs',
-    'LinuxFunctionAppSiteConfigApplicationStackDockerArgs',
-    'LinuxFunctionAppSiteConfigCorsArgs',
-    'LinuxFunctionAppSiteConfigIpRestrictionArgs',
-    'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs',
-    'LinuxFunctionAppSiteConfigScmIpRestrictionArgs',
-    'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
-    'LinuxFunctionAppSiteCredentialArgs',
-    'LinuxFunctionAppSlotAuthSettingsArgs',
-    'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs',
-    'LinuxFunctionAppSlotAuthSettingsFacebookArgs',
-    'LinuxFunctionAppSlotAuthSettingsGithubArgs',
-    'LinuxFunctionAppSlotAuthSettingsGoogleArgs',
-    'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs',
-    'LinuxFunctionAppSlotAuthSettingsTwitterArgs',
-    'LinuxFunctionAppSlotAuthSettingsV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2AppleV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2GithubV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2LoginArgs',
-    'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
-    'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args',
-    'LinuxFunctionAppSlotBackupArgs',
-    'LinuxFunctionAppSlotBackupScheduleArgs',
-    'LinuxFunctionAppSlotConnectionStringArgs',
-    'LinuxFunctionAppSlotIdentityArgs',
-    'LinuxFunctionAppSlotSiteConfigArgs',
-    'LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs',
-    'LinuxFunctionAppSlotSiteConfigApplicationStackArgs',
-    'LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs',
-    'LinuxFunctionAppSlotSiteConfigCorsArgs',
-    'LinuxFunctionAppSlotSiteConfigIpRestrictionArgs',
-    'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
-    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs',
-    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
-    'LinuxFunctionAppSlotSiteCredentialArgs',
-    'LinuxFunctionAppSlotStorageAccountArgs',
-    'LinuxFunctionAppStickySettingsArgs',
-    'LinuxFunctionAppStorageAccountArgs',
-    'LinuxWebAppAuthSettingsArgs',
-    'LinuxWebAppAuthSettingsActiveDirectoryArgs',
-    'LinuxWebAppAuthSettingsFacebookArgs',
-    'LinuxWebAppAuthSettingsGithubArgs',
-    'LinuxWebAppAuthSettingsGoogleArgs',
-    'LinuxWebAppAuthSettingsMicrosoftArgs',
-    'LinuxWebAppAuthSettingsTwitterArgs',
-    'LinuxWebAppAuthSettingsV2Args',
-    'LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args',
-    'LinuxWebAppAuthSettingsV2AppleV2Args',
-    'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args',
-    'LinuxWebAppAuthSettingsV2CustomOidcV2Args',
-    'LinuxWebAppAuthSettingsV2FacebookV2Args',
-    'LinuxWebAppAuthSettingsV2GithubV2Args',
-    'LinuxWebAppAuthSettingsV2GoogleV2Args',
-    'LinuxWebAppAuthSettingsV2LoginArgs',
-    'LinuxWebAppAuthSettingsV2MicrosoftV2Args',
-    'LinuxWebAppAuthSettingsV2TwitterV2Args',
-    'LinuxWebAppBackupArgs',
-    'LinuxWebAppBackupScheduleArgs',
-    'LinuxWebAppConnectionStringArgs',
-    'LinuxWebAppIdentityArgs',
-    'LinuxWebAppLogsArgs',
-    'LinuxWebAppLogsApplicationLogsArgs',
-    'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs',
-    'LinuxWebAppLogsHttpLogsArgs',
-    'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs',
-    'LinuxWebAppLogsHttpLogsFileSystemArgs',
-    'LinuxWebAppSiteConfigArgs',
-    'LinuxWebAppSiteConfigApplicationStackArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingActionArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingTriggerArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
-    'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
-    'LinuxWebAppSiteConfigCorsArgs',
-    'LinuxWebAppSiteConfigIpRestrictionArgs',
-    'LinuxWebAppSiteConfigIpRestrictionHeadersArgs',
-    'LinuxWebAppSiteConfigScmIpRestrictionArgs',
-    'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs',
-    'LinuxWebAppSiteCredentialArgs',
-    'LinuxWebAppSlotAuthSettingsArgs',
-    'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs',
-    'LinuxWebAppSlotAuthSettingsFacebookArgs',
-    'LinuxWebAppSlotAuthSettingsGithubArgs',
-    'LinuxWebAppSlotAuthSettingsGoogleArgs',
-    'LinuxWebAppSlotAuthSettingsMicrosoftArgs',
-    'LinuxWebAppSlotAuthSettingsTwitterArgs',
-    'LinuxWebAppSlotAuthSettingsV2Args',
-    'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args',
-    'LinuxWebAppSlotAuthSettingsV2AppleV2Args',
-    'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
-    'LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args',
-    'LinuxWebAppSlotAuthSettingsV2FacebookV2Args',
-    'LinuxWebAppSlotAuthSettingsV2GithubV2Args',
-    'LinuxWebAppSlotAuthSettingsV2GoogleV2Args',
-    'LinuxWebAppSlotAuthSettingsV2LoginArgs',
-    'LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args',
-    'LinuxWebAppSlotAuthSettingsV2TwitterV2Args',
-    'LinuxWebAppSlotBackupArgs',
-    'LinuxWebAppSlotBackupScheduleArgs',
-    'LinuxWebAppSlotConnectionStringArgs',
-    'LinuxWebAppSlotIdentityArgs',
-    'LinuxWebAppSlotLogsArgs',
-    'LinuxWebAppSlotLogsApplicationLogsArgs',
-    'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
-    'LinuxWebAppSlotLogsHttpLogsArgs',
-    'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
-    'LinuxWebAppSlotLogsHttpLogsFileSystemArgs',
-    'LinuxWebAppSlotSiteConfigArgs',
-    'LinuxWebAppSlotSiteConfigApplicationStackArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
-    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
-    'LinuxWebAppSlotSiteConfigCorsArgs',
-    'LinuxWebAppSlotSiteConfigIpRestrictionArgs',
-    'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs',
-    'LinuxWebAppSlotSiteConfigScmIpRestrictionArgs',
-    'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
-    'LinuxWebAppSlotSiteCredentialArgs',
-    'LinuxWebAppSlotStorageAccountArgs',
-    'LinuxWebAppStickySettingsArgs',
-    'LinuxWebAppStorageAccountArgs',
-    'PlanSkuArgs',
-    'SlotAuthSettingsArgs',
-    'SlotAuthSettingsActiveDirectoryArgs',
-    'SlotAuthSettingsFacebookArgs',
-    'SlotAuthSettingsGoogleArgs',
-    'SlotAuthSettingsMicrosoftArgs',
-    'SlotAuthSettingsTwitterArgs',
-    'SlotConnectionStringArgs',
-    'SlotIdentityArgs',
-    'SlotLogsArgs',
-    'SlotLogsApplicationLogsArgs',
-    'SlotLogsApplicationLogsAzureBlobStorageArgs',
-    'SlotLogsHttpLogsArgs',
-    'SlotLogsHttpLogsAzureBlobStorageArgs',
-    'SlotLogsHttpLogsFileSystemArgs',
-    'SlotSiteConfigArgs',
-    'SlotSiteConfigCorsArgs',
-    'SlotSiteConfigIpRestrictionArgs',
-    'SlotSiteConfigIpRestrictionHeadersArgs',
-    'SlotSiteConfigScmIpRestrictionArgs',
-    'SlotSiteConfigScmIpRestrictionHeadersArgs',
-    'SlotSiteCredentialArgs',
-    'SlotStorageAccountArgs',
-    'SourceControlGithubActionConfigurationArgs',
-    'SourceControlGithubActionConfigurationCodeConfigurationArgs',
-    'SourceControlGithubActionConfigurationContainerConfigurationArgs',
-    'SourceControlSlotGithubActionConfigurationArgs',
-    'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs',
-    'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs',
-    'StaticSiteIdentityArgs',
-    'WindowsFunctionAppAuthSettingsArgs',
-    'WindowsFunctionAppAuthSettingsActiveDirectoryArgs',
-    'WindowsFunctionAppAuthSettingsFacebookArgs',
-    'WindowsFunctionAppAuthSettingsGithubArgs',
-    'WindowsFunctionAppAuthSettingsGoogleArgs',
-    'WindowsFunctionAppAuthSettingsMicrosoftArgs',
-    'WindowsFunctionAppAuthSettingsTwitterArgs',
-    'WindowsFunctionAppAuthSettingsV2Args',
-    'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
-    'WindowsFunctionAppAuthSettingsV2AppleV2Args',
-    'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
-    'WindowsFunctionAppAuthSettingsV2CustomOidcV2Args',
-    'WindowsFunctionAppAuthSettingsV2FacebookV2Args',
-    'WindowsFunctionAppAuthSettingsV2GithubV2Args',
-    'WindowsFunctionAppAuthSettingsV2GoogleV2Args',
-    'WindowsFunctionAppAuthSettingsV2LoginArgs',
-    'WindowsFunctionAppAuthSettingsV2MicrosoftV2Args',
-    'WindowsFunctionAppAuthSettingsV2TwitterV2Args',
-    'WindowsFunctionAppBackupArgs',
-    'WindowsFunctionAppBackupScheduleArgs',
-    'WindowsFunctionAppConnectionStringArgs',
-    'WindowsFunctionAppIdentityArgs',
-    'WindowsFunctionAppSiteConfigArgs',
-    'WindowsFunctionAppSiteConfigAppServiceLogsArgs',
-    'WindowsFunctionAppSiteConfigApplicationStackArgs',
-    'WindowsFunctionAppSiteConfigCorsArgs',
-    'WindowsFunctionAppSiteConfigIpRestrictionArgs',
-    'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs',
-    'WindowsFunctionAppSiteConfigScmIpRestrictionArgs',
-    'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
-    'WindowsFunctionAppSiteCredentialArgs',
-    'WindowsFunctionAppSlotAuthSettingsArgs',
-    'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs',
-    'WindowsFunctionAppSlotAuthSettingsFacebookArgs',
-    'WindowsFunctionAppSlotAuthSettingsGithubArgs',
-    'WindowsFunctionAppSlotAuthSettingsGoogleArgs',
-    'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs',
-    'WindowsFunctionAppSlotAuthSettingsTwitterArgs',
-    'WindowsFunctionAppSlotAuthSettingsV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2AppleV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2GithubV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2LoginArgs',
-    'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
-    'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args',
-    'WindowsFunctionAppSlotBackupArgs',
-    'WindowsFunctionAppSlotBackupScheduleArgs',
-    'WindowsFunctionAppSlotConnectionStringArgs',
-    'WindowsFunctionAppSlotIdentityArgs',
-    'WindowsFunctionAppSlotSiteConfigArgs',
-    'WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs',
-    'WindowsFunctionAppSlotSiteConfigApplicationStackArgs',
-    'WindowsFunctionAppSlotSiteConfigCorsArgs',
-    'WindowsFunctionAppSlotSiteConfigIpRestrictionArgs',
-    'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
-    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs',
-    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
-    'WindowsFunctionAppSlotSiteCredentialArgs',
-    'WindowsFunctionAppSlotStorageAccountArgs',
-    'WindowsFunctionAppStickySettingsArgs',
-    'WindowsFunctionAppStorageAccountArgs',
-    'WindowsWebAppAuthSettingsArgs',
-    'WindowsWebAppAuthSettingsActiveDirectoryArgs',
-    'WindowsWebAppAuthSettingsFacebookArgs',
-    'WindowsWebAppAuthSettingsGithubArgs',
-    'WindowsWebAppAuthSettingsGoogleArgs',
-    'WindowsWebAppAuthSettingsMicrosoftArgs',
-    'WindowsWebAppAuthSettingsTwitterArgs',
-    'WindowsWebAppAuthSettingsV2Args',
-    'WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args',
-    'WindowsWebAppAuthSettingsV2AppleV2Args',
-    'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args',
-    'WindowsWebAppAuthSettingsV2CustomOidcV2Args',
-    'WindowsWebAppAuthSettingsV2FacebookV2Args',
-    'WindowsWebAppAuthSettingsV2GithubV2Args',
-    'WindowsWebAppAuthSettingsV2GoogleV2Args',
-    'WindowsWebAppAuthSettingsV2LoginArgs',
-    'WindowsWebAppAuthSettingsV2MicrosoftV2Args',
-    'WindowsWebAppAuthSettingsV2TwitterV2Args',
-    'WindowsWebAppBackupArgs',
-    'WindowsWebAppBackupScheduleArgs',
-    'WindowsWebAppConnectionStringArgs',
-    'WindowsWebAppIdentityArgs',
-    'WindowsWebAppLogsArgs',
-    'WindowsWebAppLogsApplicationLogsArgs',
-    'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs',
-    'WindowsWebAppLogsHttpLogsArgs',
-    'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs',
-    'WindowsWebAppLogsHttpLogsFileSystemArgs',
-    'WindowsWebAppSiteConfigArgs',
-    'WindowsWebAppSiteConfigApplicationStackArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingActionArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingTriggerArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
-    'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
-    'WindowsWebAppSiteConfigCorsArgs',
-    'WindowsWebAppSiteConfigIpRestrictionArgs',
-    'WindowsWebAppSiteConfigIpRestrictionHeadersArgs',
-    'WindowsWebAppSiteConfigScmIpRestrictionArgs',
-    'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs',
-    'WindowsWebAppSiteConfigVirtualApplicationArgs',
-    'WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs',
-    'WindowsWebAppSiteCredentialArgs',
-    'WindowsWebAppSlotAuthSettingsArgs',
-    'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs',
-    'WindowsWebAppSlotAuthSettingsFacebookArgs',
-    'WindowsWebAppSlotAuthSettingsGithubArgs',
-    'WindowsWebAppSlotAuthSettingsGoogleArgs',
-    'WindowsWebAppSlotAuthSettingsMicrosoftArgs',
-    'WindowsWebAppSlotAuthSettingsTwitterArgs',
-    'WindowsWebAppSlotAuthSettingsV2Args',
-    'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args',
-    'WindowsWebAppSlotAuthSettingsV2AppleV2Args',
-    'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
-    'WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args',
-    'WindowsWebAppSlotAuthSettingsV2FacebookV2Args',
-    'WindowsWebAppSlotAuthSettingsV2GithubV2Args',
-    'WindowsWebAppSlotAuthSettingsV2GoogleV2Args',
-    'WindowsWebAppSlotAuthSettingsV2LoginArgs',
-    'WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args',
-    'WindowsWebAppSlotAuthSettingsV2TwitterV2Args',
-    'WindowsWebAppSlotBackupArgs',
-    'WindowsWebAppSlotBackupScheduleArgs',
-    'WindowsWebAppSlotConnectionStringArgs',
-    'WindowsWebAppSlotIdentityArgs',
-    'WindowsWebAppSlotLogsArgs',
-    'WindowsWebAppSlotLogsApplicationLogsArgs',
-    'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
-    'WindowsWebAppSlotLogsHttpLogsArgs',
-    'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
-    'WindowsWebAppSlotLogsHttpLogsFileSystemArgs',
-    'WindowsWebAppSlotSiteConfigArgs',
-    'WindowsWebAppSlotSiteConfigApplicationStackArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
-    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
-    'WindowsWebAppSlotSiteConfigCorsArgs',
-    'WindowsWebAppSlotSiteConfigIpRestrictionArgs',
-    'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs',
-    'WindowsWebAppSlotSiteConfigScmIpRestrictionArgs',
-    'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
-    'WindowsWebAppSlotSiteConfigVirtualApplicationArgs',
-    'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs',
-    'WindowsWebAppSlotSiteCredentialArgs',
-    'WindowsWebAppSlotStorageAccountArgs',
-    'WindowsWebAppStickySettingsArgs',
-    'WindowsWebAppStorageAccountArgs',
+    'AppConnectionAuthenticationArrgs',
+    'AppConnectionSecretStoreArrgs',
+    'AppServiceAuthSettingsArrgs',
+    'AppServiceAuthSettingsActiveDirectoryArrgs',
+    'AppServiceAuthSettingsFacebookArrgs',
+    'AppServiceAuthSettingsGoogleArrgs',
+    'AppServiceAuthSettingsMicrosoftArrgs',
+    'AppServiceAuthSettingsTwitterArrgs',
+    'AppServiceBackupArrgs',
+    'AppServiceBackupScheduleArrgs',
+    'AppServiceConnectionStringArrgs',
+    'AppServiceIdentityArrgs',
+    'AppServiceLogsArrgs',
+    'AppServiceLogsApplicationLogsArrgs',
+    'AppServiceLogsApplicationLogsAzureBlobStorageArrgs',
+    'AppServiceLogsHttpLogsArrgs',
+    'AppServiceLogsHttpLogsAzureBlobStorageArrgs',
+    'AppServiceLogsHttpLogsFileSystemArrgs',
+    'AppServiceSiteConfigArrgs',
+    'AppServiceSiteConfigCorsArrgs',
+    'AppServiceSiteConfigIpRestrictionArrgs',
+    'AppServiceSiteConfigIpRestrictionHeadersArrgs',
+    'AppServiceSiteConfigScmIpRestrictionArrgs',
+    'AppServiceSiteConfigScmIpRestrictionHeadersArrgs',
+    'AppServiceSiteCredentialArrgs',
+    'AppServiceSourceControlArrgs',
+    'AppServiceStorageAccountArrgs',
+    'CertificateOrderCertificateArrgs',
+    'ConnectionAuthenticationArrgs',
+    'ConnectionSecretStoreArrgs',
+    'EnvironmentClusterSettingArrgs',
+    'EnvironmentV3ClusterSettingArrgs',
+    'EnvironmentV3InboundNetworkDependencyArrgs',
+    'FunctionAppAuthSettingsArrgs',
+    'FunctionAppAuthSettingsActiveDirectoryArrgs',
+    'FunctionAppAuthSettingsFacebookArrgs',
+    'FunctionAppAuthSettingsGoogleArrgs',
+    'FunctionAppAuthSettingsMicrosoftArrgs',
+    'FunctionAppAuthSettingsTwitterArrgs',
+    'FunctionAppConnectionStringArrgs',
+    'FunctionAppFunctionFileArrgs',
+    'FunctionAppIdentityArrgs',
+    'FunctionAppSiteConfigArrgs',
+    'FunctionAppSiteConfigCorsArrgs',
+    'FunctionAppSiteConfigIpRestrictionArrgs',
+    'FunctionAppSiteConfigIpRestrictionHeadersArrgs',
+    'FunctionAppSiteConfigScmIpRestrictionArrgs',
+    'FunctionAppSiteConfigScmIpRestrictionHeadersArrgs',
+    'FunctionAppSiteCredentialArrgs',
+    'FunctionAppSlotAuthSettingsArrgs',
+    'FunctionAppSlotAuthSettingsActiveDirectoryArrgs',
+    'FunctionAppSlotAuthSettingsFacebookArrgs',
+    'FunctionAppSlotAuthSettingsGoogleArrgs',
+    'FunctionAppSlotAuthSettingsMicrosoftArrgs',
+    'FunctionAppSlotAuthSettingsTwitterArrgs',
+    'FunctionAppSlotConnectionStringArrgs',
+    'FunctionAppSlotIdentityArrgs',
+    'FunctionAppSlotSiteConfigArrgs',
+    'FunctionAppSlotSiteConfigCorsArrgs',
+    'FunctionAppSlotSiteConfigIpRestrictionArrgs',
+    'FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs',
+    'FunctionAppSlotSiteConfigScmIpRestrictionArrgs',
+    'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'FunctionAppSlotSiteCredentialArrgs',
+    'FunctionAppSourceControlArrgs',
+    'LinuxFunctionAppAuthSettingsArrgs',
+    'LinuxFunctionAppAuthSettingsActiveDirectoryArrgs',
+    'LinuxFunctionAppAuthSettingsFacebookArrgs',
+    'LinuxFunctionAppAuthSettingsGithubArrgs',
+    'LinuxFunctionAppAuthSettingsGoogleArrgs',
+    'LinuxFunctionAppAuthSettingsMicrosoftArrgs',
+    'LinuxFunctionAppAuthSettingsTwitterArrgs',
+    'LinuxFunctionAppAuthSettingsV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2AppleV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2GithubV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2LoginArrgs',
+    'LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs',
+    'LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs',
+    'LinuxFunctionAppBackupArrgs',
+    'LinuxFunctionAppBackupScheduleArrgs',
+    'LinuxFunctionAppConnectionStringArrgs',
+    'LinuxFunctionAppIdentityArrgs',
+    'LinuxFunctionAppSiteConfigArrgs',
+    'LinuxFunctionAppSiteConfigAppServiceLogsArrgs',
+    'LinuxFunctionAppSiteConfigApplicationStackArrgs',
+    'LinuxFunctionAppSiteConfigApplicationStackDockerArrgs',
+    'LinuxFunctionAppSiteConfigCorsArrgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionArrgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionArrgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs',
+    'LinuxFunctionAppSiteCredentialArrgs',
+    'LinuxFunctionAppSlotAuthSettingsArrgs',
+    'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs',
+    'LinuxFunctionAppSlotAuthSettingsFacebookArrgs',
+    'LinuxFunctionAppSlotAuthSettingsGithubArrgs',
+    'LinuxFunctionAppSlotAuthSettingsGoogleArrgs',
+    'LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs',
+    'LinuxFunctionAppSlotAuthSettingsTwitterArrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2LoginArrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs',
+    'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs',
+    'LinuxFunctionAppSlotBackupArrgs',
+    'LinuxFunctionAppSlotBackupScheduleArrgs',
+    'LinuxFunctionAppSlotConnectionStringArrgs',
+    'LinuxFunctionAppSlotIdentityArrgs',
+    'LinuxFunctionAppSlotSiteConfigArrgs',
+    'LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackArrgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs',
+    'LinuxFunctionAppSlotSiteConfigCorsArrgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'LinuxFunctionAppSlotSiteCredentialArrgs',
+    'LinuxFunctionAppSlotStorageAccountArrgs',
+    'LinuxFunctionAppStickySettingsArrgs',
+    'LinuxFunctionAppStorageAccountArrgs',
+    'LinuxWebAppAuthSettingsArrgs',
+    'LinuxWebAppAuthSettingsActiveDirectoryArrgs',
+    'LinuxWebAppAuthSettingsFacebookArrgs',
+    'LinuxWebAppAuthSettingsGithubArrgs',
+    'LinuxWebAppAuthSettingsGoogleArrgs',
+    'LinuxWebAppAuthSettingsMicrosoftArrgs',
+    'LinuxWebAppAuthSettingsTwitterArrgs',
+    'LinuxWebAppAuthSettingsV2Arrgs',
+    'LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'LinuxWebAppAuthSettingsV2AppleV2Arrgs',
+    'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs',
+    'LinuxWebAppAuthSettingsV2FacebookV2Arrgs',
+    'LinuxWebAppAuthSettingsV2GithubV2Arrgs',
+    'LinuxWebAppAuthSettingsV2GoogleV2Arrgs',
+    'LinuxWebAppAuthSettingsV2LoginArrgs',
+    'LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs',
+    'LinuxWebAppAuthSettingsV2TwitterV2Arrgs',
+    'LinuxWebAppBackupArrgs',
+    'LinuxWebAppBackupScheduleArrgs',
+    'LinuxWebAppConnectionStringArrgs',
+    'LinuxWebAppIdentityArrgs',
+    'LinuxWebAppLogsArrgs',
+    'LinuxWebAppLogsApplicationLogsArrgs',
+    'LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs',
+    'LinuxWebAppLogsHttpLogsArrgs',
+    'LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs',
+    'LinuxWebAppLogsHttpLogsFileSystemArrgs',
+    'LinuxWebAppSiteConfigArrgs',
+    'LinuxWebAppSiteConfigApplicationStackArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingActionArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs',
+    'LinuxWebAppSiteConfigCorsArrgs',
+    'LinuxWebAppSiteConfigIpRestrictionArrgs',
+    'LinuxWebAppSiteConfigIpRestrictionHeadersArrgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionArrgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs',
+    'LinuxWebAppSiteCredentialArrgs',
+    'LinuxWebAppSlotAuthSettingsArrgs',
+    'LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs',
+    'LinuxWebAppSlotAuthSettingsFacebookArrgs',
+    'LinuxWebAppSlotAuthSettingsGithubArrgs',
+    'LinuxWebAppSlotAuthSettingsGoogleArrgs',
+    'LinuxWebAppSlotAuthSettingsMicrosoftArrgs',
+    'LinuxWebAppSlotAuthSettingsTwitterArrgs',
+    'LinuxWebAppSlotAuthSettingsV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2LoginArrgs',
+    'LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs',
+    'LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs',
+    'LinuxWebAppSlotBackupArrgs',
+    'LinuxWebAppSlotBackupScheduleArrgs',
+    'LinuxWebAppSlotConnectionStringArrgs',
+    'LinuxWebAppSlotIdentityArrgs',
+    'LinuxWebAppSlotLogsArrgs',
+    'LinuxWebAppSlotLogsApplicationLogsArrgs',
+    'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs',
+    'LinuxWebAppSlotLogsHttpLogsArrgs',
+    'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs',
+    'LinuxWebAppSlotLogsHttpLogsFileSystemArrgs',
+    'LinuxWebAppSlotSiteConfigArrgs',
+    'LinuxWebAppSlotSiteConfigApplicationStackArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs',
+    'LinuxWebAppSlotSiteConfigCorsArrgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionArrgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'LinuxWebAppSlotSiteCredentialArrgs',
+    'LinuxWebAppSlotStorageAccountArrgs',
+    'LinuxWebAppStickySettingsArrgs',
+    'LinuxWebAppStorageAccountArrgs',
+    'PlanSkuArrgs',
+    'SlotAuthSettingsArrgs',
+    'SlotAuthSettingsActiveDirectoryArrgs',
+    'SlotAuthSettingsFacebookArrgs',
+    'SlotAuthSettingsGoogleArrgs',
+    'SlotAuthSettingsMicrosoftArrgs',
+    'SlotAuthSettingsTwitterArrgs',
+    'SlotConnectionStringArrgs',
+    'SlotIdentityArrgs',
+    'SlotLogsArrgs',
+    'SlotLogsApplicationLogsArrgs',
+    'SlotLogsApplicationLogsAzureBlobStorageArrgs',
+    'SlotLogsHttpLogsArrgs',
+    'SlotLogsHttpLogsAzureBlobStorageArrgs',
+    'SlotLogsHttpLogsFileSystemArrgs',
+    'SlotSiteConfigArrgs',
+    'SlotSiteConfigCorsArrgs',
+    'SlotSiteConfigIpRestrictionArrgs',
+    'SlotSiteConfigIpRestrictionHeadersArrgs',
+    'SlotSiteConfigScmIpRestrictionArrgs',
+    'SlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'SlotSiteCredentialArrgs',
+    'SlotStorageAccountArrgs',
+    'SourceControlGithubActionConfigurationArrgs',
+    'SourceControlGithubActionConfigurationCodeConfigurationArrgs',
+    'SourceControlGithubActionConfigurationContainerConfigurationArrgs',
+    'SourceControlSlotGithubActionConfigurationArrgs',
+    'SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs',
+    'SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs',
+    'StaticSiteIdentityArrgs',
+    'WindowsFunctionAppAuthSettingsArrgs',
+    'WindowsFunctionAppAuthSettingsActiveDirectoryArrgs',
+    'WindowsFunctionAppAuthSettingsFacebookArrgs',
+    'WindowsFunctionAppAuthSettingsGithubArrgs',
+    'WindowsFunctionAppAuthSettingsGoogleArrgs',
+    'WindowsFunctionAppAuthSettingsMicrosoftArrgs',
+    'WindowsFunctionAppAuthSettingsTwitterArrgs',
+    'WindowsFunctionAppAuthSettingsV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2AppleV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2GithubV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2LoginArrgs',
+    'WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs',
+    'WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs',
+    'WindowsFunctionAppBackupArrgs',
+    'WindowsFunctionAppBackupScheduleArrgs',
+    'WindowsFunctionAppConnectionStringArrgs',
+    'WindowsFunctionAppIdentityArrgs',
+    'WindowsFunctionAppSiteConfigArrgs',
+    'WindowsFunctionAppSiteConfigAppServiceLogsArrgs',
+    'WindowsFunctionAppSiteConfigApplicationStackArrgs',
+    'WindowsFunctionAppSiteConfigCorsArrgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionArrgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionArrgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs',
+    'WindowsFunctionAppSiteCredentialArrgs',
+    'WindowsFunctionAppSlotAuthSettingsArrgs',
+    'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs',
+    'WindowsFunctionAppSlotAuthSettingsFacebookArrgs',
+    'WindowsFunctionAppSlotAuthSettingsGithubArrgs',
+    'WindowsFunctionAppSlotAuthSettingsGoogleArrgs',
+    'WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs',
+    'WindowsFunctionAppSlotAuthSettingsTwitterArrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2LoginArrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs',
+    'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs',
+    'WindowsFunctionAppSlotBackupArrgs',
+    'WindowsFunctionAppSlotBackupScheduleArrgs',
+    'WindowsFunctionAppSlotConnectionStringArrgs',
+    'WindowsFunctionAppSlotIdentityArrgs',
+    'WindowsFunctionAppSlotSiteConfigArrgs',
+    'WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs',
+    'WindowsFunctionAppSlotSiteConfigApplicationStackArrgs',
+    'WindowsFunctionAppSlotSiteConfigCorsArrgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'WindowsFunctionAppSlotSiteCredentialArrgs',
+    'WindowsFunctionAppSlotStorageAccountArrgs',
+    'WindowsFunctionAppStickySettingsArrgs',
+    'WindowsFunctionAppStorageAccountArrgs',
+    'WindowsWebAppAuthSettingsArrgs',
+    'WindowsWebAppAuthSettingsActiveDirectoryArrgs',
+    'WindowsWebAppAuthSettingsFacebookArrgs',
+    'WindowsWebAppAuthSettingsGithubArrgs',
+    'WindowsWebAppAuthSettingsGoogleArrgs',
+    'WindowsWebAppAuthSettingsMicrosoftArrgs',
+    'WindowsWebAppAuthSettingsTwitterArrgs',
+    'WindowsWebAppAuthSettingsV2Arrgs',
+    'WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'WindowsWebAppAuthSettingsV2AppleV2Arrgs',
+    'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs',
+    'WindowsWebAppAuthSettingsV2FacebookV2Arrgs',
+    'WindowsWebAppAuthSettingsV2GithubV2Arrgs',
+    'WindowsWebAppAuthSettingsV2GoogleV2Arrgs',
+    'WindowsWebAppAuthSettingsV2LoginArrgs',
+    'WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs',
+    'WindowsWebAppAuthSettingsV2TwitterV2Arrgs',
+    'WindowsWebAppBackupArrgs',
+    'WindowsWebAppBackupScheduleArrgs',
+    'WindowsWebAppConnectionStringArrgs',
+    'WindowsWebAppIdentityArrgs',
+    'WindowsWebAppLogsArrgs',
+    'WindowsWebAppLogsApplicationLogsArrgs',
+    'WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs',
+    'WindowsWebAppLogsHttpLogsArrgs',
+    'WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs',
+    'WindowsWebAppLogsHttpLogsFileSystemArrgs',
+    'WindowsWebAppSiteConfigArrgs',
+    'WindowsWebAppSiteConfigApplicationStackArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs',
+    'WindowsWebAppSiteConfigCorsArrgs',
+    'WindowsWebAppSiteConfigIpRestrictionArrgs',
+    'WindowsWebAppSiteConfigIpRestrictionHeadersArrgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionArrgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs',
+    'WindowsWebAppSiteConfigVirtualApplicationArrgs',
+    'WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs',
+    'WindowsWebAppSiteCredentialArrgs',
+    'WindowsWebAppSlotAuthSettingsArrgs',
+    'WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs',
+    'WindowsWebAppSlotAuthSettingsFacebookArrgs',
+    'WindowsWebAppSlotAuthSettingsGithubArrgs',
+    'WindowsWebAppSlotAuthSettingsGoogleArrgs',
+    'WindowsWebAppSlotAuthSettingsMicrosoftArrgs',
+    'WindowsWebAppSlotAuthSettingsTwitterArrgs',
+    'WindowsWebAppSlotAuthSettingsV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2LoginArrgs',
+    'WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs',
+    'WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs',
+    'WindowsWebAppSlotBackupArrgs',
+    'WindowsWebAppSlotBackupScheduleArrgs',
+    'WindowsWebAppSlotConnectionStringArrgs',
+    'WindowsWebAppSlotIdentityArrgs',
+    'WindowsWebAppSlotLogsArrgs',
+    'WindowsWebAppSlotLogsApplicationLogsArrgs',
+    'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs',
+    'WindowsWebAppSlotLogsHttpLogsArrgs',
+    'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs',
+    'WindowsWebAppSlotLogsHttpLogsFileSystemArrgs',
+    'WindowsWebAppSlotSiteConfigArrgs',
+    'WindowsWebAppSlotSiteConfigApplicationStackArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs',
+    'WindowsWebAppSlotSiteConfigCorsArrgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionArrgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationArrgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs',
+    'WindowsWebAppSlotSiteCredentialArrgs',
+    'WindowsWebAppSlotStorageAccountArrgs',
+    'WindowsWebAppStickySettingsArrgs',
+    'WindowsWebAppStorageAccountArrgs',
 ]
 
 @pulumi.input_type
-class AppConnectionAuthenticationArgs:
+calass AppConnectionAuthenticationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -538,7 +538,7 @@ class AppConnectionAuthenticationArgs:
 
 
 @pulumi.input_type
-class AppConnectionSecretStoreArgs:
+calass AppConnectionSecretStoreArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str]):
         """
@@ -560,38 +560,38 @@ class AppConnectionSecretStoreArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsArgs:
+calass AppServiceAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['AppServiceAuthSettingsFacebookArgs']] = None,
-                 google: Optional[pulumi.Input['AppServiceAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['AppServiceAuthSettingsFacebookArrgs']] = None,
+                 google: Optional[pulumi.Input['AppServiceAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['AppServiceAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['AppServiceAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
-        :param pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['AppServiceAuthSettingsActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param pulumi.Input['AppServiceAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['AppServiceAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['AppServiceAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['AppServiceAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['AppServiceAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['AppServiceAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param pulumi.Input[bool] token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param pulumi.Input['AppServiceAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['AppServiceAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -636,14 +636,14 @@ class AppServiceAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -686,26 +686,26 @@ class AppServiceAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['AppServiceAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['AppServiceAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['AppServiceAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['AppServiceAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['AppServiceAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['AppServiceAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['AppServiceAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['AppServiceAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -722,14 +722,14 @@ class AppServiceAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['AppServiceAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -770,14 +770,14 @@ class AppServiceAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['AppServiceAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['AppServiceAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['AppServiceAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['AppServiceAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -794,7 +794,7 @@ class AppServiceAuthSettingsArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsActiveDirectoryArgs:
+calass AppServiceAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -848,7 +848,7 @@ class AppServiceAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsFacebookArgs:
+calass AppServiceAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
@@ -901,7 +901,7 @@ class AppServiceAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsGoogleArgs:
+calass AppServiceAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -954,7 +954,7 @@ class AppServiceAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsMicrosoftArgs:
+calass AppServiceAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -1007,7 +1007,7 @@ class AppServiceAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class AppServiceAuthSettingsTwitterArgs:
+calass AppServiceAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
@@ -1044,15 +1044,15 @@ class AppServiceAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class AppServiceBackupArgs:
+calass AppServiceBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['AppServiceBackupScheduleArgs'],
+                 schedule: pulumi.Input['AppServiceBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: Specifies the name for this Backup.
-        :param pulumi.Input['AppServiceBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['AppServiceBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to a Storage Container where Backups should be saved.
         :param pulumi.Input[bool] enabled: Is this Backup enabled? Defaults to `true`.
         """
@@ -1076,14 +1076,14 @@ class AppServiceBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['AppServiceBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['AppServiceBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['AppServiceBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['AppServiceBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -1112,7 +1112,7 @@ class AppServiceBackupArgs:
 
 
 @pulumi.input_type
-class AppServiceBackupScheduleArgs:
+calass AppServiceBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -1197,7 +1197,7 @@ class AppServiceBackupScheduleArgs:
 
 
 @pulumi.input_type
-class AppServiceConnectionStringArgs:
+calass AppServiceConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -1249,7 +1249,7 @@ class AppServiceConnectionStringArgs:
 
 
 @pulumi.input_type
-class AppServiceIdentityArgs:
+calass AppServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1323,17 +1323,17 @@ class AppServiceIdentityArgs:
 
 
 @pulumi.input_type
-class AppServiceLogsArgs:
+calass AppServiceLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['AppServiceLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['AppServiceLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages_enabled: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['AppServiceLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['AppServiceLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['AppServiceLogsApplicationLogsArgs'] application_logs: An `application_logs` block as defined below.
+        :param pulumi.Input['AppServiceLogsApplicationLogsArrgs'] application_logs: An `application_logs` block as defined below.
         :param pulumi.Input[bool] detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
         :param pulumi.Input[bool] failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
-        :param pulumi.Input['AppServiceLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined below.
+        :param pulumi.Input['AppServiceLogsHttpLogsArrgs'] http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -1346,14 +1346,14 @@ class AppServiceLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['AppServiceLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['AppServiceLogsApplicationLogsArrgs']]:
         """
         An `application_logs` block as defined below.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['AppServiceLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['AppServiceLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -1382,24 +1382,24 @@ class AppServiceLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsArrgs']]:
         """
         An `http_logs` block as defined below.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class AppServiceLogsApplicationLogsArgs:
+calass AppServiceLogsApplicationLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgs']] = None,
+                 azure_blob_storage: Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArrgs']] = None,
                  file_system_level: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         :param pulumi.Input[str] file_system_level: Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
         """
         if azure_blob_storage is not None:
@@ -1409,14 +1409,14 @@ class AppServiceLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
@@ -1433,7 +1433,7 @@ class AppServiceLogsApplicationLogsArgs:
 
 
 @pulumi.input_type
-class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
+calass AppServiceLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -1485,13 +1485,13 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class AppServiceLogsHttpLogsArgs:
+calass AppServiceLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
-        :param pulumi.Input['AppServiceLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined below.
+        :param pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['AppServiceLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined below.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -1500,31 +1500,31 @@ class AppServiceLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined below.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['AppServiceLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class AppServiceLogsHttpLogsAzureBlobStorageArgs:
+calass AppServiceLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
@@ -1561,7 +1561,7 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class AppServiceLogsHttpLogsFileSystemArgs:
+calass AppServiceLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -1598,20 +1598,20 @@ class AppServiceLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigArgs:
+calass AppServiceSiteConfigArrgs:
     def __init__(__self__, *,
                  acr_use_managed_identity_credentials: Optional[pulumi.Input[bool]] = None,
                  acr_user_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['AppServiceSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['AppServiceSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArrgs']]]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -1624,7 +1624,7 @@ class AppServiceSiteConfigArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -1641,13 +1641,13 @@ class AppServiceSiteConfigArgs:
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param pulumi.Input['AppServiceSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input['AppServiceSiteConfigCorsArrgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArrgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -1666,7 +1666,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -1808,14 +1808,14 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['AppServiceSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['AppServiceSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['AppServiceSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['AppServiceSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -1880,7 +1880,7 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArrgs']]]]:
         """
         A list of objects representing ip restrictions as defined below.
 
@@ -1889,7 +1889,7 @@ class AppServiceSiteConfigArgs:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -2042,7 +2042,7 @@ class AppServiceSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -2051,7 +2051,7 @@ class AppServiceSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -2129,7 +2129,7 @@ class AppServiceSiteConfigArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigCorsArgs:
+calass AppServiceSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -2167,10 +2167,10 @@ class AppServiceSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigIpRestrictionArgs:
+calass AppServiceSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -2178,7 +2178,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2216,14 +2216,14 @@ class AppServiceSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -2290,7 +2290,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigIpRestrictionHeadersArgs:
+calass AppServiceSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -2361,10 +2361,10 @@ class AppServiceSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigScmIpRestrictionArgs:
+calass AppServiceSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -2372,7 +2372,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArrgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2410,14 +2410,14 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -2484,7 +2484,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
+calass AppServiceSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -2555,7 +2555,7 @@ class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class AppServiceSiteCredentialArgs:
+calass AppServiceSiteCredentialArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -2594,7 +2594,7 @@ class AppServiceSiteCredentialArgs:
 
 
 @pulumi.input_type
-class AppServiceSourceControlArgs:
+calass AppServiceSourceControlArrgs:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input[str]] = None,
                  manual_integration: Optional[pulumi.Input[bool]] = None,
@@ -2681,7 +2681,7 @@ class AppServiceSourceControlArgs:
 
 
 @pulumi.input_type
-class AppServiceStorageAccountArgs:
+calass AppServiceStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -2779,7 +2779,7 @@ class AppServiceStorageAccountArgs:
 
 
 @pulumi.input_type
-class CertificateOrderCertificateArgs:
+calass CertificateOrderCertificateArrgs:
     def __init__(__self__, *,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
@@ -2850,7 +2850,7 @@ class CertificateOrderCertificateArgs:
 
 
 @pulumi.input_type
-class ConnectionAuthenticationArgs:
+calass ConnectionAuthenticationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -2968,7 +2968,7 @@ class ConnectionAuthenticationArgs:
 
 
 @pulumi.input_type
-class ConnectionSecretStoreArgs:
+calass ConnectionSecretStoreArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str]):
         """
@@ -2990,7 +2990,7 @@ class ConnectionSecretStoreArgs:
 
 
 @pulumi.input_type
-class EnvironmentClusterSettingArgs:
+calass EnvironmentClusterSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -3027,7 +3027,7 @@ class EnvironmentClusterSettingArgs:
 
 
 @pulumi.input_type
-class EnvironmentV3ClusterSettingArgs:
+calass EnvironmentV3ClusterSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -3064,7 +3064,7 @@ class EnvironmentV3ClusterSettingArgs:
 
 
 @pulumi.input_type
-class EnvironmentV3InboundNetworkDependencyArgs:
+calass EnvironmentV3InboundNetworkDependencyArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3119,38 +3119,38 @@ class EnvironmentV3InboundNetworkDependencyArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsArgs:
+calass FunctionAppAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArgs']] = None,
-                 google: Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArrgs']] = None,
+                 google: Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
-        :param pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param pulumi.Input['FunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['FunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['FunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param pulumi.Input[bool] token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param pulumi.Input['FunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3195,14 +3195,14 @@ class FunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -3245,26 +3245,26 @@ class FunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -3281,14 +3281,14 @@ class FunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -3329,14 +3329,14 @@ class FunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -3353,7 +3353,7 @@ class FunctionAppAuthSettingsArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsActiveDirectoryArgs:
+calass FunctionAppAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3407,7 +3407,7 @@ class FunctionAppAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsFacebookArgs:
+calass FunctionAppAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
@@ -3460,7 +3460,7 @@ class FunctionAppAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsGoogleArgs:
+calass FunctionAppAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -3513,7 +3513,7 @@ class FunctionAppAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsMicrosoftArgs:
+calass FunctionAppAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -3566,7 +3566,7 @@ class FunctionAppAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class FunctionAppAuthSettingsTwitterArgs:
+calass FunctionAppAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
@@ -3603,7 +3603,7 @@ class FunctionAppAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class FunctionAppConnectionStringArgs:
+calass FunctionAppConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -3655,7 +3655,7 @@ class FunctionAppConnectionStringArgs:
 
 
 @pulumi.input_type
-class FunctionAppFunctionFileArgs:
+calass FunctionAppFunctionFileArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -3692,7 +3692,7 @@ class FunctionAppFunctionFileArgs:
 
 
 @pulumi.input_type
-class FunctionAppIdentityArgs:
+calass FunctionAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3766,24 +3766,24 @@ class FunctionAppIdentityArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigArgs:
+calass FunctionAppSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['FunctionAppSiteConfigCorsArrgs']] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArrgs']]]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -3795,13 +3795,13 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
                
                > **NOTE:** This attribute is only used for slots.
-        :param pulumi.Input['FunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input['FunctionAppSiteConfigCorsArrgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArrgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
@@ -3809,7 +3809,7 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -3906,14 +3906,14 @@ class FunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['FunctionAppSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['FunctionAppSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['FunctionAppSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -3978,7 +3978,7 @@ class FunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -3987,7 +3987,7 @@ class FunctionAppSiteConfigArgs:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -4052,7 +4052,7 @@ class FunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -4061,7 +4061,7 @@ class FunctionAppSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -4129,7 +4129,7 @@ class FunctionAppSiteConfigArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigCorsArgs:
+calass FunctionAppSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -4167,10 +4167,10 @@ class FunctionAppSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigIpRestrictionArgs:
+calass FunctionAppSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -4178,7 +4178,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -4216,14 +4216,14 @@ class FunctionAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -4290,7 +4290,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigIpRestrictionHeadersArgs:
+calass FunctionAppSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -4361,10 +4361,10 @@ class FunctionAppSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigScmIpRestrictionArgs:
+calass FunctionAppSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -4372,7 +4372,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArrgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -4410,14 +4410,14 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -4484,7 +4484,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+calass FunctionAppSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -4555,7 +4555,7 @@ class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class FunctionAppSiteCredentialArgs:
+calass FunctionAppSiteCredentialArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -4594,38 +4594,38 @@ class FunctionAppSiteCredentialArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsArgs:
+calass FunctionAppSlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs']] = None,
-                 google: Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArrgs']] = None,
+                 google: Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
-        :param pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined below.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param pulumi.Input[bool] token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param pulumi.Input['FunctionAppSlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -4670,14 +4670,14 @@ class FunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -4720,26 +4720,26 @@ class FunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -4756,14 +4756,14 @@ class FunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -4804,14 +4804,14 @@ class FunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -4828,7 +4828,7 @@ class FunctionAppSlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
+calass FunctionAppSlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4882,7 +4882,7 @@ class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsFacebookArgs:
+calass FunctionAppSlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
@@ -4935,7 +4935,7 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsGoogleArgs:
+calass FunctionAppSlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -4988,7 +4988,7 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsMicrosoftArgs:
+calass FunctionAppSlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -5041,7 +5041,7 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotAuthSettingsTwitterArgs:
+calass FunctionAppSlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
@@ -5078,7 +5078,7 @@ class FunctionAppSlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotConnectionStringArgs:
+calass FunctionAppSlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -5130,7 +5130,7 @@ class FunctionAppSlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotIdentityArgs:
+calass FunctionAppSlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5204,24 +5204,24 @@ class FunctionAppSlotIdentityArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigArgs:
+calass FunctionAppSlotSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArrgs']] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArrgs']]]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -5231,19 +5231,19 @@ class FunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] always_on: Should the Function App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param pulumi.Input['FunctionAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input['FunctionAppSlotSiteConfigCorsArrgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_type: The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -5338,14 +5338,14 @@ class FunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -5410,14 +5410,14 @@ class FunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -5482,7 +5482,7 @@ class FunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -5491,7 +5491,7 @@ class FunctionAppSlotSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -5559,7 +5559,7 @@ class FunctionAppSlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigCorsArgs:
+calass FunctionAppSlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -5597,10 +5597,10 @@ class FunctionAppSlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigIpRestrictionArgs:
+calass FunctionAppSlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -5608,7 +5608,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5646,14 +5646,14 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -5720,7 +5720,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+calass FunctionAppSlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -5791,10 +5791,10 @@ class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
+calass FunctionAppSlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -5802,7 +5802,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5840,14 +5840,14 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -5914,7 +5914,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+calass FunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -5985,7 +5985,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class FunctionAppSlotSiteCredentialArgs:
+calass FunctionAppSlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -6024,7 +6024,7 @@ class FunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class FunctionAppSourceControlArgs:
+calass FunctionAppSourceControlArrgs:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input[str]] = None,
                  manual_integration: Optional[pulumi.Input[bool]] = None,
@@ -6111,42 +6111,42 @@ class FunctionAppSourceControlArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsArgs:
+calass LinuxFunctionAppAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -6193,14 +6193,14 @@ class LinuxFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -6243,38 +6243,38 @@ class LinuxFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -6293,14 +6293,14 @@ class LinuxFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -6341,14 +6341,14 @@ class LinuxFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -6365,7 +6365,7 @@ class LinuxFunctionAppAuthSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
+calass LinuxFunctionAppAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -6439,7 +6439,7 @@ class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsFacebookArgs:
+calass LinuxFunctionAppAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -6509,7 +6509,7 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsGithubArgs:
+calass LinuxFunctionAppAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -6579,7 +6579,7 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsGoogleArgs:
+calass LinuxFunctionAppAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -6649,7 +6649,7 @@ class LinuxFunctionAppAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsMicrosoftArgs:
+calass LinuxFunctionAppAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -6719,7 +6719,7 @@ class LinuxFunctionAppAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsTwitterArgs:
+calass LinuxFunctionAppAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -6773,58 +6773,58 @@ class LinuxFunctionAppAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2Args:
+calass LinuxFunctionAppAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -6873,38 +6873,38 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -6921,14 +6921,14 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -6947,14 +6947,14 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -6987,14 +6987,14 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -7035,26 +7035,26 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -7071,14 +7071,14 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -7119,14 +7119,14 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -7143,7 +7143,7 @@ class LinuxFunctionAppAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
+calass LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -7348,7 +7348,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2AppleV2Args:
+calass LinuxFunctionAppAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -7401,7 +7401,7 @@ class LinuxFunctionAppAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
+calass LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -7423,7 +7423,7 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
+calass LinuxFunctionAppAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -7603,7 +7603,7 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
+calass LinuxFunctionAppAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -7676,7 +7676,7 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2GithubV2Args:
+calass LinuxFunctionAppAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -7729,7 +7729,7 @@ class LinuxFunctionAppAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
+calass LinuxFunctionAppAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -7802,7 +7802,7 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2LoginArgs:
+calass LinuxFunctionAppAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -7989,7 +7989,7 @@ class LinuxFunctionAppAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
+calass LinuxFunctionAppAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -8062,7 +8062,7 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
+calass LinuxFunctionAppAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -8103,15 +8103,15 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppBackupArgs:
+calass LinuxFunctionAppBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['LinuxFunctionAppBackupScheduleArgs'],
+                 schedule: pulumi.Input['LinuxFunctionAppBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['LinuxFunctionAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -8135,14 +8135,14 @@ class LinuxFunctionAppBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['LinuxFunctionAppBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['LinuxFunctionAppBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['LinuxFunctionAppBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['LinuxFunctionAppBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -8171,7 +8171,7 @@ class LinuxFunctionAppBackupArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppBackupScheduleArgs:
+calass LinuxFunctionAppBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -8272,7 +8272,7 @@ class LinuxFunctionAppBackupScheduleArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppConnectionStringArgs:
+calass LinuxFunctionAppConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -8324,7 +8324,7 @@ class LinuxFunctionAppConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppIdentityArgs:
+calass LinuxFunctionAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8398,20 +8398,20 @@ class LinuxFunctionAppIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigArgs:
+calass LinuxFunctionAppSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
-                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']] = None,
+                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArrgs']] = None,
                  application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  application_insights_key: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArrgs']] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
@@ -8419,7 +8419,7 @@ class LinuxFunctionAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
@@ -8428,7 +8428,7 @@ class LinuxFunctionAppSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -8444,22 +8444,22 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArrgs'] app_service_logs: An `app_service_logs` block as defined above.
         :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
         :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
-        :param pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs'] application_stack: An `application_stack` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArrgs'] application_stack: An `application_stack` block as defined above.
                
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -8469,7 +8469,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
@@ -8614,14 +8614,14 @@ class LinuxFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="appServiceLogs")
-    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']]:
+    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArrgs']]:
         """
         An `app_service_logs` block as defined above.
         """
         return pulumi.get(self, "app_service_logs")
 
     @app_service_logs.setter
-    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgs']]):
+    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArrgs']]):
         pulumi.set(self, "app_service_logs", value)
 
     @property
@@ -8650,7 +8650,7 @@ class LinuxFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArrgs']]:
         """
         An `application_stack` block as defined above.
 
@@ -8659,7 +8659,7 @@ class LinuxFunctionAppSiteConfigArgs:
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -8688,14 +8688,14 @@ class LinuxFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -8781,14 +8781,14 @@ class LinuxFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -8888,14 +8888,14 @@ class LinuxFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -8981,7 +8981,7 @@ class LinuxFunctionAppSiteConfigArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
+calass LinuxFunctionAppSiteConfigAppServiceLogsArrgs:
     def __init__(__self__, *,
                  disk_quota_mb: Optional[pulumi.Input[int]] = None,
                  retention_period_days: Optional[pulumi.Input[int]] = None):
@@ -9024,9 +9024,9 @@ class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigApplicationStackArgs:
+calass LinuxFunctionAppSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
-                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]] = None,
+                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArrgs']]]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
                  node_version: Optional[pulumi.Input[str]] = None,
@@ -9035,7 +9035,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
                  use_custom_runtime: Optional[pulumi.Input[bool]] = None,
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArrgs']]] dockers: One or more `docker` blocks as defined below.
         :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
@@ -9063,14 +9063,14 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter
-    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]]:
+    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArrgs']]]]:
         """
         One or more `docker` blocks as defined below.
         """
         return pulumi.get(self, "dockers")
 
     @dockers.setter
-    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]]):
+    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArrgs']]]]):
         pulumi.set(self, "dockers", value)
 
     @property
@@ -9159,7 +9159,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
+calass LinuxFunctionAppSiteConfigApplicationStackDockerArrgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
                  image_tag: pulumi.Input[str],
@@ -9251,7 +9251,7 @@ class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigCorsArgs:
+calass LinuxFunctionAppSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -9290,10 +9290,10 @@ class LinuxFunctionAppSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigIpRestrictionArgs:
+calass LinuxFunctionAppSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -9301,7 +9301,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -9339,14 +9339,14 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -9413,7 +9413,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
+calass LinuxFunctionAppSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -9484,10 +9484,10 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
+calass LinuxFunctionAppSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -9495,7 +9495,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -9533,14 +9533,14 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -9607,7 +9607,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+calass LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -9678,7 +9678,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSiteCredentialArgs:
+calass LinuxFunctionAppSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -9717,42 +9717,42 @@ class LinuxFunctionAppSiteCredentialArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsArgs:
+calass LinuxFunctionAppSlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs'] active_directory: an `active_directory` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArrgs'] facebook: a `facebook` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArrgs'] github: a `github` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArrgs'] google: a `google` block as detailed below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs'] microsoft: a `microsoft` block as detailed below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArrgs'] twitter: a `twitter` block as detailed below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -9799,14 +9799,14 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs']]:
         """
         an `active_directory` block as detailed below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -9849,38 +9849,38 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArrgs']]:
         """
         a `facebook` block as detailed below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArrgs']]:
         """
         a `github` block as detailed below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArrgs']]:
         """
         a `google` block as detailed below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -9899,14 +9899,14 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs']]:
         """
         a `microsoft` block as detailed below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -9947,14 +9947,14 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArrgs']]:
         """
         a `twitter` block as detailed below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -9971,7 +9971,7 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
+calass LinuxFunctionAppSlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -10045,7 +10045,7 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
+calass LinuxFunctionAppSlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -10115,7 +10115,7 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsGithubArgs:
+calass LinuxFunctionAppSlotAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -10185,7 +10185,7 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
+calass LinuxFunctionAppSlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -10255,7 +10255,7 @@ class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
+calass LinuxFunctionAppSlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -10325,7 +10325,7 @@ class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
+calass LinuxFunctionAppSlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -10379,58 +10379,58 @@ class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -10479,38 +10479,38 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -10527,14 +10527,14 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -10553,14 +10553,14 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -10593,14 +10593,14 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -10641,26 +10641,26 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -10677,14 +10677,14 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -10725,14 +10725,14 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -10749,7 +10749,7 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -10954,7 +10954,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -11007,7 +11007,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -11029,7 +11029,7 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -11209,7 +11209,7 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -11282,7 +11282,7 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -11335,7 +11335,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -11408,7 +11408,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
+calass LinuxFunctionAppSlotAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -11595,7 +11595,7 @@ class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -11668,7 +11668,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
+calass LinuxFunctionAppSlotAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -11709,15 +11709,15 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotBackupArgs:
+calass LinuxFunctionAppSlotBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs'],
+                 schedule: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs'] schedule: a `schedule` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotBackupScheduleArrgs'] schedule: a `schedule` block as detailed below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -11741,14 +11741,14 @@ class LinuxFunctionAppSlotBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['LinuxFunctionAppSlotBackupScheduleArrgs']:
         """
         a `schedule` block as detailed below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -11777,7 +11777,7 @@ class LinuxFunctionAppSlotBackupArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotBackupScheduleArgs:
+calass LinuxFunctionAppSlotBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -11882,7 +11882,7 @@ class LinuxFunctionAppSlotBackupScheduleArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotConnectionStringArgs:
+calass LinuxFunctionAppSlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -11934,7 +11934,7 @@ class LinuxFunctionAppSlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotIdentityArgs:
+calass LinuxFunctionAppSlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -12008,21 +12008,21 @@ class LinuxFunctionAppSlotIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigArgs:
+calass LinuxFunctionAppSlotSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
-                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']] = None,
+                 app_service_logs: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs']] = None,
                  application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  application_insights_key: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArrgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
@@ -12030,7 +12030,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
@@ -12039,7 +12039,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -12053,14 +12053,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Linux Function App.
         :param pulumi.Input[str] app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs'] app_service_logs: an `app_service_logs` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs'] app_service_logs: an `app_service_logs` block as detailed below.
         :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Linux Function App to Application Insights.
         :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Linux Function App to Application Insights.
-        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs'] application_stack: an `application_stack` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArrgs'] application_stack: an `application_stack` block as detailed below.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs'] cors: a `cors` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArrgs'] cors: a `cors` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: a `default_documents` block as detailed below.
         :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -12068,7 +12068,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
@@ -12079,7 +12079,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Functions Runtime Scale Monitoring be enabled.
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
@@ -12225,14 +12225,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="appServiceLogs")
-    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']]:
+    def app_service_logs(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs']]:
         """
         an `app_service_logs` block as detailed below.
         """
         return pulumi.get(self, "app_service_logs")
 
     @app_service_logs.setter
-    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']]):
+    def app_service_logs(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs']]):
         pulumi.set(self, "app_service_logs", value)
 
     @property
@@ -12261,14 +12261,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArrgs']]:
         """
         an `application_stack` block as detailed below.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -12309,14 +12309,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArrgs']]:
         """
         a `cors` block as detailed below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -12405,14 +12405,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs']]]]:
         """
         an `ip_restriction` block as detailed below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -12515,14 +12515,14 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         a `scm_ip_restriction` block as detailed below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -12611,7 +12611,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
+calass LinuxFunctionAppSlotSiteConfigAppServiceLogsArrgs:
     def __init__(__self__, *,
                  disk_quota_mb: Optional[pulumi.Input[int]] = None,
                  retention_period_days: Optional[pulumi.Input[int]] = None):
@@ -12654,9 +12654,9 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
+calass LinuxFunctionAppSlotSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
-                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]] = None,
+                 dockers: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs']]]] = None,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
                  node_version: Optional[pulumi.Input[str]] = None,
@@ -12665,7 +12665,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_custom_runtime: Optional[pulumi.Input[bool]] = None,
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs']]] dockers: a `docker` block as detailed below.
         :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
@@ -12693,14 +12693,14 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
 
     @property
     @pulumi.getter
-    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]]:
+    def dockers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs']]]]:
         """
         a `docker` block as detailed below.
         """
         return pulumi.get(self, "dockers")
 
     @dockers.setter
-    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]]):
+    def dockers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs']]]]):
         pulumi.set(self, "dockers", value)
 
     @property
@@ -12789,7 +12789,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
+calass LinuxFunctionAppSlotSiteConfigApplicationStackDockerArrgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
                  image_tag: pulumi.Input[str],
@@ -12881,7 +12881,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigCorsArgs:
+calass LinuxFunctionAppSlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -12920,10 +12920,10 @@ class LinuxFunctionAppSlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
+calass LinuxFunctionAppSlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -12931,7 +12931,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -12969,14 +12969,14 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         a `headers` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -13043,7 +13043,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+calass LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -13114,10 +13114,10 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
+calass LinuxFunctionAppSlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -13125,7 +13125,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -13163,14 +13163,14 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         a `headers` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -13237,7 +13237,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+calass LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -13308,7 +13308,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotSiteCredentialArgs:
+calass LinuxFunctionAppSlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -13347,7 +13347,7 @@ class LinuxFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppSlotStorageAccountArgs:
+calass LinuxFunctionAppSlotStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -13445,7 +13445,7 @@ class LinuxFunctionAppSlotStorageAccountArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppStickySettingsArgs:
+calass LinuxFunctionAppStickySettingsArrgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -13484,7 +13484,7 @@ class LinuxFunctionAppStickySettingsArgs:
 
 
 @pulumi.input_type
-class LinuxFunctionAppStorageAccountArgs:
+calass LinuxFunctionAppStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -13582,42 +13582,42 @@ class LinuxFunctionAppStorageAccountArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsArgs:
+calass LinuxWebAppAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['LinuxWebAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -13664,14 +13664,14 @@ class LinuxWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -13714,38 +13714,38 @@ class LinuxWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -13764,14 +13764,14 @@ class LinuxWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -13812,14 +13812,14 @@ class LinuxWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -13836,7 +13836,7 @@ class LinuxWebAppAuthSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsActiveDirectoryArgs:
+calass LinuxWebAppAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -13910,7 +13910,7 @@ class LinuxWebAppAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsFacebookArgs:
+calass LinuxWebAppAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -13980,7 +13980,7 @@ class LinuxWebAppAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsGithubArgs:
+calass LinuxWebAppAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -14050,7 +14050,7 @@ class LinuxWebAppAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsGoogleArgs:
+calass LinuxWebAppAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -14120,7 +14120,7 @@ class LinuxWebAppAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsMicrosoftArgs:
+calass LinuxWebAppAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -14190,7 +14190,7 @@ class LinuxWebAppAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsTwitterArgs:
+calass LinuxWebAppAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -14244,58 +14244,58 @@ class LinuxWebAppAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2Args:
+calass LinuxWebAppAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings. 
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -14344,38 +14344,38 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['LinuxWebAppAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -14392,14 +14392,14 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -14418,14 +14418,14 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -14458,14 +14458,14 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -14506,26 +14506,26 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -14542,14 +14542,14 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -14590,14 +14590,14 @@ class LinuxWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -14614,7 +14614,7 @@ class LinuxWebAppAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
+calass LinuxWebAppAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -14819,7 +14819,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2AppleV2Args:
+calass LinuxWebAppAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -14872,7 +14872,7 @@ class LinuxWebAppAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args:
+calass LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -14894,7 +14894,7 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
+calass LinuxWebAppAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -15070,7 +15070,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2FacebookV2Args:
+calass LinuxWebAppAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -15143,7 +15143,7 @@ class LinuxWebAppAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2GithubV2Args:
+calass LinuxWebAppAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -15196,7 +15196,7 @@ class LinuxWebAppAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2GoogleV2Args:
+calass LinuxWebAppAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -15269,7 +15269,7 @@ class LinuxWebAppAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2LoginArgs:
+calass LinuxWebAppAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -15456,7 +15456,7 @@ class LinuxWebAppAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2MicrosoftV2Args:
+calass LinuxWebAppAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -15529,7 +15529,7 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppAuthSettingsV2TwitterV2Args:
+calass LinuxWebAppAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -15570,15 +15570,15 @@ class LinuxWebAppAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppBackupArgs:
+calass LinuxWebAppBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['LinuxWebAppBackupScheduleArgs'],
+                 schedule: pulumi.Input['LinuxWebAppBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['LinuxWebAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['LinuxWebAppBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -15602,14 +15602,14 @@ class LinuxWebAppBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['LinuxWebAppBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['LinuxWebAppBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['LinuxWebAppBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['LinuxWebAppBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -15638,7 +15638,7 @@ class LinuxWebAppBackupArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppBackupScheduleArgs:
+calass LinuxWebAppBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -15739,7 +15739,7 @@ class LinuxWebAppBackupScheduleArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppConnectionStringArgs:
+calass LinuxWebAppConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -15791,7 +15791,7 @@ class LinuxWebAppConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppIdentityArgs:
+calass LinuxWebAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -15865,17 +15865,17 @@ class LinuxWebAppIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppLogsArgs:
+calass LinuxWebAppLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input['LinuxWebAppLogsApplicationLogsArrgs'] application_logs: A `application_logs` block as defined above.
         :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled?
         :param pulumi.Input[bool] failed_request_tracing: Should the failed request tracing be enabled?
-        :param pulumi.Input['LinuxWebAppLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsArrgs'] http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -15888,14 +15888,14 @@ class LinuxWebAppLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArrgs']]:
         """
         A `application_logs` block as defined above.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -15924,25 +15924,25 @@ class LinuxWebAppLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArrgs']]:
         """
         An `http_logs` block as defined above.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class LinuxWebAppLogsApplicationLogsArgs:
+calass LinuxWebAppLogsApplicationLogsArrgs:
     def __init__(__self__, *,
                  file_system_level: pulumi.Input[str],
-                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs']] = None):
         """
         :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -15962,19 +15962,19 @@ class LinuxWebAppLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
 
 @pulumi.input_type
-class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
+calass LinuxWebAppLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -16026,13 +16026,13 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppLogsHttpLogsArgs:
+calass LinuxWebAppLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined below.
-        :param pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined below.
+        :param pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -16041,31 +16041,31 @@ class LinuxWebAppLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         A `azure_blob_storage_http` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined above.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
+calass LinuxWebAppLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[str],
                  retention_in_days: Optional[pulumi.Input[int]] = None):
@@ -16103,7 +16103,7 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppLogsHttpLogsFileSystemArgs:
+calass LinuxWebAppLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -16140,25 +16140,25 @@ class LinuxWebAppLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigArgs:
+calass LinuxWebAppSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArrgs']] = None,
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']] = None,
+                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArrgs']] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
@@ -16166,7 +16166,7 @@ class LinuxWebAppSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -16181,24 +16181,24 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Linux Web App.
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Linux Web App is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
-        :param pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigApplicationStackArrgs'] application_stack: A `application_stack` block as defined above.
         :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArrgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['LinuxWebAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
@@ -16323,14 +16323,14 @@ class LinuxWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArrgs']]:
         """
         A `application_stack` block as defined above.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -16347,14 +16347,14 @@ class LinuxWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="autoHealSetting")
-    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']]:
+    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArrgs']]:
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         """
         return pulumi.get(self, "auto_heal_setting")
 
     @auto_heal_setting.setter
-    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgs']]):
+    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArrgs']]):
         pulumi.set(self, "auto_heal_setting", value)
 
     @property
@@ -16383,14 +16383,14 @@ class LinuxWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -16461,14 +16461,14 @@ class LinuxWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -16554,14 +16554,14 @@ class LinuxWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -16647,7 +16647,7 @@ class LinuxWebAppSiteConfigArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigApplicationStackArgs:
+calass LinuxWebAppSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  docker_image: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
@@ -16918,13 +16918,13 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingArrgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']] = None,
-                 trigger: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']] = None):
+                 action: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArrgs']] = None,
+                 trigger: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
-        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArrgs'] action: A `action` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -16933,31 +16933,31 @@ class LinuxWebAppSiteConfigAutoHealSettingArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArrgs']]:
         """
         A `action` block as defined above.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']]:
+    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs']]:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']]):
+    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs']]):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str],
                  minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
@@ -16995,15 +16995,15 @@ class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerArrgs:
     def __init__(__self__, *,
-                 requests: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+                 requests: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]] = None):
         """
-        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
@@ -17014,43 +17014,43 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']]:
         """
         A `requests` block as defined above.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']]):
         pulumi.set(self, "requests", value)
 
     @property
     @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]:
         """
         One or more `slow_request` blocks as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
     @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]):
         pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]:
         """
         One or more `status_code` blocks as defined above.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]):
         pulumi.set(self, "status_codes", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str]):
@@ -17087,7 +17087,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -17155,7 +17155,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+calass LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -17255,7 +17255,7 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigCorsArgs:
+calass LinuxWebAppSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -17294,10 +17294,10 @@ class LinuxWebAppSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigIpRestrictionArgs:
+calass LinuxWebAppSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -17305,7 +17305,7 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -17343,14 +17343,14 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -17417,7 +17417,7 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
+calass LinuxWebAppSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -17488,10 +17488,10 @@ class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigScmIpRestrictionArgs:
+calass LinuxWebAppSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -17499,7 +17499,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -17537,14 +17537,14 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -17611,7 +17611,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
+calass LinuxWebAppSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -17682,7 +17682,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSiteCredentialArgs:
+calass LinuxWebAppSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -17717,42 +17717,42 @@ class LinuxWebAppSiteCredentialArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsArgs:
+calass LinuxWebAppSlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Linux Web App?
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -17799,14 +17799,14 @@ class LinuxWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -17849,38 +17849,38 @@ class LinuxWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -17899,14 +17899,14 @@ class LinuxWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -17947,14 +17947,14 @@ class LinuxWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -17971,7 +17971,7 @@ class LinuxWebAppSlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
+calass LinuxWebAppSlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -18045,7 +18045,7 @@ class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsFacebookArgs:
+calass LinuxWebAppSlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -18115,7 +18115,7 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsGithubArgs:
+calass LinuxWebAppSlotAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -18185,7 +18185,7 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsGoogleArgs:
+calass LinuxWebAppSlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -18255,7 +18255,7 @@ class LinuxWebAppSlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
+calass LinuxWebAppSlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -18325,7 +18325,7 @@ class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsTwitterArgs:
+calass LinuxWebAppSlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -18379,58 +18379,58 @@ class LinuxWebAppSlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2Args:
+calass LinuxWebAppSlotAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -18479,38 +18479,38 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -18527,14 +18527,14 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -18553,14 +18553,14 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -18593,14 +18593,14 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -18641,26 +18641,26 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -18677,14 +18677,14 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -18725,14 +18725,14 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -18749,7 +18749,7 @@ class LinuxWebAppSlotAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+calass LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -18954,7 +18954,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2AppleV2Args:
+calass LinuxWebAppSlotAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -19007,7 +19007,7 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+calass LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -19029,7 +19029,7 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
+calass LinuxWebAppSlotAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -19205,7 +19205,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2FacebookV2Args:
+calass LinuxWebAppSlotAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -19278,7 +19278,7 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
+calass LinuxWebAppSlotAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -19331,7 +19331,7 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2GoogleV2Args:
+calass LinuxWebAppSlotAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -19404,7 +19404,7 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2LoginArgs:
+calass LinuxWebAppSlotAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -19591,7 +19591,7 @@ class LinuxWebAppSlotAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args:
+calass LinuxWebAppSlotAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -19664,7 +19664,7 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotAuthSettingsV2TwitterV2Args:
+calass LinuxWebAppSlotAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -19705,15 +19705,15 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotBackupArgs:
+calass LinuxWebAppSlotBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['LinuxWebAppSlotBackupScheduleArgs'],
+                 schedule: pulumi.Input['LinuxWebAppSlotBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['LinuxWebAppSlotBackupScheduleArgs'] schedule: An `schedule` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotBackupScheduleArrgs'] schedule: An `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -19737,14 +19737,14 @@ class LinuxWebAppSlotBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['LinuxWebAppSlotBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['LinuxWebAppSlotBackupScheduleArrgs']:
         """
         An `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['LinuxWebAppSlotBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['LinuxWebAppSlotBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -19773,7 +19773,7 @@ class LinuxWebAppSlotBackupArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotBackupScheduleArgs:
+calass LinuxWebAppSlotBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -19874,7 +19874,7 @@ class LinuxWebAppSlotBackupScheduleArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotConnectionStringArgs:
+calass LinuxWebAppSlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -19926,7 +19926,7 @@ class LinuxWebAppSlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotIdentityArgs:
+calass LinuxWebAppSlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -20000,17 +20000,17 @@ class LinuxWebAppSlotIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsArgs:
+calass LinuxWebAppSlotLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArrgs'] application_logs: A `application_logs` block as defined above.
         :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled?
         :param pulumi.Input[bool] failed_request_tracing: Should the failed request tracing be enabled?
-        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsArrgs'] http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -20023,14 +20023,14 @@ class LinuxWebAppSlotLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArrgs']]:
         """
         A `application_logs` block as defined above.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -20059,25 +20059,25 @@ class LinuxWebAppSlotLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArrgs']]:
         """
         An `http_logs` block as defined above.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsApplicationLogsArgs:
+calass LinuxWebAppSlotLogsApplicationLogsArrgs:
     def __init__(__self__, *,
                  file_system_level: pulumi.Input[str],
-                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']] = None):
         """
         :param pulumi.Input[str] file_system_level: Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
-        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -20097,19 +20097,19 @@ class LinuxWebAppSlotLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
+calass LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -20161,13 +20161,13 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsHttpLogsArgs:
+calass LinuxWebAppSlotLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -20176,31 +20176,31 @@ class LinuxWebAppSlotLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         A `azure_blob_storage_http` block as defined above.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined above.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
+calass LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[str],
                  retention_in_days: Optional[pulumi.Input[int]] = None):
@@ -20238,7 +20238,7 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
+calass LinuxWebAppSlotLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -20275,26 +20275,26 @@ class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigArgs:
+calass LinuxWebAppSlotSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArrgs']] = None,
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
+                 auto_heal_setting: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArrgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
@@ -20302,7 +20302,7 @@ class LinuxWebAppSlotSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -20315,27 +20315,27 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Linux Web App Slot.
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Linux Web App Slot is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArrgs'] application_stack: A `application_stack` block as defined above.
         :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArrgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] auto_swap_slot_name: The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
                > **Note:** This must be a valid slot name on the target Linux Web App.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
@@ -20460,14 +20460,14 @@ class LinuxWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArrgs']]:
         """
         A `application_stack` block as defined above.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -20484,14 +20484,14 @@ class LinuxWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="autoHealSetting")
-    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']]:
+    def auto_heal_setting(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArrgs']]:
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         """
         return pulumi.get(self, "auto_heal_setting")
 
     @auto_heal_setting.setter
-    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']]):
+    def auto_heal_setting(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArrgs']]):
         pulumi.set(self, "auto_heal_setting", value)
 
     @property
@@ -20534,14 +20534,14 @@ class LinuxWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -20612,14 +20612,14 @@ class LinuxWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -20705,14 +20705,14 @@ class LinuxWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -20798,7 +20798,7 @@ class LinuxWebAppSlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigApplicationStackArgs:
+calass LinuxWebAppSlotSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  docker_image: Optional[pulumi.Input[str]] = None,
                  docker_image_name: Optional[pulumi.Input[str]] = None,
@@ -21069,13 +21069,13 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingArrgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']] = None,
-                 trigger: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']] = None):
+                 action: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs']] = None,
+                 trigger: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']] = None):
         """
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs'] action: A `action` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -21084,31 +21084,31 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs']]:
         """
         A `action` block as defined above.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']]:
+    def trigger(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']]:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']]):
+    def trigger(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']]):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str],
                  minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
@@ -21146,15 +21146,15 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArrgs:
     def __init__(__self__, *,
-                 requests: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+                 requests: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]] = None):
         """
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if requests is not None:
             pulumi.set(__self__, "requests", requests)
@@ -21165,43 +21165,43 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+    def requests(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']]:
         """
         A `requests` block as defined above.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+    def requests(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']]):
         pulumi.set(self, "requests", value)
 
     @property
     @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]:
         """
         One or more `slow_request` blocks as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
     @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]):
         pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]:
         """
         One or more `status_code` blocks as defined above.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]):
         pulumi.set(self, "status_codes", value)
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str]):
@@ -21238,7 +21238,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -21306,7 +21306,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+calass LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -21406,7 +21406,7 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigCorsArgs:
+calass LinuxWebAppSlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -21445,10 +21445,10 @@ class LinuxWebAppSlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
+calass LinuxWebAppSlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -21456,7 +21456,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -21494,14 +21494,14 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -21568,7 +21568,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
+calass LinuxWebAppSlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -21639,10 +21639,10 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
+calass LinuxWebAppSlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -21650,7 +21650,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -21688,14 +21688,14 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -21762,7 +21762,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+calass LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -21833,7 +21833,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotSiteCredentialArgs:
+calass LinuxWebAppSlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -21868,7 +21868,7 @@ class LinuxWebAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppSlotStorageAccountArgs:
+calass LinuxWebAppSlotStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -21966,7 +21966,7 @@ class LinuxWebAppSlotStorageAccountArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppStickySettingsArgs:
+calass LinuxWebAppStickySettingsArrgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -22005,7 +22005,7 @@ class LinuxWebAppStickySettingsArgs:
 
 
 @pulumi.input_type
-class LinuxWebAppStorageAccountArgs:
+calass LinuxWebAppStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -22103,7 +22103,7 @@ class LinuxWebAppStorageAccountArgs:
 
 
 @pulumi.input_type
-class PlanSkuArgs:
+calass PlanSkuArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[str],
                  tier: pulumi.Input[str],
@@ -22156,38 +22156,38 @@ class PlanSkuArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsArgs:
+calass SlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['SlotAuthSettingsFacebookArgs']] = None,
-                 google: Optional[pulumi.Input['SlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['SlotAuthSettingsFacebookArrgs']] = None,
+                 google: Optional[pulumi.Input['SlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['SlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['SlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['SlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['SlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Is Authentication enabled?
-        :param pulumi.Input['SlotAuthSettingsActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['SlotAuthSettingsActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app.
         :param pulumi.Input[str] default_provider: The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
                
                > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
-        :param pulumi.Input['SlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['SlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['SlotAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['SlotAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['SlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['SlotAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The runtime version of the Authentication/Authorization module.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
         :param pulumi.Input[bool] token_store_enabled: If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
-        :param pulumi.Input['SlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['SlotAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -22232,14 +22232,14 @@ class SlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['SlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -22282,26 +22282,26 @@ class SlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['SlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['SlotAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['SlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['SlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['SlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['SlotAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['SlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['SlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -22318,14 +22318,14 @@ class SlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['SlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['SlotAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['SlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['SlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -22366,14 +22366,14 @@ class SlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['SlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['SlotAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['SlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['SlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -22390,7 +22390,7 @@ class SlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsActiveDirectoryArgs:
+calass SlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -22444,7 +22444,7 @@ class SlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsFacebookArgs:
+calass SlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: pulumi.Input[str],
@@ -22497,7 +22497,7 @@ class SlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsGoogleArgs:
+calass SlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -22550,7 +22550,7 @@ class SlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsMicrosoftArgs:
+calass SlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
@@ -22603,7 +22603,7 @@ class SlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class SlotAuthSettingsTwitterArgs:
+calass SlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: pulumi.Input[str]):
@@ -22640,7 +22640,7 @@ class SlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class SlotConnectionStringArgs:
+calass SlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -22692,7 +22692,7 @@ class SlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class SlotIdentityArgs:
+calass SlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -22766,17 +22766,17 @@ class SlotIdentityArgs:
 
 
 @pulumi.input_type
-class SlotLogsArgs:
+calass SlotLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['SlotLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['SlotLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages_enabled: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['SlotLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['SlotLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['SlotLogsApplicationLogsArgs'] application_logs: An `application_logs` block as defined below.
+        :param pulumi.Input['SlotLogsApplicationLogsArrgs'] application_logs: An `application_logs` block as defined below.
         :param pulumi.Input[bool] detailed_error_messages_enabled: Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
         :param pulumi.Input[bool] failed_request_tracing_enabled: Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
-        :param pulumi.Input['SlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined below.
+        :param pulumi.Input['SlotLogsHttpLogsArrgs'] http_logs: An `http_logs` block as defined below.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -22789,14 +22789,14 @@ class SlotLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['SlotLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['SlotLogsApplicationLogsArrgs']]:
         """
         An `application_logs` block as defined below.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['SlotLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['SlotLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -22825,24 +22825,24 @@ class SlotLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['SlotLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['SlotLogsHttpLogsArrgs']]:
         """
         An `http_logs` block as defined below.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['SlotLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['SlotLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class SlotLogsApplicationLogsArgs:
+calass SlotLogsApplicationLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArgs']] = None,
+                 azure_blob_storage: Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArrgs']] = None,
                  file_system_level: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         :param pulumi.Input[str] file_system_level: The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
         """
         if azure_blob_storage is not None:
@@ -22852,14 +22852,14 @@ class SlotLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
@@ -22876,7 +22876,7 @@ class SlotLogsApplicationLogsArgs:
 
 
 @pulumi.input_type
-class SlotLogsApplicationLogsAzureBlobStorageArgs:
+calass SlotLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -22928,13 +22928,13 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class SlotLogsHttpLogsArgs:
+calass SlotLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
-        :param pulumi.Input['SlotLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined below.
+        :param pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['SlotLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined below.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -22943,31 +22943,31 @@ class SlotLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined below.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['SlotLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class SlotLogsHttpLogsAzureBlobStorageArgs:
+calass SlotLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  sas_url: pulumi.Input[str]):
@@ -23004,7 +23004,7 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class SlotLogsHttpLogsFileSystemArgs:
+calass SlotLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -23041,20 +23041,20 @@ class SlotLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigArgs:
+calass SlotSiteConfigArrgs:
     def __init__(__self__, *,
                  acr_use_managed_identity_credentials: Optional[pulumi.Input[bool]] = None,
                  acr_user_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['SlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['SlotSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArrgs']]]] = None,
                  java_container: Optional[pulumi.Input[str]] = None,
                  java_container_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -23067,7 +23067,7 @@ class SlotSiteConfigArgs:
                  python_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
@@ -23084,13 +23084,13 @@ class SlotSiteConfigArgs:
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         :param pulumi.Input[str] app_command_line: App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap to during deployment
-        :param pulumi.Input['SlotSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input['SlotSiteConfigCorsArrgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: The ordering of default documents to load, if an address isn't specified.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param pulumi.Input[str] health_check_path: The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
         :param pulumi.Input[bool] http2_enabled: Is HTTP2 Enabled on this App Service? Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: A list of objects representing ip restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] java_container: The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
@@ -23109,7 +23109,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -23250,14 +23250,14 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['SlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['SlotSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['SlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['SlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -23322,7 +23322,7 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArrgs']]]]:
         """
         A list of objects representing ip restrictions as defined below.
 
@@ -23331,7 +23331,7 @@ class SlotSiteConfigArgs:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -23484,7 +23484,7 @@ class SlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -23493,7 +23493,7 @@ class SlotSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -23568,7 +23568,7 @@ class SlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigCorsArgs:
+calass SlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -23606,10 +23606,10 @@ class SlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigIpRestrictionArgs:
+calass SlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -23617,7 +23617,7 @@ class SlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -23655,14 +23655,14 @@ class SlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -23729,7 +23729,7 @@ class SlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigIpRestrictionHeadersArgs:
+calass SlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -23800,10 +23800,10 @@ class SlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigScmIpRestrictionArgs:
+calass SlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -23811,7 +23811,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -23849,14 +23849,14 @@ class SlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -23923,7 +23923,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class SlotSiteConfigScmIpRestrictionHeadersArgs:
+calass SlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -23994,7 +23994,7 @@ class SlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class SlotSiteCredentialArgs:
+calass SlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -24033,7 +24033,7 @@ class SlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class SlotStorageAccountArgs:
+calass SlotStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -24131,15 +24131,15 @@ class SlotStorageAccountArgs:
 
 
 @pulumi.input_type
-class SourceControlGithubActionConfigurationArgs:
+calass SourceControlGithubActionConfigurationArrgs:
     def __init__(__self__, *,
-                 code_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']] = None,
-                 container_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']] = None,
+                 code_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArrgs']] = None,
+                 container_configuration: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArrgs']] = None,
                  generate_workflow_file: Optional[pulumi.Input[bool]] = None,
                  linux_action: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as defined above.
+        :param pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArrgs'] code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArrgs'] container_configuration: A `container_configuration` block as defined above.
         :param pulumi.Input[bool] generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
         """
         if code_configuration is not None:
@@ -24153,26 +24153,26 @@ class SourceControlGithubActionConfigurationArgs:
 
     @property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']]:
+    def code_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArrgs']]:
         """
         A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs']]):
+    def code_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArrgs']]):
         pulumi.set(self, "code_configuration", value)
 
     @property
     @pulumi.getter(name="containerConfiguration")
-    def container_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']]:
+    def container_configuration(self) -> Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArrgs']]:
         """
         A `container_configuration` block as defined above.
         """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
-    def container_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs']]):
+    def container_configuration(self, value: Optional[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArrgs']]):
         pulumi.set(self, "container_configuration", value)
 
     @property
@@ -24198,7 +24198,7 @@ class SourceControlGithubActionConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceControlGithubActionConfigurationCodeConfigurationArgs:
+calass SourceControlGithubActionConfigurationCodeConfigurationArrgs:
     def __init__(__self__, *,
                  runtime_stack: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
@@ -24235,7 +24235,7 @@ class SourceControlGithubActionConfigurationCodeConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceControlGithubActionConfigurationContainerConfigurationArgs:
+calass SourceControlGithubActionConfigurationContainerConfigurationArrgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
                  registry_url: pulumi.Input[str],
@@ -24304,15 +24304,15 @@ class SourceControlGithubActionConfigurationContainerConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceControlSlotGithubActionConfigurationArgs:
+calass SourceControlSlotGithubActionConfigurationArrgs:
     def __init__(__self__, *,
-                 code_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']] = None,
-                 container_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']] = None,
+                 code_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs']] = None,
+                 container_configuration: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs']] = None,
                  generate_workflow_file: Optional[pulumi.Input[bool]] = None,
                  linux_action: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
-        :param pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as detailed below.
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs'] code_configuration: A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs'] container_configuration: A `container_configuration` block as detailed below.
         :param pulumi.Input[bool] generate_workflow_file: Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
         :param pulumi.Input[bool] linux_action: Denotes this action uses a Linux base image.
         """
@@ -24327,26 +24327,26 @@ class SourceControlSlotGithubActionConfigurationArgs:
 
     @property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']]:
+    def code_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs']]:
         """
         A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']]):
+    def code_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs']]):
         pulumi.set(self, "code_configuration", value)
 
     @property
     @pulumi.getter(name="containerConfiguration")
-    def container_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']]:
+    def container_configuration(self) -> Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs']]:
         """
         A `container_configuration` block as detailed below.
         """
         return pulumi.get(self, "container_configuration")
 
     @container_configuration.setter
-    def container_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']]):
+    def container_configuration(self, value: Optional[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs']]):
         pulumi.set(self, "container_configuration", value)
 
     @property
@@ -24375,7 +24375,7 @@ class SourceControlSlotGithubActionConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
+calass SourceControlSlotGithubActionConfigurationCodeConfigurationArrgs:
     def __init__(__self__, *,
                  runtime_stack: pulumi.Input[str],
                  runtime_version: pulumi.Input[str]):
@@ -24412,7 +24412,7 @@ class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
 
 
 @pulumi.input_type
-class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
+calass SourceControlSlotGithubActionConfigurationContainerConfigurationArrgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
                  registry_url: pulumi.Input[str],
@@ -24481,7 +24481,7 @@ class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
 
 
 @pulumi.input_type
-class StaticSiteIdentityArgs:
+calass StaticSiteIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24547,42 +24547,42 @@ class StaticSiteIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsArgs:
+calass WindowsFunctionAppAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Function App?
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -24629,14 +24629,14 @@ class WindowsFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -24679,38 +24679,38 @@ class WindowsFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -24729,14 +24729,14 @@ class WindowsFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -24777,14 +24777,14 @@ class WindowsFunctionAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -24801,7 +24801,7 @@ class WindowsFunctionAppAuthSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
+calass WindowsFunctionAppAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24875,7 +24875,7 @@ class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsFacebookArgs:
+calass WindowsFunctionAppAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -24945,7 +24945,7 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsGithubArgs:
+calass WindowsFunctionAppAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -25015,7 +25015,7 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsGoogleArgs:
+calass WindowsFunctionAppAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -25085,7 +25085,7 @@ class WindowsFunctionAppAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsMicrosoftArgs:
+calass WindowsFunctionAppAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -25155,7 +25155,7 @@ class WindowsFunctionAppAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsTwitterArgs:
+calass WindowsFunctionAppAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -25209,58 +25209,58 @@ class WindowsFunctionAppAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2Args:
+calass WindowsFunctionAppAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -25309,38 +25309,38 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -25357,14 +25357,14 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -25383,14 +25383,14 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -25423,14 +25423,14 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -25471,26 +25471,26 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -25507,14 +25507,14 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -25555,14 +25555,14 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -25579,7 +25579,7 @@ class WindowsFunctionAppAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
+calass WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -25784,7 +25784,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2AppleV2Args:
+calass WindowsFunctionAppAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -25837,7 +25837,7 @@ class WindowsFunctionAppAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
+calass WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -25859,7 +25859,7 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
+calass WindowsFunctionAppAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -26039,7 +26039,7 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
+calass WindowsFunctionAppAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -26112,7 +26112,7 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2GithubV2Args:
+calass WindowsFunctionAppAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -26165,7 +26165,7 @@ class WindowsFunctionAppAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
+calass WindowsFunctionAppAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -26238,7 +26238,7 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2LoginArgs:
+calass WindowsFunctionAppAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -26425,7 +26425,7 @@ class WindowsFunctionAppAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
+calass WindowsFunctionAppAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -26498,7 +26498,7 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
+calass WindowsFunctionAppAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -26539,15 +26539,15 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppBackupArgs:
+calass WindowsFunctionAppBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['WindowsFunctionAppBackupScheduleArgs'],
+                 schedule: pulumi.Input['WindowsFunctionAppBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['WindowsFunctionAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -26571,14 +26571,14 @@ class WindowsFunctionAppBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['WindowsFunctionAppBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['WindowsFunctionAppBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['WindowsFunctionAppBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['WindowsFunctionAppBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -26607,7 +26607,7 @@ class WindowsFunctionAppBackupArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppBackupScheduleArgs:
+calass WindowsFunctionAppBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -26708,7 +26708,7 @@ class WindowsFunctionAppBackupScheduleArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppConnectionStringArgs:
+calass WindowsFunctionAppConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -26760,7 +26760,7 @@ class WindowsFunctionAppConnectionStringArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppIdentityArgs:
+calass WindowsFunctionAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -26834,18 +26834,18 @@ class WindowsFunctionAppIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigArgs:
+calass WindowsFunctionAppSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
-                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']] = None,
+                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArrgs']] = None,
                  application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  application_insights_key: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']] = None,
-                 cors: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']] = None,
+                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArrgs']] = None,
+                 cors: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
@@ -26853,7 +26853,7 @@ class WindowsFunctionAppSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArrgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -26861,7 +26861,7 @@ class WindowsFunctionAppSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -26878,20 +26878,20 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs'] app_service_logs: An `app_service_logs` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArrgs'] app_service_logs: An `app_service_logs` block as defined above.
         :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
         :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
-        :param pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs'] application_stack: An `application_stack` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArrgs'] application_stack: An `application_stack` block as defined above.
                
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
-        :param pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Function App.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this Windows Function App health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -26901,7 +26901,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
@@ -27042,14 +27042,14 @@ class WindowsFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="appServiceLogs")
-    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']]:
+    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArrgs']]:
         """
         An `app_service_logs` block as defined above.
         """
         return pulumi.get(self, "app_service_logs")
 
     @app_service_logs.setter
-    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgs']]):
+    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArrgs']]):
         pulumi.set(self, "app_service_logs", value)
 
     @property
@@ -27078,7 +27078,7 @@ class WindowsFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArrgs']]:
         """
         An `application_stack` block as defined above.
 
@@ -27087,19 +27087,19 @@ class WindowsFunctionAppSiteConfigArgs:
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -27185,14 +27185,14 @@ class WindowsFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -27283,14 +27283,14 @@ class WindowsFunctionAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -27385,7 +27385,7 @@ class WindowsFunctionAppSiteConfigArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
+calass WindowsFunctionAppSiteConfigAppServiceLogsArrgs:
     def __init__(__self__, *,
                  disk_quota_mb: Optional[pulumi.Input[int]] = None,
                  retention_period_days: Optional[pulumi.Input[int]] = None):
@@ -27428,7 +27428,7 @@ class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigApplicationStackArgs:
+calass WindowsFunctionAppSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -27535,7 +27535,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigCorsArgs:
+calass WindowsFunctionAppSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -27574,10 +27574,10 @@ class WindowsFunctionAppSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigIpRestrictionArgs:
+calass WindowsFunctionAppSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -27585,7 +27585,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -27623,14 +27623,14 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -27697,7 +27697,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
+calass WindowsFunctionAppSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -27768,10 +27768,10 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
+calass WindowsFunctionAppSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -27779,7 +27779,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -27817,14 +27817,14 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -27891,7 +27891,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+calass WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -27962,7 +27962,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSiteCredentialArgs:
+calass WindowsFunctionAppSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -28001,42 +28001,42 @@ class WindowsFunctionAppSiteCredentialArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsArgs:
+calass WindowsFunctionAppSlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled?
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: an `active_directory` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs'] active_directory: an `active_directory` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs'] facebook: a `facebook` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs'] github: a `github` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs'] google: a `google` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArrgs'] facebook: a `facebook` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArrgs'] github: a `github` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArrgs'] google: a `google` block as detailed below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs'] microsoft: a `microsoft` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs'] microsoft: a `microsoft` block as detailed below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs'] twitter: a `twitter` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArrgs'] twitter: a `twitter` block as detailed below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -28083,14 +28083,14 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs']]:
         """
         an `active_directory` block as detailed below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -28133,38 +28133,38 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArrgs']]:
         """
         a `facebook` block as detailed below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArrgs']]:
         """
         a `github` block as detailed below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArrgs']]:
         """
         a `google` block as detailed below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -28183,14 +28183,14 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs']]:
         """
         a `microsoft` block as detailed below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -28231,14 +28231,14 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArrgs']]:
         """
         a `twitter` block as detailed below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -28255,7 +28255,7 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
+calass WindowsFunctionAppSlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -28329,7 +28329,7 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
+calass WindowsFunctionAppSlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -28399,7 +28399,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsGithubArgs:
+calass WindowsFunctionAppSlotAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -28469,7 +28469,7 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
+calass WindowsFunctionAppSlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -28539,7 +28539,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
+calass WindowsFunctionAppSlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -28609,7 +28609,7 @@ class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
+calass WindowsFunctionAppSlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -28663,58 +28663,58 @@ class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -28763,38 +28763,38 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -28811,14 +28811,14 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -28837,14 +28837,14 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -28877,14 +28877,14 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -28925,26 +28925,26 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -28961,14 +28961,14 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -29009,14 +29009,14 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -29033,7 +29033,7 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -29238,7 +29238,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -29291,7 +29291,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -29313,7 +29313,7 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -29493,7 +29493,7 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -29566,7 +29566,7 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -29619,7 +29619,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -29692,7 +29692,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
+calass WindowsFunctionAppSlotAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -29879,7 +29879,7 @@ class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -29952,7 +29952,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
+calass WindowsFunctionAppSlotAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -29993,15 +29993,15 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotBackupArgs:
+calass WindowsFunctionAppSlotBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs'],
+                 schedule: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs'] schedule: a `schedule` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotBackupScheduleArrgs'] schedule: a `schedule` block as detailed below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -30025,14 +30025,14 @@ class WindowsFunctionAppSlotBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['WindowsFunctionAppSlotBackupScheduleArrgs']:
         """
         a `schedule` block as detailed below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -30061,7 +30061,7 @@ class WindowsFunctionAppSlotBackupArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotBackupScheduleArgs:
+calass WindowsFunctionAppSlotBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -30166,7 +30166,7 @@ class WindowsFunctionAppSlotBackupScheduleArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotConnectionStringArgs:
+calass WindowsFunctionAppSlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -30218,7 +30218,7 @@ class WindowsFunctionAppSlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotIdentityArgs:
+calass WindowsFunctionAppSlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -30292,19 +30292,19 @@ class WindowsFunctionAppSlotIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigArgs:
+calass WindowsFunctionAppSlotSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
-                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']] = None,
+                 app_service_logs: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs']] = None,
                  application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  application_insights_key: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArrgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
@@ -30312,7 +30312,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
@@ -30320,7 +30320,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -30335,12 +30335,12 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_management_api_id: The ID of the API Management API for this Windows Function App.
         :param pulumi.Input[str] app_command_line: The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
         :param pulumi.Input[int] app_scale_limit: The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs'] app_service_logs: an `app_service_logs` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs'] app_service_logs: an `app_service_logs` block as detailed below.
         :param pulumi.Input[str] application_insights_connection_string: The Connection String for linking the Windows Function App to Application Insights.
         :param pulumi.Input[str] application_insights_key: The Instrumentation Key for connecting the Windows Function App to Application Insights.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs'] application_stack: an `application_stack` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArrgs'] application_stack: an `application_stack` block as detailed below.
         :param pulumi.Input[str] auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs'] cors: a `cors` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArrgs'] cors: a `cors` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: a `default_documents` block as detailed below.
         :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -30348,7 +30348,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -30358,7 +30358,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Scale Monitoring of the Functions Runtime be enabled?
                
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: a `scm_ip_restriction` block as detailed below.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
@@ -30501,14 +30501,14 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="appServiceLogs")
-    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']]:
+    def app_service_logs(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs']]:
         """
         an `app_service_logs` block as detailed below.
         """
         return pulumi.get(self, "app_service_logs")
 
     @app_service_logs.setter
-    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']]):
+    def app_service_logs(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs']]):
         pulumi.set(self, "app_service_logs", value)
 
     @property
@@ -30537,14 +30537,14 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArrgs']]:
         """
         an `application_stack` block as detailed below.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -30561,14 +30561,14 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArrgs']]:
         """
         a `cors` block as detailed below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -30657,14 +30657,14 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs']]]]:
         """
         an `ip_restriction` block as detailed below.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -30755,14 +30755,14 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         a `scm_ip_restriction` block as detailed below.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -30863,7 +30863,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
+calass WindowsFunctionAppSlotSiteConfigAppServiceLogsArrgs:
     def __init__(__self__, *,
                  disk_quota_mb: Optional[pulumi.Input[int]] = None,
                  retention_period_days: Optional[pulumi.Input[int]] = None):
@@ -30906,7 +30906,7 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
+calass WindowsFunctionAppSlotSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  dotnet_version: Optional[pulumi.Input[str]] = None,
                  java_version: Optional[pulumi.Input[str]] = None,
@@ -31009,7 +31009,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigCorsArgs:
+calass WindowsFunctionAppSlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -31048,10 +31048,10 @@ class WindowsFunctionAppSlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
+calass WindowsFunctionAppSlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -31059,7 +31059,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -31097,14 +31097,14 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         a `headers` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -31171,7 +31171,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+calass WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -31242,10 +31242,10 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
+calass WindowsFunctionAppSlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -31253,7 +31253,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: a `headers` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: a `headers` block as detailed below.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -31291,14 +31291,14 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         a `headers` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -31365,7 +31365,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+calass WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -31436,7 +31436,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotSiteCredentialArgs:
+calass WindowsFunctionAppSlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -31475,7 +31475,7 @@ class WindowsFunctionAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppSlotStorageAccountArgs:
+calass WindowsFunctionAppSlotStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -31573,7 +31573,7 @@ class WindowsFunctionAppSlotStorageAccountArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppStickySettingsArgs:
+calass WindowsFunctionAppStickySettingsArrgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -31612,7 +31612,7 @@ class WindowsFunctionAppStickySettingsArgs:
 
 
 @pulumi.input_type
-class WindowsFunctionAppStorageAccountArgs:
+calass WindowsFunctionAppStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -31710,42 +31710,42 @@ class WindowsFunctionAppStorageAccountArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsArgs:
+calass WindowsWebAppAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
-        :param pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['WindowsWebAppAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -31792,14 +31792,14 @@ class WindowsWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -31842,38 +31842,38 @@ class WindowsWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -31892,14 +31892,14 @@ class WindowsWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -31940,14 +31940,14 @@ class WindowsWebAppAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -31964,7 +31964,7 @@ class WindowsWebAppAuthSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsActiveDirectoryArgs:
+calass WindowsWebAppAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32038,7 +32038,7 @@ class WindowsWebAppAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsFacebookArgs:
+calass WindowsWebAppAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -32108,7 +32108,7 @@ class WindowsWebAppAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsGithubArgs:
+calass WindowsWebAppAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -32178,7 +32178,7 @@ class WindowsWebAppAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsGoogleArgs:
+calass WindowsWebAppAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -32248,7 +32248,7 @@ class WindowsWebAppAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsMicrosoftArgs:
+calass WindowsWebAppAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -32318,7 +32318,7 @@ class WindowsWebAppAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsTwitterArgs:
+calass WindowsWebAppAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -32372,58 +32372,58 @@ class WindowsWebAppAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2Args:
+calass WindowsWebAppAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -32472,38 +32472,38 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['WindowsWebAppAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -32520,14 +32520,14 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -32546,14 +32546,14 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -32586,14 +32586,14 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -32634,26 +32634,26 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -32670,14 +32670,14 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -32718,14 +32718,14 @@ class WindowsWebAppAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -32742,7 +32742,7 @@ class WindowsWebAppAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
+calass WindowsWebAppAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -32947,7 +32947,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2AppleV2Args:
+calass WindowsWebAppAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -33000,7 +33000,7 @@ class WindowsWebAppAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args:
+calass WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -33022,7 +33022,7 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
+calass WindowsWebAppAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -33202,7 +33202,7 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2FacebookV2Args:
+calass WindowsWebAppAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -33275,7 +33275,7 @@ class WindowsWebAppAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2GithubV2Args:
+calass WindowsWebAppAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -33328,7 +33328,7 @@ class WindowsWebAppAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2GoogleV2Args:
+calass WindowsWebAppAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -33401,7 +33401,7 @@ class WindowsWebAppAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2LoginArgs:
+calass WindowsWebAppAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -33588,7 +33588,7 @@ class WindowsWebAppAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2MicrosoftV2Args:
+calass WindowsWebAppAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -33661,7 +33661,7 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppAuthSettingsV2TwitterV2Args:
+calass WindowsWebAppAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -33702,15 +33702,15 @@ class WindowsWebAppAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppBackupArgs:
+calass WindowsWebAppBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['WindowsWebAppBackupScheduleArgs'],
+                 schedule: pulumi.Input['WindowsWebAppBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['WindowsWebAppBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['WindowsWebAppBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -33734,14 +33734,14 @@ class WindowsWebAppBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['WindowsWebAppBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['WindowsWebAppBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['WindowsWebAppBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['WindowsWebAppBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -33770,7 +33770,7 @@ class WindowsWebAppBackupArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppBackupScheduleArgs:
+calass WindowsWebAppBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -33871,7 +33871,7 @@ class WindowsWebAppBackupScheduleArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppConnectionStringArgs:
+calass WindowsWebAppConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -33923,7 +33923,7 @@ class WindowsWebAppConnectionStringArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppIdentityArgs:
+calass WindowsWebAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -33997,17 +33997,17 @@ class WindowsWebAppIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppLogsArgs:
+calass WindowsWebAppLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['WindowsWebAppLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input['WindowsWebAppLogsApplicationLogsArrgs'] application_logs: A `application_logs` block as defined above.
         :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
         :param pulumi.Input[bool] failed_request_tracing: Should tracing be enabled for failed requests.
-        :param pulumi.Input['WindowsWebAppLogsHttpLogsArgs'] http_logs: A `http_logs` block as defined above.
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsArrgs'] http_logs: A `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -34020,14 +34020,14 @@ class WindowsWebAppLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArrgs']]:
         """
         A `application_logs` block as defined above.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -34056,25 +34056,25 @@ class WindowsWebAppLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArrgs']]:
         """
         A `http_logs` block as defined above.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class WindowsWebAppLogsApplicationLogsArgs:
+calass WindowsWebAppLogsApplicationLogsArrgs:
     def __init__(__self__, *,
                  file_system_level: pulumi.Input[str],
-                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs']] = None):
         """
         :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -34094,19 +34094,19 @@ class WindowsWebAppLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
 
 @pulumi.input_type
-class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
+calass WindowsWebAppLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -34158,13 +34158,13 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppLogsHttpLogsArgs:
+calass WindowsWebAppLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -34173,31 +34173,31 @@ class WindowsWebAppLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         A `azure_blob_storage_http` block as defined above.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined above.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
+calass WindowsWebAppLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[str],
                  retention_in_days: Optional[pulumi.Input[int]] = None):
@@ -34235,7 +34235,7 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppLogsHttpLogsFileSystemArgs:
+calass WindowsWebAppLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -34272,25 +34272,25 @@ class WindowsWebAppLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigArgs:
+calass WindowsWebAppSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArrgs']] = None,
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']] = None,
+                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArrgs']] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
@@ -34298,12 +34298,12 @@ class WindowsWebAppSiteConfigArgs:
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker: Optional[pulumi.Input[bool]] = None,
-                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]] = None,
+                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArrgs']]]] = None,
                  vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  websockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None,
@@ -34315,28 +34315,28 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Windows Web App.
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot is associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
-        :param pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigApplicationStackArrgs'] application_stack: A `application_stack` block as defined above.
         :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArrgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['WindowsWebAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App use a 32-bit worker. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArrgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param pulumi.Input[int] worker_count: The number of Workers for this Windows App Service.
@@ -34462,14 +34462,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArrgs']]:
         """
         A `application_stack` block as defined above.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -34486,14 +34486,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="autoHealSetting")
-    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']]:
+    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArrgs']]:
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         """
         return pulumi.get(self, "auto_heal_setting")
 
     @auto_heal_setting.setter
-    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgs']]):
+    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArrgs']]):
         pulumi.set(self, "auto_heal_setting", value)
 
     @property
@@ -34522,14 +34522,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -34600,14 +34600,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -34693,14 +34693,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -34750,14 +34750,14 @@ class WindowsWebAppSiteConfigArgs:
 
     @property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]]:
+    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArrgs']]]]:
         """
         One or more `virtual_application` blocks as defined below.
         """
         return pulumi.get(self, "virtual_applications")
 
     @virtual_applications.setter
-    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]]):
+    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArrgs']]]]):
         pulumi.set(self, "virtual_applications", value)
 
     @property
@@ -34807,7 +34807,7 @@ class WindowsWebAppSiteConfigArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigApplicationStackArgs:
+calass WindowsWebAppSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  current_stack: Optional[pulumi.Input[str]] = None,
                  docker_container_name: Optional[pulumi.Input[str]] = None,
@@ -35158,51 +35158,51 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs'],
-                 trigger: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']):
+                 action: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArrgs'],
+                 trigger: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs']):
         """
-        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs'] action: An `action` block as defined above.
-        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArrgs'] action: An `action` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs']:
+    def action(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArrgs']:
         """
         An `action` block as defined above.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgs']):
+    def action(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']:
+    def trigger(self) -> pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs']:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']):
+    def trigger(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs']):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str],
-                 custom_action: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
+                 custom_action: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs']] = None,
                  minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
-        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs'] custom_action: A `custom_action` block as defined below.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs'] custom_action: A `custom_action` block as defined below.
         :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -35225,14 +35225,14 @@ class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
 
     @property
     @pulumi.getter(name="customAction")
-    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']]:
+    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs']]:
         """
         A `custom_action` block as defined below.
         """
         return pulumi.get(self, "custom_action")
 
     @custom_action.setter
-    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']]):
+    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs']]):
         pulumi.set(self, "custom_action", value)
 
     @property
@@ -35249,7 +35249,7 @@ class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArrgs:
     def __init__(__self__, *,
                  executable: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
@@ -35287,17 +35287,17 @@ class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerArrgs:
     def __init__(__self__, *,
                  private_memory_kb: Optional[pulumi.Input[int]] = None,
-                 requests: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+                 requests: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]] = None):
         """
         :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
-        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
@@ -35322,43 +35322,43 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']]:
         """
         A `requests` block as defined above.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs']]):
         pulumi.set(self, "requests", value)
 
     @property
     @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]:
         """
         One or more `slow_request` blocks as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
     @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]):
         pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]:
         """
         One or more `status_code` blocks as defined above.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]):
         pulumi.set(self, "status_codes", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str]):
@@ -35395,7 +35395,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -35463,7 +35463,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+calass WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -35563,7 +35563,7 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigCorsArgs:
+calass WindowsWebAppSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -35602,10 +35602,10 @@ class WindowsWebAppSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigIpRestrictionArgs:
+calass WindowsWebAppSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -35613,7 +35613,7 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -35651,14 +35651,14 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -35725,7 +35725,7 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
+calass WindowsWebAppSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -35796,10 +35796,10 @@ class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigScmIpRestrictionArgs:
+calass WindowsWebAppSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -35807,7 +35807,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -35845,14 +35845,14 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -35919,7 +35919,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
+calass WindowsWebAppSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -35990,17 +35990,17 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigVirtualApplicationArgs:
+calass WindowsWebAppSiteConfigVirtualApplicationArrgs:
     def __init__(__self__, *,
                  physical_path: pulumi.Input[str],
                  preload: pulumi.Input[bool],
                  virtual_path: pulumi.Input[str],
-                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None):
+                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]] = None):
         """
         :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
         :param pulumi.Input[bool] preload: Should pre-loading be enabled.
         :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
         pulumi.set(__self__, "physical_path", physical_path)
         pulumi.set(__self__, "preload", preload)
@@ -36046,19 +36046,19 @@ class WindowsWebAppSiteConfigVirtualApplicationArgs:
 
     @property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]:
+    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]]:
         """
         One or more `virtual_directory` blocks as defined below.
         """
         return pulumi.get(self, "virtual_directories")
 
     @virtual_directories.setter
-    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]):
+    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]]):
         pulumi.set(self, "virtual_directories", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
+calass WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArrgs:
     def __init__(__self__, *,
                  physical_path: Optional[pulumi.Input[str]] = None,
                  virtual_path: Optional[pulumi.Input[str]] = None):
@@ -36097,7 +36097,7 @@ class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSiteCredentialArgs:
+calass WindowsWebAppSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -36136,42 +36136,42 @@ class WindowsWebAppSiteCredentialArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsArgs:
+calass WindowsWebAppSlotAuthSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 active_directory: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs']] = None,
                  additional_login_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
-                 facebook: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']] = None,
-                 github: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']] = None,
-                 google: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']] = None,
+                 facebook: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArrgs']] = None,
+                 github: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArrgs']] = None,
+                 google: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArrgs']] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
-                 microsoft: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']] = None,
+                 microsoft: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
                  token_store_enabled: Optional[pulumi.Input[bool]] = None,
-                 twitter: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']] = None,
+                 twitter: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArrgs']] = None,
                  unauthenticated_client_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Authentication / Authorization feature be enabled for the Windows Web App?
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs'] active_directory: An `active_directory` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs'] active_directory: An `active_directory` block as defined above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs'] facebook: A `facebook` block as defined below.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs'] github: A `github` block as defined below.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs'] google: A `google` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArrgs'] facebook: A `facebook` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArrgs'] github: A `github` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArrgs'] google: A `google` block as defined below.
         :param pulumi.Input[str] issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
                
                > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs'] microsoft: A `microsoft` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArrgs'] microsoft: A `microsoft` block as defined below.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
         :param pulumi.Input[bool] token_store_enabled: Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs'] twitter: A `twitter` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArrgs'] twitter: A `twitter` block as defined below.
         :param pulumi.Input[str] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -36218,14 +36218,14 @@ class WindowsWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs']]:
         """
         An `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -36268,38 +36268,38 @@ class WindowsWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']]:
+    def facebook(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArrgs']]:
         """
         A `facebook` block as defined below.
         """
         return pulumi.get(self, "facebook")
 
     @facebook.setter
-    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgs']]):
+    def facebook(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArrgs']]):
         pulumi.set(self, "facebook", value)
 
     @property
     @pulumi.getter
-    def github(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']]:
+    def github(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArrgs']]:
         """
         A `github` block as defined below.
         """
         return pulumi.get(self, "github")
 
     @github.setter
-    def github(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgs']]):
+    def github(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArrgs']]):
         pulumi.set(self, "github", value)
 
     @property
     @pulumi.getter
-    def google(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']]:
+    def google(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArrgs']]:
         """
         A `google` block as defined below.
         """
         return pulumi.get(self, "google")
 
     @google.setter
-    def google(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgs']]):
+    def google(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArrgs']]):
         pulumi.set(self, "google", value)
 
     @property
@@ -36318,14 +36318,14 @@ class WindowsWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']]:
+    def microsoft(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArrgs']]:
         """
         A `microsoft` block as defined below.
         """
         return pulumi.get(self, "microsoft")
 
     @microsoft.setter
-    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgs']]):
+    def microsoft(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArrgs']]):
         pulumi.set(self, "microsoft", value)
 
     @property
@@ -36366,14 +36366,14 @@ class WindowsWebAppSlotAuthSettingsArgs:
 
     @property
     @pulumi.getter
-    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']]:
+    def twitter(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArrgs']]:
         """
         A `twitter` block as defined below.
         """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
-    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgs']]):
+    def twitter(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArrgs']]):
         pulumi.set(self, "twitter", value)
 
     @property
@@ -36390,7 +36390,7 @@ class WindowsWebAppSlotAuthSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
+calass WindowsWebAppSlotAuthSettingsActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -36464,7 +36464,7 @@ class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsFacebookArgs:
+calass WindowsWebAppSlotAuthSettingsFacebookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret: Optional[pulumi.Input[str]] = None,
@@ -36534,7 +36534,7 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsGithubArgs:
+calass WindowsWebAppSlotAuthSettingsGithubArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -36604,7 +36604,7 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsGoogleArgs:
+calass WindowsWebAppSlotAuthSettingsGoogleArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -36674,7 +36674,7 @@ class WindowsWebAppSlotAuthSettingsGoogleArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
+calass WindowsWebAppSlotAuthSettingsMicrosoftArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -36744,7 +36744,7 @@ class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsTwitterArgs:
+calass WindowsWebAppSlotAuthSettingsTwitterArrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret: Optional[pulumi.Input[str]] = None,
@@ -36798,58 +36798,58 @@ class WindowsWebAppSlotAuthSettingsTwitterArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2Args:
+calass WindowsWebAppSlotAuthSettingsV2Arrgs:
     def __init__(__self__, *,
-                 login: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs'],
-                 active_directory_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']] = None,
-                 apple_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Args']] = None,
+                 login: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArrgs'],
+                 active_directory_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']] = None,
+                 apple_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs']] = None,
                  auth_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']] = None,
+                 azure_static_web_app_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']] = None,
                  config_file_path: Optional[pulumi.Input[str]] = None,
-                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args']]]] = None,
+                 custom_oidc_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]] = None,
                  default_provider: Optional[pulumi.Input[str]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 facebook_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Args']] = None,
+                 facebook_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs']] = None,
                  forward_proxy_convention: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_host_header_name: Optional[pulumi.Input[str]] = None,
                  forward_proxy_custom_scheme_header_name: Optional[pulumi.Input[str]] = None,
-                 github_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Args']] = None,
-                 google_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Args']] = None,
+                 github_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs']] = None,
+                 google_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs']] = None,
                  http_route_api_prefix: Optional[pulumi.Input[str]] = None,
-                 microsoft_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args']] = None,
+                 microsoft_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']] = None,
                  require_authentication: Optional[pulumi.Input[bool]] = None,
                  require_https: Optional[pulumi.Input[bool]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
-                 twitter_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Args']] = None,
+                 twitter_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs']] = None,
                  unauthenticated_action: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs'] login: A `login` block as defined below.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args'] active_directory_v2: An `active_directory_v2` block as defined below.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Args'] apple_v2: An `apple_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArrgs'] login: A `login` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs'] active_directory_v2: An `active_directory_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs'] apple_v2: An `apple_v2` block as defined below.
         :param pulumi.Input[bool] auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs'] azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param pulumi.Input[str] config_file_path: The path to the App Auth settings.
                
                * > **Note:** Relative Paths are evaluated from the Site Root directory.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param pulumi.Input[str] default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
                
                > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Args'] facebook_v2: A `facebook_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs'] facebook_v2: A `facebook_v2` block as defined below.
         :param pulumi.Input[str] forward_proxy_convention: The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
         :param pulumi.Input[str] forward_proxy_custom_host_header_name: The name of the custom header containing the host of the request.
         :param pulumi.Input[str] forward_proxy_custom_scheme_header_name: The name of the custom header containing the scheme of the request.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Args'] github_v2: A `github_v2` block as defined below.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Args'] google_v2: A `google_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs'] github_v2: A `github_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs'] google_v2: A `google_v2` block as defined below.
         :param pulumi.Input[str] http_route_api_prefix: The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args'] microsoft_v2: A `microsoft_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs'] microsoft_v2: A `microsoft_v2` block as defined below.
         :param pulumi.Input[bool] require_authentication: Should the authentication flow be used for all requests.
         :param pulumi.Input[bool] require_https: Should HTTPS be required on connections? Defaults to `true`.
         :param pulumi.Input[str] runtime_version: The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
-        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Args'] twitter_v2: A `twitter_v2` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs'] twitter_v2: A `twitter_v2` block as defined below.
         :param pulumi.Input[str] unauthenticated_action: The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
         """
         pulumi.set(__self__, "login", login)
@@ -36898,38 +36898,38 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter
-    def login(self) -> pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs']:
+    def login(self) -> pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArrgs']:
         """
         A `login` block as defined below.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgs']):
+    def login(self, value: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArrgs']):
         pulumi.set(self, "login", value)
 
     @property
     @pulumi.getter(name="activeDirectoryV2")
-    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]:
+    def active_directory_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]:
         """
         An `active_directory_v2` block as defined below.
         """
         return pulumi.get(self, "active_directory_v2")
 
     @active_directory_v2.setter
-    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]):
+    def active_directory_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs']]):
         pulumi.set(self, "active_directory_v2", value)
 
     @property
     @pulumi.getter(name="appleV2")
-    def apple_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Args']]:
+    def apple_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs']]:
         """
         An `apple_v2` block as defined below.
         """
         return pulumi.get(self, "apple_v2")
 
     @apple_v2.setter
-    def apple_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Args']]):
+    def apple_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs']]):
         pulumi.set(self, "apple_v2", value)
 
     @property
@@ -36946,14 +36946,14 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="azureStaticWebAppV2")
-    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]:
+    def azure_static_web_app_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]:
         """
         An `azure_static_web_app_v2` block as defined below.
         """
         return pulumi.get(self, "azure_static_web_app_v2")
 
     @azure_static_web_app_v2.setter
-    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]):
+    def azure_static_web_app_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs']]):
         pulumi.set(self, "azure_static_web_app_v2", value)
 
     @property
@@ -36972,14 +36972,14 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="customOidcV2s")
-    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]:
+    def custom_oidc_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]:
         """
         Zero or more `custom_oidc_v2` blocks as defined below.
         """
         return pulumi.get(self, "custom_oidc_v2s")
 
     @custom_oidc_v2s.setter
-    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]):
+    def custom_oidc_v2s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs']]]]):
         pulumi.set(self, "custom_oidc_v2s", value)
 
     @property
@@ -37012,14 +37012,14 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="facebookV2")
-    def facebook_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Args']]:
+    def facebook_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs']]:
         """
         A `facebook_v2` block as defined below.
         """
         return pulumi.get(self, "facebook_v2")
 
     @facebook_v2.setter
-    def facebook_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Args']]):
+    def facebook_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs']]):
         pulumi.set(self, "facebook_v2", value)
 
     @property
@@ -37060,26 +37060,26 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="githubV2")
-    def github_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Args']]:
+    def github_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs']]:
         """
         A `github_v2` block as defined below.
         """
         return pulumi.get(self, "github_v2")
 
     @github_v2.setter
-    def github_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Args']]):
+    def github_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs']]):
         pulumi.set(self, "github_v2", value)
 
     @property
     @pulumi.getter(name="googleV2")
-    def google_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Args']]:
+    def google_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs']]:
         """
         A `google_v2` block as defined below.
         """
         return pulumi.get(self, "google_v2")
 
     @google_v2.setter
-    def google_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Args']]):
+    def google_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs']]):
         pulumi.set(self, "google_v2", value)
 
     @property
@@ -37096,14 +37096,14 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="microsoftV2")
-    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args']]:
+    def microsoft_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']]:
         """
         A `microsoft_v2` block as defined below.
         """
         return pulumi.get(self, "microsoft_v2")
 
     @microsoft_v2.setter
-    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args']]):
+    def microsoft_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs']]):
         pulumi.set(self, "microsoft_v2", value)
 
     @property
@@ -37144,14 +37144,14 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
     @property
     @pulumi.getter(name="twitterV2")
-    def twitter_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Args']]:
+    def twitter_v2(self) -> Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs']]:
         """
         A `twitter_v2` block as defined below.
         """
         return pulumi.get(self, "twitter_v2")
 
     @twitter_v2.setter
-    def twitter_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Args']]):
+    def twitter_v2(self, value: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs']]):
         pulumi.set(self, "twitter_v2", value)
 
     @property
@@ -37168,7 +37168,7 @@ class WindowsWebAppSlotAuthSettingsV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
+calass WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_auth_endpoint: pulumi.Input[str],
@@ -37373,7 +37373,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2AppleV2Args:
+calass WindowsWebAppSlotAuthSettingsV2AppleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -37426,7 +37426,7 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
+calass WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -37448,7 +37448,7 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
+calass WindowsWebAppSlotAuthSettingsV2CustomOidcV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -37624,7 +37624,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2FacebookV2Args:
+calass WindowsWebAppSlotAuthSettingsV2FacebookV2Arrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_secret_setting_name: pulumi.Input[str],
@@ -37697,7 +37697,7 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2GithubV2Args:
+calass WindowsWebAppSlotAuthSettingsV2GithubV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -37750,7 +37750,7 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2GoogleV2Args:
+calass WindowsWebAppSlotAuthSettingsV2GoogleV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -37823,7 +37823,7 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2LoginArgs:
+calass WindowsWebAppSlotAuthSettingsV2LoginArrgs:
     def __init__(__self__, *,
                  allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cookie_expiration_convention: Optional[pulumi.Input[str]] = None,
@@ -38010,7 +38010,7 @@ class WindowsWebAppSlotAuthSettingsV2LoginArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args:
+calass WindowsWebAppSlotAuthSettingsV2MicrosoftV2Arrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret_setting_name: pulumi.Input[str],
@@ -38083,7 +38083,7 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotAuthSettingsV2TwitterV2Args:
+calass WindowsWebAppSlotAuthSettingsV2TwitterV2Arrgs:
     def __init__(__self__, *,
                  consumer_key: pulumi.Input[str],
                  consumer_secret_setting_name: pulumi.Input[str]):
@@ -38124,15 +38124,15 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2Args:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotBackupArgs:
+calass WindowsWebAppSlotBackupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 schedule: pulumi.Input['WindowsWebAppSlotBackupScheduleArgs'],
+                 schedule: pulumi.Input['WindowsWebAppSlotBackupScheduleArrgs'],
                  storage_account_url: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Backup.
-        :param pulumi.Input['WindowsWebAppSlotBackupScheduleArgs'] schedule: A `schedule` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotBackupScheduleArrgs'] schedule: A `schedule` block as defined below.
         :param pulumi.Input[str] storage_account_url: The SAS URL to the container.
         :param pulumi.Input[bool] enabled: Should this backup job be enabled? Defaults to `true`.
         """
@@ -38156,14 +38156,14 @@ class WindowsWebAppSlotBackupArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['WindowsWebAppSlotBackupScheduleArgs']:
+    def schedule(self) -> pulumi.Input['WindowsWebAppSlotBackupScheduleArrgs']:
         """
         A `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['WindowsWebAppSlotBackupScheduleArgs']):
+    def schedule(self, value: pulumi.Input['WindowsWebAppSlotBackupScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -38192,7 +38192,7 @@ class WindowsWebAppSlotBackupArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotBackupScheduleArgs:
+calass WindowsWebAppSlotBackupScheduleArrgs:
     def __init__(__self__, *,
                  frequency_interval: pulumi.Input[int],
                  frequency_unit: pulumi.Input[str],
@@ -38293,7 +38293,7 @@ class WindowsWebAppSlotBackupScheduleArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotConnectionStringArgs:
+calass WindowsWebAppSlotConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -38345,7 +38345,7 @@ class WindowsWebAppSlotConnectionStringArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotIdentityArgs:
+calass WindowsWebAppSlotIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -38419,17 +38419,17 @@ class WindowsWebAppSlotIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsArgs:
+calass WindowsWebAppSlotLogsArrgs:
     def __init__(__self__, *,
-                 application_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']] = None,
+                 application_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArrgs']] = None,
                  detailed_error_messages: Optional[pulumi.Input[bool]] = None,
                  failed_request_tracing: Optional[pulumi.Input[bool]] = None,
-                 http_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']] = None):
+                 http_logs: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArrgs']] = None):
         """
-        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs'] application_logs: A `application_logs` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArrgs'] application_logs: A `application_logs` block as defined above.
         :param pulumi.Input[bool] detailed_error_messages: Should detailed error messages be enabled.
         :param pulumi.Input[bool] failed_request_tracing: Should failed request tracing be enabled.
-        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs'] http_logs: An `http_logs` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsArrgs'] http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
             pulumi.set(__self__, "application_logs", application_logs)
@@ -38442,14 +38442,14 @@ class WindowsWebAppSlotLogsArgs:
 
     @property
     @pulumi.getter(name="applicationLogs")
-    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']]:
+    def application_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArrgs']]:
         """
         A `application_logs` block as defined above.
         """
         return pulumi.get(self, "application_logs")
 
     @application_logs.setter
-    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgs']]):
+    def application_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArrgs']]):
         pulumi.set(self, "application_logs", value)
 
     @property
@@ -38478,25 +38478,25 @@ class WindowsWebAppSlotLogsArgs:
 
     @property
     @pulumi.getter(name="httpLogs")
-    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']]:
+    def http_logs(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArrgs']]:
         """
         An `http_logs` block as defined above.
         """
         return pulumi.get(self, "http_logs")
 
     @http_logs.setter
-    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgs']]):
+    def http_logs(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArrgs']]):
         pulumi.set(self, "http_logs", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsApplicationLogsArgs:
+calass WindowsWebAppSlotLogsApplicationLogsArrgs:
     def __init__(__self__, *,
                  file_system_level: pulumi.Input[str],
-                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']] = None):
         """
         :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
-        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
         if azure_blob_storage is not None:
@@ -38516,19 +38516,19 @@ class WindowsWebAppSlotLogsApplicationLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']]:
         """
         An `azure_blob_storage` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
+calass WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  level: pulumi.Input[str],
                  retention_in_days: pulumi.Input[int],
@@ -38580,13 +38580,13 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsHttpLogsArgs:
+calass WindowsWebAppSlotLogsHttpLogsArrgs:
     def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']] = None,
-                 file_system: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']] = None):
+                 azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']] = None,
+                 file_system: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArrgs']] = None):
         """
-        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
-        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs'] file_system: A `file_system` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs'] azure_blob_storage: A `azure_blob_storage_http` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArrgs'] file_system: A `file_system` block as defined above.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -38595,31 +38595,31 @@ class WindowsWebAppSlotLogsHttpLogsArgs:
 
     @property
     @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]:
+    def azure_blob_storage(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']]:
         """
         A `azure_blob_storage_http` block as defined above.
         """
         return pulumi.get(self, "azure_blob_storage")
 
     @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]):
+    def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
     @property
     @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']]:
+    def file_system(self) -> Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArrgs']]:
         """
         A `file_system` block as defined above.
         """
         return pulumi.get(self, "file_system")
 
     @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']]):
+    def file_system(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArrgs']]):
         pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
+calass WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  sas_url: pulumi.Input[str],
                  retention_in_days: Optional[pulumi.Input[int]] = None):
@@ -38657,7 +38657,7 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
+calass WindowsWebAppSlotLogsHttpLogsFileSystemArrgs:
     def __init__(__self__, *,
                  retention_in_days: pulumi.Input[int],
                  retention_in_mb: pulumi.Input[int]):
@@ -38694,38 +38694,38 @@ class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigArgs:
+calass WindowsWebAppSlotSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  api_definition_url: Optional[pulumi.Input[str]] = None,
                  api_management_api_id: Optional[pulumi.Input[str]] = None,
                  app_command_line: Optional[pulumi.Input[str]] = None,
-                 application_stack: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']] = None,
+                 application_stack: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArrgs']] = None,
                  auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
-                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']] = None,
+                 auto_heal_setting: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArrgs']] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
                  container_registry_managed_identity_client_id: Optional[pulumi.Input[str]] = None,
                  container_registry_use_managed_identity: Optional[pulumi.Input[bool]] = None,
-                 cors: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArrgs']] = None,
                  default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_eviction_time_in_min: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArrgs']]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  local_mysql_enabled: Optional[pulumi.Input[bool]] = None,
                  managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
                  use32_bit_worker: Optional[pulumi.Input[bool]] = None,
-                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]] = None,
+                 virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArrgs']]]] = None,
                  vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
                  websockets_enabled: Optional[pulumi.Input[bool]] = None,
                  windows_fx_version: Optional[pulumi.Input[str]] = None,
@@ -38735,31 +38735,31 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[str] api_definition_url: The URL to the API Definition for this Windows Web App Slot.
         :param pulumi.Input[str] api_management_api_id: The API Management API ID this Windows Web App Slot os associated with.
         :param pulumi.Input[str] app_command_line: The App command line to launch.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs'] application_stack: A `application_stack` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArrgs'] application_stack: A `application_stack` block as defined above.
         :param pulumi.Input[bool] auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArrgs'] auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param pulumi.Input[str] auto_swap_slot_name: The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
                
                > **Note:** This must be a valid slot name on the target Windows Web App Slot.
         :param pulumi.Input[str] container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs'] cors: A `cors` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigCorsArrgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Web App Slot.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to the Health Check.
         :param pulumi.Input[bool] http2_enabled: Should the HTTP2 be enabled?
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArrgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[str] remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Windows Web App Slotuse a 32-bit worker. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArrgs']]] virtual_applications: One or more `virtual_application` blocks as defined below.
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param pulumi.Input[int] worker_count: The number of Workers for this Windows App Service Slot.
@@ -38883,14 +38883,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="applicationStack")
-    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']]:
+    def application_stack(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArrgs']]:
         """
         A `application_stack` block as defined above.
         """
         return pulumi.get(self, "application_stack")
 
     @application_stack.setter
-    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgs']]):
+    def application_stack(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArrgs']]):
         pulumi.set(self, "application_stack", value)
 
     @property
@@ -38907,14 +38907,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="autoHealSetting")
-    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']]:
+    def auto_heal_setting(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArrgs']]:
         """
         A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         """
         return pulumi.get(self, "auto_heal_setting")
 
     @auto_heal_setting.setter
-    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']]):
+    def auto_heal_setting(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArrgs']]):
         pulumi.set(self, "auto_heal_setting", value)
 
     @property
@@ -38957,14 +38957,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined above.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -39035,14 +39035,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArrgs']]]]:
         """
         One or more `ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -39119,14 +39119,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs']]]]:
         """
         One or more `scm_ip_restriction` blocks as defined above.
         """
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -39176,14 +39176,14 @@ class WindowsWebAppSlotSiteConfigArgs:
 
     @property
     @pulumi.getter(name="virtualApplications")
-    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]]:
+    def virtual_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArrgs']]]]:
         """
         One or more `virtual_application` blocks as defined below.
         """
         return pulumi.get(self, "virtual_applications")
 
     @virtual_applications.setter
-    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]]):
+    def virtual_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArrgs']]]]):
         pulumi.set(self, "virtual_applications", value)
 
     @property
@@ -39233,7 +39233,7 @@ class WindowsWebAppSlotSiteConfigArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigApplicationStackArgs:
+calass WindowsWebAppSlotSiteConfigApplicationStackArrgs:
     def __init__(__self__, *,
                  current_stack: Optional[pulumi.Input[str]] = None,
                  docker_container_name: Optional[pulumi.Input[str]] = None,
@@ -39568,51 +39568,51 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs'],
-                 trigger: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']):
+                 action: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs'],
+                 trigger: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']):
         """
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs'] action: A `action` block as defined above.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs'] action: A `action` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs']:
+    def action(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs']:
         """
         A `action` block as defined above.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs']):
+    def action(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']:
+    def trigger(self) -> pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']):
+    def trigger(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs']):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str],
-                 custom_action: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']] = None,
+                 custom_action: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs']] = None,
                  minimum_process_execution_time: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action_type: Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs'] custom_action: A `custom_action` block as defined below.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs'] custom_action: A `custom_action` block as defined below.
         :param pulumi.Input[str] minimum_process_execution_time: The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
         """
         pulumi.set(__self__, "action_type", action_type)
@@ -39635,14 +39635,14 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
 
     @property
     @pulumi.getter(name="customAction")
-    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']]:
+    def custom_action(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs']]:
         """
         A `custom_action` block as defined below.
         """
         return pulumi.get(self, "custom_action")
 
     @custom_action.setter
-    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']]):
+    def custom_action(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs']]):
         pulumi.set(self, "custom_action", value)
 
     @property
@@ -39659,7 +39659,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArrgs:
     def __init__(__self__, *,
                  executable: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[str]] = None):
@@ -39697,17 +39697,17 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArrgs:
     def __init__(__self__, *,
                  private_memory_kb: Optional[pulumi.Input[int]] = None,
-                 requests: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']] = None,
-                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]] = None,
-                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]] = None):
+                 requests: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']] = None,
+                 slow_requests: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]] = None,
+                 status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]] = None):
         """
         :param pulumi.Input[int] private_memory_kb: The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs'] requests: A `requests` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]] slow_requests: One or more `slow_request` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]] status_codes: One or more `status_code` blocks as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs'] requests: A `requests` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]] slow_requests: One or more `slow_request` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]] status_codes: One or more `status_code` blocks as defined above.
         """
         if private_memory_kb is not None:
             pulumi.set(__self__, "private_memory_kb", private_memory_kb)
@@ -39732,43 +39732,43 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]:
+    def requests(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']]:
         """
         A `requests` block as defined above.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]):
+    def requests(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs']]):
         pulumi.set(self, "requests", value)
 
     @property
     @pulumi.getter(name="slowRequests")
-    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]:
+    def slow_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]:
         """
         One or more `slow_request` blocks as defined above.
         """
         return pulumi.get(self, "slow_requests")
 
     @slow_requests.setter
-    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]]):
+    def slow_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs']]]]):
         pulumi.set(self, "slow_requests", value)
 
     @property
     @pulumi.getter(name="statusCodes")
-    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]:
+    def status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]:
         """
         One or more `status_code` blocks as defined above.
         """
         return pulumi.get(self, "status_codes")
 
     @status_codes.setter
-    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]):
+    def status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs']]]]):
         pulumi.set(self, "status_codes", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str]):
@@ -39805,7 +39805,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -39873,7 +39873,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
+calass WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: pulumi.Input[str],
@@ -39973,7 +39973,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigCorsArgs:
+calass WindowsWebAppSlotSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -40012,10 +40012,10 @@ class WindowsWebAppSlotSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
+calass WindowsWebAppSlotSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -40023,7 +40023,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -40061,14 +40061,14 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -40135,7 +40135,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
+calass WindowsWebAppSlotSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -40206,10 +40206,10 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
+calass WindowsWebAppSlotSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -40217,7 +40217,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: The action to take. Possible values are `Allow` or `Deny`.
-        :param pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: A `headers` block as defined above.
+        :param pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs'] headers: A `headers` block as defined above.
         :param pulumi.Input[str] ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param pulumi.Input[str] name: The name which should be used for this `ip_restriction`.
         :param pulumi.Input[int] priority: The priority value of this `ip_restriction`. Defaults to `65000`.
@@ -40255,14 +40255,14 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         A `headers` block as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -40329,7 +40329,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+calass WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -40400,17 +40400,17 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
+calass WindowsWebAppSlotSiteConfigVirtualApplicationArrgs:
     def __init__(__self__, *,
                  physical_path: pulumi.Input[str],
                  preload: pulumi.Input[bool],
                  virtual_path: pulumi.Input[str],
-                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]] = None):
+                 virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]] = None):
         """
         :param pulumi.Input[str] physical_path: The physical path for the Virtual Application.
         :param pulumi.Input[bool] preload: Should pre-loading be enabled.
         :param pulumi.Input[str] virtual_path: The Virtual Path for the Virtual Application.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs']]] virtual_directories: One or more `virtual_directory` blocks as defined below.
         """
         pulumi.set(__self__, "physical_path", physical_path)
         pulumi.set(__self__, "preload", preload)
@@ -40456,19 +40456,19 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
 
     @property
     @pulumi.getter(name="virtualDirectories")
-    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]:
+    def virtual_directories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]]:
         """
         One or more `virtual_directory` blocks as defined below.
         """
         return pulumi.get(self, "virtual_directories")
 
     @virtual_directories.setter
-    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]):
+    def virtual_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs']]]]):
         pulumi.set(self, "virtual_directories", value)
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
+calass WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArrgs:
     def __init__(__self__, *,
                  physical_path: Optional[pulumi.Input[str]] = None,
                  virtual_path: Optional[pulumi.Input[str]] = None):
@@ -40507,7 +40507,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotSiteCredentialArgs:
+calass WindowsWebAppSlotSiteCredentialArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
@@ -40542,7 +40542,7 @@ class WindowsWebAppSlotSiteCredentialArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppSlotStorageAccountArgs:
+calass WindowsWebAppSlotStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -40640,7 +40640,7 @@ class WindowsWebAppSlotStorageAccountArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppStickySettingsArgs:
+calass WindowsWebAppStickySettingsArrgs:
     def __init__(__self__, *,
                  app_setting_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_string_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -40679,7 +40679,7 @@ class WindowsWebAppStickySettingsArgs:
 
 
 @pulumi.input_type
-class WindowsWebAppStorageAccountArgs:
+calass WindowsWebAppStorageAccountArrgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],

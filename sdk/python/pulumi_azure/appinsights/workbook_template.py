@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkbookTemplateArgs', 'WorkbookTemplate']
+__all__ = ['WorkbookTemplateArrgs', 'WorkbookTemplate']
 
 @pulumi.input_type
-class WorkbookTemplateArgs:
+calass WorkbookTemplateArrgs:
     def __init__(__self__, *,
-                 galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]],
+                 galleries: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  template_data: pulumi.Input[str],
                  author: Optional[pulumi.Input[str]] = None,
@@ -27,7 +27,7 @@ class WorkbookTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WorkbookTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] template_data: Valid JSON object containing workbook template payload.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
@@ -55,14 +55,14 @@ class WorkbookTemplateArgs:
 
     @property
     @pulumi.getter
-    def galleries(self) -> pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]:
+    def galleries(self) -> pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]]:
         """
         A `galleries` block as defined below.
         """
         return pulumi.get(self, "galleries")
 
     @galleries.setter
-    def galleries(self, value: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]):
+    def galleries(self, value: pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]]):
         pulumi.set(self, "galleries", value)
 
     @property
@@ -163,10 +163,10 @@ class WorkbookTemplateArgs:
 
 
 @pulumi.input_type
-class _WorkbookTemplateState:
+calass _WorkbookTemplateState:
     def __init__(__self__, *,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]]] = None,
                  localized: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -177,7 +177,7 @@ class _WorkbookTemplateState:
         """
         Input properties used for looking up and filtering WorkbookTemplate resources.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
@@ -219,14 +219,14 @@ class _WorkbookTemplateState:
 
     @property
     @pulumi.getter
-    def galleries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]:
+    def galleries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]]]:
         """
         A `galleries` block as defined below.
         """
         return pulumi.get(self, "galleries")
 
     @galleries.setter
-    def galleries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArgs']]]]):
+    def galleries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkbookTemplateGalleryArrgs']]]]):
         pulumi.set(self, "galleries", value)
 
     @property
@@ -314,13 +314,13 @@ class _WorkbookTemplateState:
         pulumi.set(self, "template_data", value)
 
 
-class WorkbookTemplate(pulumi.CustomResource):
+calass WorkbookTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArrgs']]]]] = None,
                  localized: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -345,7 +345,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             location="West Europe",
             author="test author",
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
+            galleries=[azure.appinsights.WorkbookTemplateGalleryArrgs(
                 category="workbook",
                 name="test",
                 order=100,
@@ -409,7 +409,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArrgs']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
@@ -422,7 +422,7 @@ class WorkbookTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkbookTemplateArgs,
+                 args: WorkbookTemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Application Insights Workbook Template.
@@ -440,7 +440,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             location="West Europe",
             author="test author",
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
+            galleries=[azure.appinsights.WorkbookTemplateGalleryArrgs(
                 category="workbook",
                 name="test",
                 order=100,
@@ -502,12 +502,12 @@ class WorkbookTemplate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkbookTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param WorkbookTemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkbookTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkbookTemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -517,7 +517,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArrgs']]]]] = None,
                  localized: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -532,7 +532,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkbookTemplateArgs.__new__(WorkbookTemplateArgs)
+            __props__ = WorkbookTemplateArrgs.__new__(WorkbookTemplateArrgs)
 
             __props__.__dict__["author"] = author
             if galleries is None and not opts.urn:
@@ -560,7 +560,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             author: Optional[pulumi.Input[str]] = None,
-            galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+            galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArrgs']]]]] = None,
             localized: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -576,7 +576,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArrgs']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.

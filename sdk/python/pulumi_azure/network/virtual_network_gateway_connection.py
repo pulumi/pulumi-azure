@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayConnectionArgs', 'VirtualNetworkGatewayConnection']
+__all__ = ['VirtualNetworkGatewayConnectionArrgs', 'VirtualNetworkGatewayConnection']
 
 @pulumi.input_type
-class VirtualNetworkGatewayConnectionArgs:
+calass VirtualNetworkGatewayConnectionArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -22,14 +22,14 @@ class VirtualNetworkGatewayConnectionArgs:
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
+                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class VirtualNetworkGatewayConnectionArgs:
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
+                 traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
@@ -49,7 +49,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -58,7 +58,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
@@ -69,7 +69,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
@@ -195,7 +195,7 @@ class VirtualNetworkGatewayConnectionArgs:
 
     @property
     @pulumi.getter(name="customBgpAddresses")
-    def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]:
+    def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]:
         """
         A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
@@ -204,7 +204,7 @@ class VirtualNetworkGatewayConnectionArgs:
         return pulumi.get(self, "custom_bgp_addresses")
 
     @custom_bgp_addresses.setter
-    def custom_bgp_addresses(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]):
+    def custom_bgp_addresses(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]):
         pulumi.set(self, "custom_bgp_addresses", value)
 
     @property
@@ -281,7 +281,7 @@ class VirtualNetworkGatewayConnectionArgs:
 
     @property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]:
+    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]:
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
@@ -290,7 +290,7 @@ class VirtualNetworkGatewayConnectionArgs:
         return pulumi.get(self, "ipsec_policy")
 
     @ipsec_policy.setter
-    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]):
+    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]):
         pulumi.set(self, "ipsec_policy", value)
 
     @property
@@ -391,7 +391,7 @@ class VirtualNetworkGatewayConnectionArgs:
 
     @property
     @pulumi.getter(name="trafficSelectorPolicy")
-    def traffic_selector_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]:
+    def traffic_selector_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]:
         """
         One or more `traffic_selector_policy` blocks which are documented below.
         A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
@@ -400,7 +400,7 @@ class VirtualNetworkGatewayConnectionArgs:
         return pulumi.get(self, "traffic_selector_policy")
 
     @traffic_selector_policy.setter
-    def traffic_selector_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]):
+    def traffic_selector_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]):
         pulumi.set(self, "traffic_selector_policy", value)
 
     @property
@@ -417,19 +417,19 @@ class VirtualNetworkGatewayConnectionArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkGatewayConnectionState:
+calass _VirtualNetworkGatewayConnectionState:
     def __init__(__self__, *,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
+                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -439,7 +439,7 @@ class _VirtualNetworkGatewayConnectionState:
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
+                 traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  virtual_network_gateway_id: Optional[pulumi.Input[str]] = None):
@@ -449,7 +449,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -458,7 +458,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
@@ -470,7 +470,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs'] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
@@ -565,7 +565,7 @@ class _VirtualNetworkGatewayConnectionState:
 
     @property
     @pulumi.getter(name="customBgpAddresses")
-    def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]:
+    def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]:
         """
         A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
@@ -574,7 +574,7 @@ class _VirtualNetworkGatewayConnectionState:
         return pulumi.get(self, "custom_bgp_addresses")
 
     @custom_bgp_addresses.setter
-    def custom_bgp_addresses(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]):
+    def custom_bgp_addresses(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]):
         pulumi.set(self, "custom_bgp_addresses", value)
 
     @property
@@ -651,7 +651,7 @@ class _VirtualNetworkGatewayConnectionState:
 
     @property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]:
+    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]:
         """
         A `ipsec_policy` block which is documented below.
         Only a single policy can be defined for a connection. For details on
@@ -660,7 +660,7 @@ class _VirtualNetworkGatewayConnectionState:
         return pulumi.get(self, "ipsec_policy")
 
     @ipsec_policy.setter
-    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]):
+    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]):
         pulumi.set(self, "ipsec_policy", value)
 
     @property
@@ -773,7 +773,7 @@ class _VirtualNetworkGatewayConnectionState:
 
     @property
     @pulumi.getter(name="trafficSelectorPolicy")
-    def traffic_selector_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]:
+    def traffic_selector_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]:
         """
         One or more `traffic_selector_policy` blocks which are documented below.
         A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
@@ -782,7 +782,7 @@ class _VirtualNetworkGatewayConnectionState:
         return pulumi.get(self, "traffic_selector_policy")
 
     @traffic_selector_policy.setter
-    def traffic_selector_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]):
+    def traffic_selector_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]):
         pulumi.set(self, "traffic_selector_policy", value)
 
     @property
@@ -822,7 +822,7 @@ class _VirtualNetworkGatewayConnectionState:
         pulumi.set(self, "virtual_network_gateway_id", value)
 
 
-class VirtualNetworkGatewayConnection(pulumi.CustomResource):
+calass VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -830,14 +830,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -847,7 +847,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
+                 traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -891,7 +891,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             active_active=False,
             enable_bgp=False,
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=example_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=example_subnet.id,
@@ -932,7 +932,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=us_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=us_gateway.id,
@@ -956,7 +956,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=europe_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=europe_gateway.id,
@@ -991,7 +991,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -1000,7 +1000,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
@@ -1012,7 +1012,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
@@ -1023,7 +1023,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkGatewayConnectionArgs,
+                 args: VirtualNetworkGatewayConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a connection in an existing Virtual Network Gateway.
@@ -1064,7 +1064,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             active_active=False,
             enable_bgp=False,
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=example_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=example_subnet.id,
@@ -1105,7 +1105,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=us_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=us_gateway.id,
@@ -1129,7 +1129,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             type="Vpn",
             vpn_type="RouteBased",
             sku="Basic",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArrgs(
                 public_ip_address_id=europe_public_ip.id,
                 private_ip_address_allocation="Dynamic",
                 subnet_id=europe_gateway.id,
@@ -1159,12 +1159,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkGatewayConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1176,14 +1176,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connection_protocol: Optional[pulumi.Input[str]] = None,
-                 custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
+                 custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_id: Optional[pulumi.Input[str]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]] = None,
                  local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
                  local_network_gateway_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1193,7 +1193,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
+                 traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
                  virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -1204,7 +1204,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkGatewayConnectionArgs.__new__(VirtualNetworkGatewayConnectionArgs)
+            __props__ = VirtualNetworkGatewayConnectionArrgs.__new__(VirtualNetworkGatewayConnectionArrgs)
 
             __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["connection_mode"] = connection_mode
@@ -1251,14 +1251,14 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             authorization_key: Optional[pulumi.Input[str]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
             connection_protocol: Optional[pulumi.Input[str]] = None,
-            custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]] = None,
+            custom_bgp_addresses: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']]] = None,
             dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
             egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_bgp: Optional[pulumi.Input[bool]] = None,
             express_route_circuit_id: Optional[pulumi.Input[str]] = None,
             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
             ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+            ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']]] = None,
             local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
             local_network_gateway_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1268,7 +1268,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             routing_weight: Optional[pulumi.Input[int]] = None,
             shared_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
+            traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']]] = None,
             type: Optional[pulumi.Input[str]] = None,
             use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None) -> 'VirtualNetworkGatewayConnection':
@@ -1283,7 +1283,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArrgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -1292,7 +1292,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArrgs']] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
@@ -1304,7 +1304,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
         :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArrgs']] traffic_selector_policy: One or more `traffic_selector_policy` blocks which are documented below.
                A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.

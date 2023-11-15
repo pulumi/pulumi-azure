@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InterationServiceEnvironmentArgs', 'InterationServiceEnvironment']
+__all__ = ['InterationServiceEnvironmentArrgs', 'InterationServiceEnvironment']
 
 @pulumi.input_type
-class InterationServiceEnvironmentArgs:
+calass InterationServiceEnvironmentArrgs:
     def __init__(__self__, *,
                  access_endpoint_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -133,7 +133,7 @@ class InterationServiceEnvironmentArgs:
 
 
 @pulumi.input_type
-class _InterationServiceEnvironmentState:
+calass _InterationServiceEnvironmentState:
     def __init__(__self__, *,
                  access_endpoint_type: Optional[pulumi.Input[str]] = None,
                  connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -320,7 +320,7 @@ class _InterationServiceEnvironmentState:
         pulumi.set(self, "workflow_outbound_ip_addresses", value)
 
 
-class InterationServiceEnvironment(pulumi.CustomResource):
+calass InterationServiceEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -353,9 +353,9 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Logic/integrationServiceEnvironments",
                 ),
             )])
@@ -411,7 +411,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InterationServiceEnvironmentArgs,
+                 args: InterationServiceEnvironmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages private and isolated Logic App instances within an Azure virtual network.
@@ -433,9 +433,9 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/27"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="integrationServiceEnvironments",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Logic/integrationServiceEnvironments",
                 ),
             )])
@@ -476,12 +476,12 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InterationServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param InterationServiceEnvironmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InterationServiceEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InterationServiceEnvironmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -504,7 +504,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InterationServiceEnvironmentArgs.__new__(InterationServiceEnvironmentArgs)
+            __props__ = InterationServiceEnvironmentArrgs.__new__(InterationServiceEnvironmentArrgs)
 
             if access_endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'access_endpoint_type'")

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConfigurationFeatureArgs', 'ConfigurationFeature']
+__all__ = ['ConfigurationFeatureArrgs', 'ConfigurationFeature']
 
 @pulumi.input_type
-class ConfigurationFeatureArgs:
+calass ConfigurationFeatureArrgs:
     def __init__(__self__, *,
                  configuration_store_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,8 +26,8 @@ class ConfigurationFeatureArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
+                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]] = None,
+                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationFeature resource.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -39,8 +39,8 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]] targeting_filters: A `targeting_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
         pulumi.set(__self__, "configuration_store_id", configuration_store_id)
         if description is not None:
@@ -185,31 +185,31 @@ class ConfigurationFeatureArgs:
 
     @property
     @pulumi.getter(name="targetingFilters")
-    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
+    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]]:
         """
         A `targeting_filter` block as defined below.
         """
         return pulumi.get(self, "targeting_filters")
 
     @targeting_filters.setter
-    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
+    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]]):
         pulumi.set(self, "targeting_filters", value)
 
     @property
     @pulumi.getter(name="timewindowFilters")
-    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
+    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]]:
         """
         A `timewindow_filter` block as defined below.
         """
         return pulumi.get(self, "timewindow_filters")
 
     @timewindow_filters.setter
-    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
+    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]]):
         pulumi.set(self, "timewindow_filters", value)
 
 
 @pulumi.input_type
-class _ConfigurationFeatureState:
+calass _ConfigurationFeatureState:
     def __init__(__self__, *,
                  configuration_store_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -221,8 +221,8 @@ class _ConfigurationFeatureState:
                  name: Optional[pulumi.Input[str]] = None,
                  percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None):
+                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]] = None,
+                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ConfigurationFeature resources.
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -234,8 +234,8 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]] targeting_filters: A `targeting_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
         if configuration_store_id is not None:
             pulumi.set(__self__, "configuration_store_id", configuration_store_id)
@@ -381,30 +381,30 @@ class _ConfigurationFeatureState:
 
     @property
     @pulumi.getter(name="targetingFilters")
-    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]:
+    def targeting_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]]:
         """
         A `targeting_filter` block as defined below.
         """
         return pulumi.get(self, "targeting_filters")
 
     @targeting_filters.setter
-    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]]):
+    def targeting_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArrgs']]]]):
         pulumi.set(self, "targeting_filters", value)
 
     @property
     @pulumi.getter(name="timewindowFilters")
-    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
+    def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]]:
         """
         A `timewindow_filter` block as defined below.
         """
         return pulumi.get(self, "timewindow_filters")
 
     @timewindow_filters.setter
-    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]):
+    def timewindow_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArrgs']]]]):
         pulumi.set(self, "timewindow_filters", value)
 
 
-class ConfigurationFeature(pulumi.CustomResource):
+calass ConfigurationFeature(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -419,8 +419,8 @@ class ConfigurationFeature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None,
+                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArrgs']]]]] = None,
+                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an Azure App Configuration Feature.
@@ -474,14 +474,14 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArrgs']]]] targeting_filters: A `targeting_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArrgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationFeatureArgs,
+                 args: ConfigurationFeatureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure App Configuration Feature.
@@ -525,12 +525,12 @@ class ConfigurationFeature(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.
+        :param ConfigurationFeatureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationFeatureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationFeatureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -549,8 +549,8 @@ class ConfigurationFeature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  percentage_filter_value: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
-                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None,
+                 targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArrgs']]]]] = None,
+                 timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -558,7 +558,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConfigurationFeatureArgs.__new__(ConfigurationFeatureArgs)
+            __props__ = ConfigurationFeatureArrgs.__new__(ConfigurationFeatureArrgs)
 
             if configuration_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_store_id'")
@@ -594,8 +594,8 @@ class ConfigurationFeature(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             percentage_filter_value: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]]] = None,
-            timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]]] = None) -> 'ConfigurationFeature':
+            targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArrgs']]]]] = None,
+            timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArrgs']]]]] = None) -> 'ConfigurationFeature':
         """
         Get an existing ConfigurationFeature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -612,8 +612,8 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[float] percentage_filter_value: A number representing the value of the percentage required to enable this feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArrgs']]]] targeting_filters: A `targeting_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArrgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

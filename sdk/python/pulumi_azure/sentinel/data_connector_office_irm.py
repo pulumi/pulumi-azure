@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorOfficeIrmArgs', 'DataConnectorOfficeIrm']
+__all__ = ['DataConnectorOfficeIrmArrgs', 'DataConnectorOfficeIrm']
 
 @pulumi.input_type
-class DataConnectorOfficeIrmArgs:
+calass DataConnectorOfficeIrmArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class DataConnectorOfficeIrmArgs:
 
 
 @pulumi.input_type
-class _DataConnectorOfficeIrmState:
+calass _DataConnectorOfficeIrmState:
     def __init__(__self__, *,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class _DataConnectorOfficeIrmState:
         pulumi.set(self, "tenant_id", value)
 
 
-class DataConnectorOfficeIrm(pulumi.CustomResource):
+calass DataConnectorOfficeIrm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorOfficeIrmArgs,
+                 args: DataConnectorOfficeIrmArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Office IRM Data Connector.
@@ -206,12 +206,12 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorOfficeIrmArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorOfficeIrmArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorOfficeIrmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorOfficeIrmArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -230,7 +230,7 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorOfficeIrmArgs.__new__(DataConnectorOfficeIrmArgs)
+            __props__ = DataConnectorOfficeIrmArrgs.__new__(DataConnectorOfficeIrmArrgs)
 
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

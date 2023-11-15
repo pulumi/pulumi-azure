@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorThreatIntelligenceArgs', 'DataConnectorThreatIntelligence']
+__all__ = ['DataConnectorThreatIntelligenceArrgs', 'DataConnectorThreatIntelligence']
 
 @pulumi.input_type
-class DataConnectorThreatIntelligenceArgs:
+calass DataConnectorThreatIntelligenceArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  lookback_date: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class DataConnectorThreatIntelligenceArgs:
 
 
 @pulumi.input_type
-class _DataConnectorThreatIntelligenceState:
+calass _DataConnectorThreatIntelligenceState:
     def __init__(__self__, *,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  lookback_date: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class _DataConnectorThreatIntelligenceState:
         pulumi.set(self, "tenant_id", value)
 
 
-class DataConnectorThreatIntelligence(pulumi.CustomResource):
+calass DataConnectorThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -211,7 +211,7 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorThreatIntelligenceArgs,
+                 args: DataConnectorThreatIntelligenceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Threat Intelligence Data Connector.
@@ -240,12 +240,12 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorThreatIntelligenceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorThreatIntelligenceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorThreatIntelligenceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorThreatIntelligenceArgs.__new__(DataConnectorThreatIntelligenceArgs)
+            __props__ = DataConnectorThreatIntelligenceArrgs.__new__(DataConnectorThreatIntelligenceArrgs)
 
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

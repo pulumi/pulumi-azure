@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVolumeQuotaRuleResult:
+calass GetVolumeQuotaRuleResult:
     """
     A collection of values returned by getVolumeQuotaRule.
     """
@@ -95,7 +95,7 @@ class GetVolumeQuotaRuleResult:
         return pulumi.get(self, "volume_id")
 
 
-class AwaitableGetVolumeQuotaRuleResult(GetVolumeQuotaRuleResult):
+calass AwaitableGetVolumeQuotaRuleResult(GetVolumeQuotaRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

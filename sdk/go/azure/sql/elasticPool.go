@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to manage an Azure SQL Elastic Pool.
@@ -270,12 +269,6 @@ func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) Elasti
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
 }
 
-func (i *ElasticPool) ToOutput(ctx context.Context) pulumix.Output[*ElasticPool] {
-	return pulumix.Output[*ElasticPool]{
-		OutputState: i.ToElasticPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ElasticPoolArrayInput is an input type that accepts ElasticPoolArray and ElasticPoolArrayOutput values.
 // You can construct a concrete instance of `ElasticPoolArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i ElasticPoolArray) ToElasticPoolArrayOutput() ElasticPoolArrayOutput {
 
 func (i ElasticPoolArray) ToElasticPoolArrayOutputWithContext(ctx context.Context) ElasticPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolArrayOutput)
-}
-
-func (i ElasticPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*ElasticPool] {
-	return pulumix.Output[[]*ElasticPool]{
-		OutputState: i.ToElasticPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ElasticPoolMapInput is an input type that accepts ElasticPoolMap and ElasticPoolMapOutput values.
@@ -332,12 +319,6 @@ func (i ElasticPoolMap) ToElasticPoolMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolMapOutput)
 }
 
-func (i ElasticPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ElasticPool] {
-	return pulumix.Output[map[string]*ElasticPool]{
-		OutputState: i.ToElasticPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticPoolOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {
 
 func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) ElasticPoolOutput {
 	return o
-}
-
-func (o ElasticPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*ElasticPool] {
-	return pulumix.Output[*ElasticPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The creation date of the SQL Elastic Pool.
@@ -427,12 +402,6 @@ func (o ElasticPoolArrayOutput) ToElasticPoolArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ElasticPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ElasticPool] {
-	return pulumix.Output[[]*ElasticPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ElasticPoolArrayOutput) Index(i pulumi.IntInput) ElasticPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ElasticPool {
 		return vs[0].([]*ElasticPool)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o ElasticPoolMapOutput) ToElasticPoolMapOutput() ElasticPoolMapOutput {
 
 func (o ElasticPoolMapOutput) ToElasticPoolMapOutputWithContext(ctx context.Context) ElasticPoolMapOutput {
 	return o
-}
-
-func (o ElasticPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ElasticPool] {
-	return pulumix.Output[map[string]*ElasticPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticPoolMapOutput) MapIndex(k pulumi.StringInput) ElasticPoolOutput {

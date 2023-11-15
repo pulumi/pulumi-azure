@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAppServiceResult:
+calass GetAppServiceResult:
     """
     A collection of values returned by getAppService.
     """
@@ -250,7 +250,7 @@ class GetAppServiceResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAppServiceResult(GetAppServiceResult):
+calass AwaitableGetAppServiceResult(GetAppServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

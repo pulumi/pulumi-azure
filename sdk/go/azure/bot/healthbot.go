@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Healthbot Service.
@@ -195,12 +194,6 @@ func (i *Healthbot) ToHealthbotOutputWithContext(ctx context.Context) HealthbotO
 	return pulumi.ToOutputWithContext(ctx, i).(HealthbotOutput)
 }
 
-func (i *Healthbot) ToOutput(ctx context.Context) pulumix.Output[*Healthbot] {
-	return pulumix.Output[*Healthbot]{
-		OutputState: i.ToHealthbotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HealthbotArrayInput is an input type that accepts HealthbotArray and HealthbotArrayOutput values.
 // You can construct a concrete instance of `HealthbotArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i HealthbotArray) ToHealthbotArrayOutput() HealthbotArrayOutput {
 
 func (i HealthbotArray) ToHealthbotArrayOutputWithContext(ctx context.Context) HealthbotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HealthbotArrayOutput)
-}
-
-func (i HealthbotArray) ToOutput(ctx context.Context) pulumix.Output[[]*Healthbot] {
-	return pulumix.Output[[]*Healthbot]{
-		OutputState: i.ToHealthbotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HealthbotMapInput is an input type that accepts HealthbotMap and HealthbotMapOutput values.
@@ -257,12 +244,6 @@ func (i HealthbotMap) ToHealthbotMapOutputWithContext(ctx context.Context) Healt
 	return pulumi.ToOutputWithContext(ctx, i).(HealthbotMapOutput)
 }
 
-func (i HealthbotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Healthbot] {
-	return pulumix.Output[map[string]*Healthbot]{
-		OutputState: i.ToHealthbotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HealthbotOutput struct{ *pulumi.OutputState }
 
 func (HealthbotOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o HealthbotOutput) ToHealthbotOutput() HealthbotOutput {
 
 func (o HealthbotOutput) ToHealthbotOutputWithContext(ctx context.Context) HealthbotOutput {
 	return o
-}
-
-func (o HealthbotOutput) ToOutput(ctx context.Context) pulumix.Output[*Healthbot] {
-	return pulumix.Output[*Healthbot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The management portal url.
@@ -327,12 +302,6 @@ func (o HealthbotArrayOutput) ToHealthbotArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o HealthbotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Healthbot] {
-	return pulumix.Output[[]*Healthbot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthbotArrayOutput) Index(i pulumi.IntInput) HealthbotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Healthbot {
 		return vs[0].([]*Healthbot)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o HealthbotMapOutput) ToHealthbotMapOutput() HealthbotMapOutput {
 
 func (o HealthbotMapOutput) ToHealthbotMapOutputWithContext(ctx context.Context) HealthbotMapOutput {
 	return o
-}
-
-func (o HealthbotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Healthbot] {
-	return pulumix.Output[map[string]*Healthbot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthbotMapOutput) MapIndex(k pulumi.StringInput) HealthbotOutput {

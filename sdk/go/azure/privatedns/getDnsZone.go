@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Private DNS Zone.
@@ -123,12 +122,6 @@ func (o GetDnsZoneResultOutput) ToGetDnsZoneResultOutput() GetDnsZoneResultOutpu
 
 func (o GetDnsZoneResultOutput) ToGetDnsZoneResultOutputWithContext(ctx context.Context) GetDnsZoneResultOutput {
 	return o
-}
-
-func (o GetDnsZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDnsZoneResult] {
-	return pulumix.Output[GetDnsZoneResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

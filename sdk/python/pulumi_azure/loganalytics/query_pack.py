@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['QueryPackArgs', 'QueryPack']
+__all__ = ['QueryPackArrgs', 'QueryPack']
 
 @pulumi.input_type
-class QueryPackArgs:
+calass QueryPackArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class QueryPackArgs:
 
 
 @pulumi.input_type
-class _QueryPackState:
+calass _QueryPackState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _QueryPackState:
         pulumi.set(self, "tags", value)
 
 
-class QueryPack(pulumi.CustomResource):
+calass QueryPack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -198,7 +198,7 @@ class QueryPack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: QueryPackArgs,
+                 args: QueryPackArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Query Pack.
@@ -224,12 +224,12 @@ class QueryPack(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueryPackArgs args: The arguments to use to populate this resource's properties.
+        :param QueryPackArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueryPackArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueryPackArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -249,7 +249,7 @@ class QueryPack(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueryPackArgs.__new__(QueryPackArgs)
+            __props__ = QueryPackArrgs.__new__(QueryPackArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

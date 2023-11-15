@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClientConfigResult:
+calass GetClientConfigResult:
     """
     A collection of values returned by getClientConfig.
     """
@@ -79,7 +79,7 @@ class GetClientConfigResult:
         return pulumi.get(self, "tenant_id")
 
 
-class AwaitableGetClientConfigResult(GetClientConfigResult):
+calass AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

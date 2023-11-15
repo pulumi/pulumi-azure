@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorOriginGroupResult:
+calass GetFrontdoorOriginGroupResult:
     """
     A collection of values returned by getFrontdoorOriginGroup.
     """
@@ -112,7 +112,7 @@ class GetFrontdoorOriginGroupResult:
         return pulumi.get(self, "session_affinity_enabled")
 
 
-class AwaitableGetFrontdoorOriginGroupResult(GetFrontdoorOriginGroupResult):
+calass AwaitableGetFrontdoorOriginGroupResult(GetFrontdoorOriginGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

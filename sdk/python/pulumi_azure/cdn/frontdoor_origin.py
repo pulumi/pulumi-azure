@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorOriginArgs', 'FrontdoorOrigin']
+__all__ = ['FrontdoorOriginArrgs', 'FrontdoorOrigin']
 
 @pulumi.input_type
-class FrontdoorOriginArgs:
+calass FrontdoorOriginArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_origin_group_id: pulumi.Input[str],
                  certificate_name_check_enabled: pulumi.Input[bool],
@@ -26,7 +26,7 @@ class FrontdoorOriginArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
+                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FrontdoorOrigin resource.
@@ -45,7 +45,7 @@ class FrontdoorOriginArgs:
                
                > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
-        :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
+        :param pulumi.Input['FrontdoorOriginPrivateLinkArrgs'] private_link: A `private_link` block as defined below.
                
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
@@ -203,7 +203,7 @@ class FrontdoorOriginArgs:
 
     @property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]:
+    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']]:
         """
         A `private_link` block as defined below.
 
@@ -212,7 +212,7 @@ class FrontdoorOriginArgs:
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]):
+    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']]):
         pulumi.set(self, "private_link", value)
 
     @property
@@ -229,7 +229,7 @@ class FrontdoorOriginArgs:
 
 
 @pulumi.input_type
-class _FrontdoorOriginState:
+calass _FrontdoorOriginState:
     def __init__(__self__, *,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
@@ -241,7 +241,7 @@ class _FrontdoorOriginState:
                  name: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
+                 private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOrigin resources.
@@ -260,7 +260,7 @@ class _FrontdoorOriginState:
                
                > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
-        :param pulumi.Input['FrontdoorOriginPrivateLinkArgs'] private_link: A `private_link` block as defined below.
+        :param pulumi.Input['FrontdoorOriginPrivateLinkArrgs'] private_link: A `private_link` block as defined below.
                
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
@@ -421,7 +421,7 @@ class _FrontdoorOriginState:
 
     @property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]:
+    def private_link(self) -> Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']]:
         """
         A `private_link` block as defined below.
 
@@ -430,7 +430,7 @@ class _FrontdoorOriginState:
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']]):
+    def private_link(self, value: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArrgs']]):
         pulumi.set(self, "private_link", value)
 
     @property
@@ -446,7 +446,7 @@ class _FrontdoorOriginState:
         pulumi.set(self, "weight", value)
 
 
-class FrontdoorOrigin(pulumi.CustomResource):
+calass FrontdoorOrigin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -461,7 +461,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']]] = None,
+                 private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArrgs']]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -490,7 +490,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                
                > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']] private_link: A `private_link` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArrgs']] private_link: A `private_link` block as defined below.
                
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
@@ -499,7 +499,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorOriginArgs,
+                 args: FrontdoorOriginArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -511,12 +511,12 @@ class FrontdoorOrigin(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorOriginArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorOriginArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorOriginArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorOriginArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -535,7 +535,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']]] = None,
+                 private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArrgs']]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -544,7 +544,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorOriginArgs.__new__(FrontdoorOriginArgs)
+            __props__ = FrontdoorOriginArrgs.__new__(FrontdoorOriginArrgs)
 
             if cdn_frontdoor_origin_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_origin_group_id'")
@@ -584,7 +584,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             origin_host_header: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
-            private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']]] = None,
+            private_link: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArrgs']]] = None,
             weight: Optional[pulumi.Input[int]] = None) -> 'FrontdoorOrigin':
         """
         Get an existing FrontdoorOrigin resource's state with the given name, id, and optional extra
@@ -608,7 +608,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                
                > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         :param pulumi.Input[int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArgs']] private_link: A `private_link` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginPrivateLinkArrgs']] private_link: A `private_link` block as defined below.
                
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.

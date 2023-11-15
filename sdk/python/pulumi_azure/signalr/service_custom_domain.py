@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceCustomDomainArgs', 'ServiceCustomDomain']
+__all__ = ['ServiceCustomDomainArrgs', 'ServiceCustomDomain']
 
 @pulumi.input_type
-class ServiceCustomDomainArgs:
+calass ServiceCustomDomainArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  signalr_custom_certificate_id: pulumi.Input[str],
@@ -85,7 +85,7 @@ class ServiceCustomDomainArgs:
 
 
 @pulumi.input_type
-class _ServiceCustomDomainState:
+calass _ServiceCustomDomainState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class _ServiceCustomDomainState:
         pulumi.set(self, "signalr_service_id", value)
 
 
-class ServiceCustomDomain(pulumi.CustomResource):
+calass ServiceCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -185,11 +185,11 @@ class ServiceCustomDomain(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=azurerm_resource_group["test"]["location"],
             resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Premium_P1",
                 capacity=1,
             ),
-            identity=azure.signalr.ServiceIdentityArgs(
+            identity=azure.signalr.ServiceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -198,7 +198,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -211,7 +211,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
                         "List",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
@@ -227,7 +227,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -262,7 +262,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceCustomDomainArgs,
+                 args: ServiceCustomDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure SignalR Custom Domain.
@@ -279,11 +279,11 @@ class ServiceCustomDomain(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=azurerm_resource_group["test"]["location"],
             resource_group_name=azurerm_resource_group["test"]["name"],
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Premium_P1",
                 capacity=1,
             ),
-            identity=azure.signalr.ServiceIdentityArgs(
+            identity=azure.signalr.ServiceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -292,7 +292,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     certificate_permissions=[
@@ -305,7 +305,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
                         "List",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=azurerm_signalr_service["test"]["identity"][0]["principal_id"],
                     certificate_permissions=[
@@ -321,7 +321,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -344,12 +344,12 @@ class ServiceCustomDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceCustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceCustomDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceCustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceCustomDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -369,7 +369,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceCustomDomainArgs.__new__(ServiceCustomDomainArgs)
+            __props__ = ServiceCustomDomainArrgs.__new__(ServiceCustomDomainArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

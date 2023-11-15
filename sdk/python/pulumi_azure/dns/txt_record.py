@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TxtRecordArgs', 'TxtRecord']
+__all__ = ['TxtRecordArrgs', 'TxtRecord']
 
 @pulumi.input_type
-class TxtRecordArgs:
+calass TxtRecordArrgs:
     def __init__(__self__, *,
-                 records: pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]],
+                 records: pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  ttl: pulumi.Input[int],
                  zone_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class TxtRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TxtRecord resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -42,14 +42,14 @@ class TxtRecordArgs:
 
     @property
     @pulumi.getter
-    def records(self) -> pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]:
+    def records(self) -> pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]]:
         """
         A list of values that make up the txt record. Each `record` block supports fields documented below.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]):
+    def records(self, value: pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]]):
         pulumi.set(self, "records", value)
 
     @property
@@ -114,11 +114,11 @@ class TxtRecordArgs:
 
 
 @pulumi.input_type
-class _TxtRecordState:
+calass _TxtRecordState:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -127,7 +127,7 @@ class _TxtRecordState:
         Input properties used for looking up and filtering TxtRecord resources.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS TXT Record.
         :param pulumi.Input[str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -174,14 +174,14 @@ class _TxtRecordState:
 
     @property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]]:
+    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]]]:
         """
         A list of values that make up the txt record. Each `record` block supports fields documented below.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArgs']]]]):
+    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordRecordArrgs']]]]):
         pulumi.set(self, "records", value)
 
     @property
@@ -233,13 +233,13 @@ class _TxtRecordState:
         pulumi.set(self, "zone_name", value)
 
 
-class TxtRecord(pulumi.CustomResource):
+calass TxtRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -259,10 +259,10 @@ class TxtRecord(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ttl=300,
             records=[
-                azure.dns.TxtRecordRecordArgs(
+                azure.dns.TxtRecordRecordArrgs(
                     value="google-site-authenticator",
                 ),
-                azure.dns.TxtRecordRecordArgs(
+                azure.dns.TxtRecordRecordArrgs(
                     value="more site information here",
                 ),
             ],
@@ -282,7 +282,7 @@ class TxtRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArrgs']]]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -292,7 +292,7 @@ class TxtRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TxtRecordArgs,
+                 args: TxtRecordArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -308,10 +308,10 @@ class TxtRecord(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ttl=300,
             records=[
-                azure.dns.TxtRecordRecordArgs(
+                azure.dns.TxtRecordRecordArrgs(
                     value="google-site-authenticator",
                 ),
-                azure.dns.TxtRecordRecordArgs(
+                azure.dns.TxtRecordRecordArrgs(
                     value="more site information here",
                 ),
             ],
@@ -329,12 +329,12 @@ class TxtRecord(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TxtRecordArgs args: The arguments to use to populate this resource's properties.
+        :param TxtRecordArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TxtRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TxtRecordArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -344,7 +344,7 @@ class TxtRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -356,7 +356,7 @@ class TxtRecord(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TxtRecordArgs.__new__(TxtRecordArgs)
+            __props__ = TxtRecordArrgs.__new__(TxtRecordArrgs)
 
             __props__.__dict__["name"] = name
             if records is None and not opts.urn:
@@ -385,7 +385,7 @@ class TxtRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -399,7 +399,7 @@ class TxtRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS TXT Record.
         :param pulumi.Input[str] name: The name of the DNS TXT Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArgs']]]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordRecordArrgs']]]] records: A list of values that make up the txt record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

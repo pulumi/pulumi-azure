@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSharedImageVersionResult:
+calass GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
     """
@@ -156,7 +156,7 @@ class GetSharedImageVersionResult:
         return pulumi.get(self, "target_regions")
 
 
-class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
+calass AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

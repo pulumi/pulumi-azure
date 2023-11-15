@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConfigurationArgs', 'Configuration']
+__all__ = ['ConfigurationArrgs', 'Configuration']
 
 @pulumi.input_type
-class ConfigurationArgs:
+calass ConfigurationArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
+                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArrgs']] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
-                 backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
+                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']] = None,
+                 backup: Optional[pulumi.Input['ConfigurationBackupArrgs']] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -32,10 +32,10 @@ class ConfigurationArgs:
         """
         The set of arguments for constructing a Configuration resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
-        :param pulumi.Input['ConfigurationAntimalwareArgs'] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input['ConfigurationAntimalwareArrgs'] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input['ConfigurationAzureSecurityBaselineArgs'] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input['ConfigurationBackupArgs'] backup: A `backup` block as defined below.
+        :param pulumi.Input['ConfigurationAzureSecurityBaselineArrgs'] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input['ConfigurationBackupArrgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.
@@ -85,14 +85,14 @@ class ConfigurationArgs:
 
     @property
     @pulumi.getter
-    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArgs']]:
+    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArrgs']]:
         """
         A `antimalware` block as defined below.
         """
         return pulumi.get(self, "antimalware")
 
     @antimalware.setter
-    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArgs']]):
+    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArrgs']]):
         pulumi.set(self, "antimalware", value)
 
     @property
@@ -109,26 +109,26 @@ class ConfigurationArgs:
 
     @property
     @pulumi.getter(name="azureSecurityBaseline")
-    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]:
+    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']]:
         """
         A `azure_security_baseline` block as defined below.
         """
         return pulumi.get(self, "azure_security_baseline")
 
     @azure_security_baseline.setter
-    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]):
+    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']]):
         pulumi.set(self, "azure_security_baseline", value)
 
     @property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArgs']]:
+    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArrgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArgs']]):
+    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArrgs']]):
         pulumi.set(self, "backup", value)
 
     @property
@@ -229,12 +229,12 @@ class ConfigurationArgs:
 
 
 @pulumi.input_type
-class _ConfigurationState:
+calass _ConfigurationState:
     def __init__(__self__, *,
-                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
+                 antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArrgs']] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
-                 backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
+                 azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']] = None,
+                 backup: Optional[pulumi.Input['ConfigurationBackupArrgs']] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -246,10 +246,10 @@ class _ConfigurationState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Configuration resources.
-        :param pulumi.Input['ConfigurationAntimalwareArgs'] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input['ConfigurationAntimalwareArrgs'] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input['ConfigurationAzureSecurityBaselineArgs'] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input['ConfigurationBackupArgs'] backup: A `backup` block as defined below.
+        :param pulumi.Input['ConfigurationAzureSecurityBaselineArrgs'] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input['ConfigurationBackupArrgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.
@@ -289,14 +289,14 @@ class _ConfigurationState:
 
     @property
     @pulumi.getter
-    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArgs']]:
+    def antimalware(self) -> Optional[pulumi.Input['ConfigurationAntimalwareArrgs']]:
         """
         A `antimalware` block as defined below.
         """
         return pulumi.get(self, "antimalware")
 
     @antimalware.setter
-    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArgs']]):
+    def antimalware(self, value: Optional[pulumi.Input['ConfigurationAntimalwareArrgs']]):
         pulumi.set(self, "antimalware", value)
 
     @property
@@ -313,26 +313,26 @@ class _ConfigurationState:
 
     @property
     @pulumi.getter(name="azureSecurityBaseline")
-    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]:
+    def azure_security_baseline(self) -> Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']]:
         """
         A `azure_security_baseline` block as defined below.
         """
         return pulumi.get(self, "azure_security_baseline")
 
     @azure_security_baseline.setter
-    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']]):
+    def azure_security_baseline(self, value: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArrgs']]):
         pulumi.set(self, "azure_security_baseline", value)
 
     @property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArgs']]:
+    def backup(self) -> Optional[pulumi.Input['ConfigurationBackupArrgs']]:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArgs']]):
+    def backup(self, value: Optional[pulumi.Input['ConfigurationBackupArrgs']]):
         pulumi.set(self, "backup", value)
 
     @property
@@ -444,15 +444,15 @@ class _ConfigurationState:
         pulumi.set(self, "tags", value)
 
 
-class Configuration(pulumi.CustomResource):
+calass Configuration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArrgs']]] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArrgs']]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArrgs']]] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -476,8 +476,8 @@ class Configuration(pulumi.CustomResource):
         example_configuration = azure.automanage.Configuration("exampleConfiguration",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
+            antimalware=azure.automanage.ConfigurationAntimalwareArrgs(
+                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArrgs(
                     extensions="exe;dll",
                     paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
                     processes="svchost.exe;notepad.exe",
@@ -488,15 +488,15 @@ class Configuration(pulumi.CustomResource):
                 scheduled_scan_day=1,
                 scheduled_scan_time_in_minutes=1339,
             ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
+            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArrgs(
                 assignment_type="ApplyAndAutoCorrect",
             ),
             automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
+            backup=azure.automanage.ConfigurationBackupArrgs(
                 policy_name="acctest-backup-policy-%d",
                 time_zone="UTC",
                 instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
+                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArrgs(
                     schedule_run_frequency="Daily",
                     schedule_run_days=[
                         "Monday",
@@ -505,18 +505,18 @@ class Configuration(pulumi.CustomResource):
                     schedule_run_times=["12:00"],
                     schedule_policy_type="SimpleSchedulePolicy",
                 ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
+                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArrgs(
                     retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
+                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArrgs(
                         retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs(
                             count=7,
                             duration_type="Days",
                         ),
                     ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
+                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs(
                         retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs(
                             count=4,
                             duration_type="Weeks",
                         ),
@@ -543,10 +543,10 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArrgs']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArrgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArrgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.
@@ -561,7 +561,7 @@ class Configuration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationArgs,
+                 args: ConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automanage Configuration.
@@ -576,8 +576,8 @@ class Configuration(pulumi.CustomResource):
         example_configuration = azure.automanage.Configuration("exampleConfiguration",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            antimalware=azure.automanage.ConfigurationAntimalwareArgs(
-                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
+            antimalware=azure.automanage.ConfigurationAntimalwareArrgs(
+                exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArrgs(
                     extensions="exe;dll",
                     paths="C:\\\\Windows\\\\Temp;D:\\\\Temp",
                     processes="svchost.exe;notepad.exe",
@@ -588,15 +588,15 @@ class Configuration(pulumi.CustomResource):
                 scheduled_scan_day=1,
                 scheduled_scan_time_in_minutes=1339,
             ),
-            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArgs(
+            azure_security_baseline=azure.automanage.ConfigurationAzureSecurityBaselineArrgs(
                 assignment_type="ApplyAndAutoCorrect",
             ),
             automation_account_enabled=True,
-            backup=azure.automanage.ConfigurationBackupArgs(
+            backup=azure.automanage.ConfigurationBackupArrgs(
                 policy_name="acctest-backup-policy-%d",
                 time_zone="UTC",
                 instant_rp_retention_range_in_days=2,
-                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArgs(
+                schedule_policy=azure.automanage.ConfigurationBackupSchedulePolicyArrgs(
                     schedule_run_frequency="Daily",
                     schedule_run_days=[
                         "Monday",
@@ -605,18 +605,18 @@ class Configuration(pulumi.CustomResource):
                     schedule_run_times=["12:00"],
                     schedule_policy_type="SimpleSchedulePolicy",
                 ),
-                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArgs(
+                retention_policy=azure.automanage.ConfigurationBackupRetentionPolicyArrgs(
                     retention_policy_type="LongTermRetentionPolicy",
-                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs(
+                    daily_schedule=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleArrgs(
                         retention_times=["12:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs(
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs(
                             count=7,
                             duration_type="Days",
                         ),
                     ),
-                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs(
+                    weekly_schedule=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs(
                         retention_times=["14:00"],
-                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs(
+                        retention_duration=azure.automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs(
                             count=4,
                             duration_type="Weeks",
                         ),
@@ -642,12 +642,12 @@ class Configuration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param ConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -656,10 +656,10 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+                 antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArrgs']]] = None,
                  automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+                 azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArrgs']]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArrgs']]] = None,
                  boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
                  defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
                  guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -676,7 +676,7 @@ class Configuration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
+            __props__ = ConfigurationArrgs.__new__(ConfigurationArrgs)
 
             __props__.__dict__["antimalware"] = antimalware
             __props__.__dict__["automation_account_enabled"] = automation_account_enabled
@@ -703,10 +703,10 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']]] = None,
+            antimalware: Optional[pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArrgs']]] = None,
             automation_account_enabled: Optional[pulumi.Input[bool]] = None,
-            azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']]] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']]] = None,
+            azure_security_baseline: Optional[pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArrgs']]] = None,
+            backup: Optional[pulumi.Input[pulumi.InputType['ConfigurationBackupArrgs']]] = None,
             boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
             defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
             guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
@@ -723,10 +723,10 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArgs']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationAntimalwareArrgs']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationAzureSecurityBaselineArrgs']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConfigurationBackupArrgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIntegrationAccountResult:
+calass GetIntegrationAccountResult:
     """
     A collection of values returned by getIntegrationAccount.
     """
@@ -84,7 +84,7 @@ class GetIntegrationAccountResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
+calass AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

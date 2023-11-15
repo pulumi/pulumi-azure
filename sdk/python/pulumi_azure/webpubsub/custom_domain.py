@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomDomainArgs', 'CustomDomain']
+__all__ = ['CustomDomainArrgs', 'CustomDomain']
 
 @pulumi.input_type
-class CustomDomainArgs:
+calass CustomDomainArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  web_pubsub_custom_certificate_id: pulumi.Input[str],
@@ -85,7 +85,7 @@ class CustomDomainArgs:
 
 
 @pulumi.input_type
-class _CustomDomainState:
+calass _CustomDomainState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class _CustomDomainState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
-class CustomDomain(pulumi.CustomResource):
+calass CustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class CustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomDomainArgs,
+                 args: CustomDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Web PubSub Custom Domain.
@@ -208,12 +208,12 @@ class CustomDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param CustomDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -233,7 +233,7 @@ class CustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
+            __props__ = CustomDomainArrgs.__new__(CustomDomainArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

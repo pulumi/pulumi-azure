@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GlobalVMShutdownScheduleNotificationSettings(dict):
+calass GlobalVMShutdownScheduleNotificationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -98,7 +98,7 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineGalleryImageReference(dict):
+calass LinuxVirtualMachineGalleryImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -149,7 +149,7 @@ class LinuxVirtualMachineGalleryImageReference(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineInboundNatRule(dict):
+calass LinuxVirtualMachineInboundNatRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -209,7 +209,7 @@ class LinuxVirtualMachineInboundNatRule(dict):
 
 
 @pulumi.output_type
-class ScheduleDailyRecurrence(dict):
+calass ScheduleDailyRecurrence(dict):
     def __init__(__self__, *,
                  time: str):
         """
@@ -227,7 +227,7 @@ class ScheduleDailyRecurrence(dict):
 
 
 @pulumi.output_type
-class ScheduleHourlyRecurrence(dict):
+calass ScheduleHourlyRecurrence(dict):
     def __init__(__self__, *,
                  minute: int):
         """
@@ -245,7 +245,7 @@ class ScheduleHourlyRecurrence(dict):
 
 
 @pulumi.output_type
-class ScheduleNotificationSettings(dict):
+calass ScheduleNotificationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -307,7 +307,7 @@ class ScheduleNotificationSettings(dict):
 
 
 @pulumi.output_type
-class ScheduleWeeklyRecurrence(dict):
+calass ScheduleWeeklyRecurrence(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -354,7 +354,7 @@ class ScheduleWeeklyRecurrence(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkSubnet(dict):
+calass VirtualNetworkSubnet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -416,7 +416,7 @@ class VirtualNetworkSubnet(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineGalleryImageReference(dict):
+calass WindowsVirtualMachineGalleryImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -467,7 +467,7 @@ class WindowsVirtualMachineGalleryImageReference(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineInboundNatRule(dict):
+calass WindowsVirtualMachineInboundNatRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -527,7 +527,7 @@ class WindowsVirtualMachineInboundNatRule(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkAllowedSubnetResult(dict):
+calass GetVirtualNetworkAllowedSubnetResult(dict):
     def __init__(__self__, *,
                  allow_public_ip: str,
                  lab_subnet_name: str,
@@ -567,7 +567,7 @@ class GetVirtualNetworkAllowedSubnetResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkSubnetOverrideResult(dict):
+calass GetVirtualNetworkSubnetOverrideResult(dict):
     def __init__(__self__, *,
                  lab_subnet_name: str,
                  resource_id: str,

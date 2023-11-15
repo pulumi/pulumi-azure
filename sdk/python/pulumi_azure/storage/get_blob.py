@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBlobResult:
+calass GetBlobResult:
     """
     A collection of values returned by getBlob.
     """
@@ -125,7 +125,7 @@ class GetBlobResult:
         return pulumi.get(self, "url")
 
 
-class AwaitableGetBlobResult(GetBlobResult):
+calass AwaitableGetBlobResult(GetBlobResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

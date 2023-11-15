@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceGroupPolicyAssignmentArgs', 'ResourceGroupPolicyAssignment']
+__all__ = ['ResourceGroupPolicyAssignmentArrgs', 'ResourceGroupPolicyAssignment']
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentArgs:
+calass ResourceGroupPolicyAssignmentArrgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[str],
                  resource_group_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforce: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None):
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]] = None):
         """
         The set of arguments for constructing a ResourceGroupPolicyAssignment resource.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
@@ -37,17 +37,17 @@ class ResourceGroupPolicyAssignmentArgs:
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs'] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         pulumi.set(__self__, "resource_group_id", resource_group_id)
@@ -138,7 +138,7 @@ class ResourceGroupPolicyAssignmentArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']]:
         """
         An `identity` block as defined below.
 
@@ -147,7 +147,7 @@ class ResourceGroupPolicyAssignmentArgs:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -188,14 +188,14 @@ class ResourceGroupPolicyAssignmentArgs:
 
     @property
     @pulumi.getter(name="nonComplianceMessages")
-    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]:
+    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]:
         """
         One or more `non_compliance_message` blocks as defined below.
         """
         return pulumi.get(self, "non_compliance_messages")
 
     @non_compliance_messages.setter
-    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]):
+    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]):
         pulumi.set(self, "non_compliance_messages", value)
 
     @property
@@ -212,14 +212,14 @@ class ResourceGroupPolicyAssignmentArgs:
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]]:
         """
         One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
     @property
@@ -236,52 +236,52 @@ class ResourceGroupPolicyAssignmentArgs:
 
     @property
     @pulumi.getter(name="resourceSelectors")
-    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]:
+    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]:
         """
         One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         return pulumi.get(self, "resource_selectors")
 
     @resource_selectors.setter
-    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]):
+    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]):
         pulumi.set(self, "resource_selectors", value)
 
 
 @pulumi.input_type
-class _ResourceGroupPolicyAssignmentState:
+calass _ResourceGroupPolicyAssignmentState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforce: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  resource_group_id: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None):
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ResourceGroupPolicyAssignment resources.
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs'] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_group_id: The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -350,7 +350,7 @@ class _ResourceGroupPolicyAssignmentState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']]:
         """
         An `identity` block as defined below.
 
@@ -359,7 +359,7 @@ class _ResourceGroupPolicyAssignmentState:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -400,14 +400,14 @@ class _ResourceGroupPolicyAssignmentState:
 
     @property
     @pulumi.getter(name="nonComplianceMessages")
-    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]:
+    def non_compliance_messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]:
         """
         One or more `non_compliance_message` blocks as defined below.
         """
         return pulumi.get(self, "non_compliance_messages")
 
     @non_compliance_messages.setter
-    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]):
+    def non_compliance_messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]):
         pulumi.set(self, "non_compliance_messages", value)
 
     @property
@@ -424,14 +424,14 @@ class _ResourceGroupPolicyAssignmentState:
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]]:
         """
         One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
     @property
@@ -472,18 +472,18 @@ class _ResourceGroupPolicyAssignmentState:
 
     @property
     @pulumi.getter(name="resourceSelectors")
-    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]:
+    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]:
         """
         One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         return pulumi.get(self, "resource_selectors")
 
     @resource_selectors.setter
-    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]):
+    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]):
         pulumi.set(self, "resource_selectors", value)
 
 
-class ResourceGroupPolicyAssignment(pulumi.CustomResource):
+calass ResourceGroupPolicyAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -491,17 +491,17 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforce: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArgs']]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArrgs']]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  resource_group_id: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Resource Group Policy Assignment.
@@ -556,25 +556,25 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArrgs']] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArrgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_group_id: The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceGroupPolicyAssignmentArgs,
+                 args: ResourceGroupPolicyAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group Policy Assignment.
@@ -625,12 +625,12 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceGroupPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceGroupPolicyAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupPolicyAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupPolicyAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -642,17 +642,17 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforce: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
+                 non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]] = None,
                  not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArgs']]]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArrgs']]]]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  resource_group_id: Optional[pulumi.Input[str]] = None,
-                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -660,7 +660,7 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceGroupPolicyAssignmentArgs.__new__(ResourceGroupPolicyAssignmentArgs)
+            __props__ = ResourceGroupPolicyAssignmentArrgs.__new__(ResourceGroupPolicyAssignmentArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
@@ -693,17 +693,17 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enforce: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]]] = None,
+            non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]]] = None,
             not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArgs']]]]] = None,
+            overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArrgs']]]]] = None,
             parameters: Optional[pulumi.Input[str]] = None,
             policy_definition_id: Optional[pulumi.Input[str]] = None,
             resource_group_id: Optional[pulumi.Input[str]] = None,
-            resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]]] = None) -> 'ResourceGroupPolicyAssignment':
+            resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]]] = None) -> 'ResourceGroupPolicyAssignment':
         """
         Get an existing ResourceGroupPolicyAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -714,19 +714,19 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArrgs']] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentNonComplianceMessageArrgs']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentOverrideArrgs']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         :param pulumi.Input[str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] resource_group_id: The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentResourceSelectorArrgs']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

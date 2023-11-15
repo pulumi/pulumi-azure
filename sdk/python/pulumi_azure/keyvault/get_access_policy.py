@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccessPolicyResult:
+calass GetAccessPolicyResult:
     """
     A collection of values returned by getAccessPolicy.
     """
@@ -76,7 +76,7 @@ class GetAccessPolicyResult:
         return pulumi.get(self, "secret_permissions")
 
 
-class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
+calass AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

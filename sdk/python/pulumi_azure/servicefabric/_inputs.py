@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterAzureActiveDirectoryArgs',
-    'ClusterCertificateArgs',
-    'ClusterCertificateCommonNamesArgs',
-    'ClusterCertificateCommonNamesCommonNameArgs',
-    'ClusterClientCertificateCommonNameArgs',
-    'ClusterClientCertificateThumbprintArgs',
-    'ClusterDiagnosticsConfigArgs',
-    'ClusterFabricSettingArgs',
-    'ClusterNodeTypeArgs',
-    'ClusterNodeTypeApplicationPortsArgs',
-    'ClusterNodeTypeEphemeralPortsArgs',
-    'ClusterReverseProxyCertificateArgs',
-    'ClusterReverseProxyCertificateCommonNamesArgs',
-    'ClusterReverseProxyCertificateCommonNamesCommonNameArgs',
-    'ClusterUpgradePolicyArgs',
-    'ClusterUpgradePolicyDeltaHealthPolicyArgs',
-    'ClusterUpgradePolicyHealthPolicyArgs',
-    'ManagedClusterAuthenticationArgs',
-    'ManagedClusterAuthenticationActiveDirectoryArgs',
-    'ManagedClusterAuthenticationCertificateArgs',
-    'ManagedClusterCustomFabricSettingArgs',
-    'ManagedClusterLbRuleArgs',
-    'ManagedClusterNodeTypeArgs',
-    'ManagedClusterNodeTypeVmSecretArgs',
-    'ManagedClusterNodeTypeVmSecretCertificateArgs',
+    'ClusterAzureActiveDirectoryArrgs',
+    'ClusterCertificateArrgs',
+    'ClusterCertificateCommonNamesArrgs',
+    'ClusterCertificateCommonNamesCommonNameArrgs',
+    'ClusterClientCertificateCommonNameArrgs',
+    'ClusterClientCertificateThumbprintArrgs',
+    'ClusterDiagnosticsConfigArrgs',
+    'ClusterFabricSettingArrgs',
+    'ClusterNodeTypeArrgs',
+    'ClusterNodeTypeApplicationPortsArrgs',
+    'ClusterNodeTypeEphemeralPortsArrgs',
+    'ClusterReverseProxyCertificateArrgs',
+    'ClusterReverseProxyCertificateCommonNamesArrgs',
+    'ClusterReverseProxyCertificateCommonNamesCommonNameArrgs',
+    'ClusterUpgradePolicyArrgs',
+    'ClusterUpgradePolicyDeltaHealthPolicyArrgs',
+    'ClusterUpgradePolicyHealthPolicyArrgs',
+    'ManagedClusterAuthenticationArrgs',
+    'ManagedClusterAuthenticationActiveDirectoryArrgs',
+    'ManagedClusterAuthenticationCertificateArrgs',
+    'ManagedClusterCustomFabricSettingArrgs',
+    'ManagedClusterLbRuleArrgs',
+    'ManagedClusterNodeTypeArrgs',
+    'ManagedClusterNodeTypeVmSecretArrgs',
+    'ManagedClusterNodeTypeVmSecretCertificateArrgs',
 ]
 
 @pulumi.input_type
-class ClusterAzureActiveDirectoryArgs:
+calass ClusterAzureActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_application_id: pulumi.Input[str],
                  cluster_application_id: pulumi.Input[str],
@@ -90,7 +90,7 @@ class ClusterAzureActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class ClusterCertificateArgs:
+calass ClusterCertificateArrgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[str],
                  x509_store_name: pulumi.Input[str],
@@ -143,12 +143,12 @@ class ClusterCertificateArgs:
 
 
 @pulumi.input_type
-class ClusterCertificateCommonNamesArgs:
+calass ClusterCertificateCommonNamesArrgs:
     def __init__(__self__, *,
-                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]],
+                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArrgs']]],
                  x509_store_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]] common_names: A `common_names` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArrgs']]] common_names: A `common_names` block as defined below.
         :param pulumi.Input[str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
         pulumi.set(__self__, "common_names", common_names)
@@ -156,14 +156,14 @@ class ClusterCertificateCommonNamesArgs:
 
     @property
     @pulumi.getter(name="commonNames")
-    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]:
+    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArrgs']]]:
         """
         A `common_names` block as defined below.
         """
         return pulumi.get(self, "common_names")
 
     @common_names.setter
-    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]]):
+    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArrgs']]]):
         pulumi.set(self, "common_names", value)
 
     @property
@@ -180,7 +180,7 @@ class ClusterCertificateCommonNamesArgs:
 
 
 @pulumi.input_type
-class ClusterCertificateCommonNamesCommonNameArgs:
+calass ClusterCertificateCommonNamesCommonNameArrgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[str],
                  certificate_issuer_thumbprint: Optional[pulumi.Input[str]] = None):
@@ -222,7 +222,7 @@ class ClusterCertificateCommonNamesCommonNameArgs:
 
 
 @pulumi.input_type
-class ClusterClientCertificateCommonNameArgs:
+calass ClusterClientCertificateCommonNameArrgs:
     def __init__(__self__, *,
                  common_name: pulumi.Input[str],
                  is_admin: pulumi.Input[bool],
@@ -279,7 +279,7 @@ class ClusterClientCertificateCommonNameArgs:
 
 
 @pulumi.input_type
-class ClusterClientCertificateThumbprintArgs:
+calass ClusterClientCertificateThumbprintArrgs:
     def __init__(__self__, *,
                  is_admin: pulumi.Input[bool],
                  thumbprint: pulumi.Input[str]):
@@ -316,7 +316,7 @@ class ClusterClientCertificateThumbprintArgs:
 
 
 @pulumi.input_type
-class ClusterDiagnosticsConfigArgs:
+calass ClusterDiagnosticsConfigArrgs:
     def __init__(__self__, *,
                  blob_endpoint: pulumi.Input[str],
                  protected_account_key_name: pulumi.Input[str],
@@ -398,7 +398,7 @@ class ClusterDiagnosticsConfigArgs:
 
 
 @pulumi.input_type
-class ClusterFabricSettingArgs:
+calass ClusterFabricSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -436,17 +436,17 @@ class ClusterFabricSettingArgs:
 
 
 @pulumi.input_type
-class ClusterNodeTypeArgs:
+calass ClusterNodeTypeArrgs:
     def __init__(__self__, *,
                  client_endpoint_port: pulumi.Input[int],
                  http_endpoint_port: pulumi.Input[int],
                  instance_count: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  name: pulumi.Input[str],
-                 application_ports: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']] = None,
+                 application_ports: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArrgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  durability_level: Optional[pulumi.Input[str]] = None,
-                 ephemeral_ports: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']] = None,
+                 ephemeral_ports: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArrgs']] = None,
                  is_stateless: Optional[pulumi.Input[bool]] = None,
                  multiple_availability_zones: Optional[pulumi.Input[bool]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -457,10 +457,10 @@ class ClusterNodeTypeArgs:
         :param pulumi.Input[int] instance_count: The number of nodes for this Node Type.
         :param pulumi.Input[bool] is_primary: Is this the Primary Node Type?
         :param pulumi.Input[str] name: The name of the Node Type.
-        :param pulumi.Input['ClusterNodeTypeApplicationPortsArgs'] application_ports: A `application_ports` block as defined below.
+        :param pulumi.Input['ClusterNodeTypeApplicationPortsArrgs'] application_ports: A `application_ports` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
-        :param pulumi.Input['ClusterNodeTypeEphemeralPortsArgs'] ephemeral_ports: A `ephemeral_ports` block as defined below.
+        :param pulumi.Input['ClusterNodeTypeEphemeralPortsArrgs'] ephemeral_ports: A `ephemeral_ports` block as defined below.
         :param pulumi.Input[bool] is_stateless: Should this node type run only stateless services?
         :param pulumi.Input[bool] multiple_availability_zones: Does this node type span availability zones?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -550,14 +550,14 @@ class ClusterNodeTypeArgs:
 
     @property
     @pulumi.getter(name="applicationPorts")
-    def application_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']]:
+    def application_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArrgs']]:
         """
         A `application_ports` block as defined below.
         """
         return pulumi.get(self, "application_ports")
 
     @application_ports.setter
-    def application_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArgs']]):
+    def application_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeApplicationPortsArrgs']]):
         pulumi.set(self, "application_ports", value)
 
     @property
@@ -586,14 +586,14 @@ class ClusterNodeTypeArgs:
 
     @property
     @pulumi.getter(name="ephemeralPorts")
-    def ephemeral_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']]:
+    def ephemeral_ports(self) -> Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArrgs']]:
         """
         A `ephemeral_ports` block as defined below.
         """
         return pulumi.get(self, "ephemeral_ports")
 
     @ephemeral_ports.setter
-    def ephemeral_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArgs']]):
+    def ephemeral_ports(self, value: Optional[pulumi.Input['ClusterNodeTypeEphemeralPortsArrgs']]):
         pulumi.set(self, "ephemeral_ports", value)
 
     @property
@@ -646,7 +646,7 @@ class ClusterNodeTypeArgs:
 
 
 @pulumi.input_type
-class ClusterNodeTypeApplicationPortsArgs:
+calass ClusterNodeTypeApplicationPortsArrgs:
     def __init__(__self__, *,
                  end_port: pulumi.Input[int],
                  start_port: pulumi.Input[int]):
@@ -683,7 +683,7 @@ class ClusterNodeTypeApplicationPortsArgs:
 
 
 @pulumi.input_type
-class ClusterNodeTypeEphemeralPortsArgs:
+calass ClusterNodeTypeEphemeralPortsArrgs:
     def __init__(__self__, *,
                  end_port: pulumi.Input[int],
                  start_port: pulumi.Input[int]):
@@ -720,7 +720,7 @@ class ClusterNodeTypeEphemeralPortsArgs:
 
 
 @pulumi.input_type
-class ClusterReverseProxyCertificateArgs:
+calass ClusterReverseProxyCertificateArrgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[str],
                  x509_store_name: pulumi.Input[str],
@@ -773,12 +773,12 @@ class ClusterReverseProxyCertificateArgs:
 
 
 @pulumi.input_type
-class ClusterReverseProxyCertificateCommonNamesArgs:
+calass ClusterReverseProxyCertificateCommonNamesArrgs:
     def __init__(__self__, *,
-                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]],
+                 common_names: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArrgs']]],
                  x509_store_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]] common_names: A `common_names` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArrgs']]] common_names: A `common_names` block as defined below.
         :param pulumi.Input[str] x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
         pulumi.set(__self__, "common_names", common_names)
@@ -786,14 +786,14 @@ class ClusterReverseProxyCertificateCommonNamesArgs:
 
     @property
     @pulumi.getter(name="commonNames")
-    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]]:
+    def common_names(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArrgs']]]:
         """
         A `common_names` block as defined below.
         """
         return pulumi.get(self, "common_names")
 
     @common_names.setter
-    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]]):
+    def common_names(self, value: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArrgs']]]):
         pulumi.set(self, "common_names", value)
 
     @property
@@ -810,7 +810,7 @@ class ClusterReverseProxyCertificateCommonNamesArgs:
 
 
 @pulumi.input_type
-class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
+calass ClusterReverseProxyCertificateCommonNamesCommonNameArrgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[str],
                  certificate_issuer_thumbprint: Optional[pulumi.Input[str]] = None):
@@ -852,24 +852,24 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
 
 
 @pulumi.input_type
-class ClusterUpgradePolicyArgs:
+calass ClusterUpgradePolicyArrgs:
     def __init__(__self__, *,
-                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']] = None,
+                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArrgs']] = None,
                  force_restart_enabled: Optional[pulumi.Input[bool]] = None,
                  health_check_retry_timeout: Optional[pulumi.Input[str]] = None,
                  health_check_stable_duration: Optional[pulumi.Input[str]] = None,
                  health_check_wait_duration: Optional[pulumi.Input[str]] = None,
-                 health_policy: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']] = None,
+                 health_policy: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArrgs']] = None,
                  upgrade_domain_timeout: Optional[pulumi.Input[str]] = None,
                  upgrade_replica_set_check_timeout: Optional[pulumi.Input[str]] = None,
                  upgrade_timeout: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs'] delta_health_policy: A `delta_health_policy` block as defined below
+        :param pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArrgs'] delta_health_policy: A `delta_health_policy` block as defined below
         :param pulumi.Input[bool] force_restart_enabled: Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
         :param pulumi.Input[str] health_check_retry_timeout: Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
         :param pulumi.Input[str] health_check_stable_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
         :param pulumi.Input[str] health_check_wait_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
-        :param pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs'] health_policy: A `health_policy` block as defined below
+        :param pulumi.Input['ClusterUpgradePolicyHealthPolicyArrgs'] health_policy: A `health_policy` block as defined below
         :param pulumi.Input[str] upgrade_domain_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
         :param pulumi.Input[str] upgrade_replica_set_check_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
         :param pulumi.Input[str] upgrade_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
@@ -895,14 +895,14 @@ class ClusterUpgradePolicyArgs:
 
     @property
     @pulumi.getter(name="deltaHealthPolicy")
-    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']]:
+    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArrgs']]:
         """
         A `delta_health_policy` block as defined below
         """
         return pulumi.get(self, "delta_health_policy")
 
     @delta_health_policy.setter
-    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgs']]):
+    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArrgs']]):
         pulumi.set(self, "delta_health_policy", value)
 
     @property
@@ -955,14 +955,14 @@ class ClusterUpgradePolicyArgs:
 
     @property
     @pulumi.getter(name="healthPolicy")
-    def health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']]:
+    def health_policy(self) -> Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArrgs']]:
         """
         A `health_policy` block as defined below
         """
         return pulumi.get(self, "health_policy")
 
     @health_policy.setter
-    def health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgs']]):
+    def health_policy(self, value: Optional[pulumi.Input['ClusterUpgradePolicyHealthPolicyArrgs']]):
         pulumi.set(self, "health_policy", value)
 
     @property
@@ -1003,7 +1003,7 @@ class ClusterUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class ClusterUpgradePolicyDeltaHealthPolicyArgs:
+calass ClusterUpgradePolicyDeltaHealthPolicyArrgs:
     def __init__(__self__, *,
                  max_delta_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
                  max_delta_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None,
@@ -1058,7 +1058,7 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
 
 
 @pulumi.input_type
-class ClusterUpgradePolicyHealthPolicyArgs:
+calass ClusterUpgradePolicyHealthPolicyArrgs:
     def __init__(__self__, *,
                  max_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
                  max_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None):
@@ -1097,13 +1097,13 @@ class ClusterUpgradePolicyHealthPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedClusterAuthenticationArgs:
+calass ManagedClusterAuthenticationArrgs:
     def __init__(__self__, *,
-                 active_directory: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]] = None):
+                 active_directory: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArrgs']] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArrgs']]]] = None):
         """
-        :param pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArrgs']]] certificates: One or more `certificate` blocks as defined below.
         """
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
@@ -1112,31 +1112,31 @@ class ManagedClusterAuthenticationArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined above.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArrgs']]]]:
         """
         One or more `certificate` blocks as defined below.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArrgs']]]]):
         pulumi.set(self, "certificates", value)
 
 
 @pulumi.input_type
-class ManagedClusterAuthenticationActiveDirectoryArgs:
+calass ManagedClusterAuthenticationActiveDirectoryArrgs:
     def __init__(__self__, *,
                  client_application_id: pulumi.Input[str],
                  cluster_application_id: pulumi.Input[str],
@@ -1188,7 +1188,7 @@ class ManagedClusterAuthenticationActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class ManagedClusterAuthenticationCertificateArgs:
+calass ManagedClusterAuthenticationCertificateArrgs:
     def __init__(__self__, *,
                  thumbprint: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -1241,7 +1241,7 @@ class ManagedClusterAuthenticationCertificateArgs:
 
 
 @pulumi.input_type
-class ManagedClusterCustomFabricSettingArgs:
+calass ManagedClusterCustomFabricSettingArrgs:
     def __init__(__self__, *,
                  parameter: pulumi.Input[str],
                  section: pulumi.Input[str],
@@ -1293,7 +1293,7 @@ class ManagedClusterCustomFabricSettingArgs:
 
 
 @pulumi.input_type
-class ManagedClusterLbRuleArgs:
+calass ManagedClusterLbRuleArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_port: pulumi.Input[int],
@@ -1376,7 +1376,7 @@ class ManagedClusterLbRuleArgs:
 
 
 @pulumi.input_type
-class ManagedClusterNodeTypeArgs:
+calass ManagedClusterNodeTypeArrgs:
     def __init__(__self__, *,
                  application_port_range: pulumi.Input[str],
                  data_disk_size_gb: pulumi.Input[int],
@@ -1395,7 +1395,7 @@ class ManagedClusterNodeTypeArgs:
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
                  stateless: Optional[pulumi.Input[bool]] = None,
-                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]] = None):
+                 vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArrgs']]]] = None):
         """
         :param pulumi.Input[str] application_port_range: Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
         :param pulumi.Input[int] data_disk_size_gb: The size of the data disk in gigabytes..
@@ -1414,7 +1414,7 @@ class ManagedClusterNodeTypeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: Specifies a list of placement tags that can be used to indicate where services should run..
         :param pulumi.Input[bool] primary: If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
         :param pulumi.Input[bool] stateless: If set to true, only stateless workloads can run on this node type.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]] vm_secrets: One or more `vm_secrets` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArrgs']]] vm_secrets: One or more `vm_secrets` blocks as defined below.
         """
         pulumi.set(__self__, "application_port_range", application_port_range)
         pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
@@ -1649,24 +1649,24 @@ class ManagedClusterNodeTypeArgs:
 
     @property
     @pulumi.getter(name="vmSecrets")
-    def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]:
+    def vm_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArrgs']]]]:
         """
         One or more `vm_secrets` blocks as defined below.
         """
         return pulumi.get(self, "vm_secrets")
 
     @vm_secrets.setter
-    def vm_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]):
+    def vm_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArrgs']]]]):
         pulumi.set(self, "vm_secrets", value)
 
 
 @pulumi.input_type
-class ManagedClusterNodeTypeVmSecretArgs:
+calass ManagedClusterNodeTypeVmSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArrgs']]],
                  vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]] certificates: One or more `certificates` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArrgs']]] certificates: One or more `certificates` blocks as defined above.
         :param pulumi.Input[str] vault_id: The ID of the Vault that contain the certificates.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -1674,14 +1674,14 @@ class ManagedClusterNodeTypeVmSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArrgs']]]:
         """
         One or more `certificates` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -1698,7 +1698,7 @@ class ManagedClusterNodeTypeVmSecretArgs:
 
 
 @pulumi.input_type
-class ManagedClusterNodeTypeVmSecretCertificateArgs:
+calass ManagedClusterNodeTypeVmSecretCertificateArrgs:
     def __init__(__self__, *,
                  store: pulumi.Input[str],
                  url: pulumi.Input[str]):

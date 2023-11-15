@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatasetDataLakeGen2Args', 'DatasetDataLakeGen2']
+__all__ = ['DatasetDataLakeGen2Arrgs', 'DatasetDataLakeGen2']
 
 @pulumi.input_type
-class DatasetDataLakeGen2Args:
+calass DatasetDataLakeGen2Arrgs:
     def __init__(__self__, *,
                  file_system_name: pulumi.Input[str],
                  share_id: pulumi.Input[str],
@@ -113,7 +113,7 @@ class DatasetDataLakeGen2Args:
 
 
 @pulumi.input_type
-class _DatasetDataLakeGen2State:
+calass _DatasetDataLakeGen2State:
     def __init__(__self__, *,
                  display_name: Optional[pulumi.Input[str]] = None,
                  file_path: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _DatasetDataLakeGen2State:
         pulumi.set(self, "storage_account_id", value)
 
 
-class DatasetDataLakeGen2(pulumi.CustomResource):
+calass DatasetDataLakeGen2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -258,7 +258,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -305,7 +305,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetDataLakeGen2Args,
+                 args: DatasetDataLakeGen2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Data Lake Gen2 Dataset.
@@ -321,7 +321,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -356,12 +356,12 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetDataLakeGen2Args args: The arguments to use to populate this resource's properties.
+        :param DatasetDataLakeGen2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetDataLakeGen2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetDataLakeGen2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -383,7 +383,7 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetDataLakeGen2Args.__new__(DatasetDataLakeGen2Args)
+            __props__ = DatasetDataLakeGen2Arrgs.__new__(DatasetDataLakeGen2Arrgs)
 
             __props__.__dict__["file_path"] = file_path
             if file_system_name is None and not opts.urn:

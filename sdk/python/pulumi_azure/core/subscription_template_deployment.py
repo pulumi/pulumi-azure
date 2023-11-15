@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubscriptionTemplateDeploymentArgs', 'SubscriptionTemplateDeployment']
+__all__ = ['SubscriptionTemplateDeploymentArrgs', 'SubscriptionTemplateDeployment']
 
 @pulumi.input_type
-class SubscriptionTemplateDeploymentArgs:
+calass SubscriptionTemplateDeploymentArrgs:
     def __init__(__self__, *,
                  debug_level: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class SubscriptionTemplateDeploymentArgs:
 
 
 @pulumi.input_type
-class _SubscriptionTemplateDeploymentState:
+calass _SubscriptionTemplateDeploymentState:
     def __init__(__self__, *,
                  debug_level: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -267,7 +267,7 @@ class _SubscriptionTemplateDeploymentState:
         pulumi.set(self, "template_spec_version_id", value)
 
 
-class SubscriptionTemplateDeployment(pulumi.CustomResource):
+calass SubscriptionTemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -332,7 +332,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SubscriptionTemplateDeploymentArgs] = None,
+                 args: Optional[SubscriptionTemplateDeploymentArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Template Deployment.
@@ -373,12 +373,12 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionTemplateDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionTemplateDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionTemplateDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionTemplateDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -401,7 +401,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionTemplateDeploymentArgs.__new__(SubscriptionTemplateDeploymentArgs)
+            __props__ = SubscriptionTemplateDeploymentArrgs.__new__(SubscriptionTemplateDeploymentArrgs)
 
             __props__.__dict__["debug_level"] = debug_level
             __props__.__dict__["location"] = location

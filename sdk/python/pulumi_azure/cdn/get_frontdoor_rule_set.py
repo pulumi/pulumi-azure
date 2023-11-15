@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorRuleSetResult:
+calass GetFrontdoorRuleSetResult:
     """
     A collection of values returned by getFrontdoorRuleSet.
     """
@@ -70,7 +70,7 @@ class GetFrontdoorRuleSetResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetFrontdoorRuleSetResult(GetFrontdoorRuleSetResult):
+calass AwaitableGetFrontdoorRuleSetResult(GetFrontdoorRuleSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

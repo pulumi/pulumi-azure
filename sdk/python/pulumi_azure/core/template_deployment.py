@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TemplateDeploymentArgs', 'TemplateDeployment']
+__all__ = ['TemplateDeploymentArrgs', 'TemplateDeployment']
 
 @pulumi.input_type
-class TemplateDeploymentArgs:
+calass TemplateDeploymentArrgs:
     def __init__(__self__, *,
                  deployment_mode: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -118,7 +118,7 @@ class TemplateDeploymentArgs:
 
 
 @pulumi.input_type
-class _TemplateDeploymentState:
+calass _TemplateDeploymentState:
     def __init__(__self__, *,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -241,7 +241,7 @@ class _TemplateDeploymentState:
         pulumi.set(self, "template_body", value)
 
 
-class TemplateDeployment(pulumi.CustomResource):
+calass TemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -352,7 +352,7 @@ class TemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TemplateDeploymentArgs,
+                 args: TemplateDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a template deployment of resources
@@ -439,12 +439,12 @@ class TemplateDeployment(pulumi.CustomResource):
         This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Delete).
 
         :param str resource_name: The name of the resource.
-        :param TemplateDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param TemplateDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TemplateDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -466,7 +466,7 @@ class TemplateDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TemplateDeploymentArgs.__new__(TemplateDeploymentArgs)
+            __props__ = TemplateDeploymentArrgs.__new__(TemplateDeploymentArrgs)
 
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Gateway for Containers Frontend.
@@ -170,12 +169,6 @@ func (i *LicationLoadBalancerFrontend) ToLicationLoadBalancerFrontendOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerFrontendOutput)
 }
 
-func (i *LicationLoadBalancerFrontend) ToOutput(ctx context.Context) pulumix.Output[*LicationLoadBalancerFrontend] {
-	return pulumix.Output[*LicationLoadBalancerFrontend]{
-		OutputState: i.ToLicationLoadBalancerFrontendOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LicationLoadBalancerFrontendArrayInput is an input type that accepts LicationLoadBalancerFrontendArray and LicationLoadBalancerFrontendArrayOutput values.
 // You can construct a concrete instance of `LicationLoadBalancerFrontendArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i LicationLoadBalancerFrontendArray) ToLicationLoadBalancerFrontendArrayOu
 
 func (i LicationLoadBalancerFrontendArray) ToLicationLoadBalancerFrontendArrayOutputWithContext(ctx context.Context) LicationLoadBalancerFrontendArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerFrontendArrayOutput)
-}
-
-func (i LicationLoadBalancerFrontendArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicationLoadBalancerFrontend] {
-	return pulumix.Output[[]*LicationLoadBalancerFrontend]{
-		OutputState: i.ToLicationLoadBalancerFrontendArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LicationLoadBalancerFrontendMapInput is an input type that accepts LicationLoadBalancerFrontendMap and LicationLoadBalancerFrontendMapOutput values.
@@ -232,12 +219,6 @@ func (i LicationLoadBalancerFrontendMap) ToLicationLoadBalancerFrontendMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerFrontendMapOutput)
 }
 
-func (i LicationLoadBalancerFrontendMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicationLoadBalancerFrontend] {
-	return pulumix.Output[map[string]*LicationLoadBalancerFrontend]{
-		OutputState: i.ToLicationLoadBalancerFrontendMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LicationLoadBalancerFrontendOutput struct{ *pulumi.OutputState }
 
 func (LicationLoadBalancerFrontendOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o LicationLoadBalancerFrontendOutput) ToLicationLoadBalancerFrontendOutput
 
 func (o LicationLoadBalancerFrontendOutput) ToLicationLoadBalancerFrontendOutputWithContext(ctx context.Context) LicationLoadBalancerFrontendOutput {
 	return o
-}
-
-func (o LicationLoadBalancerFrontendOutput) ToOutput(ctx context.Context) pulumix.Output[*LicationLoadBalancerFrontend] {
-	return pulumix.Output[*LicationLoadBalancerFrontend]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
@@ -292,12 +267,6 @@ func (o LicationLoadBalancerFrontendArrayOutput) ToLicationLoadBalancerFrontendA
 	return o
 }
 
-func (o LicationLoadBalancerFrontendArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicationLoadBalancerFrontend] {
-	return pulumix.Output[[]*LicationLoadBalancerFrontend]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LicationLoadBalancerFrontendArrayOutput) Index(i pulumi.IntInput) LicationLoadBalancerFrontendOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicationLoadBalancerFrontend {
 		return vs[0].([]*LicationLoadBalancerFrontend)[vs[1].(int)]
@@ -316,12 +285,6 @@ func (o LicationLoadBalancerFrontendMapOutput) ToLicationLoadBalancerFrontendMap
 
 func (o LicationLoadBalancerFrontendMapOutput) ToLicationLoadBalancerFrontendMapOutputWithContext(ctx context.Context) LicationLoadBalancerFrontendMapOutput {
 	return o
-}
-
-func (o LicationLoadBalancerFrontendMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicationLoadBalancerFrontend] {
-	return pulumix.Output[map[string]*LicationLoadBalancerFrontend]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LicationLoadBalancerFrontendMapOutput) MapIndex(k pulumi.StringInput) LicationLoadBalancerFrontendOutput {

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TimeSeriesDatabaseConnectionArgs', 'TimeSeriesDatabaseConnection']
+__all__ = ['TimeSeriesDatabaseConnectionArrgs', 'TimeSeriesDatabaseConnection']
 
 @pulumi.input_type
-class TimeSeriesDatabaseConnectionArgs:
+calass TimeSeriesDatabaseConnectionArrgs:
     def __init__(__self__, *,
                  digital_twins_id: pulumi.Input[str],
                  eventhub_name: pulumi.Input[str],
@@ -173,7 +173,7 @@ class TimeSeriesDatabaseConnectionArgs:
 
 
 @pulumi.input_type
-class _TimeSeriesDatabaseConnectionState:
+calass _TimeSeriesDatabaseConnectionState:
     def __init__(__self__, *,
                  digital_twins_id: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
@@ -340,7 +340,7 @@ class _TimeSeriesDatabaseConnectionState:
         pulumi.set(self, "name", value)
 
 
-class TimeSeriesDatabaseConnection(pulumi.CustomResource):
+calass TimeSeriesDatabaseConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -369,7 +369,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         example_instance = azure.digitaltwins.Instance("exampleInstance",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.digitaltwins.InstanceIdentityArgs(
+            identity=azure.digitaltwins.InstanceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
@@ -388,7 +388,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -454,7 +454,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TimeSeriesDatabaseConnectionArgs,
+                 args: TimeSeriesDatabaseConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Time Series Database Connection.
@@ -469,7 +469,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         example_instance = azure.digitaltwins.Instance("exampleInstance",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.digitaltwins.InstanceIdentityArgs(
+            identity=azure.digitaltwins.InstanceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
@@ -488,7 +488,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -538,12 +538,12 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param TimeSeriesDatabaseConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesDatabaseConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesDatabaseConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -569,7 +569,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TimeSeriesDatabaseConnectionArgs.__new__(TimeSeriesDatabaseConnectionArgs)
+            __props__ = TimeSeriesDatabaseConnectionArrgs.__new__(TimeSeriesDatabaseConnectionArrgs)
 
             if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")

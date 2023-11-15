@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SubscriptionArgs', 'Subscription']
+__all__ = ['SubscriptionArrgs', 'Subscription']
 
 @pulumi.input_type
-class SubscriptionArgs:
+calass SubscriptionArrgs:
     def __init__(__self__, *,
                  max_delivery_count: pulumi.Input[int],
                  topic_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -36,7 +36,7 @@ class SubscriptionArgs:
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input['SubscriptionClientScopedSubscriptionArrgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
@@ -118,14 +118,14 @@ class SubscriptionArgs:
 
     @property
     @pulumi.getter(name="clientScopedSubscription")
-    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']]:
         """
         A `client_scoped_subscription` block as defined below.
         """
         return pulumi.get(self, "client_scoped_subscription")
 
     @client_scoped_subscription.setter
-    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']]):
         pulumi.set(self, "client_scoped_subscription", value)
 
     @property
@@ -264,10 +264,10 @@ class SubscriptionArgs:
 
 
 @pulumi.input_type
-class _SubscriptionState:
+calass _SubscriptionState:
     def __init__(__self__, *,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+                 client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -284,7 +284,7 @@ class _SubscriptionState:
         """
         Input properties used for looking up and filtering Subscription resources.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input['SubscriptionClientScopedSubscriptionArrgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
@@ -346,14 +346,14 @@ class _SubscriptionState:
 
     @property
     @pulumi.getter(name="clientScopedSubscription")
-    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]:
+    def client_scoped_subscription(self) -> Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']]:
         """
         A `client_scoped_subscription` block as defined below.
         """
         return pulumi.get(self, "client_scoped_subscription")
 
     @client_scoped_subscription.setter
-    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']]):
+    def client_scoped_subscription(self, value: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArrgs']]):
         pulumi.set(self, "client_scoped_subscription", value)
 
     @property
@@ -515,13 +515,13 @@ class _SubscriptionState:
         pulumi.set(self, "topic_id", value)
 
 
-class Subscription(pulumi.CustomResource):
+calass Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArrgs']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -572,7 +572,7 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArrgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
@@ -593,7 +593,7 @@ class Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionArgs,
+                 args: SubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Subscription.
@@ -629,12 +629,12 @@ class Subscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -644,7 +644,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+                 client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArrgs']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -665,7 +665,7 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
+            __props__ = SubscriptionArrgs.__new__(SubscriptionArrgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
             __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
@@ -699,7 +699,7 @@ class Subscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
-            client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']]] = None,
+            client_scoped_subscription: Optional[pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArrgs']]] = None,
             client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -721,7 +721,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
-        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArrgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
         :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).

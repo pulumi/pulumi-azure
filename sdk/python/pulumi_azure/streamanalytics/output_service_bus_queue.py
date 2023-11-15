@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OutputServiceBusQueueArgs', 'OutputServiceBusQueue']
+__all__ = ['OutputServiceBusQueueArrgs', 'OutputServiceBusQueue']
 
 @pulumi.input_type
-class OutputServiceBusQueueArgs:
+calass OutputServiceBusQueueArrgs:
     def __init__(__self__, *,
                  queue_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 serialization: pulumi.Input['OutputServiceBusQueueSerializationArgs'],
+                 serialization: pulumi.Input['OutputServiceBusQueueSerializationArrgs'],
                  servicebus_namespace: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class OutputServiceBusQueueArgs:
         The set of arguments for constructing a OutputServiceBusQueue resource.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['OutputServiceBusQueueSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['OutputServiceBusQueueSerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -87,14 +87,14 @@ class OutputServiceBusQueueArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> pulumi.Input['OutputServiceBusQueueSerializationArgs']:
+    def serialization(self) -> pulumi.Input['OutputServiceBusQueueSerializationArrgs']:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: pulumi.Input['OutputServiceBusQueueSerializationArgs']):
+    def serialization(self, value: pulumi.Input['OutputServiceBusQueueSerializationArrgs']):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -197,14 +197,14 @@ class OutputServiceBusQueueArgs:
 
 
 @pulumi.input_type
-class _OutputServiceBusQueueState:
+calass _OutputServiceBusQueueState:
     def __init__(__self__, *,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input['OutputServiceBusQueueSerializationArgs']] = None,
+                 serialization: Optional[pulumi.Input['OutputServiceBusQueueSerializationArrgs']] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _OutputServiceBusQueueState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['OutputServiceBusQueueSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['OutputServiceBusQueueSerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
@@ -311,14 +311,14 @@ class _OutputServiceBusQueueState:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['OutputServiceBusQueueSerializationArgs']]:
+    def serialization(self) -> Optional[pulumi.Input['OutputServiceBusQueueSerializationArrgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['OutputServiceBusQueueSerializationArgs']]):
+    def serialization(self, value: Optional[pulumi.Input['OutputServiceBusQueueSerializationArrgs']]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -384,7 +384,7 @@ class _OutputServiceBusQueueState:
         pulumi.set(self, "system_property_columns", value)
 
 
-class OutputServiceBusQueue(pulumi.CustomResource):
+calass OutputServiceBusQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -394,7 +394,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArrgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -427,7 +427,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArgs(
+            serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArrgs(
                 type="Csv",
                 format="Array",
             ))
@@ -448,7 +448,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
@@ -461,7 +461,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputServiceBusQueueArgs,
+                 args: OutputServiceBusQueueArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to a ServiceBus Queue.
@@ -489,7 +489,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArgs(
+            serialization=azure.streamanalytics.OutputServiceBusQueueSerializationArrgs(
                 type="Csv",
                 format="Array",
             ))
@@ -504,12 +504,12 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputServiceBusQueueArgs args: The arguments to use to populate this resource's properties.
+        :param OutputServiceBusQueueArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputServiceBusQueueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputServiceBusQueueArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -523,7 +523,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArrgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -536,7 +536,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputServiceBusQueueArgs.__new__(OutputServiceBusQueueArgs)
+            __props__ = OutputServiceBusQueueArrgs.__new__(OutputServiceBusQueueArrgs)
 
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["name"] = name
@@ -576,7 +576,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             queue_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']]] = None,
+            serialization: Optional[pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArrgs']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -594,7 +594,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Service Bus Queue output.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputServiceBusQueueSerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.

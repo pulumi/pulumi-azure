@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConfigurationStoreResult:
+calass GetConfigurationStoreResult:
     """
     A collection of values returned by getConfigurationStore.
     """
@@ -225,7 +225,7 @@ class GetConfigurationStoreResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
+calass AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

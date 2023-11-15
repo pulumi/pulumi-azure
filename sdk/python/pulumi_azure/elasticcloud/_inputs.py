@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ElasticsearchLogsArgs',
-    'ElasticsearchLogsFilteringTagArgs',
-    'GetElasticsearchLogArgs',
-    'GetElasticsearchLogFilteringTagArgs',
+    'ElasticsearchLogsArrgs',
+    'ElasticsearchLogsFilteringTagArrgs',
+    'GetElasticsearchLogArrgs',
+    'GetElasticsearchLogFilteringTagArrgs',
 ]
 
 @pulumi.input_type
-class ElasticsearchLogsArgs:
+calass ElasticsearchLogsArrgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]] = None,
+                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArrgs']]]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_azuread_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]] filtering_tags: A list of `filtering_tag` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArrgs']]] filtering_tags: A list of `filtering_tag` blocks as defined above.
         :param pulumi.Input[bool] send_activity_logs: Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param pulumi.Input[bool] send_azuread_logs: Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param pulumi.Input[bool] send_subscription_logs: Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
@@ -40,14 +40,14 @@ class ElasticsearchLogsArgs:
 
     @property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]:
+    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArrgs']]]]:
         """
         A list of `filtering_tag` blocks as defined above.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]):
+    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArrgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @property
@@ -88,7 +88,7 @@ class ElasticsearchLogsArgs:
 
 
 @pulumi.input_type
-class ElasticsearchLogsFilteringTagArgs:
+calass ElasticsearchLogsFilteringTagArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -140,14 +140,14 @@ class ElasticsearchLogsFilteringTagArgs:
 
 
 @pulumi.input_type
-class GetElasticsearchLogArgs:
+calass GetElasticsearchLogArrgs:
     def __init__(__self__, *,
-                 filtering_tags: Sequence['GetElasticsearchLogFilteringTagArgs'],
+                 filtering_tags: Sequence['GetElasticsearchLogFilteringTagArrgs'],
                  send_activity_logs: bool,
                  send_azuread_logs: bool,
                  send_subscription_logs: bool):
         """
-        :param Sequence['GetElasticsearchLogFilteringTagArgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
+        :param Sequence['GetElasticsearchLogFilteringTagArrgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
         :param bool send_activity_logs: Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
         :param bool send_azuread_logs: Should the AzureAD Logs should be sent to the Elasticsearch cluster?
         :param bool send_subscription_logs: Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
@@ -159,14 +159,14 @@ class GetElasticsearchLogArgs:
 
     @property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Sequence['GetElasticsearchLogFilteringTagArgs']:
+    def filtering_tags(self) -> Sequence['GetElasticsearchLogFilteringTagArrgs']:
         """
         A list of `filtering_tag` blocks as defined above.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Sequence['GetElasticsearchLogFilteringTagArgs']):
+    def filtering_tags(self, value: Sequence['GetElasticsearchLogFilteringTagArrgs']):
         pulumi.set(self, "filtering_tags", value)
 
     @property
@@ -207,7 +207,7 @@ class GetElasticsearchLogArgs:
 
 
 @pulumi.input_type
-class GetElasticsearchLogFilteringTagArgs:
+calass GetElasticsearchLogFilteringTagArrgs:
     def __init__(__self__, *,
                  action: str,
                  name: str,

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationPolicyResult:
+calass GetReplicationPolicyResult:
     """
     A collection of values returned by getReplicationPolicy.
     """
@@ -81,7 +81,7 @@ class GetReplicationPolicyResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetReplicationPolicyResult(GetReplicationPolicyResult):
+calass AwaitableGetReplicationPolicyResult(GetReplicationPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

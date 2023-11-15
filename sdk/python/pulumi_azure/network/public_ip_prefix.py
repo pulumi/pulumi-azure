@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PublicIpPrefixArgs', 'PublicIpPrefix']
+__all__ = ['PublicIpPrefixArrgs', 'PublicIpPrefix']
 
 @pulumi.input_type
-class PublicIpPrefixArgs:
+calass PublicIpPrefixArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  ip_version: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class PublicIpPrefixArgs:
 
 
 @pulumi.input_type
-class _PublicIpPrefixState:
+calass _PublicIpPrefixState:
     def __init__(__self__, *,
                  ip_prefix: Optional[pulumi.Input[str]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
@@ -322,7 +322,7 @@ class _PublicIpPrefixState:
         pulumi.set(self, "zones", value)
 
 
-class PublicIpPrefix(pulumi.CustomResource):
+calass PublicIpPrefix(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -384,7 +384,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PublicIpPrefixArgs,
+                 args: PublicIpPrefixArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Public IP Prefix.
@@ -414,12 +414,12 @@ class PublicIpPrefix(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PublicIpPrefixArgs args: The arguments to use to populate this resource's properties.
+        :param PublicIpPrefixArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PublicIpPrefixArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PublicIpPrefixArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -443,7 +443,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PublicIpPrefixArgs.__new__(PublicIpPrefixArgs)
+            __props__ = PublicIpPrefixArrgs.__new__(PublicIpPrefixArrgs)
 
             __props__.__dict__["ip_version"] = ip_version
             __props__.__dict__["location"] = location

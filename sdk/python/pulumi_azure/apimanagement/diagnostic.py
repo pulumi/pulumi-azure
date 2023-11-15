@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DiagnosticArgs', 'Diagnostic']
+__all__ = ['DiagnosticArrgs', 'Diagnostic']
 
 @pulumi.input_type
-class DiagnosticArgs:
+calass DiagnosticArrgs:
     def __init__(__self__, *,
                  api_management_logger_id: pulumi.Input[str],
                  api_management_name: pulumi.Input[str],
                  identifier: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  always_log_errors: Optional[pulumi.Input[bool]] = None,
-                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
-                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
-                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
+                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArrgs']] = None,
+                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArrgs']] = None,
+                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']] = None,
+                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  operation_name_format: Optional[pulumi.Input[str]] = None,
@@ -37,10 +37,10 @@ class DiagnosticArgs:
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
-        :param pulumi.Input['DiagnosticBackendRequestArgs'] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input['DiagnosticBackendResponseArgs'] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input['DiagnosticFrontendRequestArgs'] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input['DiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input['DiagnosticBackendRequestArrgs'] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input['DiagnosticBackendResponseArrgs'] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendRequestArrgs'] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendResponseArrgs'] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
         :param pulumi.Input[str] operation_name_format: The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
@@ -134,50 +134,50 @@ class DiagnosticArgs:
 
     @property
     @pulumi.getter(name="backendRequest")
-    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArgs']]:
+    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArrgs']]:
         """
         A `backend_request` block as defined below.
         """
         return pulumi.get(self, "backend_request")
 
     @backend_request.setter
-    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArgs']]):
+    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArrgs']]):
         pulumi.set(self, "backend_request", value)
 
     @property
     @pulumi.getter(name="backendResponse")
-    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArgs']]:
+    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArrgs']]:
         """
         A `backend_response` block as defined below.
         """
         return pulumi.get(self, "backend_response")
 
     @backend_response.setter
-    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArgs']]):
+    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArrgs']]):
         pulumi.set(self, "backend_response", value)
 
     @property
     @pulumi.getter(name="frontendRequest")
-    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]:
+    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']]:
         """
         A `frontend_request` block as defined below.
         """
         return pulumi.get(self, "frontend_request")
 
     @frontend_request.setter
-    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]):
+    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']]):
         pulumi.set(self, "frontend_request", value)
 
     @property
     @pulumi.getter(name="frontendResponse")
-    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]:
+    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']]:
         """
         A `frontend_response` block as defined below.
         """
         return pulumi.get(self, "frontend_response")
 
     @frontend_response.setter
-    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]):
+    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']]):
         pulumi.set(self, "frontend_response", value)
 
     @property
@@ -242,15 +242,15 @@ class DiagnosticArgs:
 
 
 @pulumi.input_type
-class _DiagnosticState:
+calass _DiagnosticState:
     def __init__(__self__, *,
                  always_log_errors: Optional[pulumi.Input[bool]] = None,
                  api_management_logger_id: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArgs']] = None,
-                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArgs']] = None,
-                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']] = None,
-                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']] = None,
+                 backend_request: Optional[pulumi.Input['DiagnosticBackendRequestArrgs']] = None,
+                 backend_response: Optional[pulumi.Input['DiagnosticBackendResponseArrgs']] = None,
+                 frontend_request: Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']] = None,
+                 frontend_response: Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
@@ -263,10 +263,10 @@ class _DiagnosticState:
         :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['DiagnosticBackendRequestArgs'] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input['DiagnosticBackendResponseArgs'] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input['DiagnosticFrontendRequestArgs'] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input['DiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input['DiagnosticBackendRequestArrgs'] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input['DiagnosticBackendResponseArrgs'] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendRequestArrgs'] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendResponseArrgs'] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
@@ -342,50 +342,50 @@ class _DiagnosticState:
 
     @property
     @pulumi.getter(name="backendRequest")
-    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArgs']]:
+    def backend_request(self) -> Optional[pulumi.Input['DiagnosticBackendRequestArrgs']]:
         """
         A `backend_request` block as defined below.
         """
         return pulumi.get(self, "backend_request")
 
     @backend_request.setter
-    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArgs']]):
+    def backend_request(self, value: Optional[pulumi.Input['DiagnosticBackendRequestArrgs']]):
         pulumi.set(self, "backend_request", value)
 
     @property
     @pulumi.getter(name="backendResponse")
-    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArgs']]:
+    def backend_response(self) -> Optional[pulumi.Input['DiagnosticBackendResponseArrgs']]:
         """
         A `backend_response` block as defined below.
         """
         return pulumi.get(self, "backend_response")
 
     @backend_response.setter
-    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArgs']]):
+    def backend_response(self, value: Optional[pulumi.Input['DiagnosticBackendResponseArrgs']]):
         pulumi.set(self, "backend_response", value)
 
     @property
     @pulumi.getter(name="frontendRequest")
-    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]:
+    def frontend_request(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']]:
         """
         A `frontend_request` block as defined below.
         """
         return pulumi.get(self, "frontend_request")
 
     @frontend_request.setter
-    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArgs']]):
+    def frontend_request(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestArrgs']]):
         pulumi.set(self, "frontend_request", value)
 
     @property
     @pulumi.getter(name="frontendResponse")
-    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]:
+    def frontend_response(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']]:
         """
         A `frontend_response` block as defined below.
         """
         return pulumi.get(self, "frontend_response")
 
     @frontend_response.setter
-    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArgs']]):
+    def frontend_response(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseArrgs']]):
         pulumi.set(self, "frontend_response", value)
 
     @property
@@ -473,7 +473,7 @@ class _DiagnosticState:
         pulumi.set(self, "verbosity", value)
 
 
-class Diagnostic(pulumi.CustomResource):
+calass Diagnostic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -481,10 +481,10 @@ class Diagnostic(pulumi.CustomResource):
                  always_log_errors: Optional[pulumi.Input[bool]] = None,
                  api_management_logger_id: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
-                 backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-                 frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
-                 frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
+                 backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArrgs']]] = None,
+                 backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArrgs']]] = None,
+                 frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArrgs']]] = None,
+                 frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArrgs']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
@@ -516,7 +516,7 @@ class Diagnostic(pulumi.CustomResource):
         example_logger = azure.apimanagement.Logger("exampleLogger",
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
+            application_insights=azure.apimanagement.LoggerApplicationInsightsArrgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
@@ -529,7 +529,7 @@ class Diagnostic(pulumi.CustomResource):
             log_client_ip=True,
             verbosity="verbose",
             http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
+            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -537,7 +537,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
+            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -545,7 +545,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
+            backend_request=azure.apimanagement.DiagnosticBackendRequestArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -553,7 +553,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
+            backend_response=azure.apimanagement.DiagnosticBackendResponseArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -576,10 +576,10 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArrgs']] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArrgs']] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArrgs']] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArrgs']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.
@@ -592,7 +592,7 @@ class Diagnostic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DiagnosticArgs,
+                 args: DiagnosticArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Service Diagnostic.
@@ -617,7 +617,7 @@ class Diagnostic(pulumi.CustomResource):
         example_logger = azure.apimanagement.Logger("exampleLogger",
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
+            application_insights=azure.apimanagement.LoggerApplicationInsightsArrgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
@@ -630,7 +630,7 @@ class Diagnostic(pulumi.CustomResource):
             log_client_ip=True,
             verbosity="verbose",
             http_correlation_protocol="W3C",
-            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArgs(
+            frontend_request=azure.apimanagement.DiagnosticFrontendRequestArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -638,7 +638,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArgs(
+            frontend_response=azure.apimanagement.DiagnosticFrontendResponseArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -646,7 +646,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            backend_request=azure.apimanagement.DiagnosticBackendRequestArgs(
+            backend_request=azure.apimanagement.DiagnosticBackendRequestArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -654,7 +654,7 @@ class Diagnostic(pulumi.CustomResource):
                     "origin",
                 ],
             ),
-            backend_response=azure.apimanagement.DiagnosticBackendResponseArgs(
+            backend_response=azure.apimanagement.DiagnosticBackendResponseArrgs(
                 body_bytes=32,
                 headers_to_logs=[
                     "content-type",
@@ -673,12 +673,12 @@ class Diagnostic(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DiagnosticArgs args: The arguments to use to populate this resource's properties.
+        :param DiagnosticArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DiagnosticArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DiagnosticArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -690,10 +690,10 @@ class Diagnostic(pulumi.CustomResource):
                  always_log_errors: Optional[pulumi.Input[bool]] = None,
                  api_management_logger_id: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
-                 backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-                 frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
-                 frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
+                 backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArrgs']]] = None,
+                 backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArrgs']]] = None,
+                 frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArrgs']]] = None,
+                 frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArrgs']]] = None,
                  http_correlation_protocol: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
@@ -708,7 +708,7 @@ class Diagnostic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DiagnosticArgs.__new__(DiagnosticArgs)
+            __props__ = DiagnosticArrgs.__new__(DiagnosticArrgs)
 
             __props__.__dict__["always_log_errors"] = always_log_errors
             if api_management_logger_id is None and not opts.urn:
@@ -745,10 +745,10 @@ class Diagnostic(pulumi.CustomResource):
             always_log_errors: Optional[pulumi.Input[bool]] = None,
             api_management_logger_id: Optional[pulumi.Input[str]] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
-            backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']]] = None,
-            backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']]] = None,
-            frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']]] = None,
-            frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']]] = None,
+            backend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArrgs']]] = None,
+            backend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArrgs']]] = None,
+            frontend_request: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArrgs']]] = None,
+            frontend_response: Optional[pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArrgs']]] = None,
             http_correlation_protocol: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[str]] = None,
             log_client_ip: Optional[pulumi.Input[bool]] = None,
@@ -766,10 +766,10 @@ class Diagnostic(pulumi.CustomResource):
         :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
         :param pulumi.Input[str] api_management_logger_id: The id of the target API Management Logger where the API Management Diagnostic should be saved.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Diagnostic should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArgs']] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArgs']] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArgs']] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArgs']] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticBackendRequestArrgs']] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticBackendResponseArrgs']] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendRequestArrgs']] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiagnosticFrontendResponseArrgs']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[str] identifier: The diagnostic identifier for the API Management Service. At this time the supported values are `applicationinsights` and `azuremonitor`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_client_ip: Log client IP address.

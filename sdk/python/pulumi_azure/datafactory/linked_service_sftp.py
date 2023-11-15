@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceSftpArgs', 'LinkedServiceSftp']
+__all__ = ['LinkedServiceSftpArrgs', 'LinkedServiceSftp']
 
 @pulumi.input_type
-class LinkedServiceSftpArgs:
+calass LinkedServiceSftpArrgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -242,7 +242,7 @@ class LinkedServiceSftpArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceSftpState:
+calass _LinkedServiceSftpState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -477,7 +477,7 @@ class _LinkedServiceSftpState:
         pulumi.set(self, "username", value)
 
 
-class LinkedServiceSftp(pulumi.CustomResource):
+calass LinkedServiceSftp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -550,7 +550,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceSftpArgs,
+                 args: LinkedServiceSftpArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
@@ -583,12 +583,12 @@ class LinkedServiceSftp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceSftpArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceSftpArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceSftpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceSftpArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -618,7 +618,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceSftpArgs.__new__(LinkedServiceSftpArgs)
+            __props__ = LinkedServiceSftpArrgs.__new__(LinkedServiceSftpArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

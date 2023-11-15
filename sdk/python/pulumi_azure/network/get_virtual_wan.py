@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualWanResult:
+calass GetVirtualWanResult:
     """
     A collection of values returned by getVirtualWan.
     """
@@ -139,7 +139,7 @@ class GetVirtualWanResult:
         return pulumi.get(self, "vpn_site_ids")
 
 
-class AwaitableGetVirtualWanResult(GetVirtualWanResult):
+calass AwaitableGetVirtualWanResult(GetVirtualWanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

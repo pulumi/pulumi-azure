@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverOutboundEndpointResult:
+calass GetResolverOutboundEndpointResult:
     """
     A collection of values returned by getResolverOutboundEndpoint.
     """
@@ -84,7 +84,7 @@ class GetResolverOutboundEndpointResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetResolverOutboundEndpointResult(GetResolverOutboundEndpointResult):
+calass AwaitableGetResolverOutboundEndpointResult(GetResolverOutboundEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

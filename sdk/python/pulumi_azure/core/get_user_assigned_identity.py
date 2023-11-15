@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity""", DeprecationWarning)
 
 @pulumi.output_type
-class GetUserAssignedIdentityResult:
+calass GetUserAssignedIdentityResult:
     """
     A collection of values returned by getUserAssignedIdentity.
     """
@@ -108,7 +108,7 @@ class GetUserAssignedIdentityResult:
         return pulumi.get(self, "tenant_id")
 
 
-class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
+calass AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

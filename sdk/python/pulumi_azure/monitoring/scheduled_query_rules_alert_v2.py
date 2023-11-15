@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduledQueryRulesAlertV2Args', 'ScheduledQueryRulesAlertV2']
+__all__ = ['ScheduledQueryRulesAlertV2Arrgs', 'ScheduledQueryRulesAlertV2']
 
 @pulumi.input_type
-class ScheduledQueryRulesAlertV2Args:
+calass ScheduledQueryRulesAlertV2Arrgs:
     def __init__(__self__, *,
-                 criterias: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]],
+                 criterias: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  scopes: pulumi.Input[str],
                  severity: pulumi.Input[int],
                  window_duration: pulumi.Input[str],
-                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -37,12 +37,12 @@ class ScheduledQueryRulesAlertV2Args:
                  workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesAlertV2 resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
         :param pulumi.Input[str] window_duration: Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
-        :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs'] action: An `action` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs'] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
@@ -101,14 +101,14 @@ class ScheduledQueryRulesAlertV2Args:
 
     @property
     @pulumi.getter
-    def criterias(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]:
+    def criterias(self) -> pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]):
+    def criterias(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]]):
         pulumi.set(self, "criterias", value)
 
     @property
@@ -161,14 +161,14 @@ class ScheduledQueryRulesAlertV2Args:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -337,12 +337,12 @@ class ScheduledQueryRulesAlertV2Args:
 
 
 @pulumi.input_type
-class _ScheduledQueryRulesAlertV2State:
+calass _ScheduledQueryRulesAlertV2State:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  created_with_api_version: Optional[pulumi.Input[str]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -363,10 +363,10 @@ class _ScheduledQueryRulesAlertV2State:
                  workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ScheduledQueryRulesAlertV2 resources.
-        :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs'] action: An `action` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs'] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[str] created_with_api_version: The api-version used when creating this alert rule.
-        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
@@ -441,14 +441,14 @@ class _ScheduledQueryRulesAlertV2State:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -477,14 +477,14 @@ class _ScheduledQueryRulesAlertV2State:
 
     @property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]:
+    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]]]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]]):
+    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArrgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @property
@@ -712,14 +712,14 @@ class _ScheduledQueryRulesAlertV2State:
         pulumi.set(self, "workspace_alerts_storage_enabled", value)
 
 
-class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
+calass ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArrgs']]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -750,9 +750,9 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArrgs']] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArrgs']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
@@ -782,7 +782,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduledQueryRulesAlertV2Args,
+                 args: ScheduledQueryRulesAlertV2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
@@ -796,12 +796,12 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduledQueryRulesAlertV2Args args: The arguments to use to populate this resource's properties.
+        :param ScheduledQueryRulesAlertV2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesAlertV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesAlertV2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -810,9 +810,9 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArrgs']]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -836,7 +836,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduledQueryRulesAlertV2Args.__new__(ScheduledQueryRulesAlertV2Args)
+            __props__ = ScheduledQueryRulesAlertV2Arrgs.__new__(ScheduledQueryRulesAlertV2Arrgs)
 
             __props__.__dict__["action"] = action
             __props__.__dict__["auto_mitigation_enabled"] = auto_mitigation_enabled
@@ -880,10 +880,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+            action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArrgs']]] = None,
             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
             created_with_api_version: Optional[pulumi.Input[str]] = None,
-            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -909,10 +909,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArrgs']] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[str] created_with_api_version: The api-version used when creating this alert rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArrgs']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMedtechServiceResult:
+calass GetMedtechServiceResult:
     """
     A collection of values returned by getMedtechService.
     """
@@ -107,7 +107,7 @@ class GetMedtechServiceResult:
         return pulumi.get(self, "workspace_id")
 
 
-class AwaitableGetMedtechServiceResult(GetMedtechServiceResult):
+calass AwaitableGetMedtechServiceResult(GetMedtechServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

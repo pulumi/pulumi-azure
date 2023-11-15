@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Elastic Job Credential.
@@ -214,12 +213,6 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
 }
 
-func (i *JobCredential) ToOutput(ctx context.Context) pulumix.Output[*JobCredential] {
-	return pulumix.Output[*JobCredential]{
-		OutputState: i.ToJobCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobCredentialArrayInput is an input type that accepts JobCredentialArray and JobCredentialArrayOutput values.
 // You can construct a concrete instance of `JobCredentialArrayInput` via:
 //
@@ -243,12 +236,6 @@ func (i JobCredentialArray) ToJobCredentialArrayOutput() JobCredentialArrayOutpu
 
 func (i JobCredentialArray) ToJobCredentialArrayOutputWithContext(ctx context.Context) JobCredentialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialArrayOutput)
-}
-
-func (i JobCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobCredential] {
-	return pulumix.Output[[]*JobCredential]{
-		OutputState: i.ToJobCredentialArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JobCredentialMapInput is an input type that accepts JobCredentialMap and JobCredentialMapOutput values.
@@ -276,12 +263,6 @@ func (i JobCredentialMap) ToJobCredentialMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialMapOutput)
 }
 
-func (i JobCredentialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobCredential] {
-	return pulumix.Output[map[string]*JobCredential]{
-		OutputState: i.ToJobCredentialMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
@@ -294,12 +275,6 @@ func (o JobCredentialOutput) ToJobCredentialOutput() JobCredentialOutput {
 
 func (o JobCredentialOutput) ToJobCredentialOutputWithContext(ctx context.Context) JobCredentialOutput {
 	return o
-}
-
-func (o JobCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[*JobCredential] {
-	return pulumix.Output[*JobCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
@@ -336,12 +311,6 @@ func (o JobCredentialArrayOutput) ToJobCredentialArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o JobCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobCredential] {
-	return pulumix.Output[[]*JobCredential]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobCredentialArrayOutput) Index(i pulumi.IntInput) JobCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobCredential {
 		return vs[0].([]*JobCredential)[vs[1].(int)]
@@ -360,12 +329,6 @@ func (o JobCredentialMapOutput) ToJobCredentialMapOutput() JobCredentialMapOutpu
 
 func (o JobCredentialMapOutput) ToJobCredentialMapOutputWithContext(ctx context.Context) JobCredentialMapOutput {
 	return o
-}
-
-func (o JobCredentialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobCredential] {
-	return pulumix.Output[map[string]*JobCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobCredentialMapOutput) MapIndex(k pulumi.StringInput) JobCredentialOutput {

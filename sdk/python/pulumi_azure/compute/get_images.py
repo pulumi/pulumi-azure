@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetImagesResult:
+calass GetImagesResult:
     """
     A collection of values returned by getImages.
     """
@@ -63,7 +63,7 @@ class GetImagesResult:
         return pulumi.get(self, "tags_filter")
 
 
-class AwaitableGetImagesResult(GetImagesResult):
+calass AwaitableGetImagesResult(GetImagesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountEncryptionArgs',
-    'AccountIdentityArgs',
-    'AccountPrivateEndpointConnectionArgs',
-    'ConnectionTypeFieldArgs',
-    'ModuleModuleLinkArgs',
-    'ModuleModuleLinkHashArgs',
-    'RunBookDraftArgs',
-    'RunBookDraftContentLinkArgs',
-    'RunBookDraftContentLinkHashArgs',
-    'RunBookDraftParameterArgs',
-    'RunBookJobScheduleArgs',
-    'RunBookPublishContentLinkArgs',
-    'RunBookPublishContentLinkHashArgs',
-    'ScheduleMonthlyOccurrenceArgs',
-    'SoftwareUpdateConfigurationLinuxArgs',
-    'SoftwareUpdateConfigurationPostTaskArgs',
-    'SoftwareUpdateConfigurationPreTaskArgs',
-    'SoftwareUpdateConfigurationScheduleArgs',
-    'SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs',
-    'SoftwareUpdateConfigurationTargetArgs',
-    'SoftwareUpdateConfigurationTargetAzureQueryArgs',
-    'SoftwareUpdateConfigurationTargetAzureQueryTagArgs',
-    'SoftwareUpdateConfigurationTargetNonAzureQueryArgs',
-    'SoftwareUpdateConfigurationWindowsArgs',
-    'SourceControlSecurityArgs',
+    'AccountEncryptionArrgs',
+    'AccountIdentityArrgs',
+    'AccountPrivateEndpointConnectionArrgs',
+    'ConnectionTypeFieldArrgs',
+    'ModuleModuleLinkArrgs',
+    'ModuleModuleLinkHashArrgs',
+    'RunBookDraftArrgs',
+    'RunBookDraftContentLinkArrgs',
+    'RunBookDraftContentLinkHashArrgs',
+    'RunBookDraftParameterArrgs',
+    'RunBookJobScheduleArrgs',
+    'RunBookPublishContentLinkArrgs',
+    'RunBookPublishContentLinkHashArrgs',
+    'ScheduleMonthlyOccurrenceArrgs',
+    'SoftwareUpdateConfigurationLinuxArrgs',
+    'SoftwareUpdateConfigurationPostTaskArrgs',
+    'SoftwareUpdateConfigurationPreTaskArrgs',
+    'SoftwareUpdateConfigurationScheduleArrgs',
+    'SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs',
+    'SoftwareUpdateConfigurationTargetArrgs',
+    'SoftwareUpdateConfigurationTargetAzureQueryArrgs',
+    'SoftwareUpdateConfigurationTargetAzureQueryTagArrgs',
+    'SoftwareUpdateConfigurationTargetNonAzureQueryArrgs',
+    'SoftwareUpdateConfigurationWindowsArrgs',
+    'SourceControlSecurityArrgs',
 ]
 
 @pulumi.input_type
-class AccountEncryptionArgs:
+calass AccountEncryptionArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  key_source: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class AccountEncryptionArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -168,7 +168,7 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountPrivateEndpointConnectionArgs:
+calass AccountPrivateEndpointConnectionArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -207,7 +207,7 @@ class AccountPrivateEndpointConnectionArgs:
 
 
 @pulumi.input_type
-class ConnectionTypeFieldArgs:
+calass ConnectionTypeFieldArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -276,13 +276,13 @@ class ConnectionTypeFieldArgs:
 
 
 @pulumi.input_type
-class ModuleModuleLinkArgs:
+calass ModuleModuleLinkArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
-                 hash: Optional[pulumi.Input['ModuleModuleLinkHashArgs']] = None):
+                 hash: Optional[pulumi.Input['ModuleModuleLinkHashArrgs']] = None):
         """
         :param pulumi.Input[str] uri: The URI of the module content (zip or nupkg).
-        :param pulumi.Input['ModuleModuleLinkHashArgs'] hash: A `hash` block as defined below.
+        :param pulumi.Input['ModuleModuleLinkHashArrgs'] hash: A `hash` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -302,19 +302,19 @@ class ModuleModuleLinkArgs:
 
     @property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['ModuleModuleLinkHashArgs']]:
+    def hash(self) -> Optional[pulumi.Input['ModuleModuleLinkHashArrgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['ModuleModuleLinkHashArgs']]):
+    def hash(self, value: Optional[pulumi.Input['ModuleModuleLinkHashArrgs']]):
         pulumi.set(self, "hash", value)
 
 
 @pulumi.input_type
-class ModuleModuleLinkHashArgs:
+calass ModuleModuleLinkHashArrgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -351,19 +351,19 @@ class ModuleModuleLinkHashArgs:
 
 
 @pulumi.input_type
-class RunBookDraftArgs:
+calass RunBookDraftArrgs:
     def __init__(__self__, *,
-                 content_link: Optional[pulumi.Input['RunBookDraftContentLinkArgs']] = None,
+                 content_link: Optional[pulumi.Input['RunBookDraftContentLinkArrgs']] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  edit_mode_enabled: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArrgs']]]] = None):
         """
-        :param pulumi.Input['RunBookDraftContentLinkArgs'] content_link: A `publish_content_link` block as defined above.
+        :param pulumi.Input['RunBookDraftContentLinkArrgs'] content_link: A `publish_content_link` block as defined above.
         :param pulumi.Input[bool] edit_mode_enabled: Whether the draft in edit mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_types: Specifies the output types of the runbook.
-        :param pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]] parameters: A list of `parameters` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArrgs']]] parameters: A list of `parameters` block as defined below.
         """
         if content_link is not None:
             pulumi.set(__self__, "content_link", content_link)
@@ -380,14 +380,14 @@ class RunBookDraftArgs:
 
     @property
     @pulumi.getter(name="contentLink")
-    def content_link(self) -> Optional[pulumi.Input['RunBookDraftContentLinkArgs']]:
+    def content_link(self) -> Optional[pulumi.Input['RunBookDraftContentLinkArrgs']]:
         """
         A `publish_content_link` block as defined above.
         """
         return pulumi.get(self, "content_link")
 
     @content_link.setter
-    def content_link(self, value: Optional[pulumi.Input['RunBookDraftContentLinkArgs']]):
+    def content_link(self, value: Optional[pulumi.Input['RunBookDraftContentLinkArrgs']]):
         pulumi.set(self, "content_link", value)
 
     @property
@@ -434,26 +434,26 @@ class RunBookDraftArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArrgs']]]]:
         """
         A list of `parameters` block as defined below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookDraftParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class RunBookDraftContentLinkArgs:
+calass RunBookDraftContentLinkArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
-                 hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']] = None,
+                 hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] uri: The URI of the runbook content.
-        :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined below.
+        :param pulumi.Input['RunBookDraftContentLinkHashArrgs'] hash: A `hash` block as defined below.
         :param pulumi.Input[str] version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -476,14 +476,14 @@ class RunBookDraftContentLinkArgs:
 
     @property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]:
+    def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArrgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]):
+    def hash(self, value: Optional[pulumi.Input['RunBookDraftContentLinkHashArrgs']]):
         pulumi.set(self, "hash", value)
 
     @property
@@ -500,7 +500,7 @@ class RunBookDraftContentLinkArgs:
 
 
 @pulumi.input_type
-class RunBookDraftContentLinkHashArgs:
+calass RunBookDraftContentLinkHashArrgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -537,7 +537,7 @@ class RunBookDraftContentLinkHashArgs:
 
 
 @pulumi.input_type
-class RunBookDraftParameterArgs:
+calass RunBookDraftParameterArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -622,7 +622,7 @@ class RunBookDraftParameterArgs:
 
 
 @pulumi.input_type
-class RunBookJobScheduleArgs:
+calass RunBookJobScheduleArrgs:
     def __init__(__self__, *,
                  schedule_name: pulumi.Input[str],
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
@@ -680,14 +680,14 @@ class RunBookJobScheduleArgs:
 
 
 @pulumi.input_type
-class RunBookPublishContentLinkArgs:
+calass RunBookPublishContentLinkArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
-                 hash: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']] = None,
+                 hash: Optional[pulumi.Input['RunBookPublishContentLinkHashArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] uri: The URI of the runbook content.
-        :param pulumi.Input['RunBookPublishContentLinkHashArgs'] hash: A `hash` block as defined below.
+        :param pulumi.Input['RunBookPublishContentLinkHashArrgs'] hash: A `hash` block as defined below.
         :param pulumi.Input[str] version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -710,14 +710,14 @@ class RunBookPublishContentLinkArgs:
 
     @property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']]:
+    def hash(self) -> Optional[pulumi.Input['RunBookPublishContentLinkHashArrgs']]:
         """
         A `hash` block as defined below.
         """
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input['RunBookPublishContentLinkHashArgs']]):
+    def hash(self, value: Optional[pulumi.Input['RunBookPublishContentLinkHashArrgs']]):
         pulumi.set(self, "hash", value)
 
     @property
@@ -734,7 +734,7 @@ class RunBookPublishContentLinkArgs:
 
 
 @pulumi.input_type
-class RunBookPublishContentLinkHashArgs:
+calass RunBookPublishContentLinkHashArrgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -771,7 +771,7 @@ class RunBookPublishContentLinkHashArgs:
 
 
 @pulumi.input_type
-class ScheduleMonthlyOccurrenceArgs:
+calass ScheduleMonthlyOccurrenceArrgs:
     def __init__(__self__, *,
                  day: pulumi.Input[str],
                  occurrence: pulumi.Input[int]):
@@ -808,7 +808,7 @@ class ScheduleMonthlyOccurrenceArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationLinuxArgs:
+calass SoftwareUpdateConfigurationLinuxArrgs:
     def __init__(__self__, *,
                  classification_included: Optional[pulumi.Input[str]] = None,
                  classifications_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -891,7 +891,7 @@ class SoftwareUpdateConfigurationLinuxArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationPostTaskArgs:
+calass SoftwareUpdateConfigurationPostTaskArrgs:
     def __init__(__self__, *,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source: Optional[pulumi.Input[str]] = None):
@@ -930,7 +930,7 @@ class SoftwareUpdateConfigurationPostTaskArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationPreTaskArgs:
+calass SoftwareUpdateConfigurationPreTaskArrgs:
     def __init__(__self__, *,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source: Optional[pulumi.Input[str]] = None):
@@ -969,7 +969,7 @@ class SoftwareUpdateConfigurationPreTaskArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationScheduleArgs:
+calass SoftwareUpdateConfigurationScheduleArrgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
                  advanced_month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -981,7 +981,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
                  interval: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
-                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]] = None,
+                 monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs']]]] = None,
                  next_run: Optional[pulumi.Input[str]] = None,
                  next_run_offset_minutes: Optional[pulumi.Input[float]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
@@ -995,7 +995,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
         :param pulumi.Input[str] expiry_time: The end time of the schedule.
         :param pulumi.Input[int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param pulumi.Input[bool] is_enabled: Whether the schedule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs']]] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
@@ -1144,14 +1144,14 @@ class SoftwareUpdateConfigurationScheduleArgs:
 
     @property
     @pulumi.getter(name="monthlyOccurrences")
-    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]]:
+    def monthly_occurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs']]]]:
         """
         List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         """
         return pulumi.get(self, "monthly_occurrences")
 
     @monthly_occurrences.setter
-    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]]):
+    def monthly_occurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs']]]]):
         pulumi.set(self, "monthly_occurrences", value)
 
     @property
@@ -1207,7 +1207,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
+calass SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs:
     def __init__(__self__, *,
                  day: pulumi.Input[str],
                  occurrence: pulumi.Input[int]):
@@ -1244,13 +1244,13 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationTargetArgs:
+calass SoftwareUpdateConfigurationTargetArrgs:
     def __init__(__self__, *,
-                 azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]] = None,
-                 non_azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]] = None):
+                 azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArrgs']]]] = None,
+                 non_azure_queries: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]] azure_queries: One or more `azure_query` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]] non_azure_queries: One or more `non_azure_query` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArrgs']]] azure_queries: One or more `azure_query` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArrgs']]] non_azure_queries: One or more `non_azure_query` blocks as defined above.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -1259,41 +1259,41 @@ class SoftwareUpdateConfigurationTargetArgs:
 
     @property
     @pulumi.getter(name="azureQueries")
-    def azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]:
+    def azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArrgs']]]]:
         """
         One or more `azure_query` blocks as defined above.
         """
         return pulumi.get(self, "azure_queries")
 
     @azure_queries.setter
-    def azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]):
+    def azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArrgs']]]]):
         pulumi.set(self, "azure_queries", value)
 
     @property
     @pulumi.getter(name="nonAzureQueries")
-    def non_azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]:
+    def non_azure_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArrgs']]]]:
         """
         One or more `non_azure_query` blocks as defined above.
         """
         return pulumi.get(self, "non_azure_queries")
 
     @non_azure_queries.setter
-    def non_azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]):
+    def non_azure_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArrgs']]]]):
         pulumi.set(self, "non_azure_queries", value)
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationTargetAzureQueryArgs:
+calass SoftwareUpdateConfigurationTargetAzureQueryArrgs:
     def __init__(__self__, *,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_filter: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArrgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Specifies a list of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param pulumi.Input[str] tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]] tags: A mapping of tags used for query filter as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArrgs']]] tags: A mapping of tags used for query filter as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1342,19 +1342,19 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArrgs']]]]:
         """
         A mapping of tags used for query filter as defined below.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationTargetAzureQueryTagArgs:
+calass SoftwareUpdateConfigurationTargetAzureQueryTagArrgs:
     def __init__(__self__, *,
                  tag: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1391,7 +1391,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryTagArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
+calass SoftwareUpdateConfigurationTargetNonAzureQueryArrgs:
     def __init__(__self__, *,
                  function_alias: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -1430,7 +1430,7 @@ class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationWindowsArgs:
+calass SoftwareUpdateConfigurationWindowsArrgs:
     def __init__(__self__, *,
                  classification_included: Optional[pulumi.Input[str]] = None,
                  classifications_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1519,7 +1519,7 @@ class SoftwareUpdateConfigurationWindowsArgs:
 
 
 @pulumi.input_type
-class SourceControlSecurityArgs:
+calass SourceControlSecurityArrgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
                  token_type: pulumi.Input[str],

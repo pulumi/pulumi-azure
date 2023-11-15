@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LiveEventOutputArgs', 'LiveEventOutput']
+__all__ = ['LiveEventOutputArrgs', 'LiveEventOutput']
 
 @pulumi.input_type
-class LiveEventOutputArgs:
+calass LiveEventOutputArrgs:
     def __init__(__self__, *,
                  archive_window_duration: pulumi.Input[str],
                  asset_name: pulumi.Input[str],
@@ -157,7 +157,7 @@ class LiveEventOutputArgs:
 
 
 @pulumi.input_type
-class _LiveEventOutputState:
+calass _LiveEventOutputState:
     def __init__(__self__, *,
                  archive_window_duration: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
@@ -304,7 +304,7 @@ class _LiveEventOutputState:
         pulumi.set(self, "rewind_window_duration", value)
 
 
-class LiveEventOutput(pulumi.CustomResource):
+calass LiveEventOutput(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -337,7 +337,7 @@ class LiveEventOutput(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -349,10 +349,10 @@ class LiveEventOutput(pulumi.CustomResource):
             location=example_resource_group.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
+            input=azure.media.LiveEventInputArrgs(
                 streaming_protocol="RTMP",
                 key_frame_interval_duration="PT6S",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
@@ -392,7 +392,7 @@ class LiveEventOutput(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LiveEventOutputArgs,
+                 args: LiveEventOutputArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Media Live Event Output.
@@ -412,7 +412,7 @@ class LiveEventOutput(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -424,10 +424,10 @@ class LiveEventOutput(pulumi.CustomResource):
             location=example_resource_group.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
+            input=azure.media.LiveEventInputArrgs(
                 streaming_protocol="RTMP",
                 key_frame_interval_duration="PT6S",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
@@ -453,12 +453,12 @@ class LiveEventOutput(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LiveEventOutputArgs args: The arguments to use to populate this resource's properties.
+        :param LiveEventOutputArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LiveEventOutputArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LiveEventOutputArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -483,7 +483,7 @@ class LiveEventOutput(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LiveEventOutputArgs.__new__(LiveEventOutputArgs)
+            __props__ = LiveEventOutputArrgs.__new__(LiveEventOutputArrgs)
 
             if archive_window_duration is None and not opts.urn:
                 raise TypeError("Missing required property 'archive_window_duration'")

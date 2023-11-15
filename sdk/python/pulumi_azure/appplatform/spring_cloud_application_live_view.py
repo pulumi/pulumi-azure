@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudApplicationLiveViewArgs', 'SpringCloudApplicationLiveView']
+__all__ = ['SpringCloudApplicationLiveViewArrgs', 'SpringCloudApplicationLiveView']
 
 @pulumi.input_type
-class SpringCloudApplicationLiveViewArgs:
+calass SpringCloudApplicationLiveViewArrgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class SpringCloudApplicationLiveViewArgs:
 
 
 @pulumi.input_type
-class _SpringCloudApplicationLiveViewState:
+calass _SpringCloudApplicationLiveViewState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _SpringCloudApplicationLiveViewState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
-class SpringCloudApplicationLiveView(pulumi.CustomResource):
+calass SpringCloudApplicationLiveView(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,7 +134,7 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudApplicationLiveViewArgs,
+                 args: SpringCloudApplicationLiveViewArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -164,12 +164,12 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudApplicationLiveViewArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudApplicationLiveViewArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudApplicationLiveViewArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudApplicationLiveViewArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -187,7 +187,7 @@ class SpringCloudApplicationLiveView(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudApplicationLiveViewArgs.__new__(SpringCloudApplicationLiveViewArgs)
+            __props__ = SpringCloudApplicationLiveViewArrgs.__new__(SpringCloudApplicationLiveViewArrgs)
 
             __props__.__dict__["name"] = name
             if spring_cloud_service_id is None and not opts.urn:

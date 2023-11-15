@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MoverProjectArgs', 'MoverProject']
+__all__ = ['MoverProjectArrgs', 'MoverProject']
 
 @pulumi.input_type
-class MoverProjectArgs:
+calass MoverProjectArrgs:
     def __init__(__self__, *,
                  storage_mover_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class MoverProjectArgs:
 
 
 @pulumi.input_type
-class _MoverProjectState:
+calass _MoverProjectState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _MoverProjectState:
         pulumi.set(self, "storage_mover_id", value)
 
 
-class MoverProject(pulumi.CustomResource):
+calass MoverProject(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class MoverProject(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MoverProjectArgs,
+                 args: MoverProjectArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Project.
@@ -196,12 +196,12 @@ class MoverProject(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MoverProjectArgs args: The arguments to use to populate this resource's properties.
+        :param MoverProjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MoverProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MoverProjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -220,7 +220,7 @@ class MoverProject(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MoverProjectArgs.__new__(MoverProjectArgs)
+            __props__ = MoverProjectArrgs.__new__(MoverProjectArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

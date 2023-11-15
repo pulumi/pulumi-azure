@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActiveSlotArgs', 'ActiveSlot']
+__all__ = ['ActiveSlotArrgs', 'ActiveSlot']
 
 @pulumi.input_type
-class ActiveSlotArgs:
+calass ActiveSlotArrgs:
     def __init__(__self__, *,
                  app_service_name: pulumi.Input[str],
                  app_service_slot_name: pulumi.Input[str],
@@ -65,7 +65,7 @@ class ActiveSlotArgs:
 
 
 @pulumi.input_type
-class _ActiveSlotState:
+calass _ActiveSlotState:
     def __init__(__self__, *,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  app_service_slot_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _ActiveSlotState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ActiveSlot(pulumi.CustomResource):
+calass ActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -169,7 +169,7 @@ class ActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActiveSlotArgs,
+                 args: ActiveSlotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Promotes an App Service Slot to Production within an App Service.
@@ -202,12 +202,12 @@ class ActiveSlot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActiveSlotArgs args: The arguments to use to populate this resource's properties.
+        :param ActiveSlotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActiveSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActiveSlotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -226,7 +226,7 @@ class ActiveSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActiveSlotArgs.__new__(ActiveSlotArgs)
+            __props__ = ActiveSlotArrgs.__new__(ActiveSlotArrgs)
 
             if app_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_name'")

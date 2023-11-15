@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ActionRuleActionGroupArgs', 'ActionRuleActionGroup']
+__all__ = ['ActionRuleActionGroupArrgs', 'ActionRuleActionGroup']
 
 @pulumi.input_type
-class ActionRuleActionGroupArgs:
+calass ActionRuleActionGroupArrgs:
     def __init__(__self__, *,
                  action_group_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
+                 scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ActionRuleActionGroup resource.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleActionGroupConditionArgs'] condition: A `condition` block as defined below.
+        :param pulumi.Input['ActionRuleActionGroupConditionArrgs'] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleActionGroupScopeArgs'] scope: A `scope` block as defined below.
+        :param pulumi.Input['ActionRuleActionGroupScopeArrgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
@@ -76,14 +76,14 @@ class ActionRuleActionGroupArgs:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']]:
         """
         A `condition` block as defined below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -124,14 +124,14 @@ class ActionRuleActionGroupArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']]:
         """
         A `scope` block as defined below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -148,25 +148,25 @@ class ActionRuleActionGroupArgs:
 
 
 @pulumi.input_type
-class _ActionRuleActionGroupState:
+calass _ActionRuleActionGroupState:
     def __init__(__self__, *,
                  action_group_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
+                 scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ActionRuleActionGroup resources.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
-        :param pulumi.Input['ActionRuleActionGroupConditionArgs'] condition: A `condition` block as defined below.
+        :param pulumi.Input['ActionRuleActionGroupConditionArrgs'] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleActionGroupScopeArgs'] scope: A `scope` block as defined below.
+        :param pulumi.Input['ActionRuleActionGroupScopeArrgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if action_group_id is not None:
@@ -200,14 +200,14 @@ class _ActionRuleActionGroupState:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']]:
         """
         A `condition` block as defined below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['ActionRuleActionGroupConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -260,14 +260,14 @@ class _ActionRuleActionGroupState:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']]:
         """
         A `scope` block as defined below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['ActionRuleActionGroupScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -283,18 +283,18 @@ class _ActionRuleActionGroupState:
         pulumi.set(self, "tags", value)
 
 
-class ActionRuleActionGroup(pulumi.CustomResource):
+calass ActionRuleActionGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -315,7 +315,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
             resource_group_name=example_resource_group.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
+            scope=azure.monitoring.ActionRuleActionGroupScopeArrgs(
                 type="ResourceGroup",
                 resource_ids=[example_resource_group.id],
             ),
@@ -335,19 +335,19 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArrgs']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArrgs']] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActionRuleActionGroupArgs,
+                 args: ActionRuleActionGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Monitor Action Rule which type is action group.
@@ -367,7 +367,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         example_action_rule_action_group = azure.monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup",
             resource_group_name=example_resource_group.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
+            scope=azure.monitoring.ActionRuleActionGroupScopeArrgs(
                 type="ResourceGroup",
                 resource_ids=[example_resource_group.id],
             ),
@@ -385,12 +385,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActionRuleActionGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ActionRuleActionGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActionRuleActionGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActionRuleActionGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -400,12 +400,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -414,7 +414,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActionRuleActionGroupArgs.__new__(ActionRuleActionGroupArgs)
+            __props__ = ActionRuleActionGroupArrgs.__new__(ActionRuleActionGroupArrgs)
 
             if action_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group_id'")
@@ -439,12 +439,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action_group_id: Optional[pulumi.Input[str]] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+            scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ActionRuleActionGroup':
         """
         Get an existing ActionRuleActionGroup resource's state with the given name, id, and optional extra
@@ -454,12 +454,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArrgs']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArrgs']] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

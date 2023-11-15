@@ -249,7 +249,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationGatewayAuthenticationCertificate(dict):
+calass ApplicationGatewayAuthenticationCertificate(dict):
     def __init__(__self__, *,
                  data: str,
                  name: str,
@@ -290,7 +290,7 @@ class ApplicationGatewayAuthenticationCertificate(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayAutoscaleConfiguration(dict):
+calass ApplicationGatewayAutoscaleConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -339,7 +339,7 @@ class ApplicationGatewayAutoscaleConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendAddressPool(dict):
+calass ApplicationGatewayBackendAddressPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -410,7 +410,7 @@ class ApplicationGatewayBackendAddressPool(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHttpSetting(dict):
+calass ApplicationGatewayBackendHttpSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -468,8 +468,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param int port: The port which should be used for this Backend HTTP Settings Collection.
         :param str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param str affinity_cookie_name: The name of the affinity cookie.
-        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
+        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArrgs' connection_draining: A `connection_draining` block as defined below.
         :param str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
         :param str path: The Path which should be used as a prefix for all HTTP requests.
@@ -628,7 +628,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
+calass ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None):
@@ -658,7 +658,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
+calass ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -704,7 +704,7 @@ class ApplicationGatewayBackendHttpSettingConnectionDraining(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayCustomErrorConfiguration(dict):
+calass ApplicationGatewayCustomErrorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -764,7 +764,7 @@ class ApplicationGatewayCustomErrorConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayFrontendIpConfiguration(dict):
+calass ApplicationGatewayFrontendIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -893,7 +893,7 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayFrontendPort(dict):
+calass ApplicationGatewayFrontendPort(dict):
     def __init__(__self__, *,
                  name: str,
                  port: int,
@@ -934,7 +934,7 @@ class ApplicationGatewayFrontendPort(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayGatewayIpConfiguration(dict):
+calass ApplicationGatewayGatewayIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -992,7 +992,7 @@ class ApplicationGatewayGatewayIpConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayGlobal(dict):
+calass ApplicationGatewayGlobal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1040,7 +1040,7 @@ class ApplicationGatewayGlobal(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayHttpListener(dict):
+calass ApplicationGatewayHttpListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1104,7 +1104,7 @@ class ApplicationGatewayHttpListener(dict):
         :param str frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
         :param str name: The Name of the HTTP Listener.
         :param str protocol: The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        :param Sequence['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param Sequence['ApplicationGatewayHttpListenerCustomErrorConfigurationArrgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param str firewall_policy_id: The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         :param str frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param str frontend_port_id: The ID of the associated Frontend Port.
@@ -1280,7 +1280,7 @@ class ApplicationGatewayHttpListener(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
+calass ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1340,7 +1340,7 @@ class ApplicationGatewayHttpListenerCustomErrorConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayIdentity(dict):
+calass ApplicationGatewayIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1386,7 +1386,7 @@ class ApplicationGatewayIdentity(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayPrivateEndpointConnection(dict):
+calass ApplicationGatewayPrivateEndpointConnection(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -1417,7 +1417,7 @@ class ApplicationGatewayPrivateEndpointConnection(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayPrivateLinkConfiguration(dict):
+calass ApplicationGatewayPrivateLinkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1440,7 +1440,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
                  name: str,
                  id: Optional[str] = None):
         """
-        :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
                > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
                
@@ -1487,7 +1487,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayPrivateLinkConfigurationIpConfiguration(dict):
+calass ApplicationGatewayPrivateLinkConfigurationIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1571,7 +1571,7 @@ class ApplicationGatewayPrivateLinkConfigurationIpConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayProbe(dict):
+calass ApplicationGatewayProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1615,7 +1615,7 @@ class ApplicationGatewayProbe(dict):
         :param int unhealthy_threshold: The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
         :param str host: The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
-        :param 'ApplicationGatewayProbeMatchArgs' match: A `match` block as defined above.
+        :param 'ApplicationGatewayProbeMatchArrgs' match: A `match` block as defined above.
         :param int minimum_servers: The minimum number of servers that are always marked as healthy. Defaults to `0`.
         :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
         :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
@@ -1737,7 +1737,7 @@ class ApplicationGatewayProbe(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayProbeMatch(dict):
+calass ApplicationGatewayProbeMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1784,7 +1784,7 @@ class ApplicationGatewayProbeMatch(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRedirectConfiguration(dict):
+calass ApplicationGatewayRedirectConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1908,7 +1908,7 @@ class ApplicationGatewayRedirectConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRequestRoutingRule(dict):
+calass ApplicationGatewayRequestRoutingRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2153,7 +2153,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSet(dict):
+calass ApplicationGatewayRewriteRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2178,7 +2178,7 @@ class ApplicationGatewayRewriteRuleSet(dict):
         """
         :param str name: Unique name of the rewrite rule set block
         :param str id: The ID of the Rewrite Rule Set
-        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleArgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleArrgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
         """
         pulumi.set(__self__, "name", name)
         if id is not None:
@@ -2212,7 +2212,7 @@ class ApplicationGatewayRewriteRuleSet(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
+calass ApplicationGatewayRewriteRuleSetRewriteRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2244,10 +2244,10 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
         """
         :param str name: Unique name of the rewrite rule block
         :param int rule_sequence: Rule sequence of the rewrite rule that determines the order of execution in a set.
-        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs'] conditions: One or more `condition` blocks as defined above.
-        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
-        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
-        :param 'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs' url: One `url` block as defined below
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs'] conditions: One or more `condition` blocks as defined above.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
+        :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param 'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs' url: One `url` block as defined below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -2310,7 +2310,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
+calass ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2380,7 +2380,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleCondition(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(dict):
+calass ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2428,7 +2428,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(dict
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration(dict):
+calass ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2476,7 +2476,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration(dic
 
 
 @pulumi.output_type
-class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
+calass ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2552,7 +2552,7 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewaySku(dict):
+calass ApplicationGatewaySku(dict):
     def __init__(__self__, *,
                  name: str,
                  tier: str,
@@ -2597,7 +2597,7 @@ class ApplicationGatewaySku(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewaySslCertificate(dict):
+calass ApplicationGatewaySslCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2706,7 +2706,7 @@ class ApplicationGatewaySslCertificate(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewaySslPolicy(dict):
+calass ApplicationGatewaySslPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2806,7 +2806,7 @@ class ApplicationGatewaySslPolicy(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewaySslProfile(dict):
+calass ApplicationGatewaySslProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2840,7 +2840,7 @@ class ApplicationGatewaySslProfile(dict):
         """
         :param str name: The name of the SSL Profile that is unique within this Application Gateway.
         :param str id: The ID of the Rewrite Rule Set
-        :param 'ApplicationGatewaySslProfileSslPolicyArgs' ssl_policy: a `ssl_policy` block as defined below.
+        :param 'ApplicationGatewaySslProfileSslPolicyArrgs' ssl_policy: a `ssl_policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param bool verify_client_cert_issuer_dn: Should client certificate issuer DN be verified? Defaults to `false`.
         :param str verify_client_certificate_revocation: Specify the method to check client certificate revocation status. Possible value is `OCSP`.
@@ -2907,7 +2907,7 @@ class ApplicationGatewaySslProfile(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewaySslProfileSslPolicy(dict):
+calass ApplicationGatewaySslProfileSslPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3007,7 +3007,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayTrustedClientCertificate(dict):
+calass ApplicationGatewayTrustedClientCertificate(dict):
     def __init__(__self__, *,
                  data: str,
                  name: str,
@@ -3048,7 +3048,7 @@ class ApplicationGatewayTrustedClientCertificate(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayTrustedRootCertificate(dict):
+calass ApplicationGatewayTrustedRootCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3127,7 +3127,7 @@ class ApplicationGatewayTrustedRootCertificate(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayUrlPathMap(dict):
+calass ApplicationGatewayUrlPathMap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3175,7 +3175,7 @@ class ApplicationGatewayUrlPathMap(dict):
                  id: Optional[str] = None):
         """
         :param str name: The Name of the URL Path Map.
-        :param Sequence['ApplicationGatewayUrlPathMapPathRuleArgs'] path_rules: One or more `path_rule` blocks as defined above.
+        :param Sequence['ApplicationGatewayUrlPathMapPathRuleArrgs'] path_rules: One or more `path_rule` blocks as defined above.
         :param str default_backend_address_pool_id: The ID of the Default Backend Address Pool.
         :param str default_backend_address_pool_name: The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         :param str default_backend_http_settings_id: The ID of the Default Backend HTTP Settings Collection.
@@ -3297,7 +3297,7 @@ class ApplicationGatewayUrlPathMap(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayUrlPathMapPathRule(dict):
+calass ApplicationGatewayUrlPathMapPathRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3479,7 +3479,7 @@ class ApplicationGatewayUrlPathMapPathRule(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayWafConfiguration(dict):
+calass ApplicationGatewayWafConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3523,8 +3523,8 @@ class ApplicationGatewayWafConfiguration(dict):
         :param bool enabled: Is the Web Application Firewall enabled?
         :param str firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
         :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
-        :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
-        :param Sequence['ApplicationGatewayWafConfigurationExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArrgs'] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
+        :param Sequence['ApplicationGatewayWafConfigurationExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
         :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         :param int max_request_body_size_kb: The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -3620,7 +3620,7 @@ class ApplicationGatewayWafConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
+calass ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3667,7 +3667,7 @@ class ApplicationGatewayWafConfigurationDisabledRuleGroup(dict):
 
 
 @pulumi.output_type
-class ApplicationGatewayWafConfigurationExclusion(dict):
+calass ApplicationGatewayWafConfigurationExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3728,7 +3728,7 @@ class ApplicationGatewayWafConfigurationExclusion(dict):
 
 
 @pulumi.output_type
-class ExpressRouteCircuitPeeringIpv6(dict):
+calass ExpressRouteCircuitPeeringIpv6(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3762,7 +3762,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         :param str primary_peer_address_prefix: A subnet for the primary link.
         :param str secondary_peer_address_prefix: A subnet for the secondary link.
         :param bool enabled: A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
-        :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
+        :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArrgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param str route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
                
                > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
@@ -3820,7 +3820,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
 
 
 @pulumi.output_type
-class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
+calass ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3898,7 +3898,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
 
 
 @pulumi.output_type
-class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
+calass ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3975,7 +3975,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
 
 
 @pulumi.output_type
-class ExpressRouteCircuitSku(dict):
+calass ExpressRouteCircuitSku(dict):
     def __init__(__self__, *,
                  family: str,
                  tier: str):
@@ -4008,7 +4008,7 @@ class ExpressRouteCircuitSku(dict):
 
 
 @pulumi.output_type
-class ExpressRouteConnectionRouting(dict):
+calass ExpressRouteConnectionRouting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4041,7 +4041,7 @@ class ExpressRouteConnectionRouting(dict):
         :param str associated_route_table_id: The ID of the Virtual Hub Route Table associated with this Express Route Connection.
         :param str inbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for inbound routes.
         :param str outbound_route_map_id: The ID of the Route Map associated with this Express Route Connection for outbound routes.
-        :param 'ExpressRouteConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        :param 'ExpressRouteConnectionRoutingPropagatedRouteTableArrgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
@@ -4086,7 +4086,7 @@ class ExpressRouteConnectionRouting(dict):
 
 
 @pulumi.output_type
-class ExpressRouteConnectionRoutingPropagatedRouteTable(dict):
+calass ExpressRouteConnectionRoutingPropagatedRouteTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4134,7 +4134,7 @@ class ExpressRouteConnectionRoutingPropagatedRouteTable(dict):
 
 
 @pulumi.output_type
-class ExpressRoutePortIdentity(dict):
+calass ExpressRoutePortIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4180,7 +4180,7 @@ class ExpressRoutePortIdentity(dict):
 
 
 @pulumi.output_type
-class ExpressRoutePortLink1(dict):
+calass ExpressRoutePortLink1(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4358,7 +4358,7 @@ class ExpressRoutePortLink1(dict):
 
 
 @pulumi.output_type
-class ExpressRoutePortLink2(dict):
+calass ExpressRoutePortLink2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4536,7 +4536,7 @@ class ExpressRoutePortLink2(dict):
 
 
 @pulumi.output_type
-class FirewallApplicationRuleCollectionRule(dict):
+calass FirewallApplicationRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4572,7 +4572,7 @@ class FirewallApplicationRuleCollectionRule(dict):
         :param str name: Specifies the name of the rule.
         :param str description: Specifies a description for the rule.
         :param Sequence[str] fqdn_tags: A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
-        :param Sequence['FirewallApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocol` blocks as defined below.
+        :param Sequence['FirewallApplicationRuleCollectionRuleProtocolArrgs'] protocols: One or more `protocol` blocks as defined below.
         :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[str] source_ip_groups: A list of source IP Group IDs for the rule.
                
@@ -4653,7 +4653,7 @@ class FirewallApplicationRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallApplicationRuleCollectionRuleProtocol(dict):
+calass FirewallApplicationRuleCollectionRuleProtocol(dict):
     def __init__(__self__, *,
                  port: int,
                  type: str):
@@ -4682,7 +4682,7 @@ class FirewallApplicationRuleCollectionRuleProtocol(dict):
 
 
 @pulumi.output_type
-class FirewallIpConfiguration(dict):
+calass FirewallIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4761,7 +4761,7 @@ class FirewallIpConfiguration(dict):
 
 
 @pulumi.output_type
-class FirewallManagementIpConfiguration(dict):
+calass FirewallManagementIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4842,7 +4842,7 @@ class FirewallManagementIpConfiguration(dict):
 
 
 @pulumi.output_type
-class FirewallNatRuleCollectionRule(dict):
+calass FirewallNatRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4982,7 +4982,7 @@ class FirewallNatRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallNetworkRuleCollectionRule(dict):
+calass FirewallNetworkRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5133,7 +5133,7 @@ class FirewallNetworkRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyDns(dict):
+calass FirewallPolicyDns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5181,7 +5181,7 @@ class FirewallPolicyDns(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyExplicitProxy(dict):
+calass FirewallPolicyExplicitProxy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5285,7 +5285,7 @@ class FirewallPolicyExplicitProxy(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyIdentity(dict):
+calass FirewallPolicyIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5352,7 +5352,7 @@ class FirewallPolicyIdentity(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyInsights(dict):
+calass FirewallPolicyInsights(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5382,7 +5382,7 @@ class FirewallPolicyInsights(dict):
         """
         :param str default_log_analytics_workspace_id: The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
         :param bool enabled: Whether the insights functionality is enabled for this Firewall Policy.
-        :param Sequence['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs'] log_analytics_workspaces: A list of `log_analytics_workspace` block as defined below.
+        :param Sequence['FirewallPolicyInsightsLogAnalyticsWorkspaceArrgs'] log_analytics_workspaces: A list of `log_analytics_workspace` block as defined below.
         :param int retention_in_days: The log retention period in days.
         """
         pulumi.set(__self__, "default_log_analytics_workspace_id", default_log_analytics_workspace_id)
@@ -5426,7 +5426,7 @@ class FirewallPolicyInsights(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyInsightsLogAnalyticsWorkspace(dict):
+calass FirewallPolicyInsightsLogAnalyticsWorkspace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5472,7 +5472,7 @@ class FirewallPolicyInsightsLogAnalyticsWorkspace(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyIntrusionDetection(dict):
+calass FirewallPolicyIntrusionDetection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5502,8 +5502,8 @@ class FirewallPolicyIntrusionDetection(dict):
         """
         :param str mode: In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         :param Sequence[str] private_ranges: A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
-        :param Sequence['FirewallPolicyIntrusionDetectionSignatureOverrideArgs'] signature_overrides: One or more `signature_overrides` blocks as defined below.
-        :param Sequence['FirewallPolicyIntrusionDetectionTrafficBypassArgs'] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
+        :param Sequence['FirewallPolicyIntrusionDetectionSignatureOverrideArrgs'] signature_overrides: One or more `signature_overrides` blocks as defined below.
+        :param Sequence['FirewallPolicyIntrusionDetectionTrafficBypassArrgs'] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -5548,7 +5548,7 @@ class FirewallPolicyIntrusionDetection(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
+calass FirewallPolicyIntrusionDetectionSignatureOverride(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  state: Optional[str] = None):
@@ -5579,7 +5579,7 @@ class FirewallPolicyIntrusionDetectionSignatureOverride(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
+calass FirewallPolicyIntrusionDetectionTrafficBypass(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5705,7 +5705,7 @@ class FirewallPolicyIntrusionDetectionTrafficBypass(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -5715,7 +5715,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
         :param str action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this application rule collection.
         :param int priority: The priority of the application rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs'] rules: One or more `application_rule` (application rule) blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrgs'] rules: One or more `application_rule` (application rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5756,7 +5756,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5807,7 +5807,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrgs'] protocols: One or more `protocols` blocks as defined below.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
@@ -5925,7 +5925,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(dict):
+calass FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(dict):
     def __init__(__self__, *,
                  port: int,
                  type: str):
@@ -5954,7 +5954,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(dic
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
+calass FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -5964,7 +5964,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
         :param str action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         :param str name: The name which should be used for this NAT rule collection.
         :param int priority: The priority of the NAT rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `nat_rule` (NAT rule) block as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrgs'] rules: A `nat_rule` (NAT rule) block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -6005,7 +6005,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
+calass FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6162,7 +6162,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
+calass FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -6172,7 +6172,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
         :param str action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this network rule collection.
         :param int priority: The priority of the network rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs'] rules: One or more `network_rule` (network rule) blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrgs'] rules: One or more `network_rule` (network rule) blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -6213,7 +6213,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
+calass FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6352,7 +6352,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyThreatIntelligenceAllowlist(dict):
+calass FirewallPolicyThreatIntelligenceAllowlist(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6400,7 +6400,7 @@ class FirewallPolicyThreatIntelligenceAllowlist(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyTlsCertificate(dict):
+calass FirewallPolicyTlsCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6446,7 +6446,7 @@ class FirewallPolicyTlsCertificate(dict):
 
 
 @pulumi.output_type
-class FirewallVirtualHub(dict):
+calass FirewallVirtualHub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6523,7 +6523,7 @@ class FirewallVirtualHub(dict):
 
 
 @pulumi.output_type
-class LocalNetworkGatewayBgpSettings(dict):
+calass LocalNetworkGatewayBgpSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6583,7 +6583,7 @@ class LocalNetworkGatewayBgpSettings(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorEndpoint(dict):
+calass NetworkConnectionMonitorEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6623,7 +6623,7 @@ class NetworkConnectionMonitorEndpoint(dict):
         :param str address: The IP address or domain name of the Network Connection Monitor endpoint.
         :param str coverage_level: The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
         :param Sequence[str] excluded_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
-        :param 'NetworkConnectionMonitorEndpointFilterArgs' filter: A `filter` block as defined below.
+        :param 'NetworkConnectionMonitorEndpointFilterArrgs' filter: A `filter` block as defined below.
         :param Sequence[str] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
         :param str target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
         :param str target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
@@ -6710,12 +6710,12 @@ class NetworkConnectionMonitorEndpoint(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorEndpointFilter(dict):
+calass NetworkConnectionMonitorEndpointFilter(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence['outputs.NetworkConnectionMonitorEndpointFilterItem']] = None,
                  type: Optional[str] = None):
         """
-        :param Sequence['NetworkConnectionMonitorEndpointFilterItemArgs'] items: A `item` block as defined below.
+        :param Sequence['NetworkConnectionMonitorEndpointFilterItemArrgs'] items: A `item` block as defined below.
         :param str type: The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
         """
         if items is not None:
@@ -6741,7 +6741,7 @@ class NetworkConnectionMonitorEndpointFilter(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorEndpointFilterItem(dict):
+calass NetworkConnectionMonitorEndpointFilterItem(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  type: Optional[str] = None):
@@ -6772,7 +6772,7 @@ class NetworkConnectionMonitorEndpointFilterItem(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfiguration(dict):
+calass NetworkConnectionMonitorTestConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6812,11 +6812,11 @@ class NetworkConnectionMonitorTestConfiguration(dict):
         """
         :param str name: The name of test configuration for the Network Connection Monitor.
         :param str protocol: The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
-        :param 'NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs' http_configuration: A `http_configuration` block as defined below.
-        :param 'NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs' icmp_configuration: A `icmp_configuration` block as defined below.
+        :param 'NetworkConnectionMonitorTestConfigurationHttpConfigurationArrgs' http_configuration: A `http_configuration` block as defined below.
+        :param 'NetworkConnectionMonitorTestConfigurationIcmpConfigurationArrgs' icmp_configuration: A `icmp_configuration` block as defined below.
         :param str preferred_ip_version: The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
-        :param 'NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs' success_threshold: A `success_threshold` block as defined below.
-        :param 'NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs' tcp_configuration: A `tcp_configuration` block as defined below.
+        :param 'NetworkConnectionMonitorTestConfigurationSuccessThresholdArrgs' success_threshold: A `success_threshold` block as defined below.
+        :param 'NetworkConnectionMonitorTestConfigurationTcpConfigurationArrgs' tcp_configuration: A `tcp_configuration` block as defined below.
         :param int test_frequency_in_seconds: The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
         """
         pulumi.set(__self__, "name", name)
@@ -6900,7 +6900,7 @@ class NetworkConnectionMonitorTestConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfigurationHttpConfiguration(dict):
+calass NetworkConnectionMonitorTestConfigurationHttpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6934,7 +6934,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfiguration(dict):
         :param str path: The path component of the URI. It only accepts the absolute path.
         :param int port: The port for the HTTP connection.
         :param bool prefer_https: Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
-        :param Sequence['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs'] request_headers: A `request_header` block as defined below.
+        :param Sequence['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArrgs'] request_headers: A `request_header` block as defined below.
         :param Sequence[str] valid_status_code_ranges: The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
         """
         if method is not None:
@@ -7000,7 +7000,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader(dict):
+calass NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -7029,7 +7029,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader(di
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfigurationIcmpConfiguration(dict):
+calass NetworkConnectionMonitorTestConfigurationIcmpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7065,7 +7065,7 @@ class NetworkConnectionMonitorTestConfigurationIcmpConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfigurationSuccessThreshold(dict):
+calass NetworkConnectionMonitorTestConfigurationSuccessThreshold(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7115,7 +7115,7 @@ class NetworkConnectionMonitorTestConfigurationSuccessThreshold(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
+calass NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7176,7 +7176,7 @@ class NetworkConnectionMonitorTestConfigurationTcpConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkConnectionMonitorTestGroup(dict):
+calass NetworkConnectionMonitorTestGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7260,7 +7260,7 @@ class NetworkConnectionMonitorTestGroup(dict):
 
 
 @pulumi.output_type
-class NetworkInterfaceIpConfiguration(dict):
+calass NetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7396,7 +7396,7 @@ class NetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkManagerAdminRuleDestination(dict):
+calass NetworkManagerAdminRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7444,7 +7444,7 @@ class NetworkManagerAdminRuleDestination(dict):
 
 
 @pulumi.output_type
-class NetworkManagerAdminRuleSource(dict):
+calass NetworkManagerAdminRuleSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7492,7 +7492,7 @@ class NetworkManagerAdminRuleSource(dict):
 
 
 @pulumi.output_type
-class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
+calass NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7572,7 +7572,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
 
 
 @pulumi.output_type
-class NetworkManagerConnectivityConfigurationHub(dict):
+calass NetworkManagerConnectivityConfigurationHub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7620,7 +7620,7 @@ class NetworkManagerConnectivityConfigurationHub(dict):
 
 
 @pulumi.output_type
-class NetworkManagerCrossTenantScope(dict):
+calass NetworkManagerCrossTenantScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7682,7 +7682,7 @@ class NetworkManagerCrossTenantScope(dict):
 
 
 @pulumi.output_type
-class NetworkManagerScope(dict):
+calass NetworkManagerScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7732,7 +7732,7 @@ class NetworkManagerScope(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCaptureFilter(dict):
+calass NetworkPacketCaptureFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7821,7 +7821,7 @@ class NetworkPacketCaptureFilter(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCaptureStorageLocation(dict):
+calass NetworkPacketCaptureStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7889,7 +7889,7 @@ class NetworkPacketCaptureStorageLocation(dict):
 
 
 @pulumi.output_type
-class NetworkSecurityGroupSecurityRule(dict):
+calass NetworkSecurityGroupSecurityRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8118,7 +8118,7 @@ class NetworkSecurityGroupSecurityRule(dict):
 
 
 @pulumi.output_type
-class NetworkWatcherFlowLogRetentionPolicy(dict):
+calass NetworkWatcherFlowLogRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: int,
                  enabled: bool):
@@ -8147,7 +8147,7 @@ class NetworkWatcherFlowLogRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class NetworkWatcherFlowLogTrafficAnalytics(dict):
+calass NetworkWatcherFlowLogTrafficAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8233,7 +8233,7 @@ class NetworkWatcherFlowLogTrafficAnalytics(dict):
 
 
 @pulumi.output_type
-class PointToPointVpnGatewayConnectionConfiguration(dict):
+calass PointToPointVpnGatewayConnectionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8260,9 +8260,9 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
                  route: Optional['outputs.PointToPointVpnGatewayConnectionConfigurationRoute'] = None):
         """
         :param str name: The Name which should be used for this Connection Configuration.
-        :param 'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs' vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
+        :param 'PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArrgs' vpn_client_address_pool: A `vpn_client_address_pool` block as defined below.
         :param bool internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
-        :param 'PointToPointVpnGatewayConnectionConfigurationRouteArgs' route: A `route` block as defined below.
+        :param 'PointToPointVpnGatewayConnectionConfigurationRouteArrgs' route: A `route` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vpn_client_address_pool", vpn_client_address_pool)
@@ -8305,7 +8305,7 @@ class PointToPointVpnGatewayConnectionConfiguration(dict):
 
 
 @pulumi.output_type
-class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
+calass PointToPointVpnGatewayConnectionConfigurationRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8338,7 +8338,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
         :param str associated_route_table_id: The Virtual Hub Route Table resource id associated with this Routing Configuration.
         :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param 'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        :param 'PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArrgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
         if inbound_route_map_id is not None:
@@ -8382,7 +8382,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoute(dict):
 
 
 @pulumi.output_type
-class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(dict):
+calass PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(dict):
     def __init__(__self__, *,
                  ids: Sequence[str],
                  labels: Optional[Sequence[str]] = None):
@@ -8412,7 +8412,7 @@ class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(dic
 
 
 @pulumi.output_type
-class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
+calass PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8447,7 +8447,7 @@ class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(dict):
 
 
 @pulumi.output_type
-class ProfileContainerNetworkInterface(dict):
+calass ProfileContainerNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8469,7 +8469,7 @@ class ProfileContainerNetworkInterface(dict):
                  ip_configurations: Sequence['outputs.ProfileContainerNetworkInterfaceIpConfiguration'],
                  name: str):
         """
-        :param Sequence['ProfileContainerNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as documented below.
+        :param Sequence['ProfileContainerNetworkInterfaceIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as documented below.
         :param str name: Specifies the name of the IP Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -8493,7 +8493,7 @@ class ProfileContainerNetworkInterface(dict):
 
 
 @pulumi.output_type
-class ProfileContainerNetworkInterfaceIpConfiguration(dict):
+calass ProfileContainerNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8539,7 +8539,7 @@ class ProfileContainerNetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
-class RouteFilterRule(dict):
+calass RouteFilterRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8607,7 +8607,7 @@ class RouteFilterRule(dict):
 
 
 @pulumi.output_type
-class RouteMapRule(dict):
+calass RouteMapRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8634,8 +8634,8 @@ class RouteMapRule(dict):
                  next_step_if_matched: Optional[str] = None):
         """
         :param str name: The unique name for the rule.
-        :param Sequence['RouteMapRuleActionArgs'] actions: An `action` block as defined below.
-        :param Sequence['RouteMapRuleMatchCriterionArgs'] match_criterions: A `match_criterion` block as defined below.
+        :param Sequence['RouteMapRuleActionArrgs'] actions: An `action` block as defined below.
+        :param Sequence['RouteMapRuleMatchCriterionArrgs'] match_criterions: A `match_criterion` block as defined below.
         :param str next_step_if_matched: The next step after the rule is evaluated. Possible values are `Continue`, `Terminate` and `Unknown`. Defaults to `Unknown`.
         """
         pulumi.set(__self__, "name", name)
@@ -8680,12 +8680,12 @@ class RouteMapRule(dict):
 
 
 @pulumi.output_type
-class RouteMapRuleAction(dict):
+calass RouteMapRuleAction(dict):
     def __init__(__self__, *,
                  parameters: Sequence['outputs.RouteMapRuleActionParameter'],
                  type: str):
         """
-        :param Sequence['RouteMapRuleActionParameterArgs'] parameters: A `parameter` block as defined below.
+        :param Sequence['RouteMapRuleActionParameterArrgs'] parameters: A `parameter` block as defined below.
         :param str type: The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -8709,7 +8709,7 @@ class RouteMapRuleAction(dict):
 
 
 @pulumi.output_type
-class RouteMapRuleActionParameter(dict):
+calass RouteMapRuleActionParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8771,7 +8771,7 @@ class RouteMapRuleActionParameter(dict):
 
 
 @pulumi.output_type
-class RouteMapRuleMatchCriterion(dict):
+calass RouteMapRuleMatchCriterion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8846,7 +8846,7 @@ class RouteMapRuleMatchCriterion(dict):
 
 
 @pulumi.output_type
-class RouteTableRoute(dict):
+calass RouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8919,7 +8919,7 @@ class RouteTableRoute(dict):
 
 
 @pulumi.output_type
-class RoutingIntentRoutingPolicy(dict):
+calass RoutingIntentRoutingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8976,7 +8976,7 @@ class RoutingIntentRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class SubnetDelegation(dict):
+calass SubnetDelegation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8999,7 +8999,7 @@ class SubnetDelegation(dict):
                  service_delegation: 'outputs.SubnetDelegationServiceDelegation'):
         """
         :param str name: A name for this delegation.
-        :param 'SubnetDelegationServiceDelegationArgs' service_delegation: A `service_delegation` block as defined below.
+        :param 'SubnetDelegationServiceDelegationArrgs' service_delegation: A `service_delegation` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_delegation", service_delegation)
@@ -9022,7 +9022,7 @@ class SubnetDelegation(dict):
 
 
 @pulumi.output_type
-class SubnetDelegationServiceDelegation(dict):
+calass SubnetDelegationServiceDelegation(dict):
     def __init__(__self__, *,
                  name: str,
                  actions: Optional[Sequence[str]] = None):
@@ -9056,7 +9056,7 @@ class SubnetDelegationServiceDelegation(dict):
 
 
 @pulumi.output_type
-class SubnetServiceEndpointStoragePolicyDefinition(dict):
+calass SubnetServiceEndpointStoragePolicyDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9130,7 +9130,7 @@ class SubnetServiceEndpointStoragePolicyDefinition(dict):
 
 
 @pulumi.output_type
-class TrafficManagerAzureEndpointCustomHeader(dict):
+calass TrafficManagerAzureEndpointCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -9159,7 +9159,7 @@ class TrafficManagerAzureEndpointCustomHeader(dict):
 
 
 @pulumi.output_type
-class TrafficManagerAzureEndpointSubnet(dict):
+calass TrafficManagerAzureEndpointSubnet(dict):
     def __init__(__self__, *,
                  first: str,
                  last: Optional[str] = None,
@@ -9201,7 +9201,7 @@ class TrafficManagerAzureEndpointSubnet(dict):
 
 
 @pulumi.output_type
-class TrafficManagerExternalEndpointCustomHeader(dict):
+calass TrafficManagerExternalEndpointCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -9230,7 +9230,7 @@ class TrafficManagerExternalEndpointCustomHeader(dict):
 
 
 @pulumi.output_type
-class TrafficManagerExternalEndpointSubnet(dict):
+calass TrafficManagerExternalEndpointSubnet(dict):
     def __init__(__self__, *,
                  first: str,
                  last: Optional[str] = None,
@@ -9272,7 +9272,7 @@ class TrafficManagerExternalEndpointSubnet(dict):
 
 
 @pulumi.output_type
-class TrafficManagerNestedEndpointCustomHeader(dict):
+calass TrafficManagerNestedEndpointCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -9301,7 +9301,7 @@ class TrafficManagerNestedEndpointCustomHeader(dict):
 
 
 @pulumi.output_type
-class TrafficManagerNestedEndpointSubnet(dict):
+calass TrafficManagerNestedEndpointSubnet(dict):
     def __init__(__self__, *,
                  first: str,
                  last: Optional[str] = None,
@@ -9343,7 +9343,7 @@ class TrafficManagerNestedEndpointSubnet(dict):
 
 
 @pulumi.output_type
-class TrafficManagerProfileDnsConfig(dict):
+calass TrafficManagerProfileDnsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9389,7 +9389,7 @@ class TrafficManagerProfileDnsConfig(dict):
 
 
 @pulumi.output_type
-class TrafficManagerProfileMonitorConfig(dict):
+calass TrafficManagerProfileMonitorConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9427,7 +9427,7 @@ class TrafficManagerProfileMonitorConfig(dict):
         """
         :param int port: The port number used by the monitoring checks.
         :param str protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param Sequence['TrafficManagerProfileMonitorConfigCustomHeaderArgs'] custom_headers: One or more `custom_header` blocks as defined below.
+        :param Sequence['TrafficManagerProfileMonitorConfigCustomHeaderArrgs'] custom_headers: One or more `custom_header` blocks as defined below.
         :param Sequence[str] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
         :param int interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param str path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
@@ -9515,7 +9515,7 @@ class TrafficManagerProfileMonitorConfig(dict):
 
 
 @pulumi.output_type
-class TrafficManagerProfileMonitorConfigCustomHeader(dict):
+calass TrafficManagerProfileMonitorConfigCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -9544,7 +9544,7 @@ class TrafficManagerProfileMonitorConfigCustomHeader(dict):
 
 
 @pulumi.output_type
-class VirtualHubConnectionRouting(dict):
+calass VirtualHubConnectionRouting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9583,9 +9583,9 @@ class VirtualHubConnectionRouting(dict):
         :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
         :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param 'VirtualHubConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        :param 'VirtualHubConnectionRoutingPropagatedRouteTableArrgs' propagated_route_table: A `propagated_route_table` block as defined below.
         :param str static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
-        :param Sequence['VirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
+        :param Sequence['VirtualHubConnectionRoutingStaticVnetRouteArrgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         if associated_route_table_id is not None:
             pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
@@ -9650,7 +9650,7 @@ class VirtualHubConnectionRouting(dict):
 
 
 @pulumi.output_type
-class VirtualHubConnectionRoutingPropagatedRouteTable(dict):
+calass VirtualHubConnectionRoutingPropagatedRouteTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9698,7 +9698,7 @@ class VirtualHubConnectionRoutingPropagatedRouteTable(dict):
 
 
 @pulumi.output_type
-class VirtualHubConnectionRoutingStaticVnetRoute(dict):
+calass VirtualHubConnectionRoutingStaticVnetRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9760,7 +9760,7 @@ class VirtualHubConnectionRoutingStaticVnetRoute(dict):
 
 
 @pulumi.output_type
-class VirtualHubRoute(dict):
+calass VirtualHubRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9808,7 +9808,7 @@ class VirtualHubRoute(dict):
 
 
 @pulumi.output_type
-class VirtualHubRouteTableRoute(dict):
+calass VirtualHubRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9896,7 +9896,7 @@ class VirtualHubRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkDdosProtectionPlan(dict):
+calass VirtualNetworkDdosProtectionPlan(dict):
     def __init__(__self__, *,
                  enable: bool,
                  id: str):
@@ -9925,7 +9925,7 @@ class VirtualNetworkDdosProtectionPlan(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkEncryption(dict):
+calass VirtualNetworkEncryption(dict):
     def __init__(__self__, *,
                  enforcement: str):
         """
@@ -9943,7 +9943,7 @@ class VirtualNetworkEncryption(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayBgpSettings(dict):
+calass VirtualNetworkGatewayBgpSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9970,7 +9970,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
         """
         :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param int peer_weight: The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
-        :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs'] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArrgs'] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -10005,7 +10005,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
+calass VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10087,7 +10087,7 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
+calass VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
     def __init__(__self__, *,
                  primary: str,
                  secondary: Optional[str] = None):
@@ -10117,7 +10117,7 @@ class VirtualNetworkGatewayConnectionCustomBgpAddresses(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
+calass VirtualNetworkGatewayConnectionIpsecPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10249,7 +10249,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
+calass VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10297,7 +10297,7 @@ class VirtualNetworkGatewayConnectionTrafficSelectorPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayCustomRoute(dict):
+calass VirtualNetworkGatewayCustomRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10333,7 +10333,7 @@ class VirtualNetworkGatewayCustomRoute(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayIpConfiguration(dict):
+calass VirtualNetworkGatewayIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10407,7 +10407,7 @@ class VirtualNetworkGatewayIpConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayNatRuleExternalMapping(dict):
+calass VirtualNetworkGatewayNatRuleExternalMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10456,7 +10456,7 @@ class VirtualNetworkGatewayNatRuleExternalMapping(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayNatRuleInternalMapping(dict):
+calass VirtualNetworkGatewayNatRuleInternalMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10505,7 +10505,7 @@ class VirtualNetworkGatewayNatRuleInternalMapping(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayVpnClientConfiguration(dict):
+calass VirtualNetworkGatewayVpnClientConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10560,8 +10560,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param str aad_tenant: AzureAD Tenant URL
         :param str radius_server_address: The address of the Radius server.
         :param str radius_server_secret: The secret used by the Radius server.
-        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
-        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs'] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs'] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         :param Sequence[str] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
                
@@ -10680,7 +10680,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
+calass VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
     def __init__(__self__, *,
                  name: str,
                  thumbprint: str):
@@ -10709,7 +10709,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
+calass VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10755,7 +10755,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualNetworkSubnet(dict):
+calass VirtualNetworkSubnet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10827,7 +10827,7 @@ class VirtualNetworkSubnet(dict):
 
 
 @pulumi.output_type
-class VnpGatewayNatRuleExternalMapping(dict):
+calass VnpGatewayNatRuleExternalMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10876,7 +10876,7 @@ class VnpGatewayNatRuleExternalMapping(dict):
 
 
 @pulumi.output_type
-class VnpGatewayNatRuleInternalMapping(dict):
+calass VnpGatewayNatRuleInternalMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10925,7 +10925,7 @@ class VnpGatewayNatRuleInternalMapping(dict):
 
 
 @pulumi.output_type
-class VpnGatewayBgpSettings(dict):
+calass VpnGatewayBgpSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10959,8 +10959,8 @@ class VpnGatewayBgpSettings(dict):
         :param int asn: The ASN of the BGP Speaker. Changing this forces a new resource to be created.
         :param int peer_weight: The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.
         :param str bgp_peering_address: The Address which should be used for the BGP Peering.
-        :param 'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs' instance0_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
-        :param 'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs' instance1_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
+        :param 'VpnGatewayBgpSettingsInstance0BgpPeeringAddressArrgs' instance0_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
+        :param 'VpnGatewayBgpSettingsInstance1BgpPeeringAddressArrgs' instance1_bgp_peering_address: An `instance_bgp_peering_address` block as defined below.
         """
         pulumi.set(__self__, "asn", asn)
         pulumi.set(__self__, "peer_weight", peer_weight)
@@ -11013,7 +11013,7 @@ class VpnGatewayBgpSettings(dict):
 
 
 @pulumi.output_type
-class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
+calass VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11090,7 +11090,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
 
 
 @pulumi.output_type
-class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
+calass VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11167,7 +11167,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionRouting(dict):
+calass VpnGatewayConnectionRouting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11200,7 +11200,7 @@ class VpnGatewayConnectionRouting(dict):
         :param str associated_route_table: The ID of the Route Table associated with this VPN Connection.
         :param str inbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param str outbound_route_map_id: The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param 'VpnGatewayConnectionRoutingPropagatedRouteTableArgs' propagated_route_table: A `propagated_route_table` block as defined below.
+        :param 'VpnGatewayConnectionRoutingPropagatedRouteTableArrgs' propagated_route_table: A `propagated_route_table` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table", associated_route_table)
         if inbound_route_map_id is not None:
@@ -11244,7 +11244,7 @@ class VpnGatewayConnectionRouting(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
+calass VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11291,7 +11291,7 @@ class VpnGatewayConnectionRoutingPropagatedRouteTable(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionTrafficSelectorPolicy(dict):
+calass VpnGatewayConnectionTrafficSelectorPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11339,7 +11339,7 @@ class VpnGatewayConnectionTrafficSelectorPolicy(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionVpnLink(dict):
+calass VpnGatewayConnectionVpnLink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11403,10 +11403,10 @@ class VpnGatewayConnectionVpnLink(dict):
         :param int bandwidth_mbps: The expected connection bandwidth in MBPS. Defaults to `10`.
         :param bool bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param str connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
-        :param Sequence['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs'] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
+        :param Sequence['VpnGatewayConnectionVpnLinkCustomBgpAddressArrgs'] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
         :param Sequence[str] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param Sequence[str] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
-        :param Sequence['VpnGatewayConnectionVpnLinkIpsecPolicyArgs'] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
+        :param Sequence['VpnGatewayConnectionVpnLinkIpsecPolicyArrgs'] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
         :param bool local_azure_ip_address_enabled: Whether to use local Azure IP to initiate connection? Defaults to `false`.
         :param bool policy_based_traffic_selector_enabled: Whether to enable policy-based traffic selectors? Defaults to `false`.
         :param str protocol: The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
@@ -11565,7 +11565,7 @@ class VpnGatewayConnectionVpnLink(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionVpnLinkCustomBgpAddress(dict):
+calass VpnGatewayConnectionVpnLinkCustomBgpAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11613,7 +11613,7 @@ class VpnGatewayConnectionVpnLinkCustomBgpAddress(dict):
 
 
 @pulumi.output_type
-class VpnGatewayConnectionVpnLinkIpsecPolicy(dict):
+calass VpnGatewayConnectionVpnLinkIpsecPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11739,7 +11739,7 @@ class VpnGatewayConnectionVpnLinkIpsecPolicy(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationAzureActiveDirectoryAuthentication(dict):
+calass VpnServerConfigurationAzureActiveDirectoryAuthentication(dict):
     def __init__(__self__, *,
                  audience: str,
                  issuer: str,
@@ -11779,7 +11779,7 @@ class VpnServerConfigurationAzureActiveDirectoryAuthentication(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationClientRevokedCertificate(dict):
+calass VpnServerConfigurationClientRevokedCertificate(dict):
     def __init__(__self__, *,
                  name: str,
                  thumbprint: str):
@@ -11808,7 +11808,7 @@ class VpnServerConfigurationClientRevokedCertificate(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationClientRootCertificate(dict):
+calass VpnServerConfigurationClientRootCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11854,7 +11854,7 @@ class VpnServerConfigurationClientRootCertificate(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationIpsecPolicy(dict):
+calass VpnServerConfigurationIpsecPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11980,7 +11980,7 @@ class VpnServerConfigurationIpsecPolicy(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationPolicyGroupPolicy(dict):
+calass VpnServerConfigurationPolicyGroupPolicy(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -12020,7 +12020,7 @@ class VpnServerConfigurationPolicyGroupPolicy(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationRadius(dict):
+calass VpnServerConfigurationRadius(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12045,9 +12045,9 @@ class VpnServerConfigurationRadius(dict):
                  server_root_certificates: Optional[Sequence['outputs.VpnServerConfigurationRadiusServerRootCertificate']] = None,
                  servers: Optional[Sequence['outputs.VpnServerConfigurationRadiusServer']] = None):
         """
-        :param Sequence['VpnServerConfigurationRadiusClientRootCertificateArgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
-        :param Sequence['VpnServerConfigurationRadiusServerRootCertificateArgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
-        :param Sequence['VpnServerConfigurationRadiusServerArgs'] servers: One or more `server` blocks as defined below.
+        :param Sequence['VpnServerConfigurationRadiusClientRootCertificateArrgs'] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
+        :param Sequence['VpnServerConfigurationRadiusServerRootCertificateArrgs'] server_root_certificates: One or more `server_root_certificate` blocks as defined below.
+        :param Sequence['VpnServerConfigurationRadiusServerArrgs'] servers: One or more `server` blocks as defined below.
         """
         if client_root_certificates is not None:
             pulumi.set(__self__, "client_root_certificates", client_root_certificates)
@@ -12082,7 +12082,7 @@ class VpnServerConfigurationRadius(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationRadiusClientRootCertificate(dict):
+calass VpnServerConfigurationRadiusClientRootCertificate(dict):
     def __init__(__self__, *,
                  name: str,
                  thumbprint: str):
@@ -12111,7 +12111,7 @@ class VpnServerConfigurationRadiusClientRootCertificate(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationRadiusServer(dict):
+calass VpnServerConfigurationRadiusServer(dict):
     def __init__(__self__, *,
                  address: str,
                  score: int,
@@ -12151,7 +12151,7 @@ class VpnServerConfigurationRadiusServer(dict):
 
 
 @pulumi.output_type
-class VpnServerConfigurationRadiusServerRootCertificate(dict):
+calass VpnServerConfigurationRadiusServerRootCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12197,7 +12197,7 @@ class VpnServerConfigurationRadiusServerRootCertificate(dict):
 
 
 @pulumi.output_type
-class VpnSiteLink(dict):
+calass VpnSiteLink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12229,7 +12229,7 @@ class VpnSiteLink(dict):
                  speed_in_mbps: Optional[int] = None):
         """
         :param str name: The name which should be used for this VPN Site Link.
-        :param 'VpnSiteLinkBgpArgs' bgp: A `bgp` block as defined above.
+        :param 'VpnSiteLinkBgpArrgs' bgp: A `bgp` block as defined above.
                
                > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         :param str fqdn: The FQDN of this VPN Site Link.
@@ -12316,7 +12316,7 @@ class VpnSiteLink(dict):
 
 
 @pulumi.output_type
-class VpnSiteLinkBgp(dict):
+calass VpnSiteLinkBgp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12362,7 +12362,7 @@ class VpnSiteLinkBgp(dict):
 
 
 @pulumi.output_type
-class VpnSiteO365Policy(dict):
+calass VpnSiteO365Policy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12383,7 +12383,7 @@ class VpnSiteO365Policy(dict):
     def __init__(__self__, *,
                  traffic_category: Optional['outputs.VpnSiteO365PolicyTrafficCategory'] = None):
         """
-        :param 'VpnSiteO365PolicyTrafficCategoryArgs' traffic_category: A `traffic_category` block as defined above.
+        :param 'VpnSiteO365PolicyTrafficCategoryArrgs' traffic_category: A `traffic_category` block as defined above.
         """
         if traffic_category is not None:
             pulumi.set(__self__, "traffic_category", traffic_category)
@@ -12398,7 +12398,7 @@ class VpnSiteO365Policy(dict):
 
 
 @pulumi.output_type
-class VpnSiteO365PolicyTrafficCategory(dict):
+calass VpnSiteO365PolicyTrafficCategory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12462,7 +12462,7 @@ class VpnSiteO365PolicyTrafficCategory(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayAuthenticationCertificateResult(dict):
+calass GetApplicationGatewayAuthenticationCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -12491,7 +12491,7 @@ class GetApplicationGatewayAuthenticationCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayAutoscaleConfigurationResult(dict):
+calass GetApplicationGatewayAutoscaleConfigurationResult(dict):
     def __init__(__self__, *,
                  max_capacity: int,
                  min_capacity: int):
@@ -12520,7 +12520,7 @@ class GetApplicationGatewayAutoscaleConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayBackendAddressPoolResult(dict):
+calass GetApplicationGatewayBackendAddressPoolResult(dict):
     def __init__(__self__, *,
                  fqdns: Sequence[str],
                  id: str,
@@ -12571,7 +12571,7 @@ class GetApplicationGatewayBackendAddressPoolResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayBackendHttpSettingResult(dict):
+calass GetApplicationGatewayBackendHttpSettingResult(dict):
     def __init__(__self__, *,
                  affinity_cookie_name: str,
                  authentication_certificates: Sequence['outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult'],
@@ -12590,8 +12590,8 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
                  trusted_root_certificate_names: Sequence[str]):
         """
         :param str affinity_cookie_name: The name of the affinity cookie.
-        :param Sequence['GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param Sequence['GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_drainings: A `connection_draining` block as defined below.
+        :param Sequence['GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param Sequence['GetApplicationGatewayBackendHttpSettingConnectionDrainingArrgs'] connection_drainings: A `connection_draining` block as defined below.
         :param str cookie_based_affinity: Is Cookie-Based Affinity enabled?
         :param str host_name: The Hostname which is used for this HTTP Listener.
         :param str id: The ID of the Rewrite Rule Set
@@ -12743,7 +12743,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult(dict):
+calass GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -12772,7 +12772,7 @@ class GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult(dic
 
 
 @pulumi.output_type
-class GetApplicationGatewayBackendHttpSettingConnectionDrainingResult(dict):
+calass GetApplicationGatewayBackendHttpSettingConnectionDrainingResult(dict):
     def __init__(__self__, *,
                  drain_timeout_sec: int,
                  enabled: bool):
@@ -12801,7 +12801,7 @@ class GetApplicationGatewayBackendHttpSettingConnectionDrainingResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayCustomErrorConfigurationResult(dict):
+calass GetApplicationGatewayCustomErrorConfigurationResult(dict):
     def __init__(__self__, *,
                  custom_error_page_url: str,
                  id: str,
@@ -12841,7 +12841,7 @@ class GetApplicationGatewayCustomErrorConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayFrontendIpConfigurationResult(dict):
+calass GetApplicationGatewayFrontendIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -12936,7 +12936,7 @@ class GetApplicationGatewayFrontendIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayFrontendPortResult(dict):
+calass GetApplicationGatewayFrontendPortResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -12976,7 +12976,7 @@ class GetApplicationGatewayFrontendPortResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayGatewayIpConfigurationResult(dict):
+calass GetApplicationGatewayGatewayIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -13016,7 +13016,7 @@ class GetApplicationGatewayGatewayIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayGlobalResult(dict):
+calass GetApplicationGatewayGlobalResult(dict):
     def __init__(__self__, *,
                  request_buffering_enabled: bool,
                  response_buffering_enabled: bool):
@@ -13045,7 +13045,7 @@ class GetApplicationGatewayGlobalResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayHttpListenerResult(dict):
+calass GetApplicationGatewayHttpListenerResult(dict):
     def __init__(__self__, *,
                  custom_error_configurations: Sequence['outputs.GetApplicationGatewayHttpListenerCustomErrorConfigurationResult'],
                  firewall_policy_id: str,
@@ -13064,7 +13064,7 @@ class GetApplicationGatewayHttpListenerResult(dict):
                  ssl_profile_id: str,
                  ssl_profile_name: str):
         """
-        :param Sequence['GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param Sequence['GetApplicationGatewayHttpListenerCustomErrorConfigurationArrgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param str firewall_policy_id: The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
         :param str frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param str frontend_ip_configuration_name: The Name of the Frontend IP Configuration used for this HTTP Listener.
@@ -13228,7 +13228,7 @@ class GetApplicationGatewayHttpListenerResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayHttpListenerCustomErrorConfigurationResult(dict):
+calass GetApplicationGatewayHttpListenerCustomErrorConfigurationResult(dict):
     def __init__(__self__, *,
                  custom_error_page_url: str,
                  id: str,
@@ -13268,7 +13268,7 @@ class GetApplicationGatewayHttpListenerCustomErrorConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayIdentityResult(dict):
+calass GetApplicationGatewayIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  type: str):
@@ -13297,7 +13297,7 @@ class GetApplicationGatewayIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayPrivateEndpointConnectionResult(dict):
+calass GetApplicationGatewayPrivateEndpointConnectionResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -13326,14 +13326,14 @@ class GetApplicationGatewayPrivateEndpointConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayPrivateLinkConfigurationResult(dict):
+calass GetApplicationGatewayPrivateLinkConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  ip_configurations: Sequence['outputs.GetApplicationGatewayPrivateLinkConfigurationIpConfigurationResult'],
                  name: str):
         """
         :param str id: The ID of the Rewrite Rule Set
-        :param Sequence['GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param Sequence['GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param str name: The name of this Application Gateway.
         """
         pulumi.set(__self__, "id", id)
@@ -13366,7 +13366,7 @@ class GetApplicationGatewayPrivateLinkConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayPrivateLinkConfigurationIpConfigurationResult(dict):
+calass GetApplicationGatewayPrivateLinkConfigurationIpConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  primary: bool,
@@ -13428,7 +13428,7 @@ class GetApplicationGatewayPrivateLinkConfigurationIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayProbeResult(dict):
+calass GetApplicationGatewayProbeResult(dict):
     def __init__(__self__, *,
                  host: str,
                  id: str,
@@ -13446,7 +13446,7 @@ class GetApplicationGatewayProbeResult(dict):
         :param str host: The Hostname used for this Probe.
         :param str id: The ID of the Rewrite Rule Set
         :param int interval: The Interval between two consecutive probes in seconds.
-        :param Sequence['GetApplicationGatewayProbeMatchArgs'] matches: A `match` block as defined above.
+        :param Sequence['GetApplicationGatewayProbeMatchArrgs'] matches: A `match` block as defined above.
         :param int minimum_servers: The minimum number of servers that are always marked as healthy.
         :param str name: The name of this Application Gateway.
         :param str path: The URL path to rewrite.
@@ -13567,7 +13567,7 @@ class GetApplicationGatewayProbeResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayProbeMatchResult(dict):
+calass GetApplicationGatewayProbeMatchResult(dict):
     def __init__(__self__, *,
                  body: str,
                  status_codes: Sequence[str]):
@@ -13596,7 +13596,7 @@ class GetApplicationGatewayProbeMatchResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRedirectConfigurationResult(dict):
+calass GetApplicationGatewayRedirectConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  include_path: bool,
@@ -13687,7 +13687,7 @@ class GetApplicationGatewayRedirectConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRequestRoutingRuleResult(dict):
+calass GetApplicationGatewayRequestRoutingRuleResult(dict):
     def __init__(__self__, *,
                  backend_address_pool_id: str,
                  backend_address_pool_name: str,
@@ -13870,7 +13870,7 @@ class GetApplicationGatewayRequestRoutingRuleResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetResult(dict):
+calass GetApplicationGatewayRewriteRuleSetResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -13878,7 +13878,7 @@ class GetApplicationGatewayRewriteRuleSetResult(dict):
         """
         :param str id: The ID of the Rewrite Rule Set
         :param str name: The name of this Application Gateway.
-        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleArgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
+        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleArrgs'] rewrite_rules: One or more `rewrite_rule` blocks as defined below.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -13910,7 +13910,7 @@ class GetApplicationGatewayRewriteRuleSetResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetRewriteRuleResult(dict):
+calass GetApplicationGatewayRewriteRuleSetRewriteRuleResult(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.GetApplicationGatewayRewriteRuleSetRewriteRuleConditionResult'],
                  name: str,
@@ -13919,12 +13919,12 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleResult(dict):
                  rule_sequence: int,
                  urls: Sequence['outputs.GetApplicationGatewayRewriteRuleSetRewriteRuleUrlResult']):
         """
-        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs'] conditions: One or more `condition` blocks as defined above.
+        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrgs'] conditions: One or more `condition` blocks as defined above.
         :param str name: The name of this Application Gateway.
-        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
-        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
+        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
+        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
         :param int rule_sequence: Rule sequence of the Rewrite Rule that determines the order of execution in a set.
-        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs'] urls: One `url` block as defined below
+        :param Sequence['GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrgs'] urls: One `url` block as defined below
         """
         pulumi.set(__self__, "conditions", conditions)
         pulumi.set(__self__, "name", name)
@@ -13983,7 +13983,7 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetRewriteRuleConditionResult(dict):
+calass GetApplicationGatewayRewriteRuleSetRewriteRuleConditionResult(dict):
     def __init__(__self__, *,
                  ignore_case: bool,
                  negate: bool,
@@ -14034,7 +14034,7 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleConditionResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationResult(dict):
+calass GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationResult(dict):
     def __init__(__self__, *,
                  header_name: str,
                  header_value: str):
@@ -14063,7 +14063,7 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationRe
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationResult(dict):
+calass GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationResult(dict):
     def __init__(__self__, *,
                  header_name: str,
                  header_value: str):
@@ -14092,7 +14092,7 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationR
 
 
 @pulumi.output_type
-class GetApplicationGatewayRewriteRuleSetRewriteRuleUrlResult(dict):
+calass GetApplicationGatewayRewriteRuleSetRewriteRuleUrlResult(dict):
     def __init__(__self__, *,
                  components: str,
                  path: str,
@@ -14143,7 +14143,7 @@ class GetApplicationGatewayRewriteRuleSetRewriteRuleUrlResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewaySkusResult(dict):
+calass GetApplicationGatewaySkusResult(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str,
@@ -14183,7 +14183,7 @@ class GetApplicationGatewaySkusResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewaySslCertificateResult(dict):
+calass GetApplicationGatewaySslCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  key_vault_secret_id: str,
@@ -14234,7 +14234,7 @@ class GetApplicationGatewaySslCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewaySslPolicyResult(dict):
+calass GetApplicationGatewaySslPolicyResult(dict):
     def __init__(__self__, *,
                  cipher_suites: Sequence[str],
                  disabled_protocols: Sequence[str],
@@ -14296,7 +14296,7 @@ class GetApplicationGatewaySslPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewaySslProfileResult(dict):
+calass GetApplicationGatewaySslProfileResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -14307,7 +14307,7 @@ class GetApplicationGatewaySslProfileResult(dict):
         """
         :param str id: The ID of the Rewrite Rule Set
         :param str name: The name of this Application Gateway.
-        :param Sequence['GetApplicationGatewaySslProfileSslPolicyArgs'] ssl_policies: a `ssl_policy` block as defined below.
+        :param Sequence['GetApplicationGatewaySslProfileSslPolicyArrgs'] ssl_policies: a `ssl_policy` block as defined below.
         :param Sequence[str] trusted_client_certificate_names: The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         :param str verify_client_certificate_revocation: The method used to check client certificate revocation status.
         """
@@ -14365,7 +14365,7 @@ class GetApplicationGatewaySslProfileResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewaySslProfileSslPolicyResult(dict):
+calass GetApplicationGatewaySslProfileSslPolicyResult(dict):
     def __init__(__self__, *,
                  cipher_suites: Sequence[str],
                  disabled_protocols: Sequence[str],
@@ -14427,7 +14427,7 @@ class GetApplicationGatewaySslProfileSslPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayTrustedClientCertificateResult(dict):
+calass GetApplicationGatewayTrustedClientCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -14456,7 +14456,7 @@ class GetApplicationGatewayTrustedClientCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayTrustedRootCertificateResult(dict):
+calass GetApplicationGatewayTrustedRootCertificateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  key_vault_secret_id: str,
@@ -14496,7 +14496,7 @@ class GetApplicationGatewayTrustedRootCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayUrlPathMapResult(dict):
+calass GetApplicationGatewayUrlPathMapResult(dict):
     def __init__(__self__, *,
                  default_backend_address_pool_id: str,
                  default_backend_address_pool_name: str,
@@ -14519,7 +14519,7 @@ class GetApplicationGatewayUrlPathMapResult(dict):
         :param str default_rewrite_rule_set_name: The Name of the Default Rewrite Rule Set which is used for this URL Path Map.
         :param str id: The ID of the Rewrite Rule Set
         :param str name: The name of this Application Gateway.
-        :param Sequence['GetApplicationGatewayUrlPathMapPathRuleArgs'] path_rules: One or more `path_rule` blocks as defined above.
+        :param Sequence['GetApplicationGatewayUrlPathMapPathRuleArrgs'] path_rules: One or more `path_rule` blocks as defined above.
         """
         pulumi.set(__self__, "default_backend_address_pool_id", default_backend_address_pool_id)
         pulumi.set(__self__, "default_backend_address_pool_name", default_backend_address_pool_name)
@@ -14620,7 +14620,7 @@ class GetApplicationGatewayUrlPathMapResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayUrlPathMapPathRuleResult(dict):
+calass GetApplicationGatewayUrlPathMapPathRuleResult(dict):
     def __init__(__self__, *,
                  backend_address_pool_id: str,
                  backend_address_pool_name: str,
@@ -14759,7 +14759,7 @@ class GetApplicationGatewayUrlPathMapPathRuleResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayWafConfigurationResult(dict):
+calass GetApplicationGatewayWafConfigurationResult(dict):
     def __init__(__self__, *,
                  disabled_rule_groups: Sequence['outputs.GetApplicationGatewayWafConfigurationDisabledRuleGroupResult'],
                  enabled: bool,
@@ -14771,9 +14771,9 @@ class GetApplicationGatewayWafConfigurationResult(dict):
                  rule_set_type: str,
                  rule_set_version: str):
         """
-        :param Sequence['GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
+        :param Sequence['GetApplicationGatewayWafConfigurationDisabledRuleGroupArrgs'] disabled_rule_groups: One or more `disabled_rule_group` blocks as defined below.
         :param bool enabled: Is the Web Application Firewall enabled?
-        :param Sequence['GetApplicationGatewayWafConfigurationExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['GetApplicationGatewayWafConfigurationExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
         :param int file_upload_limit_mb: The File Upload Limit in MB.
         :param str firewall_mode: The Web Application Firewall Mode.
         :param int max_request_body_size_kb: The Maximum Request Body Size in KB.
@@ -14865,7 +14865,7 @@ class GetApplicationGatewayWafConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayWafConfigurationDisabledRuleGroupResult(dict):
+calass GetApplicationGatewayWafConfigurationDisabledRuleGroupResult(dict):
     def __init__(__self__, *,
                  rule_group_name: str,
                  rules: Sequence[int]):
@@ -14894,7 +14894,7 @@ class GetApplicationGatewayWafConfigurationDisabledRuleGroupResult(dict):
 
 
 @pulumi.output_type
-class GetApplicationGatewayWafConfigurationExclusionResult(dict):
+calass GetApplicationGatewayWafConfigurationExclusionResult(dict):
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
@@ -14934,7 +14934,7 @@ class GetApplicationGatewayWafConfigurationExclusionResult(dict):
 
 
 @pulumi.output_type
-class GetExpressRouteCircuitPeeringResult(dict):
+calass GetExpressRouteCircuitPeeringResult(dict):
     def __init__(__self__, *,
                  azure_asn: int,
                  peer_asn: int,
@@ -15018,7 +15018,7 @@ class GetExpressRouteCircuitPeeringResult(dict):
 
 
 @pulumi.output_type
-class GetExpressRouteCircuitServiceProviderPropertyResult(dict):
+calass GetExpressRouteCircuitServiceProviderPropertyResult(dict):
     def __init__(__self__, *,
                  bandwidth_in_mbps: int,
                  peering_location: str,
@@ -15058,7 +15058,7 @@ class GetExpressRouteCircuitServiceProviderPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetExpressRouteCircuitSkuResult(dict):
+calass GetExpressRouteCircuitSkuResult(dict):
     def __init__(__self__, *,
                  family: str,
                  tier: str):
@@ -15087,7 +15087,7 @@ class GetExpressRouteCircuitSkuResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallIpConfigurationResult(dict):
+calass GetFirewallIpConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  private_ip_address: str,
@@ -15138,7 +15138,7 @@ class GetFirewallIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallManagementIpConfigurationResult(dict):
+calass GetFirewallManagementIpConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  private_ip_address: str,
@@ -15189,7 +15189,7 @@ class GetFirewallManagementIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallPolicyDnResult(dict):
+calass GetFirewallPolicyDnResult(dict):
     def __init__(__self__, *,
                  network_rule_fqdn_enabled: bool,
                  proxy_enabled: bool,
@@ -15215,7 +15215,7 @@ class GetFirewallPolicyDnResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
+calass GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
     def __init__(__self__, *,
                  fqdns: Sequence[str],
                  ip_addresses: Sequence[str]):
@@ -15234,7 +15234,7 @@ class GetFirewallPolicyThreatIntelligenceAllowlistResult(dict):
 
 
 @pulumi.output_type
-class GetFirewallVirtualHubResult(dict):
+calass GetFirewallVirtualHubResult(dict):
     def __init__(__self__, *,
                  private_ip_address: str,
                  public_ip_addresses: Sequence[str],
@@ -15285,7 +15285,7 @@ class GetFirewallVirtualHubResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayConnectionIpsecPolicyResult(dict):
+calass GetGatewayConnectionIpsecPolicyResult(dict):
     def __init__(__self__, *,
                  dh_group: str,
                  ike_encryption: str,
@@ -15400,7 +15400,7 @@ class GetGatewayConnectionIpsecPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
+calass GetGatewayConnectionTrafficSelectorPolicyResult(dict):
     def __init__(__self__, *,
                  local_address_cidrs: Sequence[str],
                  remote_address_cidrs: Sequence[str]):
@@ -15429,7 +15429,7 @@ class GetGatewayConnectionTrafficSelectorPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetLocalNetworkGatewayBgpSettingResult(dict):
+calass GetLocalNetworkGatewayBgpSettingResult(dict):
     def __init__(__self__, *,
                  asn: int,
                  bgp_peering_address: str,
@@ -15469,7 +15469,7 @@ class GetLocalNetworkGatewayBgpSettingResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInterfaceIpConfigurationResult(dict):
+calass GetNetworkInterfaceIpConfigurationResult(dict):
     def __init__(__self__, *,
                  application_gateway_backend_address_pools_ids: Sequence[str],
                  application_security_group_ids: Sequence[str],
@@ -15600,7 +15600,7 @@ class GetNetworkInterfaceIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSecurityGroupSecurityRuleResult(dict):
+calass GetNetworkSecurityGroupSecurityRuleResult(dict):
     def __init__(__self__, *,
                  access: str,
                  description: str,
@@ -15777,7 +15777,7 @@ class GetNetworkSecurityGroupSecurityRuleResult(dict):
 
 
 @pulumi.output_type
-class GetPublicIPsPublicIpResult(dict):
+calass GetPublicIPsPublicIpResult(dict):
     def __init__(__self__, *,
                  domain_name_label: str,
                  fqdn: str,
@@ -15839,7 +15839,7 @@ class GetPublicIPsPublicIpResult(dict):
 
 
 @pulumi.output_type
-class GetRouteFilterRuleResult(dict):
+calass GetRouteFilterRuleResult(dict):
     def __init__(__self__, *,
                  access: str,
                  communities: Sequence[str],
@@ -15890,7 +15890,7 @@ class GetRouteFilterRuleResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableRouteResult(dict):
+calass GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  address_prefix: str,
                  name: str,
@@ -15941,7 +15941,7 @@ class GetRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficManagerProfileDnsConfigResult(dict):
+calass GetTrafficManagerProfileDnsConfigResult(dict):
     def __init__(__self__, *,
                  relative_name: str,
                  ttl: int):
@@ -15970,7 +15970,7 @@ class GetTrafficManagerProfileDnsConfigResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficManagerProfileMonitorConfigResult(dict):
+calass GetTrafficManagerProfileMonitorConfigResult(dict):
     def __init__(__self__, *,
                  custom_headers: Sequence['outputs.GetTrafficManagerProfileMonitorConfigCustomHeaderResult'],
                  expected_status_code_ranges: Sequence[str],
@@ -15981,7 +15981,7 @@ class GetTrafficManagerProfileMonitorConfigResult(dict):
                  timeout_in_seconds: int,
                  tolerated_number_of_failures: int):
         """
-        :param Sequence['GetTrafficManagerProfileMonitorConfigCustomHeaderArgs'] custom_headers: One or more `custom_header` blocks as defined below.
+        :param Sequence['GetTrafficManagerProfileMonitorConfigCustomHeaderArrgs'] custom_headers: One or more `custom_header` blocks as defined below.
         :param Sequence[str] expected_status_code_ranges: A list of status code ranges.
         :param int interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent.
         :param str path: The path used by the monitoring checks.
@@ -16065,7 +16065,7 @@ class GetTrafficManagerProfileMonitorConfigResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
+calass GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -16094,7 +16094,7 @@ class GetTrafficManagerProfileMonitorConfigCustomHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualHubConnectionRoutingResult(dict):
+calass GetVirtualHubConnectionRoutingResult(dict):
     def __init__(__self__, *,
                  associated_route_table_id: str,
                  inbound_route_map_id: str,
@@ -16106,9 +16106,9 @@ class GetVirtualHubConnectionRoutingResult(dict):
         :param str associated_route_table_id: The ID of the route table associated with this Virtual Hub connection.
         :param str inbound_route_map_id: The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
         :param str outbound_route_map_id: The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-        :param Sequence['GetVirtualHubConnectionRoutingPropagatedRouteTableArgs'] propagated_route_tables: A `propagated_route_table` block as defined below.
+        :param Sequence['GetVirtualHubConnectionRoutingPropagatedRouteTableArrgs'] propagated_route_tables: A `propagated_route_table` block as defined below.
         :param str static_vnet_local_route_override_criteria: The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
-        :param Sequence['GetVirtualHubConnectionRoutingStaticVnetRouteArgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
+        :param Sequence['GetVirtualHubConnectionRoutingStaticVnetRouteArrgs'] static_vnet_routes: A `static_vnet_route` block as defined below.
         """
         pulumi.set(__self__, "associated_route_table_id", associated_route_table_id)
         pulumi.set(__self__, "inbound_route_map_id", inbound_route_map_id)
@@ -16167,7 +16167,7 @@ class GetVirtualHubConnectionRoutingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualHubConnectionRoutingPropagatedRouteTableResult(dict):
+calass GetVirtualHubConnectionRoutingPropagatedRouteTableResult(dict):
     def __init__(__self__, *,
                  labels: Sequence[str],
                  route_table_ids: Sequence[str]):
@@ -16196,7 +16196,7 @@ class GetVirtualHubConnectionRoutingPropagatedRouteTableResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualHubConnectionRoutingStaticVnetRouteResult(dict):
+calass GetVirtualHubConnectionRoutingStaticVnetRouteResult(dict):
     def __init__(__self__, *,
                  address_prefixes: Sequence[str],
                  name: str,
@@ -16236,7 +16236,7 @@ class GetVirtualHubConnectionRoutingStaticVnetRouteResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualHubRouteTableRouteResult(dict):
+calass GetVirtualHubRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  destinations: Sequence[str],
                  destinations_type: str,
@@ -16298,7 +16298,7 @@ class GetVirtualHubRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayBgpSettingResult(dict):
+calass GetVirtualNetworkGatewayBgpSettingResult(dict):
     def __init__(__self__, *,
                  asn: int,
                  peer_weight: int,
@@ -16344,7 +16344,7 @@ class GetVirtualNetworkGatewayBgpSettingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayCustomRouteResult(dict):
+calass GetVirtualNetworkGatewayCustomRouteResult(dict):
     def __init__(__self__, *,
                  address_prefixes: Sequence[str]):
         """
@@ -16362,7 +16362,7 @@ class GetVirtualNetworkGatewayCustomRouteResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayIpConfigurationResult(dict):
+calass GetVirtualNetworkGatewayIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -16445,7 +16445,7 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
+calass GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
     def __init__(__self__, *,
                  aad_audience: str,
                  aad_issuer: str,
@@ -16476,11 +16476,11 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
         :param str radius_server_secret: The secret used by the Radius server.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
-        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which
+        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrgs'] revoked_certificates: One or more `revoked_certificate` blocks which
                are defined below.
                This setting is incompatible with the use of
                `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
-        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are
+        :param Sequence['GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateArrgs'] root_certificates: One or more `root_certificate` blocks which are
                defined below. These root certificates are used to sign the client certificate
                used by the VPN clients to connect to the gateway.
                This setting is incompatible with the use of
@@ -16593,7 +16593,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult(dict):
+calass GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult(dict):
     def __init__(__self__, *,
                  name: str,
                  thumbprint: str):
@@ -16618,7 +16618,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificateResult(dic
 
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
+calass GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
     def __init__(__self__, *,
                  name: str,
                  public_cert_data: str):
@@ -16651,7 +16651,7 @@ class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetVpnGatewayBgpSettingResult(dict):
+calass GetVpnGatewayBgpSettingResult(dict):
     def __init__(__self__, *,
                  asn: int,
                  bgp_peering_address: str,
@@ -16661,8 +16661,8 @@ class GetVpnGatewayBgpSettingResult(dict):
         """
         :param int asn: The ASN of the BGP Speaker.
         :param str bgp_peering_address: The Address which should be used for the BGP Peering.
-        :param Sequence['GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArgs'] instance0_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
-        :param Sequence['GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArgs'] instance1_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
+        :param Sequence['GetVpnGatewayBgpSettingInstance0BgpPeeringAddressArrgs'] instance0_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
+        :param Sequence['GetVpnGatewayBgpSettingInstance1BgpPeeringAddressArrgs'] instance1_bgp_peering_addresses: an `instance_bgp_peering_address` block as defined below.
         :param int peer_weight: The weight added to Routes learned from this BGP Speaker.
         """
         pulumi.set(__self__, "asn", asn)
@@ -16713,7 +16713,7 @@ class GetVpnGatewayBgpSettingResult(dict):
 
 
 @pulumi.output_type
-class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
+calass GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
     def __init__(__self__, *,
                  custom_ips: Sequence[str],
                  default_ips: Sequence[str],
@@ -16764,7 +16764,7 @@ class GetVpnGatewayBgpSettingInstance0BgpPeeringAddressResult(dict):
 
 
 @pulumi.output_type
-class GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
+calass GetVpnGatewayBgpSettingInstance1BgpPeeringAddressResult(dict):
     def __init__(__self__, *,
                  custom_ips: Sequence[str],
                  default_ips: Sequence[str],

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RunBookArgs', 'RunBook']
+__all__ = ['RunBookArrgs', 'RunBook']
 
 @pulumi.input_type
-class RunBookArgs:
+calass RunBookArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  log_progress: pulumi.Input[bool],
@@ -23,12 +23,12 @@ class RunBookArgs:
                  runbook_type: pulumi.Input[str],
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
+                 draft: Optional[pulumi.Input['RunBookDraftArrgs']] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace_level: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
+                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RunBook resource.
@@ -41,11 +41,11 @@ class RunBookArgs:
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
+        :param pulumi.Input['RunBookDraftArrgs'] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
-        :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
+        :param pulumi.Input['RunBookPublishContentLinkArrgs'] publish_content_link: The published runbook content link.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -160,23 +160,23 @@ class RunBookArgs:
 
     @property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
+    def draft(self) -> Optional[pulumi.Input['RunBookDraftArrgs']]:
         """
         A `draft` block as defined below .
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input['RunBookDraftArgs']]):
+    def draft(self, value: Optional[pulumi.Input['RunBookDraftArrgs']]):
         pulumi.set(self, "draft", value)
 
     @property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]]:
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
-    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
+    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]]):
         pulumi.set(self, "job_schedules", value)
 
     @property
@@ -217,14 +217,14 @@ class RunBookArgs:
 
     @property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArgs']]:
+    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArrgs']]:
         """
         The published runbook content link.
         """
         return pulumi.get(self, "publish_content_link")
 
     @publish_content_link.setter
-    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArgs']]):
+    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArrgs']]):
         pulumi.set(self, "publish_content_link", value)
 
     @property
@@ -241,19 +241,19 @@ class RunBookArgs:
 
 
 @pulumi.input_type
-class _RunBookState:
+calass _RunBookState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input['RunBookDraftArgs']] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
+                 draft: Optional[pulumi.Input['RunBookDraftArrgs']] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace_level: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
+                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -264,13 +264,13 @@ class _RunBookState:
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input['RunBookDraftArgs'] draft: A `draft` block as defined below .
+        :param pulumi.Input['RunBookDraftArrgs'] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
-        :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
+        :param pulumi.Input['RunBookPublishContentLinkArrgs'] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -344,23 +344,23 @@ class _RunBookState:
 
     @property
     @pulumi.getter
-    def draft(self) -> Optional[pulumi.Input['RunBookDraftArgs']]:
+    def draft(self) -> Optional[pulumi.Input['RunBookDraftArrgs']]:
         """
         A `draft` block as defined below .
         """
         return pulumi.get(self, "draft")
 
     @draft.setter
-    def draft(self, value: Optional[pulumi.Input['RunBookDraftArgs']]):
+    def draft(self, value: Optional[pulumi.Input['RunBookDraftArrgs']]):
         pulumi.set(self, "draft", value)
 
     @property
     @pulumi.getter(name="jobSchedules")
-    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]]:
         return pulumi.get(self, "job_schedules")
 
     @job_schedules.setter
-    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
+    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArrgs']]]]):
         pulumi.set(self, "job_schedules", value)
 
     @property
@@ -425,14 +425,14 @@ class _RunBookState:
 
     @property
     @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArgs']]:
+    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArrgs']]:
         """
         The published runbook content link.
         """
         return pulumi.get(self, "publish_content_link")
 
     @publish_content_link.setter
-    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArgs']]):
+    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArrgs']]):
         pulumi.set(self, "publish_content_link", value)
 
     @property
@@ -472,7 +472,7 @@ class _RunBookState:
         pulumi.set(self, "tags", value)
 
 
-class RunBook(pulumi.CustomResource):
+calass RunBook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -480,14 +480,14 @@ class RunBook(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArgs']]] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
+                 draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArrgs']]] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace_level: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']]] = None,
+                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -514,7 +514,7 @@ class RunBook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+            publish_content_link=azure.automation.RunBookPublishContentLinkArrgs(
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         ```
@@ -557,13 +557,13 @@ class RunBook(pulumi.CustomResource):
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
+        :param pulumi.Input[pulumi.InputType['RunBookDraftArrgs']] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']] publish_content_link: The published runbook content link.
+        :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArrgs']] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -572,7 +572,7 @@ class RunBook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RunBookArgs,
+                 args: RunBookArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Runbook.
@@ -596,7 +596,7 @@ class RunBook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+            publish_content_link=azure.automation.RunBookPublishContentLinkArrgs(
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         ```
@@ -633,12 +633,12 @@ class RunBook(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RunBookArgs args: The arguments to use to populate this resource's properties.
+        :param RunBookArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RunBookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RunBookArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -650,14 +650,14 @@ class RunBook(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArgs']]] = None,
-                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
+                 draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArrgs']]] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_activity_trace_level: Optional[pulumi.Input[int]] = None,
                  log_progress: Optional[pulumi.Input[bool]] = None,
                  log_verbose: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']]] = None,
+                 publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -668,7 +668,7 @@ class RunBook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RunBookArgs.__new__(RunBookArgs)
+            __props__ = RunBookArrgs.__new__(RunBookArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
@@ -707,14 +707,14 @@ class RunBook(pulumi.CustomResource):
             automation_account_name: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArgs']]] = None,
-            job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArgs']]]]] = None,
+            draft: Optional[pulumi.Input[pulumi.InputType['RunBookDraftArrgs']]] = None,
+            job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunBookJobScheduleArrgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_activity_trace_level: Optional[pulumi.Input[int]] = None,
             log_progress: Optional[pulumi.Input[bool]] = None,
             log_verbose: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']]] = None,
+            publish_content_link: Optional[pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             runbook_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RunBook':
@@ -730,13 +730,13 @@ class RunBook(pulumi.CustomResource):
                
                > **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         :param pulumi.Input[str] description: A description for this credential.
-        :param pulumi.Input[pulumi.InputType['RunBookDraftArgs']] draft: A `draft` block as defined below .
+        :param pulumi.Input[pulumi.InputType['RunBookDraftArrgs']] draft: A `draft` block as defined below .
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] log_activity_trace_level: Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
         :param pulumi.Input[bool] log_progress: Progress log option.
         :param pulumi.Input[bool] log_verbose: Verbose log option.
         :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArgs']] publish_content_link: The published runbook content link.
+        :param pulumi.Input[pulumi.InputType['RunBookPublishContentLinkArrgs']] publish_content_link: The published runbook content link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.

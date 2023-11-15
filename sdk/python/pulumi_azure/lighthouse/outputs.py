@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DefinitionAuthorization(dict):
+calass DefinitionAuthorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class DefinitionAuthorization(dict):
 
 
 @pulumi.output_type
-class DefinitionEligibleAuthorization(dict):
+calass DefinitionEligibleAuthorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,7 +127,7 @@ class DefinitionEligibleAuthorization(dict):
         """
         :param str principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param str role_definition_id: The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
-        :param 'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs' just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
+        :param 'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs' just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
         :param str principal_display_name: The display name of the Azure Active Directory Principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -171,7 +171,7 @@ class DefinitionEligibleAuthorization(dict):
 
 
 @pulumi.output_type
-class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
+calass DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,7 +196,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
                  maximum_activation_duration: Optional[str] = None,
                  multi_factor_auth_provider: Optional[str] = None):
         """
-        :param Sequence['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs'] approvers: An `approver` block as defined below.
+        :param Sequence['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs'] approvers: An `approver` block as defined below.
         :param str maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
         :param str multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
                
@@ -237,7 +237,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
 
 
 @pulumi.output_type
-class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
+calass DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -286,7 +286,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
 
 
 @pulumi.output_type
-class DefinitionPlan(dict):
+calass DefinitionPlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,

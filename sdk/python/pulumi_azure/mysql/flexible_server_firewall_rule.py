@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlexibleServerFirewallRuleArgs', 'FlexibleServerFirewallRule']
+__all__ = ['FlexibleServerFirewallRuleArrgs', 'FlexibleServerFirewallRule']
 
 @pulumi.input_type
-class FlexibleServerFirewallRuleArgs:
+calass FlexibleServerFirewallRuleArrgs:
     def __init__(__self__, *,
                  end_ip_address: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -100,7 +100,7 @@ class FlexibleServerFirewallRuleArgs:
 
 
 @pulumi.input_type
-class _FlexibleServerFirewallRuleState:
+calass _FlexibleServerFirewallRuleState:
     def __init__(__self__, *,
                  end_ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -191,7 +191,7 @@ class _FlexibleServerFirewallRuleState:
         pulumi.set(self, "start_ip_address", value)
 
 
-class FlexibleServerFirewallRule(pulumi.CustomResource):
+calass FlexibleServerFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -277,7 +277,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlexibleServerFirewallRuleArgs,
+                 args: FlexibleServerFirewallRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Firewall Rule for a MySQL Flexible Server.
@@ -341,12 +341,12 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FlexibleServerFirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param FlexibleServerFirewallRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerFirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerFirewallRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlexibleServerFirewallRuleArgs.__new__(FlexibleServerFirewallRuleArgs)
+            __props__ = FlexibleServerFirewallRuleArrgs.__new__(FlexibleServerFirewallRuleArrgs)
 
             if end_ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'end_ip_address'")

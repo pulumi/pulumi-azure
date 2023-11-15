@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubnetNetworkSecurityGroupAssociationArgs', 'SubnetNetworkSecurityGroupAssociation']
+__all__ = ['SubnetNetworkSecurityGroupAssociationArrgs', 'SubnetNetworkSecurityGroupAssociation']
 
 @pulumi.input_type
-class SubnetNetworkSecurityGroupAssociationArgs:
+calass SubnetNetworkSecurityGroupAssociationArrgs:
     def __init__(__self__, *,
                  network_security_group_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class SubnetNetworkSecurityGroupAssociationArgs:
 
 
 @pulumi.input_type
-class _SubnetNetworkSecurityGroupAssociationState:
+calass _SubnetNetworkSecurityGroupAssociationState:
     def __init__(__self__, *,
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _SubnetNetworkSecurityGroupAssociationState:
         pulumi.set(self, "subnet_id", value)
 
 
-class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
+calass SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -118,7 +118,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                 name="test123",
                 priority=100,
                 direction="Inbound",
@@ -151,7 +151,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetNetworkSecurityGroupAssociationArgs,
+                 args: SubnetNetworkSecurityGroupAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Network Security Group with a Subnet within a Virtual Network.
@@ -174,7 +174,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArrgs(
                 name="test123",
                 priority=100,
                 direction="Inbound",
@@ -199,12 +199,12 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetNetworkSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetNetworkSecurityGroupAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetNetworkSecurityGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetNetworkSecurityGroupAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -222,7 +222,7 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetNetworkSecurityGroupAssociationArgs.__new__(SubnetNetworkSecurityGroupAssociationArgs)
+            __props__ = SubnetNetworkSecurityGroupAssociationArrgs.__new__(SubnetNetworkSecurityGroupAssociationArrgs)
 
             if network_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_id'")

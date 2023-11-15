@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
@@ -283,12 +282,6 @@ func (i *LinkedServiceCosmosDb) ToLinkedServiceCosmosDbOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbOutput)
 }
 
-func (i *LinkedServiceCosmosDb) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceCosmosDb] {
-	return pulumix.Output[*LinkedServiceCosmosDb]{
-		OutputState: i.ToLinkedServiceCosmosDbOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceCosmosDbArrayInput is an input type that accepts LinkedServiceCosmosDbArray and LinkedServiceCosmosDbArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceCosmosDbArrayInput` via:
 //
@@ -312,12 +305,6 @@ func (i LinkedServiceCosmosDbArray) ToLinkedServiceCosmosDbArrayOutput() LinkedS
 
 func (i LinkedServiceCosmosDbArray) ToLinkedServiceCosmosDbArrayOutputWithContext(ctx context.Context) LinkedServiceCosmosDbArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbArrayOutput)
-}
-
-func (i LinkedServiceCosmosDbArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceCosmosDb] {
-	return pulumix.Output[[]*LinkedServiceCosmosDb]{
-		OutputState: i.ToLinkedServiceCosmosDbArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceCosmosDbMapInput is an input type that accepts LinkedServiceCosmosDbMap and LinkedServiceCosmosDbMapOutput values.
@@ -345,12 +332,6 @@ func (i LinkedServiceCosmosDbMap) ToLinkedServiceCosmosDbMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceCosmosDbMapOutput)
 }
 
-func (i LinkedServiceCosmosDbMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceCosmosDb] {
-	return pulumix.Output[map[string]*LinkedServiceCosmosDb]{
-		OutputState: i.ToLinkedServiceCosmosDbMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceCosmosDbOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceCosmosDbOutput) ElementType() reflect.Type {
@@ -363,12 +344,6 @@ func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbOutput() LinkedServi
 
 func (o LinkedServiceCosmosDbOutput) ToLinkedServiceCosmosDbOutputWithContext(ctx context.Context) LinkedServiceCosmosDbOutput {
 	return o
-}
-
-func (o LinkedServiceCosmosDbOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceCosmosDb] {
-	return pulumix.Output[*LinkedServiceCosmosDb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint of the Azure CosmosDB account. Required if `connectionString` is unspecified.
@@ -442,12 +417,6 @@ func (o LinkedServiceCosmosDbArrayOutput) ToLinkedServiceCosmosDbArrayOutputWith
 	return o
 }
 
-func (o LinkedServiceCosmosDbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceCosmosDb] {
-	return pulumix.Output[[]*LinkedServiceCosmosDb]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceCosmosDbArrayOutput) Index(i pulumi.IntInput) LinkedServiceCosmosDbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceCosmosDb {
 		return vs[0].([]*LinkedServiceCosmosDb)[vs[1].(int)]
@@ -466,12 +435,6 @@ func (o LinkedServiceCosmosDbMapOutput) ToLinkedServiceCosmosDbMapOutput() Linke
 
 func (o LinkedServiceCosmosDbMapOutput) ToLinkedServiceCosmosDbMapOutputWithContext(ctx context.Context) LinkedServiceCosmosDbMapOutput {
 	return o
-}
-
-func (o LinkedServiceCosmosDbMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceCosmosDb] {
-	return pulumix.Output[map[string]*LinkedServiceCosmosDb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceCosmosDbMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceCosmosDbOutput {

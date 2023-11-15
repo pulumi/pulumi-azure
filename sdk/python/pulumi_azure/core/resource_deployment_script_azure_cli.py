@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceDeploymentScriptAzureCliArgs', 'ResourceDeploymentScriptAzureCli']
+__all__ = ['ResourceDeploymentScriptAzureCliArrgs', 'ResourceDeploymentScriptAzureCli']
 
 @pulumi.input_type
-class ResourceDeploymentScriptAzureCliArgs:
+calass ResourceDeploymentScriptAzureCliArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  retention_interval: pulumi.Input[str],
                  version: pulumi.Input[str],
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]] = None,
+                 container: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']] = None,
+                 storage_account: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -40,15 +40,15 @@ class ResourceDeploymentScriptAzureCliArgs:
         :param pulumi.Input[str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] primary_script_uri: Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
@@ -147,26 +147,26 @@ class ResourceDeploymentScriptAzureCliArgs:
 
     @property
     @pulumi.getter
-    def container(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']]:
+    def container(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']]:
         """
         A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "container")
 
     @container.setter
-    def container(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']]):
+    def container(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']]):
         pulumi.set(self, "container", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]:
         """
         An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -183,14 +183,14 @@ class ResourceDeploymentScriptAzureCliArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -243,14 +243,14 @@ class ResourceDeploymentScriptAzureCliArgs:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']]:
+    def storage_account(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]:
         """
         A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']]):
+    def storage_account(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]):
         pulumi.set(self, "storage_account", value)
 
     @property
@@ -291,14 +291,14 @@ class ResourceDeploymentScriptAzureCliArgs:
 
 
 @pulumi.input_type
-class _ResourceDeploymentScriptAzureCliState:
+calass _ResourceDeploymentScriptAzureCliState:
     def __init__(__self__, *,
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]] = None,
+                 container: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[str]] = None,
@@ -306,7 +306,7 @@ class _ResourceDeploymentScriptAzureCliState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']] = None,
+                 storage_account: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -315,10 +315,10 @@ class _ResourceDeploymentScriptAzureCliState:
         Input properties used for looking up and filtering ResourceDeploymentScriptAzureCli resources.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] outputs: List of script outputs.
@@ -326,7 +326,7 @@ class _ResourceDeploymentScriptAzureCliState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs'] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
@@ -395,26 +395,26 @@ class _ResourceDeploymentScriptAzureCliState:
 
     @property
     @pulumi.getter
-    def container(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']]:
+    def container(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']]:
         """
         A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "container")
 
     @container.setter
-    def container(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs']]):
+    def container(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliContainerArrgs']]):
         pulumi.set(self, "container", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]:
         """
         An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -431,14 +431,14 @@ class _ResourceDeploymentScriptAzureCliState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -527,14 +527,14 @@ class _ResourceDeploymentScriptAzureCliState:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']]:
+    def storage_account(self) -> Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]:
         """
         A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArgs']]):
+    def storage_account(self, value: Optional[pulumi.Input['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]):
         pulumi.set(self, "storage_account", value)
 
     @property
@@ -586,24 +586,24 @@ class _ResourceDeploymentScriptAzureCliState:
         pulumi.set(self, "version", value)
 
 
-class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
+calass ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]] = None,
+                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArrgs']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -632,7 +632,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             force_update_tag="1",
             timeout="PT30M",
             script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArgs(
+            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -653,17 +653,17 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArrgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] primary_script_uri: Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArrgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
@@ -673,7 +673,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceDeploymentScriptAzureCliArgs,
+                 args: ResourceDeploymentScriptAzureCliArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Deployment Script of Azure Cli.
@@ -698,7 +698,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             force_update_tag="1",
             timeout="PT30M",
             script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArgs(
+            identity=azure.core.ResourceDeploymentScriptAzureCliIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -716,12 +716,12 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceDeploymentScriptAzureCliArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceDeploymentScriptAzureCliArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceDeploymentScriptAzureCliArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceDeploymentScriptAzureCliArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -732,17 +732,17 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]] = None,
+                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArrgs']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -754,7 +754,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceDeploymentScriptAzureCliArgs.__new__(ResourceDeploymentScriptAzureCliArgs)
+            __props__ = ResourceDeploymentScriptAzureCliArrgs.__new__(ResourceDeploymentScriptAzureCliArrgs)
 
             __props__.__dict__["cleanup_preference"] = cleanup_preference
             __props__.__dict__["command_line"] = command_line
@@ -792,10 +792,10 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cleanup_preference: Optional[pulumi.Input[str]] = None,
             command_line: Optional[pulumi.Input[str]] = None,
-            container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArgs']]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]]] = None,
+            container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArrgs']]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]]] = None,
             force_update_tag: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outputs: Optional[pulumi.Input[str]] = None,
@@ -803,7 +803,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_interval: Optional[pulumi.Input[str]] = None,
             script_content: Optional[pulumi.Input[str]] = None,
-            storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArgs']]] = None,
+            storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArrgs']]] = None,
             supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[str]] = None,
@@ -817,10 +817,10 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliContainerArrgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] outputs: List of script outputs.
@@ -828,7 +828,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptAzureCliStorageAccountArrgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.

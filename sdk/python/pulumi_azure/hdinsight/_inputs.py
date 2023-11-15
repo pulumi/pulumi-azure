@@ -10,137 +10,137 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HBaseClusterComponentVersionArgs',
-    'HBaseClusterComputeIsolationArgs',
-    'HBaseClusterDiskEncryptionArgs',
-    'HBaseClusterExtensionArgs',
-    'HBaseClusterGatewayArgs',
-    'HBaseClusterMetastoresArgs',
-    'HBaseClusterMetastoresAmbariArgs',
-    'HBaseClusterMetastoresHiveArgs',
-    'HBaseClusterMetastoresOozieArgs',
-    'HBaseClusterMonitorArgs',
-    'HBaseClusterNetworkArgs',
-    'HBaseClusterRolesArgs',
-    'HBaseClusterRolesHeadNodeArgs',
-    'HBaseClusterRolesHeadNodeScriptActionArgs',
-    'HBaseClusterRolesWorkerNodeArgs',
-    'HBaseClusterRolesWorkerNodeAutoscaleArgs',
-    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
-    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
-    'HBaseClusterRolesWorkerNodeScriptActionArgs',
-    'HBaseClusterRolesZookeeperNodeArgs',
-    'HBaseClusterRolesZookeeperNodeScriptActionArgs',
-    'HBaseClusterSecurityProfileArgs',
-    'HBaseClusterStorageAccountArgs',
-    'HBaseClusterStorageAccountGen2Args',
-    'HadoopClusterComponentVersionArgs',
-    'HadoopClusterComputeIsolationArgs',
-    'HadoopClusterDiskEncryptionArgs',
-    'HadoopClusterExtensionArgs',
-    'HadoopClusterGatewayArgs',
-    'HadoopClusterMetastoresArgs',
-    'HadoopClusterMetastoresAmbariArgs',
-    'HadoopClusterMetastoresHiveArgs',
-    'HadoopClusterMetastoresOozieArgs',
-    'HadoopClusterMonitorArgs',
-    'HadoopClusterNetworkArgs',
-    'HadoopClusterRolesArgs',
-    'HadoopClusterRolesEdgeNodeArgs',
-    'HadoopClusterRolesEdgeNodeHttpsEndpointArgs',
-    'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
-    'HadoopClusterRolesEdgeNodeUninstallScriptActionArgs',
-    'HadoopClusterRolesHeadNodeArgs',
-    'HadoopClusterRolesHeadNodeScriptActionArgs',
-    'HadoopClusterRolesWorkerNodeArgs',
-    'HadoopClusterRolesWorkerNodeAutoscaleArgs',
-    'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs',
-    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
-    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
-    'HadoopClusterRolesWorkerNodeScriptActionArgs',
-    'HadoopClusterRolesZookeeperNodeArgs',
-    'HadoopClusterRolesZookeeperNodeScriptActionArgs',
-    'HadoopClusterSecurityProfileArgs',
-    'HadoopClusterStorageAccountArgs',
-    'HadoopClusterStorageAccountGen2Args',
-    'InteractiveQueryClusterComponentVersionArgs',
-    'InteractiveQueryClusterComputeIsolationArgs',
-    'InteractiveQueryClusterDiskEncryptionArgs',
-    'InteractiveQueryClusterExtensionArgs',
-    'InteractiveQueryClusterGatewayArgs',
-    'InteractiveQueryClusterMetastoresArgs',
-    'InteractiveQueryClusterMetastoresAmbariArgs',
-    'InteractiveQueryClusterMetastoresHiveArgs',
-    'InteractiveQueryClusterMetastoresOozieArgs',
-    'InteractiveQueryClusterMonitorArgs',
-    'InteractiveQueryClusterNetworkArgs',
-    'InteractiveQueryClusterRolesArgs',
-    'InteractiveQueryClusterRolesHeadNodeArgs',
-    'InteractiveQueryClusterRolesHeadNodeScriptActionArgs',
-    'InteractiveQueryClusterRolesWorkerNodeArgs',
-    'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs',
-    'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs',
-    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
-    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
-    'InteractiveQueryClusterRolesWorkerNodeScriptActionArgs',
-    'InteractiveQueryClusterRolesZookeeperNodeArgs',
-    'InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs',
-    'InteractiveQueryClusterSecurityProfileArgs',
-    'InteractiveQueryClusterStorageAccountArgs',
-    'InteractiveQueryClusterStorageAccountGen2Args',
-    'KafkaClusterComponentVersionArgs',
-    'KafkaClusterComputeIsolationArgs',
-    'KafkaClusterDiskEncryptionArgs',
-    'KafkaClusterExtensionArgs',
-    'KafkaClusterGatewayArgs',
-    'KafkaClusterMetastoresArgs',
-    'KafkaClusterMetastoresAmbariArgs',
-    'KafkaClusterMetastoresHiveArgs',
-    'KafkaClusterMetastoresOozieArgs',
-    'KafkaClusterMonitorArgs',
-    'KafkaClusterNetworkArgs',
-    'KafkaClusterRestProxyArgs',
-    'KafkaClusterRolesArgs',
-    'KafkaClusterRolesHeadNodeArgs',
-    'KafkaClusterRolesHeadNodeScriptActionArgs',
-    'KafkaClusterRolesKafkaManagementNodeArgs',
-    'KafkaClusterRolesKafkaManagementNodeScriptActionArgs',
-    'KafkaClusterRolesWorkerNodeArgs',
-    'KafkaClusterRolesWorkerNodeScriptActionArgs',
-    'KafkaClusterRolesZookeeperNodeArgs',
-    'KafkaClusterRolesZookeeperNodeScriptActionArgs',
-    'KafkaClusterSecurityProfileArgs',
-    'KafkaClusterStorageAccountArgs',
-    'KafkaClusterStorageAccountGen2Args',
-    'SparkClusterComponentVersionArgs',
-    'SparkClusterComputeIsolationArgs',
-    'SparkClusterDiskEncryptionArgs',
-    'SparkClusterExtensionArgs',
-    'SparkClusterGatewayArgs',
-    'SparkClusterMetastoresArgs',
-    'SparkClusterMetastoresAmbariArgs',
-    'SparkClusterMetastoresHiveArgs',
-    'SparkClusterMetastoresOozieArgs',
-    'SparkClusterMonitorArgs',
-    'SparkClusterNetworkArgs',
-    'SparkClusterRolesArgs',
-    'SparkClusterRolesHeadNodeArgs',
-    'SparkClusterRolesHeadNodeScriptActionArgs',
-    'SparkClusterRolesWorkerNodeArgs',
-    'SparkClusterRolesWorkerNodeAutoscaleArgs',
-    'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs',
-    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
-    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
-    'SparkClusterRolesWorkerNodeScriptActionArgs',
-    'SparkClusterRolesZookeeperNodeArgs',
-    'SparkClusterRolesZookeeperNodeScriptActionArgs',
-    'SparkClusterSecurityProfileArgs',
-    'SparkClusterStorageAccountArgs',
-    'SparkClusterStorageAccountGen2Args',
+    'HBaseClusterComponentVersionArrgs',
+    'HBaseClusterComputeIsolationArrgs',
+    'HBaseClusterDiskEncryptionArrgs',
+    'HBaseClusterExtensionArrgs',
+    'HBaseClusterGatewayArrgs',
+    'HBaseClusterMetastoresArrgs',
+    'HBaseClusterMetastoresAmbariArrgs',
+    'HBaseClusterMetastoresHiveArrgs',
+    'HBaseClusterMetastoresOozieArrgs',
+    'HBaseClusterMonitorArrgs',
+    'HBaseClusterNetworkArrgs',
+    'HBaseClusterRolesArrgs',
+    'HBaseClusterRolesHeadNodeArrgs',
+    'HBaseClusterRolesHeadNodeScriptActionArrgs',
+    'HBaseClusterRolesWorkerNodeArrgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleArrgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArrgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs',
+    'HBaseClusterRolesWorkerNodeScriptActionArrgs',
+    'HBaseClusterRolesZookeeperNodeArrgs',
+    'HBaseClusterRolesZookeeperNodeScriptActionArrgs',
+    'HBaseClusterSecurityProfileArrgs',
+    'HBaseClusterStorageAccountArrgs',
+    'HBaseClusterStorageAccountGen2Arrgs',
+    'HadoopClusterComponentVersionArrgs',
+    'HadoopClusterComputeIsolationArrgs',
+    'HadoopClusterDiskEncryptionArrgs',
+    'HadoopClusterExtensionArrgs',
+    'HadoopClusterGatewayArrgs',
+    'HadoopClusterMetastoresArrgs',
+    'HadoopClusterMetastoresAmbariArrgs',
+    'HadoopClusterMetastoresHiveArrgs',
+    'HadoopClusterMetastoresOozieArrgs',
+    'HadoopClusterMonitorArrgs',
+    'HadoopClusterNetworkArrgs',
+    'HadoopClusterRolesArrgs',
+    'HadoopClusterRolesEdgeNodeArrgs',
+    'HadoopClusterRolesEdgeNodeHttpsEndpointArrgs',
+    'HadoopClusterRolesEdgeNodeInstallScriptActionArrgs',
+    'HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs',
+    'HadoopClusterRolesHeadNodeArrgs',
+    'HadoopClusterRolesHeadNodeScriptActionArrgs',
+    'HadoopClusterRolesWorkerNodeArrgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleArrgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs',
+    'HadoopClusterRolesWorkerNodeScriptActionArrgs',
+    'HadoopClusterRolesZookeeperNodeArrgs',
+    'HadoopClusterRolesZookeeperNodeScriptActionArrgs',
+    'HadoopClusterSecurityProfileArrgs',
+    'HadoopClusterStorageAccountArrgs',
+    'HadoopClusterStorageAccountGen2Arrgs',
+    'InteractiveQueryClusterComponentVersionArrgs',
+    'InteractiveQueryClusterComputeIsolationArrgs',
+    'InteractiveQueryClusterDiskEncryptionArrgs',
+    'InteractiveQueryClusterExtensionArrgs',
+    'InteractiveQueryClusterGatewayArrgs',
+    'InteractiveQueryClusterMetastoresArrgs',
+    'InteractiveQueryClusterMetastoresAmbariArrgs',
+    'InteractiveQueryClusterMetastoresHiveArrgs',
+    'InteractiveQueryClusterMetastoresOozieArrgs',
+    'InteractiveQueryClusterMonitorArrgs',
+    'InteractiveQueryClusterNetworkArrgs',
+    'InteractiveQueryClusterRolesArrgs',
+    'InteractiveQueryClusterRolesHeadNodeArrgs',
+    'InteractiveQueryClusterRolesHeadNodeScriptActionArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs',
+    'InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs',
+    'InteractiveQueryClusterRolesZookeeperNodeArrgs',
+    'InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs',
+    'InteractiveQueryClusterSecurityProfileArrgs',
+    'InteractiveQueryClusterStorageAccountArrgs',
+    'InteractiveQueryClusterStorageAccountGen2Arrgs',
+    'KafkaClusterComponentVersionArrgs',
+    'KafkaClusterComputeIsolationArrgs',
+    'KafkaClusterDiskEncryptionArrgs',
+    'KafkaClusterExtensionArrgs',
+    'KafkaClusterGatewayArrgs',
+    'KafkaClusterMetastoresArrgs',
+    'KafkaClusterMetastoresAmbariArrgs',
+    'KafkaClusterMetastoresHiveArrgs',
+    'KafkaClusterMetastoresOozieArrgs',
+    'KafkaClusterMonitorArrgs',
+    'KafkaClusterNetworkArrgs',
+    'KafkaClusterRestProxyArrgs',
+    'KafkaClusterRolesArrgs',
+    'KafkaClusterRolesHeadNodeArrgs',
+    'KafkaClusterRolesHeadNodeScriptActionArrgs',
+    'KafkaClusterRolesKafkaManagementNodeArrgs',
+    'KafkaClusterRolesKafkaManagementNodeScriptActionArrgs',
+    'KafkaClusterRolesWorkerNodeArrgs',
+    'KafkaClusterRolesWorkerNodeScriptActionArrgs',
+    'KafkaClusterRolesZookeeperNodeArrgs',
+    'KafkaClusterRolesZookeeperNodeScriptActionArrgs',
+    'KafkaClusterSecurityProfileArrgs',
+    'KafkaClusterStorageAccountArrgs',
+    'KafkaClusterStorageAccountGen2Arrgs',
+    'SparkClusterComponentVersionArrgs',
+    'SparkClusterComputeIsolationArrgs',
+    'SparkClusterDiskEncryptionArrgs',
+    'SparkClusterExtensionArrgs',
+    'SparkClusterGatewayArrgs',
+    'SparkClusterMetastoresArrgs',
+    'SparkClusterMetastoresAmbariArrgs',
+    'SparkClusterMetastoresHiveArrgs',
+    'SparkClusterMetastoresOozieArrgs',
+    'SparkClusterMonitorArrgs',
+    'SparkClusterNetworkArrgs',
+    'SparkClusterRolesArrgs',
+    'SparkClusterRolesHeadNodeArrgs',
+    'SparkClusterRolesHeadNodeScriptActionArrgs',
+    'SparkClusterRolesWorkerNodeArrgs',
+    'SparkClusterRolesWorkerNodeAutoscaleArrgs',
+    'SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs',
+    'SparkClusterRolesWorkerNodeScriptActionArrgs',
+    'SparkClusterRolesZookeeperNodeArrgs',
+    'SparkClusterRolesZookeeperNodeScriptActionArrgs',
+    'SparkClusterSecurityProfileArrgs',
+    'SparkClusterStorageAccountArrgs',
+    'SparkClusterStorageAccountGen2Arrgs',
 ]
 
 @pulumi.input_type
-class HBaseClusterComponentVersionArgs:
+calass HBaseClusterComponentVersionArrgs:
     def __init__(__self__, *,
                  hbase: pulumi.Input[str]):
         """
@@ -162,7 +162,7 @@ class HBaseClusterComponentVersionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterComputeIsolationArgs:
+calass HBaseClusterComputeIsolationArrgs:
     def __init__(__self__, *,
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
@@ -201,7 +201,7 @@ class HBaseClusterComputeIsolationArgs:
 
 
 @pulumi.input_type
-class HBaseClusterDiskEncryptionArgs:
+calass HBaseClusterDiskEncryptionArrgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -272,7 +272,7 @@ class HBaseClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterExtensionArgs:
+calass HBaseClusterExtensionArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -309,7 +309,7 @@ class HBaseClusterExtensionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterGatewayArgs:
+calass HBaseClusterGatewayArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -350,15 +350,15 @@ class HBaseClusterGatewayArgs:
 
 
 @pulumi.input_type
-class HBaseClusterMetastoresArgs:
+calass HBaseClusterMetastoresArrgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']] = None):
+                 ambari: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArrgs']] = None,
+                 hive: Optional[pulumi.Input['HBaseClusterMetastoresHiveArrgs']] = None,
+                 oozie: Optional[pulumi.Input['HBaseClusterMetastoresOozieArrgs']] = None):
         """
-        :param pulumi.Input['HBaseClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
-        :param pulumi.Input['HBaseClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
-        :param pulumi.Input['HBaseClusterMetastoresOozieArgs'] oozie: An `oozie` block as defined below.
+        :param pulumi.Input['HBaseClusterMetastoresAmbariArrgs'] ambari: An `ambari` block as defined below.
+        :param pulumi.Input['HBaseClusterMetastoresHiveArrgs'] hive: A `hive` block as defined below.
+        :param pulumi.Input['HBaseClusterMetastoresOozieArrgs'] oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -369,43 +369,43 @@ class HBaseClusterMetastoresArgs:
 
     @property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> Optional[pulumi.Input['HBaseClusterMetastoresAmbariArrgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: Optional[pulumi.Input['HBaseClusterMetastoresAmbariArrgs']]):
         pulumi.set(self, "ambari", value)
 
     @property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']]:
+    def hive(self) -> Optional[pulumi.Input['HBaseClusterMetastoresHiveArrgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['HBaseClusterMetastoresHiveArgs']]):
+    def hive(self, value: Optional[pulumi.Input['HBaseClusterMetastoresHiveArrgs']]):
         pulumi.set(self, "hive", value)
 
     @property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']]:
+    def oozie(self) -> Optional[pulumi.Input['HBaseClusterMetastoresOozieArrgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']]):
+    def oozie(self, value: Optional[pulumi.Input['HBaseClusterMetastoresOozieArrgs']]):
         pulumi.set(self, "oozie", value)
 
 
 @pulumi.input_type
-class HBaseClusterMetastoresAmbariArgs:
+calass HBaseClusterMetastoresAmbariArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -472,7 +472,7 @@ class HBaseClusterMetastoresAmbariArgs:
 
 
 @pulumi.input_type
-class HBaseClusterMetastoresHiveArgs:
+calass HBaseClusterMetastoresHiveArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -539,7 +539,7 @@ class HBaseClusterMetastoresHiveArgs:
 
 
 @pulumi.input_type
-class HBaseClusterMetastoresOozieArgs:
+calass HBaseClusterMetastoresOozieArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -606,7 +606,7 @@ class HBaseClusterMetastoresOozieArgs:
 
 
 @pulumi.input_type
-class HBaseClusterMonitorArgs:
+calass HBaseClusterMonitorArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -643,7 +643,7 @@ class HBaseClusterMonitorArgs:
 
 
 @pulumi.input_type
-class HBaseClusterNetworkArgs:
+calass HBaseClusterNetworkArrgs:
     def __init__(__self__, *,
                  connection_direction: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None):
@@ -686,15 +686,15 @@ class HBaseClusterNetworkArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesArgs:
+calass HBaseClusterRolesArrgs:
     def __init__(__self__, *,
-                 head_node: pulumi.Input['HBaseClusterRolesHeadNodeArgs'],
-                 worker_node: pulumi.Input['HBaseClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['HBaseClusterRolesZookeeperNodeArgs']):
+                 head_node: pulumi.Input['HBaseClusterRolesHeadNodeArrgs'],
+                 worker_node: pulumi.Input['HBaseClusterRolesWorkerNodeArrgs'],
+                 zookeeper_node: pulumi.Input['HBaseClusterRolesZookeeperNodeArrgs']):
         """
-        :param pulumi.Input['HBaseClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
-        :param pulumi.Input['HBaseClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
-        :param pulumi.Input['HBaseClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['HBaseClusterRolesHeadNodeArrgs'] head_node: A `head_node` block as defined above.
+        :param pulumi.Input['HBaseClusterRolesWorkerNodeArrgs'] worker_node: A `worker_node` block as defined below.
+        :param pulumi.Input['HBaseClusterRolesZookeeperNodeArrgs'] zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -702,48 +702,48 @@ class HBaseClusterRolesArgs:
 
     @property
     @pulumi.getter(name="headNode")
-    def head_node(self) -> pulumi.Input['HBaseClusterRolesHeadNodeArgs']:
+    def head_node(self) -> pulumi.Input['HBaseClusterRolesHeadNodeArrgs']:
         """
         A `head_node` block as defined above.
         """
         return pulumi.get(self, "head_node")
 
     @head_node.setter
-    def head_node(self, value: pulumi.Input['HBaseClusterRolesHeadNodeArgs']):
+    def head_node(self, value: pulumi.Input['HBaseClusterRolesHeadNodeArrgs']):
         pulumi.set(self, "head_node", value)
 
     @property
     @pulumi.getter(name="workerNode")
-    def worker_node(self) -> pulumi.Input['HBaseClusterRolesWorkerNodeArgs']:
+    def worker_node(self) -> pulumi.Input['HBaseClusterRolesWorkerNodeArrgs']:
         """
         A `worker_node` block as defined below.
         """
         return pulumi.get(self, "worker_node")
 
     @worker_node.setter
-    def worker_node(self, value: pulumi.Input['HBaseClusterRolesWorkerNodeArgs']):
+    def worker_node(self, value: pulumi.Input['HBaseClusterRolesWorkerNodeArrgs']):
         pulumi.set(self, "worker_node", value)
 
     @property
     @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> pulumi.Input['HBaseClusterRolesZookeeperNodeArgs']:
+    def zookeeper_node(self) -> pulumi.Input['HBaseClusterRolesZookeeperNodeArrgs']:
         """
         A `zookeeper_node` block as defined below.
         """
         return pulumi.get(self, "zookeeper_node")
 
     @zookeeper_node.setter
-    def zookeeper_node(self, value: pulumi.Input['HBaseClusterRolesZookeeperNodeArgs']):
+    def zookeeper_node(self, value: pulumi.Input['HBaseClusterRolesZookeeperNodeArrgs']):
         pulumi.set(self, "zookeeper_node", value)
 
 
 @pulumi.input_type
-class HBaseClusterRolesHeadNodeArgs:
+calass HBaseClusterRolesHeadNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -753,7 +753,7 @@ class HBaseClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -813,14 +813,14 @@ class HBaseClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -863,7 +863,7 @@ class HBaseClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesHeadNodeScriptActionArgs:
+calass HBaseClusterRolesHeadNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -916,14 +916,14 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesWorkerNodeArgs:
+calass HBaseClusterRolesWorkerNodeArrgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArrgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -934,7 +934,7 @@ class HBaseClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -995,11 +995,11 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArrgs']]:
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArrgs']]):
         pulumi.set(self, "autoscale", value)
 
     @property
@@ -1018,14 +1018,14 @@ class HBaseClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -1068,37 +1068,37 @@ class HBaseClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesWorkerNodeAutoscaleArgs:
+calass HBaseClusterRolesWorkerNodeAutoscaleArrgs:
     def __init__(__self__, *,
-                 recurrence: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 recurrence: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']] = None):
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
-class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+calass HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArrgs:
     def __init__(__self__, *,
-                 schedules: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 schedules: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]],
                  timezone: pulumi.Input[str]):
         pulumi.set(__self__, "schedules", schedules)
         pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]:
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -1112,7 +1112,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+calass HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_instance_count: pulumi.Input[int],
@@ -1156,7 +1156,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesWorkerNodeScriptActionArgs:
+calass HBaseClusterRolesWorkerNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -1209,12 +1209,12 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesZookeeperNodeArgs:
+calass HBaseClusterRolesZookeeperNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -1224,7 +1224,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -1284,14 +1284,14 @@ class HBaseClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -1334,7 +1334,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
-class HBaseClusterRolesZookeeperNodeScriptActionArgs:
+calass HBaseClusterRolesZookeeperNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -1387,7 +1387,7 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HBaseClusterSecurityProfileArgs:
+calass HBaseClusterSecurityProfileArrgs:
     def __init__(__self__, *,
                  aadds_resource_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -1500,7 +1500,7 @@ class HBaseClusterSecurityProfileArgs:
 
 
 @pulumi.input_type
-class HBaseClusterStorageAccountArgs:
+calass HBaseClusterStorageAccountArrgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
                  storage_account_key: pulumi.Input[str],
@@ -1576,7 +1576,7 @@ class HBaseClusterStorageAccountArgs:
 
 
 @pulumi.input_type
-class HBaseClusterStorageAccountGen2Args:
+calass HBaseClusterStorageAccountGen2Arrgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  is_default: pulumi.Input[bool],
@@ -1651,7 +1651,7 @@ class HBaseClusterStorageAccountGen2Args:
 
 
 @pulumi.input_type
-class HadoopClusterComponentVersionArgs:
+calass HadoopClusterComponentVersionArrgs:
     def __init__(__self__, *,
                  hadoop: pulumi.Input[str]):
         """
@@ -1673,7 +1673,7 @@ class HadoopClusterComponentVersionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterComputeIsolationArgs:
+calass HadoopClusterComputeIsolationArrgs:
     def __init__(__self__, *,
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
@@ -1712,7 +1712,7 @@ class HadoopClusterComputeIsolationArgs:
 
 
 @pulumi.input_type
-class HadoopClusterDiskEncryptionArgs:
+calass HadoopClusterDiskEncryptionArrgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1783,7 +1783,7 @@ class HadoopClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterExtensionArgs:
+calass HadoopClusterExtensionArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -1820,7 +1820,7 @@ class HadoopClusterExtensionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterGatewayArgs:
+calass HadoopClusterGatewayArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -1861,15 +1861,15 @@ class HadoopClusterGatewayArgs:
 
 
 @pulumi.input_type
-class HadoopClusterMetastoresArgs:
+calass HadoopClusterMetastoresArrgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']] = None):
+                 ambari: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArrgs']] = None,
+                 hive: Optional[pulumi.Input['HadoopClusterMetastoresHiveArrgs']] = None,
+                 oozie: Optional[pulumi.Input['HadoopClusterMetastoresOozieArrgs']] = None):
         """
-        :param pulumi.Input['HadoopClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
-        :param pulumi.Input['HadoopClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
-        :param pulumi.Input['HadoopClusterMetastoresOozieArgs'] oozie: An `oozie` block as defined below.
+        :param pulumi.Input['HadoopClusterMetastoresAmbariArrgs'] ambari: An `ambari` block as defined below.
+        :param pulumi.Input['HadoopClusterMetastoresHiveArrgs'] hive: A `hive` block as defined below.
+        :param pulumi.Input['HadoopClusterMetastoresOozieArrgs'] oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -1880,43 +1880,43 @@ class HadoopClusterMetastoresArgs:
 
     @property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> Optional[pulumi.Input['HadoopClusterMetastoresAmbariArrgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: Optional[pulumi.Input['HadoopClusterMetastoresAmbariArrgs']]):
         pulumi.set(self, "ambari", value)
 
     @property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']]:
+    def hive(self) -> Optional[pulumi.Input['HadoopClusterMetastoresHiveArrgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['HadoopClusterMetastoresHiveArgs']]):
+    def hive(self, value: Optional[pulumi.Input['HadoopClusterMetastoresHiveArrgs']]):
         pulumi.set(self, "hive", value)
 
     @property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']]:
+    def oozie(self) -> Optional[pulumi.Input['HadoopClusterMetastoresOozieArrgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']]):
+    def oozie(self, value: Optional[pulumi.Input['HadoopClusterMetastoresOozieArrgs']]):
         pulumi.set(self, "oozie", value)
 
 
 @pulumi.input_type
-class HadoopClusterMetastoresAmbariArgs:
+calass HadoopClusterMetastoresAmbariArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -1983,7 +1983,7 @@ class HadoopClusterMetastoresAmbariArgs:
 
 
 @pulumi.input_type
-class HadoopClusterMetastoresHiveArgs:
+calass HadoopClusterMetastoresHiveArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -2050,7 +2050,7 @@ class HadoopClusterMetastoresHiveArgs:
 
 
 @pulumi.input_type
-class HadoopClusterMetastoresOozieArgs:
+calass HadoopClusterMetastoresOozieArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -2117,7 +2117,7 @@ class HadoopClusterMetastoresOozieArgs:
 
 
 @pulumi.input_type
-class HadoopClusterMonitorArgs:
+calass HadoopClusterMonitorArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -2154,7 +2154,7 @@ class HadoopClusterMonitorArgs:
 
 
 @pulumi.input_type
-class HadoopClusterNetworkArgs:
+calass HadoopClusterNetworkArrgs:
     def __init__(__self__, *,
                  connection_direction: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None):
@@ -2197,17 +2197,17 @@ class HadoopClusterNetworkArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesArgs:
+calass HadoopClusterRolesArrgs:
     def __init__(__self__, *,
-                 head_node: pulumi.Input['HadoopClusterRolesHeadNodeArgs'],
-                 worker_node: pulumi.Input['HadoopClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['HadoopClusterRolesZookeeperNodeArgs'],
-                 edge_node: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']] = None):
+                 head_node: pulumi.Input['HadoopClusterRolesHeadNodeArrgs'],
+                 worker_node: pulumi.Input['HadoopClusterRolesWorkerNodeArrgs'],
+                 zookeeper_node: pulumi.Input['HadoopClusterRolesZookeeperNodeArrgs'],
+                 edge_node: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArrgs']] = None):
         """
-        :param pulumi.Input['HadoopClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
-        :param pulumi.Input['HadoopClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
-        :param pulumi.Input['HadoopClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
-        :param pulumi.Input['HadoopClusterRolesEdgeNodeArgs'] edge_node: A `edge_node` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesHeadNodeArrgs'] head_node: A `head_node` block as defined above.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeArrgs'] worker_node: A `worker_node` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesZookeeperNodeArrgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesEdgeNodeArrgs'] edge_node: A `edge_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -2217,67 +2217,67 @@ class HadoopClusterRolesArgs:
 
     @property
     @pulumi.getter(name="headNode")
-    def head_node(self) -> pulumi.Input['HadoopClusterRolesHeadNodeArgs']:
+    def head_node(self) -> pulumi.Input['HadoopClusterRolesHeadNodeArrgs']:
         """
         A `head_node` block as defined above.
         """
         return pulumi.get(self, "head_node")
 
     @head_node.setter
-    def head_node(self, value: pulumi.Input['HadoopClusterRolesHeadNodeArgs']):
+    def head_node(self, value: pulumi.Input['HadoopClusterRolesHeadNodeArrgs']):
         pulumi.set(self, "head_node", value)
 
     @property
     @pulumi.getter(name="workerNode")
-    def worker_node(self) -> pulumi.Input['HadoopClusterRolesWorkerNodeArgs']:
+    def worker_node(self) -> pulumi.Input['HadoopClusterRolesWorkerNodeArrgs']:
         """
         A `worker_node` block as defined below.
         """
         return pulumi.get(self, "worker_node")
 
     @worker_node.setter
-    def worker_node(self, value: pulumi.Input['HadoopClusterRolesWorkerNodeArgs']):
+    def worker_node(self, value: pulumi.Input['HadoopClusterRolesWorkerNodeArrgs']):
         pulumi.set(self, "worker_node", value)
 
     @property
     @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> pulumi.Input['HadoopClusterRolesZookeeperNodeArgs']:
+    def zookeeper_node(self) -> pulumi.Input['HadoopClusterRolesZookeeperNodeArrgs']:
         """
         A `zookeeper_node` block as defined below.
         """
         return pulumi.get(self, "zookeeper_node")
 
     @zookeeper_node.setter
-    def zookeeper_node(self, value: pulumi.Input['HadoopClusterRolesZookeeperNodeArgs']):
+    def zookeeper_node(self, value: pulumi.Input['HadoopClusterRolesZookeeperNodeArrgs']):
         pulumi.set(self, "zookeeper_node", value)
 
     @property
     @pulumi.getter(name="edgeNode")
-    def edge_node(self) -> Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']]:
+    def edge_node(self) -> Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArrgs']]:
         """
         A `edge_node` block as defined below.
         """
         return pulumi.get(self, "edge_node")
 
     @edge_node.setter
-    def edge_node(self, value: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']]):
+    def edge_node(self, value: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArrgs']]):
         pulumi.set(self, "edge_node", value)
 
 
 @pulumi.input_type
-class HadoopClusterRolesEdgeNodeArgs:
+calass HadoopClusterRolesEdgeNodeArrgs:
     def __init__(__self__, *,
-                 install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
+                 install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArrgs']]],
                  target_instance_count: pulumi.Input[int],
                  vm_size: pulumi.Input[str],
-                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]] = None,
-                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]] = None):
+                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArrgs']]]] = None,
+                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArrgs']]] install_script_actions: A `install_script_action` block as defined below.
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArrgs']]] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs']]] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -2289,14 +2289,14 @@ class HadoopClusterRolesEdgeNodeArgs:
 
     @property
     @pulumi.getter(name="installScriptActions")
-    def install_script_actions(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]:
+    def install_script_actions(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArrgs']]]:
         """
         A `install_script_action` block as defined below.
         """
         return pulumi.get(self, "install_script_actions")
 
     @install_script_actions.setter
-    def install_script_actions(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]]):
+    def install_script_actions(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArrgs']]]):
         pulumi.set(self, "install_script_actions", value)
 
     @property
@@ -2325,31 +2325,31 @@ class HadoopClusterRolesEdgeNodeArgs:
 
     @property
     @pulumi.getter(name="httpsEndpoints")
-    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]:
+    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArrgs']]]]:
         """
         The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         """
         return pulumi.get(self, "https_endpoints")
 
     @https_endpoints.setter
-    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]):
+    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArrgs']]]]):
         pulumi.set(self, "https_endpoints", value)
 
     @property
     @pulumi.getter(name="uninstallScriptActions")
-    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]:
+    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs']]]]:
         """
         A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "uninstall_script_actions")
 
     @uninstall_script_actions.setter
-    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]):
+    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs']]]]):
         pulumi.set(self, "uninstall_script_actions", value)
 
 
 @pulumi.input_type
-class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
+calass HadoopClusterRolesEdgeNodeHttpsEndpointArrgs:
     def __init__(__self__, *,
                  access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
@@ -2436,7 +2436,7 @@ class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
+calass HadoopClusterRolesEdgeNodeInstallScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -2489,7 +2489,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
+calass HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -2542,12 +2542,12 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesHeadNodeArgs:
+calass HadoopClusterRolesHeadNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -2557,7 +2557,7 @@ class HadoopClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2617,14 +2617,14 @@ class HadoopClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -2667,7 +2667,7 @@ class HadoopClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesHeadNodeScriptActionArgs:
+calass HadoopClusterRolesHeadNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -2720,14 +2720,14 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeArgs:
+calass HadoopClusterRolesWorkerNodeArrgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArrgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -2735,11 +2735,11 @@ class HadoopClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
-        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArrgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2800,14 +2800,14 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArrgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArrgs']]):
         pulumi.set(self, "autoscale", value)
 
     @property
@@ -2826,14 +2826,14 @@ class HadoopClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -2876,13 +2876,13 @@ class HadoopClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeAutoscaleArgs:
+calass HadoopClusterRolesWorkerNodeAutoscaleArrgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 capacity: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs']] = None,
+                 recurrence: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']] = None):
         """
-        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
-        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs'] capacity: A `capacity` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs'] recurrence: A `recurrence` block as defined below.
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
@@ -2893,19 +2893,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+    def capacity(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+    def capacity(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs']]):
         pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]:
         """
         A `recurrence` block as defined below.
 
@@ -2914,12 +2914,12 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
+calass HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs:
     def __init__(__self__, *,
                  max_instance_count: pulumi.Input[int],
                  min_instance_count: pulumi.Input[int]):
@@ -2956,12 +2956,12 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+calass HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs:
     def __init__(__self__, *,
-                 schedules: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 schedules: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]],
                  timezone: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]] schedules: A list of `schedule` blocks as defined below.
         :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -2969,14 +2969,14 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]:
         """
         A list of `schedule` blocks as defined below.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -2993,7 +2993,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+calass HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_instance_count: pulumi.Input[int],
@@ -3045,7 +3045,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesWorkerNodeScriptActionArgs:
+calass HadoopClusterRolesWorkerNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -3098,12 +3098,12 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesZookeeperNodeArgs:
+calass HadoopClusterRolesZookeeperNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -3113,7 +3113,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -3173,14 +3173,14 @@ class HadoopClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -3223,7 +3223,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
-class HadoopClusterRolesZookeeperNodeScriptActionArgs:
+calass HadoopClusterRolesZookeeperNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -3276,7 +3276,7 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class HadoopClusterSecurityProfileArgs:
+calass HadoopClusterSecurityProfileArrgs:
     def __init__(__self__, *,
                  aadds_resource_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -3389,7 +3389,7 @@ class HadoopClusterSecurityProfileArgs:
 
 
 @pulumi.input_type
-class HadoopClusterStorageAccountArgs:
+calass HadoopClusterStorageAccountArrgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
                  storage_account_key: pulumi.Input[str],
@@ -3465,7 +3465,7 @@ class HadoopClusterStorageAccountArgs:
 
 
 @pulumi.input_type
-class HadoopClusterStorageAccountGen2Args:
+calass HadoopClusterStorageAccountGen2Arrgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  is_default: pulumi.Input[bool],
@@ -3540,7 +3540,7 @@ class HadoopClusterStorageAccountGen2Args:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterComponentVersionArgs:
+calass InteractiveQueryClusterComponentVersionArrgs:
     def __init__(__self__, *,
                  interactive_hive: pulumi.Input[str]):
         """
@@ -3562,7 +3562,7 @@ class InteractiveQueryClusterComponentVersionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterComputeIsolationArgs:
+calass InteractiveQueryClusterComputeIsolationArrgs:
     def __init__(__self__, *,
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
@@ -3601,7 +3601,7 @@ class InteractiveQueryClusterComputeIsolationArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterDiskEncryptionArgs:
+calass InteractiveQueryClusterDiskEncryptionArrgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -3672,7 +3672,7 @@ class InteractiveQueryClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterExtensionArgs:
+calass InteractiveQueryClusterExtensionArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -3709,7 +3709,7 @@ class InteractiveQueryClusterExtensionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterGatewayArgs:
+calass InteractiveQueryClusterGatewayArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -3750,15 +3750,15 @@ class InteractiveQueryClusterGatewayArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterMetastoresArgs:
+calass InteractiveQueryClusterMetastoresArrgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']] = None):
+                 ambari: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArrgs']] = None,
+                 hive: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArrgs']] = None,
+                 oozie: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArrgs']] = None):
         """
-        :param pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
-        :param pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
-        :param pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs'] oozie: An `oozie` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterMetastoresAmbariArrgs'] ambari: An `ambari` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterMetastoresHiveArrgs'] hive: A `hive` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterMetastoresOozieArrgs'] oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -3769,43 +3769,43 @@ class InteractiveQueryClusterMetastoresArgs:
 
     @property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArrgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArrgs']]):
         pulumi.set(self, "ambari", value)
 
     @property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']]:
+    def hive(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArrgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgs']]):
+    def hive(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresHiveArrgs']]):
         pulumi.set(self, "hive", value)
 
     @property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']]:
+    def oozie(self) -> Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArrgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']]):
+    def oozie(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArrgs']]):
         pulumi.set(self, "oozie", value)
 
 
 @pulumi.input_type
-class InteractiveQueryClusterMetastoresAmbariArgs:
+calass InteractiveQueryClusterMetastoresAmbariArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -3872,7 +3872,7 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterMetastoresHiveArgs:
+calass InteractiveQueryClusterMetastoresHiveArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -3939,7 +3939,7 @@ class InteractiveQueryClusterMetastoresHiveArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterMetastoresOozieArgs:
+calass InteractiveQueryClusterMetastoresOozieArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -4006,7 +4006,7 @@ class InteractiveQueryClusterMetastoresOozieArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterMonitorArgs:
+calass InteractiveQueryClusterMonitorArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -4043,7 +4043,7 @@ class InteractiveQueryClusterMonitorArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterNetworkArgs:
+calass InteractiveQueryClusterNetworkArrgs:
     def __init__(__self__, *,
                  connection_direction: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None):
@@ -4086,15 +4086,15 @@ class InteractiveQueryClusterNetworkArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesArgs:
+calass InteractiveQueryClusterRolesArrgs:
     def __init__(__self__, *,
-                 head_node: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs'],
-                 worker_node: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs']):
+                 head_node: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArrgs'],
+                 worker_node: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArrgs'],
+                 zookeeper_node: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArrgs']):
         """
-        :param pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
-        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
-        :param pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterRolesHeadNodeArrgs'] head_node: A `head_node` block as defined above.
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArrgs'] worker_node: A `worker_node` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArrgs'] zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -4102,48 +4102,48 @@ class InteractiveQueryClusterRolesArgs:
 
     @property
     @pulumi.getter(name="headNode")
-    def head_node(self) -> pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs']:
+    def head_node(self) -> pulumi.Input['InteractiveQueryClusterRolesHeadNodeArrgs']:
         """
         A `head_node` block as defined above.
         """
         return pulumi.get(self, "head_node")
 
     @head_node.setter
-    def head_node(self, value: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgs']):
+    def head_node(self, value: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArrgs']):
         pulumi.set(self, "head_node", value)
 
     @property
     @pulumi.getter(name="workerNode")
-    def worker_node(self) -> pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs']:
+    def worker_node(self) -> pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArrgs']:
         """
         A `worker_node` block as defined below.
         """
         return pulumi.get(self, "worker_node")
 
     @worker_node.setter
-    def worker_node(self, value: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgs']):
+    def worker_node(self, value: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArrgs']):
         pulumi.set(self, "worker_node", value)
 
     @property
     @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs']:
+    def zookeeper_node(self) -> pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArrgs']:
         """
         A `zookeeper_node` block as defined below.
         """
         return pulumi.get(self, "zookeeper_node")
 
     @zookeeper_node.setter
-    def zookeeper_node(self, value: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs']):
+    def zookeeper_node(self, value: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArrgs']):
         pulumi.set(self, "zookeeper_node", value)
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesHeadNodeArgs:
+calass InteractiveQueryClusterRolesHeadNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -4155,7 +4155,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4217,14 +4217,14 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -4267,7 +4267,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
+calass InteractiveQueryClusterRolesHeadNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -4320,14 +4320,14 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeArgs:
+calass InteractiveQueryClusterRolesWorkerNodeArrgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -4337,11 +4337,11 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
                
                > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
-        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4404,14 +4404,14 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs']]):
         pulumi.set(self, "autoscale", value)
 
     @property
@@ -4430,14 +4430,14 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -4480,12 +4480,12 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 capacity: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArrgs']] = None,
+                 recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']] = None):
         """
-        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs'] recurrence: A `recurrence` block as defined below.
         """
         if capacity is not None:
             warnings.warn("""HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""", DeprecationWarning)
@@ -4497,31 +4497,31 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+    def capacity(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArrgs']]:
         warnings.warn("""HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""", DeprecationWarning)
         pulumi.log.warn("""capacity is deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.""")
 
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+    def capacity(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArrgs']]):
         pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]:
         """
         A `recurrence` block as defined below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArrgs:
     def __init__(__self__, *,
                  max_instance_count: pulumi.Input[int],
                  min_instance_count: pulumi.Input[int]):
@@ -4548,12 +4548,12 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs:
     def __init__(__self__, *,
-                 schedules: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 schedules: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]],
                  timezone: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]] schedules: A list of `schedule` blocks as defined below.
         :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -4561,14 +4561,14 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]:
         """
         A list of `schedule` blocks as defined below.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -4585,7 +4585,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_instance_count: pulumi.Input[int],
@@ -4637,7 +4637,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
+calass InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -4690,12 +4690,12 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesZookeeperNodeArgs:
+calass InteractiveQueryClusterRolesZookeeperNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -4705,7 +4705,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4765,14 +4765,14 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -4815,7 +4815,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
+calass InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -4868,7 +4868,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterSecurityProfileArgs:
+calass InteractiveQueryClusterSecurityProfileArrgs:
     def __init__(__self__, *,
                  aadds_resource_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -4981,7 +4981,7 @@ class InteractiveQueryClusterSecurityProfileArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterStorageAccountArgs:
+calass InteractiveQueryClusterStorageAccountArrgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
                  storage_account_key: pulumi.Input[str],
@@ -5057,7 +5057,7 @@ class InteractiveQueryClusterStorageAccountArgs:
 
 
 @pulumi.input_type
-class InteractiveQueryClusterStorageAccountGen2Args:
+calass InteractiveQueryClusterStorageAccountGen2Arrgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  is_default: pulumi.Input[bool],
@@ -5132,7 +5132,7 @@ class InteractiveQueryClusterStorageAccountGen2Args:
 
 
 @pulumi.input_type
-class KafkaClusterComponentVersionArgs:
+calass KafkaClusterComponentVersionArrgs:
     def __init__(__self__, *,
                  kafka: pulumi.Input[str]):
         """
@@ -5154,7 +5154,7 @@ class KafkaClusterComponentVersionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterComputeIsolationArgs:
+calass KafkaClusterComputeIsolationArrgs:
     def __init__(__self__, *,
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
@@ -5193,7 +5193,7 @@ class KafkaClusterComputeIsolationArgs:
 
 
 @pulumi.input_type
-class KafkaClusterDiskEncryptionArgs:
+calass KafkaClusterDiskEncryptionArrgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -5264,7 +5264,7 @@ class KafkaClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterExtensionArgs:
+calass KafkaClusterExtensionArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -5301,7 +5301,7 @@ class KafkaClusterExtensionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterGatewayArgs:
+calass KafkaClusterGatewayArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -5342,15 +5342,15 @@ class KafkaClusterGatewayArgs:
 
 
 @pulumi.input_type
-class KafkaClusterMetastoresArgs:
+calass KafkaClusterMetastoresArrgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']] = None):
+                 ambari: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArrgs']] = None,
+                 hive: Optional[pulumi.Input['KafkaClusterMetastoresHiveArrgs']] = None,
+                 oozie: Optional[pulumi.Input['KafkaClusterMetastoresOozieArrgs']] = None):
         """
-        :param pulumi.Input['KafkaClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
-        :param pulumi.Input['KafkaClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
-        :param pulumi.Input['KafkaClusterMetastoresOozieArgs'] oozie: An `oozie` block as defined below.
+        :param pulumi.Input['KafkaClusterMetastoresAmbariArrgs'] ambari: An `ambari` block as defined below.
+        :param pulumi.Input['KafkaClusterMetastoresHiveArrgs'] hive: A `hive` block as defined below.
+        :param pulumi.Input['KafkaClusterMetastoresOozieArrgs'] oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -5361,43 +5361,43 @@ class KafkaClusterMetastoresArgs:
 
     @property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> Optional[pulumi.Input['KafkaClusterMetastoresAmbariArrgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: Optional[pulumi.Input['KafkaClusterMetastoresAmbariArrgs']]):
         pulumi.set(self, "ambari", value)
 
     @property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']]:
+    def hive(self) -> Optional[pulumi.Input['KafkaClusterMetastoresHiveArrgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['KafkaClusterMetastoresHiveArgs']]):
+    def hive(self, value: Optional[pulumi.Input['KafkaClusterMetastoresHiveArrgs']]):
         pulumi.set(self, "hive", value)
 
     @property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']]:
+    def oozie(self) -> Optional[pulumi.Input['KafkaClusterMetastoresOozieArrgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']]):
+    def oozie(self, value: Optional[pulumi.Input['KafkaClusterMetastoresOozieArrgs']]):
         pulumi.set(self, "oozie", value)
 
 
 @pulumi.input_type
-class KafkaClusterMetastoresAmbariArgs:
+calass KafkaClusterMetastoresAmbariArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -5464,7 +5464,7 @@ class KafkaClusterMetastoresAmbariArgs:
 
 
 @pulumi.input_type
-class KafkaClusterMetastoresHiveArgs:
+calass KafkaClusterMetastoresHiveArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -5531,7 +5531,7 @@ class KafkaClusterMetastoresHiveArgs:
 
 
 @pulumi.input_type
-class KafkaClusterMetastoresOozieArgs:
+calass KafkaClusterMetastoresOozieArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -5598,7 +5598,7 @@ class KafkaClusterMetastoresOozieArgs:
 
 
 @pulumi.input_type
-class KafkaClusterMonitorArgs:
+calass KafkaClusterMonitorArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -5635,7 +5635,7 @@ class KafkaClusterMonitorArgs:
 
 
 @pulumi.input_type
-class KafkaClusterNetworkArgs:
+calass KafkaClusterNetworkArrgs:
     def __init__(__self__, *,
                  connection_direction: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None):
@@ -5678,7 +5678,7 @@ class KafkaClusterNetworkArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRestProxyArgs:
+calass KafkaClusterRestProxyArrgs:
     def __init__(__self__, *,
                  security_group_id: pulumi.Input[str],
                  security_group_name: pulumi.Input[str]):
@@ -5719,17 +5719,17 @@ class KafkaClusterRestProxyArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesArgs:
+calass KafkaClusterRolesArrgs:
     def __init__(__self__, *,
-                 head_node: pulumi.Input['KafkaClusterRolesHeadNodeArgs'],
-                 worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'],
-                 kafka_management_node: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']] = None):
+                 head_node: pulumi.Input['KafkaClusterRolesHeadNodeArrgs'],
+                 worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArrgs'],
+                 zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArrgs'],
+                 kafka_management_node: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArrgs']] = None):
         """
-        :param pulumi.Input['KafkaClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
-        :param pulumi.Input['KafkaClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
-        :param pulumi.Input['KafkaClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
-        :param pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs'] kafka_management_node: A `kafka_management_node` block as defined below.
+        :param pulumi.Input['KafkaClusterRolesHeadNodeArrgs'] head_node: A `head_node` block as defined above.
+        :param pulumi.Input['KafkaClusterRolesWorkerNodeArrgs'] worker_node: A `worker_node` block as defined below.
+        :param pulumi.Input['KafkaClusterRolesZookeeperNodeArrgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['KafkaClusterRolesKafkaManagementNodeArrgs'] kafka_management_node: A `kafka_management_node` block as defined below.
                
                > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
@@ -5741,43 +5741,43 @@ class KafkaClusterRolesArgs:
 
     @property
     @pulumi.getter(name="headNode")
-    def head_node(self) -> pulumi.Input['KafkaClusterRolesHeadNodeArgs']:
+    def head_node(self) -> pulumi.Input['KafkaClusterRolesHeadNodeArrgs']:
         """
         A `head_node` block as defined above.
         """
         return pulumi.get(self, "head_node")
 
     @head_node.setter
-    def head_node(self, value: pulumi.Input['KafkaClusterRolesHeadNodeArgs']):
+    def head_node(self, value: pulumi.Input['KafkaClusterRolesHeadNodeArrgs']):
         pulumi.set(self, "head_node", value)
 
     @property
     @pulumi.getter(name="workerNode")
-    def worker_node(self) -> pulumi.Input['KafkaClusterRolesWorkerNodeArgs']:
+    def worker_node(self) -> pulumi.Input['KafkaClusterRolesWorkerNodeArrgs']:
         """
         A `worker_node` block as defined below.
         """
         return pulumi.get(self, "worker_node")
 
     @worker_node.setter
-    def worker_node(self, value: pulumi.Input['KafkaClusterRolesWorkerNodeArgs']):
+    def worker_node(self, value: pulumi.Input['KafkaClusterRolesWorkerNodeArrgs']):
         pulumi.set(self, "worker_node", value)
 
     @property
     @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> pulumi.Input['KafkaClusterRolesZookeeperNodeArgs']:
+    def zookeeper_node(self) -> pulumi.Input['KafkaClusterRolesZookeeperNodeArrgs']:
         """
         A `zookeeper_node` block as defined below.
         """
         return pulumi.get(self, "zookeeper_node")
 
     @zookeeper_node.setter
-    def zookeeper_node(self, value: pulumi.Input['KafkaClusterRolesZookeeperNodeArgs']):
+    def zookeeper_node(self, value: pulumi.Input['KafkaClusterRolesZookeeperNodeArrgs']):
         pulumi.set(self, "zookeeper_node", value)
 
     @property
     @pulumi.getter(name="kafkaManagementNode")
-    def kafka_management_node(self) -> Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]:
+    def kafka_management_node(self) -> Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArrgs']]:
         """
         A `kafka_management_node` block as defined below.
 
@@ -5786,17 +5786,17 @@ class KafkaClusterRolesArgs:
         return pulumi.get(self, "kafka_management_node")
 
     @kafka_management_node.setter
-    def kafka_management_node(self, value: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]):
+    def kafka_management_node(self, value: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArrgs']]):
         pulumi.set(self, "kafka_management_node", value)
 
 
 @pulumi.input_type
-class KafkaClusterRolesHeadNodeArgs:
+calass KafkaClusterRolesHeadNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -5806,7 +5806,7 @@ class KafkaClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -5866,14 +5866,14 @@ class KafkaClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -5916,7 +5916,7 @@ class KafkaClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesHeadNodeScriptActionArgs:
+calass KafkaClusterRolesHeadNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -5969,12 +5969,12 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesKafkaManagementNodeArgs:
+calass KafkaClusterRolesKafkaManagementNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -5984,7 +5984,7 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6044,14 +6044,14 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -6094,7 +6094,7 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
+calass KafkaClusterRolesKafkaManagementNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -6147,14 +6147,14 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesWorkerNodeArgs:
+calass KafkaClusterRolesWorkerNodeArrgs:
     def __init__(__self__, *,
                  number_of_disks_per_node: pulumi.Input[int],
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -6166,7 +6166,7 @@ class KafkaClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6252,14 +6252,14 @@ class KafkaClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -6302,7 +6302,7 @@ class KafkaClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesWorkerNodeScriptActionArgs:
+calass KafkaClusterRolesWorkerNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -6355,12 +6355,12 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesZookeeperNodeArgs:
+calass KafkaClusterRolesZookeeperNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -6370,7 +6370,7 @@ class KafkaClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6430,14 +6430,14 @@ class KafkaClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -6480,7 +6480,7 @@ class KafkaClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
-class KafkaClusterRolesZookeeperNodeScriptActionArgs:
+calass KafkaClusterRolesZookeeperNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -6533,7 +6533,7 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class KafkaClusterSecurityProfileArgs:
+calass KafkaClusterSecurityProfileArrgs:
     def __init__(__self__, *,
                  aadds_resource_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -6646,7 +6646,7 @@ class KafkaClusterSecurityProfileArgs:
 
 
 @pulumi.input_type
-class KafkaClusterStorageAccountArgs:
+calass KafkaClusterStorageAccountArrgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
                  storage_account_key: pulumi.Input[str],
@@ -6722,7 +6722,7 @@ class KafkaClusterStorageAccountArgs:
 
 
 @pulumi.input_type
-class KafkaClusterStorageAccountGen2Args:
+calass KafkaClusterStorageAccountGen2Arrgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  is_default: pulumi.Input[bool],
@@ -6797,7 +6797,7 @@ class KafkaClusterStorageAccountGen2Args:
 
 
 @pulumi.input_type
-class SparkClusterComponentVersionArgs:
+calass SparkClusterComponentVersionArrgs:
     def __init__(__self__, *,
                  spark: pulumi.Input[str]):
         """
@@ -6819,7 +6819,7 @@ class SparkClusterComponentVersionArgs:
 
 
 @pulumi.input_type
-class SparkClusterComputeIsolationArgs:
+calass SparkClusterComputeIsolationArrgs:
     def __init__(__self__, *,
                  compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
                  host_sku: Optional[pulumi.Input[str]] = None):
@@ -6858,7 +6858,7 @@ class SparkClusterComputeIsolationArgs:
 
 
 @pulumi.input_type
-class SparkClusterDiskEncryptionArgs:
+calass SparkClusterDiskEncryptionArrgs:
     def __init__(__self__, *,
                  encryption_algorithm: Optional[pulumi.Input[str]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
@@ -6929,7 +6929,7 @@ class SparkClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
-class SparkClusterExtensionArgs:
+calass SparkClusterExtensionArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -6966,7 +6966,7 @@ class SparkClusterExtensionArgs:
 
 
 @pulumi.input_type
-class SparkClusterGatewayArgs:
+calass SparkClusterGatewayArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -7007,15 +7007,15 @@ class SparkClusterGatewayArgs:
 
 
 @pulumi.input_type
-class SparkClusterMetastoresArgs:
+calass SparkClusterMetastoresArrgs:
     def __init__(__self__, *,
-                 ambari: Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']] = None,
-                 hive: Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']] = None,
-                 oozie: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']] = None):
+                 ambari: Optional[pulumi.Input['SparkClusterMetastoresAmbariArrgs']] = None,
+                 hive: Optional[pulumi.Input['SparkClusterMetastoresHiveArrgs']] = None,
+                 oozie: Optional[pulumi.Input['SparkClusterMetastoresOozieArrgs']] = None):
         """
-        :param pulumi.Input['SparkClusterMetastoresAmbariArgs'] ambari: An `ambari` block as defined below.
-        :param pulumi.Input['SparkClusterMetastoresHiveArgs'] hive: A `hive` block as defined below.
-        :param pulumi.Input['SparkClusterMetastoresOozieArgs'] oozie: An `oozie` block as defined below.
+        :param pulumi.Input['SparkClusterMetastoresAmbariArrgs'] ambari: An `ambari` block as defined below.
+        :param pulumi.Input['SparkClusterMetastoresHiveArrgs'] hive: A `hive` block as defined below.
+        :param pulumi.Input['SparkClusterMetastoresOozieArrgs'] oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -7026,43 +7026,43 @@ class SparkClusterMetastoresArgs:
 
     @property
     @pulumi.getter
-    def ambari(self) -> Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']]:
+    def ambari(self) -> Optional[pulumi.Input['SparkClusterMetastoresAmbariArrgs']]:
         """
         An `ambari` block as defined below.
         """
         return pulumi.get(self, "ambari")
 
     @ambari.setter
-    def ambari(self, value: Optional[pulumi.Input['SparkClusterMetastoresAmbariArgs']]):
+    def ambari(self, value: Optional[pulumi.Input['SparkClusterMetastoresAmbariArrgs']]):
         pulumi.set(self, "ambari", value)
 
     @property
     @pulumi.getter
-    def hive(self) -> Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']]:
+    def hive(self) -> Optional[pulumi.Input['SparkClusterMetastoresHiveArrgs']]:
         """
         A `hive` block as defined below.
         """
         return pulumi.get(self, "hive")
 
     @hive.setter
-    def hive(self, value: Optional[pulumi.Input['SparkClusterMetastoresHiveArgs']]):
+    def hive(self, value: Optional[pulumi.Input['SparkClusterMetastoresHiveArrgs']]):
         pulumi.set(self, "hive", value)
 
     @property
     @pulumi.getter
-    def oozie(self) -> Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']]:
+    def oozie(self) -> Optional[pulumi.Input['SparkClusterMetastoresOozieArrgs']]:
         """
         An `oozie` block as defined below.
         """
         return pulumi.get(self, "oozie")
 
     @oozie.setter
-    def oozie(self, value: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']]):
+    def oozie(self, value: Optional[pulumi.Input['SparkClusterMetastoresOozieArrgs']]):
         pulumi.set(self, "oozie", value)
 
 
 @pulumi.input_type
-class SparkClusterMetastoresAmbariArgs:
+calass SparkClusterMetastoresAmbariArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -7129,7 +7129,7 @@ class SparkClusterMetastoresAmbariArgs:
 
 
 @pulumi.input_type
-class SparkClusterMetastoresHiveArgs:
+calass SparkClusterMetastoresHiveArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -7196,7 +7196,7 @@ class SparkClusterMetastoresHiveArgs:
 
 
 @pulumi.input_type
-class SparkClusterMetastoresOozieArgs:
+calass SparkClusterMetastoresOozieArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -7263,7 +7263,7 @@ class SparkClusterMetastoresOozieArgs:
 
 
 @pulumi.input_type
-class SparkClusterMonitorArgs:
+calass SparkClusterMonitorArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  primary_key: pulumi.Input[str]):
@@ -7300,7 +7300,7 @@ class SparkClusterMonitorArgs:
 
 
 @pulumi.input_type
-class SparkClusterNetworkArgs:
+calass SparkClusterNetworkArrgs:
     def __init__(__self__, *,
                  connection_direction: Optional[pulumi.Input[str]] = None,
                  private_link_enabled: Optional[pulumi.Input[bool]] = None):
@@ -7343,15 +7343,15 @@ class SparkClusterNetworkArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesArgs:
+calass SparkClusterRolesArrgs:
     def __init__(__self__, *,
-                 head_node: pulumi.Input['SparkClusterRolesHeadNodeArgs'],
-                 worker_node: pulumi.Input['SparkClusterRolesWorkerNodeArgs'],
-                 zookeeper_node: pulumi.Input['SparkClusterRolesZookeeperNodeArgs']):
+                 head_node: pulumi.Input['SparkClusterRolesHeadNodeArrgs'],
+                 worker_node: pulumi.Input['SparkClusterRolesWorkerNodeArrgs'],
+                 zookeeper_node: pulumi.Input['SparkClusterRolesZookeeperNodeArrgs']):
         """
-        :param pulumi.Input['SparkClusterRolesHeadNodeArgs'] head_node: A `head_node` block as defined above.
-        :param pulumi.Input['SparkClusterRolesWorkerNodeArgs'] worker_node: A `worker_node` block as defined below.
-        :param pulumi.Input['SparkClusterRolesZookeeperNodeArgs'] zookeeper_node: A `zookeeper_node` block as defined below.
+        :param pulumi.Input['SparkClusterRolesHeadNodeArrgs'] head_node: A `head_node` block as defined above.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeArrgs'] worker_node: A `worker_node` block as defined below.
+        :param pulumi.Input['SparkClusterRolesZookeeperNodeArrgs'] zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -7359,48 +7359,48 @@ class SparkClusterRolesArgs:
 
     @property
     @pulumi.getter(name="headNode")
-    def head_node(self) -> pulumi.Input['SparkClusterRolesHeadNodeArgs']:
+    def head_node(self) -> pulumi.Input['SparkClusterRolesHeadNodeArrgs']:
         """
         A `head_node` block as defined above.
         """
         return pulumi.get(self, "head_node")
 
     @head_node.setter
-    def head_node(self, value: pulumi.Input['SparkClusterRolesHeadNodeArgs']):
+    def head_node(self, value: pulumi.Input['SparkClusterRolesHeadNodeArrgs']):
         pulumi.set(self, "head_node", value)
 
     @property
     @pulumi.getter(name="workerNode")
-    def worker_node(self) -> pulumi.Input['SparkClusterRolesWorkerNodeArgs']:
+    def worker_node(self) -> pulumi.Input['SparkClusterRolesWorkerNodeArrgs']:
         """
         A `worker_node` block as defined below.
         """
         return pulumi.get(self, "worker_node")
 
     @worker_node.setter
-    def worker_node(self, value: pulumi.Input['SparkClusterRolesWorkerNodeArgs']):
+    def worker_node(self, value: pulumi.Input['SparkClusterRolesWorkerNodeArrgs']):
         pulumi.set(self, "worker_node", value)
 
     @property
     @pulumi.getter(name="zookeeperNode")
-    def zookeeper_node(self) -> pulumi.Input['SparkClusterRolesZookeeperNodeArgs']:
+    def zookeeper_node(self) -> pulumi.Input['SparkClusterRolesZookeeperNodeArrgs']:
         """
         A `zookeeper_node` block as defined below.
         """
         return pulumi.get(self, "zookeeper_node")
 
     @zookeeper_node.setter
-    def zookeeper_node(self, value: pulumi.Input['SparkClusterRolesZookeeperNodeArgs']):
+    def zookeeper_node(self, value: pulumi.Input['SparkClusterRolesZookeeperNodeArrgs']):
         pulumi.set(self, "zookeeper_node", value)
 
 
 @pulumi.input_type
-class SparkClusterRolesHeadNodeArgs:
+calass SparkClusterRolesHeadNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -7410,7 +7410,7 @@ class SparkClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7470,14 +7470,14 @@ class SparkClusterRolesHeadNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -7520,7 +7520,7 @@ class SparkClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesHeadNodeScriptActionArgs:
+calass SparkClusterRolesHeadNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -7573,14 +7573,14 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeArgs:
+calass SparkClusterRolesWorkerNodeArrgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
-                 autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
+                 autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArrgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -7588,11 +7588,11 @@ class SparkClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
-        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArrgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7653,14 +7653,14 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter
-    def autoscale(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]:
+    def autoscale(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArrgs']]:
         """
         A `autoscale` block as defined below.
         """
         return pulumi.get(self, "autoscale")
 
     @autoscale.setter
-    def autoscale(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]):
+    def autoscale(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArrgs']]):
         pulumi.set(self, "autoscale", value)
 
     @property
@@ -7679,14 +7679,14 @@ class SparkClusterRolesWorkerNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -7729,13 +7729,13 @@ class SparkClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeAutoscaleArgs:
+calass SparkClusterRolesWorkerNodeAutoscaleArrgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+                 capacity: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs']] = None,
+                 recurrence: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']] = None):
         """
-        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
-        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs'] capacity: A `capacity` block as defined below.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs'] recurrence: A `recurrence` block as defined below.
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
@@ -7746,19 +7746,19 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
 
     @property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+    def capacity(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs']]:
         """
         A `capacity` block as defined below.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+    def capacity(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs']]):
         pulumi.set(self, "capacity", value)
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]:
         """
         A `recurrence` block as defined below.
 
@@ -7767,12 +7767,12 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
+calass SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs:
     def __init__(__self__, *,
                  max_instance_count: pulumi.Input[int],
                  min_instance_count: pulumi.Input[int]):
@@ -7809,12 +7809,12 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+calass SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs:
     def __init__(__self__, *,
-                 schedules: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 schedules: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]],
                  timezone: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]] schedules: A list of `schedule` blocks as defined below.
         :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -7822,14 +7822,14 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]:
         """
         A list of `schedule` blocks as defined below.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs']]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -7846,7 +7846,7 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+calass SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[Sequence[pulumi.Input[str]]],
                  target_instance_count: pulumi.Input[int],
@@ -7898,7 +7898,7 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesWorkerNodeScriptActionArgs:
+calass SparkClusterRolesWorkerNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -7951,12 +7951,12 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesZookeeperNodeArgs:
+calass SparkClusterRolesZookeeperNodeArrgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
-                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArrgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -7966,7 +7966,7 @@ class SparkClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArrgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -8026,14 +8026,14 @@ class SparkClusterRolesZookeeperNodeArgs:
 
     @property
     @pulumi.getter(name="scriptActions")
-    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]:
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArrgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
     @script_actions.setter
-    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]):
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArrgs']]]]):
         pulumi.set(self, "script_actions", value)
 
     @property
@@ -8076,7 +8076,7 @@ class SparkClusterRolesZookeeperNodeArgs:
 
 
 @pulumi.input_type
-class SparkClusterRolesZookeeperNodeScriptActionArgs:
+calass SparkClusterRolesZookeeperNodeScriptActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
@@ -8129,7 +8129,7 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
 
 
 @pulumi.input_type
-class SparkClusterSecurityProfileArgs:
+calass SparkClusterSecurityProfileArrgs:
     def __init__(__self__, *,
                  aadds_resource_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -8242,7 +8242,7 @@ class SparkClusterSecurityProfileArgs:
 
 
 @pulumi.input_type
-class SparkClusterStorageAccountArgs:
+calass SparkClusterStorageAccountArrgs:
     def __init__(__self__, *,
                  is_default: pulumi.Input[bool],
                  storage_account_key: pulumi.Input[str],
@@ -8318,7 +8318,7 @@ class SparkClusterStorageAccountArgs:
 
 
 @pulumi.input_type
-class SparkClusterStorageAccountGen2Args:
+calass SparkClusterStorageAccountGen2Arrgs:
     def __init__(__self__, *,
                  filesystem_id: pulumi.Input[str],
                  is_default: pulumi.Input[bool],

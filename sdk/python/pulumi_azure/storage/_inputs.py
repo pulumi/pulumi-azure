@@ -10,67 +10,67 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountAzureFilesAuthenticationArgs',
-    'AccountAzureFilesAuthenticationActiveDirectoryArgs',
-    'AccountBlobPropertiesArgs',
-    'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs',
-    'AccountBlobPropertiesCorsRuleArgs',
-    'AccountBlobPropertiesDeleteRetentionPolicyArgs',
-    'AccountBlobPropertiesRestorePolicyArgs',
-    'AccountCustomDomainArgs',
-    'AccountCustomerManagedKeyArgs',
-    'AccountIdentityArgs',
-    'AccountImmutabilityPolicyArgs',
-    'AccountNetworkRulesArgs',
-    'AccountNetworkRulesPrivateLinkAccessArgs',
-    'AccountNetworkRulesPrivateLinkAccessRuleArgs',
-    'AccountQueuePropertiesArgs',
-    'AccountQueuePropertiesCorsRuleArgs',
-    'AccountQueuePropertiesHourMetricsArgs',
-    'AccountQueuePropertiesLoggingArgs',
-    'AccountQueuePropertiesMinuteMetricsArgs',
-    'AccountRoutingArgs',
-    'AccountSasPolicyArgs',
-    'AccountSharePropertiesArgs',
-    'AccountSharePropertiesCorsRuleArgs',
-    'AccountSharePropertiesRetentionPolicyArgs',
-    'AccountSharePropertiesSmbArgs',
-    'AccountStaticWebsiteArgs',
-    'BlobInventoryPolicyRuleArgs',
-    'BlobInventoryPolicyRuleFilterArgs',
-    'DataLakeGen2FilesystemAceArgs',
-    'DataLakeGen2PathAceArgs',
-    'LocalUserPermissionScopeArgs',
-    'LocalUserPermissionScopePermissionsArgs',
-    'LocalUserSshAuthorizedKeyArgs',
-    'ManagementPolicyRuleArgs',
-    'ManagementPolicyRuleActionsArgs',
-    'ManagementPolicyRuleActionsBaseBlobArgs',
-    'ManagementPolicyRuleActionsSnapshotArgs',
-    'ManagementPolicyRuleActionsVersionArgs',
-    'ManagementPolicyRuleFiltersArgs',
-    'ManagementPolicyRuleFiltersMatchBlobIndexTagArgs',
-    'ObjectReplicationRuleArgs',
-    'ShareAclArgs',
-    'ShareAclAccessPolicyArgs',
-    'TableAclArgs',
-    'TableAclAccessPolicyArgs',
-    'GetAccountBlobContainerSASPermissionsArgs',
-    'GetAccountSASPermissionsArgs',
-    'GetAccountSASResourceTypesArgs',
-    'GetAccountSASServicesArgs',
-    'GetShareAclArgs',
-    'GetShareAclAccessPolicyArgs',
+    'AccountAzureFilesAuthenticationArrgs',
+    'AccountAzureFilesAuthenticationActiveDirectoryArrgs',
+    'AccountBlobPropertiesArrgs',
+    'AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs',
+    'AccountBlobPropertiesCorsRuleArrgs',
+    'AccountBlobPropertiesDeleteRetentionPolicyArrgs',
+    'AccountBlobPropertiesRestorePolicyArrgs',
+    'AccountCustomDomainArrgs',
+    'AccountCustomerManagedKeyArrgs',
+    'AccountIdentityArrgs',
+    'AccountImmutabilityPolicyArrgs',
+    'AccountNetworkRulesArrgs',
+    'AccountNetworkRulesPrivateLinkAccessArrgs',
+    'AccountNetworkRulesPrivateLinkAccessRuleArrgs',
+    'AccountQueuePropertiesArrgs',
+    'AccountQueuePropertiesCorsRuleArrgs',
+    'AccountQueuePropertiesHourMetricsArrgs',
+    'AccountQueuePropertiesLoggingArrgs',
+    'AccountQueuePropertiesMinuteMetricsArrgs',
+    'AccountRoutingArrgs',
+    'AccountSasPolicyArrgs',
+    'AccountSharePropertiesArrgs',
+    'AccountSharePropertiesCorsRuleArrgs',
+    'AccountSharePropertiesRetentionPolicyArrgs',
+    'AccountSharePropertiesSmbArrgs',
+    'AccountStaticWebsiteArrgs',
+    'BlobInventoryPolicyRuleArrgs',
+    'BlobInventoryPolicyRuleFilterArrgs',
+    'DataLakeGen2FilesystemAceArrgs',
+    'DataLakeGen2PathAceArrgs',
+    'LocalUserPermissionScopeArrgs',
+    'LocalUserPermissionScopePermissionsArrgs',
+    'LocalUserSshAuthorizedKeyArrgs',
+    'ManagementPolicyRuleArrgs',
+    'ManagementPolicyRuleActionsArrgs',
+    'ManagementPolicyRuleActionsBaseBlobArrgs',
+    'ManagementPolicyRuleActionsSnapshotArrgs',
+    'ManagementPolicyRuleActionsVersionArrgs',
+    'ManagementPolicyRuleFiltersArrgs',
+    'ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs',
+    'ObjectReplicationRuleArrgs',
+    'ShareAclArrgs',
+    'ShareAclAccessPolicyArrgs',
+    'TableAclArrgs',
+    'TableAclAccessPolicyArrgs',
+    'GetAccountBlobContainerSASPermissionsArrgs',
+    'GetAccountSASPermissionsArrgs',
+    'GetAccountSASResourceTypesArrgs',
+    'GetAccountSASServicesArrgs',
+    'GetShareAclArrgs',
+    'GetShareAclAccessPolicyArrgs',
 ]
 
 @pulumi.input_type
-class AccountAzureFilesAuthenticationArgs:
+calass AccountAzureFilesAuthenticationArrgs:
     def __init__(__self__, *,
                  directory_type: pulumi.Input[str],
-                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None):
+                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArrgs']] = None):
         """
         :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
-        :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
         pulumi.set(__self__, "directory_type", directory_type)
         if active_directory is not None:
@@ -90,19 +90,19 @@ class AccountAzureFilesAuthenticationArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
 
 @pulumi.input_type
-class AccountAzureFilesAuthenticationActiveDirectoryArgs:
+calass AccountAzureFilesAuthenticationActiveDirectoryArrgs:
     def __init__(__self__, *,
                  domain_guid: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -203,16 +203,16 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class AccountBlobPropertiesArgs:
+calass AccountBlobPropertiesArrgs:
     def __init__(__self__, *,
                  change_feed_enabled: Optional[pulumi.Input[bool]] = None,
                  change_feed_retention_in_days: Optional[pulumi.Input[int]] = None,
-                 container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
+                 container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs']] = None,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArrgs']]]] = None,
                  default_service_version: Optional[pulumi.Input[str]] = None,
-                 delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None,
+                 delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArrgs']] = None,
                  last_access_time_enabled: Optional[pulumi.Input[bool]] = None,
-                 restore_policy: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']] = None,
+                 restore_policy: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArrgs']] = None,
                  versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
@@ -221,14 +221,14 @@ class AccountBlobPropertiesArgs:
         :param pulumi.Input[int] change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
-        :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
+        :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArrgs']]] cors_rules: A `cors_rule` block as defined below.
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
-        :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
+        :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArrgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
-        :param pulumi.Input['AccountBlobPropertiesRestorePolicyArgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+        :param pulumi.Input['AccountBlobPropertiesRestorePolicyArrgs'] restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
@@ -284,26 +284,26 @@ class AccountBlobPropertiesArgs:
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
-    def container_delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]:
+    def container_delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs']]:
         """
         A `container_delete_retention_policy` block as defined below.
         """
         return pulumi.get(self, "container_delete_retention_policy")
 
     @container_delete_retention_policy.setter
-    def container_delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]):
+    def container_delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs']]):
         pulumi.set(self, "container_delete_retention_policy", value)
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArrgs']]]]:
         """
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArrgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @property
@@ -320,14 +320,14 @@ class AccountBlobPropertiesArgs:
 
     @property
     @pulumi.getter(name="deleteRetentionPolicy")
-    def delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]:
+    def delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArrgs']]:
         """
         A `delete_retention_policy` block as defined below.
         """
         return pulumi.get(self, "delete_retention_policy")
 
     @delete_retention_policy.setter
-    def delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]):
+    def delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArrgs']]):
         pulumi.set(self, "delete_retention_policy", value)
 
     @property
@@ -346,7 +346,7 @@ class AccountBlobPropertiesArgs:
 
     @property
     @pulumi.getter(name="restorePolicy")
-    def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]:
+    def restore_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArrgs']]:
         """
         A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
@@ -355,7 +355,7 @@ class AccountBlobPropertiesArgs:
         return pulumi.get(self, "restore_policy")
 
     @restore_policy.setter
-    def restore_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArgs']]):
+    def restore_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesRestorePolicyArrgs']]):
         pulumi.set(self, "restore_policy", value)
 
     @property
@@ -374,7 +374,7 @@ class AccountBlobPropertiesArgs:
 
 
 @pulumi.input_type
-class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
+calass AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None):
         """
@@ -397,7 +397,7 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class AccountBlobPropertiesCorsRuleArgs:
+calass AccountBlobPropertiesCorsRuleArrgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -481,7 +481,7 @@ class AccountBlobPropertiesCorsRuleArgs:
 
 
 @pulumi.input_type
-class AccountBlobPropertiesDeleteRetentionPolicyArgs:
+calass AccountBlobPropertiesDeleteRetentionPolicyArrgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None):
         """
@@ -504,7 +504,7 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class AccountBlobPropertiesRestorePolicyArgs:
+calass AccountBlobPropertiesRestorePolicyArrgs:
     def __init__(__self__, *,
                  days: pulumi.Input[int]):
         """
@@ -526,7 +526,7 @@ class AccountBlobPropertiesRestorePolicyArgs:
 
 
 @pulumi.input_type
-class AccountCustomDomainArgs:
+calass AccountCustomDomainArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  use_subdomain: Optional[pulumi.Input[bool]] = None):
@@ -564,7 +564,7 @@ class AccountCustomDomainArgs:
 
 
 @pulumi.input_type
-class AccountCustomerManagedKeyArgs:
+calass AccountCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  user_assigned_identity_id: pulumi.Input[str]):
@@ -605,7 +605,7 @@ class AccountCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -683,7 +683,7 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountImmutabilityPolicyArgs:
+calass AccountImmutabilityPolicyArrgs:
     def __init__(__self__, *,
                  allow_protected_append_writes: pulumi.Input[bool],
                  period_since_creation_in_days: pulumi.Input[int],
@@ -735,18 +735,18 @@ class AccountImmutabilityPolicyArgs:
 
 
 @pulumi.input_type
-class AccountNetworkRulesArgs:
+calass AccountNetworkRulesArrgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
+                 private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArrgs']]]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]] private_link_accesses: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArrgs']]] private_link_accesses: One or More `private_link_access` block as defined below.
                
                > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
                
@@ -805,7 +805,7 @@ class AccountNetworkRulesArgs:
 
     @property
     @pulumi.getter(name="privateLinkAccesses")
-    def private_link_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]:
+    def private_link_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArrgs']]]]:
         """
         One or More `private_link_access` block as defined below.
 
@@ -820,7 +820,7 @@ class AccountNetworkRulesArgs:
         return pulumi.get(self, "private_link_accesses")
 
     @private_link_accesses.setter
-    def private_link_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]):
+    def private_link_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArrgs']]]]):
         pulumi.set(self, "private_link_accesses", value)
 
     @property
@@ -837,7 +837,7 @@ class AccountNetworkRulesArgs:
 
 
 @pulumi.input_type
-class AccountNetworkRulesPrivateLinkAccessArgs:
+calass AccountNetworkRulesPrivateLinkAccessArrgs:
     def __init__(__self__, *,
                  endpoint_resource_id: pulumi.Input[str],
                  endpoint_tenant_id: Optional[pulumi.Input[str]] = None):
@@ -875,7 +875,7 @@ class AccountNetworkRulesPrivateLinkAccessArgs:
 
 
 @pulumi.input_type
-class AccountNetworkRulesPrivateLinkAccessRuleArgs:
+calass AccountNetworkRulesPrivateLinkAccessRuleArrgs:
     def __init__(__self__, *,
                  endpoint_resource_id: pulumi.Input[str],
                  endpoint_tenant_id: Optional[pulumi.Input[str]] = None):
@@ -913,17 +913,17 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
 
 
 @pulumi.input_type
-class AccountQueuePropertiesArgs:
+calass AccountQueuePropertiesArrgs:
     def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
-                 hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']] = None,
-                 logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']] = None,
-                 minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']] = None):
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArrgs']]]] = None,
+                 hour_metrics: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArrgs']] = None,
+                 logging: Optional[pulumi.Input['AccountQueuePropertiesLoggingArrgs']] = None,
+                 minute_metrics: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
-        :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
-        :param pulumi.Input['AccountQueuePropertiesLoggingArgs'] logging: A `logging` block as defined below.
-        :param pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs'] minute_metrics: A `minute_metrics` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArrgs']]] cors_rules: A `cors_rule` block as defined above.
+        :param pulumi.Input['AccountQueuePropertiesHourMetricsArrgs'] hour_metrics: A `hour_metrics` block as defined below.
+        :param pulumi.Input['AccountQueuePropertiesLoggingArrgs'] logging: A `logging` block as defined below.
+        :param pulumi.Input['AccountQueuePropertiesMinuteMetricsArrgs'] minute_metrics: A `minute_metrics` block as defined below.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -936,55 +936,55 @@ class AccountQueuePropertiesArgs:
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArrgs']]]]:
         """
         A `cors_rule` block as defined above.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArrgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @property
     @pulumi.getter(name="hourMetrics")
-    def hour_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]:
+    def hour_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArrgs']]:
         """
         A `hour_metrics` block as defined below.
         """
         return pulumi.get(self, "hour_metrics")
 
     @hour_metrics.setter
-    def hour_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArgs']]):
+    def hour_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesHourMetricsArrgs']]):
         pulumi.set(self, "hour_metrics", value)
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]:
+    def logging(self) -> Optional[pulumi.Input['AccountQueuePropertiesLoggingArrgs']]:
         """
         A `logging` block as defined below.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input['AccountQueuePropertiesLoggingArgs']]):
+    def logging(self, value: Optional[pulumi.Input['AccountQueuePropertiesLoggingArrgs']]):
         pulumi.set(self, "logging", value)
 
     @property
     @pulumi.getter(name="minuteMetrics")
-    def minute_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]:
+    def minute_metrics(self) -> Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArrgs']]:
         """
         A `minute_metrics` block as defined below.
         """
         return pulumi.get(self, "minute_metrics")
 
     @minute_metrics.setter
-    def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]):
+    def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArrgs']]):
         pulumi.set(self, "minute_metrics", value)
 
 
 @pulumi.input_type
-class AccountQueuePropertiesCorsRuleArgs:
+calass AccountQueuePropertiesCorsRuleArrgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1068,7 +1068,7 @@ class AccountQueuePropertiesCorsRuleArgs:
 
 
 @pulumi.input_type
-class AccountQueuePropertiesHourMetricsArgs:
+calass AccountQueuePropertiesHourMetricsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  version: pulumi.Input[str],
@@ -1137,7 +1137,7 @@ class AccountQueuePropertiesHourMetricsArgs:
 
 
 @pulumi.input_type
-class AccountQueuePropertiesLoggingArgs:
+calass AccountQueuePropertiesLoggingArrgs:
     def __init__(__self__, *,
                  delete: pulumi.Input[bool],
                  read: pulumi.Input[bool],
@@ -1220,7 +1220,7 @@ class AccountQueuePropertiesLoggingArgs:
 
 
 @pulumi.input_type
-class AccountQueuePropertiesMinuteMetricsArgs:
+calass AccountQueuePropertiesMinuteMetricsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  version: pulumi.Input[str],
@@ -1289,7 +1289,7 @@ class AccountQueuePropertiesMinuteMetricsArgs:
 
 
 @pulumi.input_type
-class AccountRoutingArgs:
+calass AccountRoutingArrgs:
     def __init__(__self__, *,
                  choice: Optional[pulumi.Input[str]] = None,
                  publish_internet_endpoints: Optional[pulumi.Input[bool]] = None,
@@ -1344,7 +1344,7 @@ class AccountRoutingArgs:
 
 
 @pulumi.input_type
-class AccountSasPolicyArgs:
+calass AccountSasPolicyArrgs:
     def __init__(__self__, *,
                  expiration_period: pulumi.Input[str],
                  expiration_action: Optional[pulumi.Input[str]] = None):
@@ -1382,15 +1382,15 @@ class AccountSasPolicyArgs:
 
 
 @pulumi.input_type
-class AccountSharePropertiesArgs:
+calass AccountSharePropertiesArrgs:
     def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
-                 retention_policy: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']] = None,
-                 smb: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']] = None):
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArrgs']]]] = None,
+                 retention_policy: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArrgs']] = None,
+                 smb: Optional[pulumi.Input['AccountSharePropertiesSmbArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
-        :param pulumi.Input['AccountSharePropertiesRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-        :param pulumi.Input['AccountSharePropertiesSmbArgs'] smb: A `smb` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArrgs']]] cors_rules: A `cors_rule` block as defined below.
+        :param pulumi.Input['AccountSharePropertiesRetentionPolicyArrgs'] retention_policy: A `retention_policy` block as defined below.
+        :param pulumi.Input['AccountSharePropertiesSmbArrgs'] smb: A `smb` block as defined below.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -1401,43 +1401,43 @@ class AccountSharePropertiesArgs:
 
     @property
     @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]:
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArrgs']]]]:
         """
         A `cors_rule` block as defined below.
         """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]):
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArrgs']]]]):
         pulumi.set(self, "cors_rules", value)
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]:
+    def retention_policy(self) -> Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArrgs']]:
         """
         A `retention_policy` block as defined below.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]):
+    def retention_policy(self, value: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArrgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @property
     @pulumi.getter
-    def smb(self) -> Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]:
+    def smb(self) -> Optional[pulumi.Input['AccountSharePropertiesSmbArrgs']]:
         """
         A `smb` block as defined below.
         """
         return pulumi.get(self, "smb")
 
     @smb.setter
-    def smb(self, value: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]):
+    def smb(self, value: Optional[pulumi.Input['AccountSharePropertiesSmbArrgs']]):
         pulumi.set(self, "smb", value)
 
 
 @pulumi.input_type
-class AccountSharePropertiesCorsRuleArgs:
+calass AccountSharePropertiesCorsRuleArrgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1521,7 +1521,7 @@ class AccountSharePropertiesCorsRuleArgs:
 
 
 @pulumi.input_type
-class AccountSharePropertiesRetentionPolicyArgs:
+calass AccountSharePropertiesRetentionPolicyArrgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None):
         """
@@ -1544,7 +1544,7 @@ class AccountSharePropertiesRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class AccountSharePropertiesSmbArgs:
+calass AccountSharePropertiesSmbArrgs:
     def __init__(__self__, *,
                  authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1631,7 +1631,7 @@ class AccountSharePropertiesSmbArgs:
 
 
 @pulumi.input_type
-class AccountStaticWebsiteArgs:
+calass AccountStaticWebsiteArrgs:
     def __init__(__self__, *,
                  error404_document: Optional[pulumi.Input[str]] = None,
                  index_document: Optional[pulumi.Input[str]] = None):
@@ -1670,7 +1670,7 @@ class AccountStaticWebsiteArgs:
 
 
 @pulumi.input_type
-class BlobInventoryPolicyRuleArgs:
+calass BlobInventoryPolicyRuleArrgs:
     def __init__(__self__, *,
                  format: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -1678,7 +1678,7 @@ class BlobInventoryPolicyRuleArgs:
                  schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
                  scope: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
-                 filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']] = None):
+                 filter: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArrgs']] = None):
         """
         :param pulumi.Input[str] format: The format of the inventory files. Possible values are `Csv` and `Parquet`.
         :param pulumi.Input[str] name: The name which should be used for this Blob Inventory Policy Rule.
@@ -1686,7 +1686,7 @@ class BlobInventoryPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         :param pulumi.Input[str] scope: The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
         :param pulumi.Input[str] storage_container_name: The storage container name to store the blob inventory files for this rule.
-        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        :param pulumi.Input['BlobInventoryPolicyRuleFilterArrgs'] filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
@@ -1771,19 +1771,19 @@ class BlobInventoryPolicyRuleArgs:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]:
+    def filter(self) -> Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArrgs']]:
         """
         A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]):
+    def filter(self, value: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArrgs']]):
         pulumi.set(self, "filter", value)
 
 
 @pulumi.input_type
-class BlobInventoryPolicyRuleFilterArgs:
+calass BlobInventoryPolicyRuleFilterArrgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  exclude_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1901,7 +1901,7 @@ class BlobInventoryPolicyRuleFilterArgs:
 
 
 @pulumi.input_type
-class DataLakeGen2FilesystemAceArgs:
+calass DataLakeGen2FilesystemAceArrgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -1974,7 +1974,7 @@ class DataLakeGen2FilesystemAceArgs:
 
 
 @pulumi.input_type
-class DataLakeGen2PathAceArgs:
+calass DataLakeGen2PathAceArrgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -2039,13 +2039,13 @@ class DataLakeGen2PathAceArgs:
 
 
 @pulumi.input_type
-class LocalUserPermissionScopeArgs:
+calass LocalUserPermissionScopeArrgs:
     def __init__(__self__, *,
-                 permissions: pulumi.Input['LocalUserPermissionScopePermissionsArgs'],
+                 permissions: pulumi.Input['LocalUserPermissionScopePermissionsArrgs'],
                  resource_name: pulumi.Input[str],
                  service: pulumi.Input[str]):
         """
-        :param pulumi.Input['LocalUserPermissionScopePermissionsArgs'] permissions: A `permissions` block as defined below.
+        :param pulumi.Input['LocalUserPermissionScopePermissionsArrgs'] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] resource_name: The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
         :param pulumi.Input[str] service: The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
         """
@@ -2055,14 +2055,14 @@ class LocalUserPermissionScopeArgs:
 
     @property
     @pulumi.getter
-    def permissions(self) -> pulumi.Input['LocalUserPermissionScopePermissionsArgs']:
+    def permissions(self) -> pulumi.Input['LocalUserPermissionScopePermissionsArrgs']:
         """
         A `permissions` block as defined below.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: pulumi.Input['LocalUserPermissionScopePermissionsArgs']):
+    def permissions(self, value: pulumi.Input['LocalUserPermissionScopePermissionsArrgs']):
         pulumi.set(self, "permissions", value)
 
     @property
@@ -2091,7 +2091,7 @@ class LocalUserPermissionScopeArgs:
 
 
 @pulumi.input_type
-class LocalUserPermissionScopePermissionsArgs:
+calass LocalUserPermissionScopePermissionsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[bool]] = None,
                  delete: Optional[pulumi.Input[bool]] = None,
@@ -2178,7 +2178,7 @@ class LocalUserPermissionScopePermissionsArgs:
 
 
 @pulumi.input_type
-class LocalUserSshAuthorizedKeyArgs:
+calass LocalUserSshAuthorizedKeyArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
@@ -2216,16 +2216,16 @@ class LocalUserSshAuthorizedKeyArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleArgs:
+calass ManagementPolicyRuleArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input['ManagementPolicyRuleActionsArgs'],
+                 actions: pulumi.Input['ManagementPolicyRuleActionsArrgs'],
                  enabled: pulumi.Input[bool],
-                 filters: pulumi.Input['ManagementPolicyRuleFiltersArgs'],
+                 filters: pulumi.Input['ManagementPolicyRuleFiltersArrgs'],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsArrgs'] actions: An `actions` block as documented below.
         :param pulumi.Input[bool] enabled: Boolean to specify whether the rule is enabled.
-        :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filters` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleFiltersArrgs'] filters: A `filters` block as documented below.
         :param pulumi.Input[str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2235,14 +2235,14 @@ class ManagementPolicyRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input['ManagementPolicyRuleActionsArgs']:
+    def actions(self) -> pulumi.Input['ManagementPolicyRuleActionsArrgs']:
         """
         An `actions` block as documented below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input['ManagementPolicyRuleActionsArgs']):
+    def actions(self, value: pulumi.Input['ManagementPolicyRuleActionsArrgs']):
         pulumi.set(self, "actions", value)
 
     @property
@@ -2259,14 +2259,14 @@ class ManagementPolicyRuleArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Input['ManagementPolicyRuleFiltersArgs']:
+    def filters(self) -> pulumi.Input['ManagementPolicyRuleFiltersArrgs']:
         """
         A `filters` block as documented below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: pulumi.Input['ManagementPolicyRuleFiltersArgs']):
+    def filters(self, value: pulumi.Input['ManagementPolicyRuleFiltersArrgs']):
         pulumi.set(self, "filters", value)
 
     @property
@@ -2283,15 +2283,15 @@ class ManagementPolicyRuleArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleActionsArgs:
+calass ManagementPolicyRuleActionsArrgs:
     def __init__(__self__, *,
-                 base_blob: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']] = None,
-                 snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']] = None,
-                 version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']] = None):
+                 base_blob: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArrgs']] = None,
+                 snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArrgs']] = None,
+                 version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArrgs']] = None):
         """
-        :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs'] base_blob: A `base_blob` block as documented below.
-        :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs'] snapshot: A `snapshot` block as documented below.
-        :param pulumi.Input['ManagementPolicyRuleActionsVersionArgs'] version: A `version` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArrgs'] base_blob: A `base_blob` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArrgs'] snapshot: A `snapshot` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsVersionArrgs'] version: A `version` block as documented below.
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -2302,43 +2302,43 @@ class ManagementPolicyRuleActionsArgs:
 
     @property
     @pulumi.getter(name="baseBlob")
-    def base_blob(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']]:
+    def base_blob(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArrgs']]:
         """
         A `base_blob` block as documented below.
         """
         return pulumi.get(self, "base_blob")
 
     @base_blob.setter
-    def base_blob(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']]):
+    def base_blob(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArrgs']]):
         pulumi.set(self, "base_blob", value)
 
     @property
     @pulumi.getter
-    def snapshot(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']]:
+    def snapshot(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArrgs']]:
         """
         A `snapshot` block as documented below.
         """
         return pulumi.get(self, "snapshot")
 
     @snapshot.setter
-    def snapshot(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']]):
+    def snapshot(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArrgs']]):
         pulumi.set(self, "snapshot", value)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]:
+    def version(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArrgs']]:
         """
         A `version` block as documented below.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]):
+    def version(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArrgs']]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
-class ManagementPolicyRuleActionsBaseBlobArgs:
+calass ManagementPolicyRuleActionsBaseBlobArrgs:
     def __init__(__self__, *,
                  auto_tier_to_hot_from_cool_enabled: Optional[pulumi.Input[bool]] = None,
                  delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None,
@@ -2593,7 +2593,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleActionsSnapshotArgs:
+calass ManagementPolicyRuleActionsSnapshotArrgs:
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
@@ -2680,7 +2680,7 @@ class ManagementPolicyRuleActionsSnapshotArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleActionsVersionArgs:
+calass ManagementPolicyRuleActionsVersionArrgs:
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
                  change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
@@ -2767,14 +2767,14 @@ class ManagementPolicyRuleActionsVersionArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleFiltersArgs:
+calass ManagementPolicyRuleFiltersArrgs:
     def __init__(__self__, *,
                  blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
+                 match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs']]]] = None,
                  prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
                
                > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: An array of strings for prefixes to be matched.
@@ -2799,7 +2799,7 @@ class ManagementPolicyRuleFiltersArgs:
 
     @property
     @pulumi.getter(name="matchBlobIndexTags")
-    def match_blob_index_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]:
+    def match_blob_index_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs']]]]:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
@@ -2808,7 +2808,7 @@ class ManagementPolicyRuleFiltersArgs:
         return pulumi.get(self, "match_blob_index_tags")
 
     @match_blob_index_tags.setter
-    def match_blob_index_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]):
+    def match_blob_index_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs']]]]):
         pulumi.set(self, "match_blob_index_tags", value)
 
     @property
@@ -2825,7 +2825,7 @@ class ManagementPolicyRuleFiltersArgs:
 
 
 @pulumi.input_type
-class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
+calass ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -2878,7 +2878,7 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
 
 
 @pulumi.input_type
-class ObjectReplicationRuleArgs:
+calass ObjectReplicationRuleArrgs:
     def __init__(__self__, *,
                  destination_container_name: pulumi.Input[str],
                  source_container_name: pulumi.Input[str],
@@ -2959,13 +2959,13 @@ class ObjectReplicationRuleArgs:
 
 
 @pulumi.input_type
-class ShareAclArgs:
+calass ShareAclArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]] = None):
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: The ID which should be used for this Shared Identifier.
-        :param pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]] access_policies: An `access_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArrgs']]] access_policies: An `access_policy` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if access_policies is not None:
@@ -2985,19 +2985,19 @@ class ShareAclArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]:
+    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArrgs']]]]:
         """
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]):
+    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArrgs']]]]):
         pulumi.set(self, "access_policies", value)
 
 
 @pulumi.input_type
-class ShareAclAccessPolicyArgs:
+calass ShareAclAccessPolicyArrgs:
     def __init__(__self__, *,
                  permissions: pulumi.Input[str],
                  expiry: Optional[pulumi.Input[str]] = None,
@@ -3055,13 +3055,13 @@ class ShareAclAccessPolicyArgs:
 
 
 @pulumi.input_type
-class TableAclArgs:
+calass TableAclArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]] = None):
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: The ID which should be used for this Shared Identifier.
-        :param pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]] access_policies: An `access_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArrgs']]] access_policies: An `access_policy` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if access_policies is not None:
@@ -3081,19 +3081,19 @@ class TableAclArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]:
+    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArrgs']]]]:
         """
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]):
+    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArrgs']]]]):
         pulumi.set(self, "access_policies", value)
 
 
 @pulumi.input_type
-class TableAclAccessPolicyArgs:
+calass TableAclAccessPolicyArrgs:
     def __init__(__self__, *,
                  expiry: pulumi.Input[str],
                  permissions: pulumi.Input[str],
@@ -3145,7 +3145,7 @@ class TableAclAccessPolicyArgs:
 
 
 @pulumi.input_type
-class GetAccountBlobContainerSASPermissionsArgs:
+calass GetAccountBlobContainerSASPermissionsArrgs:
     def __init__(__self__, *,
                  add: bool,
                  create: bool,
@@ -3248,7 +3248,7 @@ class GetAccountBlobContainerSASPermissionsArgs:
 
 
 @pulumi.input_type
-class GetAccountSASPermissionsArgs:
+calass GetAccountSASPermissionsArrgs:
     def __init__(__self__, *,
                  add: bool,
                  create: bool,
@@ -3411,7 +3411,7 @@ class GetAccountSASPermissionsArgs:
 
 
 @pulumi.input_type
-class GetAccountSASResourceTypesArgs:
+calass GetAccountSASResourceTypesArrgs:
     def __init__(__self__, *,
                  container: bool,
                  object: bool,
@@ -3463,7 +3463,7 @@ class GetAccountSASResourceTypesArgs:
 
 
 @pulumi.input_type
-class GetAccountSASServicesArgs:
+calass GetAccountSASServicesArrgs:
     def __init__(__self__, *,
                  blob: bool,
                  file: bool,
@@ -3530,12 +3530,12 @@ class GetAccountSASServicesArgs:
 
 
 @pulumi.input_type
-class GetShareAclArgs:
+calass GetShareAclArrgs:
     def __init__(__self__, *,
-                 access_policies: Sequence['GetShareAclAccessPolicyArgs'],
+                 access_policies: Sequence['GetShareAclAccessPolicyArrgs'],
                  id: str):
         """
-        :param Sequence['GetShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param Sequence['GetShareAclAccessPolicyArrgs'] access_policies: An `access_policy` block as defined below.
         :param str id: The ID which should be used for this Shared Identifier.
         """
         pulumi.set(__self__, "access_policies", access_policies)
@@ -3543,14 +3543,14 @@ class GetShareAclArgs:
 
     @property
     @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Sequence['GetShareAclAccessPolicyArgs']:
+    def access_policies(self) -> Sequence['GetShareAclAccessPolicyArrgs']:
         """
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
 
     @access_policies.setter
-    def access_policies(self, value: Sequence['GetShareAclAccessPolicyArgs']):
+    def access_policies(self, value: Sequence['GetShareAclAccessPolicyArrgs']):
         pulumi.set(self, "access_policies", value)
 
     @property
@@ -3567,7 +3567,7 @@ class GetShareAclArgs:
 
 
 @pulumi.input_type
-class GetShareAclAccessPolicyArgs:
+calass GetShareAclAccessPolicyArrgs:
     def __init__(__self__, *,
                  expiry: str,
                  permissions: str,

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSqlRoleDefinitionResult:
+calass GetSqlRoleDefinitionResult:
     """
     A collection of values returned by getSqlRoleDefinition.
     """
@@ -104,7 +104,7 @@ class GetSqlRoleDefinitionResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetSqlRoleDefinitionResult(GetSqlRoleDefinitionResult):
+calass AwaitableGetSqlRoleDefinitionResult(GetSqlRoleDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

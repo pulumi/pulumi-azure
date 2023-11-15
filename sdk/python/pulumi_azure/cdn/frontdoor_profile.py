@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FrontdoorProfileArgs', 'FrontdoorProfile']
+__all__ = ['FrontdoorProfileArrgs', 'FrontdoorProfile']
 
 @pulumi.input_type
-class FrontdoorProfileArgs:
+calass FrontdoorProfileArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -98,7 +98,7 @@ class FrontdoorProfileArgs:
 
 
 @pulumi.input_type
-class _FrontdoorProfileState:
+calass _FrontdoorProfileState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class _FrontdoorProfileState:
         pulumi.set(self, "tags", value)
 
 
-class FrontdoorProfile(pulumi.CustomResource):
+calass FrontdoorProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class FrontdoorProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorProfileArgs,
+                 args: FrontdoorProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
@@ -279,12 +279,12 @@ class FrontdoorProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorProfileArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -305,7 +305,7 @@ class FrontdoorProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorProfileArgs.__new__(FrontdoorProfileArgs)
+            __props__ = FrontdoorProfileArrgs.__new__(FrontdoorProfileArrgs)
 
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

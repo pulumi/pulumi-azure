@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IdentityProviderMicrosoftArgs', 'IdentityProviderMicrosoft']
+__all__ = ['IdentityProviderMicrosoftArrgs', 'IdentityProviderMicrosoft']
 
 @pulumi.input_type
-class IdentityProviderMicrosoftArgs:
+calass IdentityProviderMicrosoftArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -80,7 +80,7 @@ class IdentityProviderMicrosoftArgs:
 
 
 @pulumi.input_type
-class _IdentityProviderMicrosoftState:
+calass _IdentityProviderMicrosoftState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _IdentityProviderMicrosoftState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IdentityProviderMicrosoft(pulumi.CustomResource):
+calass IdentityProviderMicrosoft(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,7 +203,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityProviderMicrosoftArgs,
+                 args: IdentityProviderMicrosoftArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Microsoft Identity Provider.
@@ -237,12 +237,12 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IdentityProviderMicrosoftArgs args: The arguments to use to populate this resource's properties.
+        :param IdentityProviderMicrosoftArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderMicrosoftArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderMicrosoftArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -262,7 +262,7 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IdentityProviderMicrosoftArgs.__new__(IdentityProviderMicrosoftArgs)
+            __props__ = IdentityProviderMicrosoftArrgs.__new__(IdentityProviderMicrosoftArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")

@@ -10,43 +10,43 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ActionHttpRunAfterArgs',
-    'IntegrationAccountAgreementGuestIdentityArgs',
-    'IntegrationAccountAgreementHostIdentityArgs',
-    'IntegrationAccountBatchConfigurationReleaseCriteriaArgs',
-    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs',
-    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs',
-    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs',
-    'IntegrationAccountCertificateKeyVaultKeyArgs',
-    'IntegrationAccountPartnerBusinessIdentityArgs',
-    'StandardConnectionStringArgs',
-    'StandardIdentityArgs',
-    'StandardSiteConfigArgs',
-    'StandardSiteConfigCorsArgs',
-    'StandardSiteConfigIpRestrictionArgs',
-    'StandardSiteConfigIpRestrictionHeadersArgs',
-    'StandardSiteConfigScmIpRestrictionArgs',
-    'StandardSiteConfigScmIpRestrictionHeadersArgs',
-    'StandardSiteCredentialArgs',
-    'TriggerRecurrenceScheduleArgs',
-    'WorkflowAccessControlArgs',
-    'WorkflowAccessControlActionArgs',
-    'WorkflowAccessControlContentArgs',
-    'WorkflowAccessControlTriggerArgs',
-    'WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs',
-    'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs',
-    'WorkflowAccessControlWorkflowManagementArgs',
-    'WorkflowIdentityArgs',
-    'GetStandardSiteConfigArgs',
-    'GetStandardSiteConfigCorsArgs',
-    'GetStandardSiteConfigIpRestrictionArgs',
-    'GetStandardSiteConfigIpRestrictionHeadersArgs',
-    'GetStandardSiteConfigScmIpRestrictionArgs',
-    'GetStandardSiteConfigScmIpRestrictionHeadersArgs',
+    'ActionHttpRunAfterArrgs',
+    'IntegrationAccountAgreementGuestIdentityArrgs',
+    'IntegrationAccountAgreementHostIdentityArrgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaArrgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs',
+    'IntegrationAccountCertificateKeyVaultKeyArrgs',
+    'IntegrationAccountPartnerBusinessIdentityArrgs',
+    'StandardConnectionStringArrgs',
+    'StandardIdentityArrgs',
+    'StandardSiteConfigArrgs',
+    'StandardSiteConfigCorsArrgs',
+    'StandardSiteConfigIpRestrictionArrgs',
+    'StandardSiteConfigIpRestrictionHeadersArrgs',
+    'StandardSiteConfigScmIpRestrictionArrgs',
+    'StandardSiteConfigScmIpRestrictionHeadersArrgs',
+    'StandardSiteCredentialArrgs',
+    'TriggerRecurrenceScheduleArrgs',
+    'WorkflowAccessControlArrgs',
+    'WorkflowAccessControlActionArrgs',
+    'WorkflowAccessControlContentArrgs',
+    'WorkflowAccessControlTriggerArrgs',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs',
+    'WorkflowAccessControlWorkflowManagementArrgs',
+    'WorkflowIdentityArrgs',
+    'GetStandardSiteConfigArrgs',
+    'GetStandardSiteConfigCorsArrgs',
+    'GetStandardSiteConfigIpRestrictionArrgs',
+    'GetStandardSiteConfigIpRestrictionHeadersArrgs',
+    'GetStandardSiteConfigScmIpRestrictionArrgs',
+    'GetStandardSiteConfigScmIpRestrictionHeadersArrgs',
 ]
 
 @pulumi.input_type
-class ActionHttpRunAfterArgs:
+calass ActionHttpRunAfterArrgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
                  action_result: pulumi.Input[str]):
@@ -83,7 +83,7 @@ class ActionHttpRunAfterArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountAgreementGuestIdentityArgs:
+calass IntegrationAccountAgreementGuestIdentityArrgs:
     def __init__(__self__, *,
                  qualifier: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -120,7 +120,7 @@ class IntegrationAccountAgreementGuestIdentityArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountAgreementHostIdentityArgs:
+calass IntegrationAccountAgreementHostIdentityArrgs:
     def __init__(__self__, *,
                  qualifier: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -157,15 +157,15 @@ class IntegrationAccountAgreementHostIdentityArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
+calass IntegrationAccountBatchConfigurationReleaseCriteriaArrgs:
     def __init__(__self__, *,
                  batch_size: Optional[pulumi.Input[int]] = None,
                  message_count: Optional[pulumi.Input[int]] = None,
-                 recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None):
+                 recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs']] = None):
         """
         :param pulumi.Input[int] batch_size: The batch size in bytes for the Logic App Integration Batch Configuration.
         :param pulumi.Input[int] message_count: The message count for the Logic App Integration Batch Configuration.
-        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs'] recurrence: A `recurrence` block as documented below.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs'] recurrence: A `recurrence` block as documented below.
         """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
@@ -200,31 +200,31 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs']]:
         """
         A `recurrence` block as documented below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArrgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
                  interval: pulumi.Input[int],
                  end_time: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
+                 schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] frequency: The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
         :param pulumi.Input[int] interval: The number of `frequency`s between runs.
         :param pulumi.Input[str] end_time: The end time of the schedule, formatted as an RFC3339 string.
-        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs'] schedule: A `schedule` block as documented below.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs'] schedule: A `schedule` block as documented below.
         :param pulumi.Input[str] start_time: The start time of the schedule, formatted as an RFC3339 string.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
         """
@@ -277,14 +277,14 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs']]:
         """
         A `schedule` block as documented below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -313,18 +313,18 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
+                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs']]]] = None,
                  week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: A list of days of the month that the job should execute on.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs']]] monthlies: A `monthly` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
         if hours is not None:
@@ -376,14 +376,14 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
 
     @property
     @pulumi.getter
-    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]:
+    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs']]]]:
         """
         A `monthly` block as documented below.
         """
         return pulumi.get(self, "monthlies")
 
     @monthlies.setter
-    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]):
+    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs']]]]):
         pulumi.set(self, "monthlies", value)
 
     @property
@@ -400,7 +400,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs:
+calass IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrgs:
     def __init__(__self__, *,
                  week: pulumi.Input[int],
                  weekday: pulumi.Input[str]):
@@ -437,7 +437,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
 
 
 @pulumi.input_type
-class IntegrationAccountCertificateKeyVaultKeyArgs:
+calass IntegrationAccountCertificateKeyVaultKeyArrgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
@@ -490,7 +490,7 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
 
 
 @pulumi.input_type
-class IntegrationAccountPartnerBusinessIdentityArgs:
+calass IntegrationAccountPartnerBusinessIdentityArrgs:
     def __init__(__self__, *,
                  qualifier: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -527,7 +527,7 @@ class IntegrationAccountPartnerBusinessIdentityArgs:
 
 
 @pulumi.input_type
-class StandardConnectionStringArgs:
+calass StandardConnectionStringArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -579,7 +579,7 @@ class StandardConnectionStringArgs:
 
 
 @pulumi.input_type
-class StandardIdentityArgs:
+calass StandardIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -657,23 +657,23 @@ class StandardIdentityArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigArgs:
+calass StandardSiteConfigArrgs:
     def __init__(__self__, *,
                  always_on: Optional[pulumi.Input[bool]] = None,
                  app_scale_limit: Optional[pulumi.Input[int]] = None,
                  auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
-                 cors: Optional[pulumi.Input['StandardSiteConfigCorsArgs']] = None,
+                 cors: Optional[pulumi.Input['StandardSiteConfigCorsArrgs']] = None,
                  dotnet_framework_version: Optional[pulumi.Input[str]] = None,
                  elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
                  ftps_state: Optional[pulumi.Input[str]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
+                 ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArrgs']]]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
                  runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
+                 scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArrgs']]]] = None,
                  scm_min_tls_version: Optional[pulumi.Input[str]] = None,
                  scm_type: Optional[pulumi.Input[str]] = None,
                  scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
@@ -684,20 +684,20 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[bool] always_on: Should the Logic App be loaded at all times? Defaults to `false`.
         :param pulumi.Input[int] app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param pulumi.Input[str] auto_swap_slot_name: The Auto-swap slot name.
-        :param pulumi.Input['StandardSiteConfigCorsArgs'] cors: A `cors` block as defined below.
+        :param pulumi.Input['StandardSiteConfigCorsArrgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[str] dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this Logic App health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArrgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArrgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
@@ -790,14 +790,14 @@ class StandardSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> Optional[pulumi.Input['StandardSiteConfigCorsArgs']]:
+    def cors(self) -> Optional[pulumi.Input['StandardSiteConfigCorsArrgs']]:
         """
         A `cors` block as defined below.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: Optional[pulumi.Input['StandardSiteConfigCorsArgs']]):
+    def cors(self, value: Optional[pulumi.Input['StandardSiteConfigCorsArrgs']]):
         pulumi.set(self, "cors", value)
 
     @property
@@ -862,7 +862,7 @@ class StandardSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
+    def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
 
@@ -871,7 +871,7 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]):
+    def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArrgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -924,7 +924,7 @@ class StandardSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]:
+    def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArrgs']]]]:
         """
         A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
 
@@ -933,7 +933,7 @@ class StandardSiteConfigArgs:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]):
+    def scm_ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArrgs']]]]):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -1012,7 +1012,7 @@ class StandardSiteConfigArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigCorsArgs:
+calass StandardSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
                  support_credentials: Optional[pulumi.Input[bool]] = None):
@@ -1050,10 +1050,10 @@ class StandardSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigIpRestrictionArgs:
+calass StandardSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -1061,7 +1061,7 @@ class StandardSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1099,14 +1099,14 @@ class StandardSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -1173,7 +1173,7 @@ class StandardSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigIpRestrictionHeadersArgs:
+calass StandardSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -1244,10 +1244,10 @@ class StandardSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigScmIpRestrictionArgs:
+calass StandardSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']] = None,
+                 headers: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArrgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -1255,7 +1255,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArrgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1293,14 +1293,14 @@ class StandardSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]:
+    def headers(self) -> Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArrgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]):
+    def headers(self, value: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArrgs']]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -1367,7 +1367,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class StandardSiteConfigScmIpRestrictionHeadersArgs:
+calass StandardSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  x_fd_health_probe: Optional[pulumi.Input[str]] = None,
@@ -1438,7 +1438,7 @@ class StandardSiteConfigScmIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class StandardSiteCredentialArgs:
+calass StandardSiteCredentialArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -1477,7 +1477,7 @@ class StandardSiteCredentialArgs:
 
 
 @pulumi.input_type
-class TriggerRecurrenceScheduleArgs:
+calass TriggerRecurrenceScheduleArrgs:
     def __init__(__self__, *,
                  at_these_hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  at_these_minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -1532,17 +1532,17 @@ class TriggerRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class WorkflowAccessControlArgs:
+calass WorkflowAccessControlArrgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['WorkflowAccessControlActionArgs']] = None,
-                 content: Optional[pulumi.Input['WorkflowAccessControlContentArgs']] = None,
-                 trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']] = None,
-                 workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']] = None):
+                 action: Optional[pulumi.Input['WorkflowAccessControlActionArrgs']] = None,
+                 content: Optional[pulumi.Input['WorkflowAccessControlContentArrgs']] = None,
+                 trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArrgs']] = None,
+                 workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArrgs']] = None):
         """
-        :param pulumi.Input['WorkflowAccessControlActionArgs'] action: A `action` block as defined below.
-        :param pulumi.Input['WorkflowAccessControlContentArgs'] content: A `content` block as defined below.
-        :param pulumi.Input['WorkflowAccessControlTriggerArgs'] trigger: A `trigger` block as defined below.
-        :param pulumi.Input['WorkflowAccessControlWorkflowManagementArgs'] workflow_management: A `workflow_management` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlActionArrgs'] action: A `action` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlContentArrgs'] content: A `content` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlTriggerArrgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlWorkflowManagementArrgs'] workflow_management: A `workflow_management` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -1555,55 +1555,55 @@ class WorkflowAccessControlArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WorkflowAccessControlActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['WorkflowAccessControlActionArrgs']]:
         """
         A `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WorkflowAccessControlActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['WorkflowAccessControlActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input['WorkflowAccessControlContentArgs']]:
+    def content(self) -> Optional[pulumi.Input['WorkflowAccessControlContentArrgs']]:
         """
         A `content` block as defined below.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input['WorkflowAccessControlContentArgs']]):
+    def content(self, value: Optional[pulumi.Input['WorkflowAccessControlContentArrgs']]):
         pulumi.set(self, "content", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]:
+    def trigger(self) -> Optional[pulumi.Input['WorkflowAccessControlTriggerArrgs']]:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']]):
+    def trigger(self, value: Optional[pulumi.Input['WorkflowAccessControlTriggerArrgs']]):
         pulumi.set(self, "trigger", value)
 
     @property
     @pulumi.getter(name="workflowManagement")
-    def workflow_management(self) -> Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]:
+    def workflow_management(self) -> Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArrgs']]:
         """
         A `workflow_management` block as defined below.
         """
         return pulumi.get(self, "workflow_management")
 
     @workflow_management.setter
-    def workflow_management(self, value: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']]):
+    def workflow_management(self, value: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArrgs']]):
         pulumi.set(self, "workflow_management", value)
 
 
 @pulumi.input_type
-class WorkflowAccessControlActionArgs:
+calass WorkflowAccessControlActionArrgs:
     def __init__(__self__, *,
                  allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1625,7 +1625,7 @@ class WorkflowAccessControlActionArgs:
 
 
 @pulumi.input_type
-class WorkflowAccessControlContentArgs:
+calass WorkflowAccessControlContentArrgs:
     def __init__(__self__, *,
                  allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1647,13 +1647,13 @@ class WorkflowAccessControlContentArgs:
 
 
 @pulumi.input_type
-class WorkflowAccessControlTriggerArgs:
+calass WorkflowAccessControlTriggerArrgs:
     def __init__(__self__, *,
                  allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None):
+                 open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]] open_authentication_policies: A `open_authentication_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs']]] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
         pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
@@ -1673,24 +1673,24 @@ class WorkflowAccessControlTriggerArgs:
 
     @property
     @pulumi.getter(name="openAuthenticationPolicies")
-    def open_authentication_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]:
+    def open_authentication_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs']]]]:
         """
         A `open_authentication_policy` block as defined below.
         """
         return pulumi.get(self, "open_authentication_policies")
 
     @open_authentication_policies.setter
-    def open_authentication_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]):
+    def open_authentication_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs']]]]):
         pulumi.set(self, "open_authentication_policies", value)
 
 
 @pulumi.input_type
-class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
+calass WorkflowAccessControlTriggerOpenAuthenticationPolicyArrgs:
     def __init__(__self__, *,
-                 claims: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]],
+                 claims: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs']]],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]] claims: A `claim` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs']]] claims: A `claim` block as defined below.
         :param pulumi.Input[str] name: The OAuth policy name for the Logic App Workflow.
         """
         pulumi.set(__self__, "claims", claims)
@@ -1698,14 +1698,14 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
 
     @property
     @pulumi.getter
-    def claims(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]]:
+    def claims(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs']]]:
         """
         A `claim` block as defined below.
         """
         return pulumi.get(self, "claims")
 
     @claims.setter
-    def claims(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]]):
+    def claims(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs']]]):
         pulumi.set(self, "claims", value)
 
     @property
@@ -1722,7 +1722,7 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
 
 
 @pulumi.input_type
-class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
+calass WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1759,7 +1759,7 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
 
 
 @pulumi.input_type
-class WorkflowAccessControlWorkflowManagementArgs:
+calass WorkflowAccessControlWorkflowManagementArrgs:
     def __init__(__self__, *,
                  allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1781,7 +1781,7 @@ class WorkflowAccessControlWorkflowManagementArgs:
 
 
 @pulumi.input_type
-class WorkflowIdentityArgs:
+calass WorkflowIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1855,18 +1855,18 @@ class WorkflowIdentityArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigArgs:
+calass GetStandardSiteConfigArrgs:
     def __init__(__self__, *,
                  app_scale_limit: int,
                  auto_swap_slot_name: str,
-                 cors: 'GetStandardSiteConfigCorsArgs',
+                 cors: 'GetStandardSiteConfigCorsArrgs',
                  elastic_instance_minimum: int,
                  ftps_state: str,
-                 ip_restrictions: Sequence['GetStandardSiteConfigIpRestrictionArgs'],
+                 ip_restrictions: Sequence['GetStandardSiteConfigIpRestrictionArrgs'],
                  linux_fx_version: str,
                  min_tls_version: str,
                  pre_warmed_instance_count: int,
-                 scm_ip_restrictions: Sequence['GetStandardSiteConfigScmIpRestrictionArgs'],
+                 scm_ip_restrictions: Sequence['GetStandardSiteConfigScmIpRestrictionArrgs'],
                  scm_min_tls_version: str,
                  scm_type: str,
                  vnet_route_all_enabled: bool,
@@ -1928,11 +1928,11 @@ class GetStandardSiteConfigArgs:
 
     @property
     @pulumi.getter
-    def cors(self) -> 'GetStandardSiteConfigCorsArgs':
+    def cors(self) -> 'GetStandardSiteConfigCorsArrgs':
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: 'GetStandardSiteConfigCorsArgs'):
+    def cors(self, value: 'GetStandardSiteConfigCorsArrgs'):
         pulumi.set(self, "cors", value)
 
     @property
@@ -1955,11 +1955,11 @@ class GetStandardSiteConfigArgs:
 
     @property
     @pulumi.getter(name="ipRestrictions")
-    def ip_restrictions(self) -> Sequence['GetStandardSiteConfigIpRestrictionArgs']:
+    def ip_restrictions(self) -> Sequence['GetStandardSiteConfigIpRestrictionArrgs']:
         return pulumi.get(self, "ip_restrictions")
 
     @ip_restrictions.setter
-    def ip_restrictions(self, value: Sequence['GetStandardSiteConfigIpRestrictionArgs']):
+    def ip_restrictions(self, value: Sequence['GetStandardSiteConfigIpRestrictionArrgs']):
         pulumi.set(self, "ip_restrictions", value)
 
     @property
@@ -1991,11 +1991,11 @@ class GetStandardSiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmIpRestrictions")
-    def scm_ip_restrictions(self) -> Sequence['GetStandardSiteConfigScmIpRestrictionArgs']:
+    def scm_ip_restrictions(self) -> Sequence['GetStandardSiteConfigScmIpRestrictionArrgs']:
         return pulumi.get(self, "scm_ip_restrictions")
 
     @scm_ip_restrictions.setter
-    def scm_ip_restrictions(self, value: Sequence['GetStandardSiteConfigScmIpRestrictionArgs']):
+    def scm_ip_restrictions(self, value: Sequence['GetStandardSiteConfigScmIpRestrictionArrgs']):
         pulumi.set(self, "scm_ip_restrictions", value)
 
     @property
@@ -2099,7 +2099,7 @@ class GetStandardSiteConfigArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigCorsArgs:
+calass GetStandardSiteConfigCorsArrgs:
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -2127,9 +2127,9 @@ class GetStandardSiteConfigCorsArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigIpRestrictionArgs:
+calass GetStandardSiteConfigIpRestrictionArrgs:
     def __init__(__self__, *,
-                 headers: 'GetStandardSiteConfigIpRestrictionHeadersArgs',
+                 headers: 'GetStandardSiteConfigIpRestrictionHeadersArrgs',
                  name: str,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -2154,11 +2154,11 @@ class GetStandardSiteConfigIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> 'GetStandardSiteConfigIpRestrictionHeadersArgs':
+    def headers(self) -> 'GetStandardSiteConfigIpRestrictionHeadersArrgs':
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: 'GetStandardSiteConfigIpRestrictionHeadersArgs'):
+    def headers(self, value: 'GetStandardSiteConfigIpRestrictionHeadersArrgs'):
         pulumi.set(self, "headers", value)
 
     @property
@@ -2220,7 +2220,7 @@ class GetStandardSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigIpRestrictionHeadersArgs:
+calass GetStandardSiteConfigIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[Sequence[str]] = None,
                  x_fd_health_probe: Optional[str] = None,
@@ -2273,9 +2273,9 @@ class GetStandardSiteConfigIpRestrictionHeadersArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigScmIpRestrictionArgs:
+calass GetStandardSiteConfigScmIpRestrictionArrgs:
     def __init__(__self__, *,
-                 headers: 'GetStandardSiteConfigScmIpRestrictionHeadersArgs',
+                 headers: 'GetStandardSiteConfigScmIpRestrictionHeadersArrgs',
                  name: str,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -2300,11 +2300,11 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> 'GetStandardSiteConfigScmIpRestrictionHeadersArgs':
+    def headers(self) -> 'GetStandardSiteConfigScmIpRestrictionHeadersArrgs':
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: 'GetStandardSiteConfigScmIpRestrictionHeadersArgs'):
+    def headers(self, value: 'GetStandardSiteConfigScmIpRestrictionHeadersArrgs'):
         pulumi.set(self, "headers", value)
 
     @property
@@ -2366,7 +2366,7 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
 
 
 @pulumi.input_type
-class GetStandardSiteConfigScmIpRestrictionHeadersArgs:
+calass GetStandardSiteConfigScmIpRestrictionHeadersArrgs:
     def __init__(__self__, *,
                  x_azure_fdids: Optional[Sequence[str]] = None,
                  x_fd_health_probe: Optional[str] = None,

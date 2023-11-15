@@ -10,43 +10,43 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DatabaseImportArgs',
-    'DatabaseLongTermRetentionPolicyArgs',
-    'DatabaseShortTermRetentionPolicyArgs',
-    'DatabaseThreatDetectionPolicyArgs',
-    'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs',
-    'ElasticPoolPerDatabaseSettingsArgs',
-    'ElasticPoolSkuArgs',
-    'FailoverGroupPartnerServerArgs',
-    'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
-    'ManagedDatabaseLongTermRetentionPolicyArgs',
-    'ManagedInstanceFailoverGroupPartnerRegionArgs',
-    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
-    'ManagedInstanceIdentityArgs',
-    'ManagedInstanceVulnerabilityAssessmentRecurringScansArgs',
-    'ServerAzureadAdministratorArgs',
-    'ServerIdentityArgs',
-    'ServerVulnerabilityAssessmentRecurringScansArgs',
-    'VirtualMachineAssessmentArgs',
-    'VirtualMachineAssessmentScheduleArgs',
-    'VirtualMachineAutoBackupArgs',
-    'VirtualMachineAutoBackupManualScheduleArgs',
-    'VirtualMachineAutoPatchingArgs',
-    'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs',
-    'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs',
-    'VirtualMachineAvailabilityGroupListenerReplicaArgs',
-    'VirtualMachineGroupWsfcDomainProfileArgs',
-    'VirtualMachineKeyVaultCredentialArgs',
-    'VirtualMachineSqlInstanceArgs',
-    'VirtualMachineStorageConfigurationArgs',
-    'VirtualMachineStorageConfigurationDataSettingsArgs',
-    'VirtualMachineStorageConfigurationLogSettingsArgs',
-    'VirtualMachineStorageConfigurationTempDbSettingsArgs',
-    'VirtualMachineWsfcDomainCredentialArgs',
+    'DatabaseImportArrgs',
+    'DatabaseLongTermRetentionPolicyArrgs',
+    'DatabaseShortTermRetentionPolicyArrgs',
+    'DatabaseThreatDetectionPolicyArrgs',
+    'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrgs',
+    'ElasticPoolPerDatabaseSettingsArrgs',
+    'ElasticPoolSkuArrgs',
+    'FailoverGroupPartnerServerArrgs',
+    'FailoverGroupReadWriteEndpointFailoverPolicyArrgs',
+    'ManagedDatabaseLongTermRetentionPolicyArrgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArrgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArrgs',
+    'ManagedInstanceIdentityArrgs',
+    'ManagedInstanceVulnerabilityAssessmentRecurringScansArrgs',
+    'ServerAzureadAdministratorArrgs',
+    'ServerIdentityArrgs',
+    'ServerVulnerabilityAssessmentRecurringScansArrgs',
+    'VirtualMachineAssessmentArrgs',
+    'VirtualMachineAssessmentScheduleArrgs',
+    'VirtualMachineAutoBackupArrgs',
+    'VirtualMachineAutoBackupManualScheduleArrgs',
+    'VirtualMachineAutoPatchingArrgs',
+    'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs',
+    'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs',
+    'VirtualMachineAvailabilityGroupListenerReplicaArrgs',
+    'VirtualMachineGroupWsfcDomainProfileArrgs',
+    'VirtualMachineKeyVaultCredentialArrgs',
+    'VirtualMachineSqlInstanceArrgs',
+    'VirtualMachineStorageConfigurationArrgs',
+    'VirtualMachineStorageConfigurationDataSettingsArrgs',
+    'VirtualMachineStorageConfigurationLogSettingsArrgs',
+    'VirtualMachineStorageConfigurationTempDbSettingsArrgs',
+    'VirtualMachineWsfcDomainCredentialArrgs',
 ]
 
 @pulumi.input_type
-class DatabaseImportArgs:
+calass DatabaseImportArrgs:
     def __init__(__self__, *,
                  administrator_login: pulumi.Input[str],
                  administrator_login_password: pulumi.Input[str],
@@ -159,7 +159,7 @@ class DatabaseImportArgs:
 
 
 @pulumi.input_type
-class DatabaseLongTermRetentionPolicyArgs:
+calass DatabaseLongTermRetentionPolicyArrgs:
     def __init__(__self__, *,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
@@ -230,7 +230,7 @@ class DatabaseLongTermRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class DatabaseShortTermRetentionPolicyArgs:
+calass DatabaseShortTermRetentionPolicyArrgs:
     def __init__(__self__, *,
                  retention_days: pulumi.Input[int],
                  backup_interval_in_hours: Optional[pulumi.Input[int]] = None):
@@ -268,7 +268,7 @@ class DatabaseShortTermRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class DatabaseThreatDetectionPolicyArgs:
+calass DatabaseThreatDetectionPolicyArrgs:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[str]] = None,
@@ -387,7 +387,7 @@ class DatabaseThreatDetectionPolicyArgs:
 
 
 @pulumi.input_type
-class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
+calass DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrgs:
     def __init__(__self__, *,
                  results: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -409,7 +409,7 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
 
 
 @pulumi.input_type
-class ElasticPoolPerDatabaseSettingsArgs:
+calass ElasticPoolPerDatabaseSettingsArrgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[float],
                  min_capacity: pulumi.Input[float]):
@@ -446,7 +446,7 @@ class ElasticPoolPerDatabaseSettingsArgs:
 
 
 @pulumi.input_type
-class ElasticPoolSkuArgs:
+calass ElasticPoolSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str],
@@ -514,7 +514,7 @@ class ElasticPoolSkuArgs:
 
 
 @pulumi.input_type
-class FailoverGroupPartnerServerArgs:
+calass FailoverGroupPartnerServerArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -568,7 +568,7 @@ class FailoverGroupPartnerServerArgs:
 
 
 @pulumi.input_type
-class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
+calass FailoverGroupReadWriteEndpointFailoverPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  grace_minutes: Optional[pulumi.Input[int]] = None):
@@ -606,7 +606,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedDatabaseLongTermRetentionPolicyArgs:
+calass ManagedDatabaseLongTermRetentionPolicyArrgs:
     def __init__(__self__, *,
                  monthly_retention: Optional[pulumi.Input[str]] = None,
                  week_of_year: Optional[pulumi.Input[int]] = None,
@@ -677,7 +677,7 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceFailoverGroupPartnerRegionArgs:
+calass ManagedInstanceFailoverGroupPartnerRegionArrgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None):
@@ -716,7 +716,7 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
+calass ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  grace_minutes: Optional[pulumi.Input[int]] = None):
@@ -754,7 +754,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceIdentityArgs:
+calass ManagedInstanceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -828,7 +828,7 @@ class ManagedInstanceIdentityArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
+calass ManagedInstanceVulnerabilityAssessmentRecurringScansArrgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -883,7 +883,7 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
 
 
 @pulumi.input_type
-class ServerAzureadAdministratorArgs:
+calass ServerAzureadAdministratorArrgs:
     def __init__(__self__, *,
                  login_username: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -952,7 +952,7 @@ class ServerAzureadAdministratorArgs:
 
 
 @pulumi.input_type
-class ServerIdentityArgs:
+calass ServerIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1030,7 +1030,7 @@ class ServerIdentityArgs:
 
 
 @pulumi.input_type
-class ServerVulnerabilityAssessmentRecurringScansArgs:
+calass ServerVulnerabilityAssessmentRecurringScansArrgs:
     def __init__(__self__, *,
                  email_subscription_admins: Optional[pulumi.Input[bool]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1085,15 +1085,15 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAssessmentArgs:
+calass VirtualMachineAssessmentArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  run_immediately: Optional[pulumi.Input[bool]] = None,
-                 schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']] = None):
+                 schedule: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArrgs']] = None):
         """
         :param pulumi.Input[bool] enabled: Should Assessment be enabled? Defaults to `true`.
         :param pulumi.Input[bool] run_immediately: Should Assessment be run immediately? Defaults to `false`.
-        :param pulumi.Input['VirtualMachineAssessmentScheduleArgs'] schedule: An `schedule` block as defined below.
+        :param pulumi.Input['VirtualMachineAssessmentScheduleArrgs'] schedule: An `schedule` block as defined below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1128,19 +1128,19 @@ class VirtualMachineAssessmentArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['VirtualMachineAssessmentScheduleArrgs']]:
         """
         An `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type
-class VirtualMachineAssessmentScheduleArgs:
+calass VirtualMachineAssessmentScheduleArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  start_time: pulumi.Input[str],
@@ -1213,14 +1213,14 @@ class VirtualMachineAssessmentScheduleArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAutoBackupArgs:
+calass VirtualMachineAutoBackupArrgs:
     def __init__(__self__, *,
                  retention_period_in_days: pulumi.Input[int],
                  storage_account_access_key: pulumi.Input[str],
                  storage_blob_endpoint: pulumi.Input[str],
                  encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption_password: Optional[pulumi.Input[str]] = None,
-                 manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']] = None,
+                 manual_schedule: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArrgs']] = None,
                  system_databases_backup_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] retention_period_in_days: Retention period of backups, in days. Valid values are from `1` to `30`.
@@ -1228,7 +1228,7 @@ class VirtualMachineAutoBackupArgs:
         :param pulumi.Input[str] storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
         :param pulumi.Input[bool] encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
         :param pulumi.Input[str] encryption_password: Encryption password to use. Must be specified when encryption is enabled.
-        :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param pulumi.Input['VirtualMachineAutoBackupManualScheduleArrgs'] manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param pulumi.Input[bool] system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
@@ -1305,14 +1305,14 @@ class VirtualMachineAutoBackupArgs:
 
     @property
     @pulumi.getter(name="manualSchedule")
-    def manual_schedule(self) -> Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]:
+    def manual_schedule(self) -> Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArrgs']]:
         """
         A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         """
         return pulumi.get(self, "manual_schedule")
 
     @manual_schedule.setter
-    def manual_schedule(self, value: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgs']]):
+    def manual_schedule(self, value: Optional[pulumi.Input['VirtualMachineAutoBackupManualScheduleArrgs']]):
         pulumi.set(self, "manual_schedule", value)
 
     @property
@@ -1329,7 +1329,7 @@ class VirtualMachineAutoBackupArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAutoBackupManualScheduleArgs:
+calass VirtualMachineAutoBackupManualScheduleArrgs:
     def __init__(__self__, *,
                  full_backup_frequency: pulumi.Input[str],
                  full_backup_start_hour: pulumi.Input[int],
@@ -1416,7 +1416,7 @@ class VirtualMachineAutoBackupManualScheduleArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAutoPatchingArgs:
+calass VirtualMachineAutoPatchingArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  maintenance_window_duration_in_minutes: pulumi.Input[int],
@@ -1468,7 +1468,7 @@ class VirtualMachineAutoPatchingArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
+calass VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs:
     def __init__(__self__, *,
                  load_balancer_id: pulumi.Input[str],
                  private_ip_address: pulumi.Input[str],
@@ -1554,7 +1554,7 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
+calass VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs:
     def __init__(__self__, *,
                  private_ip_address: pulumi.Input[str],
                  sql_virtual_machine_id: pulumi.Input[str],
@@ -1610,7 +1610,7 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAvailabilityGroupListenerReplicaArgs:
+calass VirtualMachineAvailabilityGroupListenerReplicaArrgs:
     def __init__(__self__, *,
                  commit: pulumi.Input[str],
                  failover_mode: pulumi.Input[str],
@@ -1692,7 +1692,7 @@ class VirtualMachineAvailabilityGroupListenerReplicaArgs:
 
 
 @pulumi.input_type
-class VirtualMachineGroupWsfcDomainProfileArgs:
+calass VirtualMachineGroupWsfcDomainProfileArrgs:
     def __init__(__self__, *,
                  cluster_subnet_type: pulumi.Input[str],
                  fqdn: pulumi.Input[str],
@@ -1825,7 +1825,7 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
 
 
 @pulumi.input_type
-class VirtualMachineKeyVaultCredentialArgs:
+calass VirtualMachineKeyVaultCredentialArrgs:
     def __init__(__self__, *,
                  key_vault_url: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -1892,7 +1892,7 @@ class VirtualMachineKeyVaultCredentialArgs:
 
 
 @pulumi.input_type
-class VirtualMachineSqlInstanceArgs:
+calass VirtualMachineSqlInstanceArrgs:
     def __init__(__self__, *,
                  adhoc_workloads_optimization_enabled: Optional[pulumi.Input[bool]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -2015,21 +2015,21 @@ class VirtualMachineSqlInstanceArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageConfigurationArgs:
+calass VirtualMachineStorageConfigurationArrgs:
     def __init__(__self__, *,
                  disk_type: pulumi.Input[str],
                  storage_workload_type: pulumi.Input[str],
-                 data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']] = None,
-                 log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']] = None,
+                 data_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArrgs']] = None,
+                 log_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArrgs']] = None,
                  system_db_on_data_disk_enabled: Optional[pulumi.Input[bool]] = None,
-                 temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']] = None):
+                 temp_db_settings: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArrgs']] = None):
         """
         :param pulumi.Input[str] disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param pulumi.Input[str] storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
-        :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: A `storage_settings` block as defined below.
-        :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: A `storage_settings` block as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArrgs'] data_settings: A `storage_settings` block as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArrgs'] log_settings: A `storage_settings` block as defined below.
         :param pulumi.Input[bool] system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArrgs'] temp_db_settings: An `temp_db_settings` as defined below.
         """
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "storage_workload_type", storage_workload_type)
@@ -2068,26 +2068,26 @@ class VirtualMachineStorageConfigurationArgs:
 
     @property
     @pulumi.getter(name="dataSettings")
-    def data_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]:
+    def data_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArrgs']]:
         """
         A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "data_settings")
 
     @data_settings.setter
-    def data_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs']]):
+    def data_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArrgs']]):
         pulumi.set(self, "data_settings", value)
 
     @property
     @pulumi.getter(name="logSettings")
-    def log_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]:
+    def log_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArrgs']]:
         """
         A `storage_settings` block as defined below.
         """
         return pulumi.get(self, "log_settings")
 
     @log_settings.setter
-    def log_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs']]):
+    def log_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArrgs']]):
         pulumi.set(self, "log_settings", value)
 
     @property
@@ -2104,19 +2104,19 @@ class VirtualMachineStorageConfigurationArgs:
 
     @property
     @pulumi.getter(name="tempDbSettings")
-    def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
+    def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArrgs']]:
         """
         An `temp_db_settings` as defined below.
         """
         return pulumi.get(self, "temp_db_settings")
 
     @temp_db_settings.setter
-    def temp_db_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]):
+    def temp_db_settings(self, value: Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArrgs']]):
         pulumi.set(self, "temp_db_settings", value)
 
 
 @pulumi.input_type
-class VirtualMachineStorageConfigurationDataSettingsArgs:
+calass VirtualMachineStorageConfigurationDataSettingsArrgs:
     def __init__(__self__, *,
                  default_file_path: pulumi.Input[str],
                  luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
@@ -2153,7 +2153,7 @@ class VirtualMachineStorageConfigurationDataSettingsArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageConfigurationLogSettingsArgs:
+calass VirtualMachineStorageConfigurationLogSettingsArrgs:
     def __init__(__self__, *,
                  default_file_path: pulumi.Input[str],
                  luns: pulumi.Input[Sequence[pulumi.Input[int]]]):
@@ -2190,7 +2190,7 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageConfigurationTempDbSettingsArgs:
+calass VirtualMachineStorageConfigurationTempDbSettingsArrgs:
     def __init__(__self__, *,
                  default_file_path: pulumi.Input[str],
                  luns: pulumi.Input[Sequence[pulumi.Input[int]]],
@@ -2307,7 +2307,7 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
 
 
 @pulumi.input_type
-class VirtualMachineWsfcDomainCredentialArgs:
+calass VirtualMachineWsfcDomainCredentialArrgs:
     def __init__(__self__, *,
                  cluster_bootstrap_account_password: pulumi.Input[str],
                  cluster_operator_account_password: pulumi.Input[str],

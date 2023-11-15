@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i HubApnsCredentialArgs) ToHubApnsCredentialOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HubApnsCredentialOutput)
 }
 
-func (i HubApnsCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[HubApnsCredential] {
-	return pulumix.Output[HubApnsCredential]{
-		OutputState: i.ToHubApnsCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HubApnsCredentialArgs) ToHubApnsCredentialPtrOutput() HubApnsCredentialPtrOutput {
 	return i.ToHubApnsCredentialPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *hubApnsCredentialPtrType) ToHubApnsCredentialPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(HubApnsCredentialPtrOutput)
 }
 
-func (i *hubApnsCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*HubApnsCredential] {
-	return pulumix.Output[*HubApnsCredential]{
-		OutputState: i.ToHubApnsCredentialPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubApnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (HubApnsCredentialOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o HubApnsCredentialOutput) ToHubApnsCredentialPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubApnsCredential) *HubApnsCredential {
 		return &v
 	}).(HubApnsCredentialPtrOutput)
-}
-
-func (o HubApnsCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[HubApnsCredential] {
-	return pulumix.Output[HubApnsCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
@@ -183,12 +164,6 @@ func (o HubApnsCredentialPtrOutput) ToHubApnsCredentialPtrOutput() HubApnsCreden
 
 func (o HubApnsCredentialPtrOutput) ToHubApnsCredentialPtrOutputWithContext(ctx context.Context) HubApnsCredentialPtrOutput {
 	return o
-}
-
-func (o HubApnsCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HubApnsCredential] {
-	return pulumix.Output[*HubApnsCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubApnsCredentialPtrOutput) Elem() HubApnsCredentialOutput {
@@ -284,12 +259,6 @@ func (i HubGcmCredentialArgs) ToHubGcmCredentialOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HubGcmCredentialOutput)
 }
 
-func (i HubGcmCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[HubGcmCredential] {
-	return pulumix.Output[HubGcmCredential]{
-		OutputState: i.ToHubGcmCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HubGcmCredentialArgs) ToHubGcmCredentialPtrOutput() HubGcmCredentialPtrOutput {
 	return i.ToHubGcmCredentialPtrOutputWithContext(context.Background())
 }
@@ -331,12 +300,6 @@ func (i *hubGcmCredentialPtrType) ToHubGcmCredentialPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(HubGcmCredentialPtrOutput)
 }
 
-func (i *hubGcmCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*HubGcmCredential] {
-	return pulumix.Output[*HubGcmCredential]{
-		OutputState: i.ToHubGcmCredentialPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubGcmCredentialOutput struct{ *pulumi.OutputState }
 
 func (HubGcmCredentialOutput) ElementType() reflect.Type {
@@ -361,12 +324,6 @@ func (o HubGcmCredentialOutput) ToHubGcmCredentialPtrOutputWithContext(ctx conte
 	}).(HubGcmCredentialPtrOutput)
 }
 
-func (o HubGcmCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[HubGcmCredential] {
-	return pulumix.Output[HubGcmCredential]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The API Key associated with the Google Cloud Messaging service.
 func (o HubGcmCredentialOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v HubGcmCredential) string { return v.ApiKey }).(pulumi.StringOutput)
@@ -384,12 +341,6 @@ func (o HubGcmCredentialPtrOutput) ToHubGcmCredentialPtrOutput() HubGcmCredentia
 
 func (o HubGcmCredentialPtrOutput) ToHubGcmCredentialPtrOutputWithContext(ctx context.Context) HubGcmCredentialPtrOutput {
 	return o
-}
-
-func (o HubGcmCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HubGcmCredential] {
-	return pulumix.Output[*HubGcmCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubGcmCredentialPtrOutput) Elem() HubGcmCredentialOutput {
@@ -461,12 +412,6 @@ func (i GetHubApnsCredentialArgs) ToGetHubApnsCredentialOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetHubApnsCredentialOutput)
 }
 
-func (i GetHubApnsCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetHubApnsCredential] {
-	return pulumix.Output[GetHubApnsCredential]{
-		OutputState: i.ToGetHubApnsCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetHubApnsCredentialArrayInput is an input type that accepts GetHubApnsCredentialArray and GetHubApnsCredentialArrayOutput values.
 // You can construct a concrete instance of `GetHubApnsCredentialArrayInput` via:
 //
@@ -492,12 +437,6 @@ func (i GetHubApnsCredentialArray) ToGetHubApnsCredentialArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetHubApnsCredentialArrayOutput)
 }
 
-func (i GetHubApnsCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetHubApnsCredential] {
-	return pulumix.Output[[]GetHubApnsCredential]{
-		OutputState: i.ToGetHubApnsCredentialArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetHubApnsCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetHubApnsCredentialOutput) ElementType() reflect.Type {
@@ -510,12 +449,6 @@ func (o GetHubApnsCredentialOutput) ToGetHubApnsCredentialOutput() GetHubApnsCre
 
 func (o GetHubApnsCredentialOutput) ToGetHubApnsCredentialOutputWithContext(ctx context.Context) GetHubApnsCredentialOutput {
 	return o
-}
-
-func (o GetHubApnsCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetHubApnsCredential] {
-	return pulumix.Output[GetHubApnsCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
@@ -557,12 +490,6 @@ func (o GetHubApnsCredentialArrayOutput) ToGetHubApnsCredentialArrayOutputWithCo
 	return o
 }
 
-func (o GetHubApnsCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetHubApnsCredential] {
-	return pulumix.Output[[]GetHubApnsCredential]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetHubApnsCredentialArrayOutput) Index(i pulumi.IntInput) GetHubApnsCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHubApnsCredential {
 		return vs[0].([]GetHubApnsCredential)[vs[1].(int)]
@@ -602,12 +529,6 @@ func (i GetHubGcmCredentialArgs) ToGetHubGcmCredentialOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetHubGcmCredentialOutput)
 }
 
-func (i GetHubGcmCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetHubGcmCredential] {
-	return pulumix.Output[GetHubGcmCredential]{
-		OutputState: i.ToGetHubGcmCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetHubGcmCredentialArrayInput is an input type that accepts GetHubGcmCredentialArray and GetHubGcmCredentialArrayOutput values.
 // You can construct a concrete instance of `GetHubGcmCredentialArrayInput` via:
 //
@@ -633,12 +554,6 @@ func (i GetHubGcmCredentialArray) ToGetHubGcmCredentialArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetHubGcmCredentialArrayOutput)
 }
 
-func (i GetHubGcmCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetHubGcmCredential] {
-	return pulumix.Output[[]GetHubGcmCredential]{
-		OutputState: i.ToGetHubGcmCredentialArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetHubGcmCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetHubGcmCredentialOutput) ElementType() reflect.Type {
@@ -651,12 +566,6 @@ func (o GetHubGcmCredentialOutput) ToGetHubGcmCredentialOutput() GetHubGcmCreden
 
 func (o GetHubGcmCredentialOutput) ToGetHubGcmCredentialOutputWithContext(ctx context.Context) GetHubGcmCredentialOutput {
 	return o
-}
-
-func (o GetHubGcmCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetHubGcmCredential] {
-	return pulumix.Output[GetHubGcmCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API Key associated with the Google Cloud Messaging service.
@@ -676,12 +585,6 @@ func (o GetHubGcmCredentialArrayOutput) ToGetHubGcmCredentialArrayOutput() GetHu
 
 func (o GetHubGcmCredentialArrayOutput) ToGetHubGcmCredentialArrayOutputWithContext(ctx context.Context) GetHubGcmCredentialArrayOutput {
 	return o
-}
-
-func (o GetHubGcmCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetHubGcmCredential] {
-	return pulumix.Output[[]GetHubGcmCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetHubGcmCredentialArrayOutput) Index(i pulumi.IntInput) GetHubGcmCredentialOutput {
@@ -723,12 +626,6 @@ func (i GetNamespaceSkuArgs) ToGetNamespaceSkuOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNamespaceSkuOutput)
 }
 
-func (i GetNamespaceSkuArgs) ToOutput(ctx context.Context) pulumix.Output[GetNamespaceSku] {
-	return pulumix.Output[GetNamespaceSku]{
-		OutputState: i.ToGetNamespaceSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNamespaceSkuOutput struct{ *pulumi.OutputState }
 
 func (GetNamespaceSkuOutput) ElementType() reflect.Type {
@@ -741,12 +638,6 @@ func (o GetNamespaceSkuOutput) ToGetNamespaceSkuOutput() GetNamespaceSkuOutput {
 
 func (o GetNamespaceSkuOutput) ToGetNamespaceSkuOutputWithContext(ctx context.Context) GetNamespaceSkuOutput {
 	return o
-}
-
-func (o GetNamespaceSkuOutput) ToOutput(ctx context.Context) pulumix.Output[GetNamespaceSku] {
-	return pulumix.Output[GetNamespaceSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Name of the Notification Hub Namespace.

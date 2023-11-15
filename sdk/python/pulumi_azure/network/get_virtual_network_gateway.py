@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualNetworkGatewayResult:
+calass GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
@@ -207,7 +207,7 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "vpn_type")
 
 
-class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
+calass AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

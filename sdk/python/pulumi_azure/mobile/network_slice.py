@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkSliceArgs', 'NetworkSlice']
+__all__ = ['NetworkSliceArrgs', 'NetworkSlice']
 
 @pulumi.input_type
-class NetworkSliceArgs:
+calass NetworkSliceArrgs:
     def __init__(__self__, *,
                  mobile_network_id: pulumi.Input[str],
-                 single_network_slice_selection_assistance_information: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'],
+                 single_network_slice_selection_assistance_information: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class NetworkSliceArgs:
         """
         The set of arguments for constructing a NetworkSlice resource.
         :param pulumi.Input[str] mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
-        :param pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs'] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[str] description: A description for this Mobile Network Slice.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
@@ -56,14 +56,14 @@ class NetworkSliceArgs:
 
     @property
     @pulumi.getter(name="singleNetworkSliceSelectionAssistanceInformation")
-    def single_network_slice_selection_assistance_information(self) -> pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']:
+    def single_network_slice_selection_assistance_information(self) -> pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']:
         """
         A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         """
         return pulumi.get(self, "single_network_slice_selection_assistance_information")
 
     @single_network_slice_selection_assistance_information.setter
-    def single_network_slice_selection_assistance_information(self, value: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']):
+    def single_network_slice_selection_assistance_information(self, value: pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']):
         pulumi.set(self, "single_network_slice_selection_assistance_information", value)
 
     @property
@@ -116,13 +116,13 @@ class NetworkSliceArgs:
 
 
 @pulumi.input_type
-class _NetworkSliceState:
+calass _NetworkSliceState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] = None,
+                 single_network_slice_selection_assistance_information: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkSlice resources.
@@ -130,7 +130,7 @@ class _NetworkSliceState:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
-        :param pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs'] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs'] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Slice.
         """
         if description is not None:
@@ -196,14 +196,14 @@ class _NetworkSliceState:
 
     @property
     @pulumi.getter(name="singleNetworkSliceSelectionAssistanceInformation")
-    def single_network_slice_selection_assistance_information(self) -> Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']]:
+    def single_network_slice_selection_assistance_information(self) -> Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']]:
         """
         A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         """
         return pulumi.get(self, "single_network_slice_selection_assistance_information")
 
     @single_network_slice_selection_assistance_information.setter
-    def single_network_slice_selection_assistance_information(self, value: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']]):
+    def single_network_slice_selection_assistance_information(self, value: Optional[pulumi.Input['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']]):
         pulumi.set(self, "single_network_slice_selection_assistance_information", value)
 
     @property
@@ -219,7 +219,7 @@ class _NetworkSliceState:
         pulumi.set(self, "tags", value)
 
 
-class NetworkSlice(pulumi.CustomResource):
+calass NetworkSlice(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,7 +228,7 @@ class NetworkSlice(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']]] = None,
+                 single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -250,7 +250,7 @@ class NetworkSlice(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ),
             tags={
@@ -272,14 +272,14 @@ class NetworkSlice(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Slice.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkSliceArgs,
+                 args: NetworkSliceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Slice.
@@ -300,7 +300,7 @@ class NetworkSlice(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             description="an example slice",
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ),
             tags={
@@ -317,12 +317,12 @@ class NetworkSlice(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkSliceArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkSliceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkSliceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSliceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -335,7 +335,7 @@ class NetworkSlice(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']]] = None,
+                 single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -344,7 +344,7 @@ class NetworkSlice(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkSliceArgs.__new__(NetworkSliceArgs)
+            __props__ = NetworkSliceArrgs.__new__(NetworkSliceArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location
@@ -370,7 +370,7 @@ class NetworkSlice(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']]] = None,
+            single_network_slice_selection_assistance_information: Optional[pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NetworkSlice':
         """
         Get an existing NetworkSlice resource's state with the given name, id, and optional extra
@@ -383,7 +383,7 @@ class NetworkSlice(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] mobile_network_id: The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs']] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        :param pulumi.Input[pulumi.InputType['NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs']] single_network_slice_selection_assistance_information: A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Slice.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

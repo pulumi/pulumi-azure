@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VMWareReplicationPolicyArgs', 'VMWareReplicationPolicy']
+__all__ = ['VMWareReplicationPolicyArrgs', 'VMWareReplicationPolicy']
 
 @pulumi.input_type
-class VMWareReplicationPolicyArgs:
+calass VMWareReplicationPolicyArrgs:
     def __init__(__self__, *,
                  application_consistent_snapshot_frequency_in_minutes: pulumi.Input[int],
                  recovery_point_retention_in_minutes: pulumi.Input[int],
@@ -81,7 +81,7 @@ class VMWareReplicationPolicyArgs:
 
 
 @pulumi.input_type
-class _VMWareReplicationPolicyState:
+calass _VMWareReplicationPolicyState:
     def __init__(__self__, *,
                  application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _VMWareReplicationPolicyState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
-class VMWareReplicationPolicy(pulumi.CustomResource):
+calass VMWareReplicationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,7 +203,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VMWareReplicationPolicyArgs,
+                 args: VMWareReplicationPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VMWare Replication Policy.
@@ -236,12 +236,12 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VMWareReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param VMWareReplicationPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VMWareReplicationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VMWareReplicationPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -261,7 +261,7 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VMWareReplicationPolicyArgs.__new__(VMWareReplicationPolicyArgs)
+            __props__ = VMWareReplicationPolicyArrgs.__new__(VMWareReplicationPolicyArrgs)
 
             if application_consistent_snapshot_frequency_in_minutes is None and not opts.urn:
                 raise TypeError("Missing required property 'application_consistent_snapshot_frequency_in_minutes'")

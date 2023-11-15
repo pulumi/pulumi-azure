@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ActionRuleSuppressionArgs', 'ActionRuleSuppression']
+__all__ = ['ActionRuleSuppressionArrgs', 'ActionRuleSuppression']
 
 @pulumi.input_type
-class ActionRuleSuppressionArgs:
+calass ActionRuleSuppressionArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 suppression: pulumi.Input['ActionRuleSuppressionSuppressionArgs'],
-                 condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
+                 suppression: pulumi.Input['ActionRuleSuppressionSuppressionArrgs'],
+                 condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
+                 scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ActionRuleSuppression resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleSuppressionSuppressionArgs'] suppression: A `suppression` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionConditionArgs'] condition: A `condition` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionSuppressionArrgs'] suppression: A `suppression` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionConditionArrgs'] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleSuppressionScopeArgs'] scope: A `scope` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionScopeArrgs'] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -64,26 +64,26 @@ class ActionRuleSuppressionArgs:
 
     @property
     @pulumi.getter
-    def suppression(self) -> pulumi.Input['ActionRuleSuppressionSuppressionArgs']:
+    def suppression(self) -> pulumi.Input['ActionRuleSuppressionSuppressionArrgs']:
         """
         A `suppression` block as defined below.
         """
         return pulumi.get(self, "suppression")
 
     @suppression.setter
-    def suppression(self, value: pulumi.Input['ActionRuleSuppressionSuppressionArgs']):
+    def suppression(self, value: pulumi.Input['ActionRuleSuppressionSuppressionArrgs']):
         pulumi.set(self, "suppression", value)
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']]:
         """
         A `condition` block as defined below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -124,14 +124,14 @@ class ActionRuleSuppressionArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']]:
         """
         A `scope` block as defined below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -148,25 +148,25 @@ class ActionRuleSuppressionArgs:
 
 
 @pulumi.input_type
-class _ActionRuleSuppressionState:
+calass _ActionRuleSuppressionState:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
-                 suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
+                 scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']] = None,
+                 suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ActionRuleSuppression resources.
-        :param pulumi.Input['ActionRuleSuppressionConditionArgs'] condition: A `condition` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionConditionArrgs'] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ActionRuleSuppressionScopeArgs'] scope: A `scope` block as defined below.
-        :param pulumi.Input['ActionRuleSuppressionSuppressionArgs'] suppression: A `suppression` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionScopeArrgs'] scope: A `scope` block as defined below.
+        :param pulumi.Input['ActionRuleSuppressionSuppressionArrgs'] suppression: A `suppression` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if condition is not None:
@@ -188,14 +188,14 @@ class _ActionRuleSuppressionState:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']]:
         """
         A `condition` block as defined below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['ActionRuleSuppressionConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -248,26 +248,26 @@ class _ActionRuleSuppressionState:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']]:
         """
         A `scope` block as defined below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['ActionRuleSuppressionScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter
-    def suppression(self) -> Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']]:
+    def suppression(self) -> Optional[pulumi.Input['ActionRuleSuppressionSuppressionArrgs']]:
         """
         A `suppression` block as defined below.
         """
         return pulumi.get(self, "suppression")
 
     @suppression.setter
-    def suppression(self, value: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']]):
+    def suppression(self, value: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArrgs']]):
         pulumi.set(self, "suppression", value)
 
     @property
@@ -283,18 +283,18 @@ class _ActionRuleSuppressionState:
         pulumi.set(self, "tags", value)
 
 
-class ActionRuleSuppression(pulumi.CustomResource):
+calass ActionRuleSuppression(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArgs']]] = None,
-                 suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArrgs']]] = None,
+                 suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -311,13 +311,13 @@ class ActionRuleSuppression(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
             resource_group_name=example_resource_group.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
+            scope=azure.monitoring.ActionRuleSuppressionScopeArrgs(
                 type="ResourceGroup",
                 resource_ids=[example_resource_group.id],
             ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
+            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArrgs(
                 recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
+                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArrgs(
                     start_date_utc="2019-01-01T01:02:03Z",
                     end_date_utc="2019-01-03T15:02:07Z",
                     recurrence_weeklies=[
@@ -343,20 +343,20 @@ class ActionRuleSuppression(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArrgs']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArgs']] scope: A `scope` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArgs']] suppression: A `suppression` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArrgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArrgs']] suppression: A `suppression` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActionRuleSuppressionArgs,
+                 args: ActionRuleSuppressionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Monitor Action Rule which type is suppression.
@@ -372,13 +372,13 @@ class ActionRuleSuppression(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
             resource_group_name=example_resource_group.name,
-            scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
+            scope=azure.monitoring.ActionRuleSuppressionScopeArrgs(
                 type="ResourceGroup",
                 resource_ids=[example_resource_group.id],
             ),
-            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
+            suppression=azure.monitoring.ActionRuleSuppressionSuppressionArrgs(
                 recurrence_type="Weekly",
-                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArgs(
+                schedule=azure.monitoring.ActionRuleSuppressionSuppressionScheduleArrgs(
                     start_date_utc="2019-01-01T01:02:03Z",
                     end_date_utc="2019-01-03T15:02:07Z",
                     recurrence_weeklies=[
@@ -403,12 +403,12 @@ class ActionRuleSuppression(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActionRuleSuppressionArgs args: The arguments to use to populate this resource's properties.
+        :param ActionRuleSuppressionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActionRuleSuppressionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActionRuleSuppressionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -417,13 +417,13 @@ class ActionRuleSuppression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArgs']]] = None,
-                 suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArrgs']]] = None,
+                 suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -432,7 +432,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActionRuleSuppressionArgs.__new__(ActionRuleSuppressionArgs)
+            __props__ = ActionRuleSuppressionArrgs.__new__(ActionRuleSuppressionArrgs)
 
             __props__.__dict__["condition"] = condition
             __props__.__dict__["description"] = description
@@ -456,13 +456,13 @@ class ActionRuleSuppression(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArgs']]] = None,
-            suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArgs']]] = None,
+            scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArrgs']]] = None,
+            suppression: Optional[pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ActionRuleSuppression':
         """
         Get an existing ActionRuleSuppression resource's state with the given name, id, and optional extra
@@ -471,13 +471,13 @@ class ActionRuleSuppression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionConditionArrgs']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArgs']] scope: A `scope` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArgs']] suppression: A `suppression` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionScopeArrgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ActionRuleSuppressionSuppressionArrgs']] suppression: A `suppression` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

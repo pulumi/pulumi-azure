@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SqlServerArgs', 'SqlServer']
+__all__ = ['SqlServerArrgs', 'SqlServer']
 
 @pulumi.input_type
-class SqlServerArgs:
+calass SqlServerArrgs:
     def __init__(__self__, *,
                  administrator_login: pulumi.Input[str],
                  administrator_login_password: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  version: pulumi.Input[str],
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SqlServerIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None):
+                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']] = None):
         """
         The set of arguments for constructing a SqlServer resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -33,11 +33,11 @@ class SqlServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input['SqlServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SqlServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['SqlServerThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -118,14 +118,14 @@ class SqlServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SqlServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SqlServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SqlServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SqlServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -166,30 +166,30 @@ class SqlServerArgs:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
 
 @pulumi.input_type
-class _SqlServerState:
+calass _SqlServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
                  fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['SqlServerIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']] = None,
+                 threat_detection_policy: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SqlServer resources.
@@ -197,12 +197,12 @@ class _SqlServerState:
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input['SqlServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SqlServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['SqlServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['SqlServerThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         if administrator_login is not None:
@@ -278,14 +278,14 @@ class _SqlServerState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SqlServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SqlServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SqlServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SqlServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -338,14 +338,14 @@ class _SqlServerState:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['SqlServerThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
@@ -361,7 +361,7 @@ class _SqlServerState:
         pulumi.set(self, "version", value)
 
 
-class SqlServer(pulumi.CustomResource):
+calass SqlServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -369,12 +369,12 @@ class SqlServer(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -416,19 +416,19 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SqlServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlServerArgs,
+                 args: SqlServerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Azure Database Server.
@@ -465,12 +465,12 @@ class SqlServer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlServerArgs args: The arguments to use to populate this resource's properties.
+        :param SqlServerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlServerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -482,12 +482,12 @@ class SqlServer(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -496,7 +496,7 @@ class SqlServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlServerArgs.__new__(SqlServerArgs)
+            __props__ = SqlServerArrgs.__new__(SqlServerArrgs)
 
             if administrator_login is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login'")
@@ -533,12 +533,12 @@ class SqlServer(pulumi.CustomResource):
             administrator_login_password: Optional[pulumi.Input[str]] = None,
             connection_policy: Optional[pulumi.Input[str]] = None,
             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['SqlServerIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']]] = None,
+            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArrgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'SqlServer':
         """
         Get an existing SqlServer resource's state with the given name, id, and optional extra
@@ -551,12 +551,12 @@ class SqlServer(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input[pulumi.InputType['SqlServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SqlServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['SqlServerThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

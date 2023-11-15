@@ -142,7 +142,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HBaseClusterComponentVersion(dict):
+calass HBaseClusterComponentVersion(dict):
     def __init__(__self__, *,
                  hbase: str):
         """
@@ -160,7 +160,7 @@ class HBaseClusterComponentVersion(dict):
 
 
 @pulumi.output_type
-class HBaseClusterComputeIsolation(dict):
+calass HBaseClusterComputeIsolation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -210,7 +210,7 @@ class HBaseClusterComputeIsolation(dict):
 
 
 @pulumi.output_type
-class HBaseClusterDiskEncryption(dict):
+calass HBaseClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -288,7 +288,7 @@ class HBaseClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
-class HBaseClusterExtension(dict):
+calass HBaseClusterExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -336,7 +336,7 @@ class HBaseClusterExtension(dict):
 
 
 @pulumi.output_type
-class HBaseClusterGateway(dict):
+calass HBaseClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -369,15 +369,15 @@ class HBaseClusterGateway(dict):
 
 
 @pulumi.output_type
-class HBaseClusterMetastores(dict):
+calass HBaseClusterMetastores(dict):
     def __init__(__self__, *,
                  ambari: Optional['outputs.HBaseClusterMetastoresAmbari'] = None,
                  hive: Optional['outputs.HBaseClusterMetastoresHive'] = None,
                  oozie: Optional['outputs.HBaseClusterMetastoresOozie'] = None):
         """
-        :param 'HBaseClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'HBaseClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'HBaseClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
+        :param 'HBaseClusterMetastoresAmbariArrgs' ambari: An `ambari` block as defined below.
+        :param 'HBaseClusterMetastoresHiveArrgs' hive: A `hive` block as defined below.
+        :param 'HBaseClusterMetastoresOozieArrgs' oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -412,7 +412,7 @@ class HBaseClusterMetastores(dict):
 
 
 @pulumi.output_type
-class HBaseClusterMetastoresAmbari(dict):
+calass HBaseClusterMetastoresAmbari(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -480,7 +480,7 @@ class HBaseClusterMetastoresAmbari(dict):
 
 
 @pulumi.output_type
-class HBaseClusterMetastoresHive(dict):
+calass HBaseClusterMetastoresHive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -548,7 +548,7 @@ class HBaseClusterMetastoresHive(dict):
 
 
 @pulumi.output_type
-class HBaseClusterMetastoresOozie(dict):
+calass HBaseClusterMetastoresOozie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -616,7 +616,7 @@ class HBaseClusterMetastoresOozie(dict):
 
 
 @pulumi.output_type
-class HBaseClusterMonitor(dict):
+calass HBaseClusterMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -664,7 +664,7 @@ class HBaseClusterMonitor(dict):
 
 
 @pulumi.output_type
-class HBaseClusterNetwork(dict):
+calass HBaseClusterNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -718,7 +718,7 @@ class HBaseClusterNetwork(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRoles(dict):
+calass HBaseClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -745,9 +745,9 @@ class HBaseClusterRoles(dict):
                  worker_node: 'outputs.HBaseClusterRolesWorkerNode',
                  zookeeper_node: 'outputs.HBaseClusterRolesZookeeperNode'):
         """
-        :param 'HBaseClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'HBaseClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'HBaseClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
+        :param 'HBaseClusterRolesHeadNodeArrgs' head_node: A `head_node` block as defined above.
+        :param 'HBaseClusterRolesWorkerNodeArrgs' worker_node: A `worker_node` block as defined below.
+        :param 'HBaseClusterRolesZookeeperNodeArrgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -779,7 +779,7 @@ class HBaseClusterRoles(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesHeadNode(dict):
+calass HBaseClusterRolesHeadNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -819,7 +819,7 @@ class HBaseClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesHeadNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -901,7 +901,7 @@ class HBaseClusterRolesHeadNode(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesHeadNodeScriptAction(dict):
+calass HBaseClusterRolesHeadNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -942,7 +942,7 @@ class HBaseClusterRolesHeadNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesWorkerNode(dict):
+calass HBaseClusterRolesWorkerNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -987,7 +987,7 @@ class HBaseClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesWorkerNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -1085,7 +1085,7 @@ class HBaseClusterRolesWorkerNode(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesWorkerNodeAutoscale(dict):
+calass HBaseClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         if recurrence is not None:
@@ -1098,7 +1098,7 @@ class HBaseClusterRolesWorkerNodeAutoscale(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
+calass HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
@@ -1117,7 +1117,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
+calass HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1166,7 +1166,7 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesWorkerNodeScriptAction(dict):
+calass HBaseClusterRolesWorkerNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -1207,7 +1207,7 @@ class HBaseClusterRolesWorkerNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesZookeeperNode(dict):
+calass HBaseClusterRolesZookeeperNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1247,7 +1247,7 @@ class HBaseClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesZookeeperNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -1329,7 +1329,7 @@ class HBaseClusterRolesZookeeperNode(dict):
 
 
 @pulumi.output_type
-class HBaseClusterRolesZookeeperNodeScriptAction(dict):
+calass HBaseClusterRolesZookeeperNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -1370,7 +1370,7 @@ class HBaseClusterRolesZookeeperNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HBaseClusterSecurityProfile(dict):
+calass HBaseClusterSecurityProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1484,7 +1484,7 @@ class HBaseClusterSecurityProfile(dict):
 
 
 @pulumi.output_type
-class HBaseClusterStorageAccount(dict):
+calass HBaseClusterStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1567,7 +1567,7 @@ class HBaseClusterStorageAccount(dict):
 
 
 @pulumi.output_type
-class HBaseClusterStorageAccountGen2(dict):
+calass HBaseClusterStorageAccountGen2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1649,7 +1649,7 @@ class HBaseClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class HadoopClusterComponentVersion(dict):
+calass HadoopClusterComponentVersion(dict):
     def __init__(__self__, *,
                  hadoop: str):
         """
@@ -1667,7 +1667,7 @@ class HadoopClusterComponentVersion(dict):
 
 
 @pulumi.output_type
-class HadoopClusterComputeIsolation(dict):
+calass HadoopClusterComputeIsolation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1717,7 +1717,7 @@ class HadoopClusterComputeIsolation(dict):
 
 
 @pulumi.output_type
-class HadoopClusterDiskEncryption(dict):
+calass HadoopClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1795,7 +1795,7 @@ class HadoopClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
-class HadoopClusterExtension(dict):
+calass HadoopClusterExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1843,7 +1843,7 @@ class HadoopClusterExtension(dict):
 
 
 @pulumi.output_type
-class HadoopClusterGateway(dict):
+calass HadoopClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -1876,15 +1876,15 @@ class HadoopClusterGateway(dict):
 
 
 @pulumi.output_type
-class HadoopClusterMetastores(dict):
+calass HadoopClusterMetastores(dict):
     def __init__(__self__, *,
                  ambari: Optional['outputs.HadoopClusterMetastoresAmbari'] = None,
                  hive: Optional['outputs.HadoopClusterMetastoresHive'] = None,
                  oozie: Optional['outputs.HadoopClusterMetastoresOozie'] = None):
         """
-        :param 'HadoopClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'HadoopClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'HadoopClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
+        :param 'HadoopClusterMetastoresAmbariArrgs' ambari: An `ambari` block as defined below.
+        :param 'HadoopClusterMetastoresHiveArrgs' hive: A `hive` block as defined below.
+        :param 'HadoopClusterMetastoresOozieArrgs' oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -1919,7 +1919,7 @@ class HadoopClusterMetastores(dict):
 
 
 @pulumi.output_type
-class HadoopClusterMetastoresAmbari(dict):
+calass HadoopClusterMetastoresAmbari(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1987,7 +1987,7 @@ class HadoopClusterMetastoresAmbari(dict):
 
 
 @pulumi.output_type
-class HadoopClusterMetastoresHive(dict):
+calass HadoopClusterMetastoresHive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2055,7 +2055,7 @@ class HadoopClusterMetastoresHive(dict):
 
 
 @pulumi.output_type
-class HadoopClusterMetastoresOozie(dict):
+calass HadoopClusterMetastoresOozie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2123,7 +2123,7 @@ class HadoopClusterMetastoresOozie(dict):
 
 
 @pulumi.output_type
-class HadoopClusterMonitor(dict):
+calass HadoopClusterMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2171,7 +2171,7 @@ class HadoopClusterMonitor(dict):
 
 
 @pulumi.output_type
-class HadoopClusterNetwork(dict):
+calass HadoopClusterNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2225,7 +2225,7 @@ class HadoopClusterNetwork(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRoles(dict):
+calass HadoopClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2255,10 +2255,10 @@ class HadoopClusterRoles(dict):
                  zookeeper_node: 'outputs.HadoopClusterRolesZookeeperNode',
                  edge_node: Optional['outputs.HadoopClusterRolesEdgeNode'] = None):
         """
-        :param 'HadoopClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'HadoopClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'HadoopClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
-        :param 'HadoopClusterRolesEdgeNodeArgs' edge_node: A `edge_node` block as defined below.
+        :param 'HadoopClusterRolesHeadNodeArrgs' head_node: A `head_node` block as defined above.
+        :param 'HadoopClusterRolesWorkerNodeArrgs' worker_node: A `worker_node` block as defined below.
+        :param 'HadoopClusterRolesZookeeperNodeArrgs' zookeeper_node: A `zookeeper_node` block as defined below.
+        :param 'HadoopClusterRolesEdgeNodeArrgs' edge_node: A `edge_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -2300,7 +2300,7 @@ class HadoopClusterRoles(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesEdgeNode(dict):
+calass HadoopClusterRolesEdgeNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2333,11 +2333,11 @@ class HadoopClusterRolesEdgeNode(dict):
                  https_endpoints: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']] = None,
                  uninstall_script_actions: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction']] = None):
         """
-        :param Sequence['HadoopClusterRolesEdgeNodeInstallScriptActionArgs'] install_script_actions: A `install_script_action` block as defined below.
+        :param Sequence['HadoopClusterRolesEdgeNodeInstallScriptActionArrgs'] install_script_actions: A `install_script_action` block as defined below.
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
-        :param Sequence['HadoopClusterRolesEdgeNodeHttpsEndpointArgs'] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
-        :param Sequence['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs'] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesEdgeNodeHttpsEndpointArrgs'] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        :param Sequence['HadoopClusterRolesEdgeNodeUninstallScriptActionArrgs'] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -2389,7 +2389,7 @@ class HadoopClusterRolesEdgeNode(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
+calass HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2481,7 +2481,7 @@ class HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
+calass HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -2522,7 +2522,7 @@ class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
+calass HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -2563,7 +2563,7 @@ class HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesHeadNode(dict):
+calass HadoopClusterRolesHeadNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2603,7 +2603,7 @@ class HadoopClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesHeadNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2685,7 +2685,7 @@ class HadoopClusterRolesHeadNode(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesHeadNodeScriptAction(dict):
+calass HadoopClusterRolesHeadNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -2726,7 +2726,7 @@ class HadoopClusterRolesHeadNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNode(dict):
+calass HadoopClusterRolesWorkerNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2768,11 +2768,11 @@ class HadoopClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
-        :param 'HadoopClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
+        :param 'HadoopClusterRolesWorkerNodeAutoscaleArrgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesWorkerNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2873,13 +2873,13 @@ class HadoopClusterRolesWorkerNode(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNodeAutoscale(dict):
+calass HadoopClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  capacity: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleCapacity'] = None,
                  recurrence: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         """
-        :param 'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
-        :param 'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+        :param 'HadoopClusterRolesWorkerNodeAutoscaleCapacityArrgs' capacity: A `capacity` block as defined below.
+        :param 'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArrgs' recurrence: A `recurrence` block as defined below.
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
@@ -2908,7 +2908,7 @@ class HadoopClusterRolesWorkerNodeAutoscale(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNodeAutoscaleCapacity(dict):
+calass HadoopClusterRolesWorkerNodeAutoscaleCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2956,12 +2956,12 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacity(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNodeAutoscaleRecurrence(dict):
+calass HadoopClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
         """
-        :param Sequence['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
+        :param Sequence['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -2985,7 +2985,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrence(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
+calass HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3042,7 +3042,7 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesWorkerNodeScriptAction(dict):
+calass HadoopClusterRolesWorkerNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -3083,7 +3083,7 @@ class HadoopClusterRolesWorkerNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesZookeeperNode(dict):
+calass HadoopClusterRolesZookeeperNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3123,7 +3123,7 @@ class HadoopClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesZookeeperNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -3205,7 +3205,7 @@ class HadoopClusterRolesZookeeperNode(dict):
 
 
 @pulumi.output_type
-class HadoopClusterRolesZookeeperNodeScriptAction(dict):
+calass HadoopClusterRolesZookeeperNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -3246,7 +3246,7 @@ class HadoopClusterRolesZookeeperNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class HadoopClusterSecurityProfile(dict):
+calass HadoopClusterSecurityProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3360,7 +3360,7 @@ class HadoopClusterSecurityProfile(dict):
 
 
 @pulumi.output_type
-class HadoopClusterStorageAccount(dict):
+calass HadoopClusterStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3443,7 +3443,7 @@ class HadoopClusterStorageAccount(dict):
 
 
 @pulumi.output_type
-class HadoopClusterStorageAccountGen2(dict):
+calass HadoopClusterStorageAccountGen2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3525,7 +3525,7 @@ class HadoopClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterComponentVersion(dict):
+calass InteractiveQueryClusterComponentVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3560,7 +3560,7 @@ class InteractiveQueryClusterComponentVersion(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterComputeIsolation(dict):
+calass InteractiveQueryClusterComputeIsolation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3610,7 +3610,7 @@ class InteractiveQueryClusterComputeIsolation(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterDiskEncryption(dict):
+calass InteractiveQueryClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3688,7 +3688,7 @@ class InteractiveQueryClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterExtension(dict):
+calass InteractiveQueryClusterExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3736,7 +3736,7 @@ class InteractiveQueryClusterExtension(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterGateway(dict):
+calass InteractiveQueryClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -3769,15 +3769,15 @@ class InteractiveQueryClusterGateway(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterMetastores(dict):
+calass InteractiveQueryClusterMetastores(dict):
     def __init__(__self__, *,
                  ambari: Optional['outputs.InteractiveQueryClusterMetastoresAmbari'] = None,
                  hive: Optional['outputs.InteractiveQueryClusterMetastoresHive'] = None,
                  oozie: Optional['outputs.InteractiveQueryClusterMetastoresOozie'] = None):
         """
-        :param 'InteractiveQueryClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'InteractiveQueryClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'InteractiveQueryClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
+        :param 'InteractiveQueryClusterMetastoresAmbariArrgs' ambari: An `ambari` block as defined below.
+        :param 'InteractiveQueryClusterMetastoresHiveArrgs' hive: A `hive` block as defined below.
+        :param 'InteractiveQueryClusterMetastoresOozieArrgs' oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -3812,7 +3812,7 @@ class InteractiveQueryClusterMetastores(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterMetastoresAmbari(dict):
+calass InteractiveQueryClusterMetastoresAmbari(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3880,7 +3880,7 @@ class InteractiveQueryClusterMetastoresAmbari(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterMetastoresHive(dict):
+calass InteractiveQueryClusterMetastoresHive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3948,7 +3948,7 @@ class InteractiveQueryClusterMetastoresHive(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterMetastoresOozie(dict):
+calass InteractiveQueryClusterMetastoresOozie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4016,7 +4016,7 @@ class InteractiveQueryClusterMetastoresOozie(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterMonitor(dict):
+calass InteractiveQueryClusterMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4064,7 +4064,7 @@ class InteractiveQueryClusterMonitor(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterNetwork(dict):
+calass InteractiveQueryClusterNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4118,7 +4118,7 @@ class InteractiveQueryClusterNetwork(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRoles(dict):
+calass InteractiveQueryClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4145,9 +4145,9 @@ class InteractiveQueryClusterRoles(dict):
                  worker_node: 'outputs.InteractiveQueryClusterRolesWorkerNode',
                  zookeeper_node: 'outputs.InteractiveQueryClusterRolesZookeeperNode'):
         """
-        :param 'InteractiveQueryClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'InteractiveQueryClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'InteractiveQueryClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
+        :param 'InteractiveQueryClusterRolesHeadNodeArrgs' head_node: A `head_node` block as defined above.
+        :param 'InteractiveQueryClusterRolesWorkerNodeArrgs' worker_node: A `worker_node` block as defined below.
+        :param 'InteractiveQueryClusterRolesZookeeperNodeArrgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -4179,7 +4179,7 @@ class InteractiveQueryClusterRoles(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesHeadNode(dict):
+calass InteractiveQueryClusterRolesHeadNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4221,7 +4221,7 @@ class InteractiveQueryClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesHeadNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4305,7 +4305,7 @@ class InteractiveQueryClusterRolesHeadNode(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesHeadNodeScriptAction(dict):
+calass InteractiveQueryClusterRolesHeadNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -4346,7 +4346,7 @@ class InteractiveQueryClusterRolesHeadNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNode(dict):
+calass InteractiveQueryClusterRolesWorkerNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4390,11 +4390,11 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
                
                > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
-        :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
+        :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleArrgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesWorkerNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4497,12 +4497,12 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
+calass InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  capacity: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity'] = None,
                  recurrence: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         """
-        :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+        :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArrgs' recurrence: A `recurrence` block as defined below.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -4527,7 +4527,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4565,12 +4565,12 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(dict):
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
         """
-        :param Sequence['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
+        :param Sequence['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -4594,7 +4594,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
+calass InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4651,7 +4651,7 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesWorkerNodeScriptAction(dict):
+calass InteractiveQueryClusterRolesWorkerNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -4692,7 +4692,7 @@ class InteractiveQueryClusterRolesWorkerNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesZookeeperNode(dict):
+calass InteractiveQueryClusterRolesZookeeperNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4732,7 +4732,7 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesZookeeperNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4814,7 +4814,7 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterRolesZookeeperNodeScriptAction(dict):
+calass InteractiveQueryClusterRolesZookeeperNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -4855,7 +4855,7 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterSecurityProfile(dict):
+calass InteractiveQueryClusterSecurityProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4969,7 +4969,7 @@ class InteractiveQueryClusterSecurityProfile(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterStorageAccount(dict):
+calass InteractiveQueryClusterStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5052,7 +5052,7 @@ class InteractiveQueryClusterStorageAccount(dict):
 
 
 @pulumi.output_type
-class InteractiveQueryClusterStorageAccountGen2(dict):
+calass InteractiveQueryClusterStorageAccountGen2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5134,7 +5134,7 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class KafkaClusterComponentVersion(dict):
+calass KafkaClusterComponentVersion(dict):
     def __init__(__self__, *,
                  kafka: str):
         """
@@ -5152,7 +5152,7 @@ class KafkaClusterComponentVersion(dict):
 
 
 @pulumi.output_type
-class KafkaClusterComputeIsolation(dict):
+calass KafkaClusterComputeIsolation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5202,7 +5202,7 @@ class KafkaClusterComputeIsolation(dict):
 
 
 @pulumi.output_type
-class KafkaClusterDiskEncryption(dict):
+calass KafkaClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5280,7 +5280,7 @@ class KafkaClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
-class KafkaClusterExtension(dict):
+calass KafkaClusterExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5328,7 +5328,7 @@ class KafkaClusterExtension(dict):
 
 
 @pulumi.output_type
-class KafkaClusterGateway(dict):
+calass KafkaClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -5361,15 +5361,15 @@ class KafkaClusterGateway(dict):
 
 
 @pulumi.output_type
-class KafkaClusterMetastores(dict):
+calass KafkaClusterMetastores(dict):
     def __init__(__self__, *,
                  ambari: Optional['outputs.KafkaClusterMetastoresAmbari'] = None,
                  hive: Optional['outputs.KafkaClusterMetastoresHive'] = None,
                  oozie: Optional['outputs.KafkaClusterMetastoresOozie'] = None):
         """
-        :param 'KafkaClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'KafkaClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'KafkaClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
+        :param 'KafkaClusterMetastoresAmbariArrgs' ambari: An `ambari` block as defined below.
+        :param 'KafkaClusterMetastoresHiveArrgs' hive: A `hive` block as defined below.
+        :param 'KafkaClusterMetastoresOozieArrgs' oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -5404,7 +5404,7 @@ class KafkaClusterMetastores(dict):
 
 
 @pulumi.output_type
-class KafkaClusterMetastoresAmbari(dict):
+calass KafkaClusterMetastoresAmbari(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5472,7 +5472,7 @@ class KafkaClusterMetastoresAmbari(dict):
 
 
 @pulumi.output_type
-class KafkaClusterMetastoresHive(dict):
+calass KafkaClusterMetastoresHive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5540,7 +5540,7 @@ class KafkaClusterMetastoresHive(dict):
 
 
 @pulumi.output_type
-class KafkaClusterMetastoresOozie(dict):
+calass KafkaClusterMetastoresOozie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5608,7 +5608,7 @@ class KafkaClusterMetastoresOozie(dict):
 
 
 @pulumi.output_type
-class KafkaClusterMonitor(dict):
+calass KafkaClusterMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5656,7 +5656,7 @@ class KafkaClusterMonitor(dict):
 
 
 @pulumi.output_type
-class KafkaClusterNetwork(dict):
+calass KafkaClusterNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5710,7 +5710,7 @@ class KafkaClusterNetwork(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRestProxy(dict):
+calass KafkaClusterRestProxy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5762,7 +5762,7 @@ class KafkaClusterRestProxy(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRoles(dict):
+calass KafkaClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5792,10 +5792,10 @@ class KafkaClusterRoles(dict):
                  zookeeper_node: 'outputs.KafkaClusterRolesZookeeperNode',
                  kafka_management_node: Optional['outputs.KafkaClusterRolesKafkaManagementNode'] = None):
         """
-        :param 'KafkaClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'KafkaClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'KafkaClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
-        :param 'KafkaClusterRolesKafkaManagementNodeArgs' kafka_management_node: A `kafka_management_node` block as defined below.
+        :param 'KafkaClusterRolesHeadNodeArrgs' head_node: A `head_node` block as defined above.
+        :param 'KafkaClusterRolesWorkerNodeArrgs' worker_node: A `worker_node` block as defined below.
+        :param 'KafkaClusterRolesZookeeperNodeArrgs' zookeeper_node: A `zookeeper_node` block as defined below.
+        :param 'KafkaClusterRolesKafkaManagementNodeArrgs' kafka_management_node: A `kafka_management_node` block as defined below.
                
                > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
@@ -5841,7 +5841,7 @@ class KafkaClusterRoles(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesHeadNode(dict):
+calass KafkaClusterRolesHeadNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5881,7 +5881,7 @@ class KafkaClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesHeadNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -5963,7 +5963,7 @@ class KafkaClusterRolesHeadNode(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesHeadNodeScriptAction(dict):
+calass KafkaClusterRolesHeadNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -6004,7 +6004,7 @@ class KafkaClusterRolesHeadNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesKafkaManagementNode(dict):
+calass KafkaClusterRolesKafkaManagementNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6044,7 +6044,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         :param str password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesKafkaManagementNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesKafkaManagementNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6126,7 +6126,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesKafkaManagementNodeScriptAction(dict):
+calass KafkaClusterRolesKafkaManagementNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -6167,7 +6167,7 @@ class KafkaClusterRolesKafkaManagementNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesWorkerNode(dict):
+calass KafkaClusterRolesWorkerNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6215,7 +6215,7 @@ class KafkaClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesWorkerNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6315,7 +6315,7 @@ class KafkaClusterRolesWorkerNode(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesWorkerNodeScriptAction(dict):
+calass KafkaClusterRolesWorkerNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -6356,7 +6356,7 @@ class KafkaClusterRolesWorkerNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesZookeeperNode(dict):
+calass KafkaClusterRolesZookeeperNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6396,7 +6396,7 @@ class KafkaClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesZookeeperNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6478,7 +6478,7 @@ class KafkaClusterRolesZookeeperNode(dict):
 
 
 @pulumi.output_type
-class KafkaClusterRolesZookeeperNodeScriptAction(dict):
+calass KafkaClusterRolesZookeeperNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -6519,7 +6519,7 @@ class KafkaClusterRolesZookeeperNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class KafkaClusterSecurityProfile(dict):
+calass KafkaClusterSecurityProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6633,7 +6633,7 @@ class KafkaClusterSecurityProfile(dict):
 
 
 @pulumi.output_type
-class KafkaClusterStorageAccount(dict):
+calass KafkaClusterStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6716,7 +6716,7 @@ class KafkaClusterStorageAccount(dict):
 
 
 @pulumi.output_type
-class KafkaClusterStorageAccountGen2(dict):
+calass KafkaClusterStorageAccountGen2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6798,7 +6798,7 @@ class KafkaClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class SparkClusterComponentVersion(dict):
+calass SparkClusterComponentVersion(dict):
     def __init__(__self__, *,
                  spark: str):
         """
@@ -6816,7 +6816,7 @@ class SparkClusterComponentVersion(dict):
 
 
 @pulumi.output_type
-class SparkClusterComputeIsolation(dict):
+calass SparkClusterComputeIsolation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6866,7 +6866,7 @@ class SparkClusterComputeIsolation(dict):
 
 
 @pulumi.output_type
-class SparkClusterDiskEncryption(dict):
+calass SparkClusterDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6944,7 +6944,7 @@ class SparkClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
-class SparkClusterExtension(dict):
+calass SparkClusterExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6992,7 +6992,7 @@ class SparkClusterExtension(dict):
 
 
 @pulumi.output_type
-class SparkClusterGateway(dict):
+calass SparkClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -7025,15 +7025,15 @@ class SparkClusterGateway(dict):
 
 
 @pulumi.output_type
-class SparkClusterMetastores(dict):
+calass SparkClusterMetastores(dict):
     def __init__(__self__, *,
                  ambari: Optional['outputs.SparkClusterMetastoresAmbari'] = None,
                  hive: Optional['outputs.SparkClusterMetastoresHive'] = None,
                  oozie: Optional['outputs.SparkClusterMetastoresOozie'] = None):
         """
-        :param 'SparkClusterMetastoresAmbariArgs' ambari: An `ambari` block as defined below.
-        :param 'SparkClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
-        :param 'SparkClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
+        :param 'SparkClusterMetastoresAmbariArrgs' ambari: An `ambari` block as defined below.
+        :param 'SparkClusterMetastoresHiveArrgs' hive: A `hive` block as defined below.
+        :param 'SparkClusterMetastoresOozieArrgs' oozie: An `oozie` block as defined below.
         """
         if ambari is not None:
             pulumi.set(__self__, "ambari", ambari)
@@ -7068,7 +7068,7 @@ class SparkClusterMetastores(dict):
 
 
 @pulumi.output_type
-class SparkClusterMetastoresAmbari(dict):
+calass SparkClusterMetastoresAmbari(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7136,7 +7136,7 @@ class SparkClusterMetastoresAmbari(dict):
 
 
 @pulumi.output_type
-class SparkClusterMetastoresHive(dict):
+calass SparkClusterMetastoresHive(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7204,7 +7204,7 @@ class SparkClusterMetastoresHive(dict):
 
 
 @pulumi.output_type
-class SparkClusterMetastoresOozie(dict):
+calass SparkClusterMetastoresOozie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7272,7 +7272,7 @@ class SparkClusterMetastoresOozie(dict):
 
 
 @pulumi.output_type
-class SparkClusterMonitor(dict):
+calass SparkClusterMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7320,7 +7320,7 @@ class SparkClusterMonitor(dict):
 
 
 @pulumi.output_type
-class SparkClusterNetwork(dict):
+calass SparkClusterNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7374,7 +7374,7 @@ class SparkClusterNetwork(dict):
 
 
 @pulumi.output_type
-class SparkClusterRoles(dict):
+calass SparkClusterRoles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7401,9 +7401,9 @@ class SparkClusterRoles(dict):
                  worker_node: 'outputs.SparkClusterRolesWorkerNode',
                  zookeeper_node: 'outputs.SparkClusterRolesZookeeperNode'):
         """
-        :param 'SparkClusterRolesHeadNodeArgs' head_node: A `head_node` block as defined above.
-        :param 'SparkClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
-        :param 'SparkClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
+        :param 'SparkClusterRolesHeadNodeArrgs' head_node: A `head_node` block as defined above.
+        :param 'SparkClusterRolesWorkerNodeArrgs' worker_node: A `worker_node` block as defined below.
+        :param 'SparkClusterRolesZookeeperNodeArrgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -7435,7 +7435,7 @@ class SparkClusterRoles(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesHeadNode(dict):
+calass SparkClusterRolesHeadNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7475,7 +7475,7 @@ class SparkClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesHeadNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7557,7 +7557,7 @@ class SparkClusterRolesHeadNode(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesHeadNodeScriptAction(dict):
+calass SparkClusterRolesHeadNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -7598,7 +7598,7 @@ class SparkClusterRolesHeadNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNode(dict):
+calass SparkClusterRolesWorkerNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7640,11 +7640,11 @@ class SparkClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
-        :param 'SparkClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
+        :param 'SparkClusterRolesWorkerNodeAutoscaleArrgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesWorkerNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7745,13 +7745,13 @@ class SparkClusterRolesWorkerNode(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNodeAutoscale(dict):
+calass SparkClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  capacity: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleCapacity'] = None,
                  recurrence: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
         """
-        :param 'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs' capacity: A `capacity` block as defined below.
-        :param 'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+        :param 'SparkClusterRolesWorkerNodeAutoscaleCapacityArrgs' capacity: A `capacity` block as defined below.
+        :param 'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArrgs' recurrence: A `recurrence` block as defined below.
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
@@ -7780,7 +7780,7 @@ class SparkClusterRolesWorkerNodeAutoscale(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNodeAutoscaleCapacity(dict):
+calass SparkClusterRolesWorkerNodeAutoscaleCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7828,12 +7828,12 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacity(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNodeAutoscaleRecurrence(dict):
+calass SparkClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
         """
-        :param Sequence['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
+        :param Sequence['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
         pulumi.set(__self__, "schedules", schedules)
@@ -7857,7 +7857,7 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrence(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
+calass SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7914,7 +7914,7 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesWorkerNodeScriptAction(dict):
+calass SparkClusterRolesWorkerNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -7955,7 +7955,7 @@ class SparkClusterRolesWorkerNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesZookeeperNode(dict):
+calass SparkClusterRolesZookeeperNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7995,7 +7995,7 @@ class SparkClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesZookeeperNodeScriptActionArrgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -8077,7 +8077,7 @@ class SparkClusterRolesZookeeperNode(dict):
 
 
 @pulumi.output_type
-class SparkClusterRolesZookeeperNodeScriptAction(dict):
+calass SparkClusterRolesZookeeperNodeScriptAction(dict):
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -8118,7 +8118,7 @@ class SparkClusterRolesZookeeperNodeScriptAction(dict):
 
 
 @pulumi.output_type
-class SparkClusterSecurityProfile(dict):
+calass SparkClusterSecurityProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8232,7 +8232,7 @@ class SparkClusterSecurityProfile(dict):
 
 
 @pulumi.output_type
-class SparkClusterStorageAccount(dict):
+calass SparkClusterStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8315,7 +8315,7 @@ class SparkClusterStorageAccount(dict):
 
 
 @pulumi.output_type
-class SparkClusterStorageAccountGen2(dict):
+calass SparkClusterStorageAccountGen2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8397,7 +8397,7 @@ class SparkClusterStorageAccountGen2(dict):
 
 
 @pulumi.output_type
-class GetClusterGatewayResult(dict):
+calass GetClusterGatewayResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  password: str,

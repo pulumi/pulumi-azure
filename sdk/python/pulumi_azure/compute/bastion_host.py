@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BastionHostArgs', 'BastionHost']
+__all__ = ['BastionHostArrgs', 'BastionHost']
 
 @pulumi.input_type
-class BastionHostArgs:
+calass BastionHostArrgs:
     def __init__(__self__, *,
-                 ip_configuration: pulumi.Input['BastionHostIpConfigurationArgs'],
+                 ip_configuration: pulumi.Input['BastionHostIpConfigurationArrgs'],
                  resource_group_name: pulumi.Input[str],
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
@@ -30,7 +30,7 @@ class BastionHostArgs:
                  tunneling_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
-        :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['BastionHostIpConfigurationArrgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] copy_paste_enabled: Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
@@ -80,14 +80,14 @@ class BastionHostArgs:
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> pulumi.Input['BastionHostIpConfigurationArgs']:
+    def ip_configuration(self) -> pulumi.Input['BastionHostIpConfigurationArrgs']:
         """
         A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configuration")
 
     @ip_configuration.setter
-    def ip_configuration(self, value: pulumi.Input['BastionHostIpConfigurationArgs']):
+    def ip_configuration(self, value: pulumi.Input['BastionHostIpConfigurationArrgs']):
         pulumi.set(self, "ip_configuration", value)
 
     @property
@@ -236,12 +236,12 @@ class BastionHostArgs:
 
 
 @pulumi.input_type
-class _BastionHostState:
+calass _BastionHostState:
     def __init__(__self__, *,
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
+                 ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArrgs']] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -258,7 +258,7 @@ class _BastionHostState:
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input['BastionHostIpConfigurationArgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['BastionHostIpConfigurationArrgs'] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
@@ -346,14 +346,14 @@ class _BastionHostState:
 
     @property
     @pulumi.getter(name="ipConfiguration")
-    def ip_configuration(self) -> Optional[pulumi.Input['BastionHostIpConfigurationArgs']]:
+    def ip_configuration(self) -> Optional[pulumi.Input['BastionHostIpConfigurationArrgs']]:
         """
         A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_configuration")
 
     @ip_configuration.setter
-    def ip_configuration(self, value: Optional[pulumi.Input['BastionHostIpConfigurationArgs']]):
+    def ip_configuration(self, value: Optional[pulumi.Input['BastionHostIpConfigurationArrgs']]):
         pulumi.set(self, "ip_configuration", value)
 
     @property
@@ -475,14 +475,14 @@ class _BastionHostState:
         pulumi.set(self, "tunneling_enabled", value)
 
 
-class BastionHost(pulumi.CustomResource):
+calass BastionHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArrgs']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -521,7 +521,7 @@ class BastionHost(pulumi.CustomResource):
         example_bastion_host = azure.compute.BastionHost("exampleBastionHost",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
+            ip_configuration=azure.compute.BastionHostIpConfigurationArrgs(
                 name="configuration",
                 subnet_id=example_subnet.id,
                 public_ip_address_id=example_public_ip.id,
@@ -542,7 +542,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArrgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
@@ -567,7 +567,7 @@ class BastionHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BastionHostArgs,
+                 args: BastionHostArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bastion Host.
@@ -597,7 +597,7 @@ class BastionHost(pulumi.CustomResource):
         example_bastion_host = azure.compute.BastionHost("exampleBastionHost",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configuration=azure.compute.BastionHostIpConfigurationArgs(
+            ip_configuration=azure.compute.BastionHostIpConfigurationArrgs(
                 name="configuration",
                 subnet_id=example_subnet.id,
                 public_ip_address_id=example_public_ip.id,
@@ -613,12 +613,12 @@ class BastionHost(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BastionHostArgs args: The arguments to use to populate this resource's properties.
+        :param BastionHostArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BastionHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BastionHostArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -629,7 +629,7 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
                  file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+                 ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArrgs']]] = None,
                  ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -646,7 +646,7 @@ class BastionHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BastionHostArgs.__new__(BastionHostArgs)
+            __props__ = BastionHostArrgs.__new__(BastionHostArrgs)
 
             __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
             __props__.__dict__["file_copy_enabled"] = file_copy_enabled
@@ -678,7 +678,7 @@ class BastionHost(pulumi.CustomResource):
             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
-            ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']]] = None,
+            ip_configuration: Optional[pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArrgs']]] = None,
             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -700,7 +700,7 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] file_copy_enabled: Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
-        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['BastionHostIpConfigurationArrgs']] ip_configuration: A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ip_connect_enabled: Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
                
                > **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.

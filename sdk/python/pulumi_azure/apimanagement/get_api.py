@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetApiResult:
+calass GetApiResult:
     """
     A collection of values returned by getApi.
     """
@@ -200,7 +200,7 @@ class GetApiResult:
         return pulumi.get(self, "version_set_id")
 
 
-class AwaitableGetApiResult(GetApiResult):
+calass AwaitableGetApiResult(GetApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

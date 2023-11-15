@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPolicySetDefinitionResult:
+calass GetPolicySetDefinitionResult:
     """
     A collection of values returned by getPolicySetDefinition.
     """
@@ -143,7 +143,7 @@ class GetPolicySetDefinitionResult:
         return pulumi.get(self, "policy_type")
 
 
-class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
+calass AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

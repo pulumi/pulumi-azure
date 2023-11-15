@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDedicatedHostGroupResult:
+calass GetDedicatedHostGroupResult:
     """
     A collection of values returned by getDedicatedHostGroup.
     """
@@ -106,7 +106,7 @@ class GetDedicatedHostGroupResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
+calass AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

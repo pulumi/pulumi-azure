@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IPGroupCIDRArgs', 'IPGroupCIDR']
+__all__ = ['IPGroupCIDRArrgs', 'IPGroupCIDR']
 
 @pulumi.input_type
-class IPGroupCIDRArgs:
+calass IPGroupCIDRArrgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
                  ip_group_id: pulumi.Input[str]):
@@ -48,7 +48,7 @@ class IPGroupCIDRArgs:
 
 
 @pulumi.input_type
-class _IPGroupCIDRState:
+calass _IPGroupCIDRState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  ip_group_id: Optional[pulumi.Input[str]] = None):
@@ -85,7 +85,7 @@ class _IPGroupCIDRState:
         pulumi.set(self, "ip_group_id", value)
 
 
-class IPGroupCIDR(pulumi.CustomResource):
+calass IPGroupCIDR(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,7 +132,7 @@ class IPGroupCIDR(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IPGroupCIDRArgs,
+                 args: IPGroupCIDRArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages IP Group CIDR records.
@@ -165,12 +165,12 @@ class IPGroupCIDR(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IPGroupCIDRArgs args: The arguments to use to populate this resource's properties.
+        :param IPGroupCIDRArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IPGroupCIDRArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IPGroupCIDRArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -188,7 +188,7 @@ class IPGroupCIDR(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IPGroupCIDRArgs.__new__(IPGroupCIDRArgs)
+            __props__ = IPGroupCIDRArrgs.__new__(IPGroupCIDRArrgs)
 
             if cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr'")

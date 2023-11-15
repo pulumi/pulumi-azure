@@ -67,7 +67,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountAnalyticalStorage(dict):
+calass AccountAnalyticalStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -102,7 +102,7 @@ class AccountAnalyticalStorage(dict):
 
 
 @pulumi.output_type
-class AccountBackup(dict):
+calass AccountBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -177,7 +177,7 @@ class AccountBackup(dict):
 
 
 @pulumi.output_type
-class AccountCapability(dict):
+calass AccountCapability(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -195,7 +195,7 @@ class AccountCapability(dict):
 
 
 @pulumi.output_type
-class AccountCapacity(dict):
+calass AccountCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -230,7 +230,7 @@ class AccountCapacity(dict):
 
 
 @pulumi.output_type
-class AccountConsistencyPolicy(dict):
+calass AccountConsistencyPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -297,7 +297,7 @@ class AccountConsistencyPolicy(dict):
 
 
 @pulumi.output_type
-class AccountCorsRule(dict):
+calass AccountCorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -385,7 +385,7 @@ class AccountCorsRule(dict):
 
 
 @pulumi.output_type
-class AccountGeoLocation(dict):
+calass AccountGeoLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -457,7 +457,7 @@ class AccountGeoLocation(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -532,7 +532,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountRestore(dict):
+calass AccountRestore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -561,7 +561,7 @@ class AccountRestore(dict):
         :param str source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
                
                > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
-        :param Sequence['AccountRestoreDatabaseArgs'] databases: A `database` block as defined below. Changing this forces a new resource to be created.
+        :param Sequence['AccountRestoreDatabaseArrgs'] databases: A `database` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
         pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
@@ -596,7 +596,7 @@ class AccountRestore(dict):
 
 
 @pulumi.output_type
-class AccountRestoreDatabase(dict):
+calass AccountRestoreDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -643,7 +643,7 @@ class AccountRestoreDatabase(dict):
 
 
 @pulumi.output_type
-class AccountVirtualNetworkRule(dict):
+calass AccountVirtualNetworkRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -690,7 +690,7 @@ class AccountVirtualNetworkRule(dict):
 
 
 @pulumi.output_type
-class CassandraClusterIdentity(dict):
+calass CassandraClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -743,7 +743,7 @@ class CassandraClusterIdentity(dict):
 
 
 @pulumi.output_type
-class CassandraKeyspaceAutoscaleSettings(dict):
+calass CassandraKeyspaceAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -779,7 +779,7 @@ class CassandraKeyspaceAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class CassandraTableAutoscaleSettings(dict):
+calass CassandraTableAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -815,7 +815,7 @@ class CassandraTableAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class CassandraTableSchema(dict):
+calass CassandraTableSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -840,9 +840,9 @@ class CassandraTableSchema(dict):
                  partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
                  cluster_keys: Optional[Sequence['outputs.CassandraTableSchemaClusterKey']] = None):
         """
-        :param Sequence['CassandraTableSchemaColumnArgs'] columns: One or more `column` blocks as defined below.
-        :param Sequence['CassandraTableSchemaPartitionKeyArgs'] partition_keys: One or more `partition_key` blocks as defined below.
-        :param Sequence['CassandraTableSchemaClusterKeyArgs'] cluster_keys: One or more `cluster_key` blocks as defined below.
+        :param Sequence['CassandraTableSchemaColumnArrgs'] columns: One or more `column` blocks as defined below.
+        :param Sequence['CassandraTableSchemaPartitionKeyArrgs'] partition_keys: One or more `partition_key` blocks as defined below.
+        :param Sequence['CassandraTableSchemaClusterKeyArrgs'] cluster_keys: One or more `cluster_key` blocks as defined below.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
@@ -875,7 +875,7 @@ class CassandraTableSchema(dict):
 
 
 @pulumi.output_type
-class CassandraTableSchemaClusterKey(dict):
+calass CassandraTableSchemaClusterKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -921,7 +921,7 @@ class CassandraTableSchemaClusterKey(dict):
 
 
 @pulumi.output_type
-class CassandraTableSchemaColumn(dict):
+calass CassandraTableSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -950,7 +950,7 @@ class CassandraTableSchemaColumn(dict):
 
 
 @pulumi.output_type
-class CassandraTableSchemaPartitionKey(dict):
+calass CassandraTableSchemaPartitionKey(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -968,7 +968,7 @@ class CassandraTableSchemaPartitionKey(dict):
 
 
 @pulumi.output_type
-class GremlinDatabaseAutoscaleSettings(dict):
+calass GremlinDatabaseAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1004,7 +1004,7 @@ class GremlinDatabaseAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class GremlinGraphAutoscaleSettings(dict):
+calass GremlinGraphAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1040,7 +1040,7 @@ class GremlinGraphAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class GremlinGraphConflictResolutionPolicy(dict):
+calass GremlinGraphConflictResolutionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1101,7 +1101,7 @@ class GremlinGraphConflictResolutionPolicy(dict):
 
 
 @pulumi.output_type
-class GremlinGraphIndexPolicy(dict):
+calass GremlinGraphIndexPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1137,10 +1137,10 @@ class GremlinGraphIndexPolicy(dict):
         """
         :param str indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param bool automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
-        :param Sequence['GremlinGraphIndexPolicyCompositeIndexArgs'] composite_indices: One or more `composite_index` blocks as defined below.
+        :param Sequence['GremlinGraphIndexPolicyCompositeIndexArrgs'] composite_indices: One or more `composite_index` blocks as defined below.
         :param Sequence[str] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         :param Sequence[str] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        :param Sequence['GremlinGraphIndexPolicySpatialIndexArgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
+        :param Sequence['GremlinGraphIndexPolicySpatialIndexArrgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         pulumi.set(__self__, "indexing_mode", indexing_mode)
         if automatic is not None:
@@ -1204,11 +1204,11 @@ class GremlinGraphIndexPolicy(dict):
 
 
 @pulumi.output_type
-class GremlinGraphIndexPolicyCompositeIndex(dict):
+calass GremlinGraphIndexPolicyCompositeIndex(dict):
     def __init__(__self__, *,
                  indices: Sequence['outputs.GremlinGraphIndexPolicyCompositeIndexIndex']):
         """
-        :param Sequence['GremlinGraphIndexPolicyCompositeIndexIndexArgs'] indices: One or more `index` blocks as defined below.
+        :param Sequence['GremlinGraphIndexPolicyCompositeIndexIndexArrgs'] indices: One or more `index` blocks as defined below.
         """
         pulumi.set(__self__, "indices", indices)
 
@@ -1222,7 +1222,7 @@ class GremlinGraphIndexPolicyCompositeIndex(dict):
 
 
 @pulumi.output_type
-class GremlinGraphIndexPolicyCompositeIndexIndex(dict):
+calass GremlinGraphIndexPolicyCompositeIndexIndex(dict):
     def __init__(__self__, *,
                  order: str,
                  path: str):
@@ -1251,7 +1251,7 @@ class GremlinGraphIndexPolicyCompositeIndexIndex(dict):
 
 
 @pulumi.output_type
-class GremlinGraphIndexPolicySpatialIndex(dict):
+calass GremlinGraphIndexPolicySpatialIndex(dict):
     def __init__(__self__, *,
                  path: str,
                  types: Optional[Sequence[str]] = None):
@@ -1277,7 +1277,7 @@ class GremlinGraphIndexPolicySpatialIndex(dict):
 
 
 @pulumi.output_type
-class GremlinGraphUniqueKey(dict):
+calass GremlinGraphUniqueKey(dict):
     def __init__(__self__, *,
                  paths: Sequence[str]):
         """
@@ -1295,7 +1295,7 @@ class GremlinGraphUniqueKey(dict):
 
 
 @pulumi.output_type
-class MongoCollectionAutoscaleSettings(dict):
+calass MongoCollectionAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1331,7 +1331,7 @@ class MongoCollectionAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class MongoCollectionIndex(dict):
+calass MongoCollectionIndex(dict):
     def __init__(__self__, *,
                  keys: Sequence[str],
                  unique: Optional[bool] = None):
@@ -1365,7 +1365,7 @@ class MongoCollectionIndex(dict):
 
 
 @pulumi.output_type
-class MongoCollectionSystemIndex(dict):
+calass MongoCollectionSystemIndex(dict):
     def __init__(__self__, *,
                  keys: Optional[Sequence[str]] = None,
                  unique: Optional[bool] = None):
@@ -1400,7 +1400,7 @@ class MongoCollectionSystemIndex(dict):
 
 
 @pulumi.output_type
-class MongoDatabaseAutoscaleSettings(dict):
+calass MongoDatabaseAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1436,13 +1436,13 @@ class MongoDatabaseAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class MongoRoleDefinitionPrivilege(dict):
+calass MongoRoleDefinitionPrivilege(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  resource: 'outputs.MongoRoleDefinitionPrivilegeResource'):
         """
         :param Sequence[str] actions: A list of actions that are allowed.
-        :param 'MongoRoleDefinitionPrivilegeResourceArgs' resource: A `resource` block as defined below.
+        :param 'MongoRoleDefinitionPrivilegeResourceArrgs' resource: A `resource` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "resource", resource)
@@ -1465,7 +1465,7 @@ class MongoRoleDefinitionPrivilege(dict):
 
 
 @pulumi.output_type
-class MongoRoleDefinitionPrivilegeResource(dict):
+calass MongoRoleDefinitionPrivilegeResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1515,7 +1515,7 @@ class MongoRoleDefinitionPrivilegeResource(dict):
 
 
 @pulumi.output_type
-class PostgresqlClusterMaintenanceWindow(dict):
+calass PostgresqlClusterMaintenanceWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1579,7 +1579,7 @@ class PostgresqlClusterMaintenanceWindow(dict):
 
 
 @pulumi.output_type
-class SqlContainerAutoscaleSettings(dict):
+calass SqlContainerAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1615,7 +1615,7 @@ class SqlContainerAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class SqlContainerConflictResolutionPolicy(dict):
+calass SqlContainerConflictResolutionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1676,7 +1676,7 @@ class SqlContainerConflictResolutionPolicy(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicy(dict):
+calass SqlContainerIndexingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1709,11 +1709,11 @@ class SqlContainerIndexingPolicy(dict):
                  indexing_mode: Optional[str] = None,
                  spatial_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicySpatialIndex']] = None):
         """
-        :param Sequence['SqlContainerIndexingPolicyCompositeIndexArgs'] composite_indices: One or more `composite_index` blocks as defined below.
-        :param Sequence['SqlContainerIndexingPolicyExcludedPathArgs'] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        :param Sequence['SqlContainerIndexingPolicyIncludedPathArgs'] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param Sequence['SqlContainerIndexingPolicyCompositeIndexArrgs'] composite_indices: One or more `composite_index` blocks as defined below.
+        :param Sequence['SqlContainerIndexingPolicyExcludedPathArrgs'] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param Sequence['SqlContainerIndexingPolicyIncludedPathArrgs'] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param str indexing_mode: Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
-        :param Sequence['SqlContainerIndexingPolicySpatialIndexArgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
+        :param Sequence['SqlContainerIndexingPolicySpatialIndexArrgs'] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         if composite_indices is not None:
             pulumi.set(__self__, "composite_indices", composite_indices)
@@ -1768,11 +1768,11 @@ class SqlContainerIndexingPolicy(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicyCompositeIndex(dict):
+calass SqlContainerIndexingPolicyCompositeIndex(dict):
     def __init__(__self__, *,
                  indices: Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex']):
         """
-        :param Sequence['SqlContainerIndexingPolicyCompositeIndexIndexArgs'] indices: One or more `index` blocks as defined below.
+        :param Sequence['SqlContainerIndexingPolicyCompositeIndexIndexArrgs'] indices: One or more `index` blocks as defined below.
         """
         pulumi.set(__self__, "indices", indices)
 
@@ -1786,7 +1786,7 @@ class SqlContainerIndexingPolicyCompositeIndex(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
+calass SqlContainerIndexingPolicyCompositeIndexIndex(dict):
     def __init__(__self__, *,
                  order: str,
                  path: str):
@@ -1815,7 +1815,7 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicyExcludedPath(dict):
+calass SqlContainerIndexingPolicyExcludedPath(dict):
     def __init__(__self__, *,
                  path: str):
         """
@@ -1833,7 +1833,7 @@ class SqlContainerIndexingPolicyExcludedPath(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicyIncludedPath(dict):
+calass SqlContainerIndexingPolicyIncludedPath(dict):
     def __init__(__self__, *,
                  path: str):
         """
@@ -1851,7 +1851,7 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
 
 
 @pulumi.output_type
-class SqlContainerIndexingPolicySpatialIndex(dict):
+calass SqlContainerIndexingPolicySpatialIndex(dict):
     def __init__(__self__, *,
                  path: str,
                  types: Optional[Sequence[str]] = None):
@@ -1881,7 +1881,7 @@ class SqlContainerIndexingPolicySpatialIndex(dict):
 
 
 @pulumi.output_type
-class SqlContainerUniqueKey(dict):
+calass SqlContainerUniqueKey(dict):
     def __init__(__self__, *,
                  paths: Sequence[str]):
         """
@@ -1899,7 +1899,7 @@ class SqlContainerUniqueKey(dict):
 
 
 @pulumi.output_type
-class SqlDatabaseAutoscaleSettings(dict):
+calass SqlDatabaseAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1935,7 +1935,7 @@ class SqlDatabaseAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class SqlRoleDefinitionPermission(dict):
+calass SqlRoleDefinitionPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1970,7 +1970,7 @@ class SqlRoleDefinitionPermission(dict):
 
 
 @pulumi.output_type
-class TableAutoscaleSettings(dict):
+calass TableAutoscaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2006,7 +2006,7 @@ class TableAutoscaleSettings(dict):
 
 
 @pulumi.output_type
-class GetAccountCapabilityResult(dict):
+calass GetAccountCapabilityResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -2024,7 +2024,7 @@ class GetAccountCapabilityResult(dict):
 
 
 @pulumi.output_type
-class GetAccountConsistencyPolicyResult(dict):
+calass GetAccountConsistencyPolicyResult(dict):
     def __init__(__self__, *,
                  consistency_level: str,
                  max_interval_in_seconds: int,
@@ -2064,7 +2064,7 @@ class GetAccountConsistencyPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetAccountGeoLocationResult(dict):
+calass GetAccountGeoLocationResult(dict):
     def __init__(__self__, *,
                  failover_priority: int,
                  id: str,
@@ -2100,7 +2100,7 @@ class GetAccountGeoLocationResult(dict):
 
 
 @pulumi.output_type
-class GetAccountVirtualNetworkRuleResult(dict):
+calass GetAccountVirtualNetworkRuleResult(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -2118,7 +2118,7 @@ class GetAccountVirtualNetworkRuleResult(dict):
 
 
 @pulumi.output_type
-class GetRestorableDatabaseAccountsAccountResult(dict):
+calass GetRestorableDatabaseAccountsAccountResult(dict):
     def __init__(__self__, *,
                  api_type: str,
                  creation_time: str,
@@ -2130,7 +2130,7 @@ class GetRestorableDatabaseAccountsAccountResult(dict):
         :param str creation_time: The creation time of the regional Cosmos DB Restorable Database Account.
         :param str deletion_time: The deletion time of the regional Cosmos DB Restorable Database Account.
         :param str id: The ID of the Cosmos DB Restorable Database Account.
-        :param Sequence['GetRestorableDatabaseAccountsAccountRestorableLocationArgs'] restorable_locations: One or more `restorable_locations` blocks as defined below.
+        :param Sequence['GetRestorableDatabaseAccountsAccountRestorableLocationArrgs'] restorable_locations: One or more `restorable_locations` blocks as defined below.
         """
         pulumi.set(__self__, "api_type", api_type)
         pulumi.set(__self__, "creation_time", creation_time)
@@ -2180,7 +2180,7 @@ class GetRestorableDatabaseAccountsAccountResult(dict):
 
 
 @pulumi.output_type
-class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
+calass GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
     def __init__(__self__, *,
                  creation_time: str,
                  deletion_time: str,
@@ -2231,7 +2231,7 @@ class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
 
 
 @pulumi.output_type
-class GetSqlDatabaseAutoscaleSettingResult(dict):
+calass GetSqlDatabaseAutoscaleSettingResult(dict):
     def __init__(__self__, *,
                  max_throughput: int):
         """
@@ -2249,7 +2249,7 @@ class GetSqlDatabaseAutoscaleSettingResult(dict):
 
 
 @pulumi.output_type
-class GetSqlRoleDefinitionPermissionResult(dict):
+calass GetSqlRoleDefinitionPermissionResult(dict):
     def __init__(__self__, *,
                  data_actions: Sequence[str]):
         """

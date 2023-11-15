@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerScopeConnectionArgs', 'NetworkManagerScopeConnection']
+__all__ = ['NetworkManagerScopeConnectionArrgs', 'NetworkManagerScopeConnection']
 
 @pulumi.input_type
-class NetworkManagerScopeConnectionArgs:
+calass NetworkManagerScopeConnectionArrgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[str],
                  target_scope_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class NetworkManagerScopeConnectionArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerScopeConnectionState:
+calass _NetworkManagerScopeConnectionState:
     def __init__(__self__, *,
                  connection_state: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -200,7 +200,7 @@ class _NetworkManagerScopeConnectionState:
         pulumi.set(self, "tenant_id", value)
 
 
-class NetworkManagerScopeConnection(pulumi.CustomResource):
+calass NetworkManagerScopeConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +227,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -258,7 +258,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerScopeConnectionArgs,
+                 args: NetworkManagerScopeConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Scope Connection which may cross tenants.
@@ -276,7 +276,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -296,12 +296,12 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerScopeConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerScopeConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerScopeConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerScopeConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -322,7 +322,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerScopeConnectionArgs.__new__(NetworkManagerScopeConnectionArgs)
+            __props__ = NetworkManagerScopeConnectionArrgs.__new__(NetworkManagerScopeConnectionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatasetKustoDatabaseArgs', 'DatasetKustoDatabase']
+__all__ = ['DatasetKustoDatabaseArrgs', 'DatasetKustoDatabase']
 
 @pulumi.input_type
-class DatasetKustoDatabaseArgs:
+calass DatasetKustoDatabaseArrgs:
     def __init__(__self__, *,
                  kusto_database_id: pulumi.Input[str],
                  share_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class DatasetKustoDatabaseArgs:
 
 
 @pulumi.input_type
-class _DatasetKustoDatabaseState:
+calass _DatasetKustoDatabaseState:
     def __init__(__self__, *,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kusto_cluster_location: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _DatasetKustoDatabaseState:
         pulumi.set(self, "share_id", value)
 
 
-class DatasetKustoDatabase(pulumi.CustomResource):
+calass DatasetKustoDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +175,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -184,7 +184,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -220,7 +220,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetKustoDatabaseArgs,
+                 args: DatasetKustoDatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Kusto Database Dataset.
@@ -235,7 +235,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -244,7 +244,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -271,12 +271,12 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetKustoDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetKustoDatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetKustoDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetKustoDatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetKustoDatabaseArgs.__new__(DatasetKustoDatabaseArgs)
+            __props__ = DatasetKustoDatabaseArrgs.__new__(DatasetKustoDatabaseArrgs)
 
             if kusto_database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kusto_database_id'")

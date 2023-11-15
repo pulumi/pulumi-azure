@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKeyVaultResult:
+calass GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
@@ -192,7 +192,7 @@ class GetKeyVaultResult:
         return pulumi.get(self, "vault_uri")
 
 
-class AwaitableGetKeyVaultResult(GetKeyVaultResult):
+calass AwaitableGetKeyVaultResult(GetKeyVaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

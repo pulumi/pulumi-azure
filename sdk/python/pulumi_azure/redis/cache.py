@@ -11,24 +11,24 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CacheArgs', 'Cache']
+__all__ = ['CacheArrgs', 'Cache']
 
 @pulumi.input_type
-class CacheArgs:
+calass CacheArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  family: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
+                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArrgs']] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -46,14 +46,14 @@ class CacheArgs:
                
                > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
-        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['CacheIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input['CacheRedisConfigurationArrgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -170,14 +170,14 @@ class CacheArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -218,14 +218,14 @@ class CacheArgs:
 
     @property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
+    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]]:
         """
         A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 
     @patch_schedules.setter
-    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
+    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]]):
         pulumi.set(self, "patch_schedules", value)
 
     @property
@@ -254,14 +254,14 @@ class CacheArgs:
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
+    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArrgs']]:
         """
         A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArgs']]):
+    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArrgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @property
@@ -366,23 +366,23 @@ class CacheArgs:
 
 
 @pulumi.input_type
-class _CacheState:
+calass _CacheState:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['CacheIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['CacheIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
                  primary_connection_string: Optional[pulumi.Input[str]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
+                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArrgs']] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -402,17 +402,17 @@ class _CacheState:
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
-        :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['CacheIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input['CacheRedisConfigurationArrgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -540,14 +540,14 @@ class _CacheState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['CacheIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['CacheIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['CacheIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['CacheIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -588,14 +588,14 @@ class _CacheState:
 
     @property
     @pulumi.getter(name="patchSchedules")
-    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
+    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]]:
         """
         A list of `patch_schedule` blocks as defined below.
         """
         return pulumi.get(self, "patch_schedules")
 
     @patch_schedules.setter
-    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
+    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArrgs']]]]):
         pulumi.set(self, "patch_schedules", value)
 
     @property
@@ -660,14 +660,14 @@ class _CacheState:
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
+    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArrgs']]:
         """
         A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
     @redis_configuration.setter
-    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArgs']]):
+    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArrgs']]):
         pulumi.set(self, "redis_configuration", value)
 
     @property
@@ -833,7 +833,7 @@ class _CacheState:
         pulumi.set(self, "zones", value)
 
 
-class Cache(pulumi.CustomResource):
+calass Cache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -841,14 +841,14 @@ class Cache(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArrgs']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArrgs']]] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -883,7 +883,7 @@ class Cache(pulumi.CustomResource):
             sku_name="Standard",
             enable_non_ssl_port=False,
             minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+            redis_configuration=azure.redis.CacheRedisConfigurationArrgs())
         ```
         ## Relevant Links
 
@@ -903,14 +903,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
-        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArrgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArrgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -932,7 +932,7 @@ class Cache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CacheArgs,
+                 args: CacheArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Cache.
@@ -957,7 +957,7 @@ class Cache(pulumi.CustomResource):
             sku_name="Standard",
             enable_non_ssl_port=False,
             minimum_tls_version="1.2",
-            redis_configuration=azure.redis.CacheRedisConfigurationArgs())
+            redis_configuration=azure.redis.CacheRedisConfigurationArrgs())
         ```
         ## Relevant Links
 
@@ -973,12 +973,12 @@ class Cache(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CacheArgs args: The arguments to use to populate this resource's properties.
+        :param CacheArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CacheArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CacheArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -990,14 +990,14 @@ class Cache(pulumi.CustomResource):
                  capacity: Optional[pulumi.Input[int]] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  family: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArrgs']]]]] = None,
                  private_static_ip_address: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+                 redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArrgs']]] = None,
                  redis_version: Optional[pulumi.Input[str]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
                  replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -1015,7 +1015,7 @@ class Cache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CacheArgs.__new__(CacheArgs)
+            __props__ = CacheArrgs.__new__(CacheArrgs)
 
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
@@ -1069,17 +1069,17 @@ class Cache(pulumi.CustomResource):
             enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
             family: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['CacheIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]]] = None,
+            patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArrgs']]]]] = None,
             port: Optional[pulumi.Input[int]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_connection_string: Optional[pulumi.Input[str]] = None,
             private_static_ip_address: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-            redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']]] = None,
+            redis_configuration: Optional[pulumi.Input[pulumi.InputType['CacheRedisConfigurationArrgs']]] = None,
             redis_version: Optional[pulumi.Input[str]] = None,
             replicas_per_master: Optional[pulumi.Input[int]] = None,
             replicas_per_primary: Optional[pulumi.Input[int]] = None,
@@ -1104,17 +1104,17 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
-        :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArrgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
         :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArrgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                

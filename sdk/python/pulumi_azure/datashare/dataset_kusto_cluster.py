@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatasetKustoClusterArgs', 'DatasetKustoCluster']
+__all__ = ['DatasetKustoClusterArrgs', 'DatasetKustoCluster']
 
 @pulumi.input_type
-class DatasetKustoClusterArgs:
+calass DatasetKustoClusterArrgs:
     def __init__(__self__, *,
                  kusto_cluster_id: pulumi.Input[str],
                  share_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class DatasetKustoClusterArgs:
 
 
 @pulumi.input_type
-class _DatasetKustoClusterState:
+calass _DatasetKustoClusterState:
     def __init__(__self__, *,
                  display_name: Optional[pulumi.Input[str]] = None,
                  kusto_cluster_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _DatasetKustoClusterState:
         pulumi.set(self, "share_id", value)
 
 
-class DatasetKustoCluster(pulumi.CustomResource):
+calass DatasetKustoCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +175,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -184,7 +184,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -216,7 +216,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetKustoClusterArgs,
+                 args: DatasetKustoClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Share Kusto Cluster Dataset.
@@ -231,7 +231,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_account = azure.datashare.Account("exampleAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
+            identity=azure.datashare.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_share = azure.datashare.Share("exampleShare",
@@ -240,7 +240,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -263,12 +263,12 @@ class DatasetKustoCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetKustoClusterArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetKustoClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetKustoClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetKustoClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -287,7 +287,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetKustoClusterArgs.__new__(DatasetKustoClusterArgs)
+            __props__ = DatasetKustoClusterArrgs.__new__(DatasetKustoClusterArrgs)
 
             if kusto_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kusto_cluster_id'")

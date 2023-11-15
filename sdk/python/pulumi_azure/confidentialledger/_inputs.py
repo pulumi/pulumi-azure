@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LedgerAzureadBasedServicePrincipalArgs',
-    'LedgerCertificateBasedSecurityPrincipalArgs',
+    'LedgerAzureadBasedServicePrincipalArrgs',
+    'LedgerCertificateBasedSecurityPrincipalArrgs',
 ]
 
 @pulumi.input_type
-class LedgerAzureadBasedServicePrincipalArgs:
+calass LedgerAzureadBasedServicePrincipalArrgs:
     def __init__(__self__, *,
                  ledger_role_name: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
@@ -67,7 +67,7 @@ class LedgerAzureadBasedServicePrincipalArgs:
 
 
 @pulumi.input_type
-class LedgerCertificateBasedSecurityPrincipalArgs:
+calass LedgerCertificateBasedSecurityPrincipalArrgs:
     def __init__(__self__, *,
                  ledger_role_name: pulumi.Input[str],
                  pem_public_key: pulumi.Input[str]):

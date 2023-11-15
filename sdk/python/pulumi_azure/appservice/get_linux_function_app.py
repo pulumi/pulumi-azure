@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLinuxFunctionAppResult:
+calass GetLinuxFunctionAppResult:
     """
     A collection of values returned by getLinuxFunctionApp.
     """
@@ -459,7 +459,7 @@ class GetLinuxFunctionAppResult:
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
-class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
+calass AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

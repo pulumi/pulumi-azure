@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProjectArgs', 'Project']
+__all__ = ['ProjectArrgs', 'Project']
 
 @pulumi.input_type
-class ProjectArgs:
+calass ProjectArrgs:
     def __init__(__self__, *,
                  dev_center_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -130,7 +130,7 @@ class ProjectArgs:
 
 
 @pulumi.input_type
-class _ProjectState:
+calass _ProjectState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
@@ -265,7 +265,7 @@ class _ProjectState:
         pulumi.set(self, "tags", value)
 
 
-class Project(pulumi.CustomResource):
+calass Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -293,7 +293,7 @@ class Project(pulumi.CustomResource):
         example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
+            identity=azure.devcenter.DevCenterIdentityArrgs(
                 type="example-value",
             ))
         example_project = azure.devcenter.Project("exampleProject",
@@ -326,7 +326,7 @@ class Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProjectArgs,
+                 args: ProjectArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -343,7 +343,7 @@ class Project(pulumi.CustomResource):
         example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
+            identity=azure.devcenter.DevCenterIdentityArrgs(
                 type="example-value",
             ))
         example_project = azure.devcenter.Project("exampleProject",
@@ -363,12 +363,12 @@ class Project(pulumi.CustomResource):
          * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center Project exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center Project exists. For example `example-resource-group`. * Where `{projectName}` is the name of the Project. For example `projectValue`.
 
         :param str resource_name: The name of the resource.
-        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param ProjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -391,7 +391,7 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProjectArgs.__new__(ProjectArgs)
+            __props__ = ProjectArrgs.__new__(ProjectArrgs)
 
             __props__.__dict__["description"] = description
             if dev_center_id is None and not opts.urn:

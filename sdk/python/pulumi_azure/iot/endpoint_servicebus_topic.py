@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointServicebusTopicArgs', 'EndpointServicebusTopic']
+__all__ = ['EndpointServicebusTopicArrgs', 'EndpointServicebusTopic']
 
 @pulumi.input_type
-class EndpointServicebusTopicArgs:
+calass EndpointServicebusTopicArrgs:
     def __init__(__self__, *,
                  iothub_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -150,7 +150,7 @@ class EndpointServicebusTopicArgs:
 
 
 @pulumi.input_type
-class _EndpointServicebusTopicState:
+calass _EndpointServicebusTopicState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
@@ -289,7 +289,7 @@ class _EndpointServicebusTopicState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class EndpointServicebusTopic(pulumi.CustomResource):
+calass EndpointServicebusTopic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -328,7 +328,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -366,7 +366,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointServicebusTopicArgs,
+                 args: EndpointServicebusTopicArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub ServiceBus Topic Endpoint
@@ -393,7 +393,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -415,12 +415,12 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointServicebusTopicArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointServicebusTopicArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointServicebusTopicArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointServicebusTopicArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -444,7 +444,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointServicebusTopicArgs.__new__(EndpointServicebusTopicArgs)
+            __props__ = EndpointServicebusTopicArrgs.__new__(EndpointServicebusTopicArrgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["connection_string"] = None if connection_string is None else pulumi.Output.secret(connection_string)

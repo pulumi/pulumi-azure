@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GroupPolicyAssignmentIdentity(dict):
+calass GroupPolicyAssignmentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,7 +99,7 @@ class GroupPolicyAssignmentIdentity(dict):
 
 
 @pulumi.output_type
-class GroupPolicyAssignmentNonComplianceMessage(dict):
+calass GroupPolicyAssignmentNonComplianceMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,13 +146,13 @@ class GroupPolicyAssignmentNonComplianceMessage(dict):
 
 
 @pulumi.output_type
-class GroupPolicyAssignmentOverride(dict):
+calass GroupPolicyAssignmentOverride(dict):
     def __init__(__self__, *,
                  value: str,
                  selectors: Optional[Sequence['outputs.GroupPolicyAssignmentOverrideSelector']] = None):
         """
         :param str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param Sequence['GroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` as defined below.
+        :param Sequence['GroupPolicyAssignmentOverrideSelectorArrgs'] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -176,7 +176,7 @@ class GroupPolicyAssignmentOverride(dict):
 
 
 @pulumi.output_type
-class GroupPolicyAssignmentOverrideSelector(dict):
+calass GroupPolicyAssignmentOverrideSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -236,12 +236,12 @@ class GroupPolicyAssignmentOverrideSelector(dict):
 
 
 @pulumi.output_type
-class GroupPolicyAssignmentResourceSelector(dict):
+calass GroupPolicyAssignmentResourceSelector(dict):
     def __init__(__self__, *,
                  selectors: Sequence['outputs.GroupPolicyAssignmentResourceSelectorSelector'],
                  name: Optional[str] = None):
         """
-        :param Sequence['GroupPolicyAssignmentResourceSelectorSelectorArgs'] selectors: One or more `resource_selector` block as defined below.
+        :param Sequence['GroupPolicyAssignmentResourceSelectorSelectorArrgs'] selectors: One or more `resource_selector` block as defined below.
         :param str name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -266,7 +266,7 @@ class GroupPolicyAssignmentResourceSelector(dict):
 
 
 @pulumi.output_type
-class GroupPolicyAssignmentResourceSelectorSelector(dict):
+calass GroupPolicyAssignmentResourceSelectorSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

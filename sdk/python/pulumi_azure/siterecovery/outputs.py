@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ProtectionContainerMappingAutomaticUpdate(dict):
+calass ProtectionContainerMappingAutomaticUpdate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -116,7 +116,7 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMManagedDisk(dict):
+calass ReplicatedVMManagedDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -160,7 +160,7 @@ class ReplicatedVMManagedDisk(dict):
         :param str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param str target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
-        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArrgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param str target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
                
                > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
@@ -235,7 +235,7 @@ class ReplicatedVMManagedDisk(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMManagedDiskTargetDiskEncryption(dict):
+calass ReplicatedVMManagedDiskTargetDiskEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -259,8 +259,8 @@ class ReplicatedVMManagedDiskTargetDiskEncryption(dict):
                  disk_encryption_key: 'outputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey',
                  key_encryption_key: Optional['outputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey'] = None):
         """
-        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
-        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param 'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
         pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
@@ -284,7 +284,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryption(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(dict):
+calass ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -332,7 +332,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey(dict):
+calass ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -380,7 +380,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMNetworkInterface(dict):
+calass ReplicatedVMNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,7 +513,7 @@ class ReplicatedVMNetworkInterface(dict):
 
 
 @pulumi.output_type
-class ReplicatedVMUnmanagedDisk(dict):
+calass ReplicatedVMUnmanagedDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -574,7 +574,7 @@ class ReplicatedVMUnmanagedDisk(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanAzureToAzureSettings(dict):
+calass ReplicationRecoveryPlanAzureToAzureSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,7 +660,7 @@ class ReplicationRecoveryPlanAzureToAzureSettings(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanBootRecoveryGroup(dict):
+calass ReplicationRecoveryPlanBootRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -687,8 +687,8 @@ class ReplicationRecoveryPlanBootRecoveryGroup(dict):
                  pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanBootRecoveryGroupPreAction']] = None,
                  replicated_protected_items: Optional[Sequence[str]] = None):
         """
-        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param Sequence[str] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         if post_actions is not None:
@@ -724,7 +724,7 @@ class ReplicationRecoveryPlanBootRecoveryGroup(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanBootRecoveryGroupPostAction(dict):
+calass ReplicationRecoveryPlanBootRecoveryGroupPostAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -866,7 +866,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanBootRecoveryGroupPreAction(dict):
+calass ReplicationRecoveryPlanBootRecoveryGroupPreAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1008,7 +1008,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanFailoverRecoveryGroup(dict):
+calass ReplicationRecoveryPlanFailoverRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1032,8 +1032,8 @@ class ReplicationRecoveryPlanFailoverRecoveryGroup(dict):
                  post_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPostAction']] = None,
                  pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanFailoverRecoveryGroupPreAction']] = None):
         """
-        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -1058,7 +1058,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroup(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanFailoverRecoveryGroupPostAction(dict):
+calass ReplicationRecoveryPlanFailoverRecoveryGroupPostAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1200,7 +1200,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanFailoverRecoveryGroupPreAction(dict):
+calass ReplicationRecoveryPlanFailoverRecoveryGroupPreAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1342,7 +1342,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanRecoveryGroup(dict):
+calass ReplicationRecoveryPlanRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1371,8 +1371,8 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
                  replicated_protected_items: Optional[Sequence[str]] = None):
         """
         :param str type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPostActionArrgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanRecoveryGroupPreActionArrgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param Sequence[str] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         pulumi.set(__self__, "type", type)
@@ -1417,7 +1417,7 @@ class ReplicationRecoveryPlanRecoveryGroup(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
+calass ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1559,7 +1559,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
+calass ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1701,7 +1701,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanShutdownRecoveryGroup(dict):
+calass ReplicationRecoveryPlanShutdownRecoveryGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1725,8 +1725,8 @@ class ReplicationRecoveryPlanShutdownRecoveryGroup(dict):
                  post_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPostAction']] = None,
                  pre_actions: Optional[Sequence['outputs.ReplicationRecoveryPlanShutdownRecoveryGroupPreAction']] = None):
         """
-        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs'] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param Sequence['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs'] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -1751,7 +1751,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroup(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction(dict):
+calass ReplicationRecoveryPlanShutdownRecoveryGroupPostAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1893,7 +1893,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction(dict):
 
 
 @pulumi.output_type
-class ReplicationRecoveryPlanShutdownRecoveryGroupPreAction(dict):
+calass ReplicationRecoveryPlanShutdownRecoveryGroupPreAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2035,7 +2035,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreAction(dict):
 
 
 @pulumi.output_type
-class GetReplicationRecoveryPlanAzureToAzureSettingResult(dict):
+calass GetReplicationRecoveryPlanAzureToAzureSettingResult(dict):
     def __init__(__self__, *,
                  primary_edge_zone: str,
                  primary_zone: str,
@@ -2068,15 +2068,15 @@ class GetReplicationRecoveryPlanAzureToAzureSettingResult(dict):
 
 
 @pulumi.output_type
-class GetReplicationRecoveryPlanRecoveryGroupResult(dict):
+calass GetReplicationRecoveryPlanRecoveryGroupResult(dict):
     def __init__(__self__, *,
                  post_actions: Sequence[Sequence['outputs.GetReplicationRecoveryPlanRecoveryGroupPostActionResult']],
                  pre_actions: Sequence[Sequence['outputs.GetReplicationRecoveryPlanRecoveryGroupPreActionResult']],
                  replicated_protected_items: Sequence[str],
                  type: str):
         """
-        :param Sequence[Sequence['GetReplicationRecoveryPlanRecoveryGroupPostActionArgs']] post_actions: one or more `action` block. which will be executed after the group recovery.
-        :param Sequence[Sequence['GetReplicationRecoveryPlanRecoveryGroupPreActionArgs']] pre_actions: one or more `action` block. which will be executed before the group recovery.
+        :param Sequence[Sequence['GetReplicationRecoveryPlanRecoveryGroupPostActionArrgs']] post_actions: one or more `action` block. which will be executed after the group recovery.
+        :param Sequence[Sequence['GetReplicationRecoveryPlanRecoveryGroupPreActionArrgs']] pre_actions: one or more `action` block. which will be executed before the group recovery.
         :param Sequence[str] replicated_protected_items: one or more id of protected VM.
         :param str type: Type of the action detail.
         """
@@ -2119,7 +2119,7 @@ class GetReplicationRecoveryPlanRecoveryGroupResult(dict):
 
 
 @pulumi.output_type
-class GetReplicationRecoveryPlanRecoveryGroupPostActionResult(dict):
+calass GetReplicationRecoveryPlanRecoveryGroupPostActionResult(dict):
     def __init__(__self__, *,
                  fabric_location: str,
                  fail_over_directions: Sequence[str],
@@ -2214,7 +2214,7 @@ class GetReplicationRecoveryPlanRecoveryGroupPostActionResult(dict):
 
 
 @pulumi.output_type
-class GetReplicationRecoveryPlanRecoveryGroupPreActionResult(dict):
+calass GetReplicationRecoveryPlanRecoveryGroupPreActionResult(dict):
     def __init__(__self__, *,
                  fabric_location: str,
                  fail_over_directions: Sequence[str],

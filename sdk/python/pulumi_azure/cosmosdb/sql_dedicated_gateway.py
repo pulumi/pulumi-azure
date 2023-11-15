@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlDedicatedGatewayArgs', 'SqlDedicatedGateway']
+__all__ = ['SqlDedicatedGatewayArrgs', 'SqlDedicatedGateway']
 
 @pulumi.input_type
-class SqlDedicatedGatewayArgs:
+calass SqlDedicatedGatewayArrgs:
     def __init__(__self__, *,
                  cosmosdb_account_id: pulumi.Input[str],
                  instance_count: pulumi.Input[int],
@@ -65,7 +65,7 @@ class SqlDedicatedGatewayArgs:
 
 
 @pulumi.input_type
-class _SqlDedicatedGatewayState:
+calass _SqlDedicatedGatewayState:
     def __init__(__self__, *,
                  cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -120,7 +120,7 @@ class _SqlDedicatedGatewayState:
         pulumi.set(self, "instance_size", value)
 
 
-class SqlDedicatedGateway(pulumi.CustomResource):
+calass SqlDedicatedGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,10 +144,10 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -175,7 +175,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlDedicatedGatewayArgs,
+                 args: SqlDedicatedGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Dedicated Gateway within a Cosmos DB Account.
@@ -192,10 +192,10 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -214,12 +214,12 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlDedicatedGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param SqlDedicatedGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlDedicatedGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlDedicatedGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -238,7 +238,7 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlDedicatedGatewayArgs.__new__(SqlDedicatedGatewayArgs)
+            __props__ = SqlDedicatedGatewayArrgs.__new__(SqlDedicatedGatewayArrgs)
 
             if cosmosdb_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmosdb_account_id'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourceGuardArgs', 'ResourceGuard']
+__all__ = ['ResourceGuardArrgs', 'ResourceGuard']
 
 @pulumi.input_type
-class ResourceGuardArgs:
+calass ResourceGuardArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class ResourceGuardArgs:
 
 
 @pulumi.input_type
-class _ResourceGuardState:
+calass _ResourceGuardState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _ResourceGuardState:
         pulumi.set(self, "vault_critical_operation_exclusion_lists", value)
 
 
-class ResourceGuard(pulumi.CustomResource):
+calass ResourceGuard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -232,7 +232,7 @@ class ResourceGuard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceGuardArgs,
+                 args: ResourceGuardArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Guard.
@@ -258,12 +258,12 @@ class ResourceGuard(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceGuardArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceGuardArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceGuardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGuardArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -284,7 +284,7 @@ class ResourceGuard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceGuardArgs.__new__(ResourceGuardArgs)
+            __props__ = ResourceGuardArrgs.__new__(ResourceGuardArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceArgs', 'LinkedService']
+__all__ = ['LinkedServiceArrgs', 'LinkedService']
 
 @pulumi.input_type
-class LinkedServiceArgs:
+calass LinkedServiceArrgs:
     def __init__(__self__, *,
                  synapse_workspace_id: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -22,7 +22,7 @@ class LinkedServiceArgs:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
+                 integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -41,7 +41,7 @@ class LinkedServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input['LinkedServiceIntegrationRuntimeArgs'] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input['LinkedServiceIntegrationRuntimeArrgs'] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         """
@@ -143,14 +143,14 @@ class LinkedServiceArgs:
 
     @property
     @pulumi.getter(name="integrationRuntime")
-    def integration_runtime(self) -> Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']]:
+    def integration_runtime(self) -> Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']]:
         """
         A `integration_runtime` block as defined below.
         """
         return pulumi.get(self, "integration_runtime")
 
     @integration_runtime.setter
-    def integration_runtime(self, value: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']]):
+    def integration_runtime(self, value: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']]):
         pulumi.set(self, "integration_runtime", value)
 
     @property
@@ -179,12 +179,12 @@ class LinkedServiceArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceState:
+calass _LinkedServiceState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
+                 integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -195,7 +195,7 @@ class _LinkedServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input['LinkedServiceIntegrationRuntimeArgs'] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input['LinkedServiceIntegrationRuntimeArrgs'] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
@@ -267,14 +267,14 @@ class _LinkedServiceState:
 
     @property
     @pulumi.getter(name="integrationRuntime")
-    def integration_runtime(self) -> Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']]:
+    def integration_runtime(self) -> Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']]:
         """
         A `integration_runtime` block as defined below.
         """
         return pulumi.get(self, "integration_runtime")
 
     @integration_runtime.setter
-    def integration_runtime(self, value: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']]):
+    def integration_runtime(self, value: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArrgs']]):
         pulumi.set(self, "integration_runtime", value)
 
     @property
@@ -346,7 +346,7 @@ class _LinkedServiceState:
         pulumi.set(self, "type_properties_json", value)
 
 
-class LinkedService(pulumi.CustomResource):
+calass LinkedService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -354,7 +354,7 @@ class LinkedService(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArgs']]] = None,
+                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -385,7 +385,7 @@ class LinkedService(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -402,7 +402,7 @@ class LinkedService(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"),
-            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
+            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArrgs(
                 name=example_integration_runtime_azure.name,
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
@@ -421,7 +421,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArgs']] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArrgs']] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
@@ -440,7 +440,7 @@ class LinkedService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceArgs,
+                 args: LinkedServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Linked Service.
@@ -466,7 +466,7 @@ class LinkedService(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -483,7 +483,7 @@ class LinkedService(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"),
-            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
+            integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArrgs(
                 name=example_integration_runtime_azure.name,
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
@@ -498,12 +498,12 @@ class LinkedService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -515,7 +515,7 @@ class LinkedService(pulumi.CustomResource):
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArgs']]] = None,
+                 integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -528,7 +528,7 @@ class LinkedService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceArgs.__new__(LinkedServiceArgs)
+            __props__ = LinkedServiceArrgs.__new__(LinkedServiceArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -558,7 +558,7 @@ class LinkedService(pulumi.CustomResource):
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArgs']]] = None,
+            integration_runtime: Optional[pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -574,7 +574,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArgs']] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceIntegrationRuntimeArrgs']] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.

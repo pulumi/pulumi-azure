@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReferenceInputMssqlArgs', 'ReferenceInputMssql']
+__all__ = ['ReferenceInputMssqlArrgs', 'ReferenceInputMssql']
 
 @pulumi.input_type
-class ReferenceInputMssqlArgs:
+calass ReferenceInputMssqlArrgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  full_snapshot_query: pulumi.Input[str],
@@ -204,7 +204,7 @@ class ReferenceInputMssqlArgs:
 
 
 @pulumi.input_type
-class _ReferenceInputMssqlState:
+calass _ReferenceInputMssqlState:
     def __init__(__self__, *,
                  database: Optional[pulumi.Input[str]] = None,
                  delta_snapshot_query: Optional[pulumi.Input[str]] = None,
@@ -403,7 +403,7 @@ class _ReferenceInputMssqlState:
         pulumi.set(self, "username", value)
 
 
-class ReferenceInputMssql(pulumi.CustomResource):
+calass ReferenceInputMssql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -482,7 +482,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReferenceInputMssqlArgs,
+                 args: ReferenceInputMssqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Reference Input from MS SQL. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-sql-database).
@@ -527,12 +527,12 @@ class ReferenceInputMssql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReferenceInputMssqlArgs args: The arguments to use to populate this resource's properties.
+        :param ReferenceInputMssqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReferenceInputMssqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReferenceInputMssqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -560,7 +560,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReferenceInputMssqlArgs.__new__(ReferenceInputMssqlArgs)
+            __props__ = ReferenceInputMssqlArrgs.__new__(ReferenceInputMssqlArrgs)
 
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")

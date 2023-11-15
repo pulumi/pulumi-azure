@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ComputeClusterIdentity(dict):
+calass ComputeClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -104,7 +104,7 @@ class ComputeClusterIdentity(dict):
 
 
 @pulumi.output_type
-class ComputeClusterScaleSettings(dict):
+calass ComputeClusterScaleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -165,7 +165,7 @@ class ComputeClusterScaleSettings(dict):
 
 
 @pulumi.output_type
-class ComputeClusterSsh(dict):
+calass ComputeClusterSsh(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -232,7 +232,7 @@ class ComputeClusterSsh(dict):
 
 
 @pulumi.output_type
-class ComputeInstanceAssignToUser(dict):
+calass ComputeInstanceAssignToUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -282,7 +282,7 @@ class ComputeInstanceAssignToUser(dict):
 
 
 @pulumi.output_type
-class ComputeInstanceIdentity(dict):
+calass ComputeInstanceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -361,7 +361,7 @@ class ComputeInstanceIdentity(dict):
 
 
 @pulumi.output_type
-class ComputeInstanceSsh(dict):
+calass ComputeInstanceSsh(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -420,7 +420,7 @@ class ComputeInstanceSsh(dict):
 
 
 @pulumi.output_type
-class InferenceClusterIdentity(dict):
+calass InferenceClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -499,7 +499,7 @@ class InferenceClusterIdentity(dict):
 
 
 @pulumi.output_type
-class InferenceClusterSsl(dict):
+calass InferenceClusterSsl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -585,7 +585,7 @@ class InferenceClusterSsl(dict):
 
 
 @pulumi.output_type
-class SynapseSparkIdentity(dict):
+calass SynapseSparkIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -664,7 +664,7 @@ class SynapseSparkIdentity(dict):
 
 
 @pulumi.output_type
-class WorkspaceEncryption(dict):
+calass WorkspaceEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -730,7 +730,7 @@ class WorkspaceEncryption(dict):
 
 
 @pulumi.output_type
-class WorkspaceIdentity(dict):
+calass WorkspaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -809,7 +809,7 @@ class WorkspaceIdentity(dict):
 
 
 @pulumi.output_type
-class GetWorkspaceIdentityResult(dict):
+calass GetWorkspaceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublicIpPrefixResult:
+calass GetPublicIpPrefixResult:
     """
     A collection of values returned by getPublicIpPrefix.
     """
@@ -120,7 +120,7 @@ class GetPublicIpPrefixResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
+calass AwaitableGetPublicIpPrefixResult(GetPublicIpPrefixResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

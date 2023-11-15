@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkPacketCoreDataPlaneArgs', 'NetworkPacketCoreDataPlane']
+__all__ = ['NetworkPacketCoreDataPlaneArrgs', 'NetworkPacketCoreDataPlane']
 
 @pulumi.input_type
-class NetworkPacketCoreDataPlaneArgs:
+calass NetworkPacketCoreDataPlaneArrgs:
     def __init__(__self__, *,
                  mobile_network_packet_core_control_plane_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class NetworkPacketCoreDataPlaneArgs:
 
 
 @pulumi.input_type
-class _NetworkPacketCoreDataPlaneState:
+calass _NetworkPacketCoreDataPlaneState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_control_plane_id: Optional[pulumi.Input[str]] = None,
@@ -282,7 +282,7 @@ class _NetworkPacketCoreDataPlaneState:
         pulumi.set(self, "user_plane_access_name", value)
 
 
-class NetworkPacketCoreDataPlane(pulumi.CustomResource):
+calass NetworkPacketCoreDataPlane(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -322,7 +322,7 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkPacketCoreDataPlaneArgs,
+                 args: NetworkPacketCoreDataPlaneArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Packet Core Data Plane.
@@ -336,12 +336,12 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkPacketCoreDataPlaneArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkPacketCoreDataPlaneArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkPacketCoreDataPlaneArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkPacketCoreDataPlaneArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class NetworkPacketCoreDataPlane(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkPacketCoreDataPlaneArgs.__new__(NetworkPacketCoreDataPlaneArgs)
+            __props__ = NetworkPacketCoreDataPlaneArrgs.__new__(NetworkPacketCoreDataPlaneArrgs)
 
             __props__.__dict__["location"] = location
             if mobile_network_packet_core_control_plane_id is None and not opts.urn:

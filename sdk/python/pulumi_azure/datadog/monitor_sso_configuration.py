@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MonitorSsoConfigurationArgs', 'MonitorSsoConfiguration']
+__all__ = ['MonitorSsoConfigurationArrgs', 'MonitorSsoConfiguration']
 
 @pulumi.input_type
-class MonitorSsoConfigurationArgs:
+calass MonitorSsoConfigurationArrgs:
     def __init__(__self__, *,
                  datadog_monitor_id: pulumi.Input[str],
                  enterprise_application_id: pulumi.Input[str],
@@ -81,7 +81,7 @@ class MonitorSsoConfigurationArgs:
 
 
 @pulumi.input_type
-class _MonitorSsoConfigurationState:
+calass _MonitorSsoConfigurationState:
     def __init__(__self__, *,
                  datadog_monitor_id: Optional[pulumi.Input[str]] = None,
                  enterprise_application_id: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class _MonitorSsoConfigurationState:
         pulumi.set(self, "single_sign_on_enabled", value)
 
 
-class MonitorSsoConfiguration(pulumi.CustomResource):
+calass MonitorSsoConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,16 +191,16 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         example_monitor = azure.datadog.Monitor("exampleMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
+            datadog_organization=azure.datadog.MonitorDatadogOrganizationArrgs(
                 api_key="XXXX",
                 application_key="XXXX",
             ),
-            user=azure.datadog.MonitorUserArgs(
+            user=azure.datadog.MonitorUserArrgs(
                 name="Example",
                 email="abc@xyz.com",
             ),
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
+            identity=azure.datadog.MonitorIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
@@ -228,7 +228,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MonitorSsoConfigurationArgs,
+                 args: MonitorSsoConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages SingleSignOn on the datadog Monitor.
@@ -243,16 +243,16 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         example_monitor = azure.datadog.Monitor("exampleMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
+            datadog_organization=azure.datadog.MonitorDatadogOrganizationArrgs(
                 api_key="XXXX",
                 application_key="XXXX",
             ),
-            user=azure.datadog.MonitorUserArgs(
+            user=azure.datadog.MonitorUserArrgs(
                 name="Example",
                 email="abc@xyz.com",
             ),
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
+            identity=azure.datadog.MonitorIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration",
@@ -270,12 +270,12 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MonitorSsoConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param MonitorSsoConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MonitorSsoConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MonitorSsoConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MonitorSsoConfigurationArgs.__new__(MonitorSsoConfigurationArgs)
+            __props__ = MonitorSsoConfigurationArrgs.__new__(MonitorSsoConfigurationArrgs)
 
             if datadog_monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'datadog_monitor_id'")

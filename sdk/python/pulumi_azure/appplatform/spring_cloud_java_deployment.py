@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudJavaDeploymentArgs', 'SpringCloudJavaDeployment']
+__all__ = ['SpringCloudJavaDeploymentArrgs', 'SpringCloudJavaDeployment']
 
 @pulumi.input_type
-class SpringCloudJavaDeploymentArgs:
+calass SpringCloudJavaDeploymentArrgs:
     def __init__(__self__, *,
                  spring_cloud_app_id: pulumi.Input[str],
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
+                 quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudJavaDeployment resource.
@@ -30,7 +30,7 @@ class SpringCloudJavaDeploymentArgs:
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudJavaDeploymentQuotaArgs'] quota: A `quota` block as defined below.
+        :param pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         """
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
@@ -109,14 +109,14 @@ class SpringCloudJavaDeploymentArgs:
 
     @property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']]:
+    def quota(self) -> Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']]):
+    def quota(self, value: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']]):
         pulumi.set(self, "quota", value)
 
     @property
@@ -133,13 +133,13 @@ class SpringCloudJavaDeploymentArgs:
 
 
 @pulumi.input_type
-class _SpringCloudJavaDeploymentState:
+calass _SpringCloudJavaDeploymentState:
     def __init__(__self__, *,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
+                 quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
@@ -148,7 +148,7 @@ class _SpringCloudJavaDeploymentState:
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudJavaDeploymentQuotaArgs'] quota: A `quota` block as defined below.
+        :param pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
@@ -217,14 +217,14 @@ class _SpringCloudJavaDeploymentState:
 
     @property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']]:
+    def quota(self) -> Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']]):
+    def quota(self, value: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArrgs']]):
         pulumi.set(self, "quota", value)
 
     @property
@@ -252,7 +252,7 @@ class _SpringCloudJavaDeploymentState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
-class SpringCloudJavaDeployment(pulumi.CustomResource):
+calass SpringCloudJavaDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,7 +261,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArrgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -283,14 +283,14 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ),
@@ -315,7 +315,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArrgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """
@@ -323,7 +323,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudJavaDeploymentArgs,
+                 args: SpringCloudJavaDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Deployment with a Java runtime.
@@ -343,14 +343,14 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ),
@@ -370,12 +370,12 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudJavaDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudJavaDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudJavaDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudJavaDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -388,7 +388,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                  instance_count: Optional[pulumi.Input[int]] = None,
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArrgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -398,7 +398,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudJavaDeploymentArgs.__new__(SpringCloudJavaDeploymentArgs)
+            __props__ = SpringCloudJavaDeploymentArrgs.__new__(SpringCloudJavaDeploymentArrgs)
 
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["instance_count"] = instance_count
@@ -423,7 +423,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
             instance_count: Optional[pulumi.Input[int]] = None,
             jvm_options: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']]] = None,
+            quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArrgs']]] = None,
             runtime_version: Optional[pulumi.Input[str]] = None,
             spring_cloud_app_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudJavaDeployment':
         """
@@ -437,7 +437,7 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] jvm_options: Specifies the jvm option of the Spring Cloud Deployment.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudJavaDeploymentQuotaArrgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] runtime_version: Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
         """

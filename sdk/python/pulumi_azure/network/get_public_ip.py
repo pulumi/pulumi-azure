@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublicIPResult:
+calass GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
@@ -205,7 +205,7 @@ class GetPublicIPResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetPublicIPResult(GetPublicIPResult):
+calass AwaitableGetPublicIPResult(GetPublicIPResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -274,7 +274,7 @@ def get_public_ip(name: Optional[str] = None,
     example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
             name="testconfiguration1",
             subnet_id=example_subnet.id,
             private_ip_address_allocation="Static",
@@ -366,7 +366,7 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
     example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+        ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
             name="testconfiguration1",
             subnet_id=example_subnet.id,
             private_ip_address_allocation="Static",

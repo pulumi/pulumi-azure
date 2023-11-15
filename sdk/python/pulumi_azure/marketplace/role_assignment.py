@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RoleAssignmentArgs', 'RoleAssignment']
+__all__ = ['RoleAssignmentArrgs', 'RoleAssignment']
 
 @pulumi.input_type
-class RoleAssignmentArgs:
+calass RoleAssignmentArrgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class RoleAssignmentArgs:
 
 
 @pulumi.input_type
-class _RoleAssignmentState:
+calass _RoleAssignmentState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
@@ -254,7 +254,7 @@ class _RoleAssignmentState:
         pulumi.set(self, "skip_service_principal_aad_check", value)
 
 
-class RoleAssignment(pulumi.CustomResource):
+calass RoleAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -278,17 +278,17 @@ class RoleAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoleAssignmentArgs,
+                 args: RoleAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a RoleAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param RoleAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoleAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -313,7 +313,7 @@ class RoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
+            __props__ = RoleAssignmentArrgs.__new__(RoleAssignmentArrgs)
 
             __props__.__dict__["condition"] = condition
             __props__.__dict__["condition_version"] = condition_version

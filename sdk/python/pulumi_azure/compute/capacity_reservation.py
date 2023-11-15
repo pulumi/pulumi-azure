@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CapacityReservationArgs', 'CapacityReservation']
+__all__ = ['CapacityReservationArrgs', 'CapacityReservation']
 
 @pulumi.input_type
-class CapacityReservationArgs:
+calass CapacityReservationArrgs:
     def __init__(__self__, *,
                  capacity_reservation_group_id: pulumi.Input[str],
-                 sku: pulumi.Input['CapacityReservationSkuArgs'],
+                 sku: pulumi.Input['CapacityReservationSkuArrgs'],
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
         :param pulumi.Input[str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['CapacityReservationSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input['CapacityReservationSkuArrgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
@@ -52,14 +52,14 @@ class CapacityReservationArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['CapacityReservationSkuArgs']:
+    def sku(self) -> pulumi.Input['CapacityReservationSkuArrgs']:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['CapacityReservationSkuArgs']):
+    def sku(self, value: pulumi.Input['CapacityReservationSkuArrgs']):
         pulumi.set(self, "sku", value)
 
     @property
@@ -100,18 +100,18 @@ class CapacityReservationArgs:
 
 
 @pulumi.input_type
-class _CapacityReservationState:
+calass _CapacityReservationState:
     def __init__(__self__, *,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
+                 sku: Optional[pulumi.Input['CapacityReservationSkuArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
         :param pulumi.Input[str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        :param pulumi.Input['CapacityReservationSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input['CapacityReservationSkuArrgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """
@@ -152,14 +152,14 @@ class _CapacityReservationState:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['CapacityReservationSkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['CapacityReservationSkuArrgs']]:
         """
         A `sku` block as defined below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['CapacityReservationSkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['CapacityReservationSkuArrgs']]):
         pulumi.set(self, "sku", value)
 
     @property
@@ -187,14 +187,14 @@ class _CapacityReservationState:
         pulumi.set(self, "zone", value)
 
 
-class CapacityReservation(pulumi.CustomResource):
+calass CapacityReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -213,7 +213,7 @@ class CapacityReservation(pulumi.CustomResource):
             location=example_resource_group.location)
         example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
             capacity_reservation_group_id=example_capacity_reservation_group.id,
-            sku=azure.compute.CapacityReservationSkuArgs(
+            sku=azure.compute.CapacityReservationSkuArrgs(
                 name="Standard_D2s_v3",
                 capacity=1,
             ))
@@ -231,7 +231,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CapacityReservationSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CapacityReservationSkuArrgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """
@@ -239,7 +239,7 @@ class CapacityReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CapacityReservationArgs,
+                 args: CapacityReservationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Capacity Reservation within a Capacity Reservation Group.
@@ -256,7 +256,7 @@ class CapacityReservation(pulumi.CustomResource):
             location=example_resource_group.location)
         example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
             capacity_reservation_group_id=example_capacity_reservation_group.id,
-            sku=azure.compute.CapacityReservationSkuArgs(
+            sku=azure.compute.CapacityReservationSkuArrgs(
                 name="Standard_D2s_v3",
                 capacity=1,
             ))
@@ -271,12 +271,12 @@ class CapacityReservation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
+        :param CapacityReservationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CapacityReservationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CapacityReservationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -287,7 +287,7 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -297,7 +297,7 @@ class CapacityReservation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
+            __props__ = CapacityReservationArrgs.__new__(CapacityReservationArrgs)
 
             if capacity_reservation_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity_reservation_group_id'")
@@ -320,7 +320,7 @@ class CapacityReservation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['CapacityReservationSkuArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zone: Optional[pulumi.Input[str]] = None) -> 'CapacityReservation':
         """
@@ -332,7 +332,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CapacityReservationSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CapacityReservationSkuArrgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ScriptArgs', 'Script']
+__all__ = ['ScriptArrgs', 'Script']
 
 @pulumi.input_type
-class ScriptArgs:
+calass ScriptArrgs:
     def __init__(__self__, *,
                  database_id: pulumi.Input[str],
                  continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
@@ -131,7 +131,7 @@ class ScriptArgs:
 
 
 @pulumi.input_type
-class _ScriptState:
+calass _ScriptState:
     def __init__(__self__, *,
                  continue_on_errors_enabled: Optional[pulumi.Input[bool]] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
@@ -250,7 +250,7 @@ class _ScriptState:
         pulumi.set(self, "url", value)
 
 
-class Script(pulumi.CustomResource):
+calass Script(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -276,7 +276,7 @@ class Script(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -302,7 +302,7 @@ class Script(pulumi.CustomResource):
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
+            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArrgs(
                 read=True,
                 add=False,
                 create=False,
@@ -340,7 +340,7 @@ class Script(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScriptArgs,
+                 args: ScriptArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto Script.
@@ -355,7 +355,7 @@ class Script(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -381,7 +381,7 @@ class Script(pulumi.CustomResource):
             https_only=True,
             start="2017-03-21",
             expiry="2022-03-21",
-            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArgs(
+            permissions=azure.storage.GetAccountBlobContainerSASPermissionsArrgs(
                 read=True,
                 add=False,
                 create=False,
@@ -406,12 +406,12 @@ class Script(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScriptArgs args: The arguments to use to populate this resource's properties.
+        :param ScriptArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScriptArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScriptArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -434,7 +434,7 @@ class Script(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScriptArgs.__new__(ScriptArgs)
+            __props__ = ScriptArrgs.__new__(ScriptArrgs)
 
             __props__.__dict__["continue_on_errors_enabled"] = continue_on_errors_enabled
             if database_id is None and not opts.urn:

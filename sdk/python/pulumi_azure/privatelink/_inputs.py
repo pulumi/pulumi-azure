@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointCustomDnsConfigArgs',
-    'EndpointIpConfigurationArgs',
-    'EndpointNetworkInterfaceArgs',
-    'EndpointPrivateDnsZoneConfigArgs',
-    'EndpointPrivateDnsZoneConfigRecordSetArgs',
-    'EndpointPrivateDnsZoneGroupArgs',
-    'EndpointPrivateServiceConnectionArgs',
+    'EndpointCustomDnsConfigArrgs',
+    'EndpointIpConfigurationArrgs',
+    'EndpointNetworkInterfaceArrgs',
+    'EndpointPrivateDnsZoneConfigArrgs',
+    'EndpointPrivateDnsZoneConfigRecordSetArrgs',
+    'EndpointPrivateDnsZoneGroupArrgs',
+    'EndpointPrivateServiceConnectionArrgs',
 ]
 
 @pulumi.input_type
-class EndpointCustomDnsConfigArgs:
+calass EndpointCustomDnsConfigArrgs:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -59,7 +59,7 @@ class EndpointCustomDnsConfigArgs:
 
 
 @pulumi.input_type
-class EndpointIpConfigurationArgs:
+calass EndpointIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  private_ip_address: pulumi.Input[str],
@@ -132,7 +132,7 @@ class EndpointIpConfigurationArgs:
 
 
 @pulumi.input_type
-class EndpointNetworkInterfaceArgs:
+calass EndpointNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -171,17 +171,17 @@ class EndpointNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class EndpointPrivateDnsZoneConfigArgs:
+calass EndpointPrivateDnsZoneConfigArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_id: Optional[pulumi.Input[str]] = None,
-                 record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]] = None):
+                 record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: The ID of the Private DNS Zone Config.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_dns_zone_id: A list of IP Addresses
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]] record_sets: A `record_sets` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArrgs']]] record_sets: A `record_sets` block as defined below.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -230,19 +230,19 @@ class EndpointPrivateDnsZoneConfigArgs:
 
     @property
     @pulumi.getter(name="recordSets")
-    def record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]:
+    def record_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArrgs']]]]:
         """
         A `record_sets` block as defined below.
         """
         return pulumi.get(self, "record_sets")
 
     @record_sets.setter
-    def record_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]):
+    def record_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArrgs']]]]):
         pulumi.set(self, "record_sets", value)
 
 
 @pulumi.input_type
-class EndpointPrivateDnsZoneConfigRecordSetArgs:
+calass EndpointPrivateDnsZoneConfigRecordSetArrgs:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -329,7 +329,7 @@ class EndpointPrivateDnsZoneConfigRecordSetArgs:
 
 
 @pulumi.input_type
-class EndpointPrivateDnsZoneGroupArgs:
+calass EndpointPrivateDnsZoneGroupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  private_dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -382,7 +382,7 @@ class EndpointPrivateDnsZoneGroupArgs:
 
 
 @pulumi.input_type
-class EndpointPrivateServiceConnectionArgs:
+calass EndpointPrivateServiceConnectionArrgs:
     def __init__(__self__, *,
                  is_manual_connection: pulumi.Input[bool],
                  name: pulumi.Input[str],

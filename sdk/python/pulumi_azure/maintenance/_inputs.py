@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationInstallPatchesArgs',
-    'ConfigurationInstallPatchesLinuxArgs',
-    'ConfigurationInstallPatchesWindowArgs',
-    'ConfigurationWindowArgs',
+    'ConfigurationInstallPatchesArrgs',
+    'ConfigurationInstallPatchesLinuxArrgs',
+    'ConfigurationInstallPatchesWindowArrgs',
+    'ConfigurationWindowArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationInstallPatchesArgs:
+calass ConfigurationInstallPatchesArrgs:
     def __init__(__self__, *,
-                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
+                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArrgs']]]] = None,
                  reboot: Optional[pulumi.Input[str]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None):
+                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArrgs']]] linuxes: A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         :param pulumi.Input[str] reboot: Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArrgs']]] windows: A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         if linuxes is not None:
             pulumi.set(__self__, "linuxes", linuxes)
@@ -36,14 +36,14 @@ class ConfigurationInstallPatchesArgs:
 
     @property
     @pulumi.getter
-    def linuxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]:
+    def linuxes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArrgs']]]]:
         """
         A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         return pulumi.get(self, "linuxes")
 
     @linuxes.setter
-    def linuxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]):
+    def linuxes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArrgs']]]]):
         pulumi.set(self, "linuxes", value)
 
     @property
@@ -60,19 +60,19 @@ class ConfigurationInstallPatchesArgs:
 
     @property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]:
+    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArrgs']]]]:
         """
         A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]):
+    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArrgs']]]]):
         pulumi.set(self, "windows", value)
 
 
 @pulumi.input_type
-class ConfigurationInstallPatchesLinuxArgs:
+calass ConfigurationInstallPatchesLinuxArrgs:
     def __init__(__self__, *,
                  classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  package_names_mask_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -127,7 +127,7 @@ class ConfigurationInstallPatchesLinuxArgs:
 
 
 @pulumi.input_type
-class ConfigurationInstallPatchesWindowArgs:
+calass ConfigurationInstallPatchesWindowArrgs:
     def __init__(__self__, *,
                  classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kb_numbers_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -182,7 +182,7 @@ class ConfigurationInstallPatchesWindowArgs:
 
 
 @pulumi.input_type
-class ConfigurationWindowArgs:
+calass ConfigurationWindowArrgs:
     def __init__(__self__, *,
                  start_date_time: pulumi.Input[str],
                  time_zone: pulumi.Input[str],

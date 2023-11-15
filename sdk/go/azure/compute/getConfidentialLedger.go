@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Confidential Ledger.
@@ -117,12 +116,6 @@ func (o GetConfidentialLedgerResultOutput) ToGetConfidentialLedgerResultOutput()
 
 func (o GetConfidentialLedgerResultOutput) ToGetConfidentialLedgerResultOutputWithContext(ctx context.Context) GetConfidentialLedgerResultOutput {
 	return o
-}
-
-func (o GetConfidentialLedgerResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfidentialLedgerResult] {
-	return pulumix.Output[GetConfidentialLedgerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfidentialLedgerResultOutput) AzureadBasedServicePrincipals() GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput {

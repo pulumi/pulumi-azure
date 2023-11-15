@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SharedImageArgs', 'SharedImage']
+__all__ = ['SharedImageArrgs', 'SharedImage']
 
 @pulumi.input_type
-class SharedImageArgs:
+calass SharedImageArrgs:
     def __init__(__self__, *,
                  gallery_name: pulumi.Input[str],
-                 identifier: pulumi.Input['SharedImageIdentifierArgs'],
+                 identifier: pulumi.Input['SharedImageIdentifierArrgs'],
                  os_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
@@ -36,7 +36,7 @@ class SharedImageArgs:
                  min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
+                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArrgs']] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -44,7 +44,7 @@ class SharedImageArgs:
         """
         The set of arguments for constructing a SharedImage resource.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
+        :param pulumi.Input['SharedImageIdentifierArrgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
@@ -65,7 +65,7 @@ class SharedImageArgs:
         :param pulumi.Input[int] min_recommended_vcpu_count: Minimum count of vCPUs recommended for the Image.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
-        :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
+        :param pulumi.Input['SharedImagePurchasePlanArrgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
                
@@ -134,14 +134,14 @@ class SharedImageArgs:
 
     @property
     @pulumi.getter
-    def identifier(self) -> pulumi.Input['SharedImageIdentifierArgs']:
+    def identifier(self) -> pulumi.Input['SharedImageIdentifierArrgs']:
         """
         An `identifier` block as defined below.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: pulumi.Input['SharedImageIdentifierArgs']):
+    def identifier(self, value: pulumi.Input['SharedImageIdentifierArrgs']):
         pulumi.set(self, "identifier", value)
 
     @property
@@ -364,14 +364,14 @@ class SharedImageArgs:
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArgs']]:
+    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArrgs']]:
         """
         A `purchase_plan` block as defined below.
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArgs']]):
+    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArrgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @property
@@ -426,7 +426,7 @@ class SharedImageArgs:
 
 
 @pulumi.input_type
-class _SharedImageState:
+calass _SharedImageState:
     def __init__(__self__, *,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
                  architecture: Optional[pulumi.Input[str]] = None,
@@ -438,7 +438,7 @@ class _SharedImageState:
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
-                 identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
+                 identifier: Optional[pulumi.Input['SharedImageIdentifierArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
                  max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
@@ -447,7 +447,7 @@ class _SharedImageState:
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
+                 purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArrgs']] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
@@ -467,7 +467,7 @@ class _SharedImageState:
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-        :param pulumi.Input['SharedImageIdentifierArgs'] identifier: An `identifier` block as defined below.
+        :param pulumi.Input['SharedImageIdentifierArrgs'] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
         :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
@@ -476,7 +476,7 @@ class _SharedImageState:
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
-        :param pulumi.Input['SharedImagePurchasePlanArgs'] purchase_plan: A `purchase_plan` block as defined below.
+        :param pulumi.Input['SharedImagePurchasePlanArrgs'] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
@@ -660,14 +660,14 @@ class _SharedImageState:
 
     @property
     @pulumi.getter
-    def identifier(self) -> Optional[pulumi.Input['SharedImageIdentifierArgs']]:
+    def identifier(self) -> Optional[pulumi.Input['SharedImageIdentifierArrgs']]:
         """
         An `identifier` block as defined below.
         """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
-    def identifier(self, value: Optional[pulumi.Input['SharedImageIdentifierArgs']]):
+    def identifier(self, value: Optional[pulumi.Input['SharedImageIdentifierArrgs']]):
         pulumi.set(self, "identifier", value)
 
     @property
@@ -768,14 +768,14 @@ class _SharedImageState:
 
     @property
     @pulumi.getter(name="purchasePlan")
-    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArgs']]:
+    def purchase_plan(self) -> Optional[pulumi.Input['SharedImagePurchasePlanArrgs']]:
         """
         A `purchase_plan` block as defined below.
         """
         return pulumi.get(self, "purchase_plan")
 
     @purchase_plan.setter
-    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArgs']]):
+    def purchase_plan(self, value: Optional[pulumi.Input['SharedImagePurchasePlanArrgs']]):
         pulumi.set(self, "purchase_plan", value)
 
     @property
@@ -841,7 +841,7 @@ class _SharedImageState:
         pulumi.set(self, "trusted_launch_enabled", value)
 
 
-class SharedImage(pulumi.CustomResource):
+calass SharedImage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -856,7 +856,7 @@ class SharedImage(pulumi.CustomResource):
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
                  max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
@@ -865,7 +865,7 @@ class SharedImage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArrgs']]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
@@ -895,7 +895,7 @@ class SharedImage(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
+            identifier=azure.compute.SharedImageIdentifierArrgs(
                 publisher="PublisherName",
                 offer="OfferName",
                 sku="ExampleSku",
@@ -924,7 +924,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArrgs']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
         :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
@@ -933,7 +933,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArrgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
@@ -946,7 +946,7 @@ class SharedImage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedImageArgs,
+                 args: SharedImageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Shared Image within a Shared Image Gallery.
@@ -971,7 +971,7 @@ class SharedImage(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             os_type="Linux",
-            identifier=azure.compute.SharedImageIdentifierArgs(
+            identifier=azure.compute.SharedImageIdentifierArrgs(
                 publisher="PublisherName",
                 offer="OfferName",
                 sku="ExampleSku",
@@ -987,12 +987,12 @@ class SharedImage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedImageArgs args: The arguments to use to populate this resource's properties.
+        :param SharedImageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedImageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedImageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1011,7 +1011,7 @@ class SharedImage(pulumi.CustomResource):
                  eula: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[str]] = None,
-                 identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
+                 identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
                  max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
@@ -1020,7 +1020,7 @@ class SharedImage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']]] = None,
+                 purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArrgs']]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
@@ -1033,7 +1033,7 @@ class SharedImage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedImageArgs.__new__(SharedImageArgs)
+            __props__ = SharedImageArrgs.__new__(SharedImageArrgs)
 
             __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
             __props__.__dict__["architecture"] = architecture
@@ -1088,7 +1088,7 @@ class SharedImage(pulumi.CustomResource):
             eula: Optional[pulumi.Input[str]] = None,
             gallery_name: Optional[pulumi.Input[str]] = None,
             hyper_v_generation: Optional[pulumi.Input[str]] = None,
-            identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']]] = None,
+            identifier: Optional[pulumi.Input[pulumi.InputType['SharedImageIdentifierArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
             max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
@@ -1097,7 +1097,7 @@ class SharedImage(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
-            purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']]] = None,
+            purchase_plan: Optional[pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArrgs']]] = None,
             release_note_uri: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             specialized: Optional[pulumi.Input[bool]] = None,
@@ -1122,7 +1122,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArgs']] identifier: An `identifier` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SharedImageIdentifierArrgs']] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_recommended_memory_in_gb: Maximum memory in GB recommended for the Image.
         :param pulumi.Input[int] max_recommended_vcpu_count: Maximum count of vCPUs recommended for the Image.
@@ -1131,7 +1131,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] privacy_statement_uri: The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArgs']] purchase_plan: A `purchase_plan` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SharedImagePurchasePlanArrgs']] purchase_plan: A `purchase_plan` block as defined below.
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] specialized: Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.

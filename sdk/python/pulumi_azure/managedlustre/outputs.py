@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FileSystemEncryptionKey(dict):
+calass FileSystemEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -65,7 +65,7 @@ class FileSystemEncryptionKey(dict):
 
 
 @pulumi.output_type
-class FileSystemHsmSetting(dict):
+calass FileSystemHsmSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -131,7 +131,7 @@ class FileSystemHsmSetting(dict):
 
 
 @pulumi.output_type
-class FileSystemIdentity(dict):
+calass FileSystemIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -177,7 +177,7 @@ class FileSystemIdentity(dict):
 
 
 @pulumi.output_type
-class FileSystemMaintenanceWindow(dict):
+calass FileSystemMaintenanceWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ChannelSmsArgs', 'ChannelSms']
+__all__ = ['ChannelSmsArrgs', 'ChannelSms']
 
 @pulumi.input_type
-class ChannelSmsArgs:
+calass ChannelSmsArrgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  phone_number: pulumi.Input[str],
@@ -111,7 +111,7 @@ class ChannelSmsArgs:
 
 
 @pulumi.input_type
-class _ChannelSmsState:
+calass _ChannelSmsState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _ChannelSmsState:
         pulumi.set(self, "sms_channel_auth_token", value)
 
 
-class ChannelSms(pulumi.CustomResource):
+calass ChannelSms(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,7 +274,7 @@ class ChannelSms(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelSmsArgs,
+                 args: ChannelSmsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SMS integration for a Bot Channel
@@ -312,12 +312,12 @@ class ChannelSms(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelSmsArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelSmsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelSmsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelSmsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -339,7 +339,7 @@ class ChannelSms(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelSmsArgs.__new__(ChannelSmsArgs)
+            __props__ = ChannelSmsArrgs.__new__(ChannelSmsArrgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")

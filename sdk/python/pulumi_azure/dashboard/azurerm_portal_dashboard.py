@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard""", DeprecationWarning)
 
 @pulumi.output_type
-class Azurerm_portal_dashboardResult:
+calass Azurerm_portal_dashboardResult:
     """
     A collection of values returned by azurerm_portal_dashboard.
     """
@@ -94,7 +94,7 @@ class Azurerm_portal_dashboardResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableAzurerm_portal_dashboardResult(Azurerm_portal_dashboardResult):
+calass AwaitableAzurerm_portal_dashboardResult(Azurerm_portal_dashboardResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

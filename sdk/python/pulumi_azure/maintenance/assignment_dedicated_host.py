@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssignmentDedicatedHostArgs', 'AssignmentDedicatedHost']
+__all__ = ['AssignmentDedicatedHostArrgs', 'AssignmentDedicatedHost']
 
 @pulumi.input_type
-class AssignmentDedicatedHostArgs:
+calass AssignmentDedicatedHostArrgs:
     def __init__(__self__, *,
                  dedicated_host_id: pulumi.Input[str],
                  maintenance_configuration_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class AssignmentDedicatedHostArgs:
 
 
 @pulumi.input_type
-class _AssignmentDedicatedHostState:
+calass _AssignmentDedicatedHostState:
     def __init__(__self__, *,
                  dedicated_host_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _AssignmentDedicatedHostState:
         pulumi.set(self, "maintenance_configuration_id", value)
 
 
-class AssignmentDedicatedHost(pulumi.CustomResource):
+calass AssignmentDedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssignmentDedicatedHostArgs,
+                 args: AssignmentDedicatedHostArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance assignment to Dedicated Host.
@@ -217,12 +217,12 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssignmentDedicatedHostArgs args: The arguments to use to populate this resource's properties.
+        :param AssignmentDedicatedHostArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssignmentDedicatedHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentDedicatedHostArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -241,7 +241,7 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssignmentDedicatedHostArgs.__new__(AssignmentDedicatedHostArgs)
+            __props__ = AssignmentDedicatedHostArrgs.__new__(AssignmentDedicatedHostArrgs)
 
             if dedicated_host_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_host_id'")

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHostPoolResult:
+calass GetHostPoolResult:
     """
     A collection of values returned by getHostPool.
     """
@@ -195,7 +195,7 @@ class GetHostPoolResult:
         return pulumi.get(self, "validate_environment")
 
 
-class AwaitableGetHostPoolResult(GetHostPoolResult):
+calass AwaitableGetHostPoolResult(GetHostPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

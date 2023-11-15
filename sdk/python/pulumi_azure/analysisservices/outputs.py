@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServerIpv4FirewallRule(dict):
+calass ServerIpv4FirewallRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

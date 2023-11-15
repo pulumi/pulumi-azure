@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub EventHub Endpoint
@@ -281,12 +280,6 @@ func (i *EndpointEventhub) ToEndpointEventhubOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubOutput)
 }
 
-func (i *EndpointEventhub) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventhub] {
-	return pulumix.Output[*EndpointEventhub]{
-		OutputState: i.ToEndpointEventhubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointEventhubArrayInput is an input type that accepts EndpointEventhubArray and EndpointEventhubArrayOutput values.
 // You can construct a concrete instance of `EndpointEventhubArrayInput` via:
 //
@@ -310,12 +303,6 @@ func (i EndpointEventhubArray) ToEndpointEventhubArrayOutput() EndpointEventhubA
 
 func (i EndpointEventhubArray) ToEndpointEventhubArrayOutputWithContext(ctx context.Context) EndpointEventhubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubArrayOutput)
-}
-
-func (i EndpointEventhubArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventhub] {
-	return pulumix.Output[[]*EndpointEventhub]{
-		OutputState: i.ToEndpointEventhubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointEventhubMapInput is an input type that accepts EndpointEventhubMap and EndpointEventhubMapOutput values.
@@ -343,12 +330,6 @@ func (i EndpointEventhubMap) ToEndpointEventhubMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventhubMapOutput)
 }
 
-func (i EndpointEventhubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventhub] {
-	return pulumix.Output[map[string]*EndpointEventhub]{
-		OutputState: i.ToEndpointEventhubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointEventhubOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventhubOutput) ElementType() reflect.Type {
@@ -361,12 +342,6 @@ func (o EndpointEventhubOutput) ToEndpointEventhubOutput() EndpointEventhubOutpu
 
 func (o EndpointEventhubOutput) ToEndpointEventhubOutputWithContext(ctx context.Context) EndpointEventhubOutput {
 	return o
-}
-
-func (o EndpointEventhubOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventhub] {
-	return pulumix.Output[*EndpointEventhub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -425,12 +400,6 @@ func (o EndpointEventhubArrayOutput) ToEndpointEventhubArrayOutputWithContext(ct
 	return o
 }
 
-func (o EndpointEventhubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventhub] {
-	return pulumix.Output[[]*EndpointEventhub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointEventhubArrayOutput) Index(i pulumi.IntInput) EndpointEventhubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointEventhub {
 		return vs[0].([]*EndpointEventhub)[vs[1].(int)]
@@ -449,12 +418,6 @@ func (o EndpointEventhubMapOutput) ToEndpointEventhubMapOutput() EndpointEventhu
 
 func (o EndpointEventhubMapOutput) ToEndpointEventhubMapOutputWithContext(ctx context.Context) EndpointEventhubMapOutput {
 	return o
-}
-
-func (o EndpointEventhubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventhub] {
-	return pulumix.Output[map[string]*EndpointEventhub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointEventhubMapOutput) MapIndex(k pulumi.StringInput) EndpointEventhubOutput {

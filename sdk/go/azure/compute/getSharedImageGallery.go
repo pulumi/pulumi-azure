@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Shared Image Gallery.
@@ -111,12 +110,6 @@ func (o LookupSharedImageGalleryResultOutput) ToLookupSharedImageGalleryResultOu
 
 func (o LookupSharedImageGalleryResultOutput) ToLookupSharedImageGalleryResultOutputWithContext(ctx context.Context) LookupSharedImageGalleryResultOutput {
 	return o
-}
-
-func (o LookupSharedImageGalleryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSharedImageGalleryResult] {
-	return pulumix.Output[LookupSharedImageGalleryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for the Shared Image Gallery.

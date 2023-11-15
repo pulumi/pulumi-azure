@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEncryptedValueResult:
+calass GetEncryptedValueResult:
     """
     A collection of values returned by getEncryptedValue.
     """
@@ -78,7 +78,7 @@ class GetEncryptedValueResult:
         return pulumi.get(self, "plain_text_value")
 
 
-class AwaitableGetEncryptedValueResult(GetEncryptedValueResult):
+calass AwaitableGetEncryptedValueResult(GetEncryptedValueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

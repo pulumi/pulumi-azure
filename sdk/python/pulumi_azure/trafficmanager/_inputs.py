@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ProfileDnsConfigArgs',
-    'ProfileMonitorConfigArgs',
-    'ProfileMonitorConfigCustomHeaderArgs',
+    'ProfileDnsConfigArrgs',
+    'ProfileMonitorConfigArrgs',
+    'ProfileMonitorConfigCustomHeaderArrgs',
 ]
 
 @pulumi.input_type
-class ProfileDnsConfigArgs:
+calass ProfileDnsConfigArrgs:
     def __init__(__self__, *,
                  relative_name: pulumi.Input[str],
                  ttl: pulumi.Input[int]):
@@ -53,11 +53,11 @@ class ProfileDnsConfigArgs:
 
 
 @pulumi.input_type
-class ProfileMonitorConfigArgs:
+calass ProfileMonitorConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArrgs']]]] = None,
                  expected_status_code_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -66,7 +66,7 @@ class ProfileMonitorConfigArgs:
         """
         :param pulumi.Input[int] port: The port number used by the monitoring checks.
         :param pulumi.Input[str] protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArrgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
         :param pulumi.Input[int] interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param pulumi.Input[str] path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
@@ -114,14 +114,14 @@ class ProfileMonitorConfigArgs:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArrgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArrgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @property
@@ -186,7 +186,7 @@ class ProfileMonitorConfigArgs:
 
 
 @pulumi.input_type
-class ProfileMonitorConfigCustomHeaderArgs:
+calass ProfileMonitorConfigCustomHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

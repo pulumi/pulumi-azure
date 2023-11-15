@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkSecurityRuleArgs', 'NetworkSecurityRule']
+__all__ = ['NetworkSecurityRuleArrgs', 'NetworkSecurityRule']
 
 @pulumi.input_type
-class NetworkSecurityRuleArgs:
+calass NetworkSecurityRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  direction: pulumi.Input[str],
@@ -302,7 +302,7 @@ class NetworkSecurityRuleArgs:
 
 
 @pulumi.input_type
-class _NetworkSecurityRuleState:
+calass _NetworkSecurityRuleState:
     def __init__(__self__, *,
                  access: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -597,7 +597,7 @@ class _NetworkSecurityRuleState:
         pulumi.set(self, "source_port_ranges", value)
 
 
-class NetworkSecurityRule(pulumi.CustomResource):
+calass NetworkSecurityRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -684,7 +684,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkSecurityRuleArgs,
+                 args: NetworkSecurityRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Security Rule.
@@ -725,12 +725,12 @@ class NetworkSecurityRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkSecurityRuleArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkSecurityRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkSecurityRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSecurityRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -764,7 +764,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkSecurityRuleArgs.__new__(NetworkSecurityRuleArgs)
+            __props__ = NetworkSecurityRuleArrgs.__new__(NetworkSecurityRuleArrgs)
 
             if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")

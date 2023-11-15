@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceCosmosDbArgs', 'LinkedServiceCosmosDb']
+__all__ = ['LinkedServiceCosmosDbArrgs', 'LinkedServiceCosmosDb']
 
 @pulumi.input_type
-class LinkedServiceCosmosDbArgs:
+calass LinkedServiceCosmosDbArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  account_endpoint: Optional[pulumi.Input[str]] = None,
@@ -199,7 +199,7 @@ class LinkedServiceCosmosDbArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceCosmosDbState:
+calass _LinkedServiceCosmosDbState:
     def __init__(__self__, *,
                  account_endpoint: Optional[pulumi.Input[str]] = None,
                  account_key: Optional[pulumi.Input[str]] = None,
@@ -386,7 +386,7 @@ class _LinkedServiceCosmosDbState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceCosmosDb(pulumi.CustomResource):
+calass LinkedServiceCosmosDb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -453,7 +453,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceCosmosDbArgs,
+                 args: LinkedServiceCosmosDbArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using SQL API.
@@ -486,12 +486,12 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceCosmosDbArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceCosmosDbArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceCosmosDbArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceCosmosDbArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -518,7 +518,7 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceCosmosDbArgs.__new__(LinkedServiceCosmosDbArgs)
+            __props__ = LinkedServiceCosmosDbArrgs.__new__(LinkedServiceCosmosDbArrgs)
 
             __props__.__dict__["account_endpoint"] = account_endpoint
             __props__.__dict__["account_key"] = None if account_key is None else pulumi.Output.secret(account_key)

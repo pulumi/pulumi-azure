@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProductApiArgs', 'ProductApi']
+__all__ = ['ProductApiArrgs', 'ProductApi']
 
 @pulumi.input_type
-class ProductApiArgs:
+calass ProductApiArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  api_name: pulumi.Input[str],
@@ -80,7 +80,7 @@ class ProductApiArgs:
 
 
 @pulumi.input_type
-class _ProductApiState:
+calass _ProductApiState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _ProductApiState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ProductApi(pulumi.CustomResource):
+calass ProductApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,7 +205,7 @@ class ProductApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProductApiArgs,
+                 args: ProductApiArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Assignment to a Product.
@@ -241,12 +241,12 @@ class ProductApi(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProductApiArgs args: The arguments to use to populate this resource's properties.
+        :param ProductApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProductApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProductApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -266,7 +266,7 @@ class ProductApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProductApiArgs.__new__(ProductApiArgs)
+            __props__ = ProductApiArrgs.__new__(ProductApiArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")

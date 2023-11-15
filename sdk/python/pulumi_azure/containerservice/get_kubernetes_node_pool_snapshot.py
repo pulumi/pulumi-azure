@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKubernetesNodePoolSnapshotResult:
+calass GetKubernetesNodePoolSnapshotResult:
     """
     A collection of values returned by getKubernetesNodePoolSnapshot.
     """
@@ -70,7 +70,7 @@ class GetKubernetesNodePoolSnapshotResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetKubernetesNodePoolSnapshotResult(GetKubernetesNodePoolSnapshotResult):
+calass AwaitableGetKubernetesNodePoolSnapshotResult(GetKubernetesNodePoolSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

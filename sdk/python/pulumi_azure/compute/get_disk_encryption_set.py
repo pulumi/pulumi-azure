@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDiskEncryptionSetResult:
+calass GetDiskEncryptionSetResult:
     """
     A collection of values returned by getDiskEncryptionSet.
     """
@@ -107,7 +107,7 @@ class GetDiskEncryptionSetResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
+calass AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

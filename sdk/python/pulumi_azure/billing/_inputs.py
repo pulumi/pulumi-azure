@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountCostManagementExportExportDataOptionsArgs',
-    'AccountCostManagementExportExportDataStorageLocationArgs',
+    'AccountCostManagementExportExportDataOptionsArrgs',
+    'AccountCostManagementExportExportDataStorageLocationArrgs',
 ]
 
 @pulumi.input_type
-class AccountCostManagementExportExportDataOptionsArgs:
+calass AccountCostManagementExportExportDataOptionsArrgs:
     def __init__(__self__, *,
                  time_frame: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -52,7 +52,7 @@ class AccountCostManagementExportExportDataOptionsArgs:
 
 
 @pulumi.input_type
-class AccountCostManagementExportExportDataStorageLocationArgs:
+calass AccountCostManagementExportExportDataStorageLocationArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  root_folder_path: pulumi.Input[str]):

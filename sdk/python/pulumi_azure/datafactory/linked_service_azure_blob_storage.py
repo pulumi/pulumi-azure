@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceAzureBlobStorageArgs', 'LinkedServiceAzureBlobStorage']
+__all__ = ['LinkedServiceAzureBlobStorageArrgs', 'LinkedServiceAzureBlobStorage']
 
 @pulumi.input_type
-class LinkedServiceAzureBlobStorageArgs:
+calass LinkedServiceAzureBlobStorageArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -23,14 +23,14 @@ class LinkedServiceAzureBlobStorageArgs:
                  connection_string_insecure: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  sas_uri: Optional[pulumi.Input[str]] = None,
                  service_endpoint: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
                  service_principal_key: Optional[pulumi.Input[str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']] = None,
                  storage_kind: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_managed_identity: Optional[pulumi.Input[bool]] = None):
@@ -47,14 +47,14 @@ class LinkedServiceAzureBlobStorageArgs:
                > **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         :param pulumi.Input[str] service_endpoint: The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the AAzure Blob Storage account.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs'] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs'] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] storage_kind: Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
@@ -185,14 +185,14 @@ class LinkedServiceAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="keyVaultSasToken")
-    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
+    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]:
         """
         A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         """
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
+    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]):
         pulumi.set(self, "key_vault_sas_token", value)
 
     @property
@@ -269,14 +269,14 @@ class LinkedServiceAzureBlobStorageArgs:
 
     @property
     @pulumi.getter(name="servicePrincipalLinkedKeyVaultKey")
-    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
+    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]:
         """
         A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "service_principal_linked_key_vault_key")
 
     @service_principal_linked_key_vault_key.setter
-    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
+    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]):
         pulumi.set(self, "service_principal_linked_key_vault_key", value)
 
     @property
@@ -317,7 +317,7 @@ class LinkedServiceAzureBlobStorageArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceAzureBlobStorageState:
+calass _LinkedServiceAzureBlobStorageState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -326,14 +326,14 @@ class _LinkedServiceAzureBlobStorageState:
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+                 key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  sas_uri: Optional[pulumi.Input[str]] = None,
                  service_endpoint: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
                  service_principal_key: Optional[pulumi.Input[str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+                 service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']] = None,
                  storage_kind: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_managed_identity: Optional[pulumi.Input[bool]] = None):
@@ -350,14 +350,14 @@ class _LinkedServiceAzureBlobStorageState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs'] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         :param pulumi.Input[str] service_endpoint: The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the AAzure Blob Storage account.
-        :param pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs'] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs'] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] storage_kind: Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
@@ -489,14 +489,14 @@ class _LinkedServiceAzureBlobStorageState:
 
     @property
     @pulumi.getter(name="keyVaultSasToken")
-    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
+    def key_vault_sas_token(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]:
         """
         A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         """
         return pulumi.get(self, "key_vault_sas_token")
 
     @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
+    def key_vault_sas_token(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]):
         pulumi.set(self, "key_vault_sas_token", value)
 
     @property
@@ -573,14 +573,14 @@ class _LinkedServiceAzureBlobStorageState:
 
     @property
     @pulumi.getter(name="servicePrincipalLinkedKeyVaultKey")
-    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]:
+    def service_principal_linked_key_vault_key(self) -> Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]:
         """
         A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "service_principal_linked_key_vault_key")
 
     @service_principal_linked_key_vault_key.setter
-    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]):
+    def service_principal_linked_key_vault_key(self, value: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]):
         pulumi.set(self, "service_principal_linked_key_vault_key", value)
 
     @property
@@ -620,7 +620,7 @@ class _LinkedServiceAzureBlobStorageState:
         pulumi.set(self, "use_managed_identity", value)
 
 
-class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
+calass LinkedServiceAzureBlobStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -632,14 +632,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]] = None,
+                 key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  sas_uri: Optional[pulumi.Input[str]] = None,
                  service_endpoint: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
                  service_principal_key: Optional[pulumi.Input[str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]] = None,
+                 service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]] = None,
                  storage_kind: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_managed_identity: Optional[pulumi.Input[bool]] = None,
@@ -685,7 +685,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
             sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
+            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -694,7 +694,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             service_endpoint="https://example.blob.core.windows.net",
             service_principal_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
+            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -721,14 +721,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         :param pulumi.Input[str] service_endpoint: The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the AAzure Blob Storage account.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] storage_kind: Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
@@ -737,7 +737,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceAzureBlobStorageArgs,
+                 args: LinkedServiceAzureBlobStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.
@@ -780,7 +780,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         test_linked_service_azure_blob_storage = azure.datafactory.LinkedServiceAzureBlobStorage("testLinkedServiceAzureBlobStorage",
             data_factory_id=test_factory.id,
             sas_uri="https://example.blob.core.windows.net",
-            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs(
+            key_vault_sas_token=azure.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -789,7 +789,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             service_endpoint="https://example.blob.core.windows.net",
             service_principal_id="00000000-0000-0000-0000-000000000000",
             tenant_id="00000000-0000-0000-0000-000000000000",
-            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs(
+            service_principal_linked_key_vault_key=azure.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs(
                 linked_service_name=test_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -804,12 +804,12 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceAzureBlobStorageArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceAzureBlobStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureBlobStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureBlobStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -825,14 +825,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]] = None,
+                 key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  sas_uri: Optional[pulumi.Input[str]] = None,
                  service_endpoint: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
                  service_principal_key: Optional[pulumi.Input[str]] = None,
-                 service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]] = None,
+                 service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]] = None,
                  storage_kind: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_managed_identity: Optional[pulumi.Input[bool]] = None,
@@ -843,7 +843,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceAzureBlobStorageArgs.__new__(LinkedServiceAzureBlobStorageArgs)
+            __props__ = LinkedServiceAzureBlobStorageArrgs.__new__(LinkedServiceAzureBlobStorageArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -884,14 +884,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-            key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]] = None,
+            key_vault_sas_token: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             sas_uri: Optional[pulumi.Input[str]] = None,
             service_endpoint: Optional[pulumi.Input[str]] = None,
             service_principal_id: Optional[pulumi.Input[str]] = None,
             service_principal_key: Optional[pulumi.Input[str]] = None,
-            service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']]] = None,
+            service_principal_linked_key_vault_key: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']]] = None,
             storage_kind: Optional[pulumi.Input[str]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None,
             use_managed_identity: Optional[pulumi.Input[bool]] = None) -> 'LinkedServiceAzureBlobStorage':
@@ -913,14 +913,14 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs']] key_vault_sas_token: A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] sas_uri: The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
         :param pulumi.Input[str] service_endpoint: The Service Endpoint. Conflicts with `connection_string`, `connection_string_insecure` and `sas_uri`.
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the AAzure Blob Storage account.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs']] service_principal_linked_key_vault_key: A `service_principal_linked_key_vault_key` block as defined below. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] storage_kind: Specify the kind of the storage account. Allowed values are `Storage`, `StorageV2`, `BlobStorage` and `BlockBlobStorage`.
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.

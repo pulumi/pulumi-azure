@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Blob.
@@ -126,12 +125,6 @@ func (o LookupBlobResultOutput) ToLookupBlobResultOutput() LookupBlobResultOutpu
 
 func (o LookupBlobResultOutput) ToLookupBlobResultOutputWithContext(ctx context.Context) LookupBlobResultOutput {
 	return o
-}
-
-func (o LookupBlobResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBlobResult] {
-	return pulumix.Output[LookupBlobResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access tier of the storage blob.

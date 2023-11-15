@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HostPoolScheduledAgentUpdates(dict):
+calass HostPoolScheduledAgentUpdates(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -47,7 +47,7 @@ class HostPoolScheduledAgentUpdates(dict):
         :param bool enabled: Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
                
                > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
-        :param Sequence['HostPoolScheduledAgentUpdatesScheduleArgs'] schedules: A `schedule` block as defined below. A maximum of two blocks can be added.
+        :param Sequence['HostPoolScheduledAgentUpdatesScheduleArrgs'] schedules: A `schedule` block as defined below. A maximum of two blocks can be added.
         :param str timezone: Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
         :param bool use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
         """
@@ -96,7 +96,7 @@ class HostPoolScheduledAgentUpdates(dict):
 
 
 @pulumi.output_type
-class HostPoolScheduledAgentUpdatesSchedule(dict):
+calass HostPoolScheduledAgentUpdatesSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -144,7 +144,7 @@ class HostPoolScheduledAgentUpdatesSchedule(dict):
 
 
 @pulumi.output_type
-class ScalingPlanHostPool(dict):
+calass ScalingPlanHostPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -192,7 +192,7 @@ class ScalingPlanHostPool(dict):
 
 
 @pulumi.output_type
-class ScalingPlanSchedule(dict):
+calass ScalingPlanSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -448,7 +448,7 @@ class ScalingPlanSchedule(dict):
 
 
 @pulumi.output_type
-class GetHostPoolScheduledAgentUpdateResult(dict):
+calass GetHostPoolScheduledAgentUpdateResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  schedules: Sequence['outputs.GetHostPoolScheduledAgentUpdateScheduleResult'],
@@ -456,7 +456,7 @@ class GetHostPoolScheduledAgentUpdateResult(dict):
                  use_session_host_timezone: bool):
         """
         :param bool enabled: Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
-        :param Sequence['GetHostPoolScheduledAgentUpdateScheduleArgs'] schedules: A `schedule` block as defined below.
+        :param Sequence['GetHostPoolScheduledAgentUpdateScheduleArrgs'] schedules: A `schedule` block as defined below.
         :param str timezone: The time zone in which the agent update schedule will apply.
         :param bool use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host.
         """
@@ -499,7 +499,7 @@ class GetHostPoolScheduledAgentUpdateResult(dict):
 
 
 @pulumi.output_type
-class GetHostPoolScheduledAgentUpdateScheduleResult(dict):
+calass GetHostPoolScheduledAgentUpdateScheduleResult(dict):
     def __init__(__self__, *,
                  day_of_week: str,
                  hour_of_day: int):

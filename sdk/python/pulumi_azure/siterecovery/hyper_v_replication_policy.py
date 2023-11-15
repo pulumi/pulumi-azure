@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HyperVReplicationPolicyArgs', 'HyperVReplicationPolicy']
+__all__ = ['HyperVReplicationPolicyArrgs', 'HyperVReplicationPolicy']
 
 @pulumi.input_type
-class HyperVReplicationPolicyArgs:
+calass HyperVReplicationPolicyArrgs:
     def __init__(__self__, *,
                  application_consistent_snapshot_frequency_in_hours: pulumi.Input[int],
                  recovery_point_retention_in_hours: pulumi.Input[int],
@@ -92,7 +92,7 @@ class HyperVReplicationPolicyArgs:
 
 
 @pulumi.input_type
-class _HyperVReplicationPolicyState:
+calass _HyperVReplicationPolicyState:
     def __init__(__self__, *,
                  application_consistent_snapshot_frequency_in_hours: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class _HyperVReplicationPolicyState:
         pulumi.set(self, "replication_interval_in_seconds", value)
 
 
-class HyperVReplicationPolicy(pulumi.CustomResource):
+calass HyperVReplicationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,7 +226,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HyperVReplicationPolicyArgs,
+                 args: HyperVReplicationPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
@@ -258,12 +258,12 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HyperVReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param HyperVReplicationPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HyperVReplicationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HyperVReplicationPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -284,7 +284,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HyperVReplicationPolicyArgs.__new__(HyperVReplicationPolicyArgs)
+            __props__ = HyperVReplicationPolicyArrgs.__new__(HyperVReplicationPolicyArrgs)
 
             if application_consistent_snapshot_frequency_in_hours is None and not opts.urn:
                 raise TypeError("Missing required property 'application_consistent_snapshot_frequency_in_hours'")

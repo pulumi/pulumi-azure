@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
+calass CustomHttpsConfigurationCustomHttpsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -158,7 +158,7 @@ class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyCustomRule(dict):
+calass FirewallPolicyCustomRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -194,7 +194,7 @@ class FirewallPolicyCustomRule(dict):
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param Sequence['FirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        :param Sequence['FirewallPolicyCustomRuleMatchConditionArrgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param int priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param int rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param int rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -279,7 +279,7 @@ class FirewallPolicyCustomRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyCustomRuleMatchCondition(dict):
+calass FirewallPolicyCustomRuleMatchCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -376,7 +376,7 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRule(dict):
+calass FirewallPolicyManagedRule(dict):
     def __init__(__self__, *,
                  type: str,
                  version: str,
@@ -385,8 +385,8 @@ class FirewallPolicyManagedRule(dict):
         """
         :param str type: The name of the managed rule to use with this resource.
         :param str version: The version on the managed rule to use with this resource.
-        :param Sequence['FirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param Sequence['FirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideArrgs'] overrides: One or more `override` blocks as defined below.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "version", version)
@@ -429,7 +429,7 @@ class FirewallPolicyManagedRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRuleExclusion(dict):
+calass FirewallPolicyManagedRuleExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -486,7 +486,7 @@ class FirewallPolicyManagedRuleExclusion(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRuleOverride(dict):
+calass FirewallPolicyManagedRuleOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -510,8 +510,8 @@ class FirewallPolicyManagedRuleOverride(dict):
                  rules: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideRule']] = None):
         """
         :param str rule_group_name: The managed rule group to override.
-        :param Sequence['FirewallPolicyManagedRuleOverrideExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param Sequence['FirewallPolicyManagedRuleOverrideRuleArgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        :param Sequence['FirewallPolicyManagedRuleOverrideExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideRuleArrgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -545,7 +545,7 @@ class FirewallPolicyManagedRuleOverride(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRuleOverrideExclusion(dict):
+calass FirewallPolicyManagedRuleOverrideExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -602,7 +602,7 @@ class FirewallPolicyManagedRuleOverrideExclusion(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRuleOverrideRule(dict):
+calass FirewallPolicyManagedRuleOverrideRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -629,7 +629,7 @@ class FirewallPolicyManagedRuleOverrideRule(dict):
         :param str action: The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
         :param str rule_id: Identifier for the managed rule.
         :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
-        :param Sequence['FirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FirewallPolicyManagedRuleOverrideRuleExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -672,7 +672,7 @@ class FirewallPolicyManagedRuleOverrideRule(dict):
 
 
 @pulumi.output_type
-class FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
+calass FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -729,7 +729,7 @@ class FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
 
 
 @pulumi.output_type
-class FrontdoorBackendPool(dict):
+calass FrontdoorBackendPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -756,7 +756,7 @@ class FrontdoorBackendPool(dict):
                  name: str,
                  id: Optional[str] = None):
         """
-        :param Sequence['FrontdoorBackendPoolBackendArgs'] backends: A `backend` block as defined below.
+        :param Sequence['FrontdoorBackendPoolBackendArrgs'] backends: A `backend` block as defined below.
         :param str health_probe_name: Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         :param str load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
         :param str name: Specifies the name of the Backend Pool.
@@ -811,7 +811,7 @@ class FrontdoorBackendPool(dict):
 
 
 @pulumi.output_type
-class FrontdoorBackendPoolBackend(dict):
+calass FrontdoorBackendPoolBackend(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -919,7 +919,7 @@ class FrontdoorBackendPoolBackend(dict):
 
 
 @pulumi.output_type
-class FrontdoorBackendPoolHealthProbe(dict):
+calass FrontdoorBackendPoolHealthProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1032,7 +1032,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
 
 
 @pulumi.output_type
-class FrontdoorBackendPoolLoadBalancing(dict):
+calass FrontdoorBackendPoolLoadBalancing(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1119,7 +1119,7 @@ class FrontdoorBackendPoolLoadBalancing(dict):
 
 
 @pulumi.output_type
-class FrontdoorBackendPoolSetting(dict):
+calass FrontdoorBackendPoolSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1172,7 +1172,7 @@ class FrontdoorBackendPoolSetting(dict):
 
 
 @pulumi.output_type
-class FrontdoorExplicitResourceOrder(dict):
+calass FrontdoorExplicitResourceOrder(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1242,7 +1242,7 @@ class FrontdoorExplicitResourceOrder(dict):
 
 
 @pulumi.output_type
-class FrontdoorFrontendEndpoint(dict):
+calass FrontdoorFrontendEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1342,7 +1342,7 @@ class FrontdoorFrontendEndpoint(dict):
 
 
 @pulumi.output_type
-class FrontdoorRoutingRule(dict):
+calass FrontdoorRoutingRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1383,9 +1383,9 @@ class FrontdoorRoutingRule(dict):
         :param str name: Specifies the name of the Routing Rule.
         :param Sequence[str] patterns_to_matches: The route patterns for the Backend Routing Rule.
         :param bool enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
-        :param 'FrontdoorRoutingRuleForwardingConfigurationArgs' forwarding_configuration: A `forwarding_configuration` block as defined below.
+        :param 'FrontdoorRoutingRuleForwardingConfigurationArrgs' forwarding_configuration: A `forwarding_configuration` block as defined below.
         :param str id: The ID of the FrontDoor.
-        :param 'FrontdoorRoutingRuleRedirectConfigurationArgs' redirect_configuration: A `redirect_configuration` block as defined below.
+        :param 'FrontdoorRoutingRuleRedirectConfigurationArrgs' redirect_configuration: A `redirect_configuration` block as defined below.
         """
         pulumi.set(__self__, "accepted_protocols", accepted_protocols)
         pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
@@ -1466,7 +1466,7 @@ class FrontdoorRoutingRule(dict):
 
 
 @pulumi.output_type
-class FrontdoorRoutingRuleForwardingConfiguration(dict):
+calass FrontdoorRoutingRuleForwardingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1599,7 +1599,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
 
 
 @pulumi.output_type
-class FrontdoorRoutingRuleRedirectConfiguration(dict):
+calass FrontdoorRoutingRuleRedirectConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1703,7 +1703,7 @@ class FrontdoorRoutingRuleRedirectConfiguration(dict):
 
 
 @pulumi.output_type
-class RulesEngineRule(dict):
+calass RulesEngineRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1729,8 +1729,8 @@ class RulesEngineRule(dict):
         """
         :param str name: The name of the rule.
         :param int priority: Priority of the rule, must be unique per rules engine definition.
-        :param 'RulesEngineRuleActionArgs' action: An `action` block as defined below.
-        :param Sequence['RulesEngineRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block as defined below.
+        :param 'RulesEngineRuleActionArrgs' action: An `action` block as defined below.
+        :param Sequence['RulesEngineRuleMatchConditionArrgs'] match_conditions: One or more `match_condition` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -1773,7 +1773,7 @@ class RulesEngineRule(dict):
 
 
 @pulumi.output_type
-class RulesEngineRuleAction(dict):
+calass RulesEngineRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1797,8 +1797,8 @@ class RulesEngineRuleAction(dict):
                  request_headers: Optional[Sequence['outputs.RulesEngineRuleActionRequestHeader']] = None,
                  response_headers: Optional[Sequence['outputs.RulesEngineRuleActionResponseHeader']] = None):
         """
-        :param Sequence['RulesEngineRuleActionRequestHeaderArgs'] request_headers: A `request_header` block as defined below.
-        :param Sequence['RulesEngineRuleActionResponseHeaderArgs'] response_headers: A `response_header` block as defined below.
+        :param Sequence['RulesEngineRuleActionRequestHeaderArrgs'] request_headers: A `request_header` block as defined below.
+        :param Sequence['RulesEngineRuleActionResponseHeaderArrgs'] response_headers: A `response_header` block as defined below.
         """
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
@@ -1823,7 +1823,7 @@ class RulesEngineRuleAction(dict):
 
 
 @pulumi.output_type
-class RulesEngineRuleActionRequestHeader(dict):
+calass RulesEngineRuleActionRequestHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1885,7 +1885,7 @@ class RulesEngineRuleActionRequestHeader(dict):
 
 
 @pulumi.output_type
-class RulesEngineRuleActionResponseHeader(dict):
+calass RulesEngineRuleActionResponseHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1947,7 +1947,7 @@ class RulesEngineRuleActionResponseHeader(dict):
 
 
 @pulumi.output_type
-class RulesEngineRuleMatchCondition(dict):
+calass RulesEngineRuleMatchCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

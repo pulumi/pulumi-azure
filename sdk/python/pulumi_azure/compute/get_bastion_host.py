@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBastionHostResult:
+calass GetBastionHostResult:
     """
     A collection of values returned by getBastionHost.
     """
@@ -176,7 +176,7 @@ class GetBastionHostResult:
         return pulumi.get(self, "tunneling_enabled")
 
 
-class AwaitableGetBastionHostResult(GetBastionHostResult):
+calass AwaitableGetBastionHostResult(GetBastionHostResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

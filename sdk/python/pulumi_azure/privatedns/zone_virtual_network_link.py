@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ZoneVirtualNetworkLinkArgs', 'ZoneVirtualNetworkLink']
+__all__ = ['ZoneVirtualNetworkLinkArrgs', 'ZoneVirtualNetworkLink']
 
 @pulumi.input_type
-class ZoneVirtualNetworkLinkArgs:
+calass ZoneVirtualNetworkLinkArrgs:
     def __init__(__self__, *,
                  private_dns_zone_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -113,7 +113,7 @@ class ZoneVirtualNetworkLinkArgs:
 
 
 @pulumi.input_type
-class _ZoneVirtualNetworkLinkState:
+calass _ZoneVirtualNetworkLinkState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_name: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _ZoneVirtualNetworkLinkState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class ZoneVirtualNetworkLink(pulumi.CustomResource):
+calass ZoneVirtualNetworkLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ZoneVirtualNetworkLinkArgs,
+                 args: ZoneVirtualNetworkLinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
@@ -302,12 +302,12 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ZoneVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.
+        :param ZoneVirtualNetworkLinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ZoneVirtualNetworkLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneVirtualNetworkLinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ZoneVirtualNetworkLinkArgs.__new__(ZoneVirtualNetworkLinkArgs)
+            __props__ = ZoneVirtualNetworkLinkArrgs.__new__(ZoneVirtualNetworkLinkArrgs)
 
             __props__.__dict__["name"] = name
             if private_dns_zone_name is None and not opts.urn:

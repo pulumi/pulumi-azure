@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AlertPrometheusRuleGroupArgs', 'AlertPrometheusRuleGroup']
+__all__ = ['AlertPrometheusRuleGroupArrgs', 'AlertPrometheusRuleGroup']
 
 @pulumi.input_type
-class AlertPrometheusRuleGroupArgs:
+calass AlertPrometheusRuleGroupArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 rules: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class AlertPrometheusRuleGroupArgs:
         """
         The set of arguments for constructing a AlertPrometheusRuleGroup resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[str] cluster_name: Specifies the name of the Managed Kubernetes Cluster.
         :param pulumi.Input[str] description: The description of the Alert Management Prometheus Rule Group.
@@ -71,14 +71,14 @@ class AlertPrometheusRuleGroupArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]]:
         """
         A `rule` block as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -179,7 +179,7 @@ class AlertPrometheusRuleGroupArgs:
 
 
 @pulumi.input_type
-class _AlertPrometheusRuleGroupState:
+calass _AlertPrometheusRuleGroupState:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -188,7 +188,7 @@ class _AlertPrometheusRuleGroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -200,7 +200,7 @@ class _AlertPrometheusRuleGroupState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
@@ -311,14 +311,14 @@ class _AlertPrometheusRuleGroupState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]]]:
         """
         A `rule` block as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -346,7 +346,7 @@ class _AlertPrometheusRuleGroupState:
         pulumi.set(self, "tags", value)
 
 
-class AlertPrometheusRuleGroup(pulumi.CustomResource):
+calass AlertPrometheusRuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -358,7 +358,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArrgs']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -382,7 +382,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArrgs']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
@@ -390,7 +390,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlertPrometheusRuleGroupArgs,
+                 args: AlertPrometheusRuleGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alert Management Prometheus Rule Group.
@@ -404,12 +404,12 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AlertPrometheusRuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param AlertPrometheusRuleGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlertPrometheusRuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertPrometheusRuleGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -425,7 +425,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArrgs']]]]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -435,7 +435,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlertPrometheusRuleGroupArgs.__new__(AlertPrometheusRuleGroupArgs)
+            __props__ = AlertPrometheusRuleGroupArrgs.__new__(AlertPrometheusRuleGroupArrgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["description"] = description
@@ -470,7 +470,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rule_group_enabled: Optional[pulumi.Input[bool]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArrgs']]]]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AlertPrometheusRuleGroup':
         """
@@ -487,7 +487,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertPrometheusRuleGroupRuleArrgs']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """

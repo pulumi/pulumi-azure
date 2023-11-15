@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DdosProtectionPlanArgs', 'DdosProtectionPlan']
+__all__ = ['DdosProtectionPlanArrgs', 'DdosProtectionPlan']
 
 @pulumi.input_type
-class DdosProtectionPlanArgs:
+calass DdosProtectionPlanArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class DdosProtectionPlanArgs:
 
 
 @pulumi.input_type
-class _DdosProtectionPlanState:
+calass _DdosProtectionPlanState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class _DdosProtectionPlanState:
         pulumi.set(self, "virtual_network_ids", value)
 
 
-class DdosProtectionPlan(pulumi.CustomResource):
+calass DdosProtectionPlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -218,7 +218,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DdosProtectionPlanArgs,
+                 args: DdosProtectionPlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AzureNetwork DDoS Protection Plan.
@@ -248,12 +248,12 @@ class DdosProtectionPlan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DdosProtectionPlanArgs args: The arguments to use to populate this resource's properties.
+        :param DdosProtectionPlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DdosProtectionPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DdosProtectionPlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -273,7 +273,7 @@ class DdosProtectionPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DdosProtectionPlanArgs.__new__(DdosProtectionPlanArgs)
+            __props__ = DdosProtectionPlanArrgs.__new__(DdosProtectionPlanArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

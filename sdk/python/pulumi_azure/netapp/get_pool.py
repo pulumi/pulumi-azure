@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPoolResult:
+calass GetPoolResult:
     """
     A collection of values returned by getPool.
     """
@@ -92,7 +92,7 @@ class GetPoolResult:
         return pulumi.get(self, "size_in_tb")
 
 
-class AwaitableGetPoolResult(GetPoolResult):
+calass AwaitableGetPoolResult(GetPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

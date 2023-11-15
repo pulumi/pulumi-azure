@@ -10,55 +10,55 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountAnalyticalStorageArgs',
-    'AccountBackupArgs',
-    'AccountCapabilityArgs',
-    'AccountCapacityArgs',
-    'AccountConsistencyPolicyArgs',
-    'AccountCorsRuleArgs',
-    'AccountGeoLocationArgs',
-    'AccountIdentityArgs',
-    'AccountRestoreArgs',
-    'AccountRestoreDatabaseArgs',
-    'AccountVirtualNetworkRuleArgs',
-    'CassandraClusterIdentityArgs',
-    'CassandraKeyspaceAutoscaleSettingsArgs',
-    'CassandraTableAutoscaleSettingsArgs',
-    'CassandraTableSchemaArgs',
-    'CassandraTableSchemaClusterKeyArgs',
-    'CassandraTableSchemaColumnArgs',
-    'CassandraTableSchemaPartitionKeyArgs',
-    'GremlinDatabaseAutoscaleSettingsArgs',
-    'GremlinGraphAutoscaleSettingsArgs',
-    'GremlinGraphConflictResolutionPolicyArgs',
-    'GremlinGraphIndexPolicyArgs',
-    'GremlinGraphIndexPolicyCompositeIndexArgs',
-    'GremlinGraphIndexPolicyCompositeIndexIndexArgs',
-    'GremlinGraphIndexPolicySpatialIndexArgs',
-    'GremlinGraphUniqueKeyArgs',
-    'MongoCollectionAutoscaleSettingsArgs',
-    'MongoCollectionIndexArgs',
-    'MongoCollectionSystemIndexArgs',
-    'MongoDatabaseAutoscaleSettingsArgs',
-    'MongoRoleDefinitionPrivilegeArgs',
-    'MongoRoleDefinitionPrivilegeResourceArgs',
-    'PostgresqlClusterMaintenanceWindowArgs',
-    'SqlContainerAutoscaleSettingsArgs',
-    'SqlContainerConflictResolutionPolicyArgs',
-    'SqlContainerIndexingPolicyArgs',
-    'SqlContainerIndexingPolicyCompositeIndexArgs',
-    'SqlContainerIndexingPolicyCompositeIndexIndexArgs',
-    'SqlContainerIndexingPolicyExcludedPathArgs',
-    'SqlContainerIndexingPolicyIncludedPathArgs',
-    'SqlContainerIndexingPolicySpatialIndexArgs',
-    'SqlContainerUniqueKeyArgs',
-    'SqlDatabaseAutoscaleSettingsArgs',
-    'SqlRoleDefinitionPermissionArgs',
-    'TableAutoscaleSettingsArgs',
+    'AccountAnalyticalStorageArrgs',
+    'AccountBackupArrgs',
+    'AccountCapabilityArrgs',
+    'AccountCapacityArrgs',
+    'AccountConsistencyPolicyArrgs',
+    'AccountCorsRuleArrgs',
+    'AccountGeoLocationArrgs',
+    'AccountIdentityArrgs',
+    'AccountRestoreArrgs',
+    'AccountRestoreDatabaseArrgs',
+    'AccountVirtualNetworkRuleArrgs',
+    'CassandraClusterIdentityArrgs',
+    'CassandraKeyspaceAutoscaleSettingsArrgs',
+    'CassandraTableAutoscaleSettingsArrgs',
+    'CassandraTableSchemaArrgs',
+    'CassandraTableSchemaClusterKeyArrgs',
+    'CassandraTableSchemaColumnArrgs',
+    'CassandraTableSchemaPartitionKeyArrgs',
+    'GremlinDatabaseAutoscaleSettingsArrgs',
+    'GremlinGraphAutoscaleSettingsArrgs',
+    'GremlinGraphConflictResolutionPolicyArrgs',
+    'GremlinGraphIndexPolicyArrgs',
+    'GremlinGraphIndexPolicyCompositeIndexArrgs',
+    'GremlinGraphIndexPolicyCompositeIndexIndexArrgs',
+    'GremlinGraphIndexPolicySpatialIndexArrgs',
+    'GremlinGraphUniqueKeyArrgs',
+    'MongoCollectionAutoscaleSettingsArrgs',
+    'MongoCollectionIndexArrgs',
+    'MongoCollectionSystemIndexArrgs',
+    'MongoDatabaseAutoscaleSettingsArrgs',
+    'MongoRoleDefinitionPrivilegeArrgs',
+    'MongoRoleDefinitionPrivilegeResourceArrgs',
+    'PostgresqlClusterMaintenanceWindowArrgs',
+    'SqlContainerAutoscaleSettingsArrgs',
+    'SqlContainerConflictResolutionPolicyArrgs',
+    'SqlContainerIndexingPolicyArrgs',
+    'SqlContainerIndexingPolicyCompositeIndexArrgs',
+    'SqlContainerIndexingPolicyCompositeIndexIndexArrgs',
+    'SqlContainerIndexingPolicyExcludedPathArrgs',
+    'SqlContainerIndexingPolicyIncludedPathArrgs',
+    'SqlContainerIndexingPolicySpatialIndexArrgs',
+    'SqlContainerUniqueKeyArrgs',
+    'SqlDatabaseAutoscaleSettingsArrgs',
+    'SqlRoleDefinitionPermissionArrgs',
+    'TableAutoscaleSettingsArrgs',
 ]
 
 @pulumi.input_type
-class AccountAnalyticalStorageArgs:
+calass AccountAnalyticalStorageArrgs:
     def __init__(__self__, *,
                  schema_type: pulumi.Input[str]):
         """
@@ -80,7 +80,7 @@ class AccountAnalyticalStorageArgs:
 
 
 @pulumi.input_type
-class AccountBackupArgs:
+calass AccountBackupArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  interval_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -150,7 +150,7 @@ class AccountBackupArgs:
 
 
 @pulumi.input_type
-class AccountCapabilityArgs:
+calass AccountCapabilityArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -172,7 +172,7 @@ class AccountCapabilityArgs:
 
 
 @pulumi.input_type
-class AccountCapacityArgs:
+calass AccountCapacityArrgs:
     def __init__(__self__, *,
                  total_throughput_limit: pulumi.Input[int]):
         """
@@ -194,7 +194,7 @@ class AccountCapacityArgs:
 
 
 @pulumi.input_type
-class AccountConsistencyPolicyArgs:
+calass AccountConsistencyPolicyArrgs:
     def __init__(__self__, *,
                  consistency_level: pulumi.Input[str],
                  max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -252,7 +252,7 @@ class AccountConsistencyPolicyArgs:
 
 
 @pulumi.input_type
-class AccountCorsRuleArgs:
+calass AccountCorsRuleArrgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -335,7 +335,7 @@ class AccountCorsRuleArgs:
 
 
 @pulumi.input_type
-class AccountGeoLocationArgs:
+calass AccountGeoLocationArrgs:
     def __init__(__self__, *,
                  failover_priority: pulumi.Input[int],
                  location: pulumi.Input[str],
@@ -404,7 +404,7 @@ class AccountGeoLocationArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -474,17 +474,17 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountRestoreArgs:
+calass AccountRestoreArrgs:
     def __init__(__self__, *,
                  restore_timestamp_in_utc: pulumi.Input[str],
                  source_cosmosdb_account_id: pulumi.Input[str],
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]] = None):
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArrgs']]]] = None):
         """
         :param pulumi.Input[str] restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
                
                > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]] databases: A `database` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArrgs']]] databases: A `database` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
         pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
@@ -519,19 +519,19 @@ class AccountRestoreArgs:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]:
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArrgs']]]]:
         """
         A `database` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]):
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArrgs']]]]):
         pulumi.set(self, "databases", value)
 
 
 @pulumi.input_type
-class AccountRestoreDatabaseArgs:
+calass AccountRestoreDatabaseArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -569,7 +569,7 @@ class AccountRestoreDatabaseArgs:
 
 
 @pulumi.input_type
-class AccountVirtualNetworkRuleArgs:
+calass AccountVirtualNetworkRuleArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None):
@@ -607,7 +607,7 @@ class AccountVirtualNetworkRuleArgs:
 
 
 @pulumi.input_type
-class CassandraClusterIdentityArgs:
+calass CassandraClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -653,7 +653,7 @@ class CassandraClusterIdentityArgs:
 
 
 @pulumi.input_type
-class CassandraKeyspaceAutoscaleSettingsArgs:
+calass CassandraKeyspaceAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -676,7 +676,7 @@ class CassandraKeyspaceAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class CassandraTableAutoscaleSettingsArgs:
+calass CassandraTableAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -699,15 +699,15 @@ class CassandraTableAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class CassandraTableSchemaArgs:
+calass CassandraTableSchemaArrgs:
     def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]],
-                 partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]],
-                 cluster_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]] = None):
+                 columns: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArrgs']]],
+                 partition_keys: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArrgs']]],
+                 cluster_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]] columns: One or more `column` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]] partition_keys: One or more `partition_key` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]] cluster_keys: One or more `cluster_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArrgs']]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArrgs']]] partition_keys: One or more `partition_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArrgs']]] cluster_keys: One or more `cluster_key` blocks as defined below.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
@@ -716,43 +716,43 @@ class CassandraTableSchemaArgs:
 
     @property
     @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]]:
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArrgs']]]:
         """
         One or more `column` blocks as defined below.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArgs']]]):
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaColumnArrgs']]]):
         pulumi.set(self, "columns", value)
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]]:
+    def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArrgs']]]:
         """
         One or more `partition_key` blocks as defined below.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArgs']]]):
+    def partition_keys(self, value: pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaPartitionKeyArrgs']]]):
         pulumi.set(self, "partition_keys", value)
 
     @property
     @pulumi.getter(name="clusterKeys")
-    def cluster_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]:
+    def cluster_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArrgs']]]]:
         """
         One or more `cluster_key` blocks as defined below.
         """
         return pulumi.get(self, "cluster_keys")
 
     @cluster_keys.setter
-    def cluster_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]):
+    def cluster_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArrgs']]]]):
         pulumi.set(self, "cluster_keys", value)
 
 
 @pulumi.input_type
-class CassandraTableSchemaClusterKeyArgs:
+calass CassandraTableSchemaClusterKeyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  order_by: pulumi.Input[str]):
@@ -789,7 +789,7 @@ class CassandraTableSchemaClusterKeyArgs:
 
 
 @pulumi.input_type
-class CassandraTableSchemaColumnArgs:
+calass CassandraTableSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -826,7 +826,7 @@ class CassandraTableSchemaColumnArgs:
 
 
 @pulumi.input_type
-class CassandraTableSchemaPartitionKeyArgs:
+calass CassandraTableSchemaPartitionKeyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -848,7 +848,7 @@ class CassandraTableSchemaPartitionKeyArgs:
 
 
 @pulumi.input_type
-class GremlinDatabaseAutoscaleSettingsArgs:
+calass GremlinDatabaseAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -871,7 +871,7 @@ class GremlinDatabaseAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class GremlinGraphAutoscaleSettingsArgs:
+calass GremlinGraphAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -894,7 +894,7 @@ class GremlinGraphAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class GremlinGraphConflictResolutionPolicyArgs:
+calass GremlinGraphConflictResolutionPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  conflict_resolution_path: Optional[pulumi.Input[str]] = None,
@@ -948,21 +948,21 @@ class GremlinGraphConflictResolutionPolicyArgs:
 
 
 @pulumi.input_type
-class GremlinGraphIndexPolicyArgs:
+calass GremlinGraphIndexPolicyArrgs:
     def __init__(__self__, *,
                  indexing_mode: pulumi.Input[str],
                  automatic: Optional[pulumi.Input[bool]] = None,
-                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]] = None,
+                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArrgs']]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]] = None):
+                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArrgs']]]] = None):
         """
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArrgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
-        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArrgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         pulumi.set(__self__, "indexing_mode", indexing_mode)
         if automatic is not None:
@@ -1002,14 +1002,14 @@ class GremlinGraphIndexPolicyArgs:
 
     @property
     @pulumi.getter(name="compositeIndices")
-    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]:
+    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArrgs']]]]:
         """
         One or more `composite_index` blocks as defined below.
         """
         return pulumi.get(self, "composite_indices")
 
     @composite_indices.setter
-    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]):
+    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArrgs']]]]):
         pulumi.set(self, "composite_indices", value)
 
     @property
@@ -1038,41 +1038,41 @@ class GremlinGraphIndexPolicyArgs:
 
     @property
     @pulumi.getter(name="spatialIndices")
-    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]:
+    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArrgs']]]]:
         """
         One or more `spatial_index` blocks as defined below.
         """
         return pulumi.get(self, "spatial_indices")
 
     @spatial_indices.setter
-    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]):
+    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArrgs']]]]):
         pulumi.set(self, "spatial_indices", value)
 
 
 @pulumi.input_type
-class GremlinGraphIndexPolicyCompositeIndexArgs:
+calass GremlinGraphIndexPolicyCompositeIndexArrgs:
     def __init__(__self__, *,
-                 indices: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]):
+                 indices: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArrgs']]] indices: One or more `index` blocks as defined below.
         """
         pulumi.set(__self__, "indices", indices)
 
     @property
     @pulumi.getter
-    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]:
+    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArrgs']]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]):
+    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArrgs']]]):
         pulumi.set(self, "indices", value)
 
 
 @pulumi.input_type
-class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
+calass GremlinGraphIndexPolicyCompositeIndexIndexArrgs:
     def __init__(__self__, *,
                  order: pulumi.Input[str],
                  path: pulumi.Input[str]):
@@ -1109,7 +1109,7 @@ class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
 
 
 @pulumi.input_type
-class GremlinGraphIndexPolicySpatialIndexArgs:
+calass GremlinGraphIndexPolicySpatialIndexArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1143,7 +1143,7 @@ class GremlinGraphIndexPolicySpatialIndexArgs:
 
 
 @pulumi.input_type
-class GremlinGraphUniqueKeyArgs:
+calass GremlinGraphUniqueKeyArrgs:
     def __init__(__self__, *,
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1165,7 +1165,7 @@ class GremlinGraphUniqueKeyArgs:
 
 
 @pulumi.input_type
-class MongoCollectionAutoscaleSettingsArgs:
+calass MongoCollectionAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -1188,7 +1188,7 @@ class MongoCollectionAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class MongoCollectionIndexArgs:
+calass MongoCollectionIndexArrgs:
     def __init__(__self__, *,
                  keys: pulumi.Input[Sequence[pulumi.Input[str]]],
                  unique: Optional[pulumi.Input[bool]] = None):
@@ -1230,7 +1230,7 @@ class MongoCollectionIndexArgs:
 
 
 @pulumi.input_type
-class MongoCollectionSystemIndexArgs:
+calass MongoCollectionSystemIndexArrgs:
     def __init__(__self__, *,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  unique: Optional[pulumi.Input[bool]] = None):
@@ -1273,7 +1273,7 @@ class MongoCollectionSystemIndexArgs:
 
 
 @pulumi.input_type
-class MongoDatabaseAutoscaleSettingsArgs:
+calass MongoDatabaseAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -1296,13 +1296,13 @@ class MongoDatabaseAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class MongoRoleDefinitionPrivilegeArgs:
+calass MongoRoleDefinitionPrivilegeArrgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 resource: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']):
+                 resource: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArrgs']):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions that are allowed.
-        :param pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs'] resource: A `resource` block as defined below.
+        :param pulumi.Input['MongoRoleDefinitionPrivilegeResourceArrgs'] resource: A `resource` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "resource", resource)
@@ -1321,19 +1321,19 @@ class MongoRoleDefinitionPrivilegeArgs:
 
     @property
     @pulumi.getter
-    def resource(self) -> pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']:
+    def resource(self) -> pulumi.Input['MongoRoleDefinitionPrivilegeResourceArrgs']:
         """
         A `resource` block as defined below.
         """
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArgs']):
+    def resource(self, value: pulumi.Input['MongoRoleDefinitionPrivilegeResourceArrgs']):
         pulumi.set(self, "resource", value)
 
 
 @pulumi.input_type
-class MongoRoleDefinitionPrivilegeResourceArgs:
+calass MongoRoleDefinitionPrivilegeResourceArrgs:
     def __init__(__self__, *,
                  collection_name: Optional[pulumi.Input[str]] = None,
                  db_name: Optional[pulumi.Input[str]] = None):
@@ -1372,7 +1372,7 @@ class MongoRoleDefinitionPrivilegeResourceArgs:
 
 
 @pulumi.input_type
-class PostgresqlClusterMaintenanceWindowArgs:
+calass PostgresqlClusterMaintenanceWindowArrgs:
     def __init__(__self__, *,
                  day_of_week: Optional[pulumi.Input[int]] = None,
                  start_hour: Optional[pulumi.Input[int]] = None,
@@ -1427,7 +1427,7 @@ class PostgresqlClusterMaintenanceWindowArgs:
 
 
 @pulumi.input_type
-class SqlContainerAutoscaleSettingsArgs:
+calass SqlContainerAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -1450,7 +1450,7 @@ class SqlContainerAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class SqlContainerConflictResolutionPolicyArgs:
+calass SqlContainerConflictResolutionPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  conflict_resolution_path: Optional[pulumi.Input[str]] = None,
@@ -1504,19 +1504,19 @@ class SqlContainerConflictResolutionPolicyArgs:
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicyArgs:
+calass SqlContainerIndexingPolicyArrgs:
     def __init__(__self__, *,
-                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]] = None,
-                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
-                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
+                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArrgs']]]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArrgs']]]] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArrgs']]]] = None,
                  indexing_mode: Optional[pulumi.Input[str]] = None,
-                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]] = None):
+                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArrgs']]] composite_indices: One or more `composite_index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArrgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArrgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
-        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArrgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         if composite_indices is not None:
             pulumi.set(__self__, "composite_indices", composite_indices)
@@ -1531,38 +1531,38 @@ class SqlContainerIndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="compositeIndices")
-    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]:
+    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArrgs']]]]:
         """
         One or more `composite_index` blocks as defined below.
         """
         return pulumi.get(self, "composite_indices")
 
     @composite_indices.setter
-    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]):
+    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArrgs']]]]):
         pulumi.set(self, "composite_indices", value)
 
     @property
     @pulumi.getter(name="excludedPaths")
-    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]:
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArrgs']]]]:
         """
         One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "excluded_paths")
 
     @excluded_paths.setter
-    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]):
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArrgs']]]]):
         pulumi.set(self, "excluded_paths", value)
 
     @property
     @pulumi.getter(name="includedPaths")
-    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]:
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArrgs']]]]:
         """
         One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         """
         return pulumi.get(self, "included_paths")
 
     @included_paths.setter
-    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]):
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArrgs']]]]):
         pulumi.set(self, "included_paths", value)
 
     @property
@@ -1579,41 +1579,41 @@ class SqlContainerIndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="spatialIndices")
-    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]:
+    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArrgs']]]]:
         """
         One or more `spatial_index` blocks as defined below.
         """
         return pulumi.get(self, "spatial_indices")
 
     @spatial_indices.setter
-    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]):
+    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArrgs']]]]):
         pulumi.set(self, "spatial_indices", value)
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicyCompositeIndexArgs:
+calass SqlContainerIndexingPolicyCompositeIndexArrgs:
     def __init__(__self__, *,
-                 indices: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]):
+                 indices: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArrgs']]] indices: One or more `index` blocks as defined below.
         """
         pulumi.set(__self__, "indices", indices)
 
     @property
     @pulumi.getter
-    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]:
+    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArrgs']]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArgs']]]):
+    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexIndexArrgs']]]):
         pulumi.set(self, "indices", value)
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicyCompositeIndexIndexArgs:
+calass SqlContainerIndexingPolicyCompositeIndexIndexArrgs:
     def __init__(__self__, *,
                  order: pulumi.Input[str],
                  path: pulumi.Input[str]):
@@ -1650,7 +1650,7 @@ class SqlContainerIndexingPolicyCompositeIndexIndexArgs:
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicyExcludedPathArgs:
+calass SqlContainerIndexingPolicyExcludedPathArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str]):
         """
@@ -1672,7 +1672,7 @@ class SqlContainerIndexingPolicyExcludedPathArgs:
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicyIncludedPathArgs:
+calass SqlContainerIndexingPolicyIncludedPathArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str]):
         """
@@ -1694,7 +1694,7 @@ class SqlContainerIndexingPolicyIncludedPathArgs:
 
 
 @pulumi.input_type
-class SqlContainerIndexingPolicySpatialIndexArgs:
+calass SqlContainerIndexingPolicySpatialIndexArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1732,7 +1732,7 @@ class SqlContainerIndexingPolicySpatialIndexArgs:
 
 
 @pulumi.input_type
-class SqlContainerUniqueKeyArgs:
+calass SqlContainerUniqueKeyArrgs:
     def __init__(__self__, *,
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1754,7 +1754,7 @@ class SqlContainerUniqueKeyArgs:
 
 
 @pulumi.input_type
-class SqlDatabaseAutoscaleSettingsArgs:
+calass SqlDatabaseAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """
@@ -1777,7 +1777,7 @@ class SqlDatabaseAutoscaleSettingsArgs:
 
 
 @pulumi.input_type
-class SqlRoleDefinitionPermissionArgs:
+calass SqlRoleDefinitionPermissionArrgs:
     def __init__(__self__, *,
                  data_actions: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1799,7 +1799,7 @@ class SqlRoleDefinitionPermissionArgs:
 
 
 @pulumi.input_type
-class TableAutoscaleSettingsArgs:
+calass TableAutoscaleSettingsArrgs:
     def __init__(__self__, *,
                  max_throughput: Optional[pulumi.Input[int]] = None):
         """

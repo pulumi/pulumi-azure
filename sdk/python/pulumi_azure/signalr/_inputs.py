@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServiceCorArgs',
-    'ServiceIdentityArgs',
-    'ServiceLiveTraceArgs',
-    'ServiceNetworkAclPrivateEndpointArgs',
-    'ServiceNetworkAclPublicNetworkArgs',
-    'ServiceSkuArgs',
-    'ServiceUpstreamEndpointArgs',
+    'ServiceCorArrgs',
+    'ServiceIdentityArrgs',
+    'ServiceLiveTraceArrgs',
+    'ServiceNetworkAclPrivateEndpointArrgs',
+    'ServiceNetworkAclPublicNetworkArrgs',
+    'ServiceSkuArrgs',
+    'ServiceUpstreamEndpointArrgs',
 ]
 
 @pulumi.input_type
-class ServiceCorArgs:
+calass ServiceCorArrgs:
     def __init__(__self__, *,
                  allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -42,7 +42,7 @@ class ServiceCorArgs:
 
 
 @pulumi.input_type
-class ServiceIdentityArgs:
+calass ServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -108,7 +108,7 @@ class ServiceIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceLiveTraceArgs:
+calass ServiceLiveTraceArrgs:
     def __init__(__self__, *,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -179,7 +179,7 @@ class ServiceLiveTraceArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkAclPrivateEndpointArgs:
+calass ServiceNetworkAclPrivateEndpointArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -245,7 +245,7 @@ class ServiceNetworkAclPrivateEndpointArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkAclPublicNetworkArgs:
+calass ServiceNetworkAclPublicNetworkArrgs:
     def __init__(__self__, *,
                  allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -296,7 +296,7 @@ class ServiceNetworkAclPublicNetworkArgs:
 
 
 @pulumi.input_type
-class ServiceSkuArgs:
+calass ServiceSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
@@ -333,7 +333,7 @@ class ServiceSkuArgs:
 
 
 @pulumi.input_type
-class ServiceUpstreamEndpointArgs:
+calass ServiceUpstreamEndpointArrgs:
     def __init__(__self__, *,
                  category_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  event_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],

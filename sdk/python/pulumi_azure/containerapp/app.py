@@ -11,34 +11,34 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AppArgs', 'App']
+__all__ = ['AppArrgs', 'App']
 
 @pulumi.input_type
-class AppArgs:
+calass AppArrgs:
     def __init__(__self__, *,
                  container_app_environment_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  revision_mode: pulumi.Input[str],
-                 template: pulumi.Input['AppTemplateArgs'],
-                 dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
-                 identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
-                 ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
+                 template: pulumi.Input['AppTemplateArrgs'],
+                 dapr: Optional[pulumi.Input['AppDaprArrgs']] = None,
+                 identity: Optional[pulumi.Input['AppIdentityArrgs']] = None,
+                 ingress: Optional[pulumi.Input['AppIngressArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
-        :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
-        :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
-        :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input['AppTemplateArrgs'] template: A `template` block as detailed below.
+        :param pulumi.Input['AppDaprArrgs'] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input['AppIdentityArrgs'] identity: An `identity` block as detailed below.
+        :param pulumi.Input['AppIngressArrgs'] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]] registries: A `registry` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         """
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -98,50 +98,50 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def template(self) -> pulumi.Input['AppTemplateArgs']:
+    def template(self) -> pulumi.Input['AppTemplateArrgs']:
         """
         A `template` block as detailed below.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: pulumi.Input['AppTemplateArgs']):
+    def template(self, value: pulumi.Input['AppTemplateArrgs']):
         pulumi.set(self, "template", value)
 
     @property
     @pulumi.getter
-    def dapr(self) -> Optional[pulumi.Input['AppDaprArgs']]:
+    def dapr(self) -> Optional[pulumi.Input['AppDaprArrgs']]:
         """
         A `dapr` block as detailed below.
         """
         return pulumi.get(self, "dapr")
 
     @dapr.setter
-    def dapr(self, value: Optional[pulumi.Input['AppDaprArgs']]):
+    def dapr(self, value: Optional[pulumi.Input['AppDaprArrgs']]):
         pulumi.set(self, "dapr", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AppIdentityArrgs']]:
         """
         An `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input['AppIngressArgs']]:
+    def ingress(self) -> Optional[pulumi.Input['AppIngressArrgs']]:
         """
         An `ingress` block as detailed below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input['AppIngressArgs']]):
+    def ingress(self, value: Optional[pulumi.Input['AppIngressArrgs']]):
         pulumi.set(self, "ingress", value)
 
     @property
@@ -158,26 +158,26 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]:
+    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]]:
         """
         A `registry` block as detailed below.
         """
         return pulumi.get(self, "registries")
 
     @registries.setter
-    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]):
+    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]]):
         pulumi.set(self, "registries", value)
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]]:
         """
         One or more `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -194,42 +194,42 @@ class AppArgs:
 
 
 @pulumi.input_type
-class _AppState:
+calass _AppState:
     def __init__(__self__, *,
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
-                 dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
-                 identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
-                 ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
+                 dapr: Optional[pulumi.Input['AppDaprArrgs']] = None,
+                 identity: Optional[pulumi.Input['AppIdentityArrgs']] = None,
+                 ingress: Optional[pulumi.Input['AppIngressArrgs']] = None,
                  latest_revision_fqdn: Optional[pulumi.Input[str]] = None,
                  latest_revision_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision_mode: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input['AppTemplateArgs']] = None):
+                 template: Optional[pulumi.Input['AppTemplateArrgs']] = None):
         """
         Input properties used for looking up and filtering App resources.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
-        :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
-        :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input['AppDaprArrgs'] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input['AppIdentityArrgs'] identity: An `identity` block as detailed below.
+        :param pulumi.Input['AppIngressArrgs'] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
-        :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
-        :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
+        :param pulumi.Input['AppTemplateArrgs'] template: A `template` block as detailed below.
         """
         if container_app_environment_id is not None:
             pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -290,38 +290,38 @@ class _AppState:
 
     @property
     @pulumi.getter
-    def dapr(self) -> Optional[pulumi.Input['AppDaprArgs']]:
+    def dapr(self) -> Optional[pulumi.Input['AppDaprArrgs']]:
         """
         A `dapr` block as detailed below.
         """
         return pulumi.get(self, "dapr")
 
     @dapr.setter
-    def dapr(self, value: Optional[pulumi.Input['AppDaprArgs']]):
+    def dapr(self, value: Optional[pulumi.Input['AppDaprArrgs']]):
         pulumi.set(self, "dapr", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AppIdentityArrgs']]:
         """
         An `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input['AppIngressArgs']]:
+    def ingress(self) -> Optional[pulumi.Input['AppIngressArrgs']]:
         """
         An `ingress` block as detailed below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input['AppIngressArgs']]):
+    def ingress(self, value: Optional[pulumi.Input['AppIngressArrgs']]):
         pulumi.set(self, "ingress", value)
 
     @property
@@ -386,14 +386,14 @@ class _AppState:
 
     @property
     @pulumi.getter
-    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]:
+    def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]]:
         """
         A `registry` block as detailed below.
         """
         return pulumi.get(self, "registries")
 
     @registries.setter
-    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]]):
+    def registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArrgs']]]]):
         pulumi.set(self, "registries", value)
 
     @property
@@ -422,14 +422,14 @@ class _AppState:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]]:
         """
         One or more `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -446,33 +446,33 @@ class _AppState:
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input['AppTemplateArgs']]:
+    def template(self) -> Optional[pulumi.Input['AppTemplateArrgs']]:
         """
         A `template` block as detailed below.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input['AppTemplateArgs']]):
+    def template(self, value: Optional[pulumi.Input['AppTemplateArrgs']]):
         pulumi.set(self, "template", value)
 
 
-class App(pulumi.CustomResource):
+calass App(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
-                 dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArgs']]] = None,
-                 ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArgs']]] = None,
+                 dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArrgs']]] = None,
+                 ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]]] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision_mode: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArrgs']]] = None,
                  __props__=None):
         """
         Manages a Container App.
@@ -497,8 +497,8 @@ class App(pulumi.CustomResource):
             container_app_environment_id=example_environment.id,
             resource_group_name=example_resource_group.name,
             revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
+            template=azure.containerapp.AppTemplateArrgs(
+                containers=[azure.containerapp.AppTemplateContainerArrgs(
                     name="examplecontainerapp",
                     image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
                     cpu=0.25,
@@ -518,22 +518,22 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppDaprArrgs']] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArrgs']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIngressArrgs']] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]] registries: A `registry` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArrgs']]]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]] secrets: One or more `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArrgs']]]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
-        :param pulumi.Input[pulumi.InputType['AppTemplateArgs']] template: A `template` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppTemplateArrgs']] template: A `template` block as detailed below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AppArgs,
+                 args: AppArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App.
@@ -558,8 +558,8 @@ class App(pulumi.CustomResource):
             container_app_environment_id=example_environment.id,
             resource_group_name=example_resource_group.name,
             revision_mode="Single",
-            template=azure.containerapp.AppTemplateArgs(
-                containers=[azure.containerapp.AppTemplateContainerArgs(
+            template=azure.containerapp.AppTemplateArrgs(
+                containers=[azure.containerapp.AppTemplateContainerArrgs(
                     name="examplecontainerapp",
                     image="mcr.microsoft.com/azuredocs/containerapps-helloworld:latest",
                     cpu=0.25,
@@ -577,12 +577,12 @@ class App(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AppArgs args: The arguments to use to populate this resource's properties.
+        :param AppArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AppArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -592,16 +592,16 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
-                 dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArgs']]] = None,
-                 ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArgs']]] = None,
+                 dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArrgs']]] = None,
+                 ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]]] = None,
+                 registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision_mode: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None,
+                 template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -609,7 +609,7 @@ class App(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AppArgs.__new__(AppArgs)
+            __props__ = AppArrgs.__new__(AppArrgs)
 
             if container_app_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_environment_id'")
@@ -649,20 +649,20 @@ class App(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             container_app_environment_id: Optional[pulumi.Input[str]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
-            dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArgs']]] = None,
-            ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArgs']]] = None,
+            dapr: Optional[pulumi.Input[pulumi.InputType['AppDaprArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AppIdentityArrgs']]] = None,
+            ingress: Optional[pulumi.Input[pulumi.InputType['AppIngressArrgs']]] = None,
             latest_revision_fqdn: Optional[pulumi.Input[str]] = None,
             latest_revision_name: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]]] = None,
+            registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             revision_mode: Optional[pulumi.Input[str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None) -> 'App':
+            template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArrgs']]] = None) -> 'App':
         """
         Get an existing App resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -672,20 +672,20 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
-        :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppDaprArrgs']] dapr: A `dapr` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArrgs']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIngressArrgs']] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
         :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]] registries: A `registry` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArrgs']]]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]] secrets: One or more `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArrgs']]]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
-        :param pulumi.Input[pulumi.InputType['AppTemplateArgs']] template: A `template` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppTemplateArrgs']] template: A `template` block as detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

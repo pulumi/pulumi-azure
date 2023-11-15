@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudAppCosmosDBAssociationArgs', 'SpringCloudAppCosmosDBAssociation']
+__all__ = ['SpringCloudAppCosmosDBAssociationArrgs', 'SpringCloudAppCosmosDBAssociation']
 
 @pulumi.input_type
-class SpringCloudAppCosmosDBAssociationArgs:
+calass SpringCloudAppCosmosDBAssociationArrgs:
     def __init__(__self__, *,
                  api_type: pulumi.Input[str],
                  cosmosdb_access_key: pulumi.Input[str],
@@ -176,7 +176,7 @@ class SpringCloudAppCosmosDBAssociationArgs:
 
 
 @pulumi.input_type
-class _SpringCloudAppCosmosDBAssociationState:
+calass _SpringCloudAppCosmosDBAssociationState:
     def __init__(__self__, *,
                  api_type: Optional[pulumi.Input[str]] = None,
                  cosmosdb_access_key: Optional[pulumi.Input[str]] = None,
@@ -343,7 +343,7 @@ class _SpringCloudAppCosmosDBAssociationState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
-class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
+calass SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -380,10 +380,10 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -419,7 +419,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudAppCosmosDBAssociationArgs,
+                 args: SpringCloudAppCosmosDBAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a CosmosDB Account.
@@ -442,10 +442,10 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -465,12 +465,12 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudAppCosmosDBAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudAppCosmosDBAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppCosmosDBAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppCosmosDBAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -496,7 +496,7 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudAppCosmosDBAssociationArgs.__new__(SpringCloudAppCosmosDBAssociationArgs)
+            __props__ = SpringCloudAppCosmosDBAssociationArrgs.__new__(SpringCloudAppCosmosDBAssociationArrgs)
 
             if api_type is None and not opts.urn:
                 raise TypeError("Missing required property 'api_type'")

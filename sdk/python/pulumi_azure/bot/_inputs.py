@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ChannelDirectLineSiteArgs',
-    'ChannelFacebookPageArgs',
-    'ChannelLineLineChannelArgs',
-    'ChannelWebChatSiteArgs',
+    'ChannelDirectLineSiteArrgs',
+    'ChannelFacebookPageArrgs',
+    'ChannelLineLineChannelArrgs',
+    'ChannelWebChatSiteArrgs',
 ]
 
 @pulumi.input_type
-class ChannelDirectLineSiteArgs:
+calass ChannelDirectLineSiteArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -215,7 +215,7 @@ class ChannelDirectLineSiteArgs:
 
 
 @pulumi.input_type
-class ChannelFacebookPageArgs:
+calass ChannelFacebookPageArrgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[str],
                  id: pulumi.Input[str]):
@@ -252,7 +252,7 @@ class ChannelFacebookPageArgs:
 
 
 @pulumi.input_type
-class ChannelLineLineChannelArgs:
+calass ChannelLineLineChannelArrgs:
     def __init__(__self__, *,
                  access_token: pulumi.Input[str],
                  secret: pulumi.Input[str]):
@@ -289,7 +289,7 @@ class ChannelLineLineChannelArgs:
 
 
 @pulumi.input_type
-class ChannelWebChatSiteArgs:
+calass ChannelWebChatSiteArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  endpoint_parameters_enabled: Optional[pulumi.Input[bool]] = None,

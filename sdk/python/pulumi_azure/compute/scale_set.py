@@ -11,69 +11,69 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScaleSetArgs', 'ScaleSet']
+__all__ = ['ScaleSetArrgs', 'ScaleSet']
 
 @pulumi.input_type
-class ScaleSetArgs:
+calass ScaleSetArrgs:
     def __init__(__self__, *,
-                 network_profiles: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]],
-                 os_profile: pulumi.Input['ScaleSetOsProfileArgs'],
+                 network_profiles: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]],
+                 os_profile: pulumi.Input['ScaleSetOsProfileArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 sku: pulumi.Input['ScaleSetSkuArgs'],
-                 storage_profile_os_disk: pulumi.Input['ScaleSetStorageProfileOsDiskArgs'],
+                 sku: pulumi.Input['ScaleSetSkuArrgs'],
+                 storage_profile_os_disk: pulumi.Input['ScaleSetStorageProfileOsDiskArrgs'],
                  upgrade_policy_mode: pulumi.Input[str],
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']] = None,
+                 boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ScaleSetIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ScaleSetIdentityArrgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']] = None,
+                 os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
-                 plan: Optional[pulumi.Input['ScaleSetPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['ScaleSetPlanArrgs']] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
-                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]] = None,
-                 storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
+                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]] = None,
+                 storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ScaleSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input['ScaleSetOsProfileArgs'] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input['ScaleSetOsProfileArrgs'] os_profile: A Virtual Machine OS Profile block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScaleSetSkuArgs'] sku: A SKU block as documented below.
-        :param pulumi.Input['ScaleSetStorageProfileOsDiskArgs'] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input['ScaleSetSkuArrgs'] sku: A SKU block as documented below.
+        :param pulumi.Input['ScaleSetStorageProfileOsDiskArrgs'] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input['ScaleSetBootDiagnosticsArrgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-        :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ScaleSetIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScaleSetOsProfileLinuxConfigArgs'] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input['ScaleSetOsProfileWindowsConfigArgs'] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs'] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs'] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input['ScaleSetPlanArgs'] plan: A plan block as documented below.
+        :param pulumi.Input['ScaleSetPlanArrgs'] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
-        :param pulumi.Input['ScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input['ScaleSetRollingUpgradePolicyArrgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input['ScaleSetStorageProfileImageReferenceArgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
                
@@ -132,26 +132,26 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter(name="networkProfiles")
-    def network_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]:
+    def network_profiles(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]]:
         """
         A collection of network profile block as documented below.
         """
         return pulumi.get(self, "network_profiles")
 
     @network_profiles.setter
-    def network_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]):
+    def network_profiles(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]]):
         pulumi.set(self, "network_profiles", value)
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> pulumi.Input['ScaleSetOsProfileArgs']:
+    def os_profile(self) -> pulumi.Input['ScaleSetOsProfileArrgs']:
         """
         A Virtual Machine OS Profile block as documented below.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: pulumi.Input['ScaleSetOsProfileArgs']):
+    def os_profile(self, value: pulumi.Input['ScaleSetOsProfileArrgs']):
         pulumi.set(self, "os_profile", value)
 
     @property
@@ -168,26 +168,26 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['ScaleSetSkuArgs']:
+    def sku(self) -> pulumi.Input['ScaleSetSkuArrgs']:
         """
         A SKU block as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['ScaleSetSkuArgs']):
+    def sku(self, value: pulumi.Input['ScaleSetSkuArrgs']):
         pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter(name="storageProfileOsDisk")
-    def storage_profile_os_disk(self) -> pulumi.Input['ScaleSetStorageProfileOsDiskArgs']:
+    def storage_profile_os_disk(self) -> pulumi.Input['ScaleSetStorageProfileOsDiskArrgs']:
         """
         A storage profile os disk block as documented below
         """
         return pulumi.get(self, "storage_profile_os_disk")
 
     @storage_profile_os_disk.setter
-    def storage_profile_os_disk(self, value: pulumi.Input['ScaleSetStorageProfileOsDiskArgs']):
+    def storage_profile_os_disk(self, value: pulumi.Input['ScaleSetStorageProfileOsDiskArrgs']):
         pulumi.set(self, "storage_profile_os_disk", value)
 
     @property
@@ -216,14 +216,14 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']]:
         """
         A boot diagnostics profile block as referenced below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @property
@@ -242,14 +242,14 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]]:
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]]:
         """
         Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]]):
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @property
@@ -266,14 +266,14 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ScaleSetIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ScaleSetIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ScaleSetIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ScaleSetIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -314,38 +314,38 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter(name="osProfileLinuxConfig")
-    def os_profile_linux_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']]:
+    def os_profile_linux_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']]:
         """
         A Linux config block as documented below.
         """
         return pulumi.get(self, "os_profile_linux_config")
 
     @os_profile_linux_config.setter
-    def os_profile_linux_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']]):
+    def os_profile_linux_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']]):
         pulumi.set(self, "os_profile_linux_config", value)
 
     @property
     @pulumi.getter(name="osProfileSecrets")
-    def os_profile_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]]:
+    def os_profile_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]]:
         """
         A collection of Secret blocks as documented below.
         """
         return pulumi.get(self, "os_profile_secrets")
 
     @os_profile_secrets.setter
-    def os_profile_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]]):
+    def os_profile_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]]):
         pulumi.set(self, "os_profile_secrets", value)
 
     @property
     @pulumi.getter(name="osProfileWindowsConfig")
-    def os_profile_windows_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']]:
+    def os_profile_windows_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']]:
         """
         A Windows config block as documented below.
         """
         return pulumi.get(self, "os_profile_windows_config")
 
     @os_profile_windows_config.setter
-    def os_profile_windows_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']]):
+    def os_profile_windows_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']]):
         pulumi.set(self, "os_profile_windows_config", value)
 
     @property
@@ -362,14 +362,14 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ScaleSetPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['ScaleSetPlanArrgs']]:
         """
         A plan block as documented below.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ScaleSetPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['ScaleSetPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -398,14 +398,14 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @property
@@ -422,26 +422,26 @@ class ScaleSetArgs:
 
     @property
     @pulumi.getter(name="storageProfileDataDisks")
-    def storage_profile_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]]:
+    def storage_profile_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]]:
         """
         A storage profile data disk block as documented below
         """
         return pulumi.get(self, "storage_profile_data_disks")
 
     @storage_profile_data_disks.setter
-    def storage_profile_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]]):
+    def storage_profile_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]]):
         pulumi.set(self, "storage_profile_data_disks", value)
 
     @property
     @pulumi.getter(name="storageProfileImageReference")
-    def storage_profile_image_reference(self) -> Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']]:
+    def storage_profile_image_reference(self) -> Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']]:
         """
         A storage profile image reference block as documented below.
         """
         return pulumi.get(self, "storage_profile_image_reference")
 
     @storage_profile_image_reference.setter
-    def storage_profile_image_reference(self, value: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']]):
+    def storage_profile_image_reference(self, value: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']]):
         pulumi.set(self, "storage_profile_image_reference", value)
 
     @property
@@ -472,65 +472,65 @@ class ScaleSetArgs:
 
 
 @pulumi.input_type
-class _ScaleSetState:
+calass _ScaleSetState:
     def __init__(__self__, *,
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']] = None,
+                 boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ScaleSetIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ScaleSetIdentityArrgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]] = None,
-                 os_profile: Optional[pulumi.Input['ScaleSetOsProfileArgs']] = None,
-                 os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']] = None,
+                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]]] = None,
+                 os_profile: Optional[pulumi.Input['ScaleSetOsProfileArrgs']] = None,
+                 os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
-                 plan: Optional[pulumi.Input['ScaleSetPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['ScaleSetPlanArrgs']] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
-                 sku: Optional[pulumi.Input['ScaleSetSkuArgs']] = None,
-                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]] = None,
-                 storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
-                 storage_profile_os_disk: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']] = None,
+                 sku: Optional[pulumi.Input['ScaleSetSkuArrgs']] = None,
+                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]] = None,
+                 storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']] = None,
+                 storage_profile_os_disk: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ScaleSet resources.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input['ScaleSetBootDiagnosticsArrgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-        :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ScaleSetIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input['ScaleSetOsProfileArgs'] os_profile: A Virtual Machine OS Profile block as documented below.
-        :param pulumi.Input['ScaleSetOsProfileLinuxConfigArgs'] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input['ScaleSetOsProfileWindowsConfigArgs'] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input['ScaleSetOsProfileArrgs'] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs'] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs'] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input['ScaleSetPlanArgs'] plan: A plan block as documented below.
+        :param pulumi.Input['ScaleSetPlanArrgs'] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input['ScaleSetRollingUpgradePolicyArrgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input['ScaleSetSkuArgs'] sku: A SKU block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input['ScaleSetStorageProfileImageReferenceArgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
-        :param pulumi.Input['ScaleSetStorageProfileOsDiskArgs'] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input['ScaleSetSkuArrgs'] sku: A SKU block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input['ScaleSetStorageProfileOsDiskArrgs'] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
@@ -608,14 +608,14 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']]:
         """
         A boot diagnostics profile block as referenced below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: Optional[pulumi.Input['ScaleSetBootDiagnosticsArrgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @property
@@ -634,14 +634,14 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]]:
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]]:
         """
         Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]]):
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArrgs']]]]):
         pulumi.set(self, "extensions", value)
 
     @property
@@ -658,14 +658,14 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ScaleSetIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ScaleSetIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ScaleSetIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ScaleSetIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -706,62 +706,62 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter(name="networkProfiles")
-    def network_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]]:
+    def network_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]]]:
         """
         A collection of network profile block as documented below.
         """
         return pulumi.get(self, "network_profiles")
 
     @network_profiles.setter
-    def network_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]]):
+    def network_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArrgs']]]]):
         pulumi.set(self, "network_profiles", value)
 
     @property
     @pulumi.getter(name="osProfile")
-    def os_profile(self) -> Optional[pulumi.Input['ScaleSetOsProfileArgs']]:
+    def os_profile(self) -> Optional[pulumi.Input['ScaleSetOsProfileArrgs']]:
         """
         A Virtual Machine OS Profile block as documented below.
         """
         return pulumi.get(self, "os_profile")
 
     @os_profile.setter
-    def os_profile(self, value: Optional[pulumi.Input['ScaleSetOsProfileArgs']]):
+    def os_profile(self, value: Optional[pulumi.Input['ScaleSetOsProfileArrgs']]):
         pulumi.set(self, "os_profile", value)
 
     @property
     @pulumi.getter(name="osProfileLinuxConfig")
-    def os_profile_linux_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']]:
+    def os_profile_linux_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']]:
         """
         A Linux config block as documented below.
         """
         return pulumi.get(self, "os_profile_linux_config")
 
     @os_profile_linux_config.setter
-    def os_profile_linux_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']]):
+    def os_profile_linux_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArrgs']]):
         pulumi.set(self, "os_profile_linux_config", value)
 
     @property
     @pulumi.getter(name="osProfileSecrets")
-    def os_profile_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]]:
+    def os_profile_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]]:
         """
         A collection of Secret blocks as documented below.
         """
         return pulumi.get(self, "os_profile_secrets")
 
     @os_profile_secrets.setter
-    def os_profile_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]]):
+    def os_profile_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArrgs']]]]):
         pulumi.set(self, "os_profile_secrets", value)
 
     @property
     @pulumi.getter(name="osProfileWindowsConfig")
-    def os_profile_windows_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']]:
+    def os_profile_windows_config(self) -> Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']]:
         """
         A Windows config block as documented below.
         """
         return pulumi.get(self, "os_profile_windows_config")
 
     @os_profile_windows_config.setter
-    def os_profile_windows_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']]):
+    def os_profile_windows_config(self, value: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArrgs']]):
         pulumi.set(self, "os_profile_windows_config", value)
 
     @property
@@ -778,14 +778,14 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ScaleSetPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['ScaleSetPlanArrgs']]:
         """
         A plan block as documented below.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ScaleSetPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['ScaleSetPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -826,14 +826,14 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter(name="rollingUpgradePolicy")
-    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']]:
+    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']]:
         """
         A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @rolling_upgrade_policy.setter
-    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']]):
+    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArrgs']]):
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @property
@@ -850,50 +850,50 @@ class _ScaleSetState:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ScaleSetSkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['ScaleSetSkuArrgs']]:
         """
         A SKU block as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ScaleSetSkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['ScaleSetSkuArrgs']]):
         pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter(name="storageProfileDataDisks")
-    def storage_profile_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]]:
+    def storage_profile_data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]]:
         """
         A storage profile data disk block as documented below
         """
         return pulumi.get(self, "storage_profile_data_disks")
 
     @storage_profile_data_disks.setter
-    def storage_profile_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]]):
+    def storage_profile_data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArrgs']]]]):
         pulumi.set(self, "storage_profile_data_disks", value)
 
     @property
     @pulumi.getter(name="storageProfileImageReference")
-    def storage_profile_image_reference(self) -> Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']]:
+    def storage_profile_image_reference(self) -> Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']]:
         """
         A storage profile image reference block as documented below.
         """
         return pulumi.get(self, "storage_profile_image_reference")
 
     @storage_profile_image_reference.setter
-    def storage_profile_image_reference(self, value: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']]):
+    def storage_profile_image_reference(self, value: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArrgs']]):
         pulumi.set(self, "storage_profile_image_reference", value)
 
     @property
     @pulumi.getter(name="storageProfileOsDisk")
-    def storage_profile_os_disk(self) -> Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']]:
+    def storage_profile_os_disk(self) -> Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArrgs']]:
         """
         A storage profile os disk block as documented below
         """
         return pulumi.get(self, "storage_profile_os_disk")
 
     @storage_profile_os_disk.setter
-    def storage_profile_os_disk(self, value: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']]):
+    def storage_profile_os_disk(self, value: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArrgs']]):
         pulumi.set(self, "storage_profile_os_disk", value)
 
     @property
@@ -935,36 +935,36 @@ class _ScaleSetState:
         pulumi.set(self, "zones", value)
 
 
-class ScaleSet(pulumi.CustomResource):
+calass ScaleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArrgs']]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArrgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArrgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']]] = None,
-                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']]] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']]] = None,
+                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArrgs']]]]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArrgs']]] = None,
+                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArrgs']]] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArrgs']]]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArrgs']]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArrgs']]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArrgs']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']]] = None,
-                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]]] = None,
-                 storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']]] = None,
-                 storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArrgs']]] = None,
+                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArrgs']]]]] = None,
+                 storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArrgs']]] = None,
+                 storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -999,7 +999,7 @@ class ScaleSet(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -1022,51 +1022,51 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
-            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
+            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArrgs(
                 max_batch_instance_percent=20,
                 max_unhealthy_instance_percent=20,
                 max_unhealthy_upgraded_instance_percent=5,
                 pause_time_between_batches="PT0S",
             ),
             health_probe_id=example_probe.id,
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name="Standard_F2",
                 tier="Standard",
                 capacity=2,
             ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArrgs(
                 name="",
                 caching="ReadWrite",
                 create_option="FromImage",
                 managed_disk_type="Standard_LRS",
             ),
-            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArgs(
+            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArrgs(
                 lun=0,
                 caching="ReadWrite",
                 create_option="Empty",
                 disk_size_gb=10,
             )],
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
+            os_profile=azure.compute.ScaleSetOsProfileArrgs(
                 computer_name_prefix="testvm",
                 admin_username="myadmin",
             ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArrgs(
                 disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArrgs(
                     path="/home/myadmin/.ssh/authorized_keys",
                     key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
                 )],
             ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArrgs(
                 name="mynetworkprofile",
                 primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArrgs(
                     name="TestIPConfiguration",
                     primary=True,
                     subnet_id=example_subnet.id,
@@ -1108,38 +1108,38 @@ class ScaleSet(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             upgrade_policy_mode="Manual",
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name="Standard_F2",
                 tier="Standard",
                 capacity=2,
             ),
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
+            os_profile=azure.compute.ScaleSetOsProfileArrgs(
                 computer_name_prefix="testvm",
                 admin_username="myadmin",
             ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArrgs(
                 disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArrgs(
                     path="/home/myadmin/.ssh/authorized_keys",
                     key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
                 )],
             ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArrgs(
                 name="TestNetworkProfile",
                 primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArrgs(
                     name="TestIPConfiguration",
                     primary=True,
                     subnet_id=example_subnet.id,
                 )],
             )],
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArrgs(
                 name="osDiskProfile",
                 caching="ReadWrite",
                 create_option="FromImage",
                 vhd_containers=[pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -1154,7 +1154,7 @@ class ScaleSet(pulumi.CustomResource):
 
         example_image = azure.compute.Image("exampleImage")
         # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
             id=example_image.id,
         ))
         # ...
@@ -1171,32 +1171,32 @@ class ScaleSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArrgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArrgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']] os_profile: A Virtual Machine OS Profile block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArrgs']]]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArrgs']] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArrgs']] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArrgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArrgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArrgs']] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArrgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A SKU block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArrgs']] sku: A SKU block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArrgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArrgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArrgs']] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
@@ -1207,7 +1207,7 @@ class ScaleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScaleSetArgs,
+                 args: ScaleSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a virtual machine scale set.
@@ -1239,7 +1239,7 @@ class ScaleSet(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -1262,51 +1262,51 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
-            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
+            rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArrgs(
                 max_batch_instance_percent=20,
                 max_unhealthy_instance_percent=20,
                 max_unhealthy_upgraded_instance_percent=5,
                 pause_time_between_batches="PT0S",
             ),
             health_probe_id=example_probe.id,
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name="Standard_F2",
                 tier="Standard",
                 capacity=2,
             ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArrgs(
                 name="",
                 caching="ReadWrite",
                 create_option="FromImage",
                 managed_disk_type="Standard_LRS",
             ),
-            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArgs(
+            storage_profile_data_disks=[azure.compute.ScaleSetStorageProfileDataDiskArrgs(
                 lun=0,
                 caching="ReadWrite",
                 create_option="Empty",
                 disk_size_gb=10,
             )],
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
+            os_profile=azure.compute.ScaleSetOsProfileArrgs(
                 computer_name_prefix="testvm",
                 admin_username="myadmin",
             ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArrgs(
                 disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArrgs(
                     path="/home/myadmin/.ssh/authorized_keys",
                     key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
                 )],
             ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArrgs(
                 name="mynetworkprofile",
                 primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArrgs(
                     name="TestIPConfiguration",
                     primary=True,
                     subnet_id=example_subnet.id,
@@ -1348,38 +1348,38 @@ class ScaleSet(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             upgrade_policy_mode="Manual",
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name="Standard_F2",
                 tier="Standard",
                 capacity=2,
             ),
-            os_profile=azure.compute.ScaleSetOsProfileArgs(
+            os_profile=azure.compute.ScaleSetOsProfileArrgs(
                 computer_name_prefix="testvm",
                 admin_username="myadmin",
             ),
-            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.ScaleSetOsProfileLinuxConfigArrgs(
                 disable_password_authentication=True,
-                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
+                ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArrgs(
                     path="/home/myadmin/.ssh/authorized_keys",
                     key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
                 )],
             ),
-            network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
+            network_profiles=[azure.compute.ScaleSetNetworkProfileArrgs(
                 name="TestNetworkProfile",
                 primary=True,
-                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArgs(
+                ip_configurations=[azure.compute.ScaleSetNetworkProfileIpConfigurationArrgs(
                     name="TestIPConfiguration",
                     primary=True,
                     subnet_id=example_subnet.id,
                 )],
             )],
-            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArgs(
+            storage_profile_os_disk=azure.compute.ScaleSetStorageProfileOsDiskArrgs(
                 name="osDiskProfile",
                 caching="ReadWrite",
                 create_option="FromImage",
                 vhd_containers=[pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             ),
-            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -1394,7 +1394,7 @@ class ScaleSet(pulumi.CustomResource):
 
         example_image = azure.compute.Image("exampleImage")
         # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArrgs(
             id=example_image.id,
         ))
         # ...
@@ -1409,12 +1409,12 @@ class ScaleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScaleSetArgs args: The arguments to use to populate this resource's properties.
+        :param ScaleSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScaleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScaleSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1424,30 +1424,30 @@ class ScaleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArrgs']]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArrgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArrgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']]] = None,
-                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']]] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']]] = None,
+                 network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArrgs']]]]] = None,
+                 os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArrgs']]] = None,
+                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArrgs']]] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArrgs']]]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArrgs']]] = None,
                  overprovision: Optional[pulumi.Input[bool]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArrgs']]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArrgs']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']]] = None,
-                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]]] = None,
-                 storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']]] = None,
-                 storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArrgs']]] = None,
+                 storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArrgs']]]]] = None,
+                 storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArrgs']]] = None,
+                 storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1458,7 +1458,7 @@ class ScaleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScaleSetArgs.__new__(ScaleSetArgs)
+            __props__ = ScaleSetArrgs.__new__(ScaleSetArrgs)
 
             __props__.__dict__["automatic_os_upgrade"] = automatic_os_upgrade
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
@@ -1511,30 +1511,30 @@ class ScaleSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']]] = None,
+            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArrgs']]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]]] = None,
+            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArrgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ScaleSetIdentityArrgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]]] = None,
-            os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']]] = None,
-            os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']]] = None,
-            os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]]] = None,
-            os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']]] = None,
+            network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArrgs']]]]] = None,
+            os_profile: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileArrgs']]] = None,
+            os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArrgs']]] = None,
+            os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArrgs']]]]] = None,
+            os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArrgs']]] = None,
             overprovision: Optional[pulumi.Input[bool]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['ScaleSetPlanArrgs']]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']]] = None,
+            rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArrgs']]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']]] = None,
-            storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]]] = None,
-            storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']]] = None,
-            storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['ScaleSetSkuArrgs']]] = None,
+            storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArrgs']]]]] = None,
+            storage_profile_image_reference: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArrgs']]] = None,
+            storage_profile_os_disk: Optional[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ScaleSet':
@@ -1546,32 +1546,32 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArrgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArrgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArgs']]]] network_profiles: A collection of network profile block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArgs']] os_profile: A Virtual Machine OS Profile block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArgs']] os_profile_linux_config: A Linux config block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArgs']] os_profile_windows_config: A Windows config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetNetworkProfileArrgs']]]] network_profiles: A collection of network profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileArrgs']] os_profile: A Virtual Machine OS Profile block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileLinuxConfigArrgs']] os_profile_linux_config: A Linux config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetOsProfileSecretArrgs']]]] os_profile_secrets: A collection of Secret blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetOsProfileWindowsConfigArrgs']] os_profile_windows_config: A Windows config block as documented below.
         :param pulumi.Input[bool] overprovision: Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArgs']] plan: A plan block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetPlanArrgs']] plan: A plan block as documented below.
         :param pulumi.Input[str] priority: Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+        :param pulumi.Input[pulumi.InputType['ScaleSetRollingUpgradePolicyArrgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
         :param pulumi.Input[bool] single_placement_group: Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
-        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArgs']] sku: A SKU block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
-        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
-        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArgs']] storage_profile_os_disk: A storage profile os disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetSkuArrgs']] sku: A SKU block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetStorageProfileDataDiskArrgs']]]] storage_profile_data_disks: A storage profile data disk block as documented below
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileImageReferenceArrgs']] storage_profile_image_reference: A storage profile image reference block as documented below.
+        :param pulumi.Input[pulumi.InputType['ScaleSetStorageProfileOsDiskArrgs']] storage_profile_os_disk: A storage profile os disk block as documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.

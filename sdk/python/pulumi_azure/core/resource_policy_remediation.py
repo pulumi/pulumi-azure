@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourcePolicyRemediationArgs', 'ResourcePolicyRemediation']
+__all__ = ['ResourcePolicyRemediationArrgs', 'ResourcePolicyRemediation']
 
 @pulumi.input_type
-class ResourcePolicyRemediationArgs:
+calass ResourcePolicyRemediationArrgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
@@ -144,7 +144,7 @@ class ResourcePolicyRemediationArgs:
 
 
 @pulumi.input_type
-class _ResourcePolicyRemediationState:
+calass _ResourcePolicyRemediationState:
     def __init__(__self__, *,
                  failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -277,7 +277,7 @@ class _ResourcePolicyRemediationState:
         pulumi.set(self, "resource_id", value)
 
 
-class ResourcePolicyRemediation(pulumi.CustomResource):
+calass ResourcePolicyRemediation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -302,17 +302,17 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourcePolicyRemediationArgs,
+                 args: ResourcePolicyRemediationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a ResourcePolicyRemediation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param ResourcePolicyRemediationArgs args: The arguments to use to populate this resource's properties.
+        :param ResourcePolicyRemediationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyRemediationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyRemediationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -338,7 +338,7 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourcePolicyRemediationArgs.__new__(ResourcePolicyRemediationArgs)
+            __props__ = ResourcePolicyRemediationArrgs.__new__(ResourcePolicyRemediationArrgs)
 
             __props__.__dict__["failure_percentage"] = failure_percentage
             __props__.__dict__["location_filters"] = location_filters

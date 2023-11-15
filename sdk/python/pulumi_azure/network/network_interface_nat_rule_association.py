@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkInterfaceNatRuleAssociationArgs', 'NetworkInterfaceNatRuleAssociation']
+__all__ = ['NetworkInterfaceNatRuleAssociationArrgs', 'NetworkInterfaceNatRuleAssociation']
 
 @pulumi.input_type
-class NetworkInterfaceNatRuleAssociationArgs:
+calass NetworkInterfaceNatRuleAssociationArrgs:
     def __init__(__self__, *,
                  ip_configuration_name: pulumi.Input[str],
                  nat_rule_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class NetworkInterfaceNatRuleAssociationArgs:
 
 
 @pulumi.input_type
-class _NetworkInterfaceNatRuleAssociationState:
+calass _NetworkInterfaceNatRuleAssociationState:
     def __init__(__self__, *,
                  ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  nat_rule_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _NetworkInterfaceNatRuleAssociationState:
         pulumi.set(self, "network_interface_id", value)
 
 
-class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
+calass NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +154,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="primary",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -168,7 +168,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -197,7 +197,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkInterfaceNatRuleAssociationArgs,
+                 args: NetworkInterfaceNatRuleAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Network Interface and a Load Balancer's NAT Rule.
@@ -224,7 +224,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="primary",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -238,7 +238,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -258,12 +258,12 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkInterfaceNatRuleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkInterfaceNatRuleAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceNatRuleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceNatRuleAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -282,7 +282,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkInterfaceNatRuleAssociationArgs.__new__(NetworkInterfaceNatRuleAssociationArgs)
+            __props__ = NetworkInterfaceNatRuleAssociationArrgs.__new__(NetworkInterfaceNatRuleAssociationArrgs)
 
             if ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration_name'")

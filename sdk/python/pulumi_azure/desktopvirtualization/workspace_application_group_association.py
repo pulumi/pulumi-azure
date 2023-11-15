@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceApplicationGroupAssociationArgs', 'WorkspaceApplicationGroupAssociation']
+__all__ = ['WorkspaceApplicationGroupAssociationArrgs', 'WorkspaceApplicationGroupAssociation']
 
 @pulumi.input_type
-class WorkspaceApplicationGroupAssociationArgs:
+calass WorkspaceApplicationGroupAssociationArrgs:
     def __init__(__self__, *,
                  application_group_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class WorkspaceApplicationGroupAssociationArgs:
 
 
 @pulumi.input_type
-class _WorkspaceApplicationGroupAssociationState:
+calass _WorkspaceApplicationGroupAssociationState:
     def __init__(__self__, *,
                  application_group_id: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _WorkspaceApplicationGroupAssociationState:
         pulumi.set(self, "workspace_id", value)
 
 
-class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
+calass WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,7 +142,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceApplicationGroupAssociationArgs,
+                 args: WorkspaceApplicationGroupAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Desktop Workspace Application Group Association.
@@ -181,12 +181,12 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceApplicationGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceApplicationGroupAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceApplicationGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceApplicationGroupAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -204,7 +204,7 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceApplicationGroupAssociationArgs.__new__(WorkspaceApplicationGroupAssociationArgs)
+            __props__ = WorkspaceApplicationGroupAssociationArrgs.__new__(WorkspaceApplicationGroupAssociationArrgs)
 
             if application_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_id'")

@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudConnectionArgs', 'SpringCloudConnection']
+__all__ = ['SpringCloudConnectionArrgs', 'SpringCloudConnection']
 
 @pulumi.input_type
-class SpringCloudConnectionArgs:
+calass SpringCloudConnectionArrgs:
     def __init__(__self__, *,
-                 authentication: pulumi.Input['SpringCloudConnectionAuthenticationArgs'],
+                 authentication: pulumi.Input['SpringCloudConnectionAuthenticationArrgs'],
                  spring_cloud_id: pulumi.Input[str],
                  target_resource_id: pulumi.Input[str],
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
+                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudConnection resource.
-        :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input['SpringCloudConnectionAuthenticationArrgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input['SpringCloudConnectionSecretStoreArrgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
         pulumi.set(__self__, "authentication", authentication)
@@ -47,14 +47,14 @@ class SpringCloudConnectionArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> pulumi.Input['SpringCloudConnectionAuthenticationArgs']:
+    def authentication(self) -> pulumi.Input['SpringCloudConnectionAuthenticationArrgs']:
         """
         The authentication info. An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: pulumi.Input['SpringCloudConnectionAuthenticationArgs']):
+    def authentication(self, value: pulumi.Input['SpringCloudConnectionAuthenticationArrgs']):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -107,14 +107,14 @@ class SpringCloudConnectionArgs:
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']]:
         """
         An option to store secret value in secure place. An `secret_store` block as defined below.
         """
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']]):
         pulumi.set(self, "secret_store", value)
 
     @property
@@ -131,21 +131,21 @@ class SpringCloudConnectionArgs:
 
 
 @pulumi.input_type
-class _SpringCloudConnectionState:
+calass _SpringCloudConnectionState:
     def __init__(__self__, *,
-                 authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']] = None,
+                 authentication: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArrgs']] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
+                 secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudConnection resources.
-        :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input['SpringCloudConnectionAuthenticationArrgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input['SpringCloudConnectionSecretStoreArrgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -167,14 +167,14 @@ class _SpringCloudConnectionState:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']]:
+    def authentication(self) -> Optional[pulumi.Input['SpringCloudConnectionAuthenticationArrgs']]:
         """
         The authentication info. An `authentication` block as defined below.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArgs']]):
+    def authentication(self, value: Optional[pulumi.Input['SpringCloudConnectionAuthenticationArrgs']]):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -203,14 +203,14 @@ class _SpringCloudConnectionState:
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]:
+    def secret_store(self) -> Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']]:
         """
         An option to store secret value in secure place. An `secret_store` block as defined below.
         """
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']]):
+    def secret_store(self, value: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArrgs']]):
         pulumi.set(self, "secret_store", value)
 
     @property
@@ -250,15 +250,15 @@ class _SpringCloudConnectionState:
         pulumi.set(self, "vnet_solution", value)
 
 
-class SpringCloudConnection(pulumi.CustomResource):
+calass SpringCloudConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArrgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArrgs']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -278,12 +278,12 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -302,14 +302,14 @@ class SpringCloudConnection(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", spring_cloud_app_id=example_spring_cloud_app.id)
         example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("exampleSpringCloudConnection",
             spring_cloud_id=example_spring_cloud_java_deployment.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
+            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArrgs(
                 type="systemAssignedIdentity",
             ))
         ```
@@ -324,10 +324,10 @@ class SpringCloudConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArrgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArrgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -336,7 +336,7 @@ class SpringCloudConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudConnectionArgs,
+                 args: SpringCloudConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a service connector for spring cloud app.
@@ -353,12 +353,12 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -377,14 +377,14 @@ class SpringCloudConnection(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", spring_cloud_app_id=example_spring_cloud_app.id)
         example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("exampleSpringCloudConnection",
             spring_cloud_id=example_spring_cloud_java_deployment.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
+            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArrgs(
                 type="systemAssignedIdentity",
             ))
         ```
@@ -398,12 +398,12 @@ class SpringCloudConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -412,10 +412,10 @@ class SpringCloudConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArrgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArrgs']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -426,7 +426,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudConnectionArgs.__new__(SpringCloudConnectionArgs)
+            __props__ = SpringCloudConnectionArrgs.__new__(SpringCloudConnectionArrgs)
 
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
@@ -451,10 +451,10 @@ class SpringCloudConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArrgs']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+            secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArrgs']]] = None,
             spring_cloud_id: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConnection':
@@ -465,10 +465,10 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArrgs']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArrgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.

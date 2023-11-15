@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceSecurityAlertPolicyArgs', 'WorkspaceSecurityAlertPolicy']
+__all__ = ['WorkspaceSecurityAlertPolicyArrgs', 'WorkspaceSecurityAlertPolicy']
 
 @pulumi.input_type
-class WorkspaceSecurityAlertPolicyArgs:
+calass WorkspaceSecurityAlertPolicyArrgs:
     def __init__(__self__, *,
                  policy_state: pulumi.Input[str],
                  synapse_workspace_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class WorkspaceSecurityAlertPolicyArgs:
 
 
 @pulumi.input_type
-class _WorkspaceSecurityAlertPolicyState:
+calass _WorkspaceSecurityAlertPolicyState:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
@@ -281,7 +281,7 @@ class _WorkspaceSecurityAlertPolicyState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
-class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
+calass WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -319,12 +319,12 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -370,7 +370,7 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceSecurityAlertPolicyArgs,
+                 args: WorkspaceSecurityAlertPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for a Synapse Workspace.
@@ -396,12 +396,12 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+            aad_admin=azure.synapse.WorkspaceAadAdminArrgs(
                 login="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
                 tenant_id="00000000-0000-0000-0000-000000000000",
             ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -433,12 +433,12 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceSecurityAlertPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSecurityAlertPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSecurityAlertPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -462,7 +462,7 @@ class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceSecurityAlertPolicyArgs.__new__(WorkspaceSecurityAlertPolicyArgs)
+            __props__ = WorkspaceSecurityAlertPolicyArrgs.__new__(WorkspaceSecurityAlertPolicyArrgs)
 
             __props__.__dict__["disabled_alerts"] = disabled_alerts
             __props__.__dict__["email_account_admins_enabled"] = email_account_admins_enabled

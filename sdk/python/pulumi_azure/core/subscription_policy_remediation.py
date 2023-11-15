@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubscriptionPolicyRemediationArgs', 'SubscriptionPolicyRemediation']
+__all__ = ['SubscriptionPolicyRemediationArrgs', 'SubscriptionPolicyRemediation']
 
 @pulumi.input_type
-class SubscriptionPolicyRemediationArgs:
+calass SubscriptionPolicyRemediationArrgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[str],
                  subscription_id: pulumi.Input[str],
@@ -144,7 +144,7 @@ class SubscriptionPolicyRemediationArgs:
 
 
 @pulumi.input_type
-class _SubscriptionPolicyRemediationState:
+calass _SubscriptionPolicyRemediationState:
     def __init__(__self__, *,
                  failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -277,7 +277,7 @@ class _SubscriptionPolicyRemediationState:
         pulumi.set(self, "subscription_id", value)
 
 
-class SubscriptionPolicyRemediation(pulumi.CustomResource):
+calass SubscriptionPolicyRemediation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -302,17 +302,17 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionPolicyRemediationArgs,
+                 args: SubscriptionPolicyRemediationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a SubscriptionPolicyRemediation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param SubscriptionPolicyRemediationArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionPolicyRemediationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionPolicyRemediationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionPolicyRemediationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -338,7 +338,7 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionPolicyRemediationArgs.__new__(SubscriptionPolicyRemediationArgs)
+            __props__ = SubscriptionPolicyRemediationArrgs.__new__(SubscriptionPolicyRemediationArrgs)
 
             __props__.__dict__["failure_percentage"] = failure_percentage
             __props__.__dict__["location_filters"] = location_filters

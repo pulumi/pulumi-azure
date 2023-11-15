@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ChannelAlexaArgs', 'ChannelAlexa']
+__all__ = ['ChannelAlexaArrgs', 'ChannelAlexa']
 
 @pulumi.input_type
-class ChannelAlexaArgs:
+calass ChannelAlexaArrgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -81,7 +81,7 @@ class ChannelAlexaArgs:
 
 
 @pulumi.input_type
-class _ChannelAlexaState:
+calass _ChannelAlexaState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _ChannelAlexaState:
         pulumi.set(self, "skill_id", value)
 
 
-class ChannelAlexa(pulumi.CustomResource):
+calass ChannelAlexa(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,7 +206,7 @@ class ChannelAlexa(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelAlexaArgs,
+                 args: ChannelAlexaArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Alexa integration for a Bot Channel
@@ -242,12 +242,12 @@ class ChannelAlexa(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelAlexaArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelAlexaArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelAlexaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelAlexaArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -267,7 +267,7 @@ class ChannelAlexa(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelAlexaArgs.__new__(ChannelAlexaArgs)
+            __props__ = ChannelAlexaArrgs.__new__(ChannelAlexaArrgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")

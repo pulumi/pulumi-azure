@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HypervNetworkMappingArgs', 'HypervNetworkMapping']
+__all__ = ['HypervNetworkMappingArrgs', 'HypervNetworkMapping']
 
 @pulumi.input_type
-class HypervNetworkMappingArgs:
+calass HypervNetworkMappingArrgs:
     def __init__(__self__, *,
                  recovery_vault_id: pulumi.Input[str],
                  source_network_name: pulumi.Input[str],
@@ -96,7 +96,7 @@ class HypervNetworkMappingArgs:
 
 
 @pulumi.input_type
-class _HypervNetworkMappingState:
+calass _HypervNetworkMappingState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class _HypervNetworkMappingState:
         pulumi.set(self, "target_network_id", value)
 
 
-class HypervNetworkMapping(pulumi.CustomResource):
+calass HypervNetworkMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -239,7 +239,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HypervNetworkMappingArgs,
+                 args: HypervNetworkMappingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
@@ -275,12 +275,12 @@ class HypervNetworkMapping(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HypervNetworkMappingArgs args: The arguments to use to populate this resource's properties.
+        :param HypervNetworkMappingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HypervNetworkMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HypervNetworkMappingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class HypervNetworkMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HypervNetworkMappingArgs.__new__(HypervNetworkMappingArgs)
+            __props__ = HypervNetworkMappingArrgs.__new__(HypervNetworkMappingArrgs)
 
             __props__.__dict__["name"] = name
             if recovery_vault_id is None and not opts.urn:

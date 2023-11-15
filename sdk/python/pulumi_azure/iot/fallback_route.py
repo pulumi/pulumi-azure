@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FallbackRouteArgs', 'FallbackRoute']
+__all__ = ['FallbackRouteArrgs', 'FallbackRoute']
 
 @pulumi.input_type
-class FallbackRouteArgs:
+calass FallbackRouteArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  endpoint_names: pulumi.Input[str],
@@ -112,7 +112,7 @@ class FallbackRouteArgs:
 
 
 @pulumi.input_type
-class _FallbackRouteState:
+calass _FallbackRouteState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -215,7 +215,7 @@ class _FallbackRouteState:
         pulumi.set(self, "source", value)
 
 
-class FallbackRoute(pulumi.CustomResource):
+calass FallbackRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class FallbackRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FallbackRouteArgs,
+                 args: FallbackRouteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Fallback Route
@@ -277,12 +277,12 @@ class FallbackRoute(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FallbackRouteArgs args: The arguments to use to populate this resource's properties.
+        :param FallbackRouteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FallbackRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FallbackRouteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -304,7 +304,7 @@ class FallbackRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FallbackRouteArgs.__new__(FallbackRouteArgs)
+            __props__ = FallbackRouteArrgs.__new__(FallbackRouteArrgs)
 
             __props__.__dict__["condition"] = condition
             if enabled is None and not opts.urn:

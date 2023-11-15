@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSqlManagedInstanceResult:
+calass GetSqlManagedInstanceResult:
     """
     A collection of values returned by getSqlManagedInstance.
     """
@@ -239,7 +239,7 @@ class GetSqlManagedInstanceResult:
         return pulumi.get(self, "vcores")
 
 
-class AwaitableGetSqlManagedInstanceResult(GetSqlManagedInstanceResult):
+calass AwaitableGetSqlManagedInstanceResult(GetSqlManagedInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

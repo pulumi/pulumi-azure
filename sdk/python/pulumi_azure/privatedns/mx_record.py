@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MxRecordArgs', 'MxRecord']
+__all__ = ['MxRecordArrgs', 'MxRecord']
 
 @pulumi.input_type
-class MxRecordArgs:
+calass MxRecordArrgs:
     def __init__(__self__, *,
-                 records: pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]],
+                 records: pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  ttl: pulumi.Input[int],
                  zone_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class MxRecordArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MxRecord resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -42,14 +42,14 @@ class MxRecordArgs:
 
     @property
     @pulumi.getter
-    def records(self) -> pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]:
+    def records(self) -> pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]]:
         """
         One or more `record` blocks as defined below.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]):
+    def records(self, value: pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]]):
         pulumi.set(self, "records", value)
 
     @property
@@ -114,11 +114,11 @@ class MxRecordArgs:
 
 
 @pulumi.input_type
-class _MxRecordState:
+calass _MxRecordState:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -127,7 +127,7 @@ class _MxRecordState:
         Input properties used for looking up and filtering MxRecord resources.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
-        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -174,14 +174,14 @@ class _MxRecordState:
 
     @property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]]:
+    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]]]:
         """
         One or more `record` blocks as defined below.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]]):
+    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArrgs']]]]):
         pulumi.set(self, "records", value)
 
     @property
@@ -233,13 +233,13 @@ class _MxRecordState:
         pulumi.set(self, "zone_name", value)
 
 
-class MxRecord(pulumi.CustomResource):
+calass MxRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -261,11 +261,11 @@ class MxRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
+                azure.privatedns.MxRecordRecordArrgs(
                     preference=10,
                     exchange="mx1.contoso.com",
                 ),
-                azure.privatedns.MxRecordRecordArgs(
+                azure.privatedns.MxRecordRecordArrgs(
                     preference=20,
                     exchange="backupmx.contoso.com",
                 ),
@@ -286,7 +286,7 @@ class MxRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArrgs']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -296,7 +296,7 @@ class MxRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MxRecordArgs,
+                 args: MxRecordArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS MX Records within Azure Private DNS.
@@ -314,11 +314,11 @@ class MxRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
+                azure.privatedns.MxRecordRecordArrgs(
                     preference=10,
                     exchange="mx1.contoso.com",
                 ),
-                azure.privatedns.MxRecordRecordArgs(
+                azure.privatedns.MxRecordRecordArrgs(
                     preference=20,
                     exchange="backupmx.contoso.com",
                 ),
@@ -337,12 +337,12 @@ class MxRecord(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MxRecordArgs args: The arguments to use to populate this resource's properties.
+        :param MxRecordArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MxRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MxRecordArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -352,7 +352,7 @@ class MxRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -364,7 +364,7 @@ class MxRecord(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MxRecordArgs.__new__(MxRecordArgs)
+            __props__ = MxRecordArrgs.__new__(MxRecordArrgs)
 
             __props__.__dict__["name"] = name
             if records is None and not opts.urn:
@@ -393,7 +393,7 @@ class MxRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -407,7 +407,7 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArrgs']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

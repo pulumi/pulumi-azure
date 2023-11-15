@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProtectedVMArgs', 'ProtectedVM']
+__all__ = ['ProtectedVMArrgs', 'ProtectedVM']
 
 @pulumi.input_type
-class ProtectedVMArgs:
+calass ProtectedVMArrgs:
     def __init__(__self__, *,
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -136,7 +136,7 @@ class ProtectedVMArgs:
 
 
 @pulumi.input_type
-class _ProtectedVMState:
+calass _ProtectedVMState:
     def __init__(__self__, *,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -261,7 +261,7 @@ class _ProtectedVMState:
         pulumi.set(self, "source_vm_id", value)
 
 
-class ProtectedVM(pulumi.CustomResource):
+calass ProtectedVM(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -291,11 +291,11 @@ class ProtectedVM(pulumi.CustomResource):
         example_policy_vm = azure.backup.PolicyVM("examplePolicyVM",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
+            backup=azure.backup.PolicyVMBackupArrgs(
                 frequency="Daily",
                 time="23:00",
             ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
+            retention_daily=azure.backup.PolicyVMRetentionDailyArrgs(
                 count=10,
             ))
         example_virtual_machine = azure.compute.get_virtual_machine_output(name="example-vm",
@@ -334,7 +334,7 @@ class ProtectedVM(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProtectedVMArgs,
+                 args: ProtectedVMArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Azure Backup for an Azure VM
@@ -353,11 +353,11 @@ class ProtectedVM(pulumi.CustomResource):
         example_policy_vm = azure.backup.PolicyVM("examplePolicyVM",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
+            backup=azure.backup.PolicyVMBackupArrgs(
                 frequency="Daily",
                 time="23:00",
             ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
+            retention_daily=azure.backup.PolicyVMRetentionDailyArrgs(
                 count=10,
             ))
         example_virtual_machine = azure.compute.get_virtual_machine_output(name="example-vm",
@@ -380,12 +380,12 @@ class ProtectedVM(pulumi.CustomResource):
          Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
-        :param ProtectedVMArgs args: The arguments to use to populate this resource's properties.
+        :param ProtectedVMArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProtectedVMArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectedVMArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -408,7 +408,7 @@ class ProtectedVM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProtectedVMArgs.__new__(ProtectedVMArgs)
+            __props__ = ProtectedVMArrgs.__new__(ProtectedVMArrgs)
 
             __props__.__dict__["backup_policy_id"] = backup_policy_id
             __props__.__dict__["exclude_disk_luns"] = exclude_disk_luns

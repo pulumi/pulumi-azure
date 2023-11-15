@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OutputBlobArgs', 'OutputBlob']
+__all__ = ['OutputBlobArrgs', 'OutputBlob']
 
 @pulumi.input_type
-class OutputBlobArgs:
+calass OutputBlobArrgs:
     def __init__(__self__, *,
                  date_format: pulumi.Input[str],
                  path_pattern: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 serialization: pulumi.Input['OutputBlobSerializationArgs'],
+                 serialization: pulumi.Input['OutputBlobSerializationArrgs'],
                  storage_account_name: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
@@ -34,7 +34,7 @@ class OutputBlobArgs:
         :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['OutputBlobSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['OutputBlobSerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -102,14 +102,14 @@ class OutputBlobArgs:
 
     @property
     @pulumi.getter
-    def serialization(self) -> pulumi.Input['OutputBlobSerializationArgs']:
+    def serialization(self) -> pulumi.Input['OutputBlobSerializationArrgs']:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: pulumi.Input['OutputBlobSerializationArgs']):
+    def serialization(self, value: pulumi.Input['OutputBlobSerializationArrgs']):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -222,7 +222,7 @@ class OutputBlobArgs:
 
 
 @pulumi.input_type
-class _OutputBlobState:
+calass _OutputBlobState:
     def __init__(__self__, *,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  batch_max_wait_time: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _OutputBlobState:
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input['OutputBlobSerializationArgs']] = None,
+                 serialization: Optional[pulumi.Input['OutputBlobSerializationArrgs']] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class _OutputBlobState:
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['OutputBlobSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['OutputBlobSerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
@@ -366,14 +366,14 @@ class _OutputBlobState:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['OutputBlobSerializationArgs']]:
+    def serialization(self) -> Optional[pulumi.Input['OutputBlobSerializationArrgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['OutputBlobSerializationArgs']]):
+    def serialization(self, value: Optional[pulumi.Input['OutputBlobSerializationArrgs']]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -437,7 +437,7 @@ class _OutputBlobState:
         pulumi.set(self, "time_format", value)
 
 
-class OutputBlob(pulumi.CustomResource):
+calass OutputBlob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -449,7 +449,7 @@ class OutputBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArrgs']]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -485,7 +485,7 @@ class OutputBlob(pulumi.CustomResource):
             path_pattern="some-pattern",
             date_format="yyyy-MM-dd",
             time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
+            serialization=azure.streamanalytics.OutputBlobSerializationArrgs(
                 type="Csv",
                 encoding="UTF8",
                 field_delimiter=",",
@@ -509,7 +509,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputBlobSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputBlobSerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
@@ -520,7 +520,7 @@ class OutputBlob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputBlobArgs,
+                 args: OutputBlobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to Blob Storage.
@@ -551,7 +551,7 @@ class OutputBlob(pulumi.CustomResource):
             path_pattern="some-pattern",
             date_format="yyyy-MM-dd",
             time_format="HH",
-            serialization=azure.streamanalytics.OutputBlobSerializationArgs(
+            serialization=azure.streamanalytics.OutputBlobSerializationArrgs(
                 type="Csv",
                 encoding="UTF8",
                 field_delimiter=",",
@@ -567,12 +567,12 @@ class OutputBlob(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputBlobArgs args: The arguments to use to populate this resource's properties.
+        :param OutputBlobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputBlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputBlobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -588,7 +588,7 @@ class OutputBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArrgs']]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -601,7 +601,7 @@ class OutputBlob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputBlobArgs.__new__(OutputBlobArgs)
+            __props__ = OutputBlobArrgs.__new__(OutputBlobArrgs)
 
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["batch_max_wait_time"] = batch_max_wait_time
@@ -651,7 +651,7 @@ class OutputBlob(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             path_pattern: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArgs']]] = None,
+            serialization: Optional[pulumi.Input[pulumi.InputType['OutputBlobSerializationArrgs']]] = None,
             storage_account_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -671,7 +671,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputBlobSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OutputBlobSerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.

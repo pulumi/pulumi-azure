@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetManagedInstanceResult:
+calass GetManagedInstanceResult:
     """
     A collection of values returned by getManagedInstance.
     """
@@ -247,7 +247,7 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "vcores")
 
 
-class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
+calass AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

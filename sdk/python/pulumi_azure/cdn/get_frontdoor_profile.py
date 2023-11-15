@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorProfileResult:
+calass GetFrontdoorProfileResult:
     """
     A collection of values returned by getFrontdoorProfile.
     """
@@ -95,7 +95,7 @@ class GetFrontdoorProfileResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetFrontdoorProfileResult(GetFrontdoorProfileResult):
+calass AwaitableGetFrontdoorProfileResult(GetFrontdoorProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

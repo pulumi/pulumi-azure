@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteConnectionArgs', 'ExpressRouteConnection']
+__all__ = ['ExpressRouteConnectionArrgs', 'ExpressRouteConnection']
 
 @pulumi.input_type
-class ExpressRouteConnectionArgs:
+calass ExpressRouteConnectionArrgs:
     def __init__(__self__, *,
                  express_route_circuit_peering_id: pulumi.Input[str],
                  express_route_gateway_id: pulumi.Input[str],
@@ -22,7 +22,7 @@ class ExpressRouteConnectionArgs:
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
+                 routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ExpressRouteConnection resource.
@@ -32,7 +32,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[bool] enable_internet_security: Is Internet security enabled for this Express Route Connection?
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input['ExpressRouteConnectionRoutingArrgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         pulumi.set(__self__, "express_route_circuit_peering_id", express_route_circuit_peering_id)
@@ -124,14 +124,14 @@ class ExpressRouteConnectionArgs:
 
     @property
     @pulumi.getter
-    def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]:
+    def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']]:
         """
         A `routing` block as defined below.
         """
         return pulumi.get(self, "routing")
 
     @routing.setter
-    def routing(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]):
+    def routing(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']]):
         pulumi.set(self, "routing", value)
 
     @property
@@ -148,7 +148,7 @@ class ExpressRouteConnectionArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteConnectionState:
+calass _ExpressRouteConnectionState:
     def __init__(__self__, *,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
@@ -156,7 +156,7 @@ class _ExpressRouteConnectionState:
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
+                 routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteConnection resources.
@@ -166,7 +166,7 @@ class _ExpressRouteConnectionState:
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['ExpressRouteConnectionRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input['ExpressRouteConnectionRoutingArrgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         if authorization_key is not None:
@@ -260,14 +260,14 @@ class _ExpressRouteConnectionState:
 
     @property
     @pulumi.getter
-    def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]:
+    def routing(self) -> Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']]:
         """
         A `routing` block as defined below.
         """
         return pulumi.get(self, "routing")
 
     @routing.setter
-    def routing(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']]):
+    def routing(self, value: Optional[pulumi.Input['ExpressRouteConnectionRoutingArrgs']]):
         pulumi.set(self, "routing", value)
 
     @property
@@ -283,7 +283,7 @@ class _ExpressRouteConnectionState:
         pulumi.set(self, "routing_weight", value)
 
 
-class ExpressRouteConnection(pulumi.CustomResource):
+calass ExpressRouteConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -294,7 +294,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArrgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -333,7 +333,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -367,14 +367,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArrgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteConnectionArgs,
+                 args: ExpressRouteConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Express Route Connection.
@@ -412,7 +412,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -439,12 +439,12 @@ class ExpressRouteConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -459,7 +459,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArrgs']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -468,7 +468,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
+            __props__ = ExpressRouteConnectionArrgs.__new__(ExpressRouteConnectionArrgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["enable_internet_security"] = enable_internet_security
@@ -498,7 +498,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             express_route_gateway_bypass_enabled: Optional[pulumi.Input[bool]] = None,
             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+            routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArrgs']]] = None,
             routing_weight: Optional[pulumi.Input[int]] = None) -> 'ExpressRouteConnection':
         """
         Get an existing ExpressRouteConnection resource's state with the given name, id, and optional extra
@@ -513,7 +513,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] express_route_gateway_bypass_enabled: Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArrgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

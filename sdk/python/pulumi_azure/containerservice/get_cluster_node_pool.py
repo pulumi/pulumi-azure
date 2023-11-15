@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClusterNodePoolResult:
+calass GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
@@ -313,7 +313,7 @@ class GetClusterNodePoolResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
+calass AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

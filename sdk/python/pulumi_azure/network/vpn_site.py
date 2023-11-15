@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpnSiteArgs', 'VpnSite']
+__all__ = ['VpnSiteArrgs', 'VpnSite']
 
 @pulumi.input_type
-class VpnSiteArgs:
+calass VpnSiteArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_wan_id: pulumi.Input[str],
                  address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_model: Optional[pulumi.Input[str]] = None,
                  device_vendor: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
+                 o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpnSite resource.
@@ -35,10 +35,10 @@ class VpnSiteArgs:
                > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[str] device_model: The model of the VPN device.
         :param pulumi.Input[str] device_vendor: The name of the VPN device vendor.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]] links: One or more `link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]] links: One or more `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
-        :param pulumi.Input['VpnSiteO365PolicyArgs'] o365_policy: An `o365_policy` block as defined below.
+        :param pulumi.Input['VpnSiteO365PolicyArrgs'] o365_policy: An `o365_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -124,14 +124,14 @@ class VpnSiteArgs:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]:
+    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]]:
         """
         One or more `link` blocks as defined below.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]):
+    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]]):
         pulumi.set(self, "links", value)
 
     @property
@@ -160,14 +160,14 @@ class VpnSiteArgs:
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional[pulumi.Input['VpnSiteO365PolicyArgs']]:
+    def o365_policy(self) -> Optional[pulumi.Input['VpnSiteO365PolicyArrgs']]:
         """
         An `o365_policy` block as defined below.
         """
         return pulumi.get(self, "o365_policy")
 
     @o365_policy.setter
-    def o365_policy(self, value: Optional[pulumi.Input['VpnSiteO365PolicyArgs']]):
+    def o365_policy(self, value: Optional[pulumi.Input['VpnSiteO365PolicyArrgs']]):
         pulumi.set(self, "o365_policy", value)
 
     @property
@@ -184,15 +184,15 @@ class VpnSiteArgs:
 
 
 @pulumi.input_type
-class _VpnSiteState:
+calass _VpnSiteState:
     def __init__(__self__, *,
                  address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_model: Optional[pulumi.Input[str]] = None,
                  device_vendor: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
+                 o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None):
@@ -203,10 +203,10 @@ class _VpnSiteState:
                > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[str] device_model: The model of the VPN device.
         :param pulumi.Input[str] device_vendor: The name of the VPN device vendor.
-        :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]] links: One or more `link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]] links: One or more `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
-        :param pulumi.Input['VpnSiteO365PolicyArgs'] o365_policy: An `o365_policy` block as defined below.
+        :param pulumi.Input['VpnSiteO365PolicyArrgs'] o365_policy: An `o365_policy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         :param pulumi.Input[str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
@@ -272,14 +272,14 @@ class _VpnSiteState:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]:
+    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]]:
         """
         One or more `link` blocks as defined below.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]]):
+    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArrgs']]]]):
         pulumi.set(self, "links", value)
 
     @property
@@ -308,14 +308,14 @@ class _VpnSiteState:
 
     @property
     @pulumi.getter(name="o365Policy")
-    def o365_policy(self) -> Optional[pulumi.Input['VpnSiteO365PolicyArgs']]:
+    def o365_policy(self) -> Optional[pulumi.Input['VpnSiteO365PolicyArrgs']]:
         """
         An `o365_policy` block as defined below.
         """
         return pulumi.get(self, "o365_policy")
 
     @o365_policy.setter
-    def o365_policy(self, value: Optional[pulumi.Input['VpnSiteO365PolicyArgs']]):
+    def o365_policy(self, value: Optional[pulumi.Input['VpnSiteO365PolicyArrgs']]):
         pulumi.set(self, "o365_policy", value)
 
     @property
@@ -355,7 +355,7 @@ class _VpnSiteState:
         pulumi.set(self, "virtual_wan_id", value)
 
 
-class VpnSite(pulumi.CustomResource):
+calass VpnSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -363,10 +363,10 @@ class VpnSite(pulumi.CustomResource):
                  address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_model: Optional[pulumi.Input[str]] = None,
                  device_vendor: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArgs']]] = None,
+                 o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
@@ -389,7 +389,7 @@ class VpnSite(pulumi.CustomResource):
             location=example_resource_group.location,
             virtual_wan_id=example_virtual_wan.id,
             address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
+            links=[azure.network.VpnSiteLinkArrgs(
                 name="link1",
                 ip_address="10.0.0.1",
             )])
@@ -410,10 +410,10 @@ class VpnSite(pulumi.CustomResource):
                > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[str] device_model: The model of the VPN device.
         :param pulumi.Input[str] device_vendor: The name of the VPN device vendor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]] links: One or more `link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArrgs']]]] links: One or more `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
-        :param pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArgs']] o365_policy: An `o365_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArrgs']] o365_policy: An `o365_policy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         :param pulumi.Input[str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
@@ -422,7 +422,7 @@ class VpnSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpnSiteArgs,
+                 args: VpnSiteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Site.
@@ -442,7 +442,7 @@ class VpnSite(pulumi.CustomResource):
             location=example_resource_group.location,
             virtual_wan_id=example_virtual_wan.id,
             address_cidrs=["10.0.0.0/24"],
-            links=[azure.network.VpnSiteLinkArgs(
+            links=[azure.network.VpnSiteLinkArrgs(
                 name="link1",
                 ip_address="10.0.0.1",
             )])
@@ -457,12 +457,12 @@ class VpnSite(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpnSiteArgs args: The arguments to use to populate this resource's properties.
+        :param VpnSiteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpnSiteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnSiteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -474,10 +474,10 @@ class VpnSite(pulumi.CustomResource):
                  address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_model: Optional[pulumi.Input[str]] = None,
                  device_vendor: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArgs']]] = None,
+                 o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_wan_id: Optional[pulumi.Input[str]] = None,
@@ -488,7 +488,7 @@ class VpnSite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
+            __props__ = VpnSiteArrgs.__new__(VpnSiteArrgs)
 
             __props__.__dict__["address_cidrs"] = address_cidrs
             __props__.__dict__["device_model"] = device_model
@@ -517,10 +517,10 @@ class VpnSite(pulumi.CustomResource):
             address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             device_model: Optional[pulumi.Input[str]] = None,
             device_vendor: Optional[pulumi.Input[str]] = None,
-            links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]]] = None,
+            links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArrgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArgs']]] = None,
+            o365_policy: Optional[pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_wan_id: Optional[pulumi.Input[str]] = None) -> 'VpnSite':
@@ -536,10 +536,10 @@ class VpnSite(pulumi.CustomResource):
                > **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
         :param pulumi.Input[str] device_model: The model of the VPN device.
         :param pulumi.Input[str] device_vendor: The name of the VPN device vendor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArgs']]]] links: One or more `link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnSiteLinkArrgs']]]] links: One or more `link` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
-        :param pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArgs']] o365_policy: An `o365_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VpnSiteO365PolicyArrgs']] o365_policy: An `o365_policy` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         :param pulumi.Input[str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
+__all__ = ['ManagedCertificateArrgs', 'ManagedCertificate']
 
 @pulumi.input_type
-class ManagedCertificateArgs:
+calass ManagedCertificateArrgs:
     def __init__(__self__, *,
                  custom_hostname_binding_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class ManagedCertificateArgs:
 
 
 @pulumi.input_type
-class _ManagedCertificateState:
+calass _ManagedCertificateState:
     def __init__(__self__, *,
                  canonical_name: Optional[pulumi.Input[str]] = None,
                  custom_hostname_binding_id: Optional[pulumi.Input[str]] = None,
@@ -218,7 +218,7 @@ class _ManagedCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
-class ManagedCertificate(pulumi.CustomResource):
+calass ManagedCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,7 +248,7 @@ class ManagedCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedCertificateArgs,
+                 args: ManagedCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This certificate can be used to secure custom domains on App Services (Windows and Linux) hosted on an App Service Plan of Basic and above (free and shared tiers are not supported).
@@ -264,12 +264,12 @@ class ManagedCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -287,7 +287,7 @@ class ManagedCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedCertificateArgs.__new__(ManagedCertificateArgs)
+            __props__ = ManagedCertificateArrgs.__new__(ManagedCertificateArrgs)
 
             if custom_hostname_binding_id is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_hostname_binding_id'")

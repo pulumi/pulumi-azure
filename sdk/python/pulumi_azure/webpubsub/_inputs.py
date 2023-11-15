@@ -10,25 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HubEventHandlerArgs',
-    'HubEventHandlerAuthArgs',
-    'HubEventListenerArgs',
-    'NetworkAclPrivateEndpointArgs',
-    'NetworkAclPublicNetworkArgs',
-    'ServiceIdentityArgs',
-    'ServiceLiveTraceArgs',
+    'HubEventHandlerArrgs',
+    'HubEventHandlerAuthArrgs',
+    'HubEventListenerArrgs',
+    'NetworkAclPrivateEndpointArrgs',
+    'NetworkAclPublicNetworkArrgs',
+    'ServiceIdentityArrgs',
+    'ServiceLiveTraceArrgs',
 ]
 
 @pulumi.input_type
-class HubEventHandlerArgs:
+calass HubEventHandlerArrgs:
     def __init__(__self__, *,
                  url_template: pulumi.Input[str],
-                 auth: Optional[pulumi.Input['HubEventHandlerAuthArgs']] = None,
+                 auth: Optional[pulumi.Input['HubEventHandlerAuthArrgs']] = None,
                  system_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_event_pattern: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] url_template: The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
-        :param pulumi.Input['HubEventHandlerAuthArgs'] auth: An `auth` block as defined below.
+        :param pulumi.Input['HubEventHandlerAuthArrgs'] auth: An `auth` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_events: Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         :param pulumi.Input[str] user_event_pattern: Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
@@ -54,14 +54,14 @@ class HubEventHandlerArgs:
 
     @property
     @pulumi.getter
-    def auth(self) -> Optional[pulumi.Input['HubEventHandlerAuthArgs']]:
+    def auth(self) -> Optional[pulumi.Input['HubEventHandlerAuthArrgs']]:
         """
         An `auth` block as defined below.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: Optional[pulumi.Input['HubEventHandlerAuthArgs']]):
+    def auth(self, value: Optional[pulumi.Input['HubEventHandlerAuthArrgs']]):
         pulumi.set(self, "auth", value)
 
     @property
@@ -90,7 +90,7 @@ class HubEventHandlerArgs:
 
 
 @pulumi.input_type
-class HubEventHandlerAuthArgs:
+calass HubEventHandlerAuthArrgs:
     def __init__(__self__, *,
                  managed_identity_id: pulumi.Input[str]):
         """
@@ -116,7 +116,7 @@ class HubEventHandlerAuthArgs:
 
 
 @pulumi.input_type
-class HubEventListenerArgs:
+calass HubEventListenerArrgs:
     def __init__(__self__, *,
                  eventhub_name: pulumi.Input[str],
                  eventhub_namespace_name: pulumi.Input[str],
@@ -185,7 +185,7 @@ class HubEventListenerArgs:
 
 
 @pulumi.input_type
-class NetworkAclPrivateEndpointArgs:
+calass NetworkAclPrivateEndpointArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -243,7 +243,7 @@ class NetworkAclPrivateEndpointArgs:
 
 
 @pulumi.input_type
-class NetworkAclPublicNetworkArgs:
+calass NetworkAclPublicNetworkArrgs:
     def __init__(__self__, *,
                  allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -286,7 +286,7 @@ class NetworkAclPublicNetworkArgs:
 
 
 @pulumi.input_type
-class ServiceIdentityArgs:
+calass ServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -360,7 +360,7 @@ class ServiceIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceLiveTraceArgs:
+calass ServiceLiveTraceArrgs:
     def __init__(__self__, *,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,

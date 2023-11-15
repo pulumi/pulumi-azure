@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalRulestackArgs', 'LocalRulestack']
+__all__ = ['LocalRulestackArrgs', 'LocalRulestack']
 
 @pulumi.input_type
-class LocalRulestackArgs:
+calass LocalRulestackArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  anti_spyware_profile: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class LocalRulestackArgs:
 
 
 @pulumi.input_type
-class _LocalRulestackState:
+calass _LocalRulestackState:
     def __init__(__self__, *,
                  anti_spyware_profile: Optional[pulumi.Input[str]] = None,
                  anti_virus_profile: Optional[pulumi.Input[str]] = None,
@@ -346,7 +346,7 @@ class _LocalRulestackState:
         pulumi.set(self, "vulnerability_profile", value)
 
 
-class LocalRulestack(pulumi.CustomResource):
+calass LocalRulestack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -402,7 +402,7 @@ class LocalRulestack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalRulestackArgs,
+                 args: LocalRulestackArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack.
@@ -428,12 +428,12 @@ class LocalRulestack(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalRulestackArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRulestackArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -459,7 +459,7 @@ class LocalRulestack(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalRulestackArgs.__new__(LocalRulestackArgs)
+            __props__ = LocalRulestackArrgs.__new__(LocalRulestackArrgs)
 
             __props__.__dict__["anti_spyware_profile"] = anti_spyware_profile
             __props__.__dict__["anti_virus_profile"] = anti_virus_profile

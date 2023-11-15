@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ModuleManagementNetworkProfileArgs',
-    'ModuleNetworkProfileArgs',
+    'ModuleManagementNetworkProfileArrgs',
+    'ModuleNetworkProfileArrgs',
 ]
 
 @pulumi.input_type
-class ModuleManagementNetworkProfileArgs:
+calass ModuleManagementNetworkProfileArrgs:
     def __init__(__self__, *,
                  network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_id: pulumi.Input[str]):
@@ -52,7 +52,7 @@ class ModuleManagementNetworkProfileArgs:
 
 
 @pulumi.input_type
-class ModuleNetworkProfileArgs:
+calass ModuleNetworkProfileArrgs:
     def __init__(__self__, *,
                  network_interface_private_ip_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_id: pulumi.Input[str]):

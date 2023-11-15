@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
+__all__ = ['VirtualNetworkRuleArrgs', 'VirtualNetworkRule']
 
 @pulumi.input_type
-class VirtualNetworkRuleArgs:
+calass VirtualNetworkRuleArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
@@ -97,7 +97,7 @@ class VirtualNetworkRuleArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkRuleState:
+calass _VirtualNetworkRuleState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _VirtualNetworkRuleState:
         pulumi.set(self, "subnet_id", value)
 
 
-class VirtualNetworkRule(pulumi.CustomResource):
+calass VirtualNetworkRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -256,7 +256,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkRuleArgs,
+                 args: VirtualNetworkRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MariaDB Virtual Network Rule.
@@ -302,12 +302,12 @@ class VirtualNetworkRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -327,7 +327,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkRuleArgs.__new__(VirtualNetworkRuleArgs)
+            __props__ = VirtualNetworkRuleArrgs.__new__(VirtualNetworkRuleArrgs)
 
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

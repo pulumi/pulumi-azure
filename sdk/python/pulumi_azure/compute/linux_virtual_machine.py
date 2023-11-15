@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinuxVirtualMachineArgs', 'LinuxVirtualMachine']
+__all__ = ['LinuxVirtualMachineArrgs', 'LinuxVirtualMachine']
 
 @pulumi.input_type
-class LinuxVirtualMachineArgs:
+calass LinuxVirtualMachineArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  network_interface_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 os_disk: pulumi.Input['LinuxVirtualMachineOsDiskArgs'],
+                 os_disk: pulumi.Input['LinuxVirtualMachineOsDiskArrgs'],
                  resource_group_name: pulumi.Input[str],
                  size: pulumi.Input[str],
-                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]] = None,
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
@@ -38,26 +38,26 @@ class LinuxVirtualMachineArgs:
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]] = None,
+                 identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
+                 plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
+                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']] = None,
+                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -66,20 +66,20 @@ class LinuxVirtualMachineArgs:
         The set of arguments for constructing a LinuxVirtualMachine resource.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineOsDiskArrgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
-        :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
                > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
@@ -101,8 +101,8 @@ class LinuxVirtualMachineArgs:
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
-        :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input['LinuxVirtualMachineIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -115,7 +115,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
-        :param pulumi.Input['LinuxVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachinePlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -125,16 +125,16 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
                
                > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
-        :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
                
@@ -256,14 +256,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> pulumi.Input['LinuxVirtualMachineOsDiskArgs']:
+    def os_disk(self) -> pulumi.Input['LinuxVirtualMachineOsDiskArrgs']:
         """
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: pulumi.Input['LinuxVirtualMachineOsDiskArgs']):
+    def os_disk(self, value: pulumi.Input['LinuxVirtualMachineOsDiskArrgs']):
         pulumi.set(self, "os_disk", value)
 
     @property
@@ -292,14 +292,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]:
         """
         A `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @property
@@ -319,7 +319,7 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]:
+    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]]:
         """
         One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -328,7 +328,7 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
-    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]):
+    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
 
     @property
@@ -357,14 +357,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @property
@@ -511,26 +511,26 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -613,14 +613,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -689,14 +689,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -727,7 +727,7 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']]:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
@@ -736,7 +736,7 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @property
@@ -753,14 +753,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']]:
+    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']]):
+    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @property
@@ -815,15 +815,15 @@ class LinuxVirtualMachineArgs:
 
 
 @pulumi.input_type
-class _LinuxVirtualMachineState:
+calass _LinuxVirtualMachineState:
     def __init__(__self__, *,
-                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
@@ -835,17 +835,17 @@ class _LinuxVirtualMachineState:
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]] = None,
+                 identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+                 os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArrgs']] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
+                 plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -856,13 +856,13 @@ class _LinuxVirtualMachineState:
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
+                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']] = None,
+                 termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
@@ -870,18 +870,18 @@ class _LinuxVirtualMachineState:
                  zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxVirtualMachine resources.
-        :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
                > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
@@ -903,8 +903,8 @@ class _LinuxVirtualMachineState:
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
-        :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input['LinuxVirtualMachineIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -912,14 +912,14 @@ class _LinuxVirtualMachineState:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineOsDiskArrgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
-        :param pulumi.Input['LinuxVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachinePlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
@@ -934,17 +934,17 @@ class _LinuxVirtualMachineState:
                
                > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
-        :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
@@ -1058,14 +1058,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="additionalCapabilities")
-    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]:
+    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]:
         """
         A `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
     @additional_capabilities.setter
-    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]):
+    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]):
         pulumi.set(self, "additional_capabilities", value)
 
     @property
@@ -1085,7 +1085,7 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]:
+    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]]:
         """
         One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -1094,7 +1094,7 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
-    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]):
+    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArrgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
 
     @property
@@ -1135,14 +1135,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="bootDiagnostics")
-    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]:
+    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']]:
         """
         A `boot_diagnostics` block as defined below.
         """
         return pulumi.get(self, "boot_diagnostics")
 
     @boot_diagnostics.setter
-    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]):
+    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArrgs']]):
         pulumi.set(self, "boot_diagnostics", value)
 
     @property
@@ -1289,26 +1289,26 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="galleryApplications")
-    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]:
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]]:
         """
         One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
     @gallery_applications.setter
-    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]):
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArrgs']]]]):
         pulumi.set(self, "gallery_applications", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -1375,14 +1375,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="osDisk")
-    def os_disk(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']]:
+    def os_disk(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskArrgs']]:
         """
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
 
     @os_disk.setter
-    def os_disk(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']]):
+    def os_disk(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArrgs']]):
         pulumi.set(self, "os_disk", value)
 
     @property
@@ -1415,14 +1415,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']]:
         """
         A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachinePlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -1551,14 +1551,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -1601,7 +1601,7 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="sourceImageReference")
-    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]:
+    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']]:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
@@ -1610,7 +1610,7 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "source_image_reference")
 
     @source_image_reference.setter
-    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]):
+    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArrgs']]):
         pulumi.set(self, "source_image_reference", value)
 
     @property
@@ -1627,14 +1627,14 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="terminationNotification")
-    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']]:
+    def termination_notification(self) -> Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']]:
         """
         A `termination_notification` block as defined below.
         """
         return pulumi.get(self, "termination_notification")
 
     @termination_notification.setter
-    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']]):
+    def termination_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArrgs']]):
         pulumi.set(self, "termination_notification", value)
 
     @property
@@ -1700,18 +1700,18 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "zone", value)
 
 
-class LinuxVirtualMachine(pulumi.CustomResource):
+calass LinuxVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArrgs']]]]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArrgs']]] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
@@ -1723,30 +1723,30 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArrgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArrgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+                 os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArrgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArrgs']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArrgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
+                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArrgs']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1787,7 +1787,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -1798,15 +1798,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -1824,18 +1824,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArrgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArrgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArrgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
                > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
@@ -1857,8 +1857,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArrgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -1866,14 +1866,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArrgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -1884,17 +1884,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArrgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArrgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArrgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
                
@@ -1906,7 +1906,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinuxVirtualMachineArgs,
+                 args: LinuxVirtualMachineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Virtual Machine.
@@ -1943,7 +1943,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -1954,15 +1954,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -1979,12 +1979,12 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinuxVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param LinuxVirtualMachineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinuxVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinuxVirtualMachineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1993,13 +1993,13 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]] = None,
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArrgs']]]]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[bool]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArrgs']]] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
@@ -2011,30 +2011,30 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArrgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArrgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+                 os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArrgs']]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArrgs']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArrgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
+                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArrgs']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  vtpm_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2046,7 +2046,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinuxVirtualMachineArgs.__new__(LinuxVirtualMachineArgs)
+            __props__ = LinuxVirtualMachineArrgs.__new__(LinuxVirtualMachineArrgs)
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
@@ -2121,13 +2121,13 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']]] = None,
+            additional_capabilities: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArrgs']]] = None,
             admin_password: Optional[pulumi.Input[str]] = None,
-            admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]]] = None,
+            admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArrgs']]]]] = None,
             admin_username: Optional[pulumi.Input[str]] = None,
             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
-            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']]] = None,
+            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArrgs']]] = None,
             bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
             computer_name: Optional[pulumi.Input[str]] = None,
@@ -2139,17 +2139,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']]] = None,
+            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArrgs']]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArrgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_bid_price: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']]] = None,
+            os_disk: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArrgs']]] = None,
             patch_assessment_mode: Optional[pulumi.Input[str]] = None,
             patch_mode: Optional[pulumi.Input[str]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArrgs']]] = None,
             platform_fault_domain: Optional[pulumi.Input[int]] = None,
             priority: Optional[pulumi.Input[str]] = None,
             private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -2160,13 +2160,13 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             reboot_setting: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArrgs']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
             size: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
-            source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']]] = None,
+            source_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']]] = None,
+            termination_notification: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArrgs']]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
@@ -2179,18 +2179,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdditionalCapabilitiesArrgs']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineAdminSshKeyArrgs']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineBootDiagnosticsArrgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
                > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
@@ -2212,8 +2212,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArrgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
@@ -2221,14 +2221,14 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineOsDiskArrgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachinePlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
@@ -2243,17 +2243,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineSecretArrgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineSourceImageReferenceArrgs']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineTerminationNotificationArrgs']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.

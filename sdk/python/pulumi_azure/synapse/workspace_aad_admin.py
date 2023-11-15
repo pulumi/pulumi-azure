@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceAadAdminInitArgs', 'WorkspaceAadAdmin']
+__all__ = ['WorkspaceAadAdminInitArrgs', 'WorkspaceAadAdmin']
 
 @pulumi.input_type
-class WorkspaceAadAdminInitArgs:
+calass WorkspaceAadAdminInitArrgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -80,7 +80,7 @@ class WorkspaceAadAdminInitArgs:
 
 
 @pulumi.input_type
-class _WorkspaceAadAdminState:
+calass _WorkspaceAadAdminState:
     def __init__(__self__, *,
                  login: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _WorkspaceAadAdminState:
         pulumi.set(self, "tenant_id", value)
 
 
-class WorkspaceAadAdmin(pulumi.CustomResource):
+calass WorkspaceAadAdmin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -212,7 +212,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -244,7 +244,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceAadAdminInitArgs,
+                 args: WorkspaceAadAdminInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Active Directory Administrator setting for a Synapse Workspace
@@ -297,7 +297,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -319,12 +319,12 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceAadAdminInitArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceAadAdminInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceAadAdminInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceAadAdminInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -344,7 +344,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceAadAdminInitArgs.__new__(WorkspaceAadAdminInitArgs)
+            __props__ = WorkspaceAadAdminInitArrgs.__new__(WorkspaceAadAdminInitArrgs)
 
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")

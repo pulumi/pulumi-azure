@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegistryTokenArgs', 'RegistryToken']
+__all__ = ['RegistryTokenArrgs', 'RegistryToken']
 
 @pulumi.input_type
-class RegistryTokenArgs:
+calass RegistryTokenArrgs:
     def __init__(__self__, *,
                  container_registry_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -97,7 +97,7 @@ class RegistryTokenArgs:
 
 
 @pulumi.input_type
-class _RegistryTokenState:
+calass _RegistryTokenState:
     def __init__(__self__, *,
                  container_registry_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -184,7 +184,7 @@ class _RegistryTokenState:
         pulumi.set(self, "scope_map_id", value)
 
 
-class RegistryToken(pulumi.CustomResource):
+calass RegistryToken(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -209,10 +209,10 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
+                azure.containerservice.RegistryGeoreplicationArrgs(
                     location="East US",
                 ),
-                azure.containerservice.RegistryGeoreplicationArgs(
+                azure.containerservice.RegistryGeoreplicationArrgs(
                     location="West Europe",
                 ),
             ])
@@ -249,7 +249,7 @@ class RegistryToken(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegistryTokenArgs,
+                 args: RegistryTokenArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
@@ -265,10 +265,10 @@ class RegistryToken(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
+                azure.containerservice.RegistryGeoreplicationArrgs(
                     location="East US",
                 ),
-                azure.containerservice.RegistryGeoreplicationArgs(
+                azure.containerservice.RegistryGeoreplicationArrgs(
                     location="West Europe",
                 ),
             ])
@@ -294,12 +294,12 @@ class RegistryToken(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegistryTokenArgs args: The arguments to use to populate this resource's properties.
+        :param RegistryTokenArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegistryTokenArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryTokenArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -320,7 +320,7 @@ class RegistryToken(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegistryTokenArgs.__new__(RegistryTokenArgs)
+            __props__ = RegistryTokenArrgs.__new__(RegistryTokenArrgs)
 
             if container_registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_name'")

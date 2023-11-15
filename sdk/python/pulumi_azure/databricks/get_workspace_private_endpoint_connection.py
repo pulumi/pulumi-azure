@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWorkspacePrivateEndpointConnectionResult:
+calass GetWorkspacePrivateEndpointConnectionResult:
     """
     A collection of values returned by getWorkspacePrivateEndpointConnection.
     """
@@ -69,7 +69,7 @@ class GetWorkspacePrivateEndpointConnectionResult:
         return pulumi.get(self, "workspace_id")
 
 
-class AwaitableGetWorkspacePrivateEndpointConnectionResult(GetWorkspacePrivateEndpointConnectionResult):
+calass AwaitableGetWorkspacePrivateEndpointConnectionResult(GetWorkspacePrivateEndpointConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

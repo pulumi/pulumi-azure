@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProviderArgs', 'Provider']
+__all__ = ['ProviderArrgs', 'Provider']
 
 @pulumi.input_type
-class ProviderArgs:
+calass ProviderArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
                  sgx_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -115,14 +115,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]]:
         warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
         pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
 
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]):
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]]):
         pulumi.set(self, "policies", value)
 
     @property
@@ -191,13 +191,13 @@ class ProviderArgs:
 
 
 @pulumi.input_type
-class _ProviderState:
+calass _ProviderState:
     def __init__(__self__, *,
                  attestation_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -301,14 +301,14 @@ class _ProviderState:
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]]:
         warnings.warn("""This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""", DeprecationWarning)
         pulumi.log.warn("""policies is deprecated: This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64`, `tpm_policy_base64` and `sev_snp_policy_base64` instead.""")
 
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]):
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArrgs']]]]):
         pulumi.set(self, "policies", value)
 
     @property
@@ -400,7 +400,7 @@ class _ProviderState:
         pulumi.set(self, "trust_model", value)
 
 
-class Provider(pulumi.CustomResource):
+calass Provider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -408,7 +408,7 @@ class Provider(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArrgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -460,7 +460,7 @@ class Provider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderArgs,
+                 args: ProviderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Attestation Provider.
@@ -487,12 +487,12 @@ class Provider(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param ProviderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -504,7 +504,7 @@ class Provider(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArrgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -518,7 +518,7 @@ class Provider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProviderArgs.__new__(ProviderArgs)
+            __props__ = ProviderArrgs.__new__(ProviderArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -548,7 +548,7 @@ class Provider(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-            policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+            policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArrgs']]]]] = None,
             policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,

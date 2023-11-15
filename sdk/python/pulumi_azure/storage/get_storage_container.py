@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStorageContainerResult:
+calass GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
@@ -106,7 +106,7 @@ class GetStorageContainerResult:
         return pulumi.get(self, "storage_account_name")
 
 
-class AwaitableGetStorageContainerResult(GetStorageContainerResult):
+calass AwaitableGetStorageContainerResult(GetStorageContainerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

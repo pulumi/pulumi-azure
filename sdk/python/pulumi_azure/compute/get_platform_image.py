@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPlatformImageResult:
+calass GetPlatformImageResult:
     """
     A collection of values returned by getPlatformImage.
     """
@@ -75,7 +75,7 @@ class GetPlatformImageResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetPlatformImageResult(GetPlatformImageResult):
+calass AwaitableGetPlatformImageResult(GetPlatformImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

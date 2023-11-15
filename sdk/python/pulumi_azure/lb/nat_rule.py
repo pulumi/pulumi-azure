@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NatRuleArgs', 'NatRule']
+__all__ = ['NatRuleArrgs', 'NatRule']
 
 @pulumi.input_type
-class NatRuleArgs:
+calass NatRuleArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_ip_configuration_name: pulumi.Input[str],
@@ -223,7 +223,7 @@ class NatRuleArgs:
 
 
 @pulumi.input_type
-class _NatRuleState:
+calass _NatRuleState:
     def __init__(__self__, *,
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  backend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
@@ -462,7 +462,7 @@ class _NatRuleState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class NatRule(pulumi.CustomResource):
+calass NatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -516,7 +516,7 @@ class NatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NatRuleArgs,
+                 args: NatRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Load Balancer NAT Rule.
@@ -534,12 +534,12 @@ class NatRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param NatRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NatRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -568,7 +568,7 @@ class NatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NatRuleArgs.__new__(NatRuleArgs)
+            __props__ = NatRuleArrgs.__new__(NatRuleArrgs)
 
             __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
             if backend_port is None and not opts.urn:

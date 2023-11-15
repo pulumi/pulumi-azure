@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualNetworkSwiftConnectionArgs', 'VirtualNetworkSwiftConnection']
+__all__ = ['VirtualNetworkSwiftConnectionArrgs', 'VirtualNetworkSwiftConnection']
 
 @pulumi.input_type
-class VirtualNetworkSwiftConnectionArgs:
+calass VirtualNetworkSwiftConnectionArrgs:
     def __init__(__self__, *,
                  app_service_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class VirtualNetworkSwiftConnectionArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkSwiftConnectionState:
+calass _VirtualNetworkSwiftConnectionState:
     def __init__(__self__, *,
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _VirtualNetworkSwiftConnectionState:
         pulumi.set(self, "subnet_id", value)
 
 
-class VirtualNetworkSwiftConnection(pulumi.CustomResource):
+calass VirtualNetworkSwiftConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -137,9 +137,9 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -147,7 +147,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -174,9 +174,9 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -184,7 +184,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -221,7 +221,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkSwiftConnectionArgs,
+                 args: VirtualNetworkSwiftConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
@@ -263,9 +263,9 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -273,7 +273,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -300,9 +300,9 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -310,7 +310,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -339,12 +339,12 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkSwiftConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkSwiftConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkSwiftConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkSwiftConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -362,7 +362,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkSwiftConnectionArgs.__new__(VirtualNetworkSwiftConnectionArgs)
+            __props__ = VirtualNetworkSwiftConnectionArrgs.__new__(VirtualNetworkSwiftConnectionArrgs)
 
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")

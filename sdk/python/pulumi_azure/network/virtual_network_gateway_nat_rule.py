@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRule']
+__all__ = ['VirtualNetworkGatewayNatRuleArrgs', 'VirtualNetworkGatewayNatRule']
 
 @pulumi.input_type
-class VirtualNetworkGatewayNatRuleArgs:
+calass VirtualNetworkGatewayNatRuleArrgs:
     def __init__(__self__, *,
-                 external_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]],
-                 internal_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]],
+                 external_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]],
+                 internal_mappings: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  virtual_network_gateway_id: pulumi.Input[str],
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
@@ -26,8 +26,8 @@ class VirtualNetworkGatewayNatRuleArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkGatewayNatRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
@@ -50,26 +50,26 @@ class VirtualNetworkGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]:
+    def external_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]:
         """
         One or more `external_mapping` blocks as documented below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]):
+    def external_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]):
         pulumi.set(self, "external_mappings", value)
 
     @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]:
+    def internal_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]:
         """
         One or more `internal_mapping` blocks as documented below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]):
+    def internal_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]):
         pulumi.set(self, "internal_mappings", value)
 
     @property
@@ -146,10 +146,10 @@ class VirtualNetworkGatewayNatRuleArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkGatewayNatRuleState:
+calass _VirtualNetworkGatewayNatRuleState:
     def __init__(__self__, *,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -158,8 +158,8 @@ class _VirtualNetworkGatewayNatRuleState:
                  virtual_network_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkGatewayNatRule resources.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         :param pulumi.Input[str] mode: The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
@@ -186,26 +186,26 @@ class _VirtualNetworkGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]:
+    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]]:
         """
         One or more `external_mapping` blocks as documented below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]):
+    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]:
+    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]]:
         """
         One or more `internal_mapping` blocks as documented below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]):
+    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @property
@@ -281,13 +281,13 @@ class _VirtualNetworkGatewayNatRuleState:
         pulumi.set(self, "virtual_network_gateway_id", value)
 
 
-class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
+calass VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -308,8 +308,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         :param pulumi.Input[str] mode: The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
@@ -321,7 +321,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkGatewayNatRuleArgs,
+                 args: VirtualNetworkGatewayNatRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Network Gateway Nat Rule.
@@ -335,12 +335,12 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkGatewayNatRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayNatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayNatRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -349,8 +349,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -364,7 +364,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkGatewayNatRuleArgs.__new__(VirtualNetworkGatewayNatRuleArgs)
+            __props__ = VirtualNetworkGatewayNatRuleArrgs.__new__(VirtualNetworkGatewayNatRuleArrgs)
 
             if external_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'external_mappings'")
@@ -392,8 +392,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]]] = None,
-            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]]] = None,
+            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]]] = None,
+            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]]] = None,
             ip_configuration_id: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -407,8 +407,8 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleExternalMappingArrgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayNatRuleInternalMappingArrgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
         :param pulumi.Input[str] mode: The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ChannelSlackArgs', 'ChannelSlack']
+__all__ = ['ChannelSlackArrgs', 'ChannelSlack']
 
 @pulumi.input_type
-class ChannelSlackArgs:
+calass ChannelSlackArrgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -143,7 +143,7 @@ class ChannelSlackArgs:
 
 
 @pulumi.input_type
-class _ChannelSlackState:
+calass _ChannelSlackState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -278,7 +278,7 @@ class _ChannelSlackState:
         pulumi.set(self, "verification_token", value)
 
 
-class ChannelSlack(pulumi.CustomResource):
+calass ChannelSlack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,7 +342,7 @@ class ChannelSlack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelSlackArgs,
+                 args: ChannelSlackArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Slack integration for a Bot Channel
@@ -380,12 +380,12 @@ class ChannelSlack(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelSlackArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelSlackArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelSlackArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelSlackArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -409,7 +409,7 @@ class ChannelSlack(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelSlackArgs.__new__(ChannelSlackArgs)
+            __props__ = ChannelSlackArrgs.__new__(ChannelSlackArrgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")

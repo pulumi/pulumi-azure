@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlPoolExtendedAuditingPolicyArgs', 'SqlPoolExtendedAuditingPolicy']
+__all__ = ['SqlPoolExtendedAuditingPolicyArrgs', 'SqlPoolExtendedAuditingPolicy']
 
 @pulumi.input_type
-class SqlPoolExtendedAuditingPolicyArgs:
+calass SqlPoolExtendedAuditingPolicyArrgs:
     def __init__(__self__, *,
                  sql_pool_id: pulumi.Input[str],
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
@@ -115,7 +115,7 @@ class SqlPoolExtendedAuditingPolicyArgs:
 
 
 @pulumi.input_type
-class _SqlPoolExtendedAuditingPolicyState:
+calass _SqlPoolExtendedAuditingPolicyState:
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -218,7 +218,7 @@ class _SqlPoolExtendedAuditingPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
-class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
+calass SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -253,7 +253,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -294,7 +294,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlPoolExtendedAuditingPolicyArgs,
+                 args: SqlPoolExtendedAuditingPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool Extended Auditing Policy.
@@ -319,7 +319,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -348,12 +348,12 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlPoolExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SqlPoolExtendedAuditingPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolExtendedAuditingPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolExtendedAuditingPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -375,7 +375,7 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlPoolExtendedAuditingPolicyArgs.__new__(SqlPoolExtendedAuditingPolicyArgs)
+            __props__ = SqlPoolExtendedAuditingPolicyArrgs.__new__(SqlPoolExtendedAuditingPolicyArrgs)
 
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
             __props__.__dict__["retention_in_days"] = retention_in_days
