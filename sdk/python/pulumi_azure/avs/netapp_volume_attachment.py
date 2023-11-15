@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetappVolumeAttachmentArgs', 'NetappVolumeAttachment']
+__all__ = ['NetappVolumeAttachmentArrgs', 'NetappVolumeAttachment']
 
 @pulumi.input_type
-class NetappVolumeAttachmentArgs:
+calass NetappVolumeAttachmentArrgs:
     def __init__(__self__, *,
                  netapp_volume_id: pulumi.Input[str],
                  vmware_cluster_id: pulumi.Input[str],
@@ -70,7 +70,7 @@ class NetappVolumeAttachmentArgs:
 
 
 @pulumi.input_type
-class _NetappVolumeAttachmentState:
+calass _NetappVolumeAttachmentState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  netapp_volume_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _NetappVolumeAttachmentState:
         pulumi.set(self, "vmware_cluster_id", value)
 
 
-class NetappVolumeAttachment(pulumi.CustomResource):
+calass NetappVolumeAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -161,7 +161,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetappVolumeAttachmentArgs,
+                 args: NetappVolumeAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VMware Private Cloud Netapp File Attachment.
@@ -175,12 +175,12 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetappVolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param NetappVolumeAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetappVolumeAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetappVolumeAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -199,7 +199,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetappVolumeAttachmentArgs.__new__(NetappVolumeAttachmentArgs)
+            __props__ = NetappVolumeAttachmentArrgs.__new__(NetappVolumeAttachmentArrgs)
 
             __props__.__dict__["name"] = name
             if netapp_volume_id is None and not opts.urn:

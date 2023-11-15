@@ -11,29 +11,29 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FluxConfigurationArgs', 'FluxConfiguration']
+__all__ = ['FluxConfigurationArrgs', 'FluxConfiguration']
 
 @pulumi.input_type
-class FluxConfigurationArgs:
+calass FluxConfigurationArrgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[str],
-                 kustomizations: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]],
+                 kustomizations: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]],
                  namespace: pulumi.Input[str],
-                 blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
-                 bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
+                 blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']] = None,
+                 bucket: Optional[pulumi.Input['FluxConfigurationBucketArrgs']] = None,
                  continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']] = None,
+                 git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FluxConfiguration resource.
         :param pulumi.Input[str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]] kustomizations: A `kustomizations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]] kustomizations: A `kustomizations` block as defined below.
         :param pulumi.Input[str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created.
-        :param pulumi.Input['FluxConfigurationBlobStorageArgs'] blob_storage: An `blob_storage` block as defined below.
-        :param pulumi.Input['FluxConfigurationBucketArgs'] bucket: A `bucket` block as defined below.
+        :param pulumi.Input['FluxConfigurationBlobStorageArrgs'] blob_storage: An `blob_storage` block as defined below.
+        :param pulumi.Input['FluxConfigurationBucketArrgs'] bucket: A `bucket` block as defined below.
         :param pulumi.Input[bool] continuous_reconciliation_enabled: Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
-        :param pulumi.Input['FluxConfigurationGitRepositoryArgs'] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input['FluxConfigurationGitRepositoryArrgs'] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Flux Configuration. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
         """
@@ -67,14 +67,14 @@ class FluxConfigurationArgs:
 
     @property
     @pulumi.getter
-    def kustomizations(self) -> pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]:
+    def kustomizations(self) -> pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]]:
         """
         A `kustomizations` block as defined below.
         """
         return pulumi.get(self, "kustomizations")
 
     @kustomizations.setter
-    def kustomizations(self, value: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]):
+    def kustomizations(self, value: pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]]):
         pulumi.set(self, "kustomizations", value)
 
     @property
@@ -91,26 +91,26 @@ class FluxConfigurationArgs:
 
     @property
     @pulumi.getter(name="blobStorage")
-    def blob_storage(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']]:
+    def blob_storage(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']]:
         """
         An `blob_storage` block as defined below.
         """
         return pulumi.get(self, "blob_storage")
 
     @blob_storage.setter
-    def blob_storage(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']]):
+    def blob_storage(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']]):
         pulumi.set(self, "blob_storage", value)
 
     @property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input['FluxConfigurationBucketArgs']]:
+    def bucket(self) -> Optional[pulumi.Input['FluxConfigurationBucketArrgs']]:
         """
         A `bucket` block as defined below.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input['FluxConfigurationBucketArgs']]):
+    def bucket(self, value: Optional[pulumi.Input['FluxConfigurationBucketArrgs']]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -127,14 +127,14 @@ class FluxConfigurationArgs:
 
     @property
     @pulumi.getter(name="gitRepository")
-    def git_repository(self) -> Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']]:
+    def git_repository(self) -> Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']]:
         """
         A `git_repository` block as defined below.
         """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
-    def git_repository(self, value: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']]):
+    def git_repository(self, value: Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']]):
         pulumi.set(self, "git_repository", value)
 
     @property
@@ -163,25 +163,25 @@ class FluxConfigurationArgs:
 
 
 @pulumi.input_type
-class _FluxConfigurationState:
+calass _FluxConfigurationState:
     def __init__(__self__, *,
-                 blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']] = None,
-                 bucket: Optional[pulumi.Input['FluxConfigurationBucketArgs']] = None,
+                 blob_storage: Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']] = None,
+                 bucket: Optional[pulumi.Input['FluxConfigurationBucketArrgs']] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']] = None,
-                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]] = None,
+                 git_repository: Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']] = None,
+                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FluxConfiguration resources.
-        :param pulumi.Input['FluxConfigurationBlobStorageArgs'] blob_storage: An `blob_storage` block as defined below.
-        :param pulumi.Input['FluxConfigurationBucketArgs'] bucket: A `bucket` block as defined below.
+        :param pulumi.Input['FluxConfigurationBlobStorageArrgs'] blob_storage: An `blob_storage` block as defined below.
+        :param pulumi.Input['FluxConfigurationBucketArrgs'] bucket: A `bucket` block as defined below.
         :param pulumi.Input[str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[bool] continuous_reconciliation_enabled: Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
-        :param pulumi.Input['FluxConfigurationGitRepositoryArgs'] git_repository: A `git_repository` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]] kustomizations: A `kustomizations` block as defined below.
+        :param pulumi.Input['FluxConfigurationGitRepositoryArrgs'] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]] kustomizations: A `kustomizations` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Flux Configuration. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
@@ -207,26 +207,26 @@ class _FluxConfigurationState:
 
     @property
     @pulumi.getter(name="blobStorage")
-    def blob_storage(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']]:
+    def blob_storage(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']]:
         """
         An `blob_storage` block as defined below.
         """
         return pulumi.get(self, "blob_storage")
 
     @blob_storage.setter
-    def blob_storage(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageArgs']]):
+    def blob_storage(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageArrgs']]):
         pulumi.set(self, "blob_storage", value)
 
     @property
     @pulumi.getter
-    def bucket(self) -> Optional[pulumi.Input['FluxConfigurationBucketArgs']]:
+    def bucket(self) -> Optional[pulumi.Input['FluxConfigurationBucketArrgs']]:
         """
         A `bucket` block as defined below.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: Optional[pulumi.Input['FluxConfigurationBucketArgs']]):
+    def bucket(self, value: Optional[pulumi.Input['FluxConfigurationBucketArrgs']]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -255,26 +255,26 @@ class _FluxConfigurationState:
 
     @property
     @pulumi.getter(name="gitRepository")
-    def git_repository(self) -> Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']]:
+    def git_repository(self) -> Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']]:
         """
         A `git_repository` block as defined below.
         """
         return pulumi.get(self, "git_repository")
 
     @git_repository.setter
-    def git_repository(self, value: Optional[pulumi.Input['FluxConfigurationGitRepositoryArgs']]):
+    def git_repository(self, value: Optional[pulumi.Input['FluxConfigurationGitRepositoryArrgs']]):
         pulumi.set(self, "git_repository", value)
 
     @property
     @pulumi.getter
-    def kustomizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]]:
+    def kustomizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]]]:
         """
         A `kustomizations` block as defined below.
         """
         return pulumi.get(self, "kustomizations")
 
     @kustomizations.setter
-    def kustomizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArgs']]]]):
+    def kustomizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FluxConfigurationKustomizationArrgs']]]]):
         pulumi.set(self, "kustomizations", value)
 
     @property
@@ -314,17 +314,17 @@ class _FluxConfigurationState:
         pulumi.set(self, "scope", value)
 
 
-class FluxConfiguration(pulumi.CustomResource):
+calass FluxConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArgs']]] = None,
-                 bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArgs']]] = None,
+                 blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArrgs']]] = None,
+                 bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArrgs']]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArgs']]] = None,
-                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArgs']]]]] = None,
+                 git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArrgs']]] = None,
+                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -343,12 +343,12 @@ class FluxConfiguration(pulumi.CustomResource):
             location="West Europe",
             resource_group_name=example_resource_group.name,
             dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_DS2_v2",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
@@ -357,12 +357,12 @@ class FluxConfiguration(pulumi.CustomResource):
         example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
             cluster_id=azurerm_kubernetes_cluster["test"]["id"],
             namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
+            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArrgs(
                 url="https://github.com/Azure/arc-k8s-demo",
                 reference_type="branch",
                 reference_value="main",
             ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
+            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArrgs(
                 name="kustomization-1",
             )],
             opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
@@ -378,12 +378,12 @@ class FluxConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArgs']] blob_storage: An `blob_storage` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationBucketArgs']] bucket: A `bucket` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArrgs']] blob_storage: An `blob_storage` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationBucketArrgs']] bucket: A `bucket` block as defined below.
         :param pulumi.Input[str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[bool] continuous_reconciliation_enabled: Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArgs']] git_repository: A `git_repository` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArgs']]]] kustomizations: A `kustomizations` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArrgs']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArrgs']]]] kustomizations: A `kustomizations` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Flux Configuration. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
@@ -392,7 +392,7 @@ class FluxConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FluxConfigurationArgs,
+                 args: FluxConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kubernetes Flux Configuration.
@@ -408,12 +408,12 @@ class FluxConfiguration(pulumi.CustomResource):
             location="West Europe",
             resource_group_name=example_resource_group.name,
             dns_prefix="example-aks",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_DS2_v2",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension",
@@ -422,12 +422,12 @@ class FluxConfiguration(pulumi.CustomResource):
         example_flux_configuration = azure.containerservice.FluxConfiguration("exampleFluxConfiguration",
             cluster_id=azurerm_kubernetes_cluster["test"]["id"],
             namespace="flux",
-            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArgs(
+            git_repository=azure.containerservice.FluxConfigurationGitRepositoryArrgs(
                 url="https://github.com/Azure/arc-k8s-demo",
                 reference_type="branch",
                 reference_value="main",
             ),
-            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArgs(
+            kustomizations=[azure.containerservice.FluxConfigurationKustomizationArrgs(
                 name="kustomization-1",
             )],
             opts=pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
@@ -442,12 +442,12 @@ class FluxConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param FluxConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FluxConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FluxConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -456,12 +456,12 @@ class FluxConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArgs']]] = None,
-                 bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArgs']]] = None,
+                 blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArrgs']]] = None,
+                 bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArrgs']]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArgs']]] = None,
-                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArgs']]]]] = None,
+                 git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArrgs']]] = None,
+                 kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -472,7 +472,7 @@ class FluxConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
+            __props__ = FluxConfigurationArrgs.__new__(FluxConfigurationArrgs)
 
             __props__.__dict__["blob_storage"] = blob_storage
             __props__.__dict__["bucket"] = bucket
@@ -499,12 +499,12 @@ class FluxConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArgs']]] = None,
-            bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArgs']]] = None,
+            blob_storage: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArrgs']]] = None,
+            bucket: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationBucketArrgs']]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             continuous_reconciliation_enabled: Optional[pulumi.Input[bool]] = None,
-            git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArgs']]] = None,
-            kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArgs']]]]] = None,
+            git_repository: Optional[pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArrgs']]] = None,
+            kustomizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace: Optional[pulumi.Input[str]] = None,
             scope: Optional[pulumi.Input[str]] = None) -> 'FluxConfiguration':
@@ -515,12 +515,12 @@ class FluxConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArgs']] blob_storage: An `blob_storage` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationBucketArgs']] bucket: A `bucket` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationBlobStorageArrgs']] blob_storage: An `blob_storage` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationBucketArrgs']] bucket: A `bucket` block as defined below.
         :param pulumi.Input[str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[bool] continuous_reconciliation_enabled: Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArgs']] git_repository: A `git_repository` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArgs']]]] kustomizations: A `kustomizations` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FluxConfigurationGitRepositoryArrgs']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FluxConfigurationKustomizationArrgs']]]] kustomizations: A `kustomizations` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Flux Configuration. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] namespace: Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.

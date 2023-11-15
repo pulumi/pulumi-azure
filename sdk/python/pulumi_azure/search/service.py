@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceArgs', 'Service']
+__all__ = ['ServiceArrgs', 'Service']
 
 @pulumi.input_type
-class ServiceArgs:
+calass ServiceArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
@@ -22,7 +22,7 @@ class ServiceArgs:
                  authentication_failure_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_mode: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServiceIdentityArrgs']] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,7 @@ class ServiceArgs:
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServiceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -176,14 +176,14 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -288,20 +288,20 @@ class ServiceArgs:
 
 
 @pulumi.input_type
-class _ServiceState:
+calass _ServiceState:
     def __init__(__self__, *,
                  allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_failure_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_mode: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServiceIdentityArrgs']] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-                 query_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]] = None,
+                 query_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArrgs']]]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
@@ -320,7 +320,7 @@ class _ServiceState:
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
-        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServiceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -329,7 +329,7 @@ class _ServiceState:
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]] query_keys: A `query_keys` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArrgs']]] query_keys: A `query_keys` block as defined below.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
@@ -436,14 +436,14 @@ class _ServiceState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -522,14 +522,14 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="queryKeys")
-    def query_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]:
+    def query_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArrgs']]]]:
         """
         A `query_keys` block as defined below.
         """
         return pulumi.get(self, "query_keys")
 
     @query_keys.setter
-    def query_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]]):
+    def query_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArrgs']]]]):
         pulumi.set(self, "query_keys", value)
 
     @property
@@ -611,7 +611,7 @@ class _ServiceState:
         pulumi.set(self, "tags", value)
 
 
-class Service(pulumi.CustomResource):
+calass Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -620,7 +620,7 @@ class Service(pulumi.CustomResource):
                  authentication_failure_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_mode: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArrgs']]] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -696,7 +696,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -720,7 +720,7 @@ class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceArgs,
+                 args: ServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Search Service.
@@ -775,12 +775,12 @@ class Service(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -793,7 +793,7 @@ class Service(pulumi.CustomResource):
                  authentication_failure_mode: Optional[pulumi.Input[str]] = None,
                  customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_mode: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArrgs']]] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -811,7 +811,7 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceArgs.__new__(ServiceArgs)
+            __props__ = ServiceArrgs.__new__(ServiceArrgs)
 
             __props__.__dict__["allowed_ips"] = allowed_ips
             __props__.__dict__["authentication_failure_mode"] = authentication_failure_mode
@@ -851,14 +851,14 @@ class Service(pulumi.CustomResource):
             authentication_failure_mode: Optional[pulumi.Input[str]] = None,
             customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
             hosting_mode: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArrgs']]] = None,
             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_count: Optional[pulumi.Input[int]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
-            query_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]]] = None,
+            query_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArrgs']]]]] = None,
             replica_count: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_key: Optional[pulumi.Input[str]] = None,
@@ -882,7 +882,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
@@ -891,7 +891,7 @@ class Service(pulumi.CustomResource):
                > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]] query_keys: A `query_keys` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArrgs']]]] query_keys: A `query_keys` block as defined below.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.

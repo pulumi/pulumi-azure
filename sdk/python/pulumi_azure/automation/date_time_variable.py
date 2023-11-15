@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DateTimeVariableArgs', 'DateTimeVariable']
+__all__ = ['DateTimeVariableArrgs', 'DateTimeVariable']
 
 @pulumi.input_type
-class DateTimeVariableArgs:
+calass DateTimeVariableArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -114,7 +114,7 @@ class DateTimeVariableArgs:
 
 
 @pulumi.input_type
-class _DateTimeVariableState:
+calass _DateTimeVariableState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _DateTimeVariableState:
         pulumi.set(self, "value", value)
 
 
-class DateTimeVariable(pulumi.CustomResource):
+calass DateTimeVariable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class DateTimeVariable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DateTimeVariableArgs,
+                 args: DateTimeVariableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a DateTime variable in Azure Automation
@@ -301,12 +301,12 @@ class DateTimeVariable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DateTimeVariableArgs args: The arguments to use to populate this resource's properties.
+        :param DateTimeVariableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DateTimeVariableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DateTimeVariableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,7 +328,7 @@ class DateTimeVariable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DateTimeVariableArgs.__new__(DateTimeVariableArgs)
+            __props__ = DateTimeVariableArrgs.__new__(DateTimeVariableArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

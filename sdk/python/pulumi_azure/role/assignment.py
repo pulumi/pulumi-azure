@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssignmentArgs', 'Assignment']
+__all__ = ['AssignmentArrgs', 'Assignment']
 
 @pulumi.input_type
-class AssignmentArgs:
+calass AssignmentArrgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  scope: pulumi.Input[str],
@@ -190,7 +190,7 @@ class AssignmentArgs:
 
 
 @pulumi.input_type
-class _AssignmentState:
+calass _AssignmentState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
@@ -388,7 +388,7 @@ class _AssignmentState:
 warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
 
-class Assignment(pulumi.CustomResource):
+calass Assignment(pulumi.CustomResource):
     warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
     @overload
@@ -434,7 +434,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -456,7 +456,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -479,7 +479,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -524,7 +524,7 @@ class Assignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssignmentArgs,
+                 args: AssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Assigns a given Principal (User or Group) to a given Role.
@@ -554,7 +554,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -576,7 +576,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -599,7 +599,7 @@ class Assignment(pulumi.CustomResource):
         example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
             role_definition_id="00000000-0000-0000-0000-000000000000",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+            permissions=[azure.authorization.RoleDefinitionPermissionArrgs(
                 actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 not_actions=[],
             )],
@@ -622,12 +622,12 @@ class Assignment(pulumi.CustomResource):
          * for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` text /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
-        :param AssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param AssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -654,7 +654,7 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssignmentArgs.__new__(AssignmentArgs)
+            __props__ = AssignmentArrgs.__new__(AssignmentArrgs)
 
             __props__.__dict__["condition"] = condition
             __props__.__dict__["condition_version"] = condition_version

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalRulestackPrefixListArgs', 'LocalRulestackPrefixList']
+__all__ = ['LocalRulestackPrefixListArrgs', 'LocalRulestackPrefixList']
 
 @pulumi.input_type
-class LocalRulestackPrefixListArgs:
+calass LocalRulestackPrefixListArrgs:
     def __init__(__self__, *,
                  prefix_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rulestack_id: pulumi.Input[str],
@@ -98,7 +98,7 @@ class LocalRulestackPrefixListArgs:
 
 
 @pulumi.input_type
-class _LocalRulestackPrefixListState:
+calass _LocalRulestackPrefixListState:
     def __init__(__self__, *,
                  audit_comment: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _LocalRulestackPrefixListState:
         pulumi.set(self, "rulestack_id", value)
 
 
-class LocalRulestackPrefixList(pulumi.CustomResource):
+calass LocalRulestackPrefixList(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -234,7 +234,7 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalRulestackPrefixListArgs,
+                 args: LocalRulestackPrefixListArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Local Rulestack Prefix List.
@@ -263,12 +263,12 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalRulestackPrefixListArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRulestackPrefixListArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackPrefixListArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackPrefixListArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class LocalRulestackPrefixList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalRulestackPrefixListArgs.__new__(LocalRulestackPrefixListArgs)
+            __props__ = LocalRulestackPrefixListArrgs.__new__(LocalRulestackPrefixListArrgs)
 
             __props__.__dict__["audit_comment"] = audit_comment
             __props__.__dict__["description"] = description

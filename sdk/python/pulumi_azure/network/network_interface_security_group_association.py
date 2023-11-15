@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkInterfaceSecurityGroupAssociationArgs', 'NetworkInterfaceSecurityGroupAssociation']
+__all__ = ['NetworkInterfaceSecurityGroupAssociationArrgs', 'NetworkInterfaceSecurityGroupAssociation']
 
 @pulumi.input_type
-class NetworkInterfaceSecurityGroupAssociationArgs:
+calass NetworkInterfaceSecurityGroupAssociationArrgs:
     def __init__(__self__, *,
                  network_interface_id: pulumi.Input[str],
                  network_security_group_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class NetworkInterfaceSecurityGroupAssociationArgs:
 
 
 @pulumi.input_type
-class _NetworkInterfaceSecurityGroupAssociationState:
+calass _NetworkInterfaceSecurityGroupAssociationState:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _NetworkInterfaceSecurityGroupAssociationState:
         pulumi.set(self, "network_security_group_id", value)
 
 
-class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
+calass NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -121,7 +121,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -148,7 +148,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkInterfaceSecurityGroupAssociationArgs,
+                 args: NetworkInterfaceSecurityGroupAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the association between a Network Interface and a Network Security Group.
@@ -174,7 +174,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -193,12 +193,12 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkInterfaceSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkInterfaceSecurityGroupAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceSecurityGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceSecurityGroupAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkInterfaceSecurityGroupAssociationArgs.__new__(NetworkInterfaceSecurityGroupAssociationArgs)
+            __props__ = NetworkInterfaceSecurityGroupAssociationArrgs.__new__(NetworkInterfaceSecurityGroupAssociationArrgs)
 
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")

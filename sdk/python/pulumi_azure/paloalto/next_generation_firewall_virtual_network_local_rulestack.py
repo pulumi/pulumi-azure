@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NextGenerationFirewallVirtualNetworkLocalRulestackArgs', 'NextGenerationFirewallVirtualNetworkLocalRulestack']
+__all__ = ['NextGenerationFirewallVirtualNetworkLocalRulestackArrgs', 'NextGenerationFirewallVirtualNetworkLocalRulestack']
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackArrgs:
     def __init__(__self__, *,
-                 network_profile: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'],
+                 network_profile: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs'],
                  resource_group_name: pulumi.Input[str],
                  rulestack_id: pulumi.Input[str],
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]] = None,
+                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualNetworkLocalRulestack resource.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         """
@@ -47,14 +47,14 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']:
+    def network_profile(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']):
+    def network_profile(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -83,26 +83,26 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
 
     @property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
+    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]:
         """
         One or more `destination_nat` blocks as defined below.
         """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
+    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]:
         """
         A `dns_settings` block as defined below.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @property
@@ -131,21 +131,21 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
 
 
 @pulumi.input_type
-class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
+calass _NextGenerationFirewallVirtualNetworkLocalRulestackState:
     def __init__(__self__, *,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]] = None,
+                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] = None,
+                 network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualNetworkLocalRulestack resources.
-        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs'] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs'] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -167,26 +167,26 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
 
     @property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]:
+    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]:
         """
         One or more `destination_nat` blocks as defined below.
         """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]):
+    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]:
         """
         A `dns_settings` block as defined below.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @property
@@ -203,14 +203,14 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]:
+    def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']]:
         """
         A `network_profile` block as defined below.
         """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]):
+    def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']]):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -250,15 +250,15 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
         pulumi.set(self, "tags", value)
 
 
-class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
+calass NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -276,10 +276,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
@@ -288,7 +288,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NextGenerationFirewallVirtualNetworkLocalRulestackArgs,
+                 args: NextGenerationFirewallVirtualNetworkLocalRulestackArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
@@ -302,12 +302,12 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NextGenerationFirewallVirtualNetworkLocalRulestackArgs args: The arguments to use to populate this resource's properties.
+        :param NextGenerationFirewallVirtualNetworkLocalRulestackArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NextGenerationFirewallVirtualNetworkLocalRulestackArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NextGenerationFirewallVirtualNetworkLocalRulestackArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,10 +316,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rulestack_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -330,7 +330,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NextGenerationFirewallVirtualNetworkLocalRulestackArgs.__new__(NextGenerationFirewallVirtualNetworkLocalRulestackArgs)
+            __props__ = NextGenerationFirewallVirtualNetworkLocalRulestackArrgs.__new__(NextGenerationFirewallVirtualNetworkLocalRulestackArrgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
             __props__.__dict__["dns_settings"] = dns_settings
@@ -355,10 +355,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]]] = None,
-            dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']]] = None,
+            destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]]] = None,
+            dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']]] = None,
+            network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rulestack_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NextGenerationFirewallVirtualNetworkLocalRulestack':
@@ -369,10 +369,10 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs']] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.

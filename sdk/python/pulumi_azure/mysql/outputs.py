@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FlexibleServerCustomerManagedKey(dict):
+calass FlexibleServerCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -107,7 +107,7 @@ class FlexibleServerCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class FlexibleServerHighAvailability(dict):
+calass FlexibleServerHighAvailability(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -154,7 +154,7 @@ class FlexibleServerHighAvailability(dict):
 
 
 @pulumi.output_type
-class FlexibleServerIdentity(dict):
+calass FlexibleServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -200,7 +200,7 @@ class FlexibleServerIdentity(dict):
 
 
 @pulumi.output_type
-class FlexibleServerMaintenanceWindow(dict):
+calass FlexibleServerMaintenanceWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,7 +264,7 @@ class FlexibleServerMaintenanceWindow(dict):
 
 
 @pulumi.output_type
-class FlexibleServerStorage(dict):
+calass FlexibleServerStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -340,7 +340,7 @@ class FlexibleServerStorage(dict):
 
 
 @pulumi.output_type
-class ServerIdentity(dict):
+calass ServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -401,7 +401,7 @@ class ServerIdentity(dict):
 
 
 @pulumi.output_type
-class ServerThreatDetectionPolicy(dict):
+calass ServerThreatDetectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -519,7 +519,7 @@ class ServerThreatDetectionPolicy(dict):
 
 
 @pulumi.output_type
-class GetFlexibleServerHighAvailabilityResult(dict):
+calass GetFlexibleServerHighAvailabilityResult(dict):
     def __init__(__self__, *,
                  mode: str,
                  standby_availability_zone: str):
@@ -548,7 +548,7 @@ class GetFlexibleServerHighAvailabilityResult(dict):
 
 
 @pulumi.output_type
-class GetFlexibleServerMaintenanceWindowResult(dict):
+calass GetFlexibleServerMaintenanceWindowResult(dict):
     def __init__(__self__, *,
                  day_of_week: int,
                  start_hour: int,
@@ -588,7 +588,7 @@ class GetFlexibleServerMaintenanceWindowResult(dict):
 
 
 @pulumi.output_type
-class GetFlexibleServerStorageResult(dict):
+calass GetFlexibleServerStorageResult(dict):
     def __init__(__self__, *,
                  auto_grow_enabled: bool,
                  io_scaling_enabled: bool,
@@ -639,7 +639,7 @@ class GetFlexibleServerStorageResult(dict):
 
 
 @pulumi.output_type
-class GetServerIdentityResult(dict):
+calass GetServerIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -679,7 +679,7 @@ class GetServerIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetServerThreatDetectionPolicyResult(dict):
+calass GetServerThreatDetectionPolicyResult(dict):
     def __init__(__self__, *,
                  disabled_alerts: Sequence[str],
                  email_account_admins: bool,

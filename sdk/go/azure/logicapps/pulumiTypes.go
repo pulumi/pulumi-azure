@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i ActionHttpRunAfterArgs) ToActionHttpRunAfterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpRunAfterOutput)
 }
 
-func (i ActionHttpRunAfterArgs) ToOutput(ctx context.Context) pulumix.Output[ActionHttpRunAfter] {
-	return pulumix.Output[ActionHttpRunAfter]{
-		OutputState: i.ToActionHttpRunAfterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionHttpRunAfterArrayInput is an input type that accepts ActionHttpRunAfterArray and ActionHttpRunAfterArrayOutput values.
 // You can construct a concrete instance of `ActionHttpRunAfterArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i ActionHttpRunAfterArray) ToActionHttpRunAfterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpRunAfterArrayOutput)
 }
 
-func (i ActionHttpRunAfterArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionHttpRunAfter] {
-	return pulumix.Output[[]ActionHttpRunAfter]{
-		OutputState: i.ToActionHttpRunAfterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionHttpRunAfterOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpRunAfterOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o ActionHttpRunAfterOutput) ToActionHttpRunAfterOutput() ActionHttpRunAfte
 
 func (o ActionHttpRunAfterOutput) ToActionHttpRunAfterOutputWithContext(ctx context.Context) ActionHttpRunAfterOutput {
 	return o
-}
-
-func (o ActionHttpRunAfterOutput) ToOutput(ctx context.Context) pulumix.Output[ActionHttpRunAfter] {
-	return pulumix.Output[ActionHttpRunAfter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the precedent HTTP Action.
@@ -130,12 +111,6 @@ func (o ActionHttpRunAfterArrayOutput) ToActionHttpRunAfterArrayOutput() ActionH
 
 func (o ActionHttpRunAfterArrayOutput) ToActionHttpRunAfterArrayOutputWithContext(ctx context.Context) ActionHttpRunAfterArrayOutput {
 	return o
-}
-
-func (o ActionHttpRunAfterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionHttpRunAfter] {
-	return pulumix.Output[[]ActionHttpRunAfter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionHttpRunAfterArrayOutput) Index(i pulumi.IntInput) ActionHttpRunAfterOutput {
@@ -181,12 +156,6 @@ func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreem
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityOutput)
 }
 
-func (i IntegrationAccountAgreementGuestIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountAgreementGuestIdentity] {
-	return pulumix.Output[IntegrationAccountAgreementGuestIdentity]{
-		OutputState: i.ToIntegrationAccountAgreementGuestIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreementGuestIdentityPtrOutput() IntegrationAccountAgreementGuestIdentityPtrOutput {
 	return i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(context.Background())
 }
@@ -228,12 +197,6 @@ func (i *integrationAccountAgreementGuestIdentityPtrType) ToIntegrationAccountAg
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementGuestIdentityPtrOutput)
 }
 
-func (i *integrationAccountAgreementGuestIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreementGuestIdentity] {
-	return pulumix.Output[*IntegrationAccountAgreementGuestIdentity]{
-		OutputState: i.ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountAgreementGuestIdentityOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementGuestIdentityOutput) ElementType() reflect.Type {
@@ -258,12 +221,6 @@ func (o IntegrationAccountAgreementGuestIdentityOutput) ToIntegrationAccountAgre
 	}).(IntegrationAccountAgreementGuestIdentityPtrOutput)
 }
 
-func (o IntegrationAccountAgreementGuestIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountAgreementGuestIdentity] {
-	return pulumix.Output[IntegrationAccountAgreementGuestIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The authenticating body that provides unique guest identities to organizations.
 func (o IntegrationAccountAgreementGuestIdentityOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementGuestIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
@@ -286,12 +243,6 @@ func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountA
 
 func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToIntegrationAccountAgreementGuestIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementGuestIdentityPtrOutput {
 	return o
-}
-
-func (o IntegrationAccountAgreementGuestIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreementGuestIdentity] {
-	return pulumix.Output[*IntegrationAccountAgreementGuestIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountAgreementGuestIdentityPtrOutput) Elem() IntegrationAccountAgreementGuestIdentityOutput {
@@ -361,12 +312,6 @@ func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreeme
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityOutput)
 }
 
-func (i IntegrationAccountAgreementHostIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountAgreementHostIdentity] {
-	return pulumix.Output[IntegrationAccountAgreementHostIdentity]{
-		OutputState: i.ToIntegrationAccountAgreementHostIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreementHostIdentityPtrOutput() IntegrationAccountAgreementHostIdentityPtrOutput {
 	return i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(context.Background())
 }
@@ -408,12 +353,6 @@ func (i *integrationAccountAgreementHostIdentityPtrType) ToIntegrationAccountAgr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementHostIdentityPtrOutput)
 }
 
-func (i *integrationAccountAgreementHostIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreementHostIdentity] {
-	return pulumix.Output[*IntegrationAccountAgreementHostIdentity]{
-		OutputState: i.ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountAgreementHostIdentityOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementHostIdentityOutput) ElementType() reflect.Type {
@@ -438,12 +377,6 @@ func (o IntegrationAccountAgreementHostIdentityOutput) ToIntegrationAccountAgree
 	}).(IntegrationAccountAgreementHostIdentityPtrOutput)
 }
 
-func (o IntegrationAccountAgreementHostIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountAgreementHostIdentity] {
-	return pulumix.Output[IntegrationAccountAgreementHostIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The authenticating body that provides unique host identities to organizations.
 func (o IntegrationAccountAgreementHostIdentityOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAgreementHostIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
@@ -466,12 +399,6 @@ func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAg
 
 func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToIntegrationAccountAgreementHostIdentityPtrOutputWithContext(ctx context.Context) IntegrationAccountAgreementHostIdentityPtrOutput {
 	return o
-}
-
-func (o IntegrationAccountAgreementHostIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreementHostIdentity] {
-	return pulumix.Output[*IntegrationAccountAgreementHostIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountAgreementHostIdentityPtrOutput) Elem() IntegrationAccountAgreementHostIdentityOutput {
@@ -545,12 +472,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAc
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteria] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteria]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
 	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(context.Background())
 }
@@ -592,12 +513,6 @@ func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToIntegrati
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
 }
 
-func (i *integrationAccountBatchConfigurationReleaseCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteria] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteria]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountBatchConfigurationReleaseCriteriaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ElementType() reflect.Type {
@@ -620,12 +535,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToIntegration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteria) *IntegrationAccountBatchConfigurationReleaseCriteria {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput)
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteria] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The batch size in bytes for the Logic App Integration Batch Configuration.
@@ -657,12 +566,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrat
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaPtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteria] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaOutput {
@@ -758,12 +661,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToInt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
 	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(context.Background())
 }
@@ -805,12 +702,6 @@ func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
 }
 
-func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ElementType() reflect.Type {
@@ -833,12 +724,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToI
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput)
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The end time of the schedule, formatted as an RFC3339 string.
@@ -885,12 +770,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) 
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput {
@@ -1012,12 +891,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArg
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
 	return i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(context.Background())
 }
@@ -1059,12 +932,6 @@ func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
 }
 
-func (i *integrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -1087,12 +954,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule) *IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule {
 		return &v
 	}).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput)
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
@@ -1138,12 +999,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule] {
-	return pulumix.Output[*IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput) Elem() IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput {
@@ -1243,12 +1098,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput` via:
 //
@@ -1274,12 +1123,6 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly] {
-	return pulumix.Output[[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ElementType() reflect.Type {
@@ -1292,12 +1135,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMon
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly] {
-	return pulumix.Output[IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The occurrence of the week within the month.
@@ -1326,12 +1163,6 @@ func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMon
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) ToIntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly] {
-	return pulumix.Output[[]IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput) Index(i pulumi.IntInput) IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput {
@@ -1381,12 +1212,6 @@ func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertif
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateKeyVaultKeyOutput)
 }
 
-func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountCertificateKeyVaultKey] {
-	return pulumix.Output[IntegrationAccountCertificateKeyVaultKey]{
-		OutputState: i.ToIntegrationAccountCertificateKeyVaultKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertificateKeyVaultKeyPtrOutput() IntegrationAccountCertificateKeyVaultKeyPtrOutput {
 	return i.ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(context.Background())
 }
@@ -1428,12 +1253,6 @@ func (i *integrationAccountCertificateKeyVaultKeyPtrType) ToIntegrationAccountCe
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateKeyVaultKeyPtrOutput)
 }
 
-func (i *integrationAccountCertificateKeyVaultKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountCertificateKeyVaultKey] {
-	return pulumix.Output[*IntegrationAccountCertificateKeyVaultKey]{
-		OutputState: i.ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountCertificateKeyVaultKeyOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificateKeyVaultKeyOutput) ElementType() reflect.Type {
@@ -1456,12 +1275,6 @@ func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToIntegrationAccountCert
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountCertificateKeyVaultKey) *IntegrationAccountCertificateKeyVaultKey {
 		return &v
 	}).(IntegrationAccountCertificateKeyVaultKeyPtrOutput)
-}
-
-func (o IntegrationAccountCertificateKeyVaultKeyOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountCertificateKeyVaultKey] {
-	return pulumix.Output[IntegrationAccountCertificateKeyVaultKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of Key Vault Key.
@@ -1491,12 +1304,6 @@ func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToIntegrationAccountC
 
 func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToIntegrationAccountCertificateKeyVaultKeyPtrOutputWithContext(ctx context.Context) IntegrationAccountCertificateKeyVaultKeyPtrOutput {
 	return o
-}
-
-func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountCertificateKeyVaultKey] {
-	return pulumix.Output[*IntegrationAccountCertificateKeyVaultKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountCertificateKeyVaultKeyPtrOutput) Elem() IntegrationAccountCertificateKeyVaultKeyOutput {
@@ -1576,12 +1383,6 @@ func (i IntegrationAccountPartnerBusinessIdentityArgs) ToIntegrationAccountPartn
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerBusinessIdentityOutput)
 }
 
-func (i IntegrationAccountPartnerBusinessIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountPartnerBusinessIdentity] {
-	return pulumix.Output[IntegrationAccountPartnerBusinessIdentity]{
-		OutputState: i.ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountPartnerBusinessIdentityArrayInput is an input type that accepts IntegrationAccountPartnerBusinessIdentityArray and IntegrationAccountPartnerBusinessIdentityArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerBusinessIdentityArrayInput` via:
 //
@@ -1607,12 +1408,6 @@ func (i IntegrationAccountPartnerBusinessIdentityArray) ToIntegrationAccountPart
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerBusinessIdentityArrayOutput)
 }
 
-func (i IntegrationAccountPartnerBusinessIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationAccountPartnerBusinessIdentity] {
-	return pulumix.Output[[]IntegrationAccountPartnerBusinessIdentity]{
-		OutputState: i.ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountPartnerBusinessIdentityOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerBusinessIdentityOutput) ElementType() reflect.Type {
@@ -1625,12 +1420,6 @@ func (o IntegrationAccountPartnerBusinessIdentityOutput) ToIntegrationAccountPar
 
 func (o IntegrationAccountPartnerBusinessIdentityOutput) ToIntegrationAccountPartnerBusinessIdentityOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityOutput {
 	return o
-}
-
-func (o IntegrationAccountPartnerBusinessIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationAccountPartnerBusinessIdentity] {
-	return pulumix.Output[IntegrationAccountPartnerBusinessIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authenticating body that provides unique business identities to organizations.
@@ -1655,12 +1444,6 @@ func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) ToIntegrationAccou
 
 func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) ToIntegrationAccountPartnerBusinessIdentityArrayOutputWithContext(ctx context.Context) IntegrationAccountPartnerBusinessIdentityArrayOutput {
 	return o
-}
-
-func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationAccountPartnerBusinessIdentity] {
-	return pulumix.Output[[]IntegrationAccountPartnerBusinessIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountPartnerBusinessIdentityArrayOutput) Index(i pulumi.IntInput) IntegrationAccountPartnerBusinessIdentityOutput {
@@ -1710,12 +1493,6 @@ func (i StandardConnectionStringArgs) ToStandardConnectionStringOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StandardConnectionStringOutput)
 }
 
-func (i StandardConnectionStringArgs) ToOutput(ctx context.Context) pulumix.Output[StandardConnectionString] {
-	return pulumix.Output[StandardConnectionString]{
-		OutputState: i.ToStandardConnectionStringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardConnectionStringArrayInput is an input type that accepts StandardConnectionStringArray and StandardConnectionStringArrayOutput values.
 // You can construct a concrete instance of `StandardConnectionStringArrayInput` via:
 //
@@ -1741,12 +1518,6 @@ func (i StandardConnectionStringArray) ToStandardConnectionStringArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(StandardConnectionStringArrayOutput)
 }
 
-func (i StandardConnectionStringArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardConnectionString] {
-	return pulumix.Output[[]StandardConnectionString]{
-		OutputState: i.ToStandardConnectionStringArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardConnectionStringOutput struct{ *pulumi.OutputState }
 
 func (StandardConnectionStringOutput) ElementType() reflect.Type {
@@ -1759,12 +1530,6 @@ func (o StandardConnectionStringOutput) ToStandardConnectionStringOutput() Stand
 
 func (o StandardConnectionStringOutput) ToStandardConnectionStringOutputWithContext(ctx context.Context) StandardConnectionStringOutput {
 	return o
-}
-
-func (o StandardConnectionStringOutput) ToOutput(ctx context.Context) pulumix.Output[StandardConnectionString] {
-	return pulumix.Output[StandardConnectionString]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Connection String.
@@ -1794,12 +1559,6 @@ func (o StandardConnectionStringArrayOutput) ToStandardConnectionStringArrayOutp
 
 func (o StandardConnectionStringArrayOutput) ToStandardConnectionStringArrayOutputWithContext(ctx context.Context) StandardConnectionStringArrayOutput {
 	return o
-}
-
-func (o StandardConnectionStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardConnectionString] {
-	return pulumix.Output[[]StandardConnectionString]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardConnectionStringOutput {
@@ -1861,12 +1620,6 @@ func (i StandardIdentityArgs) ToStandardIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StandardIdentityOutput)
 }
 
-func (i StandardIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[StandardIdentity] {
-	return pulumix.Output[StandardIdentity]{
-		OutputState: i.ToStandardIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StandardIdentityArgs) ToStandardIdentityPtrOutput() StandardIdentityPtrOutput {
 	return i.ToStandardIdentityPtrOutputWithContext(context.Background())
 }
@@ -1908,12 +1661,6 @@ func (i *standardIdentityPtrType) ToStandardIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StandardIdentityPtrOutput)
 }
 
-func (i *standardIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardIdentity] {
-	return pulumix.Output[*StandardIdentity]{
-		OutputState: i.ToStandardIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardIdentityOutput struct{ *pulumi.OutputState }
 
 func (StandardIdentityOutput) ElementType() reflect.Type {
@@ -1936,12 +1683,6 @@ func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardIdentity) *StandardIdentity {
 		return &v
 	}).(StandardIdentityPtrOutput)
-}
-
-func (o StandardIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[StandardIdentity] {
-	return pulumix.Output[StandardIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
@@ -1980,12 +1721,6 @@ func (o StandardIdentityPtrOutput) ToStandardIdentityPtrOutput() StandardIdentit
 
 func (o StandardIdentityPtrOutput) ToStandardIdentityPtrOutputWithContext(ctx context.Context) StandardIdentityPtrOutput {
 	return o
-}
-
-func (o StandardIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardIdentity] {
-	return pulumix.Output[*StandardIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
@@ -2167,12 +1902,6 @@ func (i StandardSiteConfigArgs) ToStandardSiteConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigOutput)
 }
 
-func (i StandardSiteConfigArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfig] {
-	return pulumix.Output[StandardSiteConfig]{
-		OutputState: i.ToStandardSiteConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StandardSiteConfigArgs) ToStandardSiteConfigPtrOutput() StandardSiteConfigPtrOutput {
 	return i.ToStandardSiteConfigPtrOutputWithContext(context.Background())
 }
@@ -2214,12 +1943,6 @@ func (i *standardSiteConfigPtrType) ToStandardSiteConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigPtrOutput)
 }
 
-func (i *standardSiteConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfig] {
-	return pulumix.Output[*StandardSiteConfig]{
-		OutputState: i.ToStandardSiteConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigOutput) ElementType() reflect.Type {
@@ -2242,12 +1965,6 @@ func (o StandardSiteConfigOutput) ToStandardSiteConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfig) *StandardSiteConfig {
 		return &v
 	}).(StandardSiteConfigPtrOutput)
-}
-
-func (o StandardSiteConfigOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfig] {
-	return pulumix.Output[StandardSiteConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the Logic App be loaded at all times? Defaults to `false`.
@@ -2373,12 +2090,6 @@ func (o StandardSiteConfigPtrOutput) ToStandardSiteConfigPtrOutput() StandardSit
 
 func (o StandardSiteConfigPtrOutput) ToStandardSiteConfigPtrOutputWithContext(ctx context.Context) StandardSiteConfigPtrOutput {
 	return o
-}
-
-func (o StandardSiteConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfig] {
-	return pulumix.Output[*StandardSiteConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardSiteConfigPtrOutput) Elem() StandardSiteConfigOutput {
@@ -2644,12 +2355,6 @@ func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigCorsOutput)
 }
 
-func (i StandardSiteConfigCorsArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigCors] {
-	return pulumix.Output[StandardSiteConfigCors]{
-		OutputState: i.ToStandardSiteConfigCorsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsPtrOutput() StandardSiteConfigCorsPtrOutput {
 	return i.ToStandardSiteConfigCorsPtrOutputWithContext(context.Background())
 }
@@ -2691,12 +2396,6 @@ func (i *standardSiteConfigCorsPtrType) ToStandardSiteConfigCorsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigCorsPtrOutput)
 }
 
-func (i *standardSiteConfigCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigCors] {
-	return pulumix.Output[*StandardSiteConfigCors]{
-		OutputState: i.ToStandardSiteConfigCorsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigCorsOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigCorsOutput) ElementType() reflect.Type {
@@ -2721,12 +2420,6 @@ func (o StandardSiteConfigCorsOutput) ToStandardSiteConfigCorsPtrOutputWithConte
 	}).(StandardSiteConfigCorsPtrOutput)
 }
 
-func (o StandardSiteConfigCorsOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigCors] {
-	return pulumix.Output[StandardSiteConfigCors]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
 func (o StandardSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StandardSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
@@ -2749,12 +2442,6 @@ func (o StandardSiteConfigCorsPtrOutput) ToStandardSiteConfigCorsPtrOutput() Sta
 
 func (o StandardSiteConfigCorsPtrOutput) ToStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) StandardSiteConfigCorsPtrOutput {
 	return o
-}
-
-func (o StandardSiteConfigCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigCors] {
-	return pulumix.Output[*StandardSiteConfigCors]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardSiteConfigCorsPtrOutput) Elem() StandardSiteConfigCorsOutput {
@@ -2848,12 +2535,6 @@ func (i StandardSiteConfigIpRestrictionArgs) ToStandardSiteConfigIpRestrictionOu
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionOutput)
 }
 
-func (i StandardSiteConfigIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigIpRestriction] {
-	return pulumix.Output[StandardSiteConfigIpRestriction]{
-		OutputState: i.ToStandardSiteConfigIpRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardSiteConfigIpRestrictionArrayInput is an input type that accepts StandardSiteConfigIpRestrictionArray and StandardSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `StandardSiteConfigIpRestrictionArrayInput` via:
 //
@@ -2879,12 +2560,6 @@ func (i StandardSiteConfigIpRestrictionArray) ToStandardSiteConfigIpRestrictionA
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionArrayOutput)
 }
 
-func (i StandardSiteConfigIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteConfigIpRestriction] {
-	return pulumix.Output[[]StandardSiteConfigIpRestriction]{
-		OutputState: i.ToStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
@@ -2897,12 +2572,6 @@ func (o StandardSiteConfigIpRestrictionOutput) ToStandardSiteConfigIpRestriction
 
 func (o StandardSiteConfigIpRestrictionOutput) ToStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionOutput {
 	return o
-}
-
-func (o StandardSiteConfigIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigIpRestriction] {
-	return pulumix.Output[StandardSiteConfigIpRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -2956,12 +2625,6 @@ func (o StandardSiteConfigIpRestrictionArrayOutput) ToStandardSiteConfigIpRestri
 	return o
 }
 
-func (o StandardSiteConfigIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteConfigIpRestriction] {
-	return pulumix.Output[[]StandardSiteConfigIpRestriction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StandardSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) StandardSiteConfigIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSiteConfigIpRestriction {
 		return vs[0].([]StandardSiteConfigIpRestriction)[vs[1].(int)]
@@ -3013,12 +2676,6 @@ func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestri
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionHeadersOutput)
 }
 
-func (i StandardSiteConfigIpRestrictionHeadersArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[StandardSiteConfigIpRestrictionHeaders]{
-		OutputState: i.ToStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestrictionHeadersPtrOutput() StandardSiteConfigIpRestrictionHeadersPtrOutput {
 	return i.ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
 }
@@ -3060,12 +2717,6 @@ func (i *standardSiteConfigIpRestrictionHeadersPtrType) ToStandardSiteConfigIpRe
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
 }
 
-func (i *standardSiteConfigIpRestrictionHeadersPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[*StandardSiteConfigIpRestrictionHeaders]{
-		OutputState: i.ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
@@ -3088,12 +2739,6 @@ func (o StandardSiteConfigIpRestrictionHeadersOutput) ToStandardSiteConfigIpRest
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfigIpRestrictionHeaders) *StandardSiteConfigIpRestrictionHeaders {
 		return &v
 	}).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
-}
-
-func (o StandardSiteConfigIpRestrictionHeadersOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[StandardSiteConfigIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
@@ -3128,12 +2773,6 @@ func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) ToStandardSiteConfigIpR
 
 func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) ToStandardSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigIpRestrictionHeadersPtrOutput {
 	return o
-}
-
-func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[*StandardSiteConfigIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) Elem() StandardSiteConfigIpRestrictionHeadersOutput {
@@ -3247,12 +2886,6 @@ func (i StandardSiteConfigScmIpRestrictionArgs) ToStandardSiteConfigScmIpRestric
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionOutput)
 }
 
-func (i StandardSiteConfigScmIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[StandardSiteConfigScmIpRestriction]{
-		OutputState: i.ToStandardSiteConfigScmIpRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardSiteConfigScmIpRestrictionArrayInput is an input type that accepts StandardSiteConfigScmIpRestrictionArray and StandardSiteConfigScmIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `StandardSiteConfigScmIpRestrictionArrayInput` via:
 //
@@ -3278,12 +2911,6 @@ func (i StandardSiteConfigScmIpRestrictionArray) ToStandardSiteConfigScmIpRestri
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionArrayOutput)
 }
 
-func (i StandardSiteConfigScmIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[[]StandardSiteConfigScmIpRestriction]{
-		OutputState: i.ToStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
@@ -3296,12 +2923,6 @@ func (o StandardSiteConfigScmIpRestrictionOutput) ToStandardSiteConfigScmIpRestr
 
 func (o StandardSiteConfigScmIpRestrictionOutput) ToStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionOutput {
 	return o
-}
-
-func (o StandardSiteConfigScmIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[StandardSiteConfigScmIpRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -3357,12 +2978,6 @@ func (o StandardSiteConfigScmIpRestrictionArrayOutput) ToStandardSiteConfigScmIp
 	return o
 }
 
-func (o StandardSiteConfigScmIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[[]StandardSiteConfigScmIpRestriction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StandardSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) StandardSiteConfigScmIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StandardSiteConfigScmIpRestriction {
 		return vs[0].([]StandardSiteConfigScmIpRestriction)[vs[1].(int)]
@@ -3414,12 +3029,6 @@ func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIp
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionHeadersOutput)
 }
 
-func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[StandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: i.ToStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StandardSiteConfigScmIpRestrictionHeadersArgs) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutput() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
 	return i.ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
 }
@@ -3461,12 +3070,6 @@ func (i *standardSiteConfigScmIpRestrictionHeadersPtrType) ToStandardSiteConfigS
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteConfigScmIpRestrictionHeadersPtrOutput)
 }
 
-func (i *standardSiteConfigScmIpRestrictionHeadersPtrType) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[*StandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: i.ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
@@ -3489,12 +3092,6 @@ func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToStandardSiteConfigScm
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardSiteConfigScmIpRestrictionHeaders) *StandardSiteConfigScmIpRestrictionHeaders {
 		return &v
 	}).(StandardSiteConfigScmIpRestrictionHeadersPtrOutput)
-}
-
-func (o StandardSiteConfigScmIpRestrictionHeadersOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[StandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
@@ -3529,12 +3126,6 @@ func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ToStandardSiteConfig
 
 func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ToStandardSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
 	return o
-}
-
-func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[*StandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() StandardSiteConfigScmIpRestrictionHeadersOutput {
@@ -3624,12 +3215,6 @@ func (i StandardSiteCredentialArgs) ToStandardSiteCredentialOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteCredentialOutput)
 }
 
-func (i StandardSiteCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[StandardSiteCredential] {
-	return pulumix.Output[StandardSiteCredential]{
-		OutputState: i.ToStandardSiteCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardSiteCredentialArrayInput is an input type that accepts StandardSiteCredentialArray and StandardSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `StandardSiteCredentialArrayInput` via:
 //
@@ -3655,12 +3240,6 @@ func (i StandardSiteCredentialArray) ToStandardSiteCredentialArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StandardSiteCredentialArrayOutput)
 }
 
-func (i StandardSiteCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteCredential] {
-	return pulumix.Output[[]StandardSiteCredential]{
-		OutputState: i.ToStandardSiteCredentialArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardSiteCredentialOutput struct{ *pulumi.OutputState }
 
 func (StandardSiteCredentialOutput) ElementType() reflect.Type {
@@ -3673,12 +3252,6 @@ func (o StandardSiteCredentialOutput) ToStandardSiteCredentialOutput() StandardS
 
 func (o StandardSiteCredentialOutput) ToStandardSiteCredentialOutputWithContext(ctx context.Context) StandardSiteCredentialOutput {
 	return o
-}
-
-func (o StandardSiteCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[StandardSiteCredential] {
-	return pulumix.Output[StandardSiteCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password associated with the username, which can be used to publish to this App Service.
@@ -3703,12 +3276,6 @@ func (o StandardSiteCredentialArrayOutput) ToStandardSiteCredentialArrayOutput()
 
 func (o StandardSiteCredentialArrayOutput) ToStandardSiteCredentialArrayOutputWithContext(ctx context.Context) StandardSiteCredentialArrayOutput {
 	return o
-}
-
-func (o StandardSiteCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardSiteCredential] {
-	return pulumix.Output[[]StandardSiteCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardSiteCredentialArrayOutput) Index(i pulumi.IntInput) StandardSiteCredentialOutput {
@@ -3758,12 +3325,6 @@ func (i TriggerRecurrenceScheduleArgs) ToTriggerRecurrenceScheduleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceScheduleOutput)
 }
 
-func (i TriggerRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[TriggerRecurrenceSchedule] {
-	return pulumix.Output[TriggerRecurrenceSchedule]{
-		OutputState: i.ToTriggerRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TriggerRecurrenceScheduleArgs) ToTriggerRecurrenceSchedulePtrOutput() TriggerRecurrenceSchedulePtrOutput {
 	return i.ToTriggerRecurrenceSchedulePtrOutputWithContext(context.Background())
 }
@@ -3805,12 +3366,6 @@ func (i *triggerRecurrenceSchedulePtrType) ToTriggerRecurrenceSchedulePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerRecurrenceSchedulePtrOutput)
 }
 
-func (i *triggerRecurrenceSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*TriggerRecurrenceSchedule] {
-	return pulumix.Output[*TriggerRecurrenceSchedule]{
-		OutputState: i.ToTriggerRecurrenceSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TriggerRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (TriggerRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -3833,12 +3388,6 @@ func (o TriggerRecurrenceScheduleOutput) ToTriggerRecurrenceSchedulePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerRecurrenceSchedule) *TriggerRecurrenceSchedule {
 		return &v
 	}).(TriggerRecurrenceSchedulePtrOutput)
-}
-
-func (o TriggerRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[TriggerRecurrenceSchedule] {
-	return pulumix.Output[TriggerRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
@@ -3868,12 +3417,6 @@ func (o TriggerRecurrenceSchedulePtrOutput) ToTriggerRecurrenceSchedulePtrOutput
 
 func (o TriggerRecurrenceSchedulePtrOutput) ToTriggerRecurrenceSchedulePtrOutputWithContext(ctx context.Context) TriggerRecurrenceSchedulePtrOutput {
 	return o
-}
-
-func (o TriggerRecurrenceSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerRecurrenceSchedule] {
-	return pulumix.Output[*TriggerRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TriggerRecurrenceSchedulePtrOutput) Elem() TriggerRecurrenceScheduleOutput {
@@ -3961,12 +3504,6 @@ func (i WorkflowAccessControlArgs) ToWorkflowAccessControlOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlOutput)
 }
 
-func (i WorkflowAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControl] {
-	return pulumix.Output[WorkflowAccessControl]{
-		OutputState: i.ToWorkflowAccessControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowAccessControlArgs) ToWorkflowAccessControlPtrOutput() WorkflowAccessControlPtrOutput {
 	return i.ToWorkflowAccessControlPtrOutputWithContext(context.Background())
 }
@@ -4008,12 +3545,6 @@ func (i *workflowAccessControlPtrType) ToWorkflowAccessControlPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlPtrOutput)
 }
 
-func (i *workflowAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControl] {
-	return pulumix.Output[*WorkflowAccessControl]{
-		OutputState: i.ToWorkflowAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlOutput) ElementType() reflect.Type {
@@ -4036,12 +3567,6 @@ func (o WorkflowAccessControlOutput) ToWorkflowAccessControlPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControl) *WorkflowAccessControl {
 		return &v
 	}).(WorkflowAccessControlPtrOutput)
-}
-
-func (o WorkflowAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControl] {
-	return pulumix.Output[WorkflowAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `action` block as defined below.
@@ -4076,12 +3601,6 @@ func (o WorkflowAccessControlPtrOutput) ToWorkflowAccessControlPtrOutput() Workf
 
 func (o WorkflowAccessControlPtrOutput) ToWorkflowAccessControlPtrOutputWithContext(ctx context.Context) WorkflowAccessControlPtrOutput {
 	return o
-}
-
-func (o WorkflowAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControl] {
-	return pulumix.Output[*WorkflowAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlPtrOutput) Elem() WorkflowAccessControlOutput {
@@ -4167,12 +3686,6 @@ func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlActionOutput)
 }
 
-func (i WorkflowAccessControlActionArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlAction] {
-	return pulumix.Output[WorkflowAccessControlAction]{
-		OutputState: i.ToWorkflowAccessControlActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionPtrOutput() WorkflowAccessControlActionPtrOutput {
 	return i.ToWorkflowAccessControlActionPtrOutputWithContext(context.Background())
 }
@@ -4214,12 +3727,6 @@ func (i *workflowAccessControlActionPtrType) ToWorkflowAccessControlActionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlActionPtrOutput)
 }
 
-func (i *workflowAccessControlActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlAction] {
-	return pulumix.Output[*WorkflowAccessControlAction]{
-		OutputState: i.ToWorkflowAccessControlActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlActionOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlActionOutput) ElementType() reflect.Type {
@@ -4244,12 +3751,6 @@ func (o WorkflowAccessControlActionOutput) ToWorkflowAccessControlActionPtrOutpu
 	}).(WorkflowAccessControlActionPtrOutput)
 }
 
-func (o WorkflowAccessControlActionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlAction] {
-	return pulumix.Output[WorkflowAccessControlAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of the allowed caller IP address ranges.
 func (o WorkflowAccessControlActionOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowAccessControlAction) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
@@ -4267,12 +3768,6 @@ func (o WorkflowAccessControlActionPtrOutput) ToWorkflowAccessControlActionPtrOu
 
 func (o WorkflowAccessControlActionPtrOutput) ToWorkflowAccessControlActionPtrOutputWithContext(ctx context.Context) WorkflowAccessControlActionPtrOutput {
 	return o
-}
-
-func (o WorkflowAccessControlActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlAction] {
-	return pulumix.Output[*WorkflowAccessControlAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlActionPtrOutput) Elem() WorkflowAccessControlActionOutput {
@@ -4328,12 +3823,6 @@ func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlContentOutput)
 }
 
-func (i WorkflowAccessControlContentArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlContent] {
-	return pulumix.Output[WorkflowAccessControlContent]{
-		OutputState: i.ToWorkflowAccessControlContentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentPtrOutput() WorkflowAccessControlContentPtrOutput {
 	return i.ToWorkflowAccessControlContentPtrOutputWithContext(context.Background())
 }
@@ -4375,12 +3864,6 @@ func (i *workflowAccessControlContentPtrType) ToWorkflowAccessControlContentPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlContentPtrOutput)
 }
 
-func (i *workflowAccessControlContentPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlContent] {
-	return pulumix.Output[*WorkflowAccessControlContent]{
-		OutputState: i.ToWorkflowAccessControlContentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlContentOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlContentOutput) ElementType() reflect.Type {
@@ -4405,12 +3888,6 @@ func (o WorkflowAccessControlContentOutput) ToWorkflowAccessControlContentPtrOut
 	}).(WorkflowAccessControlContentPtrOutput)
 }
 
-func (o WorkflowAccessControlContentOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlContent] {
-	return pulumix.Output[WorkflowAccessControlContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of the allowed caller IP address ranges.
 func (o WorkflowAccessControlContentOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowAccessControlContent) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
@@ -4428,12 +3905,6 @@ func (o WorkflowAccessControlContentPtrOutput) ToWorkflowAccessControlContentPtr
 
 func (o WorkflowAccessControlContentPtrOutput) ToWorkflowAccessControlContentPtrOutputWithContext(ctx context.Context) WorkflowAccessControlContentPtrOutput {
 	return o
-}
-
-func (o WorkflowAccessControlContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlContent] {
-	return pulumix.Output[*WorkflowAccessControlContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlContentPtrOutput) Elem() WorkflowAccessControlContentOutput {
@@ -4493,12 +3964,6 @@ func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOutput)
 }
 
-func (i WorkflowAccessControlTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTrigger] {
-	return pulumix.Output[WorkflowAccessControlTrigger]{
-		OutputState: i.ToWorkflowAccessControlTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerPtrOutput() WorkflowAccessControlTriggerPtrOutput {
 	return i.ToWorkflowAccessControlTriggerPtrOutputWithContext(context.Background())
 }
@@ -4540,12 +4005,6 @@ func (i *workflowAccessControlTriggerPtrType) ToWorkflowAccessControlTriggerPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerPtrOutput)
 }
 
-func (i *workflowAccessControlTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlTrigger] {
-	return pulumix.Output[*WorkflowAccessControlTrigger]{
-		OutputState: i.ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlTriggerOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlTriggerOutput) ElementType() reflect.Type {
@@ -4568,12 +4027,6 @@ func (o WorkflowAccessControlTriggerOutput) ToWorkflowAccessControlTriggerPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowAccessControlTrigger) *WorkflowAccessControlTrigger {
 		return &v
 	}).(WorkflowAccessControlTriggerPtrOutput)
-}
-
-func (o WorkflowAccessControlTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTrigger] {
-	return pulumix.Output[WorkflowAccessControlTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the allowed caller IP address ranges.
@@ -4600,12 +4053,6 @@ func (o WorkflowAccessControlTriggerPtrOutput) ToWorkflowAccessControlTriggerPtr
 
 func (o WorkflowAccessControlTriggerPtrOutput) ToWorkflowAccessControlTriggerPtrOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerPtrOutput {
 	return o
-}
-
-func (o WorkflowAccessControlTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlTrigger] {
-	return pulumix.Output[*WorkflowAccessControlTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlTriggerPtrOutput) Elem() WorkflowAccessControlTriggerOutput {
@@ -4675,12 +4122,6 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ToWorkflowAcce
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput)
 }
 
-func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicy] {
-	return pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicy]{
-		OutputState: i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput` via:
 //
@@ -4706,12 +4147,6 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArray) ToWorkflowAcc
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput)
 }
 
-func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicy] {
-	return pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicy]{
-		OutputState: i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ElementType() reflect.Type {
@@ -4724,12 +4159,6 @@ func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ToWorkflowAc
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
 	return o
-}
-
-func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicy] {
-	return pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `claim` block as defined below.
@@ -4756,12 +4185,6 @@ func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ToWorkf
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput {
 	return o
-}
-
-func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicy] {
-	return pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput) Index(i pulumi.IntInput) WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput {
@@ -4807,12 +4230,6 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ToWorkflo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput)
 }
 
-func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim] {
-	return pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim]{
-		OutputState: i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput` via:
 //
@@ -4838,12 +4255,6 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray) ToWorkfl
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput)
 }
 
-func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim] {
-	return pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim]{
-		OutputState: i.ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ElementType() reflect.Type {
@@ -4856,12 +4267,6 @@ func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ToWorkf
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
 	return o
-}
-
-func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim] {
-	return pulumix.Output[WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the OAuth policy claim for the Logic App Workflow.
@@ -4886,12 +4291,6 @@ func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) To
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) ToWorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutputWithContext(ctx context.Context) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput {
 	return o
-}
-
-func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim] {
-	return pulumix.Output[[]WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput) Index(i pulumi.IntInput) WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput {
@@ -4931,12 +4330,6 @@ func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWork
 
 func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlWorkflowManagementOutput)
-}
-
-func (i WorkflowAccessControlWorkflowManagementArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlWorkflowManagement] {
-	return pulumix.Output[WorkflowAccessControlWorkflowManagement]{
-		OutputState: i.ToWorkflowAccessControlWorkflowManagementOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWorkflowManagementPtrOutput() WorkflowAccessControlWorkflowManagementPtrOutput {
@@ -4980,12 +4373,6 @@ func (i *workflowAccessControlWorkflowManagementPtrType) ToWorkflowAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowAccessControlWorkflowManagementPtrOutput)
 }
 
-func (i *workflowAccessControlWorkflowManagementPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlWorkflowManagement] {
-	return pulumix.Output[*WorkflowAccessControlWorkflowManagement]{
-		OutputState: i.ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowAccessControlWorkflowManagementOutput struct{ *pulumi.OutputState }
 
 func (WorkflowAccessControlWorkflowManagementOutput) ElementType() reflect.Type {
@@ -5010,12 +4397,6 @@ func (o WorkflowAccessControlWorkflowManagementOutput) ToWorkflowAccessControlWo
 	}).(WorkflowAccessControlWorkflowManagementPtrOutput)
 }
 
-func (o WorkflowAccessControlWorkflowManagementOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowAccessControlWorkflowManagement] {
-	return pulumix.Output[WorkflowAccessControlWorkflowManagement]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of the allowed caller IP address ranges.
 func (o WorkflowAccessControlWorkflowManagementOutput) AllowedCallerIpAddressRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkflowAccessControlWorkflowManagement) []string { return v.AllowedCallerIpAddressRanges }).(pulumi.StringArrayOutput)
@@ -5033,12 +4414,6 @@ func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToWorkflowAccessContro
 
 func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToWorkflowAccessControlWorkflowManagementPtrOutputWithContext(ctx context.Context) WorkflowAccessControlWorkflowManagementPtrOutput {
 	return o
-}
-
-func (o WorkflowAccessControlWorkflowManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowAccessControlWorkflowManagement] {
-	return pulumix.Output[*WorkflowAccessControlWorkflowManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowAccessControlWorkflowManagementPtrOutput) Elem() WorkflowAccessControlWorkflowManagementOutput {
@@ -5110,12 +4485,6 @@ func (i WorkflowIdentityArgs) ToWorkflowIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIdentityOutput)
 }
 
-func (i WorkflowIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowIdentity] {
-	return pulumix.Output[WorkflowIdentity]{
-		OutputState: i.ToWorkflowIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowIdentityArgs) ToWorkflowIdentityPtrOutput() WorkflowIdentityPtrOutput {
 	return i.ToWorkflowIdentityPtrOutputWithContext(context.Background())
 }
@@ -5157,12 +4526,6 @@ func (i *workflowIdentityPtrType) ToWorkflowIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowIdentityPtrOutput)
 }
 
-func (i *workflowIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowIdentity] {
-	return pulumix.Output[*WorkflowIdentity]{
-		OutputState: i.ToWorkflowIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkflowIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkflowIdentityOutput) ElementType() reflect.Type {
@@ -5185,12 +4548,6 @@ func (o WorkflowIdentityOutput) ToWorkflowIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowIdentity) *WorkflowIdentity {
 		return &v
 	}).(WorkflowIdentityPtrOutput)
-}
-
-func (o WorkflowIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowIdentity] {
-	return pulumix.Output[WorkflowIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
@@ -5227,12 +4584,6 @@ func (o WorkflowIdentityPtrOutput) ToWorkflowIdentityPtrOutput() WorkflowIdentit
 
 func (o WorkflowIdentityPtrOutput) ToWorkflowIdentityPtrOutputWithContext(ctx context.Context) WorkflowIdentityPtrOutput {
 	return o
-}
-
-func (o WorkflowIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowIdentity] {
-	return pulumix.Output[*WorkflowIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowIdentityPtrOutput) Elem() WorkflowIdentityOutput {
@@ -5326,12 +4677,6 @@ func (i GetStandardConnectionStringArgs) ToGetStandardConnectionStringOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardConnectionStringOutput)
 }
 
-func (i GetStandardConnectionStringArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardConnectionString] {
-	return pulumix.Output[GetStandardConnectionString]{
-		OutputState: i.ToGetStandardConnectionStringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetStandardConnectionStringArrayInput is an input type that accepts GetStandardConnectionStringArray and GetStandardConnectionStringArrayOutput values.
 // You can construct a concrete instance of `GetStandardConnectionStringArrayInput` via:
 //
@@ -5357,12 +4702,6 @@ func (i GetStandardConnectionStringArray) ToGetStandardConnectionStringArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardConnectionStringArrayOutput)
 }
 
-func (i GetStandardConnectionStringArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardConnectionString] {
-	return pulumix.Output[[]GetStandardConnectionString]{
-		OutputState: i.ToGetStandardConnectionStringArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardConnectionStringOutput struct{ *pulumi.OutputState }
 
 func (GetStandardConnectionStringOutput) ElementType() reflect.Type {
@@ -5375,12 +4714,6 @@ func (o GetStandardConnectionStringOutput) ToGetStandardConnectionStringOutput()
 
 func (o GetStandardConnectionStringOutput) ToGetStandardConnectionStringOutputWithContext(ctx context.Context) GetStandardConnectionStringOutput {
 	return o
-}
-
-func (o GetStandardConnectionStringOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardConnectionString] {
-	return pulumix.Output[GetStandardConnectionString]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of this Logic App.
@@ -5409,12 +4742,6 @@ func (o GetStandardConnectionStringArrayOutput) ToGetStandardConnectionStringArr
 
 func (o GetStandardConnectionStringArrayOutput) ToGetStandardConnectionStringArrayOutputWithContext(ctx context.Context) GetStandardConnectionStringArrayOutput {
 	return o
-}
-
-func (o GetStandardConnectionStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardConnectionString] {
-	return pulumix.Output[[]GetStandardConnectionString]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardConnectionStringArrayOutput) Index(i pulumi.IntInput) GetStandardConnectionStringOutput {
@@ -5464,12 +4791,6 @@ func (i GetStandardIdentityArgs) ToGetStandardIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityOutput)
 }
 
-func (i GetStandardIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardIdentity] {
-	return pulumix.Output[GetStandardIdentity]{
-		OutputState: i.ToGetStandardIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetStandardIdentityArrayInput is an input type that accepts GetStandardIdentityArray and GetStandardIdentityArrayOutput values.
 // You can construct a concrete instance of `GetStandardIdentityArrayInput` via:
 //
@@ -5495,12 +4816,6 @@ func (i GetStandardIdentityArray) ToGetStandardIdentityArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardIdentityArrayOutput)
 }
 
-func (i GetStandardIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardIdentity] {
-	return pulumix.Output[[]GetStandardIdentity]{
-		OutputState: i.ToGetStandardIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetStandardIdentityOutput) ElementType() reflect.Type {
@@ -5513,12 +4828,6 @@ func (o GetStandardIdentityOutput) ToGetStandardIdentityOutput() GetStandardIden
 
 func (o GetStandardIdentityOutput) ToGetStandardIdentityOutputWithContext(ctx context.Context) GetStandardIdentityOutput {
 	return o
-}
-
-func (o GetStandardIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardIdentity] {
-	return pulumix.Output[GetStandardIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
@@ -5548,12 +4857,6 @@ func (o GetStandardIdentityArrayOutput) ToGetStandardIdentityArrayOutput() GetSt
 
 func (o GetStandardIdentityArrayOutput) ToGetStandardIdentityArrayOutputWithContext(ctx context.Context) GetStandardIdentityArrayOutput {
 	return o
-}
-
-func (o GetStandardIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardIdentity] {
-	return pulumix.Output[[]GetStandardIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardIdentityArrayOutput) Index(i pulumi.IntInput) GetStandardIdentityOutput {
@@ -5633,12 +4936,6 @@ func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigOutput)
 }
 
-func (i GetStandardSiteConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfig] {
-	return pulumix.Output[GetStandardSiteConfig]{
-		OutputState: i.ToGetStandardSiteConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
 	return i.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
 }
@@ -5680,12 +4977,6 @@ func (i *getStandardSiteConfigPtrType) ToGetStandardSiteConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigPtrOutput)
 }
 
-func (i *getStandardSiteConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetStandardSiteConfig] {
-	return pulumix.Output[*GetStandardSiteConfig]{
-		OutputState: i.ToGetStandardSiteConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigOutput) ElementType() reflect.Type {
@@ -5708,12 +4999,6 @@ func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardSiteConfig) *GetStandardSiteConfig {
 		return &v
 	}).(GetStandardSiteConfigPtrOutput)
-}
-
-func (o GetStandardSiteConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfig] {
-	return pulumix.Output[GetStandardSiteConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
@@ -5812,12 +5097,6 @@ func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutput() GetSt
 
 func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetStandardSiteConfig] {
-	return pulumix.Output[*GetStandardSiteConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigPtrOutput) Elem() GetStandardSiteConfigOutput {
@@ -6052,12 +5331,6 @@ func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsOutput)
 }
 
-func (i GetStandardSiteConfigCorsArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigCors] {
-	return pulumix.Output[GetStandardSiteConfigCors]{
-		OutputState: i.ToGetStandardSiteConfigCorsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
 	return i.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
 }
@@ -6099,12 +5372,6 @@ func (i *getStandardSiteConfigCorsPtrType) ToGetStandardSiteConfigCorsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsPtrOutput)
 }
 
-func (i *getStandardSiteConfigCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetStandardSiteConfigCors] {
-	return pulumix.Output[*GetStandardSiteConfigCors]{
-		OutputState: i.ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigCorsOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigCorsOutput) ElementType() reflect.Type {
@@ -6129,12 +5396,6 @@ func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsPtrOutputWit
 	}).(GetStandardSiteConfigCorsPtrOutput)
 }
 
-func (o GetStandardSiteConfigCorsOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigCors] {
-	return pulumix.Output[GetStandardSiteConfigCors]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetStandardSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetStandardSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -6155,12 +5416,6 @@ func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutput
 
 func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetStandardSiteConfigCors] {
-	return pulumix.Output[*GetStandardSiteConfigCors]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigCorsPtrOutput) Elem() GetStandardSiteConfigCorsOutput {
@@ -6236,12 +5491,6 @@ func (i GetStandardSiteConfigIpRestrictionArgs) ToGetStandardSiteConfigIpRestric
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionOutput)
 }
 
-func (i GetStandardSiteConfigIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigIpRestriction] {
-	return pulumix.Output[GetStandardSiteConfigIpRestriction]{
-		OutputState: i.ToGetStandardSiteConfigIpRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetStandardSiteConfigIpRestrictionArrayInput is an input type that accepts GetStandardSiteConfigIpRestrictionArray and GetStandardSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionArrayInput` via:
 //
@@ -6267,12 +5516,6 @@ func (i GetStandardSiteConfigIpRestrictionArray) ToGetStandardSiteConfigIpRestri
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionArrayOutput)
 }
 
-func (i GetStandardSiteConfigIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteConfigIpRestriction] {
-	return pulumix.Output[[]GetStandardSiteConfigIpRestriction]{
-		OutputState: i.ToGetStandardSiteConfigIpRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigIpRestrictionOutput) ElementType() reflect.Type {
@@ -6285,12 +5528,6 @@ func (o GetStandardSiteConfigIpRestrictionOutput) ToGetStandardSiteConfigIpRestr
 
 func (o GetStandardSiteConfigIpRestrictionOutput) ToGetStandardSiteConfigIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigIpRestriction] {
-	return pulumix.Output[GetStandardSiteConfigIpRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
@@ -6336,12 +5573,6 @@ func (o GetStandardSiteConfigIpRestrictionArrayOutput) ToGetStandardSiteConfigIp
 	return o
 }
 
-func (o GetStandardSiteConfigIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteConfigIpRestriction] {
-	return pulumix.Output[[]GetStandardSiteConfigIpRestriction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetStandardSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetStandardSiteConfigIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardSiteConfigIpRestriction {
 		return vs[0].([]GetStandardSiteConfigIpRestriction)[vs[1].(int)]
@@ -6385,12 +5616,6 @@ func (i GetStandardSiteConfigIpRestrictionHeadersArgs) ToGetStandardSiteConfigIp
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigIpRestrictionHeadersOutput)
 }
 
-func (i GetStandardSiteConfigIpRestrictionHeadersArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[GetStandardSiteConfigIpRestrictionHeaders]{
-		OutputState: i.ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
@@ -6403,12 +5628,6 @@ func (o GetStandardSiteConfigIpRestrictionHeadersOutput) ToGetStandardSiteConfig
 
 func (o GetStandardSiteConfigIpRestrictionHeadersOutput) ToGetStandardSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigIpRestrictionHeadersOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigIpRestrictionHeadersOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigIpRestrictionHeaders] {
-	return pulumix.Output[GetStandardSiteConfigIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -6472,12 +5691,6 @@ func (i GetStandardSiteConfigScmIpRestrictionArgs) ToGetStandardSiteConfigScmIpR
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionOutput)
 }
 
-func (i GetStandardSiteConfigScmIpRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[GetStandardSiteConfigScmIpRestriction]{
-		OutputState: i.ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetStandardSiteConfigScmIpRestrictionArrayInput is an input type that accepts GetStandardSiteConfigScmIpRestrictionArray and GetStandardSiteConfigScmIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigScmIpRestrictionArrayInput` via:
 //
@@ -6503,12 +5716,6 @@ func (i GetStandardSiteConfigScmIpRestrictionArray) ToGetStandardSiteConfigScmIp
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionArrayOutput)
 }
 
-func (i GetStandardSiteConfigScmIpRestrictionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[[]GetStandardSiteConfigScmIpRestriction]{
-		OutputState: i.ToGetStandardSiteConfigScmIpRestrictionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigScmIpRestrictionOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigScmIpRestrictionOutput) ElementType() reflect.Type {
@@ -6521,12 +5728,6 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) ToGetStandardSiteConfigScmI
 
 func (o GetStandardSiteConfigScmIpRestrictionOutput) ToGetStandardSiteConfigScmIpRestrictionOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigScmIpRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[GetStandardSiteConfigScmIpRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
@@ -6574,12 +5775,6 @@ func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) ToGetStandardSiteConfi
 	return o
 }
 
-func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteConfigScmIpRestriction] {
-	return pulumix.Output[[]GetStandardSiteConfigScmIpRestriction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetStandardSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) GetStandardSiteConfigScmIpRestrictionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardSiteConfigScmIpRestriction {
 		return vs[0].([]GetStandardSiteConfigScmIpRestriction)[vs[1].(int)]
@@ -6623,12 +5818,6 @@ func (i GetStandardSiteConfigScmIpRestrictionHeadersArgs) ToGetStandardSiteConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigScmIpRestrictionHeadersOutput)
 }
 
-func (i GetStandardSiteConfigScmIpRestrictionHeadersArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[GetStandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: i.ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
@@ -6641,12 +5830,6 @@ func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) ToGetStandardSiteCon
 
 func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) ToGetStandardSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) GetStandardSiteConfigScmIpRestrictionHeadersOutput {
 	return o
-}
-
-func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteConfigScmIpRestrictionHeaders] {
-	return pulumix.Output[GetStandardSiteConfigScmIpRestrictionHeaders]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
@@ -6698,12 +5881,6 @@ func (i GetStandardSiteCredentialArgs) ToGetStandardSiteCredentialOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteCredentialOutput)
 }
 
-func (i GetStandardSiteCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteCredential] {
-	return pulumix.Output[GetStandardSiteCredential]{
-		OutputState: i.ToGetStandardSiteCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetStandardSiteCredentialArrayInput is an input type that accepts GetStandardSiteCredentialArray and GetStandardSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `GetStandardSiteCredentialArrayInput` via:
 //
@@ -6729,12 +5906,6 @@ func (i GetStandardSiteCredentialArray) ToGetStandardSiteCredentialArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteCredentialArrayOutput)
 }
 
-func (i GetStandardSiteCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteCredential] {
-	return pulumix.Output[[]GetStandardSiteCredential]{
-		OutputState: i.ToGetStandardSiteCredentialArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetStandardSiteCredentialOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteCredentialOutput) ElementType() reflect.Type {
@@ -6747,12 +5918,6 @@ func (o GetStandardSiteCredentialOutput) ToGetStandardSiteCredentialOutput() Get
 
 func (o GetStandardSiteCredentialOutput) ToGetStandardSiteCredentialOutputWithContext(ctx context.Context) GetStandardSiteCredentialOutput {
 	return o
-}
-
-func (o GetStandardSiteCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[GetStandardSiteCredential] {
-	return pulumix.Output[GetStandardSiteCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteCredentialOutput) Password() pulumi.StringOutput {
@@ -6775,12 +5940,6 @@ func (o GetStandardSiteCredentialArrayOutput) ToGetStandardSiteCredentialArrayOu
 
 func (o GetStandardSiteCredentialArrayOutput) ToGetStandardSiteCredentialArrayOutputWithContext(ctx context.Context) GetStandardSiteCredentialArrayOutput {
 	return o
-}
-
-func (o GetStandardSiteCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStandardSiteCredential] {
-	return pulumix.Output[[]GetStandardSiteCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetStandardSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetStandardSiteCredentialOutput {
@@ -6834,12 +5993,6 @@ func (i GetWorkflowIdentityArgs) ToGetWorkflowIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkflowIdentityOutput)
 }
 
-func (i GetWorkflowIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkflowIdentity] {
-	return pulumix.Output[GetWorkflowIdentity]{
-		OutputState: i.ToGetWorkflowIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWorkflowIdentityArrayInput is an input type that accepts GetWorkflowIdentityArray and GetWorkflowIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkflowIdentityArrayInput` via:
 //
@@ -6865,12 +6018,6 @@ func (i GetWorkflowIdentityArray) ToGetWorkflowIdentityArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkflowIdentityArrayOutput)
 }
 
-func (i GetWorkflowIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkflowIdentity] {
-	return pulumix.Output[[]GetWorkflowIdentity]{
-		OutputState: i.ToGetWorkflowIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWorkflowIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWorkflowIdentityOutput) ElementType() reflect.Type {
@@ -6883,12 +6030,6 @@ func (o GetWorkflowIdentityOutput) ToGetWorkflowIdentityOutput() GetWorkflowIden
 
 func (o GetWorkflowIdentityOutput) ToGetWorkflowIdentityOutputWithContext(ctx context.Context) GetWorkflowIdentityOutput {
 	return o
-}
-
-func (o GetWorkflowIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkflowIdentity] {
-	return pulumix.Output[GetWorkflowIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
@@ -6923,12 +6064,6 @@ func (o GetWorkflowIdentityArrayOutput) ToGetWorkflowIdentityArrayOutput() GetWo
 
 func (o GetWorkflowIdentityArrayOutput) ToGetWorkflowIdentityArrayOutputWithContext(ctx context.Context) GetWorkflowIdentityArrayOutput {
 	return o
-}
-
-func (o GetWorkflowIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkflowIdentity] {
-	return pulumix.Output[[]GetWorkflowIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkflowIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkflowIdentityOutput {

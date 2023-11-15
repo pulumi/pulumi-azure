@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'NamespaceCustomerManagedKeyArgs',
-    'NamespaceIdentityArgs',
-    'NamespaceNetworkRuleSetArgs',
-    'NamespaceNetworkRuleSetNetworkRuleArgs',
-    'SubscriptionClientScopedSubscriptionArgs',
-    'SubscriptionRuleCorrelationFilterArgs',
+    'NamespaceCustomerManagedKeyArrgs',
+    'NamespaceIdentityArrgs',
+    'NamespaceNetworkRuleSetArrgs',
+    'NamespaceNetworkRuleSetNetworkRuleArrgs',
+    'SubscriptionClientScopedSubscriptionArrgs',
+    'SubscriptionRuleCorrelationFilterArrgs',
 ]
 
 @pulumi.input_type
-class NamespaceCustomerManagedKeyArgs:
+calass NamespaceCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  identity_id: pulumi.Input[str],
                  key_vault_key_id: pulumi.Input[str],
@@ -72,7 +72,7 @@ class NamespaceCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class NamespaceIdentityArgs:
+calass NamespaceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -146,17 +146,17 @@ class NamespaceIdentityArgs:
 
 
 @pulumi.input_type
-class NamespaceNetworkRuleSetArgs:
+calass NamespaceNetworkRuleSetArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -197,14 +197,14 @@ class NamespaceNetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]:
         """
         One or more `network_rules` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @property
@@ -233,7 +233,7 @@ class NamespaceNetworkRuleSetArgs:
 
 
 @pulumi.input_type
-class NamespaceNetworkRuleSetNetworkRuleArgs:
+calass NamespaceNetworkRuleSetNetworkRuleArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None):
@@ -271,7 +271,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
 
 
 @pulumi.input_type
-class SubscriptionClientScopedSubscriptionArgs:
+calass SubscriptionClientScopedSubscriptionArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  is_client_scoped_subscription_durable: Optional[pulumi.Input[bool]] = None,
@@ -330,7 +330,7 @@ class SubscriptionClientScopedSubscriptionArgs:
 
 
 @pulumi.input_type
-class SubscriptionRuleCorrelationFilterArgs:
+calass SubscriptionRuleCorrelationFilterArrgs:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input[str]] = None,
                  correlation_id: Optional[pulumi.Input[str]] = None,

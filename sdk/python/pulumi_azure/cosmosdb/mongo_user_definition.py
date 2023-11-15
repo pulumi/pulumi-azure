@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MongoUserDefinitionArgs', 'MongoUserDefinition']
+__all__ = ['MongoUserDefinitionArrgs', 'MongoUserDefinition']
 
 @pulumi.input_type
-class MongoUserDefinitionArgs:
+calass MongoUserDefinitionArrgs:
     def __init__(__self__, *,
                  cosmos_mongo_database_id: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -85,7 +85,7 @@ class MongoUserDefinitionArgs:
 
 
 @pulumi.input_type
-class _MongoUserDefinitionState:
+calass _MongoUserDefinitionState:
     def __init__(__self__, *,
                  cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
                  inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -160,7 +160,7 @@ class _MongoUserDefinitionState:
         pulumi.set(self, "username", value)
 
 
-class MongoUserDefinition(pulumi.CustomResource):
+calass MongoUserDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,17 +186,17 @@ class MongoUserDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongo",
                 ),
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongoRoleBasedAccessControl",
                 ),
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -230,7 +230,7 @@ class MongoUserDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MongoUserDefinitionArgs,
+                 args: MongoUserDefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB Mongo User Definition.
@@ -248,17 +248,17 @@ class MongoUserDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongo",
                 ),
-                azure.cosmosdb.AccountCapabilityArgs(
+                azure.cosmosdb.AccountCapabilityArrgs(
                     name="EnableMongoRoleBasedAccessControl",
                 ),
             ],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -280,12 +280,12 @@ class MongoUserDefinition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MongoUserDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param MongoUserDefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MongoUserDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MongoUserDefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -305,7 +305,7 @@ class MongoUserDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MongoUserDefinitionArgs.__new__(MongoUserDefinitionArgs)
+            __props__ = MongoUserDefinitionArrgs.__new__(MongoUserDefinitionArrgs)
 
             if cosmos_mongo_database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmos_mongo_database_id'")

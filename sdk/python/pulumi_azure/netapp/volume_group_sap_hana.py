@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VolumeGroupSapHanaArgs', 'VolumeGroupSapHana']
+__all__ = ['VolumeGroupSapHanaArrgs', 'VolumeGroupSapHana']
 
 @pulumi.input_type
-class VolumeGroupSapHanaArgs:
+calass VolumeGroupSapHanaArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  application_identifier: pulumi.Input[str],
                  group_description: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 volumes: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]],
+                 volumes: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -29,7 +29,7 @@ class VolumeGroupSapHanaArgs:
         :param pulumi.Input[str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]] volumes: One or more `volume` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
@@ -93,14 +93,14 @@ class VolumeGroupSapHanaArgs:
 
     @property
     @pulumi.getter
-    def volumes(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]:
+    def volumes(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]]:
         """
         One or more `volume` blocks as defined below.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]):
+    def volumes(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]]):
         pulumi.set(self, "volumes", value)
 
     @property
@@ -129,7 +129,7 @@ class VolumeGroupSapHanaArgs:
 
 
 @pulumi.input_type
-class _VolumeGroupSapHanaState:
+calass _VolumeGroupSapHanaState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  application_identifier: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _VolumeGroupSapHanaState:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]] = None):
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]]] = None):
         """
         Input properties used for looking up and filtering VolumeGroupSapHana resources.
         :param pulumi.Input[str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -146,7 +146,7 @@ class _VolumeGroupSapHanaState:
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]] volumes: One or more `volume` blocks as defined below.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -237,18 +237,18 @@ class _VolumeGroupSapHanaState:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]]]:
         """
         One or more `volume` blocks as defined below.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArrgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
-class VolumeGroupSapHana(pulumi.CustomResource):
+calass VolumeGroupSapHana(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -259,7 +259,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArrgs']]]]] = None,
                  __props__=None):
         """
         ## Import
@@ -278,13 +278,13 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArrgs']]]] volumes: One or more `volume` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VolumeGroupSapHanaArgs,
+                 args: VolumeGroupSapHanaArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -296,12 +296,12 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VolumeGroupSapHanaArgs args: The arguments to use to populate this resource's properties.
+        :param VolumeGroupSapHanaArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VolumeGroupSapHanaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeGroupSapHanaArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,7 +316,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,7 +324,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VolumeGroupSapHanaArgs.__new__(VolumeGroupSapHanaArgs)
+            __props__ = VolumeGroupSapHanaArrgs.__new__(VolumeGroupSapHanaArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
@@ -359,7 +359,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None) -> 'VolumeGroupSapHana':
+            volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArrgs']]]]] = None) -> 'VolumeGroupSapHana':
         """
         Get an existing VolumeGroupSapHana resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -373,7 +373,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArrgs']]]] volumes: One or more `volume` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

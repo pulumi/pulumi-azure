@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace""", DeprecationWarning)
 
 @pulumi.output_type
-class GetEventhubNamespaceResult:
+calass GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
     """
@@ -219,7 +219,7 @@ class GetEventhubNamespaceResult:
         return pulumi.get(self, "zone_redundant")
 
 
-class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
+calass AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

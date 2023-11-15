@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDataCollectionEndpointResult:
+calass GetDataCollectionEndpointResult:
     """
     A collection of values returned by getDataCollectionEndpoint.
     """
@@ -128,7 +128,7 @@ class GetDataCollectionEndpointResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDataCollectionEndpointResult(GetDataCollectionEndpointResult):
+calass AwaitableGetDataCollectionEndpointResult(GetDataCollectionEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

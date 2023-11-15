@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CacheAccessPolicyAccessRuleArgs',
-    'CacheDefaultAccessPolicyArgs',
-    'CacheDefaultAccessPolicyAccessRuleArgs',
-    'CacheDirectoryActiveDirectoryArgs',
-    'CacheDirectoryFlatFileArgs',
-    'CacheDirectoryLdapArgs',
-    'CacheDirectoryLdapBindArgs',
-    'CacheDnsArgs',
-    'CacheIdentityArgs',
-    'CacheNfsTargetNamespaceJunctionArgs',
+    'CacheAccessPolicyAccessRuleArrgs',
+    'CacheDefaultAccessPolicyArrgs',
+    'CacheDefaultAccessPolicyAccessRuleArrgs',
+    'CacheDirectoryActiveDirectoryArrgs',
+    'CacheDirectoryFlatFileArrgs',
+    'CacheDirectoryLdapArrgs',
+    'CacheDirectoryLdapBindArrgs',
+    'CacheDnsArrgs',
+    'CacheIdentityArrgs',
+    'CacheNfsTargetNamespaceJunctionArrgs',
 ]
 
 @pulumi.input_type
-class CacheAccessPolicyAccessRuleArgs:
+calass CacheAccessPolicyAccessRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  scope: pulumi.Input[str],
@@ -160,29 +160,29 @@ class CacheAccessPolicyAccessRuleArgs:
 
 
 @pulumi.input_type
-class CacheDefaultAccessPolicyArgs:
+calass CacheDefaultAccessPolicyArrgs:
     def __init__(__self__, *,
-                 access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]):
+                 access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]] access_rules: One to three `access_rule` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArrgs']]] access_rules: One to three `access_rule` blocks as defined above.
         """
         pulumi.set(__self__, "access_rules", access_rules)
 
     @property
     @pulumi.getter(name="accessRules")
-    def access_rules(self) -> pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]:
+    def access_rules(self) -> pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArrgs']]]:
         """
         One to three `access_rule` blocks as defined above.
         """
         return pulumi.get(self, "access_rules")
 
     @access_rules.setter
-    def access_rules(self, value: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]):
+    def access_rules(self, value: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArrgs']]]):
         pulumi.set(self, "access_rules", value)
 
 
 @pulumi.input_type
-class CacheDefaultAccessPolicyAccessRuleArgs:
+calass CacheDefaultAccessPolicyAccessRuleArrgs:
     def __init__(__self__, *,
                  access: pulumi.Input[str],
                  scope: pulumi.Input[str],
@@ -319,7 +319,7 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
 
 
 @pulumi.input_type
-class CacheDirectoryActiveDirectoryArgs:
+calass CacheDirectoryActiveDirectoryArrgs:
     def __init__(__self__, *,
                  cache_netbios_name: pulumi.Input[str],
                  dns_primary_ip: pulumi.Input[str],
@@ -432,7 +432,7 @@ class CacheDirectoryActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class CacheDirectoryFlatFileArgs:
+calass CacheDirectoryFlatFileArrgs:
     def __init__(__self__, *,
                  group_file_uri: pulumi.Input[str],
                  password_file_uri: pulumi.Input[str]):
@@ -469,18 +469,18 @@ class CacheDirectoryFlatFileArgs:
 
 
 @pulumi.input_type
-class CacheDirectoryLdapArgs:
+calass CacheDirectoryLdapArrgs:
     def __init__(__self__, *,
                  base_dn: pulumi.Input[str],
                  server: pulumi.Input[str],
-                 bind: Optional[pulumi.Input['CacheDirectoryLdapBindArgs']] = None,
+                 bind: Optional[pulumi.Input['CacheDirectoryLdapBindArrgs']] = None,
                  certificate_validation_uri: Optional[pulumi.Input[str]] = None,
                  download_certificate_automatically: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] base_dn: The base distinguished name (DN) for the LDAP domain.
         :param pulumi.Input[str] server: The FQDN or IP address of the LDAP server.
-        :param pulumi.Input['CacheDirectoryLdapBindArgs'] bind: A `bind` block as defined above.
+        :param pulumi.Input['CacheDirectoryLdapBindArrgs'] bind: A `bind` block as defined above.
         :param pulumi.Input[str] certificate_validation_uri: The URI of the CA certificate to validate the LDAP secure connection.
         :param pulumi.Input[bool] download_certificate_automatically: Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         :param pulumi.Input[bool] encrypted: Whether the LDAP connection should be encrypted?
@@ -522,14 +522,14 @@ class CacheDirectoryLdapArgs:
 
     @property
     @pulumi.getter
-    def bind(self) -> Optional[pulumi.Input['CacheDirectoryLdapBindArgs']]:
+    def bind(self) -> Optional[pulumi.Input['CacheDirectoryLdapBindArrgs']]:
         """
         A `bind` block as defined above.
         """
         return pulumi.get(self, "bind")
 
     @bind.setter
-    def bind(self, value: Optional[pulumi.Input['CacheDirectoryLdapBindArgs']]):
+    def bind(self, value: Optional[pulumi.Input['CacheDirectoryLdapBindArrgs']]):
         pulumi.set(self, "bind", value)
 
     @property
@@ -570,7 +570,7 @@ class CacheDirectoryLdapArgs:
 
 
 @pulumi.input_type
-class CacheDirectoryLdapBindArgs:
+calass CacheDirectoryLdapBindArrgs:
     def __init__(__self__, *,
                  dn: pulumi.Input[str],
                  password: pulumi.Input[str]):
@@ -607,7 +607,7 @@ class CacheDirectoryLdapBindArgs:
 
 
 @pulumi.input_type
-class CacheDnsArgs:
+calass CacheDnsArrgs:
     def __init__(__self__, *,
                  servers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  search_domain: Optional[pulumi.Input[str]] = None):
@@ -645,7 +645,7 @@ class CacheDnsArgs:
 
 
 @pulumi.input_type
-class CacheIdentityArgs:
+calass CacheIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -719,7 +719,7 @@ class CacheIdentityArgs:
 
 
 @pulumi.input_type
-class CacheNfsTargetNamespaceJunctionArgs:
+calass CacheNfsTargetNamespaceJunctionArrgs:
     def __init__(__self__, *,
                  namespace_path: pulumi.Input[str],
                  nfs_export: pulumi.Input[str],

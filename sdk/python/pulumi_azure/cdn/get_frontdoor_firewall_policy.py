@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorFirewallPolicyResult:
+calass GetFrontdoorFirewallPolicyResult:
     """
     A collection of values returned by getFrontdoorFirewallPolicy.
     """
@@ -106,7 +106,7 @@ class GetFrontdoorFirewallPolicyResult:
         return pulumi.get(self, "sku_name")
 
 
-class AwaitableGetFrontdoorFirewallPolicyResult(GetFrontdoorFirewallPolicyResult):
+calass AwaitableGetFrontdoorFirewallPolicyResult(GetFrontdoorFirewallPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

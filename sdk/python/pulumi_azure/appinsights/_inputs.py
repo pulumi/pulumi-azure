@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'StandardWebTestRequestArgs',
-    'StandardWebTestRequestHeaderArgs',
-    'StandardWebTestValidationRulesArgs',
-    'StandardWebTestValidationRulesContentArgs',
-    'WorkbookIdentityArgs',
-    'WorkbookTemplateGalleryArgs',
+    'StandardWebTestRequestArrgs',
+    'StandardWebTestRequestHeaderArrgs',
+    'StandardWebTestValidationRulesArrgs',
+    'StandardWebTestValidationRulesContentArrgs',
+    'WorkbookIdentityArrgs',
+    'WorkbookTemplateGalleryArrgs',
 ]
 
 @pulumi.input_type
-class StandardWebTestRequestArgs:
+calass StandardWebTestRequestArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  body: Optional[pulumi.Input[str]] = None,
                  follow_redirects_enabled: Optional[pulumi.Input[bool]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArrgs']]]] = None,
                  http_verb: Optional[pulumi.Input[str]] = None,
                  parse_dependent_requests_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] url: The WebTest request URL.
         :param pulumi.Input[str] body: The WebTest request body.
         :param pulumi.Input[bool] follow_redirects_enabled: Should the following of redirects be enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArrgs']]] headers: One or more `header` blocks as defined above.
         :param pulumi.Input[str] http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
         :param pulumi.Input[bool] parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
@@ -85,14 +85,14 @@ class StandardWebTestRequestArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArrgs']]]]:
         """
         One or more `header` blocks as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -121,7 +121,7 @@ class StandardWebTestRequestArgs:
 
 
 @pulumi.input_type
-class StandardWebTestRequestHeaderArgs:
+calass StandardWebTestRequestHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -158,14 +158,14 @@ class StandardWebTestRequestHeaderArgs:
 
 
 @pulumi.input_type
-class StandardWebTestValidationRulesArgs:
+calass StandardWebTestValidationRulesArrgs:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input['StandardWebTestValidationRulesContentArgs']] = None,
+                 content: Optional[pulumi.Input['StandardWebTestValidationRulesContentArrgs']] = None,
                  expected_status_code: Optional[pulumi.Input[int]] = None,
                  ssl_cert_remaining_lifetime: Optional[pulumi.Input[int]] = None,
                  ssl_check_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['StandardWebTestValidationRulesContentArgs'] content: A `content` block as defined above.
+        :param pulumi.Input['StandardWebTestValidationRulesContentArrgs'] content: A `content` block as defined above.
         :param pulumi.Input[int] expected_status_code: The expected status code of the response. Default is '200', '0' means 'response code < 400'
         :param pulumi.Input[int] ssl_cert_remaining_lifetime: The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
         :param pulumi.Input[bool] ssl_check_enabled: Should the SSL check be enabled?
@@ -181,14 +181,14 @@ class StandardWebTestValidationRulesArgs:
 
     @property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input['StandardWebTestValidationRulesContentArgs']]:
+    def content(self) -> Optional[pulumi.Input['StandardWebTestValidationRulesContentArrgs']]:
         """
         A `content` block as defined above.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input['StandardWebTestValidationRulesContentArgs']]):
+    def content(self, value: Optional[pulumi.Input['StandardWebTestValidationRulesContentArrgs']]):
         pulumi.set(self, "content", value)
 
     @property
@@ -229,7 +229,7 @@ class StandardWebTestValidationRulesArgs:
 
 
 @pulumi.input_type
-class StandardWebTestValidationRulesContentArgs:
+calass StandardWebTestValidationRulesContentArrgs:
     def __init__(__self__, *,
                  content_match: pulumi.Input[str],
                  ignore_case: Optional[pulumi.Input[bool]] = None,
@@ -283,7 +283,7 @@ class StandardWebTestValidationRulesContentArgs:
 
 
 @pulumi.input_type
-class WorkbookIdentityArgs:
+calass WorkbookIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -353,7 +353,7 @@ class WorkbookIdentityArgs:
 
 
 @pulumi.input_type
-class WorkbookTemplateGalleryArgs:
+calass WorkbookTemplateGalleryArrgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
                  name: pulumi.Input[str],

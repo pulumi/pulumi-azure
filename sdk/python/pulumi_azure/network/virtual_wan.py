@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualWanArgs', 'VirtualWan']
+__all__ = ['VirtualWanArrgs', 'VirtualWan']
 
 @pulumi.input_type
-class VirtualWanArgs:
+calass VirtualWanArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
@@ -147,7 +147,7 @@ class VirtualWanArgs:
 
 
 @pulumi.input_type
-class _VirtualWanState:
+calass _VirtualWanState:
     def __init__(__self__, *,
                  allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
                  disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
@@ -282,7 +282,7 @@ class _VirtualWanState:
         pulumi.set(self, "type", value)
 
 
-class VirtualWan(pulumi.CustomResource):
+calass VirtualWan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class VirtualWan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualWanArgs,
+                 args: VirtualWanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual WAN.
@@ -360,12 +360,12 @@ class VirtualWan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualWanArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualWanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualWanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualWanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -389,7 +389,7 @@ class VirtualWan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualWanArgs.__new__(VirtualWanArgs)
+            __props__ = VirtualWanArrgs.__new__(VirtualWanArrgs)
 
             __props__.__dict__["allow_branch_to_branch_traffic"] = allow_branch_to_branch_traffic
             __props__.__dict__["disable_vpn_encryption"] = disable_vpn_encryption

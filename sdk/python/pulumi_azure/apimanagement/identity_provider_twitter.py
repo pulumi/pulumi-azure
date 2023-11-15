@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IdentityProviderTwitterArgs', 'IdentityProviderTwitter']
+__all__ = ['IdentityProviderTwitterArrgs', 'IdentityProviderTwitter']
 
 @pulumi.input_type
-class IdentityProviderTwitterArgs:
+calass IdentityProviderTwitterArrgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
                  api_management_name: pulumi.Input[str],
@@ -80,7 +80,7 @@ class IdentityProviderTwitterArgs:
 
 
 @pulumi.input_type
-class _IdentityProviderTwitterState:
+calass _IdentityProviderTwitterState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _IdentityProviderTwitterState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IdentityProviderTwitter(pulumi.CustomResource):
+calass IdentityProviderTwitter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,7 +203,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityProviderTwitterArgs,
+                 args: IdentityProviderTwitterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Twitter Identity Provider.
@@ -237,12 +237,12 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IdentityProviderTwitterArgs args: The arguments to use to populate this resource's properties.
+        :param IdentityProviderTwitterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderTwitterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderTwitterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -262,7 +262,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IdentityProviderTwitterArgs.__new__(IdentityProviderTwitterArgs)
+            __props__ = IdentityProviderTwitterArrgs.__new__(IdentityProviderTwitterArrgs)
 
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ScheduledActionArgs', 'ScheduledAction']
+__all__ = ['ScheduledActionArrgs', 'ScheduledAction']
 
 @pulumi.input_type
-class ScheduledActionArgs:
+calass ScheduledActionArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  email_address_sender: pulumi.Input[str],
@@ -236,7 +236,7 @@ class ScheduledActionArgs:
 
 
 @pulumi.input_type
-class _ScheduledActionState:
+calass _ScheduledActionState:
     def __init__(__self__, *,
                  day_of_month: Optional[pulumi.Input[int]] = None,
                  days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -467,7 +467,7 @@ class _ScheduledActionState:
         pulumi.set(self, "weeks_of_months", value)
 
 
-class ScheduledAction(pulumi.CustomResource):
+calass ScheduledAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -537,7 +537,7 @@ class ScheduledAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduledActionArgs,
+                 args: ScheduledActionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cost Management Scheduled Action.
@@ -569,12 +569,12 @@ class ScheduledAction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduledActionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduledActionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledActionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -604,7 +604,7 @@ class ScheduledAction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduledActionArgs.__new__(ScheduledActionArgs)
+            __props__ = ScheduledActionArrgs.__new__(ScheduledActionArrgs)
 
             __props__.__dict__["day_of_month"] = day_of_month
             __props__.__dict__["days_of_weeks"] = days_of_weeks

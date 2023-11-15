@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebAppHybridConnectionArgs', 'WebAppHybridConnection']
+__all__ = ['WebAppHybridConnectionArrgs', 'WebAppHybridConnection']
 
 @pulumi.input_type
-class WebAppHybridConnectionArgs:
+calass WebAppHybridConnectionArrgs:
     def __init__(__self__, *,
                  hostname: pulumi.Input[str],
                  port: pulumi.Input[int],
@@ -96,7 +96,7 @@ class WebAppHybridConnectionArgs:
 
 
 @pulumi.input_type
-class _WebAppHybridConnectionState:
+calass _WebAppHybridConnectionState:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -263,7 +263,7 @@ class _WebAppHybridConnectionState:
         pulumi.set(self, "web_app_id", value)
 
 
-class WebAppHybridConnection(pulumi.CustomResource):
+calass WebAppHybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -300,7 +300,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -328,7 +328,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAppHybridConnectionArgs,
+                 args: WebAppHybridConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Web App Hybrid Connection.
@@ -356,7 +356,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -373,12 +373,12 @@ class WebAppHybridConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param WebAppHybridConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAppHybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppHybridConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -399,7 +399,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAppHybridConnectionArgs.__new__(WebAppHybridConnectionArgs)
+            __props__ = WebAppHybridConnectionArrgs.__new__(WebAppHybridConnectionArrgs)
 
             if hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'hostname'")

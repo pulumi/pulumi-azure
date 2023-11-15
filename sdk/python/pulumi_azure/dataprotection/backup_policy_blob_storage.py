@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BackupPolicyBlobStorageArgs', 'BackupPolicyBlobStorage']
+__all__ = ['BackupPolicyBlobStorageArrgs', 'BackupPolicyBlobStorage']
 
 @pulumi.input_type
-class BackupPolicyBlobStorageArgs:
+calass BackupPolicyBlobStorageArrgs:
     def __init__(__self__, *,
                  retention_duration: pulumi.Input[str],
                  vault_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class BackupPolicyBlobStorageArgs:
 
 
 @pulumi.input_type
-class _BackupPolicyBlobStorageState:
+calass _BackupPolicyBlobStorageState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  retention_duration: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _BackupPolicyBlobStorageState:
         pulumi.set(self, "vault_id", value)
 
 
-class BackupPolicyBlobStorage(pulumi.CustomResource):
+calass BackupPolicyBlobStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,7 +168,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupPolicyBlobStorageArgs,
+                 args: BackupPolicyBlobStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy Blob Storage.
@@ -199,12 +199,12 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackupPolicyBlobStorageArgs args: The arguments to use to populate this resource's properties.
+        :param BackupPolicyBlobStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyBlobStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyBlobStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -223,7 +223,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupPolicyBlobStorageArgs.__new__(BackupPolicyBlobStorageArgs)
+            __props__ = BackupPolicyBlobStorageArrgs.__new__(BackupPolicyBlobStorageArrgs)
 
             __props__.__dict__["name"] = name
             if retention_duration is None and not opts.urn:

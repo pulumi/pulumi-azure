@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetJobResult:
+calass GetJobResult:
     """
     A collection of values returned by getJob.
     """
@@ -206,7 +206,7 @@ class GetJobResult:
         return pulumi.get(self, "transformation_query")
 
 
-class AwaitableGetJobResult(GetJobResult):
+calass AwaitableGetJobResult(GetJobResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

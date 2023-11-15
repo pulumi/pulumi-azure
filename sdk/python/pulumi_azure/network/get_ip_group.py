@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIpGroupResult:
+calass GetIpGroupResult:
     """
     A collection of values returned by getIpGroup.
     """
@@ -84,7 +84,7 @@ class GetIpGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIpGroupResult(GetIpGroupResult):
+calass AwaitableGetIpGroupResult(GetIpGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

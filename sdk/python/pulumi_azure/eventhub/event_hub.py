@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventHubArgs', 'EventHub']
+__all__ = ['EventHubArrgs', 'EventHub']
 
 @pulumi.input_type
-class EventHubArgs:
+calass EventHubArrgs:
     def __init__(__self__, *,
                  message_retention: pulumi.Input[int],
                  namespace_name: pulumi.Input[str],
                  partition_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
-                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -35,7 +35,7 @@ class EventHubArgs:
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input['EventHubCaptureDescriptionArrgs'] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
@@ -106,14 +106,14 @@ class EventHubArgs:
 
     @property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]:
+    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']]:
         """
         A `capture_description` block as defined below.
         """
         return pulumi.get(self, "capture_description")
 
     @capture_description.setter
-    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
+    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']]):
         pulumi.set(self, "capture_description", value)
 
     @property
@@ -142,9 +142,9 @@ class EventHubArgs:
 
 
 @pulumi.input_type
-class _EventHubState:
+calass _EventHubState:
     def __init__(__self__, *,
-                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']] = None,
                  message_retention: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _EventHubState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventHub resources.
-        :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input['EventHubCaptureDescriptionArrgs'] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
@@ -188,14 +188,14 @@ class _EventHubState:
 
     @property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]:
+    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']]:
         """
         A `capture_description` block as defined below.
         """
         return pulumi.get(self, "capture_description")
 
     @capture_description.setter
-    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
+    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArrgs']]):
         pulumi.set(self, "capture_description", value)
 
     @property
@@ -289,12 +289,12 @@ class _EventHubState:
         pulumi.set(self, "status", value)
 
 
-class EventHub(pulumi.CustomResource):
+calass EventHub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArrgs']]] = None,
                  message_retention: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -337,7 +337,7 @@ class EventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArrgs']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
@@ -355,7 +355,7 @@ class EventHub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventHubArgs,
+                 args: EventHubArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
@@ -391,12 +391,12 @@ class EventHub(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventHubArgs args: The arguments to use to populate this resource's properties.
+        :param EventHubArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -405,7 +405,7 @@ class EventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArrgs']]] = None,
                  message_retention: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -419,7 +419,7 @@ class EventHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventHubArgs.__new__(EventHubArgs)
+            __props__ = EventHubArrgs.__new__(EventHubArrgs)
 
             __props__.__dict__["capture_description"] = capture_description
             if message_retention is None and not opts.urn:
@@ -447,7 +447,7 @@ class EventHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+            capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArrgs']]] = None,
             message_retention: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
@@ -462,7 +462,7 @@ class EventHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArrgs']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.

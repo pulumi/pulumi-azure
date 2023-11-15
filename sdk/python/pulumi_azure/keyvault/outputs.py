@@ -58,7 +58,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CertifiateCertificate(dict):
+calass CertifiateCertificate(dict):
     def __init__(__self__, *,
                  contents: str,
                  password: Optional[str] = None):
@@ -106,7 +106,7 @@ class CertifiateCertificate(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificateAttribute(dict):
+calass CertifiateCertificateAttribute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -204,7 +204,7 @@ class CertifiateCertificateAttribute(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicy(dict):
+calass CertifiateCertificatePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -237,11 +237,11 @@ class CertifiateCertificatePolicy(dict):
                  lifetime_actions: Optional[Sequence['outputs.CertifiateCertificatePolicyLifetimeAction']] = None,
                  x509_certificate_properties: Optional['outputs.CertifiateCertificatePolicyX509CertificateProperties'] = None):
         """
-        :param 'CertifiateCertificatePolicyIssuerParametersArgs' issuer_parameters: A `issuer_parameters` block as defined below.
-        :param 'CertifiateCertificatePolicyKeyPropertiesArgs' key_properties: A `key_properties` block as defined below.
-        :param 'CertifiateCertificatePolicySecretPropertiesArgs' secret_properties: A `secret_properties` block as defined below.
-        :param Sequence['CertifiateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
-        :param 'CertifiateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        :param 'CertifiateCertificatePolicyIssuerParametersArrgs' issuer_parameters: A `issuer_parameters` block as defined below.
+        :param 'CertifiateCertificatePolicyKeyPropertiesArrgs' key_properties: A `key_properties` block as defined below.
+        :param 'CertifiateCertificatePolicySecretPropertiesArrgs' secret_properties: A `secret_properties` block as defined below.
+        :param Sequence['CertifiateCertificatePolicyLifetimeActionArrgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param 'CertifiateCertificatePolicyX509CertificatePropertiesArrgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -293,7 +293,7 @@ class CertifiateCertificatePolicy(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyIssuerParameters(dict):
+calass CertifiateCertificatePolicyIssuerParameters(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -311,7 +311,7 @@ class CertifiateCertificatePolicyIssuerParameters(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyKeyProperties(dict):
+calass CertifiateCertificatePolicyKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -396,13 +396,13 @@ class CertifiateCertificatePolicyKeyProperties(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyLifetimeAction(dict):
+calass CertifiateCertificatePolicyLifetimeAction(dict):
     def __init__(__self__, *,
                  action: 'outputs.CertifiateCertificatePolicyLifetimeActionAction',
                  trigger: 'outputs.CertifiateCertificatePolicyLifetimeActionTrigger'):
         """
-        :param 'CertifiateCertificatePolicyLifetimeActionActionArgs' action: A `action` block as defined below.
-        :param 'CertifiateCertificatePolicyLifetimeActionTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'CertifiateCertificatePolicyLifetimeActionActionArrgs' action: A `action` block as defined below.
+        :param 'CertifiateCertificatePolicyLifetimeActionTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
@@ -425,7 +425,7 @@ class CertifiateCertificatePolicyLifetimeAction(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyLifetimeActionAction(dict):
+calass CertifiateCertificatePolicyLifetimeActionAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -460,7 +460,7 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
+calass CertifiateCertificatePolicyLifetimeActionTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -510,7 +510,7 @@ class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicySecretProperties(dict):
+calass CertifiateCertificatePolicySecretProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -545,7 +545,7 @@ class CertifiateCertificatePolicySecretProperties(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyX509CertificateProperties(dict):
+calass CertifiateCertificatePolicyX509CertificateProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -580,7 +580,7 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
         :param str subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param int validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param 'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param 'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -632,7 +632,7 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
 
 
 @pulumi.output_type
-class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
+calass CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -692,7 +692,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
 
 @pulumi.output_type
-class CertificateCertificate(dict):
+calass CertificateCertificate(dict):
     def __init__(__self__, *,
                  contents: str,
                  password: Optional[str] = None):
@@ -740,7 +740,7 @@ class CertificateCertificate(dict):
 
 
 @pulumi.output_type
-class CertificateCertificateAttribute(dict):
+calass CertificateCertificateAttribute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -838,7 +838,7 @@ class CertificateCertificateAttribute(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicy(dict):
+calass CertificateCertificatePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -871,11 +871,11 @@ class CertificateCertificatePolicy(dict):
                  lifetime_actions: Optional[Sequence['outputs.CertificateCertificatePolicyLifetimeAction']] = None,
                  x509_certificate_properties: Optional['outputs.CertificateCertificatePolicyX509CertificateProperties'] = None):
         """
-        :param 'CertificateCertificatePolicyIssuerParametersArgs' issuer_parameters: A `issuer_parameters` block as defined below.
-        :param 'CertificateCertificatePolicyKeyPropertiesArgs' key_properties: A `key_properties` block as defined below.
-        :param 'CertificateCertificatePolicySecretPropertiesArgs' secret_properties: A `secret_properties` block as defined below.
-        :param Sequence['CertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
-        :param 'CertificateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        :param 'CertificateCertificatePolicyIssuerParametersArrgs' issuer_parameters: A `issuer_parameters` block as defined below.
+        :param 'CertificateCertificatePolicyKeyPropertiesArrgs' key_properties: A `key_properties` block as defined below.
+        :param 'CertificateCertificatePolicySecretPropertiesArrgs' secret_properties: A `secret_properties` block as defined below.
+        :param Sequence['CertificateCertificatePolicyLifetimeActionArrgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param 'CertificateCertificatePolicyX509CertificatePropertiesArrgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -927,7 +927,7 @@ class CertificateCertificatePolicy(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyIssuerParameters(dict):
+calass CertificateCertificatePolicyIssuerParameters(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -945,7 +945,7 @@ class CertificateCertificatePolicyIssuerParameters(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyKeyProperties(dict):
+calass CertificateCertificatePolicyKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1030,13 +1030,13 @@ class CertificateCertificatePolicyKeyProperties(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyLifetimeAction(dict):
+calass CertificateCertificatePolicyLifetimeAction(dict):
     def __init__(__self__, *,
                  action: 'outputs.CertificateCertificatePolicyLifetimeActionAction',
                  trigger: 'outputs.CertificateCertificatePolicyLifetimeActionTrigger'):
         """
-        :param 'CertificateCertificatePolicyLifetimeActionActionArgs' action: A `action` block as defined below.
-        :param 'CertificateCertificatePolicyLifetimeActionTriggerArgs' trigger: A `trigger` block as defined below.
+        :param 'CertificateCertificatePolicyLifetimeActionActionArrgs' action: A `action` block as defined below.
+        :param 'CertificateCertificatePolicyLifetimeActionTriggerArrgs' trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
@@ -1059,7 +1059,7 @@ class CertificateCertificatePolicyLifetimeAction(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyLifetimeActionAction(dict):
+calass CertificateCertificatePolicyLifetimeActionAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1094,7 +1094,7 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyLifetimeActionTrigger(dict):
+calass CertificateCertificatePolicyLifetimeActionTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1144,7 +1144,7 @@ class CertificateCertificatePolicyLifetimeActionTrigger(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicySecretProperties(dict):
+calass CertificateCertificatePolicySecretProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,7 +1179,7 @@ class CertificateCertificatePolicySecretProperties(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyX509CertificateProperties(dict):
+calass CertificateCertificatePolicyX509CertificateProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1214,7 +1214,7 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
         :param str subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param int validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param 'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param 'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -1266,7 +1266,7 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
 
 
 @pulumi.output_type
-class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
+calass CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1326,7 +1326,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
 
 @pulumi.output_type
-class CertificateContactsContact(dict):
+calass CertificateContactsContact(dict):
     def __init__(__self__, *,
                  email: str,
                  name: Optional[str] = None,
@@ -1368,7 +1368,7 @@ class CertificateContactsContact(dict):
 
 
 @pulumi.output_type
-class CertificateIssuerAdmin(dict):
+calass CertificateIssuerAdmin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1443,7 +1443,7 @@ class CertificateIssuerAdmin(dict):
 
 
 @pulumi.output_type
-class KeyRotationPolicy(dict):
+calass KeyRotationPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1468,7 +1468,7 @@ class KeyRotationPolicy(dict):
                  expire_after: Optional[str] = None,
                  notify_before_expiry: Optional[str] = None):
         """
-        :param 'KeyRotationPolicyAutomaticArgs' automatic: An `automatic` block as defined below.
+        :param 'KeyRotationPolicyAutomaticArrgs' automatic: An `automatic` block as defined below.
         :param str expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param str notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
         """
@@ -1505,7 +1505,7 @@ class KeyRotationPolicy(dict):
 
 
 @pulumi.output_type
-class KeyRotationPolicyAutomatic(dict):
+calass KeyRotationPolicyAutomatic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1555,7 +1555,7 @@ class KeyRotationPolicyAutomatic(dict):
 
 
 @pulumi.output_type
-class KeyVaultAccessPolicy(dict):
+calass KeyVaultAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1673,7 +1673,7 @@ class KeyVaultAccessPolicy(dict):
 
 
 @pulumi.output_type
-class KeyVaultContact(dict):
+calass KeyVaultContact(dict):
     def __init__(__self__, *,
                  email: str,
                  name: Optional[str] = None,
@@ -1715,7 +1715,7 @@ class KeyVaultContact(dict):
 
 
 @pulumi.output_type
-class KeyVaultNetworkAcls(dict):
+calass KeyVaultNetworkAcls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1789,7 +1789,7 @@ class KeyVaultNetworkAcls(dict):
 
 
 @pulumi.output_type
-class ManagedHardwareSecurityModuleNetworkAcls(dict):
+calass ManagedHardwareSecurityModuleNetworkAcls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1835,7 +1835,7 @@ class ManagedHardwareSecurityModuleNetworkAcls(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyResult(dict):
+calass GetCertificateCertificatePolicyResult(dict):
     def __init__(__self__, *,
                  issuer_parameters: Sequence['outputs.GetCertificateCertificatePolicyIssuerParameterResult'],
                  key_properties: Sequence['outputs.GetCertificateCertificatePolicyKeyPropertyResult'],
@@ -1843,11 +1843,11 @@ class GetCertificateCertificatePolicyResult(dict):
                  secret_properties: Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
                  x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult']):
         """
-        :param Sequence['GetCertificateCertificatePolicyIssuerParameterArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicyKeyPropertyArgs'] key_properties: A `key_properties` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicySecretPropertyArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertyArgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyIssuerParameterArrgs'] issuer_parameters: A `issuer_parameters` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyKeyPropertyArrgs'] key_properties: A `key_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionArrgs'] lifetime_actions: A `lifetime_action` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicySecretPropertyArrgs'] secret_properties: A `secret_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertyArrgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -1897,7 +1897,7 @@ class GetCertificateCertificatePolicyResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyIssuerParameterResult(dict):
+calass GetCertificateCertificatePolicyIssuerParameterResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -1915,7 +1915,7 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyKeyPropertyResult(dict):
+calass GetCertificateCertificatePolicyKeyPropertyResult(dict):
     def __init__(__self__, *,
                  curve: str,
                  exportable: bool,
@@ -1973,13 +1973,13 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyLifetimeActionResult(dict):
+calass GetCertificateCertificatePolicyLifetimeActionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult'],
                  triggers: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult']):
         """
-        :param Sequence['GetCertificateCertificatePolicyLifetimeActionActionArgs'] actions: A `action` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicyLifetimeActionTriggerArgs'] triggers: A `trigger` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionActionArrgs'] actions: A `action` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionTriggerArrgs'] triggers: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "triggers", triggers)
@@ -2002,7 +2002,7 @@ class GetCertificateCertificatePolicyLifetimeActionResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
+calass GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
     def __init__(__self__, *,
                  action_type: str):
         """
@@ -2020,7 +2020,7 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
+calass GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
     def __init__(__self__, *,
                  days_before_expiry: int,
                  lifetime_percentage: int):
@@ -2049,7 +2049,7 @@ class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicySecretPropertyResult(dict):
+calass GetCertificateCertificatePolicySecretPropertyResult(dict):
     def __init__(__self__, *,
                  content_type: str):
         """
@@ -2067,7 +2067,7 @@ class GetCertificateCertificatePolicySecretPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
+calass GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
     def __init__(__self__, *,
                  extended_key_usages: Sequence[str],
                  key_usages: Sequence[str],
@@ -2078,7 +2078,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
         :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages.
         :param Sequence[str] key_usages: A list of uses associated with this Key.
         :param str subject: The Certificate's Subject.
-        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         :param int validity_in_months: The Certificates Validity Period in Months.
         """
         pulumi.set(__self__, "extended_key_usages", extended_key_usages)
@@ -2129,7 +2129,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult(dict):
+calass GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  dns_names: Sequence[str],
                  emails: Sequence[str],
@@ -2169,7 +2169,7 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
 
 
 @pulumi.output_type
-class GetCertificateIssuerAdminResult(dict):
+calass GetCertificateIssuerAdminResult(dict):
     def __init__(__self__, *,
                  email_address: str,
                  first_name: str,
@@ -2220,7 +2220,7 @@ class GetCertificateIssuerAdminResult(dict):
 
 
 @pulumi.output_type
-class GetCertificatesCertificateResult(dict):
+calass GetCertificatesCertificateResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  id: str,
@@ -2256,7 +2256,7 @@ class GetCertificatesCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetKeyVaultAccessPolicyResult(dict):
+calass GetKeyVaultAccessPolicyResult(dict):
     def __init__(__self__, *,
                  application_id: str,
                  certificate_permissions: Sequence[str],
@@ -2340,7 +2340,7 @@ class GetKeyVaultAccessPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetKeyVaultNetworkAclResult(dict):
+calass GetKeyVaultNetworkAclResult(dict):
     def __init__(__self__, *,
                  bypass: str,
                  default_action: str,
@@ -2373,7 +2373,7 @@ class GetKeyVaultNetworkAclResult(dict):
 
 
 @pulumi.output_type
-class GetSecretsSecretResult(dict):
+calass GetSecretsSecretResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  id: str,

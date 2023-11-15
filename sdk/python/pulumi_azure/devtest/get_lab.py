@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLabResult:
+calass GetLabResult:
     """
     A collection of values returned by getLab.
     """
@@ -150,7 +150,7 @@ class GetLabResult:
         return pulumi.get(self, "unique_identifier")
 
 
-class AwaitableGetLabResult(GetLabResult):
+calass AwaitableGetLabResult(GetLabResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

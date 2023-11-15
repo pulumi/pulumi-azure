@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CacheAccessPolicyAccessRule(dict):
+calass CacheAccessPolicyAccessRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -154,7 +154,7 @@ class CacheAccessPolicyAccessRule(dict):
 
 
 @pulumi.output_type
-class CacheDefaultAccessPolicy(dict):
+calass CacheDefaultAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class CacheDefaultAccessPolicy(dict):
     def __init__(__self__, *,
                  access_rules: Sequence['outputs.CacheDefaultAccessPolicyAccessRule']):
         """
-        :param Sequence['CacheDefaultAccessPolicyAccessRuleArgs'] access_rules: One to three `access_rule` blocks as defined above.
+        :param Sequence['CacheDefaultAccessPolicyAccessRuleArrgs'] access_rules: One to three `access_rule` blocks as defined above.
         """
         pulumi.set(__self__, "access_rules", access_rules)
 
@@ -189,7 +189,7 @@ class CacheDefaultAccessPolicy(dict):
 
 
 @pulumi.output_type
-class CacheDefaultAccessPolicyAccessRule(dict):
+calass CacheDefaultAccessPolicyAccessRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -319,7 +319,7 @@ class CacheDefaultAccessPolicyAccessRule(dict):
 
 
 @pulumi.output_type
-class CacheDirectoryActiveDirectory(dict):
+calass CacheDirectoryActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,7 +429,7 @@ class CacheDirectoryActiveDirectory(dict):
 
 
 @pulumi.output_type
-class CacheDirectoryFlatFile(dict):
+calass CacheDirectoryFlatFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -477,7 +477,7 @@ class CacheDirectoryFlatFile(dict):
 
 
 @pulumi.output_type
-class CacheDirectoryLdap(dict):
+calass CacheDirectoryLdap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -509,7 +509,7 @@ class CacheDirectoryLdap(dict):
         """
         :param str base_dn: The base distinguished name (DN) for the LDAP domain.
         :param str server: The FQDN or IP address of the LDAP server.
-        :param 'CacheDirectoryLdapBindArgs' bind: A `bind` block as defined above.
+        :param 'CacheDirectoryLdapBindArrgs' bind: A `bind` block as defined above.
         :param str certificate_validation_uri: The URI of the CA certificate to validate the LDAP secure connection.
         :param bool download_certificate_automatically: Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
         :param bool encrypted: Whether the LDAP connection should be encrypted?
@@ -575,7 +575,7 @@ class CacheDirectoryLdap(dict):
 
 
 @pulumi.output_type
-class CacheDirectoryLdapBind(dict):
+calass CacheDirectoryLdapBind(dict):
     def __init__(__self__, *,
                  dn: str,
                  password: str):
@@ -604,7 +604,7 @@ class CacheDirectoryLdapBind(dict):
 
 
 @pulumi.output_type
-class CacheDns(dict):
+calass CacheDns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -651,7 +651,7 @@ class CacheDns(dict):
 
 
 @pulumi.output_type
-class CacheIdentity(dict):
+calass CacheIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -730,7 +730,7 @@ class CacheIdentity(dict):
 
 
 @pulumi.output_type
-class CacheNfsTargetNamespaceJunction(dict):
+calass CacheNfsTargetNamespaceJunction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KeyArgs', 'Key']
+__all__ = ['KeyArrgs', 'Key']
 
 @pulumi.input_type
-class KeyArgs:
+calass KeyArrgs:
     def __init__(__self__, *,
                  key_opts: pulumi.Input[Sequence[pulumi.Input[str]]],
                  key_type: pulumi.Input[str],
@@ -24,7 +24,7 @@ class KeyArgs:
                  key_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
+                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
@@ -36,7 +36,7 @@ class KeyArgs:
         :param pulumi.Input[int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input['KeyRotationPolicyArgs'] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input['KeyRotationPolicyArrgs'] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "key_opts", key_opts)
@@ -155,14 +155,14 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArgs']]:
+    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArrgs']]:
         """
         A `rotation_policy` block as defined below.
         """
         return pulumi.get(self, "rotation_policy")
 
     @rotation_policy.setter
-    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArgs']]):
+    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArrgs']]):
         pulumi.set(self, "rotation_policy", value)
 
     @property
@@ -179,7 +179,7 @@ class KeyArgs:
 
 
 @pulumi.input_type
-class _KeyState:
+calass _KeyState:
     def __init__(__self__, *,
                  curve: Optional[pulumi.Input[str]] = None,
                  e: Optional[pulumi.Input[str]] = None,
@@ -195,7 +195,7 @@ class _KeyState:
                  public_key_pem: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_versionless_id: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
+                 rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  versionless_id: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _KeyState:
         :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
-        :param pulumi.Input['KeyRotationPolicyArgs'] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input['KeyRotationPolicyArrgs'] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
@@ -435,14 +435,14 @@ class _KeyState:
 
     @property
     @pulumi.getter(name="rotationPolicy")
-    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArgs']]:
+    def rotation_policy(self) -> Optional[pulumi.Input['KeyRotationPolicyArrgs']]:
         """
         A `rotation_policy` block as defined below.
         """
         return pulumi.get(self, "rotation_policy")
 
     @rotation_policy.setter
-    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArgs']]):
+    def rotation_policy(self, value: Optional[pulumi.Input['KeyRotationPolicyArrgs']]):
         pulumi.set(self, "rotation_policy", value)
 
     @property
@@ -506,7 +506,7 @@ class _KeyState:
         pulumi.set(self, "y", value)
 
 
-class Key(pulumi.CustomResource):
+calass Key(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -519,7 +519,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -544,7 +544,7 @@ class Key(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -571,8 +571,8 @@ class Key(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
+            rotation_policy=azure.keyvault.KeyRotationPolicyArrgs(
+                automatic=azure.keyvault.KeyRotationPolicyAutomaticArrgs(
                     time_before_expiry="P30D",
                 ),
                 expire_after="P90D",
@@ -598,14 +598,14 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
-        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArrgs']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KeyArgs,
+                 args: KeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Key.
@@ -629,7 +629,7 @@ class Key(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -656,8 +656,8 @@ class Key(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ],
-            rotation_policy=azure.keyvault.KeyRotationPolicyArgs(
-                automatic=azure.keyvault.KeyRotationPolicyAutomaticArgs(
+            rotation_policy=azure.keyvault.KeyRotationPolicyArrgs(
+                automatic=azure.keyvault.KeyRotationPolicyAutomaticArrgs(
                     time_before_expiry="P30D",
                 ),
                 expire_after="P90D",
@@ -674,12 +674,12 @@ class Key(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KeyArgs args: The arguments to use to populate this resource's properties.
+        :param KeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -696,7 +696,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_before_date: Optional[pulumi.Input[str]] = None,
-                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+                 rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -705,7 +705,7 @@ class Key(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeyArgs.__new__(KeyArgs)
+            __props__ = KeyArrgs.__new__(KeyArrgs)
 
             __props__.__dict__["curve"] = curve
             __props__.__dict__["expiration_date"] = expiration_date
@@ -757,7 +757,7 @@ class Key(pulumi.CustomResource):
             public_key_pem: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             resource_versionless_id: Optional[pulumi.Input[str]] = None,
-            rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']]] = None,
+            rotation_policy: Optional[pulumi.Input[pulumi.InputType['KeyRotationPolicyArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             versionless_id: Optional[pulumi.Input[str]] = None,
@@ -784,7 +784,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] public_key_pem: The PEM encoded public key of this Key Vault Key.
         :param pulumi.Input[str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
-        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArgs']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KeyRotationPolicyArrgs']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The current version of the Key Vault Key.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.

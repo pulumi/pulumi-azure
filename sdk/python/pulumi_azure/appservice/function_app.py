@@ -11,30 +11,30 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FunctionAppArgs', 'FunctionApp']
+__all__ = ['FunctionAppArrgs', 'FunctionApp']
 
 @pulumi.input_type
-class FunctionAppArgs:
+calass FunctionAppArrgs:
     def __init__(__self__, *,
                  app_service_plan_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  storage_account_access_key: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
+                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['FunctionAppIdentityArrgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArgs']] = None,
-                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
+                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArrgs']] = None,
+                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -50,22 +50,22 @@ class FunctionAppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-        :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsArrgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['FunctionAppIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
                
                > **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
-        :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
-        :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
+        :param pulumi.Input['FunctionAppSiteConfigArrgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input['FunctionAppSourceControlArrgs'] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
@@ -176,14 +176,14 @@ class FunctionAppArgs:
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]:
+    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
+    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @property
@@ -200,14 +200,14 @@ class FunctionAppArgs:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @property
@@ -260,14 +260,14 @@ class FunctionAppArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -322,26 +322,26 @@ class FunctionAppArgs:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArgs']]:
+    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArrgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArgs']]):
+    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArrgs']]):
         pulumi.set(self, "site_config", value)
 
     @property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArgs']]:
+    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArrgs']]:
         """
         A `source_control` block, as defined below.
         """
         return pulumi.get(self, "source_control")
 
     @source_control.setter
-    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArgs']]):
+    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArrgs']]):
         pulumi.set(self, "source_control", value)
 
     @property
@@ -370,20 +370,20 @@ class FunctionAppArgs:
 
 
 @pulumi.input_type
-class _FunctionAppState:
+calass _FunctionAppState:
     def __init__(__self__, *,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
+                 auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['FunctionAppIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['FunctionAppIdentityArrgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -392,9 +392,9 @@ class _FunctionAppState:
                  outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]] = None,
-                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArgs']] = None,
+                 site_config: Optional[pulumi.Input['FunctionAppSiteConfigArrgs']] = None,
+                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArrgs']]]] = None,
+                 source_control: Optional[pulumi.Input['FunctionAppSourceControlArrgs']] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -405,16 +405,16 @@ class _FunctionAppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-        :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['FunctionAppAuthSettingsArrgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input['FunctionAppIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['FunctionAppIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -425,9 +425,9 @@ class _FunctionAppState:
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input['FunctionAppSiteConfigArgs'] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input['FunctionAppSourceControlArgs'] source_control: A `source_control` block, as defined below.
+        :param pulumi.Input['FunctionAppSiteConfigArrgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArrgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input['FunctionAppSourceControlArrgs'] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
@@ -520,14 +520,14 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]:
+    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']]:
         """
         A `auth_settings` block as defined below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']]):
+    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppAuthSettingsArrgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @property
@@ -544,14 +544,14 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]]:
         """
         An `connection_string` block as defined below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]):
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArrgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @property
@@ -628,14 +628,14 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['FunctionAppIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['FunctionAppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -738,38 +738,38 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArgs']]:
+    def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArrgs']]:
         """
         A `site_config` object as defined below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArgs']]):
+    def site_config(self, value: Optional[pulumi.Input['FunctionAppSiteConfigArrgs']]):
         pulumi.set(self, "site_config", value)
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]:
+    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArrgs']]]]:
         """
         A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]):
+    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArrgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @property
     @pulumi.getter(name="sourceControl")
-    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArgs']]:
+    def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArrgs']]:
         """
         A `source_control` block, as defined below.
         """
         return pulumi.get(self, "source_control")
 
     @source_control.setter
-    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArgs']]):
+    def source_control(self, value: Optional[pulumi.Input['FunctionAppSourceControlArrgs']]):
         pulumi.set(self, "source_control", value)
 
     @property
@@ -825,28 +825,28 @@ class _FunctionAppState:
         pulumi.set(self, "version", value)
 
 
-class FunctionApp(pulumi.CustomResource):
+calass FunctionApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArrgs']]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArrgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArrgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']]] = None,
-                 source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
+                 site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArrgs']]] = None,
+                 source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArrgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -876,7 +876,7 @@ class FunctionApp(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -903,7 +903,7 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -931,7 +931,7 @@ class FunctionApp(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -961,14 +961,14 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-        :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArrgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArrgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
@@ -976,8 +976,8 @@ class FunctionApp(pulumi.CustomResource):
                
                > **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']] source_control: A `source_control` block, as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArrgs']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArrgs']] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
@@ -991,7 +991,7 @@ class FunctionApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionAppArgs,
+                 args: FunctionAppArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Function App.
@@ -1017,7 +1017,7 @@ class FunctionApp(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -1044,7 +1044,7 @@ class FunctionApp(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -1072,7 +1072,7 @@ class FunctionApp(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -1097,12 +1097,12 @@ class FunctionApp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FunctionAppArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionAppArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1113,21 +1113,21 @@ class FunctionApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArrgs']]] = None,
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArrgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArrgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']]] = None,
-                 source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
+                 site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArrgs']]] = None,
+                 source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArrgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1139,7 +1139,7 @@ class FunctionApp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionAppArgs.__new__(FunctionAppArgs)
+            __props__ = FunctionAppArrgs.__new__(FunctionAppArrgs)
 
             if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
@@ -1190,16 +1190,16 @@ class FunctionApp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_plan_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
+            auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArrgs']]] = None,
             client_cert_mode: Optional[pulumi.Input[str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArrgs']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['FunctionAppIdentityArrgs']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1208,9 +1208,9 @@ class FunctionApp(pulumi.CustomResource):
             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSiteCredentialArgs']]]]] = None,
-            source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']]] = None,
+            site_config: Optional[pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArrgs']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSiteCredentialArrgs']]]]] = None,
+            source_control: Optional[pulumi.Input[pulumi.InputType['FunctionAppSourceControlArrgs']]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1226,16 +1226,16 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-        :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArrgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArrgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1246,9 +1246,9 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArgs']] source_control: A `source_control` block, as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionAppSiteConfigArrgs']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppSiteCredentialArrgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[pulumi.InputType['FunctionAppSourceControlArrgs']] source_control: A `source_control` block, as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).

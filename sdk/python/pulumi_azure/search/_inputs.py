@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServiceIdentityArgs',
-    'ServiceQueryKeyArgs',
+    'ServiceIdentityArrgs',
+    'ServiceQueryKeyArrgs',
 ]
 
 @pulumi.input_type
-class ServiceIdentityArgs:
+calass ServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,7 @@ class ServiceIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceQueryKeyArgs:
+calass ServiceQueryKeyArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkSimResult:
+calass GetNetworkSimResult:
     """
     A collection of values returned by getNetworkSim.
     """
@@ -140,7 +140,7 @@ class GetNetworkSimResult:
         return pulumi.get(self, "vendor_name")
 
 
-class AwaitableGetNetworkSimResult(GetNetworkSimResult):
+calass AwaitableGetNetworkSimResult(GetNetworkSimResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

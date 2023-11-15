@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access data stored in an existing Key Vault Certificate.
@@ -137,12 +136,6 @@ func (o GetCertificateDataResultOutput) ToGetCertificateDataResultOutput() GetCe
 
 func (o GetCertificateDataResultOutput) ToGetCertificateDataResultOutputWithContext(ctx context.Context) GetCertificateDataResultOutput {
 	return o
-}
-
-func (o GetCertificateDataResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateDataResult] {
-	return pulumix.Output[GetCertificateDataResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).

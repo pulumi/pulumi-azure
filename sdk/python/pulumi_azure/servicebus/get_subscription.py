@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubscriptionResult:
+calass GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
@@ -194,7 +194,7 @@ class GetSubscriptionResult:
         return pulumi.get(self, "topic_name")
 
 
-class AwaitableGetSubscriptionResult(GetSubscriptionResult):
+calass AwaitableGetSubscriptionResult(GetSubscriptionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

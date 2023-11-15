@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CaaRecordRecordArgs',
-    'MxRecordRecordArgs',
-    'SrvRecordRecordArgs',
-    'TxtRecordRecordArgs',
-    'ZoneSoaRecordArgs',
+    'CaaRecordRecordArrgs',
+    'MxRecordRecordArrgs',
+    'SrvRecordRecordArrgs',
+    'TxtRecordRecordArrgs',
+    'ZoneSoaRecordArrgs',
 ]
 
 @pulumi.input_type
-class CaaRecordRecordArgs:
+calass CaaRecordRecordArrgs:
     def __init__(__self__, *,
                  flags: pulumi.Input[int],
                  tag: pulumi.Input[str],
@@ -70,7 +70,7 @@ class CaaRecordRecordArgs:
 
 
 @pulumi.input_type
-class MxRecordRecordArgs:
+calass MxRecordRecordArrgs:
     def __init__(__self__, *,
                  exchange: pulumi.Input[str],
                  preference: pulumi.Input[str]):
@@ -107,7 +107,7 @@ class MxRecordRecordArgs:
 
 
 @pulumi.input_type
-class SrvRecordRecordArgs:
+calass SrvRecordRecordArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  priority: pulumi.Input[int],
@@ -174,7 +174,7 @@ class SrvRecordRecordArgs:
 
 
 @pulumi.input_type
-class TxtRecordRecordArgs:
+calass TxtRecordRecordArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
         """
@@ -196,7 +196,7 @@ class TxtRecordRecordArgs:
 
 
 @pulumi.input_type
-class ZoneSoaRecordArgs:
+calass ZoneSoaRecordArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  expire_time: Optional[pulumi.Input[int]] = None,

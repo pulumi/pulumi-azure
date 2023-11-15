@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
+__all__ = ['AnalyticsWorkspaceArrgs', 'AnalyticsWorkspace']
 
 @pulumi.input_type
-class AnalyticsWorkspaceArgs:
+calass AnalyticsWorkspaceArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  allow_resource_only_permissions: Optional[pulumi.Input[bool]] = None,
@@ -267,7 +267,7 @@ class AnalyticsWorkspaceArgs:
 
 
 @pulumi.input_type
-class _AnalyticsWorkspaceState:
+calass _AnalyticsWorkspaceState:
     def __init__(__self__, *,
                  allow_resource_only_permissions: Optional[pulumi.Input[bool]] = None,
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
@@ -570,7 +570,7 @@ class _AnalyticsWorkspaceState:
         pulumi.set(self, "workspace_id", value)
 
 
-class AnalyticsWorkspace(pulumi.CustomResource):
+calass AnalyticsWorkspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -648,7 +648,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AnalyticsWorkspaceArgs,
+                 args: AnalyticsWorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Workspace.
@@ -676,12 +676,12 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AnalyticsWorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param AnalyticsWorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsWorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsWorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -711,7 +711,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AnalyticsWorkspaceArgs.__new__(AnalyticsWorkspaceArgs)
+            __props__ = AnalyticsWorkspaceArrgs.__new__(AnalyticsWorkspaceArrgs)
 
             __props__.__dict__["allow_resource_only_permissions"] = allow_resource_only_permissions
             __props__.__dict__["cmk_for_query_forced"] = cmk_for_query_forced

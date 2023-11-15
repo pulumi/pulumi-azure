@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetSqlServerTableArgs', 'DatasetSqlServerTable']
+__all__ = ['DatasetSqlServerTableArrgs', 'DatasetSqlServerTable']
 
 @pulumi.input_type
-class DatasetSqlServerTableArgs:
+calass DatasetSqlServerTableArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class DatasetSqlServerTableArgs:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DatasetSqlServerTable resource.
@@ -36,7 +36,7 @@ class DatasetSqlServerTableArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset SQL Server Table.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset SQL Server Table.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -156,14 +156,14 @@ class DatasetSqlServerTableArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -180,7 +180,7 @@ class DatasetSqlServerTableArgs:
 
 
 @pulumi.input_type
-class _DatasetSqlServerTableState:
+calass _DatasetSqlServerTableState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -190,7 +190,7 @@ class _DatasetSqlServerTableState:
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DatasetSqlServerTable resources.
@@ -202,7 +202,7 @@ class _DatasetSqlServerTableState:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset SQL Server Table.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset SQL Server Table.
         """
         if additional_properties is not None:
@@ -324,14 +324,14 @@ class _DatasetSqlServerTableState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSqlServerTableSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -347,7 +347,7 @@ class _DatasetSqlServerTableState:
         pulumi.set(self, "table_name", value)
 
 
-class DatasetSqlServerTable(pulumi.CustomResource):
+calass DatasetSqlServerTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -360,7 +360,7 @@ class DatasetSqlServerTable(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -402,14 +402,14 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset SQL Server Table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset SQL Server Table.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetSqlServerTableArgs,
+                 args: DatasetSqlServerTableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Server Table Dataset inside a Azure Data Factory.
@@ -441,12 +441,12 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetSqlServerTableArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetSqlServerTableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetSqlServerTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetSqlServerTableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -463,7 +463,7 @@ class DatasetSqlServerTable(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArrgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -472,7 +472,7 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetSqlServerTableArgs.__new__(DatasetSqlServerTableArgs)
+            __props__ = DatasetSqlServerTableArrgs.__new__(DatasetSqlServerTableArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -506,7 +506,7 @@ class DatasetSqlServerTable(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArrgs']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetSqlServerTable':
         """
         Get an existing DatasetSqlServerTable resource's state with the given name, id, and optional extra
@@ -523,7 +523,7 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset SQL Server Table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSqlServerTableSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset SQL Server Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

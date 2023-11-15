@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PrivateCloudCircuitArgs',
-    'PrivateCloudManagementClusterArgs',
+    'PrivateCloudCircuitArrgs',
+    'PrivateCloudManagementClusterArrgs',
 ]
 
 @pulumi.input_type
-class PrivateCloudCircuitArgs:
+calass PrivateCloudCircuitArrgs:
     def __init__(__self__, *,
                  express_route_id: Optional[pulumi.Input[str]] = None,
                  express_route_private_peering_id: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class PrivateCloudCircuitArgs:
 
 
 @pulumi.input_type
-class PrivateCloudManagementClusterArgs:
+calass PrivateCloudManagementClusterArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedInstanceActiveDirectoryAdministratorArgs', 'ManagedInstanceActiveDirectoryAdministrator']
+__all__ = ['ManagedInstanceActiveDirectoryAdministratorArrgs', 'ManagedInstanceActiveDirectoryAdministrator']
 
 @pulumi.input_type
-class ManagedInstanceActiveDirectoryAdministratorArgs:
+calass ManagedInstanceActiveDirectoryAdministratorArrgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  managed_instance_name: pulumi.Input[str],
@@ -111,7 +111,7 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
 
 
 @pulumi.input_type
-class _ManagedInstanceActiveDirectoryAdministratorState:
+calass _ManagedInstanceActiveDirectoryAdministratorState:
     def __init__(__self__, *,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
-class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
+calass ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -282,7 +282,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedInstanceActiveDirectoryAdministratorArgs,
+                 args: ManagedInstanceActiveDirectoryAdministratorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
@@ -328,12 +328,12 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedInstanceActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedInstanceActiveDirectoryAdministratorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedInstanceActiveDirectoryAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedInstanceActiveDirectoryAdministratorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -355,7 +355,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedInstanceActiveDirectoryAdministratorArgs.__new__(ManagedInstanceActiveDirectoryAdministratorArgs)
+            __props__ = ManagedInstanceActiveDirectoryAdministratorArrgs.__new__(ManagedInstanceActiveDirectoryAdministratorArrgs)
 
             __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             if login is None and not opts.urn:

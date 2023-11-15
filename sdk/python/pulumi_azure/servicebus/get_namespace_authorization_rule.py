@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNamespaceAuthorizationRuleResult:
+calass GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
@@ -139,7 +139,7 @@ class GetNamespaceAuthorizationRuleResult:
         return pulumi.get(self, "secondary_key")
 
 
-class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRuleResult):
+calass AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

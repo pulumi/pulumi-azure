@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceExtendedAuditingPolicyArgs', 'WorkspaceExtendedAuditingPolicy']
+__all__ = ['WorkspaceExtendedAuditingPolicyArrgs', 'WorkspaceExtendedAuditingPolicy']
 
 @pulumi.input_type
-class WorkspaceExtendedAuditingPolicyArgs:
+calass WorkspaceExtendedAuditingPolicyArrgs:
     def __init__(__self__, *,
                  synapse_workspace_id: pulumi.Input[str],
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
@@ -115,7 +115,7 @@ class WorkspaceExtendedAuditingPolicyArgs:
 
 
 @pulumi.input_type
-class _WorkspaceExtendedAuditingPolicyState:
+calass _WorkspaceExtendedAuditingPolicyState:
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -218,7 +218,7 @@ class _WorkspaceExtendedAuditingPolicyState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
-class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
+calass WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -253,7 +253,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         audit_logs = azure.storage.Account("auditLogs",
@@ -290,7 +290,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceExtendedAuditingPolicyArgs,
+                 args: WorkspaceExtendedAuditingPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Workspace Extended Auditing Policy.
@@ -315,7 +315,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         audit_logs = azure.storage.Account("auditLogs",
@@ -340,12 +340,12 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceExtendedAuditingPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceExtendedAuditingPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceExtendedAuditingPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceExtendedAuditingPolicyArgs.__new__(WorkspaceExtendedAuditingPolicyArgs)
+            __props__ = WorkspaceExtendedAuditingPolicyArrgs.__new__(WorkspaceExtendedAuditingPolicyArrgs)
 
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
             __props__.__dict__["retention_in_days"] = retention_in_days

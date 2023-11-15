@@ -52,7 +52,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
+calass NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -92,7 +92,7 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
                  udp_port_reuse_minimum_hold_time_in_seconds: Optional[int] = None):
         """
         :param int icmp_pinhole_timeout_in_seconds: Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
-        :param 'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs' port_range: A `port_range` block as defined below.
+        :param 'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrgs' port_range: A `port_range` block as defined below.
         :param int tcp_pinhole_timeout_in_seconds: Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
         :param int tcp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
         :param int udp_pinhole_timeout_in_seconds: Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
@@ -168,7 +168,7 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
 
 
 @pulumi.output_type
-class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange(dict):
+calass NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange(dict):
     def __init__(__self__, *,
                  maximum: Optional[int] = None,
                  minimum: Optional[int] = None):
@@ -199,7 +199,7 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCoreControlPlaneIdentity(dict):
+calass NetworkPacketCoreControlPlaneIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -245,7 +245,7 @@ class NetworkPacketCoreControlPlaneIdentity(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCoreControlPlaneLocalDiagnosticsAccess(dict):
+calass NetworkPacketCoreControlPlaneLocalDiagnosticsAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -294,7 +294,7 @@ class NetworkPacketCoreControlPlaneLocalDiagnosticsAccess(dict):
 
 
 @pulumi.output_type
-class NetworkPacketCoreControlPlanePlatform(dict):
+calass NetworkPacketCoreControlPlanePlatform(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -387,7 +387,7 @@ class NetworkPacketCoreControlPlanePlatform(dict):
 
 
 @pulumi.output_type
-class NetworkServicePccRule(dict):
+calass NetworkServicePccRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -418,8 +418,8 @@ class NetworkServicePccRule(dict):
         """
         :param str name: Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         :param int precedence: A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network. Must be between `0` and `255`.
-        :param Sequence['NetworkServicePccRuleServiceDataFlowTemplateArgs'] service_data_flow_templates: A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
-        :param 'NetworkServicePccRuleQosPolicyArgs' qos_policy: A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+        :param Sequence['NetworkServicePccRuleServiceDataFlowTemplateArrgs'] service_data_flow_templates: A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        :param 'NetworkServicePccRuleQosPolicyArrgs' qos_policy: A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
         :param bool traffic_control_enabled: Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
         """
         pulumi.set(__self__, "name", name)
@@ -472,7 +472,7 @@ class NetworkServicePccRule(dict):
 
 
 @pulumi.output_type
-class NetworkServicePccRuleQosPolicy(dict):
+calass NetworkServicePccRuleQosPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -508,10 +508,10 @@ class NetworkServicePccRuleQosPolicy(dict):
                  preemption_capability: Optional[str] = None,
                  preemption_vulnerability: Optional[str] = None):
         """
-        :param 'NetworkServicePccRuleQosPolicyMaximumBitRateArgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        :param 'NetworkServicePccRuleQosPolicyMaximumBitRateArrgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param 'NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs' guaranteed_bit_rate: A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+        :param 'NetworkServicePccRuleQosPolicyGuaranteedBitRateArrgs' guaranteed_bit_rate: A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
         """
@@ -576,7 +576,7 @@ class NetworkServicePccRuleQosPolicy(dict):
 
 
 @pulumi.output_type
-class NetworkServicePccRuleQosPolicyGuaranteedBitRate(dict):
+calass NetworkServicePccRuleQosPolicyGuaranteedBitRate(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -605,7 +605,7 @@ class NetworkServicePccRuleQosPolicyGuaranteedBitRate(dict):
 
 
 @pulumi.output_type
-class NetworkServicePccRuleQosPolicyMaximumBitRate(dict):
+calass NetworkServicePccRuleQosPolicyMaximumBitRate(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -634,7 +634,7 @@ class NetworkServicePccRuleQosPolicyMaximumBitRate(dict):
 
 
 @pulumi.output_type
-class NetworkServicePccRuleServiceDataFlowTemplate(dict):
+calass NetworkServicePccRuleServiceDataFlowTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -714,7 +714,7 @@ class NetworkServicePccRuleServiceDataFlowTemplate(dict):
 
 
 @pulumi.output_type
-class NetworkServiceServiceQosPolicy(dict):
+calass NetworkServiceServiceQosPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -747,7 +747,7 @@ class NetworkServiceServiceQosPolicy(dict):
                  preemption_vulnerability: Optional[str] = None,
                  qos_indicator: Optional[int] = None):
         """
-        :param 'NetworkServiceServiceQosPolicyMaximumBitRateArgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        :param 'NetworkServiceServiceQosPolicyMaximumBitRateArrgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
@@ -805,7 +805,7 @@ class NetworkServiceServiceQosPolicy(dict):
 
 
 @pulumi.output_type
-class NetworkServiceServiceQosPolicyMaximumBitRate(dict):
+calass NetworkServiceServiceQosPolicyMaximumBitRate(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -834,7 +834,7 @@ class NetworkServiceServiceQosPolicyMaximumBitRate(dict):
 
 
 @pulumi.output_type
-class NetworkSimGroupIdentity(dict):
+calass NetworkSimGroupIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -880,7 +880,7 @@ class NetworkSimGroupIdentity(dict):
 
 
 @pulumi.output_type
-class NetworkSimPolicySlice(dict):
+calass NetworkSimPolicySlice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -907,7 +907,7 @@ class NetworkSimPolicySlice(dict):
                  default_data_network_id: str,
                  slice_id: str):
         """
-        :param Sequence['NetworkSimPolicySliceDataNetworkArgs'] data_networks: An array of `data_network` block as defined below.
+        :param Sequence['NetworkSimPolicySliceDataNetworkArrgs'] data_networks: An array of `data_network` block as defined below.
         :param str default_data_network_id: The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
         :param str slice_id: The ID of the slice that these settings apply to.
         """
@@ -941,7 +941,7 @@ class NetworkSimPolicySlice(dict):
 
 
 @pulumi.output_type
-class NetworkSimPolicySliceDataNetwork(dict):
+calass NetworkSimPolicySliceDataNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -992,7 +992,7 @@ class NetworkSimPolicySliceDataNetwork(dict):
         :param Sequence[str] allowed_services_ids: An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
         :param str data_network_id: The ID of Mobile Network Data Network which these settings apply to.
         :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
-        :param 'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs' session_aggregate_maximum_bit_rate: A `session_aggregate_maximum_bit_rate` block as defined below.
+        :param 'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrgs' session_aggregate_maximum_bit_rate: A `session_aggregate_maximum_bit_rate` block as defined below.
         :param Sequence[str] additional_allowed_session_types: Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
         :param int allocation_and_retention_priority_level: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str default_session_type: The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
@@ -1099,7 +1099,7 @@ class NetworkSimPolicySliceDataNetwork(dict):
 
 
 @pulumi.output_type
-class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate(dict):
+calass NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -1128,7 +1128,7 @@ class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate(dict):
 
 
 @pulumi.output_type
-class NetworkSimPolicyUserEquipmentAggregateMaximumBitRate(dict):
+calass NetworkSimPolicyUserEquipmentAggregateMaximumBitRate(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -1157,7 +1157,7 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRate(dict):
 
 
 @pulumi.output_type
-class NetworkSimStaticIpConfiguration(dict):
+calass NetworkSimStaticIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1215,7 +1215,7 @@ class NetworkSimStaticIpConfiguration(dict):
 
 
 @pulumi.output_type
-class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation(dict):
+calass NetworkSliceSingleNetworkSliceSelectionAssistanceInformation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1264,7 +1264,7 @@ class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation(dict):
 
 
 @pulumi.output_type
-class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult(dict):
+calass GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult(dict):
     def __init__(__self__, *,
                  icmp_pinhole_timeout_in_seconds: int,
                  port_ranges: Sequence['outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult'],
@@ -1274,7 +1274,7 @@ class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult(dict):
                  udp_port_reuse_minimum_hold_time_in_seconds: int,
                  pinhole_maximum_number: Optional[int] = None):
         """
-        :param Sequence['GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs'] port_ranges: A `port_range` block as defined below.
+        :param Sequence['GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrgs'] port_ranges: A `port_range` block as defined below.
         :param int tcp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused.
         :param int udp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused.
         """
@@ -1333,7 +1333,7 @@ class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult(dict):
+calass GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult(dict):
     def __init__(__self__, *,
                  maximum: int,
                  minimum: int):
@@ -1362,7 +1362,7 @@ class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult(
 
 
 @pulumi.output_type
-class GetNetworkPacketCoreControlPlaneIdentityResult(dict):
+calass GetNetworkPacketCoreControlPlaneIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  type: str):
@@ -1391,7 +1391,7 @@ class GetNetworkPacketCoreControlPlaneIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessResult(dict):
+calass GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessResult(dict):
     def __init__(__self__, *,
                  authentication_type: str,
                  https_server_certificate_url: str):
@@ -1420,7 +1420,7 @@ class GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkPacketCoreControlPlanePlatformResult(dict):
+calass GetNetworkPacketCoreControlPlanePlatformResult(dict):
     def __init__(__self__, *,
                  arc_kubernetes_cluster_id: str,
                  custom_location_id: str,
@@ -1482,7 +1482,7 @@ class GetNetworkPacketCoreControlPlanePlatformResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServicePccRuleResult(dict):
+calass GetNetworkServicePccRuleResult(dict):
     def __init__(__self__, *,
                  name: str,
                  precedence: int,
@@ -1492,8 +1492,8 @@ class GetNetworkServicePccRuleResult(dict):
         """
         :param str name: Specifies the name which should be used for this Mobile Network Service.
         :param int precedence: A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority.
-        :param Sequence['GetNetworkServicePccRuleQosPolicyArgs'] qos_policies: A `rule_qos_policy` block as defined below. The QoS policy to use for packets matching this rule.
-        :param Sequence['GetNetworkServicePccRuleServiceDataFlowTemplateArgs'] service_data_flow_templates: A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        :param Sequence['GetNetworkServicePccRuleQosPolicyArrgs'] qos_policies: A `rule_qos_policy` block as defined below. The QoS policy to use for packets matching this rule.
+        :param Sequence['GetNetworkServicePccRuleServiceDataFlowTemplateArrgs'] service_data_flow_templates: A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
         :param bool traffic_control_enabled: Determines whether flows that match this data flow policy rule are permitted.
         """
         pulumi.set(__self__, "name", name)
@@ -1544,7 +1544,7 @@ class GetNetworkServicePccRuleResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServicePccRuleQosPolicyResult(dict):
+calass GetNetworkServicePccRuleQosPolicyResult(dict):
     def __init__(__self__, *,
                  allocation_and_retention_priority_level: int,
                  guaranteed_bit_rates: Sequence['outputs.GetNetworkServicePccRuleQosPolicyGuaranteedBitRateResult'],
@@ -1554,8 +1554,8 @@ class GetNetworkServicePccRuleQosPolicyResult(dict):
                  qos_indicator: int):
         """
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level.
-        :param Sequence['GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArgs'] guaranteed_bit_rates: A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
-        :param Sequence['GetNetworkServicePccRuleQosPolicyMaximumBitRateArgs'] maximum_bit_rates: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        :param Sequence['GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrgs'] guaranteed_bit_rates: A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
+        :param Sequence['GetNetworkServicePccRuleQosPolicyMaximumBitRateArrgs'] maximum_bit_rates: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
@@ -1617,7 +1617,7 @@ class GetNetworkServicePccRuleQosPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServicePccRuleQosPolicyGuaranteedBitRateResult(dict):
+calass GetNetworkServicePccRuleQosPolicyGuaranteedBitRateResult(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -1646,7 +1646,7 @@ class GetNetworkServicePccRuleQosPolicyGuaranteedBitRateResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServicePccRuleQosPolicyMaximumBitRateResult(dict):
+calass GetNetworkServicePccRuleQosPolicyMaximumBitRateResult(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -1675,7 +1675,7 @@ class GetNetworkServicePccRuleQosPolicyMaximumBitRateResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServicePccRuleServiceDataFlowTemplateResult(dict):
+calass GetNetworkServicePccRuleServiceDataFlowTemplateResult(dict):
     def __init__(__self__, *,
                  direction: str,
                  name: str,
@@ -1737,7 +1737,7 @@ class GetNetworkServicePccRuleServiceDataFlowTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServiceServiceQosPolicyResult(dict):
+calass GetNetworkServiceServiceQosPolicyResult(dict):
     def __init__(__self__, *,
                  allocation_and_retention_priority_level: int,
                  maximum_bit_rates: Sequence['outputs.GetNetworkServiceServiceQosPolicyMaximumBitRateResult'],
@@ -1746,7 +1746,7 @@ class GetNetworkServiceServiceQosPolicyResult(dict):
                  qos_indicator: int):
         """
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level.
-        :param Sequence['GetNetworkServiceServiceQosPolicyMaximumBitRateArgs'] maximum_bit_rates: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        :param Sequence['GetNetworkServiceServiceQosPolicyMaximumBitRateArrgs'] maximum_bit_rates: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
@@ -1799,7 +1799,7 @@ class GetNetworkServiceServiceQosPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkServiceServiceQosPolicyMaximumBitRateResult(dict):
+calass GetNetworkServiceServiceQosPolicyMaximumBitRateResult(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -1828,7 +1828,7 @@ class GetNetworkServiceServiceQosPolicyMaximumBitRateResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSimGroupIdentityResult(dict):
+calass GetNetworkSimGroupIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -1871,13 +1871,13 @@ class GetNetworkSimGroupIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSimPolicySliceResult(dict):
+calass GetNetworkSimPolicySliceResult(dict):
     def __init__(__self__, *,
                  data_networks: Sequence['outputs.GetNetworkSimPolicySliceDataNetworkResult'],
                  default_data_network_id: str,
                  slice_id: str):
         """
-        :param Sequence['GetNetworkSimPolicySliceDataNetworkArgs'] data_networks: An array of `data_network` block as defined below.
+        :param Sequence['GetNetworkSimPolicySliceDataNetworkArrgs'] data_networks: An array of `data_network` block as defined below.
         :param str default_data_network_id: The ID of default data network to use if the UE does not explicitly specify it.
         :param str slice_id: The ID of the slice that these settings apply to.
         """
@@ -1911,7 +1911,7 @@ class GetNetworkSimPolicySliceResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSimPolicySliceDataNetworkResult(dict):
+calass GetNetworkSimPolicySliceDataNetworkResult(dict):
     def __init__(__self__, *,
                  additional_allowed_session_types: Sequence[str],
                  allocation_and_retention_priority_level: int,
@@ -1933,7 +1933,7 @@ class GetNetworkSimPolicySliceDataNetworkResult(dict):
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers.
-        :param Sequence['GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs'] session_aggregate_maximum_bit_rates: A `session_aggregate_maximum_bit_rate` block as defined below.
+        :param Sequence['GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrgs'] session_aggregate_maximum_bit_rates: A `session_aggregate_maximum_bit_rate` block as defined below.
         """
         pulumi.set(__self__, "additional_allowed_session_types", additional_allowed_session_types)
         pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
@@ -2028,7 +2028,7 @@ class GetNetworkSimPolicySliceDataNetworkResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateResult(dict):
+calass GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateResult(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -2057,7 +2057,7 @@ class GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateResult(di
 
 
 @pulumi.output_type
-class GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult(dict):
+calass GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult(dict):
     def __init__(__self__, *,
                  downlink: str,
                  uplink: str):
@@ -2086,7 +2086,7 @@ class GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSimStaticIpConfigurationResult(dict):
+calass GetNetworkSimStaticIpConfigurationResult(dict):
     def __init__(__self__, *,
                  attached_data_network_id: str,
                  slice_id: str,
@@ -2122,7 +2122,7 @@ class GetNetworkSimStaticIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationResult(dict):
+calass GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationResult(dict):
     def __init__(__self__, *,
                  slice_differentiator: str,
                  slice_service_type: int):

@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceOdbcArgs', 'LinkedServiceOdbc']
+__all__ = ['LinkedServiceOdbcArrgs', 'LinkedServiceOdbc']
 
 @pulumi.input_type
-class LinkedServiceOdbcArgs:
+calass LinkedServiceOdbcArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']] = None,
+                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class LinkedServiceOdbcArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service ODBC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service ODBC.
-        :param pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs'] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs'] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service ODBC.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service ODBC.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service ODBC. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -104,14 +104,14 @@ class LinkedServiceOdbcArgs:
 
     @property
     @pulumi.getter(name="basicAuthentication")
-    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']]:
+    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']]:
         """
         A `basic_authentication` block as defined below.
         """
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
-    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']]):
+    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']]):
         pulumi.set(self, "basic_authentication", value)
 
     @property
@@ -164,11 +164,11 @@ class LinkedServiceOdbcArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceOdbcState:
+calass _LinkedServiceOdbcState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']] = None,
+                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class _LinkedServiceOdbcState:
         Input properties used for looking up and filtering LinkedServiceOdbc resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service ODBC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service ODBC.
-        :param pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs'] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs'] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with ODBC.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service ODBC.
@@ -232,14 +232,14 @@ class _LinkedServiceOdbcState:
 
     @property
     @pulumi.getter(name="basicAuthentication")
-    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']]:
+    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']]:
         """
         A `basic_authentication` block as defined below.
         """
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
-    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArgs']]):
+    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdbcBasicAuthenticationArrgs']]):
         pulumi.set(self, "basic_authentication", value)
 
     @property
@@ -315,14 +315,14 @@ class _LinkedServiceOdbcState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceOdbc(pulumi.CustomResource):
+calass LinkedServiceOdbc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArrgs']]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -351,7 +351,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         basic_auth = azure.datafactory.LinkedServiceOdbc("basicAuth",
             data_factory_id=example_factory.id,
             connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
+            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArrgs(
                 username="onrylmz",
                 password="Ch4ngeM3!",
             ))
@@ -369,7 +369,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service ODBC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service ODBC.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArrgs']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with ODBC.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service ODBC.
@@ -381,7 +381,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceOdbcArgs,
+                 args: LinkedServiceOdbcArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Database and Azure Data Factory through ODBC protocol.
@@ -404,7 +404,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         basic_auth = azure.datafactory.LinkedServiceOdbc("basicAuth",
             data_factory_id=example_factory.id,
             connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
-            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArgs(
+            basic_authentication=azure.datafactory.LinkedServiceOdbcBasicAuthenticationArrgs(
                 username="onrylmz",
                 password="Ch4ngeM3!",
             ))
@@ -419,12 +419,12 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceOdbcArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceOdbcArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceOdbcArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceOdbcArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -435,7 +435,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArrgs']]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -449,7 +449,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceOdbcArgs.__new__(LinkedServiceOdbcArgs)
+            __props__ = LinkedServiceOdbcArrgs.__new__(LinkedServiceOdbcArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -476,7 +476,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArgs']]] = None,
+            basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArrgs']]] = None,
             connection_string: Optional[pulumi.Input[str]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -492,7 +492,7 @@ class LinkedServiceOdbc(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service ODBC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service ODBC.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceOdbcBasicAuthenticationArrgs']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with ODBC.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service ODBC.

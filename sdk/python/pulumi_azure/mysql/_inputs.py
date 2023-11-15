@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FlexibleServerCustomerManagedKeyArgs',
-    'FlexibleServerHighAvailabilityArgs',
-    'FlexibleServerIdentityArgs',
-    'FlexibleServerMaintenanceWindowArgs',
-    'FlexibleServerStorageArgs',
-    'ServerIdentityArgs',
-    'ServerThreatDetectionPolicyArgs',
+    'FlexibleServerCustomerManagedKeyArrgs',
+    'FlexibleServerHighAvailabilityArrgs',
+    'FlexibleServerIdentityArrgs',
+    'FlexibleServerMaintenanceWindowArrgs',
+    'FlexibleServerStorageArrgs',
+    'ServerIdentityArrgs',
+    'ServerThreatDetectionPolicyArrgs',
 ]
 
 @pulumi.input_type
-class FlexibleServerCustomerManagedKeyArgs:
+calass FlexibleServerCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  geo_backup_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class FlexibleServerCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class FlexibleServerHighAvailabilityArgs:
+calass FlexibleServerHighAvailabilityArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  standby_availability_zone: Optional[pulumi.Input[str]] = None):
@@ -133,7 +133,7 @@ class FlexibleServerHighAvailabilityArgs:
 
 
 @pulumi.input_type
-class FlexibleServerIdentityArgs:
+calass FlexibleServerIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -170,7 +170,7 @@ class FlexibleServerIdentityArgs:
 
 
 @pulumi.input_type
-class FlexibleServerMaintenanceWindowArgs:
+calass FlexibleServerMaintenanceWindowArrgs:
     def __init__(__self__, *,
                  day_of_week: Optional[pulumi.Input[int]] = None,
                  start_hour: Optional[pulumi.Input[int]] = None,
@@ -225,7 +225,7 @@ class FlexibleServerMaintenanceWindowArgs:
 
 
 @pulumi.input_type
-class FlexibleServerStorageArgs:
+calass FlexibleServerStorageArrgs:
     def __init__(__self__, *,
                  auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
                  io_scaling_enabled: Optional[pulumi.Input[bool]] = None,
@@ -296,7 +296,7 @@ class FlexibleServerStorageArgs:
 
 
 @pulumi.input_type
-class ServerIdentityArgs:
+calass ServerIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -350,7 +350,7 @@ class ServerIdentityArgs:
 
 
 @pulumi.input_type
-class ServerThreatDetectionPolicyArgs:
+calass ServerThreatDetectionPolicyArrgs:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[bool]] = None,

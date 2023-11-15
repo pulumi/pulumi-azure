@@ -10,56 +10,56 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomProviderActionArgs',
-    'CustomProviderResourceTypeArgs',
-    'CustomProviderValidationArgs',
-    'ResourceDeploymentScriptAzureCliContainerArgs',
-    'ResourceDeploymentScriptAzureCliEnvironmentVariableArgs',
-    'ResourceDeploymentScriptAzureCliIdentityArgs',
-    'ResourceDeploymentScriptAzureCliStorageAccountArgs',
-    'ResourceDeploymentScriptPowerShellContainerArgs',
-    'ResourceDeploymentScriptPowerShellEnvironmentVariableArgs',
-    'ResourceDeploymentScriptPowerShellIdentityArgs',
-    'ResourceDeploymentScriptPowerShellStorageAccountArgs',
-    'ResourceGroupCostManagementExportExportDataOptionsArgs',
-    'ResourceGroupCostManagementExportExportDataStorageLocationArgs',
-    'ResourceGroupCostManagementViewDatasetArgs',
-    'ResourceGroupCostManagementViewDatasetAggregationArgs',
-    'ResourceGroupCostManagementViewDatasetGroupingArgs',
-    'ResourceGroupCostManagementViewDatasetSortingArgs',
-    'ResourceGroupCostManagementViewKpiArgs',
-    'ResourceGroupCostManagementViewPivotArgs',
-    'ResourceGroupPolicyAssignmentIdentityArgs',
-    'ResourceGroupPolicyAssignmentNonComplianceMessageArgs',
-    'ResourceGroupPolicyAssignmentOverrideArgs',
-    'ResourceGroupPolicyAssignmentOverrideSelectorArgs',
-    'ResourceGroupPolicyAssignmentResourceSelectorArgs',
-    'ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs',
-    'ResourcePolicyAssignmentIdentityArgs',
-    'ResourcePolicyAssignmentNonComplianceMessageArgs',
-    'ResourcePolicyAssignmentOverrideArgs',
-    'ResourcePolicyAssignmentOverrideSelectorArgs',
-    'ResourcePolicyAssignmentResourceSelectorArgs',
-    'ResourcePolicyAssignmentResourceSelectorSelectorArgs',
-    'ResourceProviderRegistrationFeatureArgs',
-    'SubscriptionCostManagementExportExportDataOptionsArgs',
-    'SubscriptionCostManagementExportExportDataStorageLocationArgs',
-    'SubscriptionCostManagementViewDatasetArgs',
-    'SubscriptionCostManagementViewDatasetAggregationArgs',
-    'SubscriptionCostManagementViewDatasetGroupingArgs',
-    'SubscriptionCostManagementViewDatasetSortingArgs',
-    'SubscriptionCostManagementViewKpiArgs',
-    'SubscriptionCostManagementViewPivotArgs',
-    'SubscriptionPolicyAssignmentIdentityArgs',
-    'SubscriptionPolicyAssignmentNonComplianceMessageArgs',
-    'SubscriptionPolicyAssignmentOverrideArgs',
-    'SubscriptionPolicyAssignmentOverrideSelectorArgs',
-    'SubscriptionPolicyAssignmentResourceSelectorArgs',
-    'SubscriptionPolicyAssignmentResourceSelectorSelectorArgs',
+    'CustomProviderActionArrgs',
+    'CustomProviderResourceTypeArrgs',
+    'CustomProviderValidationArrgs',
+    'ResourceDeploymentScriptAzureCliContainerArrgs',
+    'ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs',
+    'ResourceDeploymentScriptAzureCliIdentityArrgs',
+    'ResourceDeploymentScriptAzureCliStorageAccountArrgs',
+    'ResourceDeploymentScriptPowerShellContainerArrgs',
+    'ResourceDeploymentScriptPowerShellEnvironmentVariableArrgs',
+    'ResourceDeploymentScriptPowerShellIdentityArrgs',
+    'ResourceDeploymentScriptPowerShellStorageAccountArrgs',
+    'ResourceGroupCostManagementExportExportDataOptionsArrgs',
+    'ResourceGroupCostManagementExportExportDataStorageLocationArrgs',
+    'ResourceGroupCostManagementViewDatasetArrgs',
+    'ResourceGroupCostManagementViewDatasetAggregationArrgs',
+    'ResourceGroupCostManagementViewDatasetGroupingArrgs',
+    'ResourceGroupCostManagementViewDatasetSortingArrgs',
+    'ResourceGroupCostManagementViewKpiArrgs',
+    'ResourceGroupCostManagementViewPivotArrgs',
+    'ResourceGroupPolicyAssignmentIdentityArrgs',
+    'ResourceGroupPolicyAssignmentNonComplianceMessageArrgs',
+    'ResourceGroupPolicyAssignmentOverrideArrgs',
+    'ResourceGroupPolicyAssignmentOverrideSelectorArrgs',
+    'ResourceGroupPolicyAssignmentResourceSelectorArrgs',
+    'ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs',
+    'ResourcePolicyAssignmentIdentityArrgs',
+    'ResourcePolicyAssignmentNonComplianceMessageArrgs',
+    'ResourcePolicyAssignmentOverrideArrgs',
+    'ResourcePolicyAssignmentOverrideSelectorArrgs',
+    'ResourcePolicyAssignmentResourceSelectorArrgs',
+    'ResourcePolicyAssignmentResourceSelectorSelectorArrgs',
+    'ResourceProviderRegistrationFeatureArrgs',
+    'SubscriptionCostManagementExportExportDataOptionsArrgs',
+    'SubscriptionCostManagementExportExportDataStorageLocationArrgs',
+    'SubscriptionCostManagementViewDatasetArrgs',
+    'SubscriptionCostManagementViewDatasetAggregationArrgs',
+    'SubscriptionCostManagementViewDatasetGroupingArrgs',
+    'SubscriptionCostManagementViewDatasetSortingArrgs',
+    'SubscriptionCostManagementViewKpiArrgs',
+    'SubscriptionCostManagementViewPivotArrgs',
+    'SubscriptionPolicyAssignmentIdentityArrgs',
+    'SubscriptionPolicyAssignmentNonComplianceMessageArrgs',
+    'SubscriptionPolicyAssignmentOverrideArrgs',
+    'SubscriptionPolicyAssignmentOverrideSelectorArrgs',
+    'SubscriptionPolicyAssignmentResourceSelectorArrgs',
+    'SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs',
 ]
 
 @pulumi.input_type
-class CustomProviderActionArgs:
+calass CustomProviderActionArrgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -96,7 +96,7 @@ class CustomProviderActionArgs:
 
 
 @pulumi.input_type
-class CustomProviderResourceTypeArgs:
+calass CustomProviderResourceTypeArrgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -149,7 +149,7 @@ class CustomProviderResourceTypeArgs:
 
 
 @pulumi.input_type
-class CustomProviderValidationArgs:
+calass CustomProviderValidationArrgs:
     def __init__(__self__, *,
                  specification: pulumi.Input[str]):
         """
@@ -171,7 +171,7 @@ class CustomProviderValidationArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptAzureCliContainerArgs:
+calass ResourceDeploymentScriptAzureCliContainerArrgs:
     def __init__(__self__, *,
                  container_group_name: Optional[pulumi.Input[str]] = None):
         """
@@ -194,7 +194,7 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
+calass ResourceDeploymentScriptAzureCliEnvironmentVariableArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secure_value: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptAzureCliIdentityArgs:
+calass ResourceDeploymentScriptAzureCliIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -285,7 +285,7 @@ class ResourceDeploymentScriptAzureCliIdentityArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptAzureCliStorageAccountArgs:
+calass ResourceDeploymentScriptAzureCliStorageAccountArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -322,7 +322,7 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptPowerShellContainerArgs:
+calass ResourceDeploymentScriptPowerShellContainerArrgs:
     def __init__(__self__, *,
                  container_group_name: Optional[pulumi.Input[str]] = None):
         """
@@ -345,7 +345,7 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
+calass ResourceDeploymentScriptPowerShellEnvironmentVariableArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secure_value: Optional[pulumi.Input[str]] = None,
@@ -399,7 +399,7 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptPowerShellIdentityArgs:
+calass ResourceDeploymentScriptPowerShellIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -436,7 +436,7 @@ class ResourceDeploymentScriptPowerShellIdentityArgs:
 
 
 @pulumi.input_type
-class ResourceDeploymentScriptPowerShellStorageAccountArgs:
+calass ResourceDeploymentScriptPowerShellStorageAccountArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -473,7 +473,7 @@ class ResourceDeploymentScriptPowerShellStorageAccountArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementExportExportDataOptionsArgs:
+calass ResourceGroupCostManagementExportExportDataOptionsArrgs:
     def __init__(__self__, *,
                  time_frame: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -510,7 +510,7 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
+calass ResourceGroupCostManagementExportExportDataStorageLocationArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  root_folder_path: pulumi.Input[str]):
@@ -551,17 +551,17 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewDatasetArgs:
+calass ResourceGroupCostManagementViewDatasetArrgs:
     def __init__(__self__, *,
-                 aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]],
+                 aggregations: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArrgs']]],
                  granularity: pulumi.Input[str],
-                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
-                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None):
+                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArrgs']]]] = None,
+                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]] aggregations: One or more `aggregation` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArrgs']]] aggregations: One or more `aggregation` blocks as defined above.
         :param pulumi.Input[str] granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]] groupings: One or more `grouping` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArrgs']]] groupings: One or more `grouping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArrgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "granularity", granularity)
@@ -572,14 +572,14 @@ class ResourceGroupCostManagementViewDatasetArgs:
 
     @property
     @pulumi.getter
-    def aggregations(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]]:
+    def aggregations(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArrgs']]]:
         """
         One or more `aggregation` blocks as defined above.
         """
         return pulumi.get(self, "aggregations")
 
     @aggregations.setter
-    def aggregations(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArgs']]]):
+    def aggregations(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetAggregationArrgs']]]):
         pulumi.set(self, "aggregations", value)
 
     @property
@@ -596,31 +596,31 @@ class ResourceGroupCostManagementViewDatasetArgs:
 
     @property
     @pulumi.getter
-    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]:
+    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArrgs']]]]:
         """
         One or more `grouping` blocks as defined below.
         """
         return pulumi.get(self, "groupings")
 
     @groupings.setter
-    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]):
+    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArrgs']]]]):
         pulumi.set(self, "groupings", value)
 
     @property
     @pulumi.getter
-    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]:
+    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArrgs']]]]:
         """
         One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         return pulumi.get(self, "sortings")
 
     @sortings.setter
-    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]):
+    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArrgs']]]]):
         pulumi.set(self, "sortings", value)
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewDatasetAggregationArgs:
+calass ResourceGroupCostManagementViewDatasetAggregationArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -657,7 +657,7 @@ class ResourceGroupCostManagementViewDatasetAggregationArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewDatasetGroupingArgs:
+calass ResourceGroupCostManagementViewDatasetGroupingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -694,7 +694,7 @@ class ResourceGroupCostManagementViewDatasetGroupingArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewDatasetSortingArgs:
+calass ResourceGroupCostManagementViewDatasetSortingArrgs:
     def __init__(__self__, *,
                  direction: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -731,7 +731,7 @@ class ResourceGroupCostManagementViewDatasetSortingArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewKpiArgs:
+calass ResourceGroupCostManagementViewKpiArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -753,7 +753,7 @@ class ResourceGroupCostManagementViewKpiArgs:
 
 
 @pulumi.input_type
-class ResourceGroupCostManagementViewPivotArgs:
+calass ResourceGroupCostManagementViewPivotArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -790,7 +790,7 @@ class ResourceGroupCostManagementViewPivotArgs:
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentIdentityArgs:
+calass ResourceGroupPolicyAssignmentIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -864,7 +864,7 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
+calass ResourceGroupPolicyAssignmentNonComplianceMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
@@ -902,13 +902,13 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentOverrideArgs:
+calass ResourceGroupPolicyAssignmentOverrideArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArrgs']]]] = None):
         """
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArrgs']]] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -928,19 +928,19 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArrgs']]]]:
         """
         One or more `override_selector` as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArrgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
+calass ResourceGroupPolicyAssignmentOverrideSelectorArrgs:
     def __init__(__self__, *,
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -995,12 +995,12 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentResourceSelectorArgs:
+calass ResourceGroupPolicyAssignmentResourceSelectorArrgs:
     def __init__(__self__, *,
-                 selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+                 selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1009,14 +1009,14 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]]:
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs']]]:
         """
         One or more `resource_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]]):
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs']]]):
         pulumi.set(self, "selectors", value)
 
     @property
@@ -1033,7 +1033,7 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
 
 
 @pulumi.input_type
-class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
+calass ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1087,7 +1087,7 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentIdentityArgs:
+calass ResourcePolicyAssignmentIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1161,7 +1161,7 @@ class ResourcePolicyAssignmentIdentityArgs:
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentNonComplianceMessageArgs:
+calass ResourcePolicyAssignmentNonComplianceMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
@@ -1199,13 +1199,13 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentOverrideArgs:
+calass ResourcePolicyAssignmentOverrideArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArrgs']]]] = None):
         """
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArrgs']]] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -1225,19 +1225,19 @@ class ResourcePolicyAssignmentOverrideArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArrgs']]]]:
         """
         One or more `override_selector` as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArrgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentOverrideSelectorArgs:
+calass ResourcePolicyAssignmentOverrideSelectorArrgs:
     def __init__(__self__, *,
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -1292,12 +1292,12 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentResourceSelectorArgs:
+calass ResourcePolicyAssignmentResourceSelectorArrgs:
     def __init__(__self__, *,
-                 selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]],
+                 selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArrgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1306,14 +1306,14 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]]:
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArrgs']]]:
         """
         One or more `resource_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]]):
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArrgs']]]):
         pulumi.set(self, "selectors", value)
 
     @property
@@ -1330,7 +1330,7 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
 
 
 @pulumi.input_type
-class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
+calass ResourcePolicyAssignmentResourceSelectorSelectorArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1384,7 +1384,7 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
 
 
 @pulumi.input_type
-class ResourceProviderRegistrationFeatureArgs:
+calass ResourceProviderRegistrationFeatureArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  registered: pulumi.Input[bool]):
@@ -1417,7 +1417,7 @@ class ResourceProviderRegistrationFeatureArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementExportExportDataOptionsArgs:
+calass SubscriptionCostManagementExportExportDataOptionsArrgs:
     def __init__(__self__, *,
                  time_frame: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -1454,7 +1454,7 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementExportExportDataStorageLocationArgs:
+calass SubscriptionCostManagementExportExportDataStorageLocationArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  root_folder_path: pulumi.Input[str]):
@@ -1495,17 +1495,17 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewDatasetArgs:
+calass SubscriptionCostManagementViewDatasetArrgs:
     def __init__(__self__, *,
-                 aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]],
+                 aggregations: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArrgs']]],
                  granularity: pulumi.Input[str],
-                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
-                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None):
+                 groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArrgs']]]] = None,
+                 sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]] aggregations: One or more `aggregation` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArrgs']]] aggregations: One or more `aggregation` blocks as defined above.
         :param pulumi.Input[str] granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]] groupings: One or more `grouping` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArrgs']]] groupings: One or more `grouping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArrgs']]] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "granularity", granularity)
@@ -1516,14 +1516,14 @@ class SubscriptionCostManagementViewDatasetArgs:
 
     @property
     @pulumi.getter
-    def aggregations(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]]:
+    def aggregations(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArrgs']]]:
         """
         One or more `aggregation` blocks as defined above.
         """
         return pulumi.get(self, "aggregations")
 
     @aggregations.setter
-    def aggregations(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArgs']]]):
+    def aggregations(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetAggregationArrgs']]]):
         pulumi.set(self, "aggregations", value)
 
     @property
@@ -1540,31 +1540,31 @@ class SubscriptionCostManagementViewDatasetArgs:
 
     @property
     @pulumi.getter
-    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]:
+    def groupings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArrgs']]]]:
         """
         One or more `grouping` blocks as defined below.
         """
         return pulumi.get(self, "groupings")
 
     @groupings.setter
-    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]):
+    def groupings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArrgs']]]]):
         pulumi.set(self, "groupings", value)
 
     @property
     @pulumi.getter
-    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]:
+    def sortings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArrgs']]]]:
         """
         One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         return pulumi.get(self, "sortings")
 
     @sortings.setter
-    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]):
+    def sortings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArrgs']]]]):
         pulumi.set(self, "sortings", value)
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewDatasetAggregationArgs:
+calass SubscriptionCostManagementViewDatasetAggregationArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -1601,7 +1601,7 @@ class SubscriptionCostManagementViewDatasetAggregationArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewDatasetGroupingArgs:
+calass SubscriptionCostManagementViewDatasetGroupingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -1638,7 +1638,7 @@ class SubscriptionCostManagementViewDatasetGroupingArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewDatasetSortingArgs:
+calass SubscriptionCostManagementViewDatasetSortingArrgs:
     def __init__(__self__, *,
                  direction: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -1675,7 +1675,7 @@ class SubscriptionCostManagementViewDatasetSortingArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewKpiArgs:
+calass SubscriptionCostManagementViewKpiArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -1697,7 +1697,7 @@ class SubscriptionCostManagementViewKpiArgs:
 
 
 @pulumi.input_type
-class SubscriptionCostManagementViewPivotArgs:
+calass SubscriptionCostManagementViewPivotArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -1734,7 +1734,7 @@ class SubscriptionCostManagementViewPivotArgs:
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentIdentityArgs:
+calass SubscriptionPolicyAssignmentIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1808,7 +1808,7 @@ class SubscriptionPolicyAssignmentIdentityArgs:
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
+calass SubscriptionPolicyAssignmentNonComplianceMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
@@ -1846,13 +1846,13 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentOverrideArgs:
+calass SubscriptionPolicyAssignmentOverrideArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArrgs']]]] = None):
         """
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArrgs']]] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -1872,19 +1872,19 @@ class SubscriptionPolicyAssignmentOverrideArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArrgs']]]]:
         """
         One or more `override_selector` as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArrgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentOverrideSelectorArgs:
+calass SubscriptionPolicyAssignmentOverrideSelectorArrgs:
     def __init__(__self__, *,
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -1939,12 +1939,12 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentResourceSelectorArgs:
+calass SubscriptionPolicyAssignmentResourceSelectorArrgs:
     def __init__(__self__, *,
-                 selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]],
+                 selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1953,14 +1953,14 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]]:
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs']]]:
         """
         One or more `resource_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]]):
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs']]]):
         pulumi.set(self, "selectors", value)
 
     @property
@@ -1977,7 +1977,7 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
 
 
 @pulumi.input_type
-class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
+calass SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

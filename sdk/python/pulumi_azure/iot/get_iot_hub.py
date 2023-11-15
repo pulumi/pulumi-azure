@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIotHubResult:
+calass GetIotHubResult:
     """
     A collection of values returned by getIotHub.
     """
@@ -82,7 +82,7 @@ class GetIotHubResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIotHubResult(GetIotHubResult):
+calass AwaitableGetIotHubResult(GetIotHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

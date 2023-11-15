@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPolicyFileshareResult:
+calass GetPolicyFileshareResult:
     """
     A collection of values returned by getPolicyFileshare.
     """
@@ -59,7 +59,7 @@ class GetPolicyFileshareResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetPolicyFileshareResult(GetPolicyFileshareResult):
+calass AwaitableGetPolicyFileshareResult(GetPolicyFileshareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

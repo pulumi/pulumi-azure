@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomerManagedKeyArgs', 'CustomerManagedKey']
+__all__ = ['CustomerManagedKeyArrgs', 'CustomerManagedKey']
 
 @pulumi.input_type
-class CustomerManagedKeyArgs:
+calass CustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
@@ -126,7 +126,7 @@ class CustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class _CustomerManagedKeyState:
+calass _CustomerManagedKeyState:
     def __init__(__self__, *,
                  federated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -241,7 +241,7 @@ class _CustomerManagedKeyState:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-class CustomerManagedKey(pulumi.CustomResource):
+calass CustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -278,7 +278,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         storage = azure.keyvault.AccessPolicy("storage",
@@ -356,7 +356,7 @@ class CustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomerManagedKeyArgs,
+                 args: CustomerManagedKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a Storage Account.
@@ -382,7 +382,7 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         storage = azure.keyvault.AccessPolicy("storage",
@@ -448,12 +448,12 @@ class CustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param CustomerManagedKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerManagedKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -476,7 +476,7 @@ class CustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomerManagedKeyArgs.__new__(CustomerManagedKeyArgs)
+            __props__ = CustomerManagedKeyArrgs.__new__(CustomerManagedKeyArrgs)
 
             __props__.__dict__["federated_identity_client_id"] = federated_identity_client_id
             if key_name is None and not opts.urn:

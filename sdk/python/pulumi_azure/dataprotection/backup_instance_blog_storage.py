@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BackupInstanceBlogStorageArgs', 'BackupInstanceBlogStorage']
+__all__ = ['BackupInstanceBlogStorageArrgs', 'BackupInstanceBlogStorage']
 
 @pulumi.input_type
-class BackupInstanceBlogStorageArgs:
+calass BackupInstanceBlogStorageArrgs:
     def __init__(__self__, *,
                  backup_policy_id: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class BackupInstanceBlogStorageArgs:
 
 
 @pulumi.input_type
-class _BackupInstanceBlogStorageState:
+calass _BackupInstanceBlogStorageState:
     def __init__(__self__, *,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _BackupInstanceBlogStorageState:
         pulumi.set(self, "vault_id", value)
 
 
-class BackupInstanceBlogStorage(pulumi.CustomResource):
+calass BackupInstanceBlogStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -215,7 +215,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
+            identity=azure.dataprotection.BackupVaultIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -253,7 +253,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupInstanceBlogStorageArgs,
+                 args: BackupInstanceBlogStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance Blob Storage.
@@ -275,7 +275,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
+            identity=azure.dataprotection.BackupVaultIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -302,12 +302,12 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackupInstanceBlogStorageArgs args: The arguments to use to populate this resource's properties.
+        :param BackupInstanceBlogStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupInstanceBlogStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupInstanceBlogStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,7 +328,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupInstanceBlogStorageArgs.__new__(BackupInstanceBlogStorageArgs)
+            __props__ = BackupInstanceBlogStorageArrgs.__new__(BackupInstanceBlogStorageArrgs)
 
             if backup_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_id'")

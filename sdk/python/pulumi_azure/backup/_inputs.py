@@ -10,39 +10,39 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PolicyFileShareBackupArgs',
-    'PolicyFileShareBackupHourlyArgs',
-    'PolicyFileShareRetentionDailyArgs',
-    'PolicyFileShareRetentionMonthlyArgs',
-    'PolicyFileShareRetentionWeeklyArgs',
-    'PolicyFileShareRetentionYearlyArgs',
-    'PolicyVMBackupArgs',
-    'PolicyVMInstantRestoreResourceGroupArgs',
-    'PolicyVMRetentionDailyArgs',
-    'PolicyVMRetentionMonthlyArgs',
-    'PolicyVMRetentionWeeklyArgs',
-    'PolicyVMRetentionYearlyArgs',
-    'PolicyVMWorkloadProtectionPolicyArgs',
-    'PolicyVMWorkloadProtectionPolicyBackupArgs',
-    'PolicyVMWorkloadProtectionPolicyRetentionDailyArgs',
-    'PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs',
-    'PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs',
-    'PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs',
-    'PolicyVMWorkloadProtectionPolicySimpleRetentionArgs',
-    'PolicyVMWorkloadSettingsArgs',
+    'PolicyFileShareBackupArrgs',
+    'PolicyFileShareBackupHourlyArrgs',
+    'PolicyFileShareRetentionDailyArrgs',
+    'PolicyFileShareRetentionMonthlyArrgs',
+    'PolicyFileShareRetentionWeeklyArrgs',
+    'PolicyFileShareRetentionYearlyArrgs',
+    'PolicyVMBackupArrgs',
+    'PolicyVMInstantRestoreResourceGroupArrgs',
+    'PolicyVMRetentionDailyArrgs',
+    'PolicyVMRetentionMonthlyArrgs',
+    'PolicyVMRetentionWeeklyArrgs',
+    'PolicyVMRetentionYearlyArrgs',
+    'PolicyVMWorkloadProtectionPolicyArrgs',
+    'PolicyVMWorkloadProtectionPolicyBackupArrgs',
+    'PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs',
+    'PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs',
+    'PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs',
+    'PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs',
+    'PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs',
+    'PolicyVMWorkloadSettingsArrgs',
 ]
 
 @pulumi.input_type
-class PolicyFileShareBackupArgs:
+calass PolicyFileShareBackupArrgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
-                 hourly: Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']] = None,
+                 hourly: Optional[pulumi.Input['PolicyFileShareBackupHourlyArrgs']] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
                
                > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
-        :param pulumi.Input['PolicyFileShareBackupHourlyArgs'] hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+        :param pulumi.Input['PolicyFileShareBackupHourlyArrgs'] hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         :param pulumi.Input[str] time: The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
                
                > **NOTE:** `time` is required when `frequency` is set to `Daily`.
@@ -69,14 +69,14 @@ class PolicyFileShareBackupArgs:
 
     @property
     @pulumi.getter
-    def hourly(self) -> Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']]:
+    def hourly(self) -> Optional[pulumi.Input['PolicyFileShareBackupHourlyArrgs']]:
         """
         A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         """
         return pulumi.get(self, "hourly")
 
     @hourly.setter
-    def hourly(self, value: Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']]):
+    def hourly(self, value: Optional[pulumi.Input['PolicyFileShareBackupHourlyArrgs']]):
         pulumi.set(self, "hourly", value)
 
     @property
@@ -95,7 +95,7 @@ class PolicyFileShareBackupArgs:
 
 
 @pulumi.input_type
-class PolicyFileShareBackupHourlyArgs:
+calass PolicyFileShareBackupHourlyArrgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  start_time: pulumi.Input[str],
@@ -147,7 +147,7 @@ class PolicyFileShareBackupHourlyArgs:
 
 
 @pulumi.input_type
-class PolicyFileShareRetentionDailyArgs:
+calass PolicyFileShareRetentionDailyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
@@ -169,7 +169,7 @@ class PolicyFileShareRetentionDailyArgs:
 
 
 @pulumi.input_type
-class PolicyFileShareRetentionMonthlyArgs:
+calass PolicyFileShareRetentionMonthlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -259,7 +259,7 @@ class PolicyFileShareRetentionMonthlyArgs:
 
 
 @pulumi.input_type
-class PolicyFileShareRetentionWeeklyArgs:
+calass PolicyFileShareRetentionWeeklyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -296,7 +296,7 @@ class PolicyFileShareRetentionWeeklyArgs:
 
 
 @pulumi.input_type
-class PolicyFileShareRetentionYearlyArgs:
+calass PolicyFileShareRetentionYearlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  months: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -401,7 +401,7 @@ class PolicyFileShareRetentionYearlyArgs:
 
 
 @pulumi.input_type
-class PolicyVMBackupArgs:
+calass PolicyVMBackupArrgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[str],
                  time: pulumi.Input[str],
@@ -490,7 +490,7 @@ class PolicyVMBackupArgs:
 
 
 @pulumi.input_type
-class PolicyVMInstantRestoreResourceGroupArgs:
+calass PolicyVMInstantRestoreResourceGroupArrgs:
     def __init__(__self__, *,
                  prefix: pulumi.Input[str],
                  suffix: Optional[pulumi.Input[str]] = None):
@@ -528,7 +528,7 @@ class PolicyVMInstantRestoreResourceGroupArgs:
 
 
 @pulumi.input_type
-class PolicyVMRetentionDailyArgs:
+calass PolicyVMRetentionDailyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
@@ -554,7 +554,7 @@ class PolicyVMRetentionDailyArgs:
 
 
 @pulumi.input_type
-class PolicyVMRetentionMonthlyArgs:
+calass PolicyVMRetentionMonthlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -644,7 +644,7 @@ class PolicyVMRetentionMonthlyArgs:
 
 
 @pulumi.input_type
-class PolicyVMRetentionWeeklyArgs:
+calass PolicyVMRetentionWeeklyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -681,7 +681,7 @@ class PolicyVMRetentionWeeklyArgs:
 
 
 @pulumi.input_type
-class PolicyVMRetentionYearlyArgs:
+calass PolicyVMRetentionYearlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  months: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -786,23 +786,23 @@ class PolicyVMRetentionYearlyArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyArgs:
+calass PolicyVMWorkloadProtectionPolicyArrgs:
     def __init__(__self__, *,
-                 backup: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgs'],
+                 backup: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArrgs'],
                  policy_type: pulumi.Input[str],
-                 retention_daily: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs']] = None,
-                 retention_monthly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs']] = None,
-                 retention_weekly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']] = None,
-                 retention_yearly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']] = None,
-                 simple_retention: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']] = None):
+                 retention_daily: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs']] = None,
+                 retention_monthly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs']] = None,
+                 retention_weekly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs']] = None,
+                 retention_yearly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs']] = None,
+                 simple_retention: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs']] = None):
         """
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgs'] backup: A `backup` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArrgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[str] policy_type: The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs'] retention_daily: A `retention_daily` block as defined below.
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs'] retention_monthly: A `retention_monthly` block as defined below.
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs'] retention_weekly: A `retention_weekly` block as defined below.
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs'] retention_yearly: A `retention_yearly` block as defined below.
-        :param pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs'] simple_retention: A `simple_retention` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs'] retention_daily: A `retention_daily` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs'] retention_monthly: A `retention_monthly` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs'] retention_weekly: A `retention_weekly` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs'] retention_yearly: A `retention_yearly` block as defined below.
+        :param pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs'] simple_retention: A `simple_retention` block as defined below.
         """
         pulumi.set(__self__, "backup", backup)
         pulumi.set(__self__, "policy_type", policy_type)
@@ -819,14 +819,14 @@ class PolicyVMWorkloadProtectionPolicyArgs:
 
     @property
     @pulumi.getter
-    def backup(self) -> pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgs']:
+    def backup(self) -> pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArrgs']:
         """
         A `backup` block as defined below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArgs']):
+    def backup(self, value: pulumi.Input['PolicyVMWorkloadProtectionPolicyBackupArrgs']):
         pulumi.set(self, "backup", value)
 
     @property
@@ -843,67 +843,67 @@ class PolicyVMWorkloadProtectionPolicyArgs:
 
     @property
     @pulumi.getter(name="retentionDaily")
-    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs']]:
+    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs']]:
         """
         A `retention_daily` block as defined below.
         """
         return pulumi.get(self, "retention_daily")
 
     @retention_daily.setter
-    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs']]):
+    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs']]):
         pulumi.set(self, "retention_daily", value)
 
     @property
     @pulumi.getter(name="retentionMonthly")
-    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs']]:
+    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs']]:
         """
         A `retention_monthly` block as defined below.
         """
         return pulumi.get(self, "retention_monthly")
 
     @retention_monthly.setter
-    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs']]):
+    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs']]):
         pulumi.set(self, "retention_monthly", value)
 
     @property
     @pulumi.getter(name="retentionWeekly")
-    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']]:
+    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs']]:
         """
         A `retention_weekly` block as defined below.
         """
         return pulumi.get(self, "retention_weekly")
 
     @retention_weekly.setter
-    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']]):
+    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs']]):
         pulumi.set(self, "retention_weekly", value)
 
     @property
     @pulumi.getter(name="retentionYearly")
-    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']]:
+    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs']]:
         """
         A `retention_yearly` block as defined below.
         """
         return pulumi.get(self, "retention_yearly")
 
     @retention_yearly.setter
-    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']]):
+    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs']]):
         pulumi.set(self, "retention_yearly", value)
 
     @property
     @pulumi.getter(name="simpleRetention")
-    def simple_retention(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']]:
+    def simple_retention(self) -> Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs']]:
         """
         A `simple_retention` block as defined below.
         """
         return pulumi.get(self, "simple_retention")
 
     @simple_retention.setter
-    def simple_retention(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']]):
+    def simple_retention(self, value: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs']]):
         pulumi.set(self, "simple_retention", value)
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyBackupArgs:
+calass PolicyVMWorkloadProtectionPolicyBackupArrgs:
     def __init__(__self__, *,
                  frequency: Optional[pulumi.Input[str]] = None,
                  frequency_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -974,7 +974,7 @@ class PolicyVMWorkloadProtectionPolicyBackupArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
+calass PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
@@ -996,7 +996,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
+calass PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  format_type: pulumi.Input[str],
@@ -1081,7 +1081,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
+calass PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  weekdays: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1118,7 +1118,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
+calass PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  format_type: pulumi.Input[str],
@@ -1218,7 +1218,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
+calass PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int]):
         """
@@ -1240,7 +1240,7 @@ class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
 
 
 @pulumi.input_type
-class PolicyVMWorkloadSettingsArgs:
+calass PolicyVMWorkloadSettingsArrgs:
     def __init__(__self__, *,
                  time_zone: pulumi.Input[str],
                  compression_enabled: Optional[pulumi.Input[bool]] = None):

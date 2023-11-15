@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSyncGroupResult:
+calass GetSyncGroupResult:
     """
     A collection of values returned by getSyncGroup.
     """
@@ -51,7 +51,7 @@ class GetSyncGroupResult:
         return pulumi.get(self, "storage_sync_id")
 
 
-class AwaitableGetSyncGroupResult(GetSyncGroupResult):
+calass AwaitableGetSyncGroupResult(GetSyncGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

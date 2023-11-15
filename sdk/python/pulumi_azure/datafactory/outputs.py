@@ -116,7 +116,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomDatasetLinkedService(dict):
+calass CustomDatasetLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -146,7 +146,7 @@ class CustomDatasetLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSink(dict):
+calass DataFlowSink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -178,12 +178,12 @@ class DataFlowSink(dict):
                  schema_linked_service: Optional['outputs.DataFlowSinkSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
-        :param 'DataFlowSinkDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'DataFlowSinkDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
-        :param 'DataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'DataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
-        :param 'DataFlowSinkRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param 'DataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        :param 'DataFlowSinkFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'DataFlowSinkLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
+        :param 'DataFlowSinkRejectedLinkedServiceArrgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param 'DataFlowSinkSchemaLinkedServiceArrgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -257,7 +257,7 @@ class DataFlowSink(dict):
 
 
 @pulumi.output_type
-class DataFlowSinkDataset(dict):
+calass DataFlowSinkDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -287,7 +287,7 @@ class DataFlowSinkDataset(dict):
 
 
 @pulumi.output_type
-class DataFlowSinkFlowlet(dict):
+calass DataFlowSinkFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -346,7 +346,7 @@ class DataFlowSinkFlowlet(dict):
 
 
 @pulumi.output_type
-class DataFlowSinkLinkedService(dict):
+calass DataFlowSinkLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -376,7 +376,7 @@ class DataFlowSinkLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSinkRejectedLinkedService(dict):
+calass DataFlowSinkRejectedLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -406,7 +406,7 @@ class DataFlowSinkRejectedLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSinkSchemaLinkedService(dict):
+calass DataFlowSinkSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -436,7 +436,7 @@ class DataFlowSinkSchemaLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSource(dict):
+calass DataFlowSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -468,12 +468,12 @@ class DataFlowSource(dict):
                  schema_linked_service: Optional['outputs.DataFlowSourceSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
-        :param 'DataFlowSourceDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'DataFlowSourceDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
-        :param 'DataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'DataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
-        :param 'DataFlowSourceRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param 'DataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        :param 'DataFlowSourceFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'DataFlowSourceLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
+        :param 'DataFlowSourceRejectedLinkedServiceArrgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param 'DataFlowSourceSchemaLinkedServiceArrgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -547,7 +547,7 @@ class DataFlowSource(dict):
 
 
 @pulumi.output_type
-class DataFlowSourceDataset(dict):
+calass DataFlowSourceDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -577,7 +577,7 @@ class DataFlowSourceDataset(dict):
 
 
 @pulumi.output_type
-class DataFlowSourceFlowlet(dict):
+calass DataFlowSourceFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -636,7 +636,7 @@ class DataFlowSourceFlowlet(dict):
 
 
 @pulumi.output_type
-class DataFlowSourceLinkedService(dict):
+calass DataFlowSourceLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -666,7 +666,7 @@ class DataFlowSourceLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSourceRejectedLinkedService(dict):
+calass DataFlowSourceRejectedLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -696,7 +696,7 @@ class DataFlowSourceRejectedLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowSourceSchemaLinkedService(dict):
+calass DataFlowSourceSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -726,7 +726,7 @@ class DataFlowSourceSchemaLinkedService(dict):
 
 
 @pulumi.output_type
-class DataFlowTransformation(dict):
+calass DataFlowTransformation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -752,10 +752,10 @@ class DataFlowTransformation(dict):
                  linked_service: Optional['outputs.DataFlowTransformationLinkedService'] = None):
         """
         :param str name: The name for the Data Flow transformation.
-        :param 'DataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'DataFlowTransformationDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow transformation.
-        :param 'DataFlowTransformationFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'DataFlowTransformationLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'DataFlowTransformationFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'DataFlowTransformationLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -809,7 +809,7 @@ class DataFlowTransformation(dict):
 
 
 @pulumi.output_type
-class DataFlowTransformationDataset(dict):
+calass DataFlowTransformationDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -839,7 +839,7 @@ class DataFlowTransformationDataset(dict):
 
 
 @pulumi.output_type
-class DataFlowTransformationFlowlet(dict):
+calass DataFlowTransformationFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -898,7 +898,7 @@ class DataFlowTransformationFlowlet(dict):
 
 
 @pulumi.output_type
-class DataFlowTransformationLinkedService(dict):
+calass DataFlowTransformationLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -928,7 +928,7 @@ class DataFlowTransformationLinkedService(dict):
 
 
 @pulumi.output_type
-class DatasetAzureBlobSchemaColumn(dict):
+calass DatasetAzureBlobSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -970,7 +970,7 @@ class DatasetAzureBlobSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetAzureSqlTableSchemaColumn(dict):
+calass DatasetAzureSqlTableSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1012,7 +1012,7 @@ class DatasetAzureSqlTableSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetBinaryAzureBlobStorageLocation(dict):
+calass DatasetBinaryAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1111,7 +1111,7 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
 
 
 @pulumi.output_type
-class DatasetBinaryCompression(dict):
+calass DatasetBinaryCompression(dict):
     def __init__(__self__, *,
                  type: str,
                  level: Optional[str] = None):
@@ -1141,7 +1141,7 @@ class DatasetBinaryCompression(dict):
 
 
 @pulumi.output_type
-class DatasetBinaryHttpServerLocation(dict):
+calass DatasetBinaryHttpServerLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1226,7 +1226,7 @@ class DatasetBinaryHttpServerLocation(dict):
 
 
 @pulumi.output_type
-class DatasetBinarySftpServerLocation(dict):
+calass DatasetBinarySftpServerLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1298,7 +1298,7 @@ class DatasetBinarySftpServerLocation(dict):
 
 
 @pulumi.output_type
-class DatasetCosmosDBApiSchemaColumn(dict):
+calass DatasetCosmosDBApiSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1340,7 +1340,7 @@ class DatasetCosmosDBApiSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetDelimitedTextAzureBlobFsLocation(dict):
+calass DatasetDelimitedTextAzureBlobFsLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1442,7 +1442,7 @@ class DatasetDelimitedTextAzureBlobFsLocation(dict):
 
 
 @pulumi.output_type
-class DatasetDelimitedTextAzureBlobStorageLocation(dict):
+calass DatasetDelimitedTextAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1541,7 +1541,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
 
 
 @pulumi.output_type
-class DatasetDelimitedTextHttpServerLocation(dict):
+calass DatasetDelimitedTextHttpServerLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1626,7 +1626,7 @@ class DatasetDelimitedTextHttpServerLocation(dict):
 
 
 @pulumi.output_type
-class DatasetDelimitedTextSchemaColumn(dict):
+calass DatasetDelimitedTextSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1668,7 +1668,7 @@ class DatasetDelimitedTextSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetHttpSchemaColumn(dict):
+calass DatasetHttpSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1710,7 +1710,7 @@ class DatasetHttpSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetJsonAzureBlobStorageLocation(dict):
+calass DatasetJsonAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1807,7 +1807,7 @@ class DatasetJsonAzureBlobStorageLocation(dict):
 
 
 @pulumi.output_type
-class DatasetJsonHttpServerLocation(dict):
+calass DatasetJsonHttpServerLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1892,7 +1892,7 @@ class DatasetJsonHttpServerLocation(dict):
 
 
 @pulumi.output_type
-class DatasetJsonSchemaColumn(dict):
+calass DatasetJsonSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1934,7 +1934,7 @@ class DatasetJsonSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetMysqlSchemaColumn(dict):
+calass DatasetMysqlSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1976,7 +1976,7 @@ class DatasetMysqlSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetParquetAzureBlobFsLocation(dict):
+calass DatasetParquetAzureBlobFsLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2078,7 +2078,7 @@ class DatasetParquetAzureBlobFsLocation(dict):
 
 
 @pulumi.output_type
-class DatasetParquetAzureBlobStorageLocation(dict):
+calass DatasetParquetAzureBlobStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2177,7 +2177,7 @@ class DatasetParquetAzureBlobStorageLocation(dict):
 
 
 @pulumi.output_type
-class DatasetParquetHttpServerLocation(dict):
+calass DatasetParquetHttpServerLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2263,7 +2263,7 @@ class DatasetParquetHttpServerLocation(dict):
 
 
 @pulumi.output_type
-class DatasetParquetSchemaColumn(dict):
+calass DatasetParquetSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -2305,7 +2305,7 @@ class DatasetParquetSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetPostgresqlSchemaColumn(dict):
+calass DatasetPostgresqlSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -2347,7 +2347,7 @@ class DatasetPostgresqlSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetSnowflakeSchemaColumn(dict):
+calass DatasetSnowflakeSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  precision: Optional[int] = None,
@@ -2401,7 +2401,7 @@ class DatasetSnowflakeSchemaColumn(dict):
 
 
 @pulumi.output_type
-class DatasetSqlServerTableSchemaColumn(dict):
+calass DatasetSqlServerTableSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -2443,7 +2443,7 @@ class DatasetSqlServerTableSchemaColumn(dict):
 
 
 @pulumi.output_type
-class FactoryGithubConfiguration(dict):
+calass FactoryGithubConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2548,7 +2548,7 @@ class FactoryGithubConfiguration(dict):
 
 
 @pulumi.output_type
-class FactoryGlobalParameter(dict):
+calass FactoryGlobalParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -2592,7 +2592,7 @@ class FactoryGlobalParameter(dict):
 
 
 @pulumi.output_type
-class FactoryIdentity(dict):
+calass FactoryIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2671,7 +2671,7 @@ class FactoryIdentity(dict):
 
 
 @pulumi.output_type
-class FactoryVstsConfiguration(dict):
+calass FactoryVstsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2785,7 +2785,7 @@ class FactoryVstsConfiguration(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSink(dict):
+calass FlowletDataFlowSink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2817,12 +2817,12 @@ class FlowletDataFlowSink(dict):
                  schema_linked_service: Optional['outputs.FlowletDataFlowSinkSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
-        :param 'FlowletDataFlowSinkDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'FlowletDataFlowSinkDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
-        :param 'FlowletDataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'FlowletDataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
-        :param 'FlowletDataFlowSinkRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param 'FlowletDataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        :param 'FlowletDataFlowSinkFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowSinkLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSinkRejectedLinkedServiceArrgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param 'FlowletDataFlowSinkSchemaLinkedServiceArrgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -2896,7 +2896,7 @@ class FlowletDataFlowSink(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSinkDataset(dict):
+calass FlowletDataFlowSinkDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -2926,7 +2926,7 @@ class FlowletDataFlowSinkDataset(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSinkFlowlet(dict):
+calass FlowletDataFlowSinkFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2985,7 +2985,7 @@ class FlowletDataFlowSinkFlowlet(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSinkLinkedService(dict):
+calass FlowletDataFlowSinkLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3015,7 +3015,7 @@ class FlowletDataFlowSinkLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSinkRejectedLinkedService(dict):
+calass FlowletDataFlowSinkRejectedLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3045,7 +3045,7 @@ class FlowletDataFlowSinkRejectedLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSinkSchemaLinkedService(dict):
+calass FlowletDataFlowSinkSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3075,7 +3075,7 @@ class FlowletDataFlowSinkSchemaLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSource(dict):
+calass FlowletDataFlowSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3107,12 +3107,12 @@ class FlowletDataFlowSource(dict):
                  schema_linked_service: Optional['outputs.FlowletDataFlowSourceSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
-        :param 'FlowletDataFlowSourceDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'FlowletDataFlowSourceDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
-        :param 'FlowletDataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'FlowletDataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
-        :param 'FlowletDataFlowSourceRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param 'FlowletDataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        :param 'FlowletDataFlowSourceFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowSourceLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSourceRejectedLinkedServiceArrgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param 'FlowletDataFlowSourceSchemaLinkedServiceArrgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -3186,7 +3186,7 @@ class FlowletDataFlowSource(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSourceDataset(dict):
+calass FlowletDataFlowSourceDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3216,7 +3216,7 @@ class FlowletDataFlowSourceDataset(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSourceFlowlet(dict):
+calass FlowletDataFlowSourceFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3275,7 +3275,7 @@ class FlowletDataFlowSourceFlowlet(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSourceLinkedService(dict):
+calass FlowletDataFlowSourceLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3305,7 +3305,7 @@ class FlowletDataFlowSourceLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSourceRejectedLinkedService(dict):
+calass FlowletDataFlowSourceRejectedLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3335,7 +3335,7 @@ class FlowletDataFlowSourceRejectedLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowSourceSchemaLinkedService(dict):
+calass FlowletDataFlowSourceSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3365,7 +3365,7 @@ class FlowletDataFlowSourceSchemaLinkedService(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowTransformation(dict):
+calass FlowletDataFlowTransformation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3391,10 +3391,10 @@ class FlowletDataFlowTransformation(dict):
                  linked_service: Optional['outputs.FlowletDataFlowTransformationLinkedService'] = None):
         """
         :param str name: The name for the Data Flow transformation.
-        :param 'FlowletDataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
+        :param 'FlowletDataFlowTransformationDatasetArrgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow transformation.
-        :param 'FlowletDataFlowTransformationFlowletArgs' flowlet: A `flowlet` block as defined below.
-        :param 'FlowletDataFlowTransformationLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowTransformationFlowletArrgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowTransformationLinkedServiceArrgs' linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -3448,7 +3448,7 @@ class FlowletDataFlowTransformation(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowTransformationDataset(dict):
+calass FlowletDataFlowTransformationDataset(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3478,7 +3478,7 @@ class FlowletDataFlowTransformationDataset(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowTransformationFlowlet(dict):
+calass FlowletDataFlowTransformationFlowlet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3537,7 +3537,7 @@ class FlowletDataFlowTransformationFlowlet(dict):
 
 
 @pulumi.output_type
-class FlowletDataFlowTransformationLinkedService(dict):
+calass FlowletDataFlowTransformationLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -3567,7 +3567,7 @@ class FlowletDataFlowTransformationLinkedService(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeManagedCatalogInfo(dict):
+calass IntegrationRuntimeManagedCatalogInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3644,7 +3644,7 @@ class IntegrationRuntimeManagedCatalogInfo(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeManagedCustomSetupScript(dict):
+calass IntegrationRuntimeManagedCustomSetupScript(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3692,7 +3692,7 @@ class IntegrationRuntimeManagedCustomSetupScript(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeManagedVnetIntegration(dict):
+calass IntegrationRuntimeManagedVnetIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3740,7 +3740,7 @@ class IntegrationRuntimeManagedVnetIntegration(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
+calass IntegrationRuntimeSelfHostedRbacAuthorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3783,7 +3783,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisCatalogInfo(dict):
+calass IntegrationRuntimeSsisCatalogInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3888,7 +3888,7 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisCustomSetupScript(dict):
+calass IntegrationRuntimeSsisCustomSetupScript(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3936,7 +3936,7 @@ class IntegrationRuntimeSsisCustomSetupScript(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressCustomSetup(dict):
+calass IntegrationRuntimeSsisExpressCustomSetup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3962,8 +3962,8 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
                  environment: Optional[Mapping[str, str]] = None,
                  powershell_version: Optional[str] = None):
         """
-        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs'] command_keys: One or more `command_key` blocks as defined below.
-        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupComponentArgs'] components: One or more `component` blocks as defined below.
+        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs'] command_keys: One or more `command_key` blocks as defined below.
+        :param Sequence['IntegrationRuntimeSsisExpressCustomSetupComponentArrgs'] components: One or more `component` blocks as defined below.
         :param Mapping[str, str] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
         :param str powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
                
@@ -4014,7 +4014,7 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
+calass IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4044,7 +4044,7 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
         """
         :param str target_name: The target computer or domain name.
         :param str user_name: The username for the target device.
-        :param 'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs' key_vault_password: A `key_vault_secret_reference` block as defined below.
+        :param 'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs' key_vault_password: A `key_vault_secret_reference` block as defined below.
         :param str password: The password for the target device.
         """
         pulumi.set(__self__, "target_name", target_name)
@@ -4088,7 +4088,7 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
+calass IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4162,7 +4162,7 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
+calass IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4186,7 +4186,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
                  license: Optional[str] = None):
         """
         :param str name: The Component Name installed for the Azure-SSIS Integration Runtime.
-        :param 'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs' key_vault_license: A `key_vault_secret_reference` block as defined below.
+        :param 'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs' key_vault_license: A `key_vault_secret_reference` block as defined below.
         :param str license: The license used for the Component.
         """
         pulumi.set(__self__, "name", name)
@@ -4221,7 +4221,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
+calass IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4295,7 +4295,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisExpressVnetIntegration(dict):
+calass IntegrationRuntimeSsisExpressVnetIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4330,7 +4330,7 @@ class IntegrationRuntimeSsisExpressVnetIntegration(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisPackageStore(dict):
+calass IntegrationRuntimeSsisPackageStore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4376,7 +4376,7 @@ class IntegrationRuntimeSsisPackageStore(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisProxy(dict):
+calass IntegrationRuntimeSsisProxy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4436,7 +4436,7 @@ class IntegrationRuntimeSsisProxy(dict):
 
 
 @pulumi.output_type
-class IntegrationRuntimeSsisVnetIntegration(dict):
+calass IntegrationRuntimeSsisVnetIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4518,7 +4518,7 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
 
 
 @pulumi.output_type
-class LinkedCustomServiceIntegrationRuntime(dict):
+calass LinkedCustomServiceIntegrationRuntime(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -4548,7 +4548,7 @@ class LinkedCustomServiceIntegrationRuntime(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
+calass LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4596,7 +4596,7 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
+calass LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4644,7 +4644,7 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureDatabricksInstancePool(dict):
+calass LinkedServiceAzureDatabricksInstancePool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4720,7 +4720,7 @@ class LinkedServiceAzureDatabricksInstancePool(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureDatabricksKeyVaultPassword(dict):
+calass LinkedServiceAzureDatabricksKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4768,7 +4768,7 @@ class LinkedServiceAzureDatabricksKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureDatabricksNewClusterConfig(dict):
+calass LinkedServiceAzureDatabricksNewClusterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4928,7 +4928,7 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
+calass LinkedServiceAzureFileStorageKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4976,7 +4976,7 @@ class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureFunctionKeyVaultKey(dict):
+calass LinkedServiceAzureFunctionKeyVaultKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5024,7 +5024,7 @@ class LinkedServiceAzureFunctionKeyVaultKey(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
+calass LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5072,7 +5072,7 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
 
 
 @pulumi.output_type
-class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
+calass LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5120,7 +5120,7 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class LinkedServiceOdataBasicAuthentication(dict):
+calass LinkedServiceOdataBasicAuthentication(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -5149,7 +5149,7 @@ class LinkedServiceOdataBasicAuthentication(dict):
 
 
 @pulumi.output_type
-class LinkedServiceOdbcBasicAuthentication(dict):
+calass LinkedServiceOdbcBasicAuthentication(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -5178,7 +5178,7 @@ class LinkedServiceOdbcBasicAuthentication(dict):
 
 
 @pulumi.output_type
-class LinkedServiceSnowflakeKeyVaultPassword(dict):
+calass LinkedServiceSnowflakeKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5226,7 +5226,7 @@ class LinkedServiceSnowflakeKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class LinkedServiceSqlServerKeyVaultConnectionString(dict):
+calass LinkedServiceSqlServerKeyVaultConnectionString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5274,7 +5274,7 @@ class LinkedServiceSqlServerKeyVaultConnectionString(dict):
 
 
 @pulumi.output_type
-class LinkedServiceSqlServerKeyVaultPassword(dict):
+calass LinkedServiceSqlServerKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5322,7 +5322,7 @@ class LinkedServiceSqlServerKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class LinkedServiceSynapseKeyVaultPassword(dict):
+calass LinkedServiceSynapseKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5370,7 +5370,7 @@ class LinkedServiceSynapseKeyVaultPassword(dict):
 
 
 @pulumi.output_type
-class TriggerBlobEventPipeline(dict):
+calass TriggerBlobEventPipeline(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -5400,7 +5400,7 @@ class TriggerBlobEventPipeline(dict):
 
 
 @pulumi.output_type
-class TriggerCustomEventPipeline(dict):
+calass TriggerCustomEventPipeline(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -5430,7 +5430,7 @@ class TriggerCustomEventPipeline(dict):
 
 
 @pulumi.output_type
-class TriggerSchedulePipeline(dict):
+calass TriggerSchedulePipeline(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -5460,7 +5460,7 @@ class TriggerSchedulePipeline(dict):
 
 
 @pulumi.output_type
-class TriggerScheduleSchedule(dict):
+calass TriggerScheduleSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5491,7 +5491,7 @@ class TriggerScheduleSchedule(dict):
         :param Sequence[str] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
         :param Sequence[int] hours: Hours of the day on which the trigger is scheduled.
         :param Sequence[int] minutes: Minutes of the hour on which the trigger is scheduled.
-        :param Sequence['TriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        :param Sequence['TriggerScheduleScheduleMonthlyArrgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         if days_of_months is not None:
             pulumi.set(__self__, "days_of_months", days_of_months)
@@ -5546,7 +5546,7 @@ class TriggerScheduleSchedule(dict):
 
 
 @pulumi.output_type
-class TriggerScheduleScheduleMonthly(dict):
+calass TriggerScheduleScheduleMonthly(dict):
     def __init__(__self__, *,
                  weekday: str,
                  week: Optional[int] = None):
@@ -5576,7 +5576,7 @@ class TriggerScheduleScheduleMonthly(dict):
 
 
 @pulumi.output_type
-class TriggerTumblingWindowPipeline(dict):
+calass TriggerTumblingWindowPipeline(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -5606,7 +5606,7 @@ class TriggerTumblingWindowPipeline(dict):
 
 
 @pulumi.output_type
-class TriggerTumblingWindowRetry(dict):
+calass TriggerTumblingWindowRetry(dict):
     def __init__(__self__, *,
                  count: int,
                  interval: Optional[int] = None):
@@ -5636,7 +5636,7 @@ class TriggerTumblingWindowRetry(dict):
 
 
 @pulumi.output_type
-class TriggerTumblingWindowTriggerDependency(dict):
+calass TriggerTumblingWindowTriggerDependency(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5696,7 +5696,7 @@ class TriggerTumblingWindowTriggerDependency(dict):
 
 
 @pulumi.output_type
-class GetFactoryGithubConfigurationResult(dict):
+calass GetFactoryGithubConfigurationResult(dict):
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
@@ -5758,7 +5758,7 @@ class GetFactoryGithubConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetFactoryIdentityResult(dict):
+calass GetFactoryIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -5809,7 +5809,7 @@ class GetFactoryIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetFactoryVstsConfigurationResult(dict):
+calass GetFactoryVstsConfigurationResult(dict):
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,

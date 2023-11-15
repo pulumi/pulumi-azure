@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccessConnectorIdentityArgs',
-    'WorkspaceCustomParametersArgs',
-    'WorkspaceManagedDiskIdentityArgs',
-    'WorkspaceStorageAccountIdentityArgs',
+    'AccessConnectorIdentityArrgs',
+    'WorkspaceCustomParametersArrgs',
+    'WorkspaceManagedDiskIdentityArrgs',
+    'WorkspaceStorageAccountIdentityArrgs',
 ]
 
 @pulumi.input_type
-class AccessConnectorIdentityArgs:
+calass AccessConnectorIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -91,7 +91,7 @@ class AccessConnectorIdentityArgs:
 
 
 @pulumi.input_type
-class WorkspaceCustomParametersArgs:
+calass WorkspaceCustomParametersArrgs:
     def __init__(__self__, *,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -298,7 +298,7 @@ class WorkspaceCustomParametersArgs:
 
 
 @pulumi.input_type
-class WorkspaceManagedDiskIdentityArgs:
+calass WorkspaceManagedDiskIdentityArrgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -353,7 +353,7 @@ class WorkspaceManagedDiskIdentityArgs:
 
 
 @pulumi.input_type
-class WorkspaceStorageAccountIdentityArgs:
+calass WorkspaceStorageAccountIdentityArrgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,

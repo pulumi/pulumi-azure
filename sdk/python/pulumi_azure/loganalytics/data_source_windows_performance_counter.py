@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataSourceWindowsPerformanceCounterArgs', 'DataSourceWindowsPerformanceCounter']
+__all__ = ['DataSourceWindowsPerformanceCounterArrgs', 'DataSourceWindowsPerformanceCounter']
 
 @pulumi.input_type
-class DataSourceWindowsPerformanceCounterArgs:
+calass DataSourceWindowsPerformanceCounterArrgs:
     def __init__(__self__, *,
                  counter_name: pulumi.Input[str],
                  instance_name: pulumi.Input[str],
@@ -126,7 +126,7 @@ class DataSourceWindowsPerformanceCounterArgs:
 
 
 @pulumi.input_type
-class _DataSourceWindowsPerformanceCounterState:
+calass _DataSourceWindowsPerformanceCounterState:
     def __init__(__self__, *,
                  counter_name: Optional[pulumi.Input[str]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
@@ -245,7 +245,7 @@ class _DataSourceWindowsPerformanceCounterState:
         pulumi.set(self, "workspace_name", value)
 
 
-class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
+calass DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -303,7 +303,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataSourceWindowsPerformanceCounterArgs,
+                 args: DataSourceWindowsPerformanceCounterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
@@ -337,12 +337,12 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataSourceWindowsPerformanceCounterArgs args: The arguments to use to populate this resource's properties.
+        :param DataSourceWindowsPerformanceCounterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataSourceWindowsPerformanceCounterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataSourceWindowsPerformanceCounterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataSourceWindowsPerformanceCounterArgs.__new__(DataSourceWindowsPerformanceCounterArgs)
+            __props__ = DataSourceWindowsPerformanceCounterArrgs.__new__(DataSourceWindowsPerformanceCounterArrgs)
 
             if counter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'counter_name'")

@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DiskEncryptionSetArgs', 'DiskEncryptionSet']
+__all__ = ['DiskEncryptionSetArrgs', 'DiskEncryptionSet']
 
 @pulumi.input_type
-class DiskEncryptionSetArgs:
+calass DiskEncryptionSetArrgs:
     def __init__(__self__, *,
-                 identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
+                 identity: pulumi.Input['DiskEncryptionSetIdentityArrgs'],
                  key_vault_key_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -27,7 +27,7 @@ class DiskEncryptionSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DiskEncryptionSet resource.
-        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['DiskEncryptionSetIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
@@ -59,14 +59,14 @@ class DiskEncryptionSetArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['DiskEncryptionSetIdentityArgs']:
+    def identity(self) -> pulumi.Input['DiskEncryptionSetIdentityArrgs']:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['DiskEncryptionSetIdentityArgs']):
+    def identity(self, value: pulumi.Input['DiskEncryptionSetIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -169,12 +169,12 @@ class DiskEncryptionSetArgs:
 
 
 @pulumi.input_type
-class _DiskEncryptionSetState:
+calass _DiskEncryptionSetState:
     def __init__(__self__, *,
                  auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArrgs']] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _DiskEncryptionSetState:
         Input properties used for looking up and filtering DiskEncryptionSet resources.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['DiskEncryptionSetIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
@@ -254,14 +254,14 @@ class _DiskEncryptionSetState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['DiskEncryptionSetIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['DiskEncryptionSetIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -342,7 +342,7 @@ class _DiskEncryptionSetState:
         pulumi.set(self, "tags", value)
 
 
-class DiskEncryptionSet(pulumi.CustomResource):
+calass DiskEncryptionSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -350,7 +350,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArrgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -410,7 +410,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             key_vault_key_id=example_key.id,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+            identity=azure.compute.DiskEncryptionSetIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
@@ -482,7 +482,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             location=example_resource_group.location,
             key_vault_key_id=example_key.versionless_id,
             auto_key_rotation_enabled=True,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+            identity=azure.compute.DiskEncryptionSetIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
@@ -518,7 +518,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
@@ -534,7 +534,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DiskEncryptionSetArgs,
+                 args: DiskEncryptionSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Disk Encryption Set.
@@ -589,7 +589,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             key_vault_key_id=example_key.id,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+            identity=azure.compute.DiskEncryptionSetIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
@@ -661,7 +661,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             location=example_resource_group.location,
             key_vault_key_id=example_key.versionless_id,
             auto_key_rotation_enabled=True,
-            identity=azure.compute.DiskEncryptionSetIdentityArgs(
+            identity=azure.compute.DiskEncryptionSetIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_disk_access_policy = azure.keyvault.AccessPolicy("example-diskAccessPolicy",
@@ -694,12 +694,12 @@ class DiskEncryptionSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.
+        :param DiskEncryptionSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DiskEncryptionSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DiskEncryptionSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -711,7 +711,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
                  federated_client_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArrgs']]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -724,7 +724,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
+            __props__ = DiskEncryptionSetArrgs.__new__(DiskEncryptionSetArrgs)
 
             __props__.__dict__["auto_key_rotation_enabled"] = auto_key_rotation_enabled
             __props__.__dict__["encryption_type"] = encryption_type
@@ -755,7 +755,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
             encryption_type: Optional[pulumi.Input[str]] = None,
             federated_client_id: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArrgs']]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             key_vault_key_url: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -771,7 +771,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DiskEncryptionSetIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).

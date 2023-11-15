@@ -10,26 +10,26 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PolicyCustomRuleArgs',
-    'PolicyCustomRuleMatchConditionArgs',
-    'PolicyCustomRuleMatchConditionMatchVariableArgs',
-    'PolicyManagedRulesArgs',
-    'PolicyManagedRulesExclusionArgs',
-    'PolicyManagedRulesExclusionExcludedRuleSetArgs',
-    'PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs',
-    'PolicyManagedRulesManagedRuleSetArgs',
-    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs',
-    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs',
-    'PolicyPolicySettingsArgs',
-    'PolicyPolicySettingsLogScrubbingArgs',
-    'PolicyPolicySettingsLogScrubbingRuleArgs',
+    'PolicyCustomRuleArrgs',
+    'PolicyCustomRuleMatchConditionArrgs',
+    'PolicyCustomRuleMatchConditionMatchVariableArrgs',
+    'PolicyManagedRulesArrgs',
+    'PolicyManagedRulesExclusionArrgs',
+    'PolicyManagedRulesExclusionExcludedRuleSetArrgs',
+    'PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs',
+    'PolicyManagedRulesManagedRuleSetArrgs',
+    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs',
+    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs',
+    'PolicyPolicySettingsArrgs',
+    'PolicyPolicySettingsLogScrubbingArrgs',
+    'PolicyPolicySettingsLogScrubbingRuleArrgs',
 ]
 
 @pulumi.input_type
-class PolicyCustomRuleArgs:
+calass PolicyCustomRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 match_conditions: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]],
+                 match_conditions: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArrgs']]],
                  priority: pulumi.Input[int],
                  rule_type: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -39,7 +39,7 @@ class PolicyCustomRuleArgs:
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] action: Type of action. Possible values are `Allow`, `Block` and `Log`.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArrgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
@@ -77,14 +77,14 @@ class PolicyCustomRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]]:
+    def match_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArrgs']]]:
         """
         One or more `match_conditions` blocks as defined below.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]]):
+    def match_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArrgs']]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -173,15 +173,15 @@ class PolicyCustomRuleArgs:
 
 
 @pulumi.input_type
-class PolicyCustomRuleMatchConditionArgs:
+calass PolicyCustomRuleMatchConditionArrgs:
     def __init__(__self__, *,
-                 match_variables: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]],
+                 match_variables: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArrgs']]],
                  operator: pulumi.Input[str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negation_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]] match_variables: One or more `match_variables` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArrgs']]] match_variables: One or more `match_variables` blocks as defined below.
         :param pulumi.Input[str] operator: Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of match values. This is **Required** when the `operator` is not `Any`.
         :param pulumi.Input[bool] negation_condition: Describes if this is negate condition or not
@@ -198,14 +198,14 @@ class PolicyCustomRuleMatchConditionArgs:
 
     @property
     @pulumi.getter(name="matchVariables")
-    def match_variables(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]]:
+    def match_variables(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArrgs']]]:
         """
         One or more `match_variables` blocks as defined below.
         """
         return pulumi.get(self, "match_variables")
 
     @match_variables.setter
-    def match_variables(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]]):
+    def match_variables(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArrgs']]]):
         pulumi.set(self, "match_variables", value)
 
     @property
@@ -258,7 +258,7 @@ class PolicyCustomRuleMatchConditionArgs:
 
 
 @pulumi.input_type
-class PolicyCustomRuleMatchConditionMatchVariableArgs:
+calass PolicyCustomRuleMatchConditionMatchVariableArrgs:
     def __init__(__self__, *,
                  variable_name: pulumi.Input[str],
                  selector: Optional[pulumi.Input[str]] = None):
@@ -296,13 +296,13 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
 
 
 @pulumi.input_type
-class PolicyManagedRulesArgs:
+calass PolicyManagedRulesArrgs:
     def __init__(__self__, *,
-                 managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]] = None):
+                 managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArrgs']]],
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]] managed_rule_sets: One or more `managed_rule_set` block defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]] exclusions: One or more `exclusion` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArrgs']]] managed_rule_sets: One or more `managed_rule_set` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArrgs']]] exclusions: One or more `exclusion` block defined below.
         """
         pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
@@ -310,41 +310,41 @@ class PolicyManagedRulesArgs:
 
     @property
     @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]]:
+    def managed_rule_sets(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArrgs']]]:
         """
         One or more `managed_rule_set` block defined below.
         """
         return pulumi.get(self, "managed_rule_sets")
 
     @managed_rule_sets.setter
-    def managed_rule_sets(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]]):
+    def managed_rule_sets(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArrgs']]]):
         pulumi.set(self, "managed_rule_sets", value)
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArrgs']]]]:
         """
         One or more `exclusion` block defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
 
 @pulumi.input_type
-class PolicyManagedRulesExclusionArgs:
+calass PolicyManagedRulesExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  selector: pulumi.Input[str],
                  selector_match_operator: pulumi.Input[str],
-                 excluded_rule_set: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs']] = None):
+                 excluded_rule_set: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArrgs']] = None):
         """
         :param pulumi.Input[str] match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         :param pulumi.Input[str] selector: Describes field of the matchVariable collection.
         :param pulumi.Input[str] selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        :param pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs'] excluded_rule_set: One or more `excluded_rule_set` block defined below.
+        :param pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArrgs'] excluded_rule_set: One or more `excluded_rule_set` block defined below.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "selector", selector)
@@ -390,25 +390,25 @@ class PolicyManagedRulesExclusionArgs:
 
     @property
     @pulumi.getter(name="excludedRuleSet")
-    def excluded_rule_set(self) -> Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs']]:
+    def excluded_rule_set(self) -> Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArrgs']]:
         """
         One or more `excluded_rule_set` block defined below.
         """
         return pulumi.get(self, "excluded_rule_set")
 
     @excluded_rule_set.setter
-    def excluded_rule_set(self, value: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs']]):
+    def excluded_rule_set(self, value: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArrgs']]):
         pulumi.set(self, "excluded_rule_set", value)
 
 
 @pulumi.input_type
-class PolicyManagedRulesExclusionExcludedRuleSetArgs:
+calass PolicyManagedRulesExclusionExcludedRuleSetArrgs:
     def __init__(__self__, *,
-                 rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]]] = None,
+                 rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]] rule_groups: One or more `rule_group` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs']]] rule_groups: One or more `rule_group` block defined below.
         :param pulumi.Input[str] type: The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
         :param pulumi.Input[str] version: The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
         """
@@ -421,14 +421,14 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
 
     @property
     @pulumi.getter(name="ruleGroups")
-    def rule_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]]]:
+    def rule_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs']]]]:
         """
         One or more `rule_group` block defined below.
         """
         return pulumi.get(self, "rule_groups")
 
     @rule_groups.setter
-    def rule_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]]]):
+    def rule_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs']]]]):
         pulumi.set(self, "rule_groups", value)
 
     @property
@@ -457,7 +457,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
 
 
 @pulumi.input_type
-class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
+calass PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
                  excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -495,14 +495,14 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
 
 
 @pulumi.input_type
-class PolicyManagedRulesManagedRuleSetArgs:
+calass PolicyManagedRulesManagedRuleSetArrgs:
     def __init__(__self__, *,
                  version: pulumi.Input[str],
-                 rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]] = None,
+                 rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] version: The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]] rule_group_overrides: One or more `rule_group_override` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs']]] rule_group_overrides: One or more `rule_group_override` block defined below.
         :param pulumi.Input[str] type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         """
         pulumi.set(__self__, "version", version)
@@ -525,14 +525,14 @@ class PolicyManagedRulesManagedRuleSetArgs:
 
     @property
     @pulumi.getter(name="ruleGroupOverrides")
-    def rule_group_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]]:
+    def rule_group_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs']]]]:
         """
         One or more `rule_group_override` block defined below.
         """
         return pulumi.get(self, "rule_group_overrides")
 
     @rule_group_overrides.setter
-    def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]]):
+    def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs']]]]):
         pulumi.set(self, "rule_group_overrides", value)
 
     @property
@@ -549,14 +549,14 @@ class PolicyManagedRulesManagedRuleSetArgs:
 
 
 @pulumi.input_type
-class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
+calass PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
                  disabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] rule_group_name: The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]] rules: One or more `rule` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs']]] rules: One or more `rule` block defined below.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if disabled_rules is not None:
@@ -593,19 +593,19 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs']]]]:
         """
         One or more `rule` block defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
+calass PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None,
@@ -659,11 +659,11 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
 
 
 @pulumi.input_type
-class PolicyPolicySettingsArgs:
+calass PolicyPolicySettingsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  file_upload_limit_in_mb: Optional[pulumi.Input[int]] = None,
-                 log_scrubbing: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']] = None,
+                 log_scrubbing: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArrgs']] = None,
                  max_request_body_size_in_kb: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  request_body_check: Optional[pulumi.Input[bool]] = None,
@@ -671,7 +671,7 @@ class PolicyPolicySettingsArgs:
         """
         :param pulumi.Input[bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
-        :param pulumi.Input['PolicyPolicySettingsLogScrubbingArgs'] log_scrubbing: One `log_scrubbing` block as defined below.
+        :param pulumi.Input['PolicyPolicySettingsLogScrubbingArrgs'] log_scrubbing: One `log_scrubbing` block as defined below.
         :param pulumi.Input[int] max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[bool] request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -718,14 +718,14 @@ class PolicyPolicySettingsArgs:
 
     @property
     @pulumi.getter(name="logScrubbing")
-    def log_scrubbing(self) -> Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']]:
+    def log_scrubbing(self) -> Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArrgs']]:
         """
         One `log_scrubbing` block as defined below.
         """
         return pulumi.get(self, "log_scrubbing")
 
     @log_scrubbing.setter
-    def log_scrubbing(self, value: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArgs']]):
+    def log_scrubbing(self, value: Optional[pulumi.Input['PolicyPolicySettingsLogScrubbingArrgs']]):
         pulumi.set(self, "log_scrubbing", value)
 
     @property
@@ -778,13 +778,13 @@ class PolicyPolicySettingsArgs:
 
 
 @pulumi.input_type
-class PolicyPolicySettingsLogScrubbingArgs:
+calass PolicyPolicySettingsLogScrubbingArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArrgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether the log scrubbing is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]] rules: One or more `scrubbing_rule` as define below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArrgs']]] rules: One or more `scrubbing_rule` as define below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -805,19 +805,19 @@ class PolicyPolicySettingsLogScrubbingArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArrgs']]]]:
         """
         One or more `scrubbing_rule` as define below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class PolicyPolicySettingsLogScrubbingRuleArgs:
+calass PolicyPolicySettingsLogScrubbingRuleArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,

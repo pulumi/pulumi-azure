@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DicomServiceArgs', 'DicomService']
+__all__ = ['DicomServiceArrgs', 'DicomService']
 
 @pulumi.input_type
-class DicomServiceArgs:
+calass DicomServiceArrgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['DicomServiceIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -25,7 +25,7 @@ class DicomServiceArgs:
         """
         The set of arguments for constructing a DicomService resource.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
-        :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['DicomServiceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
@@ -57,14 +57,14 @@ class DicomServiceArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -117,21 +117,21 @@ class DicomServiceArgs:
 
 
 @pulumi.input_type
-class _DicomServiceState:
+calass _DicomServiceState:
     def __init__(__self__, *,
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]] = None,
-                 identity: Optional[pulumi.Input['DicomServiceIdentityArgs']] = None,
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArrgs']]]] = None,
+                 identity: Optional[pulumi.Input['DicomServiceIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArrgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DicomService resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]] authentications: The `authentication` block as defined below.
-        :param pulumi.Input['DicomServiceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArrgs']]] authentications: The `authentication` block as defined below.
+        :param pulumi.Input['DicomServiceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
@@ -160,26 +160,26 @@ class _DicomServiceState:
 
     @property
     @pulumi.getter
-    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]:
+    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArrgs']]]]:
         """
         The `authentication` block as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArgs']]]]):
+    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServiceAuthenticationArrgs']]]]):
         pulumi.set(self, "authentications", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['DicomServiceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['DicomServiceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -208,11 +208,11 @@ class _DicomServiceState:
 
     @property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArrgs']]]]:
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DicomServicePrivateEndpointArrgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
     @property
@@ -264,12 +264,12 @@ class _DicomServiceState:
         pulumi.set(self, "workspace_id", value)
 
 
-class DicomService(pulumi.CustomResource):
+calass DicomService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -291,7 +291,7 @@ class DicomService(pulumi.CustomResource):
         test_dicom_service = azure.healthcare.DicomService("testDicomService",
             workspace_id=test_workspace.id,
             location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
+            identity=azure.healthcare.DicomServiceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -309,7 +309,7 @@ class DicomService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
@@ -320,7 +320,7 @@ class DicomService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DicomServiceArgs,
+                 args: DicomServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare DICOM Service
@@ -337,7 +337,7 @@ class DicomService(pulumi.CustomResource):
         test_dicom_service = azure.healthcare.DicomService("testDicomService",
             workspace_id=test_workspace.id,
             location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
+            identity=azure.healthcare.DicomServiceIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -354,12 +354,12 @@ class DicomService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DicomServiceArgs args: The arguments to use to populate this resource's properties.
+        :param DicomServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DicomServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DicomServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -368,7 +368,7 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -381,7 +381,7 @@ class DicomService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
+            __props__ = DicomServiceArrgs.__new__(DicomServiceArrgs)
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -404,11 +404,11 @@ class DicomService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArgs']]]]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+            authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArrgs']]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServicePrivateEndpointArgs']]]]] = None,
+            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServicePrivateEndpointArrgs']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -420,8 +420,8 @@ class DicomService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArgs']]]] authentications: The `authentication` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArrgs']]]] authentications: The `authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.

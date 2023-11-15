@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteServerArgs', 'RouteServer']
+__all__ = ['RouteServerArrgs', 'RouteServer']
 
 @pulumi.input_type
-class RouteServerArgs:
+calass RouteServerArrgs:
     def __init__(__self__, *,
                  public_ip_address_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -148,7 +148,7 @@ class RouteServerArgs:
 
 
 @pulumi.input_type
-class _RouteServerState:
+calass _RouteServerState:
     def __init__(__self__, *,
                  branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -323,7 +323,7 @@ class _RouteServerState:
         pulumi.set(self, "virtual_router_ips", value)
 
 
-class RouteServer(pulumi.CustomResource):
+calass RouteServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -397,7 +397,7 @@ class RouteServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteServerArgs,
+                 args: RouteServerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Route Server
@@ -443,12 +443,12 @@ class RouteServer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteServerArgs args: The arguments to use to populate this resource's properties.
+        :param RouteServerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteServerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -472,7 +472,7 @@ class RouteServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteServerArgs.__new__(RouteServerArgs)
+            __props__ = RouteServerArrgs.__new__(RouteServerArrgs)
 
             __props__.__dict__["branch_to_branch_traffic_enabled"] = branch_to_branch_traffic_enabled
             __props__.__dict__["location"] = location

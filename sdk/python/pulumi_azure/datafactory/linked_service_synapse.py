@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceSynapseArgs', 'LinkedServiceSynapse']
+__all__ = ['LinkedServiceSynapseArrgs', 'LinkedServiceSynapse']
 
 @pulumi.input_type
-class LinkedServiceSynapseArgs:
+calass LinkedServiceSynapseArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -22,7 +22,7 @@ class LinkedServiceSynapseArgs:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -35,7 +35,7 @@ class LinkedServiceSynapseArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Synapse.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Synapse.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Synapse.
-        :param pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Synapse.
         """
@@ -132,14 +132,14 @@ class LinkedServiceSynapseArgs:
 
     @property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']]:
         """
         A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @property
@@ -168,7 +168,7 @@ class LinkedServiceSynapseArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceSynapseState:
+calass _LinkedServiceSynapseState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -176,7 +176,7 @@ class _LinkedServiceSynapseState:
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -189,7 +189,7 @@ class _LinkedServiceSynapseState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Synapse.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Synapse.
-        :param pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Synapse.
         """
@@ -288,14 +288,14 @@ class _LinkedServiceSynapseState:
 
     @property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']]:
         """
         A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceSynapseKeyVaultPasswordArrgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @property
@@ -323,7 +323,7 @@ class _LinkedServiceSynapseState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceSynapse(pulumi.CustomResource):
+calass LinkedServiceSynapse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -377,7 +377,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
+            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArrgs(
                 linked_service_name=example_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -401,7 +401,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Synapse.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Synapse.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArrgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Synapse.
         """
@@ -409,7 +409,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceSynapseArgs,
+                 args: LinkedServiceSynapseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Synapse and Azure Data Factory.
@@ -450,7 +450,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         example_linked_service_synapse = azure.datafactory.LinkedServiceSynapse("exampleLinkedServiceSynapse",
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
-            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArgs(
+            key_vault_password=azure.datafactory.LinkedServiceSynapseKeyVaultPasswordArrgs(
                 linked_service_name=example_linked_service_key_vault.name,
                 secret_name="secret",
             ))
@@ -465,12 +465,12 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceSynapseArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceSynapseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceSynapseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceSynapseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -485,7 +485,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -495,7 +495,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceSynapseArgs.__new__(LinkedServiceSynapseArgs)
+            __props__ = LinkedServiceSynapseArrgs.__new__(LinkedServiceSynapseArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -526,7 +526,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArgs']]] = None,
+            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinkedServiceSynapse':
         """
@@ -544,7 +544,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Synapse.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Synapse.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceSynapseKeyVaultPasswordArrgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Synapse. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Synapse.
         """

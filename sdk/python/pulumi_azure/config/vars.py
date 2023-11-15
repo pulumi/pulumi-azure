@@ -15,7 +15,7 @@ import types
 __config__ = pulumi.Config('azure')
 
 
-class _ExportableConfig(types.ModuleType):
+calass _ExportableConfig(types.ModuleType):
     @property
     def auxiliary_tenant_ids(self) -> Optional[str]:
         return __config__.get('auxiliaryTenantIds')

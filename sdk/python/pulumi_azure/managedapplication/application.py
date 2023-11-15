@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationArgs', 'Application']
+__all__ = ['ApplicationArrgs', 'Application']
 
 @pulumi.input_type
-class ApplicationArgs:
+calass ApplicationArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  managed_resource_group_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['ApplicationPlanArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -38,7 +38,7 @@ class ApplicationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ApplicationPlanArrgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "kind", kind)
@@ -165,14 +165,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ApplicationPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['ApplicationPlanArrgs']]:
         """
         One `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ApplicationPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['ApplicationPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -189,7 +189,7 @@ class ApplicationArgs:
 
 
 @pulumi.input_type
-class _ApplicationState:
+calass _ApplicationState:
     def __init__(__self__, *,
                  application_definition_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -199,7 +199,7 @@ class _ApplicationState:
                  outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['ApplicationPlanArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -214,7 +214,7 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['ApplicationPlanArrgs'] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -347,14 +347,14 @@ class _ApplicationState:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['ApplicationPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['ApplicationPlanArrgs']]:
         """
         One `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['ApplicationPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['ApplicationPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -382,7 +382,7 @@ class _ApplicationState:
         pulumi.set(self, "tags", value)
 
 
-class Application(pulumi.CustomResource):
+calass Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -394,7 +394,7 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -418,7 +418,7 @@ class Application(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArrgs(
                 service_principal_id=current.object_id,
                 role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
             )])
@@ -460,7 +460,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ApplicationPlanArrgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -468,7 +468,7 @@ class Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationArgs,
+                 args: ApplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application.
@@ -490,7 +490,7 @@ class Application(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArrgs(
                 service_principal_id=current.object_id,
                 role_definition_id=builtin.id.split("/")[len(builtin.id.split("/")) - 1],
             )])
@@ -522,12 +522,12 @@ class Application(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -543,7 +543,7 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -553,7 +553,7 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationArgs.__new__(ApplicationArgs)
+            __props__ = ApplicationArrgs.__new__(ApplicationArrgs)
 
             __props__.__dict__["application_definition_id"] = application_definition_id
             if kind is None and not opts.urn:
@@ -590,7 +590,7 @@ class Application(pulumi.CustomResource):
             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             parameter_values: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Application':
         """
@@ -610,7 +610,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ApplicationPlanArrgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """

@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkServiceArgs', 'NetworkService']
+__all__ = ['NetworkServiceArrgs', 'NetworkService']
 
 @pulumi.input_type
-class NetworkServiceArgs:
+calass NetworkServiceArrgs:
     def __init__(__self__, *,
                  mobile_network_id: pulumi.Input[str],
-                 pcc_rules: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]],
+                 pcc_rules: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]],
                  service_precedence: pulumi.Input[int],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
+                 service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkService resource.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input['NetworkServiceServiceQosPolicyArgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input['NetworkServiceServiceQosPolicyArrgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         pulumi.set(__self__, "mobile_network_id", mobile_network_id)
@@ -59,14 +59,14 @@ class NetworkServiceArgs:
 
     @property
     @pulumi.getter(name="pccRules")
-    def pcc_rules(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]:
+    def pcc_rules(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]]:
         """
         A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         """
         return pulumi.get(self, "pcc_rules")
 
     @pcc_rules.setter
-    def pcc_rules(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]):
+    def pcc_rules(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]]):
         pulumi.set(self, "pcc_rules", value)
 
     @property
@@ -107,14 +107,14 @@ class NetworkServiceArgs:
 
     @property
     @pulumi.getter(name="serviceQosPolicy")
-    def service_qos_policy(self) -> Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']]:
+    def service_qos_policy(self) -> Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']]:
         """
         A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         """
         return pulumi.get(self, "service_qos_policy")
 
     @service_qos_policy.setter
-    def service_qos_policy(self, value: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']]):
+    def service_qos_policy(self, value: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']]):
         pulumi.set(self, "service_qos_policy", value)
 
     @property
@@ -131,23 +131,23 @@ class NetworkServiceArgs:
 
 
 @pulumi.input_type
-class _NetworkServiceState:
+calass _NetworkServiceState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
+                 service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkService resources.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
-        :param pulumi.Input['NetworkServiceServiceQosPolicyArgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input['NetworkServiceServiceQosPolicyArrgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         if location is not None:
@@ -203,14 +203,14 @@ class _NetworkServiceState:
 
     @property
     @pulumi.getter(name="pccRules")
-    def pcc_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]]:
+    def pcc_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]]]:
         """
         A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         """
         return pulumi.get(self, "pcc_rules")
 
     @pcc_rules.setter
-    def pcc_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]]):
+    def pcc_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArrgs']]]]):
         pulumi.set(self, "pcc_rules", value)
 
     @property
@@ -227,14 +227,14 @@ class _NetworkServiceState:
 
     @property
     @pulumi.getter(name="serviceQosPolicy")
-    def service_qos_policy(self) -> Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']]:
+    def service_qos_policy(self) -> Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']]:
         """
         A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         """
         return pulumi.get(self, "service_qos_policy")
 
     @service_qos_policy.setter
-    def service_qos_policy(self, value: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']]):
+    def service_qos_policy(self, value: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArrgs']]):
         pulumi.set(self, "service_qos_policy", value)
 
     @property
@@ -250,7 +250,7 @@ class _NetworkServiceState:
         pulumi.set(self, "tags", value)
 
 
-class NetworkService(pulumi.CustomResource):
+calass NetworkService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -258,9 +258,9 @@ class NetworkService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArrgs']]]]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -282,25 +282,25 @@ class NetworkService(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArrgs(
                 name="default-rule",
                 precedence=1,
                 traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
+                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArrgs(
                     allocation_and_retention_priority_level=9,
                     qos_indicator=9,
                     preemption_capability="NotPreempt",
                     preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
+                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArrgs(
                         downlink="100 Mbps",
                         uplink="10 Mbps",
                     ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
+                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArrgs(
                         downlink="1 Gbps",
                         uplink="100 Mbps",
                     ),
                 ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArrgs(
                     direction="Uplink",
                     name="IP-to-server",
                     ports=[],
@@ -308,12 +308,12 @@ class NetworkService(pulumi.CustomResource):
                     remote_ip_lists=["10.3.4.0/24"],
                 )],
             )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
+            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArrgs(
                 allocation_and_retention_priority_level=9,
                 qos_indicator=9,
                 preemption_capability="NotPreempt",
                 preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
+                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArrgs(
                     downlink="1 Gbps",
                     uplink="100 Mbps",
                 ),
@@ -336,16 +336,16 @@ class NetworkService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArrgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
-        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArrgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkServiceArgs,
+                 args: NetworkServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Service.
@@ -366,25 +366,25 @@ class NetworkService(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArrgs(
                 name="default-rule",
                 precedence=1,
                 traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
+                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArrgs(
                     allocation_and_retention_priority_level=9,
                     qos_indicator=9,
                     preemption_capability="NotPreempt",
                     preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
+                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArrgs(
                         downlink="100 Mbps",
                         uplink="10 Mbps",
                     ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
+                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArrgs(
                         downlink="1 Gbps",
                         uplink="100 Mbps",
                     ),
                 ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArrgs(
                     direction="Uplink",
                     name="IP-to-server",
                     ports=[],
@@ -392,12 +392,12 @@ class NetworkService(pulumi.CustomResource):
                     remote_ip_lists=["10.3.4.0/24"],
                 )],
             )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
+            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArrgs(
                 allocation_and_retention_priority_level=9,
                 qos_indicator=9,
                 preemption_capability="NotPreempt",
                 preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
+                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArrgs(
                     downlink="1 Gbps",
                     uplink="100 Mbps",
                 ),
@@ -416,12 +416,12 @@ class NetworkService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkServiceArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -433,9 +433,9 @@ class NetworkService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArrgs']]]]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -444,7 +444,7 @@ class NetworkService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkServiceArgs.__new__(NetworkServiceArgs)
+            __props__ = NetworkServiceArrgs.__new__(NetworkServiceArrgs)
 
             __props__.__dict__["location"] = location
             if mobile_network_id is None and not opts.urn:
@@ -472,9 +472,9 @@ class NetworkService(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+            pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArrgs']]]]] = None,
             service_precedence: Optional[pulumi.Input[int]] = None,
-            service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+            service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NetworkService':
         """
         Get an existing NetworkService resource's state with the given name, id, and optional extra
@@ -486,9 +486,9 @@ class NetworkService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArrgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
-        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArrgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

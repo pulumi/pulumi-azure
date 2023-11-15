@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SettingArgs', 'Setting']
+__all__ = ['SettingArrgs', 'Setting']
 
 @pulumi.input_type
-class SettingArgs:
+calass SettingArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  setting_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class SettingArgs:
 
 
 @pulumi.input_type
-class _SettingState:
+calass _SettingState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _SettingState:
         pulumi.set(self, "setting_name", value)
 
 
-class Setting(pulumi.CustomResource):
+calass Setting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,7 +132,7 @@ class Setting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SettingArgs,
+                 args: SettingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Data Access Settings for Azure Security Center.
@@ -161,12 +161,12 @@ class Setting(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SettingArgs args: The arguments to use to populate this resource's properties.
+        :param SettingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SettingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class Setting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SettingArgs.__new__(SettingArgs)
+            __props__ = SettingArrgs.__new__(SettingArrgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")

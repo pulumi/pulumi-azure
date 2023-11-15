@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedStorageAccountSasTokenDefinitionArgs', 'ManagedStorageAccountSasTokenDefinition']
+__all__ = ['ManagedStorageAccountSasTokenDefinitionArrgs', 'ManagedStorageAccountSasTokenDefinition']
 
 @pulumi.input_type
-class ManagedStorageAccountSasTokenDefinitionArgs:
+calass ManagedStorageAccountSasTokenDefinitionArrgs:
     def __init__(__self__, *,
                  managed_storage_account_id: pulumi.Input[str],
                  sas_template_uri: pulumi.Input[str],
@@ -112,7 +112,7 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
 
 
 @pulumi.input_type
-class _ManagedStorageAccountSasTokenDefinitionState:
+calass _ManagedStorageAccountSasTokenDefinitionState:
     def __init__(__self__, *,
                  managed_storage_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _ManagedStorageAccountSasTokenDefinitionState:
         pulumi.set(self, "validity_period", value)
 
 
-class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
+calass ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,12 +261,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             account_replication_type="LRS")
         example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
+            resource_types=azure.storage.GetAccountSASResourceTypesArrgs(
                 service=True,
                 container=False,
                 object=False,
             ),
-            services=azure.storage.GetAccountSASServicesArgs(
+            services=azure.storage.GetAccountSASServicesArrgs(
                 blob=True,
                 queue=False,
                 table=False,
@@ -274,7 +274,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             ),
             start="2021-04-30T00:00:00Z",
             expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
+            permissions=azure.storage.GetAccountSASPermissionsArrgs(
                 read=True,
                 write=True,
                 delete=False,
@@ -291,7 +291,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=example_client_config.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=example_client_config.tenant_id,
                 object_id=example_client_config.object_id,
                 secret_permissions=[
@@ -343,7 +343,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedStorageAccountSasTokenDefinitionArgs,
+                 args: ManagedStorageAccountSasTokenDefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Managed Storage Account SAS Definition.
@@ -363,12 +363,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             account_replication_type="LRS")
         example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
+            resource_types=azure.storage.GetAccountSASResourceTypesArrgs(
                 service=True,
                 container=False,
                 object=False,
             ),
-            services=azure.storage.GetAccountSASServicesArgs(
+            services=azure.storage.GetAccountSASServicesArrgs(
                 blob=True,
                 queue=False,
                 table=False,
@@ -376,7 +376,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             ),
             start="2021-04-30T00:00:00Z",
             expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
+            permissions=azure.storage.GetAccountSASPermissionsArrgs(
                 read=True,
                 write=True,
                 delete=False,
@@ -393,7 +393,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=example_client_config.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=example_client_config.tenant_id,
                 object_id=example_client_config.object_id,
                 secret_permissions=[
@@ -433,12 +433,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedStorageAccountSasTokenDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedStorageAccountSasTokenDefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedStorageAccountSasTokenDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedStorageAccountSasTokenDefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -460,7 +460,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedStorageAccountSasTokenDefinitionArgs.__new__(ManagedStorageAccountSasTokenDefinitionArgs)
+            __props__ = ManagedStorageAccountSasTokenDefinitionArrgs.__new__(ManagedStorageAccountSasTokenDefinitionArrgs)
 
             if managed_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_storage_account_id'")

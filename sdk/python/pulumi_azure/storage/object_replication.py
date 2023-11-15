@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ObjectReplicationArgs', 'ObjectReplication']
+__all__ = ['ObjectReplicationArrgs', 'ObjectReplication']
 
 @pulumi.input_type
-class ObjectReplicationArgs:
+calass ObjectReplicationArrgs:
     def __init__(__self__, *,
                  destination_storage_account_id: pulumi.Input[str],
-                 rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]],
                  source_storage_account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ObjectReplication resource.
         :param pulumi.Input[str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
         pulumi.set(__self__, "destination_storage_account_id", destination_storage_account_id)
@@ -43,14 +43,14 @@ class ObjectReplicationArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]]:
         """
         One or more `rules` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -67,18 +67,18 @@ class ObjectReplicationArgs:
 
 
 @pulumi.input_type
-class _ObjectReplicationState:
+calass _ObjectReplicationState:
     def __init__(__self__, *,
                  destination_object_replication_id: Optional[pulumi.Input[str]] = None,
                  destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]]] = None,
                  source_object_replication_id: Optional[pulumi.Input[str]] = None,
                  source_storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ObjectReplication resources.
         :param pulumi.Input[str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
@@ -119,14 +119,14 @@ class _ObjectReplicationState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]]]:
         """
         One or more `rules` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -154,13 +154,13 @@ class _ObjectReplicationState:
         pulumi.set(self, "source_storage_account_id", value)
 
 
-class ObjectReplication(pulumi.CustomResource):
+calass ObjectReplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArrgs']]]]] = None,
                  source_storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -178,7 +178,7 @@ class ObjectReplication(pulumi.CustomResource):
             location=src_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+            blob_properties=azure.storage.AccountBlobPropertiesArrgs(
                 versioning_enabled=True,
                 change_feed_enabled=True,
             ))
@@ -191,7 +191,7 @@ class ObjectReplication(pulumi.CustomResource):
             location=dst_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+            blob_properties=azure.storage.AccountBlobPropertiesArrgs(
                 versioning_enabled=True,
                 change_feed_enabled=True,
             ))
@@ -201,7 +201,7 @@ class ObjectReplication(pulumi.CustomResource):
         example = azure.storage.ObjectReplication("example",
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
+            rules=[azure.storage.ObjectReplicationRuleArrgs(
                 source_container_name=src_container.name,
                 destination_container_name=dst_container.name,
             )])
@@ -218,14 +218,14 @@ class ObjectReplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArgs']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArrgs']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ObjectReplicationArgs,
+                 args: ObjectReplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Object Replication.
@@ -242,7 +242,7 @@ class ObjectReplication(pulumi.CustomResource):
             location=src_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+            blob_properties=azure.storage.AccountBlobPropertiesArrgs(
                 versioning_enabled=True,
                 change_feed_enabled=True,
             ))
@@ -255,7 +255,7 @@ class ObjectReplication(pulumi.CustomResource):
             location=dst_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            blob_properties=azure.storage.AccountBlobPropertiesArgs(
+            blob_properties=azure.storage.AccountBlobPropertiesArrgs(
                 versioning_enabled=True,
                 change_feed_enabled=True,
             ))
@@ -265,7 +265,7 @@ class ObjectReplication(pulumi.CustomResource):
         example = azure.storage.ObjectReplication("example",
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
-            rules=[azure.storage.ObjectReplicationRuleArgs(
+            rules=[azure.storage.ObjectReplicationRuleArrgs(
                 source_container_name=src_container.name,
                 destination_container_name=dst_container.name,
             )])
@@ -280,12 +280,12 @@ class ObjectReplication(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ObjectReplicationArgs args: The arguments to use to populate this resource's properties.
+        :param ObjectReplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ObjectReplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ObjectReplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class ObjectReplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArrgs']]]]] = None,
                  source_storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -304,7 +304,7 @@ class ObjectReplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ObjectReplicationArgs.__new__(ObjectReplicationArgs)
+            __props__ = ObjectReplicationArrgs.__new__(ObjectReplicationArrgs)
 
             if destination_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_storage_account_id'")
@@ -329,7 +329,7 @@ class ObjectReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_object_replication_id: Optional[pulumi.Input[str]] = None,
             destination_storage_account_id: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArrgs']]]]] = None,
             source_object_replication_id: Optional[pulumi.Input[str]] = None,
             source_storage_account_id: Optional[pulumi.Input[str]] = None) -> 'ObjectReplication':
         """
@@ -341,7 +341,7 @@ class ObjectReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArgs']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationRuleArrgs']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """

@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RulesEngineArgs', 'RulesEngine']
+__all__ = ['RulesEngineArrgs', 'RulesEngine']
 
 @pulumi.input_type
-class RulesEngineArgs:
+calass RulesEngineArrgs:
     def __init__(__self__, *,
                  frontdoor_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]] = None):
         """
         The set of arguments for constructing a RulesEngine resource.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]] rules: A `rule` block as defined below.
         """
         pulumi.set(__self__, "frontdoor_name", frontdoor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -88,33 +88,33 @@ class RulesEngineArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]]:
         """
         A `rule` block as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class _RulesEngineState:
+calass _RulesEngineState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frontdoor_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]] = None):
         """
         Input properties used for looking up and filtering RulesEngine resources.
         :param pulumi.Input[bool] enabled: Whether this Rules engine configuration is enabled? Defaults to `true`.
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]] rules: A `rule` block as defined below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -188,18 +188,18 @@ class _RulesEngineState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]]:
         """
         A `rule` block as defined below.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
-class RulesEngine(pulumi.CustomResource):
+calass RulesEngine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,7 +208,7 @@ class RulesEngine(pulumi.CustomResource):
                  frontdoor_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArrgs']]]]] = None,
                  __props__=None):
         """
         !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -224,28 +224,28 @@ class RulesEngine(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
             resource_group_name=example_resource_group.name,
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArrgs(
                 name="exampleBackendBing",
                 load_balancing_name="exampleLoadBalancingSettings1",
                 health_probe_name="exampleHealthProbeSetting1",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArrgs(
                     host_header="www.bing.com",
                     address="www.bing.com",
                     http_port=80,
                     https_port=443,
                 )],
             )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArrgs(
                 name="exampleHealthProbeSetting1",
             )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArrgs(
                 name="exampleLoadBalancingSettings1",
             )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArrgs(
                 name="exampleFrontendEndpoint1",
                 host_name="example-FrontDoor.azurefd.net",
             )],
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArrgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[
                     "Http",
@@ -258,21 +258,21 @@ class RulesEngine(pulumi.CustomResource):
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[
-                azure.frontdoor.RulesEngineRuleArgs(
+                azure.frontdoor.RulesEngineRuleArrgs(
                     name="debuggingoutput",
                     priority=1,
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                    action=azure.frontdoor.RulesEngineRuleActionArrgs(
+                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                             header_action_type="Append",
                             header_name="X-TEST-HEADER",
                             value="Append Header Rule",
                         )],
                     ),
                 ),
-                azure.frontdoor.RulesEngineRuleArgs(
+                azure.frontdoor.RulesEngineRuleArrgs(
                     name="overwriteorigin",
                     priority=2,
-                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArgs(
+                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArrgs(
                         variable="RequestMethod",
                         operator="Equal",
                         values=[
@@ -280,14 +280,14 @@ class RulesEngine(pulumi.CustomResource):
                             "POST",
                         ],
                     )],
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
+                    action=azure.frontdoor.RulesEngineRuleActionArrgs(
                         response_headers=[
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                                 header_action_type="Overwrite",
                                 header_name="Access-Control-Allow-Origin",
                                 value="*",
                             ),
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                                 header_action_type="Overwrite",
                                 header_name="Access-Control-Allow-Credentials",
                                 value="true",
@@ -312,13 +312,13 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArrgs']]]] rules: A `rule` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RulesEngineArgs,
+                 args: RulesEngineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -334,28 +334,28 @@ class RulesEngine(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
             resource_group_name=example_resource_group.name,
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArrgs(
                 name="exampleBackendBing",
                 load_balancing_name="exampleLoadBalancingSettings1",
                 health_probe_name="exampleHealthProbeSetting1",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArrgs(
                     host_header="www.bing.com",
                     address="www.bing.com",
                     http_port=80,
                     https_port=443,
                 )],
             )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArrgs(
                 name="exampleHealthProbeSetting1",
             )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArrgs(
                 name="exampleLoadBalancingSettings1",
             )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArrgs(
                 name="exampleFrontendEndpoint1",
                 host_name="example-FrontDoor.azurefd.net",
             )],
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArrgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[
                     "Http",
@@ -368,21 +368,21 @@ class RulesEngine(pulumi.CustomResource):
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[
-                azure.frontdoor.RulesEngineRuleArgs(
+                azure.frontdoor.RulesEngineRuleArrgs(
                     name="debuggingoutput",
                     priority=1,
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
-                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                    action=azure.frontdoor.RulesEngineRuleActionArrgs(
+                        response_headers=[azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                             header_action_type="Append",
                             header_name="X-TEST-HEADER",
                             value="Append Header Rule",
                         )],
                     ),
                 ),
-                azure.frontdoor.RulesEngineRuleArgs(
+                azure.frontdoor.RulesEngineRuleArrgs(
                     name="overwriteorigin",
                     priority=2,
-                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArgs(
+                    match_conditions=[azure.frontdoor.RulesEngineRuleMatchConditionArrgs(
                         variable="RequestMethod",
                         operator="Equal",
                         values=[
@@ -390,14 +390,14 @@ class RulesEngine(pulumi.CustomResource):
                             "POST",
                         ],
                     )],
-                    action=azure.frontdoor.RulesEngineRuleActionArgs(
+                    action=azure.frontdoor.RulesEngineRuleActionArrgs(
                         response_headers=[
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                                 header_action_type="Overwrite",
                                 header_name="Access-Control-Allow-Origin",
                                 value="*",
                             ),
-                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArgs(
+                            azure.frontdoor.RulesEngineRuleActionResponseHeaderArrgs(
                                 header_action_type="Overwrite",
                                 header_name="Access-Control-Allow-Credentials",
                                 value="true",
@@ -417,12 +417,12 @@ class RulesEngine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RulesEngineArgs args: The arguments to use to populate this resource's properties.
+        :param RulesEngineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RulesEngineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RulesEngineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -435,7 +435,7 @@ class RulesEngine(pulumi.CustomResource):
                  frontdoor_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,7 +443,7 @@ class RulesEngine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RulesEngineArgs.__new__(RulesEngineArgs)
+            __props__ = RulesEngineArrgs.__new__(RulesEngineArrgs)
 
             __props__.__dict__["enabled"] = enabled
             if frontdoor_name is None and not opts.urn:
@@ -470,7 +470,7 @@ class RulesEngine(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None) -> 'RulesEngine':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArrgs']]]]] = None) -> 'RulesEngine':
         """
         Get an existing RulesEngine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -482,7 +482,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArrgs']]]] rules: A `rule` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

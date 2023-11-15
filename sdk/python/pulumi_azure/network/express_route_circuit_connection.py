@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExpressRouteCircuitConnectionArgs', 'ExpressRouteCircuitConnection']
+__all__ = ['ExpressRouteCircuitConnectionArrgs', 'ExpressRouteCircuitConnection']
 
 @pulumi.input_type
-class ExpressRouteCircuitConnectionArgs:
+calass ExpressRouteCircuitConnectionArrgs:
     def __init__(__self__, *,
                  address_prefix_ipv4: pulumi.Input[str],
                  peer_peering_id: pulumi.Input[str],
@@ -117,7 +117,7 @@ class ExpressRouteCircuitConnectionArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteCircuitConnectionState:
+calass _ExpressRouteCircuitConnectionState:
     def __init__(__self__, *,
                  address_prefix_ipv4: Optional[pulumi.Input[str]] = None,
                  address_prefix_ipv6: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class _ExpressRouteCircuitConnectionState:
         pulumi.set(self, "peering_id", value)
 
 
-class ExpressRouteCircuitConnection(pulumi.CustomResource):
+calass ExpressRouteCircuitConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -272,7 +272,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example2_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -324,7 +324,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteCircuitConnectionArgs,
+                 args: ExpressRouteCircuitConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Express Route Circuit Connection.
@@ -347,7 +347,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -362,7 +362,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             express_route_port_id=example2_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ))
@@ -400,12 +400,12 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteCircuitConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteCircuitConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -427,7 +427,7 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteCircuitConnectionArgs.__new__(ExpressRouteCircuitConnectionArgs)
+            __props__ = ExpressRouteCircuitConnectionArrgs.__new__(ExpressRouteCircuitConnectionArrgs)
 
             if address_prefix_ipv4 is None and not opts.urn:
                 raise TypeError("Missing required property 'address_prefix_ipv4'")

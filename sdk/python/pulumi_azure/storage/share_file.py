@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ShareFileArgs', 'ShareFile']
+__all__ = ['ShareFileArrgs', 'ShareFile']
 
 @pulumi.input_type
-class ShareFileArgs:
+calass ShareFileArrgs:
     def __init__(__self__, *,
                  storage_share_id: pulumi.Input[str],
                  content_disposition: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class ShareFileArgs:
 
 
 @pulumi.input_type
-class _ShareFileState:
+calass _ShareFileState:
     def __init__(__self__, *,
                  content_disposition: Optional[pulumi.Input[str]] = None,
                  content_encoding: Optional[pulumi.Input[str]] = None,
@@ -330,7 +330,7 @@ class _ShareFileState:
         pulumi.set(self, "storage_share_id", value)
 
 
-class ShareFile(pulumi.CustomResource):
+calass ShareFile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -392,7 +392,7 @@ class ShareFile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ShareFileArgs,
+                 args: ShareFileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a File within an Azure Storage File Share.
@@ -426,12 +426,12 @@ class ShareFile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ShareFileArgs args: The arguments to use to populate this resource's properties.
+        :param ShareFileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ShareFileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ShareFileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -456,7 +456,7 @@ class ShareFile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ShareFileArgs.__new__(ShareFileArgs)
+            __props__ = ShareFileArrgs.__new__(ShareFileArrgs)
 
             __props__.__dict__["content_disposition"] = content_disposition
             __props__.__dict__["content_encoding"] = content_encoding

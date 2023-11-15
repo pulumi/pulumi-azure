@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrefixArgs', 'Prefix']
+__all__ = ['PrefixArrgs', 'Prefix']
 
 @pulumi.input_type
-class PrefixArgs:
+calass PrefixArrgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -206,7 +206,7 @@ class PrefixArgs:
 
 
 @pulumi.input_type
-class _PrefixState:
+calass _PrefixState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  commissioning_enabled: Optional[pulumi.Input[bool]] = None,
@@ -401,7 +401,7 @@ class _PrefixState:
         pulumi.set(self, "zones", value)
 
 
-class Prefix(pulumi.CustomResource):
+calass Prefix(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -453,7 +453,7 @@ class Prefix(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrefixArgs,
+                 args: PrefixArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a custom IPv4 prefix or custom IPv6 prefix.
@@ -467,12 +467,12 @@ class Prefix(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrefixArgs args: The arguments to use to populate this resource's properties.
+        :param PrefixArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrefixArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrefixArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -499,7 +499,7 @@ class Prefix(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrefixArgs.__new__(PrefixArgs)
+            __props__ = PrefixArrgs.__new__(PrefixArrgs)
 
             if cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr'")

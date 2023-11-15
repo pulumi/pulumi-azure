@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace""", DeprecationWarning)
 
 @pulumi.output_type
-class GetServiceBusNamespaceResult:
+calass GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
     """
@@ -165,7 +165,7 @@ class GetServiceBusNamespaceResult:
         return pulumi.get(self, "zone_redundant")
 
 
-class AwaitableGetServiceBusNamespaceResult(GetServiceBusNamespaceResult):
+calass AwaitableGetServiceBusNamespaceResult(GetServiceBusNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

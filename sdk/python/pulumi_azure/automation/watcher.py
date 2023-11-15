@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WatcherArgs', 'Watcher']
+__all__ = ['WatcherArrgs', 'Watcher']
 
 @pulumi.input_type
-class WatcherArgs:
+calass WatcherArrgs:
     def __init__(__self__, *,
                  automation_account_id: pulumi.Input[str],
                  execution_frequency_in_seconds: pulumi.Input[int],
@@ -176,7 +176,7 @@ class WatcherArgs:
 
 
 @pulumi.input_type
-class _WatcherState:
+calass _WatcherState:
     def __init__(__self__, *,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -359,7 +359,7 @@ class _WatcherState:
         pulumi.set(self, "tags", value)
 
 
-class Watcher(pulumi.CustomResource):
+calass Watcher(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -400,7 +400,7 @@ class Watcher(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+            publish_content_link=azure.automation.RunBookPublishContentLinkArrgs(
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         example_watcher = azure.automation.Watcher("exampleWatcher",
@@ -443,7 +443,7 @@ class Watcher(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WatcherArgs,
+                 args: WatcherArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Wacher.
@@ -470,7 +470,7 @@ class Watcher(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShellWorkflow",
-            publish_content_link=azure.automation.RunBookPublishContentLinkArgs(
+            publish_content_link=azure.automation.RunBookPublishContentLinkArrgs(
                 uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
             ))
         example_watcher = azure.automation.Watcher("exampleWatcher",
@@ -497,12 +497,12 @@ class Watcher(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WatcherArgs args: The arguments to use to populate this resource's properties.
+        :param WatcherArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WatcherArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WatcherArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -528,7 +528,7 @@ class Watcher(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WatcherArgs.__new__(WatcherArgs)
+            __props__ = WatcherArrgs.__new__(WatcherArrgs)
 
             if automation_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_id'")

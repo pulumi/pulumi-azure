@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SyncArgs', 'Sync']
+__all__ = ['SyncArrgs', 'Sync']
 
 @pulumi.input_type
-class SyncArgs:
+calass SyncArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class SyncArgs:
 
 
 @pulumi.input_type
-class _SyncState:
+calass _SyncState:
     def __init__(__self__, *,
                  incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _SyncState:
         pulumi.set(self, "tags", value)
 
 
-class Sync(pulumi.CustomResource):
+calass Sync(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -235,7 +235,7 @@ class Sync(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SyncArgs,
+                 args: SyncArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Sync.
@@ -264,12 +264,12 @@ class Sync(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SyncArgs args: The arguments to use to populate this resource's properties.
+        :param SyncArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SyncArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SyncArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class Sync(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SyncArgs.__new__(SyncArgs)
+            __props__ = SyncArrgs.__new__(SyncArrgs)
 
             __props__.__dict__["incoming_traffic_policy"] = incoming_traffic_policy
             __props__.__dict__["location"] = location

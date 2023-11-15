@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkAttachedDataNetworkArgs', 'NetworkAttachedDataNetwork']
+__all__ = ['NetworkAttachedDataNetworkArrgs', 'NetworkAttachedDataNetwork']
 
 @pulumi.input_type
-class NetworkAttachedDataNetworkArgs:
+calass NetworkAttachedDataNetworkArrgs:
     def __init__(__self__, *,
                  dns_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  mobile_network_data_network_name: pulumi.Input[str],
                  mobile_network_packet_core_data_plane_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] = None,
+                 network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,7 +34,7 @@ class NetworkAttachedDataNetworkArgs:
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -113,14 +113,14 @@ class NetworkAttachedDataNetworkArgs:
 
     @property
     @pulumi.getter(name="networkAddressPortTranslation")
-    def network_address_port_translation(self) -> Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]:
+    def network_address_port_translation(self) -> Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]:
         """
         A `network_address_port_translation` block as defined below.
         """
         return pulumi.get(self, "network_address_port_translation")
 
     @network_address_port_translation.setter
-    def network_address_port_translation(self, value: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]):
+    def network_address_port_translation(self, value: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]):
         pulumi.set(self, "network_address_port_translation", value)
 
     @property
@@ -203,13 +203,13 @@ class NetworkAttachedDataNetworkArgs:
 
 
 @pulumi.input_type
-class _NetworkAttachedDataNetworkState:
+calass _NetworkAttachedDataNetworkState:
     def __init__(__self__, *,
                  dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] = None,
+                 network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -223,7 +223,7 @@ class _NetworkAttachedDataNetworkState:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -305,14 +305,14 @@ class _NetworkAttachedDataNetworkState:
 
     @property
     @pulumi.getter(name="networkAddressPortTranslation")
-    def network_address_port_translation(self) -> Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]:
+    def network_address_port_translation(self) -> Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]:
         """
         A `network_address_port_translation` block as defined below.
         """
         return pulumi.get(self, "network_address_port_translation")
 
     @network_address_port_translation.setter
-    def network_address_port_translation(self, value: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]):
+    def network_address_port_translation(self, value: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]):
         pulumi.set(self, "network_address_port_translation", value)
 
     @property
@@ -394,7 +394,7 @@ class _NetworkAttachedDataNetworkState:
         pulumi.set(self, "user_plane_access_name", value)
 
 
-class NetworkAttachedDataNetwork(pulumi.CustomResource):
+calass NetworkAttachedDataNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -403,7 +403,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -429,7 +429,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -440,7 +440,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkAttachedDataNetworkArgs,
+                 args: NetworkAttachedDataNetworkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Attached Data Network.
@@ -454,12 +454,12 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkAttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkAttachedDataNetworkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkAttachedDataNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkAttachedDataNetworkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -472,7 +472,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
                  mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+                 network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -487,7 +487,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkAttachedDataNetworkArgs.__new__(NetworkAttachedDataNetworkArgs)
+            __props__ = NetworkAttachedDataNetworkArrgs.__new__(NetworkAttachedDataNetworkArrgs)
 
             if dns_addresses is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_addresses'")
@@ -521,7 +521,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
             mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
-            network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']]] = None,
+            network_address_port_translation: Optional[pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -540,7 +540,7 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_data_network_name: Specifies the name of the `mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArrgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.

@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AssessmentStatus(dict):
+calass AssessmentStatus(dict):
     def __init__(__self__, *,
                  code: str,
                  cause: Optional[str] = None,
@@ -62,7 +62,7 @@ class AssessmentStatus(dict):
 
 
 @pulumi.output_type
-class AutomationAction(dict):
+calass AutomationAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -136,7 +136,7 @@ class AutomationAction(dict):
 
 
 @pulumi.output_type
-class AutomationSource(dict):
+calass AutomationSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -161,7 +161,7 @@ class AutomationSource(dict):
                  rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None):
         """
         :param str event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
-        :param Sequence['AutomationSourceRuleSetArgs'] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+        :param Sequence['AutomationSourceRuleSetArrgs'] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
                
                > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
@@ -189,11 +189,11 @@ class AutomationSource(dict):
 
 
 @pulumi.output_type
-class AutomationSourceRuleSet(dict):
+calass AutomationSourceRuleSet(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.AutomationSourceRuleSetRule']):
         """
-        :param Sequence['AutomationSourceRuleSetRuleArgs'] rules: One or more `rule` blocks as defined below.
+        :param Sequence['AutomationSourceRuleSetRuleArrgs'] rules: One or more `rule` blocks as defined below.
                
                > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
@@ -211,7 +211,7 @@ class AutomationSourceRuleSet(dict):
 
 
 @pulumi.output_type
-class AutomationSourceRuleSetRule(dict):
+calass AutomationSourceRuleSetRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -287,7 +287,7 @@ class AutomationSourceRuleSetRule(dict):
 
 
 @pulumi.output_type
-class SubscriptionPricingExtension(dict):
+calass SubscriptionPricingExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CnameRecordArgs', 'CnameRecord']
+__all__ = ['CnameRecordArrgs', 'CnameRecord']
 
 @pulumi.input_type
-class CnameRecordArgs:
+calass CnameRecordArrgs:
     def __init__(__self__, *,
                  record: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -112,7 +112,7 @@ class CnameRecordArgs:
 
 
 @pulumi.input_type
-class _CnameRecordState:
+calass _CnameRecordState:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _CnameRecordState:
         pulumi.set(self, "zone_name", value)
 
 
-class CnameRecord(pulumi.CustomResource):
+calass CnameRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -282,7 +282,7 @@ class CnameRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CnameRecordArgs,
+                 args: CnameRecordArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to manage DNS CNAME Records within Azure Private DNS.
@@ -311,12 +311,12 @@ class CnameRecord(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CnameRecordArgs args: The arguments to use to populate this resource's properties.
+        :param CnameRecordArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CnameRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CnameRecordArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -338,7 +338,7 @@ class CnameRecord(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CnameRecordArgs.__new__(CnameRecordArgs)
+            __props__ = CnameRecordArrgs.__new__(CnameRecordArrgs)
 
             __props__.__dict__["name"] = name
             if record is None and not opts.urn:

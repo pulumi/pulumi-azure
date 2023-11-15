@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ChannelsRegistrationArgs', 'ChannelsRegistration']
+__all__ = ['ChannelsRegistrationArrgs', 'ChannelsRegistration']
 
 @pulumi.input_type
-class ChannelsRegistrationArgs:
+calass ChannelsRegistrationArrgs:
     def __init__(__self__, *,
                  microsoft_app_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -307,7 +307,7 @@ class ChannelsRegistrationArgs:
 
 
 @pulumi.input_type
-class _ChannelsRegistrationState:
+calass _ChannelsRegistrationState:
     def __init__(__self__, *,
                  cmk_key_vault_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -604,7 +604,7 @@ class _ChannelsRegistrationState:
         pulumi.set(self, "tags", value)
 
 
-class ChannelsRegistration(pulumi.CustomResource):
+calass ChannelsRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -683,7 +683,7 @@ class ChannelsRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelsRegistrationArgs,
+                 args: ChannelsRegistrationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bot Channels Registration.
@@ -712,12 +712,12 @@ class ChannelsRegistration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelsRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelsRegistrationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelsRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelsRegistrationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -750,7 +750,7 @@ class ChannelsRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelsRegistrationArgs.__new__(ChannelsRegistrationArgs)
+            __props__ = ChannelsRegistrationArrgs.__new__(ChannelsRegistrationArrgs)
 
             __props__.__dict__["cmk_key_vault_url"] = cmk_key_vault_url
             __props__.__dict__["description"] = description

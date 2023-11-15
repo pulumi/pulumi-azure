@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSoaRecordResult:
+calass GetSoaRecordResult:
     """
     A collection of values returned by getSoaRecord.
     """
@@ -172,7 +172,7 @@ class GetSoaRecordResult:
         return pulumi.get(self, "zone_name")
 
 
-class AwaitableGetSoaRecordResult(GetSoaRecordResult):
+calass AwaitableGetSoaRecordResult(GetSoaRecordResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

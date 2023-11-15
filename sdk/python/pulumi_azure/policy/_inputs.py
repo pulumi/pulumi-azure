@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PolicySetDefinitionPolicyDefinitionGroupArgs',
-    'PolicySetDefinitionPolicyDefinitionReferenceArgs',
-    'VirtualMachineConfigurationAssignmentConfigurationArgs',
-    'VirtualMachineConfigurationAssignmentConfigurationParameterArgs',
+    'PolicySetDefinitionPolicyDefinitionGroupArrgs',
+    'PolicySetDefinitionPolicyDefinitionReferenceArrgs',
+    'VirtualMachineConfigurationAssignmentConfigurationArrgs',
+    'VirtualMachineConfigurationAssignmentConfigurationParameterArrgs',
 ]
 
 @pulumi.input_type
-class PolicySetDefinitionPolicyDefinitionGroupArgs:
+calass PolicySetDefinitionPolicyDefinitionGroupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  additional_metadata_resource_id: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
 
 
 @pulumi.input_type
-class PolicySetDefinitionPolicyDefinitionReferenceArgs:
+calass PolicySetDefinitionPolicyDefinitionReferenceArrgs:
     def __init__(__self__, *,
                  policy_definition_id: pulumi.Input[str],
                  parameter_values: Optional[pulumi.Input[str]] = None,
@@ -173,12 +173,12 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
 
 
 @pulumi.input_type
-class VirtualMachineConfigurationAssignmentConfigurationArgs:
+calass VirtualMachineConfigurationAssignmentConfigurationArrgs:
     def __init__(__self__, *,
                  assignment_type: Optional[pulumi.Input[str]] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArrgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
@@ -186,7 +186,7 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         :param pulumi.Input[str] content_uri: The content URI where the Guest Configuration package is stored.
                
                > **NOTE:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArrgs']]] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         if assignment_type is not None:
@@ -240,14 +240,14 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArrgs']]]]:
         """
         One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -264,7 +264,7 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualMachineConfigurationAssignmentConfigurationParameterArgs:
+calass VirtualMachineConfigurationAssignmentConfigurationParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

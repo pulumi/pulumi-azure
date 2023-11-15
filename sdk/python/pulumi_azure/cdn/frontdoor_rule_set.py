@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FrontdoorRuleSetArgs', 'FrontdoorRuleSet']
+__all__ = ['FrontdoorRuleSetArrgs', 'FrontdoorRuleSet']
 
 @pulumi.input_type
-class FrontdoorRuleSetArgs:
+calass FrontdoorRuleSetArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class FrontdoorRuleSetArgs:
 
 
 @pulumi.input_type
-class _FrontdoorRuleSetState:
+calass _FrontdoorRuleSetState:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _FrontdoorRuleSetState:
         pulumi.set(self, "name", value)
 
 
-class FrontdoorRuleSet(pulumi.CustomResource):
+calass FrontdoorRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorRuleSetArgs,
+                 args: FrontdoorRuleSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Rule Set.
@@ -158,12 +158,12 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorRuleSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRuleSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -181,7 +181,7 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorRuleSetArgs.__new__(FrontdoorRuleSetArgs)
+            __props__ = FrontdoorRuleSetArrgs.__new__(FrontdoorRuleSetArrgs)
 
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")

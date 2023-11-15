@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatabasePrincipalAssignmentArgs', 'DatabasePrincipalAssignment']
+__all__ = ['DatabasePrincipalAssignmentArrgs', 'DatabasePrincipalAssignment']
 
 @pulumi.input_type
-class DatabasePrincipalAssignmentArgs:
+calass DatabasePrincipalAssignmentArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
@@ -141,7 +141,7 @@ class DatabasePrincipalAssignmentArgs:
 
 
 @pulumi.input_type
-class _DatabasePrincipalAssignmentState:
+calass _DatabasePrincipalAssignmentState:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -308,7 +308,7 @@ class _DatabasePrincipalAssignmentState:
         pulumi.set(self, "tenant_name", value)
 
 
-class DatabasePrincipalAssignment(pulumi.CustomResource):
+calass DatabasePrincipalAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -336,7 +336,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -379,7 +379,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatabasePrincipalAssignmentArgs,
+                 args: DatabasePrincipalAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
@@ -395,7 +395,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -424,12 +424,12 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param DatabasePrincipalAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatabasePrincipalAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatabasePrincipalAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -453,7 +453,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatabasePrincipalAssignmentArgs.__new__(DatabasePrincipalAssignmentArgs)
+            __props__ = DatabasePrincipalAssignmentArrgs.__new__(DatabasePrincipalAssignmentArrgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

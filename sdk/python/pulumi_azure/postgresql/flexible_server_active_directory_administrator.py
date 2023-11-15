@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlexibleServerActiveDirectoryAdministratorArgs', 'FlexibleServerActiveDirectoryAdministrator']
+__all__ = ['FlexibleServerActiveDirectoryAdministratorArrgs', 'FlexibleServerActiveDirectoryAdministrator']
 
 @pulumi.input_type
-class FlexibleServerActiveDirectoryAdministratorArgs:
+calass FlexibleServerActiveDirectoryAdministratorArrgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str],
                  principal_name: pulumi.Input[str],
@@ -110,7 +110,7 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
 
 
 @pulumi.input_type
-class _FlexibleServerActiveDirectoryAdministratorState:
+calass _FlexibleServerActiveDirectoryAdministratorState:
     def __init__(__self__, *,
                  object_id: Optional[pulumi.Input[str]] = None,
                  principal_name: Optional[pulumi.Input[str]] = None,
@@ -213,7 +213,7 @@ class _FlexibleServerActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
-class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
+calass FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,7 +247,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             version="12",
             sku_name="GP_Standard_D2s_v3",
             zone="2",
-            authentication=azure.postgresql.FlexibleServerAuthenticationArgs(
+            authentication=azure.postgresql.FlexibleServerAuthenticationArrgs(
                 active_directory_auth_enabled=True,
                 tenant_id=current.tenant_id,
             ))
@@ -281,7 +281,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlexibleServerActiveDirectoryAdministratorArgs,
+                 args: FlexibleServerActiveDirectoryAdministratorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
@@ -305,7 +305,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             version="12",
             sku_name="GP_Standard_D2s_v3",
             zone="2",
-            authentication=azure.postgresql.FlexibleServerAuthenticationArgs(
+            authentication=azure.postgresql.FlexibleServerAuthenticationArrgs(
                 active_directory_auth_enabled=True,
                 tenant_id=current.tenant_id,
             ))
@@ -327,12 +327,12 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FlexibleServerActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param FlexibleServerActiveDirectoryAdministratorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -354,7 +354,7 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlexibleServerActiveDirectoryAdministratorArgs.__new__(FlexibleServerActiveDirectoryAdministratorArgs)
+            __props__ = FlexibleServerActiveDirectoryAdministratorArrgs.__new__(FlexibleServerActiveDirectoryAdministratorArrgs)
 
             if object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_id'")

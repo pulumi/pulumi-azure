@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HealthbotArgs', 'Healthbot']
+__all__ = ['HealthbotArrgs', 'Healthbot']
 
 @pulumi.input_type
-class HealthbotArgs:
+calass HealthbotArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -98,7 +98,7 @@ class HealthbotArgs:
 
 
 @pulumi.input_type
-class _HealthbotState:
+calass _HealthbotState:
     def __init__(__self__, *,
                  bot_management_portal_url: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class _HealthbotState:
         pulumi.set(self, "tags", value)
 
 
-class Healthbot(pulumi.CustomResource):
+calass Healthbot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,7 +248,7 @@ class Healthbot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HealthbotArgs,
+                 args: HealthbotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthbot Service.
@@ -275,12 +275,12 @@ class Healthbot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HealthbotArgs args: The arguments to use to populate this resource's properties.
+        :param HealthbotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HealthbotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HealthbotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class Healthbot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HealthbotArgs.__new__(HealthbotArgs)
+            __props__ = HealthbotArrgs.__new__(HealthbotArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

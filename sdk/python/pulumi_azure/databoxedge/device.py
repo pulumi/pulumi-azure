@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeviceArgs', 'Device']
+__all__ = ['DeviceArrgs', 'Device']
 
 @pulumi.input_type
-class DeviceArgs:
+calass DeviceArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -100,9 +100,9 @@ class DeviceArgs:
 
 
 @pulumi.input_type
-class _DeviceState:
+calass _DeviceState:
     def __init__(__self__, *,
-                 device_properties: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArgs']]]] = None,
+                 device_properties: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class _DeviceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Device resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArgs']]] device_properties: A `device_properties` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArrgs']]] device_properties: A `device_properties` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[str] name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -132,14 +132,14 @@ class _DeviceState:
 
     @property
     @pulumi.getter(name="deviceProperties")
-    def device_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArgs']]]]:
+    def device_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArrgs']]]]:
         """
         A `device_properties` block as defined below.
         """
         return pulumi.get(self, "device_properties")
 
     @device_properties.setter
-    def device_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArgs']]]]):
+    def device_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDevicePropertyArrgs']]]]):
         pulumi.set(self, "device_properties", value)
 
     @property
@@ -203,7 +203,7 @@ class _DeviceState:
         pulumi.set(self, "tags", value)
 
 
-class Device(pulumi.CustomResource):
+calass Device(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class Device(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeviceArgs,
+                 args: DeviceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databox Edge Device.
@@ -277,12 +277,12 @@ class Device(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DeviceArgs args: The arguments to use to populate this resource's properties.
+        :param DeviceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -303,7 +303,7 @@ class Device(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeviceArgs.__new__(DeviceArgs)
+            __props__ = DeviceArrgs.__new__(DeviceArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -325,7 +325,7 @@ class Device(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            device_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceDevicePropertyArgs']]]]] = None,
+            device_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceDevicePropertyArrgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -338,7 +338,7 @@ class Device(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceDevicePropertyArgs']]]] device_properties: A `device_properties` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceDevicePropertyArrgs']]]] device_properties: A `device_properties` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[str] name: The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.

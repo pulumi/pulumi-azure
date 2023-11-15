@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationConfigFileArgs',
-    'ConfigurationProtectedFileArgs',
-    'DeploymentFrontendPrivateArgs',
-    'DeploymentFrontendPublicArgs',
-    'DeploymentIdentityArgs',
-    'DeploymentLoggingStorageAccountArgs',
-    'DeploymentNetworkInterfaceArgs',
+    'ConfigurationConfigFileArrgs',
+    'ConfigurationProtectedFileArrgs',
+    'DeploymentFrontendPrivateArrgs',
+    'DeploymentFrontendPublicArrgs',
+    'DeploymentIdentityArrgs',
+    'DeploymentLoggingStorageAccountArrgs',
+    'DeploymentNetworkInterfaceArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationConfigFileArgs:
+calass ConfigurationConfigFileArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):
@@ -57,7 +57,7 @@ class ConfigurationConfigFileArgs:
 
 
 @pulumi.input_type
-class ConfigurationProtectedFileArgs:
+calass ConfigurationProtectedFileArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  virtual_path: pulumi.Input[str]):
@@ -94,7 +94,7 @@ class ConfigurationProtectedFileArgs:
 
 
 @pulumi.input_type
-class DeploymentFrontendPrivateArgs:
+calass DeploymentFrontendPrivateArrgs:
     def __init__(__self__, *,
                  allocation_method: pulumi.Input[str],
                  ip_address: pulumi.Input[str],
@@ -146,7 +146,7 @@ class DeploymentFrontendPrivateArgs:
 
 
 @pulumi.input_type
-class DeploymentFrontendPublicArgs:
+calass DeploymentFrontendPublicArrgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -169,7 +169,7 @@ class DeploymentFrontendPublicArgs:
 
 
 @pulumi.input_type
-class DeploymentIdentityArgs:
+calass DeploymentIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -231,7 +231,7 @@ class DeploymentIdentityArgs:
 
 
 @pulumi.input_type
-class DeploymentLoggingStorageAccountArgs:
+calass DeploymentLoggingStorageAccountArrgs:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -270,7 +270,7 @@ class DeploymentLoggingStorageAccountArgs:
 
 
 @pulumi.input_type
-class DeploymentNetworkInterfaceArgs:
+calass DeploymentNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
         """

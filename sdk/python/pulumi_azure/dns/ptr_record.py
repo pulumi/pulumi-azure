@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PtrRecordArgs', 'PtrRecord']
+__all__ = ['PtrRecordArrgs', 'PtrRecord']
 
 @pulumi.input_type
-class PtrRecordArgs:
+calass PtrRecordArrgs:
     def __init__(__self__, *,
                  records: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
@@ -112,7 +112,7 @@ class PtrRecordArgs:
 
 
 @pulumi.input_type
-class _PtrRecordState:
+calass _PtrRecordState:
     def __init__(__self__, *,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _PtrRecordState:
         pulumi.set(self, "zone_name", value)
 
 
-class PtrRecord(pulumi.CustomResource):
+calass PtrRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -280,7 +280,7 @@ class PtrRecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PtrRecordArgs,
+                 args: PtrRecordArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -307,12 +307,12 @@ class PtrRecord(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PtrRecordArgs args: The arguments to use to populate this resource's properties.
+        :param PtrRecordArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PtrRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PtrRecordArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -334,7 +334,7 @@ class PtrRecord(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PtrRecordArgs.__new__(PtrRecordArgs)
+            __props__ = PtrRecordArrgs.__new__(PtrRecordArrgs)
 
             __props__.__dict__["name"] = name
             if records is None and not opts.urn:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecretArgs', 'Secret']
+__all__ = ['SecretArrgs', 'Secret']
 
 @pulumi.input_type
-class SecretArgs:
+calass SecretArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -134,7 +134,7 @@ class SecretArgs:
 
 
 @pulumi.input_type
-class _SecretState:
+calass _SecretState:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -321,7 +321,7 @@ class _SecretState:
         pulumi.set(self, "versionless_id", value)
 
 
-class Secret(pulumi.CustomResource):
+calass Secret(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -359,7 +359,7 @@ class Secret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -403,7 +403,7 @@ class Secret(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecretArgs,
+                 args: SecretArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Secret.
@@ -430,7 +430,7 @@ class Secret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -459,12 +459,12 @@ class Secret(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecretArgs args: The arguments to use to populate this resource's properties.
+        :param SecretArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecretArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -487,7 +487,7 @@ class Secret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecretArgs.__new__(SecretArgs)
+            __props__ = SecretArrgs.__new__(SecretArrgs)
 
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["expiration_date"] = expiration_date

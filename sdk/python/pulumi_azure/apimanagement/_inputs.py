@@ -10,102 +10,102 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApiContactArgs',
-    'ApiDiagnosticBackendRequestArgs',
-    'ApiDiagnosticBackendRequestDataMaskingArgs',
-    'ApiDiagnosticBackendRequestDataMaskingHeaderArgs',
-    'ApiDiagnosticBackendRequestDataMaskingQueryParamArgs',
-    'ApiDiagnosticBackendResponseArgs',
-    'ApiDiagnosticBackendResponseDataMaskingArgs',
-    'ApiDiagnosticBackendResponseDataMaskingHeaderArgs',
-    'ApiDiagnosticBackendResponseDataMaskingQueryParamArgs',
-    'ApiDiagnosticFrontendRequestArgs',
-    'ApiDiagnosticFrontendRequestDataMaskingArgs',
-    'ApiDiagnosticFrontendRequestDataMaskingHeaderArgs',
-    'ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs',
-    'ApiDiagnosticFrontendResponseArgs',
-    'ApiDiagnosticFrontendResponseDataMaskingArgs',
-    'ApiDiagnosticFrontendResponseDataMaskingHeaderArgs',
-    'ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs',
-    'ApiImportArgs',
-    'ApiImportWsdlSelectorArgs',
-    'ApiLicenseArgs',
-    'ApiOauth2AuthorizationArgs',
-    'ApiOpenidAuthenticationArgs',
-    'ApiOperationRequestArgs',
-    'ApiOperationRequestHeaderArgs',
-    'ApiOperationRequestHeaderExampleArgs',
-    'ApiOperationRequestQueryParameterArgs',
-    'ApiOperationRequestQueryParameterExampleArgs',
-    'ApiOperationRequestRepresentationArgs',
-    'ApiOperationRequestRepresentationExampleArgs',
-    'ApiOperationRequestRepresentationFormParameterArgs',
-    'ApiOperationRequestRepresentationFormParameterExampleArgs',
-    'ApiOperationResponseArgs',
-    'ApiOperationResponseHeaderArgs',
-    'ApiOperationResponseHeaderExampleArgs',
-    'ApiOperationResponseRepresentationArgs',
-    'ApiOperationResponseRepresentationExampleArgs',
-    'ApiOperationResponseRepresentationFormParameterArgs',
-    'ApiOperationResponseRepresentationFormParameterExampleArgs',
-    'ApiOperationTemplateParameterArgs',
-    'ApiOperationTemplateParameterExampleArgs',
-    'ApiSubscriptionKeyParameterNamesArgs',
-    'AuthorizationServerTokenBodyParameterArgs',
-    'BackendCredentialsArgs',
-    'BackendCredentialsAuthorizationArgs',
-    'BackendProxyArgs',
-    'BackendServiceFabricClusterArgs',
-    'BackendServiceFabricClusterServerX509NameArgs',
-    'BackendTlsArgs',
-    'CustomDomainDeveloperPortalArgs',
-    'CustomDomainGatewayArgs',
-    'CustomDomainManagementArgs',
-    'CustomDomainPortalArgs',
-    'CustomDomainScmArgs',
-    'DiagnosticBackendRequestArgs',
-    'DiagnosticBackendRequestDataMaskingArgs',
-    'DiagnosticBackendRequestDataMaskingHeaderArgs',
-    'DiagnosticBackendRequestDataMaskingQueryParamArgs',
-    'DiagnosticBackendResponseArgs',
-    'DiagnosticBackendResponseDataMaskingArgs',
-    'DiagnosticBackendResponseDataMaskingHeaderArgs',
-    'DiagnosticBackendResponseDataMaskingQueryParamArgs',
-    'DiagnosticFrontendRequestArgs',
-    'DiagnosticFrontendRequestDataMaskingArgs',
-    'DiagnosticFrontendRequestDataMaskingHeaderArgs',
-    'DiagnosticFrontendRequestDataMaskingQueryParamArgs',
-    'DiagnosticFrontendResponseArgs',
-    'DiagnosticFrontendResponseDataMaskingArgs',
-    'DiagnosticFrontendResponseDataMaskingHeaderArgs',
-    'DiagnosticFrontendResponseDataMaskingQueryParamArgs',
-    'GatewayLocationDataArgs',
-    'LoggerApplicationInsightsArgs',
-    'LoggerEventhubArgs',
-    'NamedValueValueFromKeyVaultArgs',
-    'ServiceAdditionalLocationArgs',
-    'ServiceAdditionalLocationVirtualNetworkConfigurationArgs',
-    'ServiceCertificateArgs',
-    'ServiceDelegationArgs',
-    'ServiceHostnameConfigurationArgs',
-    'ServiceHostnameConfigurationDeveloperPortalArgs',
-    'ServiceHostnameConfigurationManagementArgs',
-    'ServiceHostnameConfigurationPortalArgs',
-    'ServiceHostnameConfigurationProxyArgs',
-    'ServiceHostnameConfigurationScmArgs',
-    'ServiceIdentityArgs',
-    'ServicePolicyArgs',
-    'ServiceProtocolsArgs',
-    'ServiceSecurityArgs',
-    'ServiceSignInArgs',
-    'ServiceSignUpArgs',
-    'ServiceSignUpTermsOfServiceArgs',
-    'ServiceTenantAccessArgs',
-    'ServiceVirtualNetworkConfigurationArgs',
+    'ApiContactArrgs',
+    'ApiDiagnosticBackendRequestArrgs',
+    'ApiDiagnosticBackendRequestDataMaskingArrgs',
+    'ApiDiagnosticBackendRequestDataMaskingHeaderArrgs',
+    'ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs',
+    'ApiDiagnosticBackendResponseArrgs',
+    'ApiDiagnosticBackendResponseDataMaskingArrgs',
+    'ApiDiagnosticBackendResponseDataMaskingHeaderArrgs',
+    'ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs',
+    'ApiDiagnosticFrontendRequestArrgs',
+    'ApiDiagnosticFrontendRequestDataMaskingArrgs',
+    'ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs',
+    'ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs',
+    'ApiDiagnosticFrontendResponseArrgs',
+    'ApiDiagnosticFrontendResponseDataMaskingArrgs',
+    'ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs',
+    'ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs',
+    'ApiImportArrgs',
+    'ApiImportWsdlSelectorArrgs',
+    'ApiLicenseArrgs',
+    'ApiOauth2AuthorizationArrgs',
+    'ApiOpenidAuthenticationArrgs',
+    'ApiOperationRequestArrgs',
+    'ApiOperationRequestHeaderArrgs',
+    'ApiOperationRequestHeaderExampleArrgs',
+    'ApiOperationRequestQueryParameterArrgs',
+    'ApiOperationRequestQueryParameterExampleArrgs',
+    'ApiOperationRequestRepresentationArrgs',
+    'ApiOperationRequestRepresentationExampleArrgs',
+    'ApiOperationRequestRepresentationFormParameterArrgs',
+    'ApiOperationRequestRepresentationFormParameterExampleArrgs',
+    'ApiOperationResponseArrgs',
+    'ApiOperationResponseHeaderArrgs',
+    'ApiOperationResponseHeaderExampleArrgs',
+    'ApiOperationResponseRepresentationArrgs',
+    'ApiOperationResponseRepresentationExampleArrgs',
+    'ApiOperationResponseRepresentationFormParameterArrgs',
+    'ApiOperationResponseRepresentationFormParameterExampleArrgs',
+    'ApiOperationTemplateParameterArrgs',
+    'ApiOperationTemplateParameterExampleArrgs',
+    'ApiSubscriptionKeyParameterNamesArrgs',
+    'AuthorizationServerTokenBodyParameterArrgs',
+    'BackendCredentialsArrgs',
+    'BackendCredentialsAuthorizationArrgs',
+    'BackendProxyArrgs',
+    'BackendServiceFabricClusterArrgs',
+    'BackendServiceFabricClusterServerX509NameArrgs',
+    'BackendTlsArrgs',
+    'CustomDomainDeveloperPortalArrgs',
+    'CustomDomainGatewayArrgs',
+    'CustomDomainManagementArrgs',
+    'CustomDomainPortalArrgs',
+    'CustomDomainScmArrgs',
+    'DiagnosticBackendRequestArrgs',
+    'DiagnosticBackendRequestDataMaskingArrgs',
+    'DiagnosticBackendRequestDataMaskingHeaderArrgs',
+    'DiagnosticBackendRequestDataMaskingQueryParamArrgs',
+    'DiagnosticBackendResponseArrgs',
+    'DiagnosticBackendResponseDataMaskingArrgs',
+    'DiagnosticBackendResponseDataMaskingHeaderArrgs',
+    'DiagnosticBackendResponseDataMaskingQueryParamArrgs',
+    'DiagnosticFrontendRequestArrgs',
+    'DiagnosticFrontendRequestDataMaskingArrgs',
+    'DiagnosticFrontendRequestDataMaskingHeaderArrgs',
+    'DiagnosticFrontendRequestDataMaskingQueryParamArrgs',
+    'DiagnosticFrontendResponseArrgs',
+    'DiagnosticFrontendResponseDataMaskingArrgs',
+    'DiagnosticFrontendResponseDataMaskingHeaderArrgs',
+    'DiagnosticFrontendResponseDataMaskingQueryParamArrgs',
+    'GatewayLocationDataArrgs',
+    'LoggerApplicationInsightsArrgs',
+    'LoggerEventhubArrgs',
+    'NamedValueValueFromKeyVaultArrgs',
+    'ServiceAdditionalLocationArrgs',
+    'ServiceAdditionalLocationVirtualNetworkConfigurationArrgs',
+    'ServiceCertificateArrgs',
+    'ServiceDelegationArrgs',
+    'ServiceHostnameConfigurationArrgs',
+    'ServiceHostnameConfigurationDeveloperPortalArrgs',
+    'ServiceHostnameConfigurationManagementArrgs',
+    'ServiceHostnameConfigurationPortalArrgs',
+    'ServiceHostnameConfigurationProxyArrgs',
+    'ServiceHostnameConfigurationScmArrgs',
+    'ServiceIdentityArrgs',
+    'ServicePolicyArrgs',
+    'ServiceProtocolsArrgs',
+    'ServiceSecurityArrgs',
+    'ServiceSignInArrgs',
+    'ServiceSignUpArrgs',
+    'ServiceSignUpTermsOfServiceArrgs',
+    'ServiceTenantAccessArrgs',
+    'ServiceVirtualNetworkConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class ApiContactArgs:
+calass ApiContactArrgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -160,14 +160,14 @@ class ApiContactArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendRequestArgs:
+calass ApiDiagnosticBackendRequestArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -191,14 +191,14 @@ class ApiDiagnosticBackendRequestArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -215,13 +215,13 @@ class ApiDiagnosticBackendRequestArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendRequestDataMaskingArgs:
+calass ApiDiagnosticBackendRequestDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -230,31 +230,31 @@ class ApiDiagnosticBackendRequestDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendRequestDataMaskingHeaderArgs:
+calass ApiDiagnosticBackendRequestDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -291,7 +291,7 @@ class ApiDiagnosticBackendRequestDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendRequestDataMaskingQueryParamArgs:
+calass ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -328,14 +328,14 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendResponseArgs:
+calass ApiDiagnosticBackendResponseArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -359,14 +359,14 @@ class ApiDiagnosticBackendResponseArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -383,13 +383,13 @@ class ApiDiagnosticBackendResponseArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendResponseDataMaskingArgs:
+calass ApiDiagnosticBackendResponseDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -398,31 +398,31 @@ class ApiDiagnosticBackendResponseDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendResponseDataMaskingHeaderArgs:
+calass ApiDiagnosticBackendResponseDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -459,7 +459,7 @@ class ApiDiagnosticBackendResponseDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticBackendResponseDataMaskingQueryParamArgs:
+calass ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -496,14 +496,14 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendRequestArgs:
+calass ApiDiagnosticFrontendRequestArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -527,14 +527,14 @@ class ApiDiagnosticFrontendRequestArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -551,13 +551,13 @@ class ApiDiagnosticFrontendRequestArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendRequestDataMaskingArgs:
+calass ApiDiagnosticFrontendRequestDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -566,31 +566,31 @@ class ApiDiagnosticFrontendRequestDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs:
+calass ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -627,7 +627,7 @@ class ApiDiagnosticFrontendRequestDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs:
+calass ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -664,14 +664,14 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendResponseArgs:
+calass ApiDiagnosticFrontendResponseArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -695,14 +695,14 @@ class ApiDiagnosticFrontendResponseArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -719,13 +719,13 @@ class ApiDiagnosticFrontendResponseArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendResponseDataMaskingArgs:
+calass ApiDiagnosticFrontendResponseDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -734,31 +734,31 @@ class ApiDiagnosticFrontendResponseDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendResponseDataMaskingHeaderArgs:
+calass ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -795,7 +795,7 @@ class ApiDiagnosticFrontendResponseDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs:
+calass ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -832,15 +832,15 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class ApiImportArgs:
+calass ApiImportArrgs:
     def __init__(__self__, *,
                  content_format: pulumi.Input[str],
                  content_value: pulumi.Input[str],
-                 wsdl_selector: Optional[pulumi.Input['ApiImportWsdlSelectorArgs']] = None):
+                 wsdl_selector: Optional[pulumi.Input['ApiImportWsdlSelectorArrgs']] = None):
         """
         :param pulumi.Input[str] content_format: The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
         :param pulumi.Input[str] content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
-        :param pulumi.Input['ApiImportWsdlSelectorArgs'] wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        :param pulumi.Input['ApiImportWsdlSelectorArrgs'] wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
         pulumi.set(__self__, "content_format", content_format)
         pulumi.set(__self__, "content_value", content_value)
@@ -873,19 +873,19 @@ class ApiImportArgs:
 
     @property
     @pulumi.getter(name="wsdlSelector")
-    def wsdl_selector(self) -> Optional[pulumi.Input['ApiImportWsdlSelectorArgs']]:
+    def wsdl_selector(self) -> Optional[pulumi.Input['ApiImportWsdlSelectorArrgs']]:
         """
         A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
         return pulumi.get(self, "wsdl_selector")
 
     @wsdl_selector.setter
-    def wsdl_selector(self, value: Optional[pulumi.Input['ApiImportWsdlSelectorArgs']]):
+    def wsdl_selector(self, value: Optional[pulumi.Input['ApiImportWsdlSelectorArrgs']]):
         pulumi.set(self, "wsdl_selector", value)
 
 
 @pulumi.input_type
-class ApiImportWsdlSelectorArgs:
+calass ApiImportWsdlSelectorArrgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[str],
                  service_name: pulumi.Input[str]):
@@ -922,7 +922,7 @@ class ApiImportWsdlSelectorArgs:
 
 
 @pulumi.input_type
-class ApiLicenseArgs:
+calass ApiLicenseArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -961,7 +961,7 @@ class ApiLicenseArgs:
 
 
 @pulumi.input_type
-class ApiOauth2AuthorizationArgs:
+calass ApiOauth2AuthorizationArrgs:
     def __init__(__self__, *,
                  authorization_server_name: pulumi.Input[str],
                  scope: Optional[pulumi.Input[str]] = None):
@@ -999,7 +999,7 @@ class ApiOauth2AuthorizationArgs:
 
 
 @pulumi.input_type
-class ApiOpenidAuthenticationArgs:
+calass ApiOpenidAuthenticationArrgs:
     def __init__(__self__, *,
                  openid_provider_name: pulumi.Input[str],
                  bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1037,17 +1037,17 @@ class ApiOpenidAuthenticationArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestArgs:
+calass ApiOperationRequestArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]] = None,
-                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]] = None,
-                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArrgs']]]] = None,
+                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArrgs']]]] = None,
+                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArrgs']]]] = None):
         """
         :param pulumi.Input[str] description: A description of the HTTP Request, which may include HTML tags.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]] query_parameters: One or more `query_parameter` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArrgs']]] headers: One or more `header` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArrgs']]] query_parameters: One or more `query_parameter` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArrgs']]] representations: One or more `representation` blocks as defined below.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -1072,50 +1072,50 @@ class ApiOperationRequestArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArrgs']]]]:
         """
         One or more `header` blocks as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]:
+    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArrgs']]]]:
         """
         One or more `query_parameter` blocks as defined above.
         """
         return pulumi.get(self, "query_parameters")
 
     @query_parameters.setter
-    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]):
+    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArrgs']]]]):
         pulumi.set(self, "query_parameters", value)
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]:
+    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArrgs']]]]:
         """
         One or more `representation` blocks as defined below.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]):
+    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationArrgs']]]]):
         pulumi.set(self, "representations", value)
 
 
 @pulumi.input_type
-class ApiOperationRequestHeaderArgs:
+calass ApiOperationRequestHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1125,7 +1125,7 @@ class ApiOperationRequestHeaderArgs:
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
@@ -1208,14 +1208,14 @@ class ApiOperationRequestHeaderArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -1256,7 +1256,7 @@ class ApiOperationRequestHeaderArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestHeaderExampleArgs:
+calass ApiOperationRequestHeaderExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1342,14 +1342,14 @@ class ApiOperationRequestHeaderExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestQueryParameterArgs:
+calass ApiOperationRequestQueryParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1359,7 +1359,7 @@ class ApiOperationRequestQueryParameterArgs:
         :param pulumi.Input[str] type: The Type of this Query Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Query Parameter.
         :param pulumi.Input[str] description: A description of this Query Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Query Parameter.
@@ -1442,14 +1442,14 @@ class ApiOperationRequestQueryParameterArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -1490,7 +1490,7 @@ class ApiOperationRequestQueryParameterArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestQueryParameterExampleArgs:
+calass ApiOperationRequestQueryParameterExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1576,17 +1576,17 @@ class ApiOperationRequestQueryParameterExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestRepresentationArgs:
+calass ApiOperationRequestRepresentationArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgs']]]] = None,
-                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArrgs']]]] = None,
+                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content_type: The Content Type of this representation, such as `application/json`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgs']]] examples: One or more `example` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArrgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArrgs']]] form_parameters: One or more `form_parameter` block as defined above.
                
                > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param pulumi.Input[str] schema_id: The ID of an API Management Schema which represents this Response.
@@ -1620,19 +1620,19 @@ class ApiOperationRequestRepresentationArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]:
+    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArrgs']]]]:
         """
         One or more `form_parameter` block as defined above.
 
@@ -1641,7 +1641,7 @@ class ApiOperationRequestRepresentationArgs:
         return pulumi.get(self, "form_parameters")
 
     @form_parameters.setter
-    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]):
+    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArrgs']]]]):
         pulumi.set(self, "form_parameters", value)
 
     @property
@@ -1674,7 +1674,7 @@ class ApiOperationRequestRepresentationArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestRepresentationExampleArgs:
+calass ApiOperationRequestRepresentationExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1760,14 +1760,14 @@ class ApiOperationRequestRepresentationExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestRepresentationFormParameterArgs:
+calass ApiOperationRequestRepresentationFormParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1777,7 +1777,7 @@ class ApiOperationRequestRepresentationFormParameterArgs:
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
@@ -1860,14 +1860,14 @@ class ApiOperationRequestRepresentationFormParameterArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -1908,7 +1908,7 @@ class ApiOperationRequestRepresentationFormParameterArgs:
 
 
 @pulumi.input_type
-class ApiOperationRequestRepresentationFormParameterExampleArgs:
+calass ApiOperationRequestRepresentationFormParameterExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1994,17 +1994,17 @@ class ApiOperationRequestRepresentationFormParameterExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseArgs:
+calass ApiOperationResponseArrgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[int],
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]] = None,
-                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArrgs']]]] = None,
+                 representations: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArrgs']]]] = None):
         """
         :param pulumi.Input[int] status_code: The HTTP Status Code.
         :param pulumi.Input[str] description: A description of the HTTP Response, which may include HTML tags.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]] representations: One or more `representation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArrgs']]] headers: One or more `header` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArrgs']]] representations: One or more `representation` blocks as defined below.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:
@@ -2040,38 +2040,38 @@ class ApiOperationResponseArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArrgs']]]]:
         """
         One or more `header` blocks as defined above.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter
-    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]:
+    def representations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArrgs']]]]:
         """
         One or more `representation` blocks as defined below.
         """
         return pulumi.get(self, "representations")
 
     @representations.setter
-    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]):
+    def representations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationArrgs']]]]):
         pulumi.set(self, "representations", value)
 
 
 @pulumi.input_type
-class ApiOperationResponseHeaderArgs:
+calass ApiOperationResponseHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2081,7 +2081,7 @@ class ApiOperationResponseHeaderArgs:
         :param pulumi.Input[str] type: The Type of this Header, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Header.
         :param pulumi.Input[str] description: A description of this Header.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Header.
@@ -2164,14 +2164,14 @@ class ApiOperationResponseHeaderArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -2212,7 +2212,7 @@ class ApiOperationResponseHeaderArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseHeaderExampleArgs:
+calass ApiOperationResponseHeaderExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2298,17 +2298,17 @@ class ApiOperationResponseHeaderExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseRepresentationArgs:
+calass ApiOperationResponseRepresentationArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgs']]]] = None,
-                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArrgs']]]] = None,
+                 form_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content_type: The Content Type of this representation, such as `application/json`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgs']]] examples: One or more `example` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]] form_parameters: One or more `form_parameter` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArrgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArrgs']]] form_parameters: One or more `form_parameter` block as defined above.
                
                > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param pulumi.Input[str] schema_id: The ID of an API Management Schema which represents this Response.
@@ -2342,19 +2342,19 @@ class ApiOperationResponseRepresentationArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
     @pulumi.getter(name="formParameters")
-    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]:
+    def form_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArrgs']]]]:
         """
         One or more `form_parameter` block as defined above.
 
@@ -2363,7 +2363,7 @@ class ApiOperationResponseRepresentationArgs:
         return pulumi.get(self, "form_parameters")
 
     @form_parameters.setter
-    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]):
+    def form_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArrgs']]]]):
         pulumi.set(self, "form_parameters", value)
 
     @property
@@ -2396,7 +2396,7 @@ class ApiOperationResponseRepresentationArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseRepresentationExampleArgs:
+calass ApiOperationResponseRepresentationExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2482,14 +2482,14 @@ class ApiOperationResponseRepresentationExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseRepresentationFormParameterArgs:
+calass ApiOperationResponseRepresentationFormParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2499,7 +2499,7 @@ class ApiOperationResponseRepresentationFormParameterArgs:
         :param pulumi.Input[str] type: The Type of this Form Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Form Parameter.
         :param pulumi.Input[str] description: A description of this Form Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Form Parameter.
@@ -2582,14 +2582,14 @@ class ApiOperationResponseRepresentationFormParameterArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -2630,7 +2630,7 @@ class ApiOperationResponseRepresentationFormParameterArgs:
 
 
 @pulumi.input_type
-class ApiOperationResponseRepresentationFormParameterExampleArgs:
+calass ApiOperationResponseRepresentationFormParameterExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2716,14 +2716,14 @@ class ApiOperationResponseRepresentationFormParameterExampleArgs:
 
 
 @pulumi.input_type
-class ApiOperationTemplateParameterArgs:
+calass ApiOperationTemplateParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  required: pulumi.Input[bool],
                  type: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]]] = None,
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArrgs']]]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2733,7 +2733,7 @@ class ApiOperationTemplateParameterArgs:
         :param pulumi.Input[str] type: The Type of this Template Parameter, such as a `string`.
         :param pulumi.Input[str] default_value: The default value for this Template Parameter.
         :param pulumi.Input[str] description: A description of this Template Parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]] examples: One or more `example` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArrgs']]] examples: One or more `example` blocks as defined above.
         :param pulumi.Input[str] schema_id: The name of the Schema.
         :param pulumi.Input[str] type_name: The type name defined by the Schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: One or more acceptable values for this Template Parameter.
@@ -2816,14 +2816,14 @@ class ApiOperationTemplateParameterArgs:
 
     @property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]]]:
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArrgs']]]]:
         """
         One or more `example` blocks as defined above.
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]]]):
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArrgs']]]]):
         pulumi.set(self, "examples", value)
 
     @property
@@ -2864,7 +2864,7 @@ class ApiOperationTemplateParameterArgs:
 
 
 @pulumi.input_type
-class ApiOperationTemplateParameterExampleArgs:
+calass ApiOperationTemplateParameterExampleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2950,7 +2950,7 @@ class ApiOperationTemplateParameterExampleArgs:
 
 
 @pulumi.input_type
-class ApiSubscriptionKeyParameterNamesArgs:
+calass ApiSubscriptionKeyParameterNamesArrgs:
     def __init__(__self__, *,
                  header: pulumi.Input[str],
                  query: pulumi.Input[str]):
@@ -2987,7 +2987,7 @@ class ApiSubscriptionKeyParameterNamesArgs:
 
 
 @pulumi.input_type
-class AuthorizationServerTokenBodyParameterArgs:
+calass AuthorizationServerTokenBodyParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -3024,14 +3024,14 @@ class AuthorizationServerTokenBodyParameterArgs:
 
 
 @pulumi.input_type
-class BackendCredentialsArgs:
+calass BackendCredentialsArrgs:
     def __init__(__self__, *,
-                 authorization: Optional[pulumi.Input['BackendCredentialsAuthorizationArgs']] = None,
+                 authorization: Optional[pulumi.Input['BackendCredentialsAuthorizationArrgs']] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  header: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['BackendCredentialsAuthorizationArgs'] authorization: An `authorization` block as defined below.
+        :param pulumi.Input['BackendCredentialsAuthorizationArrgs'] authorization: An `authorization` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] header: A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query: A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
@@ -3047,14 +3047,14 @@ class BackendCredentialsArgs:
 
     @property
     @pulumi.getter
-    def authorization(self) -> Optional[pulumi.Input['BackendCredentialsAuthorizationArgs']]:
+    def authorization(self) -> Optional[pulumi.Input['BackendCredentialsAuthorizationArrgs']]:
         """
         An `authorization` block as defined below.
         """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
-    def authorization(self, value: Optional[pulumi.Input['BackendCredentialsAuthorizationArgs']]):
+    def authorization(self, value: Optional[pulumi.Input['BackendCredentialsAuthorizationArrgs']]):
         pulumi.set(self, "authorization", value)
 
     @property
@@ -3095,7 +3095,7 @@ class BackendCredentialsArgs:
 
 
 @pulumi.input_type
-class BackendCredentialsAuthorizationArgs:
+calass BackendCredentialsAuthorizationArrgs:
     def __init__(__self__, *,
                  parameter: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[str]] = None):
@@ -3134,7 +3134,7 @@ class BackendCredentialsAuthorizationArgs:
 
 
 @pulumi.input_type
-class BackendProxyArgs:
+calass BackendProxyArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  username: pulumi.Input[str],
@@ -3187,14 +3187,14 @@ class BackendProxyArgs:
 
 
 @pulumi.input_type
-class BackendServiceFabricClusterArgs:
+calass BackendServiceFabricClusterArrgs:
     def __init__(__self__, *,
                  management_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
                  max_partition_resolution_retries: pulumi.Input[int],
                  client_certificate_id: Optional[pulumi.Input[str]] = None,
                  client_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  server_certificate_thumbprints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]] = None):
+                 server_x509_names: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArrgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] management_endpoints: A list of cluster management endpoints.
         :param pulumi.Input[int] max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
@@ -3204,7 +3204,7 @@ class BackendServiceFabricClusterArgs:
                >
         :param pulumi.Input[str] client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArrgs']]] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
         pulumi.set(__self__, "management_endpoints", management_endpoints)
         pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
@@ -3282,19 +3282,19 @@ class BackendServiceFabricClusterArgs:
 
     @property
     @pulumi.getter(name="serverX509Names")
-    def server_x509_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]:
+    def server_x509_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArrgs']]]]:
         """
         One or more `server_x509_name` blocks as documented below.
         """
         return pulumi.get(self, "server_x509_names")
 
     @server_x509_names.setter
-    def server_x509_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]):
+    def server_x509_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArrgs']]]]):
         pulumi.set(self, "server_x509_names", value)
 
 
 @pulumi.input_type
-class BackendServiceFabricClusterServerX509NameArgs:
+calass BackendServiceFabricClusterServerX509NameArrgs:
     def __init__(__self__, *,
                  issuer_certificate_thumbprint: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -3331,7 +3331,7 @@ class BackendServiceFabricClusterServerX509NameArgs:
 
 
 @pulumi.input_type
-class BackendTlsArgs:
+calass BackendTlsArrgs:
     def __init__(__self__, *,
                  validate_certificate_chain: Optional[pulumi.Input[bool]] = None,
                  validate_certificate_name: Optional[pulumi.Input[bool]] = None):
@@ -3370,7 +3370,7 @@ class BackendTlsArgs:
 
 
 @pulumi.input_type
-class CustomDomainDeveloperPortalArgs:
+calass CustomDomainDeveloperPortalArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -3536,7 +3536,7 @@ class CustomDomainDeveloperPortalArgs:
 
 
 @pulumi.input_type
-class CustomDomainGatewayArgs:
+calass CustomDomainGatewayArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -3718,7 +3718,7 @@ class CustomDomainGatewayArgs:
 
 
 @pulumi.input_type
-class CustomDomainManagementArgs:
+calass CustomDomainManagementArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -3884,7 +3884,7 @@ class CustomDomainManagementArgs:
 
 
 @pulumi.input_type
-class CustomDomainPortalArgs:
+calass CustomDomainPortalArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -4050,7 +4050,7 @@ class CustomDomainPortalArgs:
 
 
 @pulumi.input_type
-class CustomDomainScmArgs:
+calass CustomDomainScmArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -4216,14 +4216,14 @@ class CustomDomainScmArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendRequestArgs:
+calass DiagnosticBackendRequestArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['DiagnosticBackendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['DiagnosticBackendRequestDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4247,14 +4247,14 @@ class DiagnosticBackendRequestArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendRequestDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -4271,13 +4271,13 @@ class DiagnosticBackendRequestArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendRequestDataMaskingArgs:
+calass DiagnosticBackendRequestDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4286,31 +4286,31 @@ class DiagnosticBackendRequestDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class DiagnosticBackendRequestDataMaskingHeaderArgs:
+calass DiagnosticBackendRequestDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4347,7 +4347,7 @@ class DiagnosticBackendRequestDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendRequestDataMaskingQueryParamArgs:
+calass DiagnosticBackendRequestDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4384,14 +4384,14 @@ class DiagnosticBackendRequestDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendResponseArgs:
+calass DiagnosticBackendResponseArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['DiagnosticBackendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['DiagnosticBackendResponseDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4415,14 +4415,14 @@ class DiagnosticBackendResponseArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticBackendResponseDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -4439,13 +4439,13 @@ class DiagnosticBackendResponseArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendResponseDataMaskingArgs:
+calass DiagnosticBackendResponseDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4454,31 +4454,31 @@ class DiagnosticBackendResponseDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class DiagnosticBackendResponseDataMaskingHeaderArgs:
+calass DiagnosticBackendResponseDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4515,7 +4515,7 @@ class DiagnosticBackendResponseDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class DiagnosticBackendResponseDataMaskingQueryParamArgs:
+calass DiagnosticBackendResponseDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4552,14 +4552,14 @@ class DiagnosticBackendResponseDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendRequestArgs:
+calass DiagnosticFrontendRequestArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendRequestDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4583,14 +4583,14 @@ class DiagnosticFrontendRequestArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendRequestDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -4607,13 +4607,13 @@ class DiagnosticFrontendRequestArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendRequestDataMaskingArgs:
+calass DiagnosticFrontendRequestDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4622,31 +4622,31 @@ class DiagnosticFrontendRequestDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class DiagnosticFrontendRequestDataMaskingHeaderArgs:
+calass DiagnosticFrontendRequestDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4683,7 +4683,7 @@ class DiagnosticFrontendRequestDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendRequestDataMaskingQueryParamArgs:
+calass DiagnosticFrontendRequestDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4720,14 +4720,14 @@ class DiagnosticFrontendRequestDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendResponseArgs:
+calass DiagnosticFrontendResponseArrgs:
     def __init__(__self__, *,
                  body_bytes: Optional[pulumi.Input[int]] = None,
-                 data_masking: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']] = None,
+                 data_masking: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArrgs']] = None,
                  headers_to_logs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] body_bytes: Number of payload bytes to log (up to 8192).
-        :param pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs'] data_masking: A `data_masking` block as defined below.
+        :param pulumi.Input['DiagnosticFrontendResponseDataMaskingArrgs'] data_masking: A `data_masking` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4751,14 +4751,14 @@ class DiagnosticFrontendResponseArgs:
 
     @property
     @pulumi.getter(name="dataMasking")
-    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']]:
+    def data_masking(self) -> Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArrgs']]:
         """
         A `data_masking` block as defined below.
         """
         return pulumi.get(self, "data_masking")
 
     @data_masking.setter
-    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArgs']]):
+    def data_masking(self, value: Optional[pulumi.Input['DiagnosticFrontendResponseDataMaskingArrgs']]):
         pulumi.set(self, "data_masking", value)
 
     @property
@@ -4775,13 +4775,13 @@ class DiagnosticFrontendResponseArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendResponseDataMaskingArgs:
+calass DiagnosticFrontendResponseDataMaskingArrgs:
     def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]] = None):
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArrgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]] headers: A `headers` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]] query_params: A `query_params` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArrgs']]] headers: A `headers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArrgs']]] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4790,31 +4790,31 @@ class DiagnosticFrontendResponseDataMaskingArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArrgs']]]]:
         """
         A `headers` block as defined below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]:
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]]:
         """
         A `query_params` block as defined below.
         """
         return pulumi.get(self, "query_params")
 
     @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]):
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArrgs']]]]):
         pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type
-class DiagnosticFrontendResponseDataMaskingHeaderArgs:
+calass DiagnosticFrontendResponseDataMaskingHeaderArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4851,7 +4851,7 @@ class DiagnosticFrontendResponseDataMaskingHeaderArgs:
 
 
 @pulumi.input_type
-class DiagnosticFrontendResponseDataMaskingQueryParamArgs:
+calass DiagnosticFrontendResponseDataMaskingQueryParamArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -4888,7 +4888,7 @@ class DiagnosticFrontendResponseDataMaskingQueryParamArgs:
 
 
 @pulumi.input_type
-class GatewayLocationDataArgs:
+calass GatewayLocationDataArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  city: Optional[pulumi.Input[str]] = None,
@@ -4958,7 +4958,7 @@ class GatewayLocationDataArgs:
 
 
 @pulumi.input_type
-class LoggerApplicationInsightsArgs:
+calass LoggerApplicationInsightsArrgs:
     def __init__(__self__, *,
                  instrumentation_key: pulumi.Input[str]):
         """
@@ -4980,7 +4980,7 @@ class LoggerApplicationInsightsArgs:
 
 
 @pulumi.input_type
-class LoggerEventhubArgs:
+calass LoggerEventhubArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -5017,7 +5017,7 @@ class LoggerEventhubArgs:
 
 
 @pulumi.input_type
-class NamedValueValueFromKeyVaultArgs:
+calass NamedValueValueFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_id: pulumi.Input[str],
                  identity_client_id: Optional[pulumi.Input[str]] = None):
@@ -5055,7 +5055,7 @@ class NamedValueValueFromKeyVaultArgs:
 
 
 @pulumi.input_type
-class ServiceAdditionalLocationArgs:
+calass ServiceAdditionalLocationArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None,
@@ -5064,7 +5064,7 @@ class ServiceAdditionalLocationArgs:
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']] = None,
+                 virtual_network_configuration: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArrgs']] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] location: The name of the Azure Region in which the API Management Service should be expanded to.
@@ -5076,7 +5076,7 @@ class ServiceAdditionalLocationArgs:
                
                > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArrgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
@@ -5185,14 +5185,14 @@ class ServiceAdditionalLocationArgs:
 
     @property
     @pulumi.getter(name="virtualNetworkConfiguration")
-    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]:
+    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArrgs']]:
         """
         A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]):
+    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceAdditionalLocationVirtualNetworkConfigurationArrgs']]):
         pulumi.set(self, "virtual_network_configuration", value)
 
     @property
@@ -5209,7 +5209,7 @@ class ServiceAdditionalLocationArgs:
 
 
 @pulumi.input_type
-class ServiceAdditionalLocationVirtualNetworkConfigurationArgs:
+calass ServiceAdditionalLocationVirtualNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
         """
@@ -5231,7 +5231,7 @@ class ServiceAdditionalLocationVirtualNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceCertificateArgs:
+calass ServiceCertificateArrgs:
     def __init__(__self__, *,
                  encoded_certificate: pulumi.Input[str],
                  store_name: pulumi.Input[str],
@@ -5332,7 +5332,7 @@ class ServiceCertificateArgs:
 
 
 @pulumi.input_type
-class ServiceDelegationArgs:
+calass ServiceDelegationArrgs:
     def __init__(__self__, *,
                  subscriptions_enabled: Optional[pulumi.Input[bool]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -5403,19 +5403,19 @@ class ServiceDelegationArgs:
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationArgs:
+calass ServiceHostnameConfigurationArrgs:
     def __init__(__self__, *,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]] = None):
+                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArrgs']]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArrgs']]]] = None,
+                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArrgs']]]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArrgs']]]] = None,
+                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]] managements: One or more `management` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]] portals: One or more `portal` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]] proxies: One or more `proxy` blocks as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]] scms: One or more `scm` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArrgs']]] developer_portals: One or more `developer_portal` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArrgs']]] managements: One or more `management` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArrgs']]] portals: One or more `portal` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArrgs']]] proxies: One or more `proxy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArrgs']]] scms: One or more `scm` blocks as documented below.
         """
         if developer_portals is not None:
             pulumi.set(__self__, "developer_portals", developer_portals)
@@ -5430,67 +5430,67 @@ class ServiceHostnameConfigurationArgs:
 
     @property
     @pulumi.getter(name="developerPortals")
-    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]:
+    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArrgs']]]]:
         """
         One or more `developer_portal` blocks as documented below.
         """
         return pulumi.get(self, "developer_portals")
 
     @developer_portals.setter
-    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]):
+    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArrgs']]]]):
         pulumi.set(self, "developer_portals", value)
 
     @property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]:
+    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArrgs']]]]:
         """
         One or more `management` blocks as documented below.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]):
+    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArrgs']]]]):
         pulumi.set(self, "managements", value)
 
     @property
     @pulumi.getter
-    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]:
+    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArrgs']]]]:
         """
         One or more `portal` blocks as documented below.
         """
         return pulumi.get(self, "portals")
 
     @portals.setter
-    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]):
+    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArrgs']]]]):
         pulumi.set(self, "portals", value)
 
     @property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]:
+    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArrgs']]]]:
         """
         One or more `proxy` blocks as documented below.
         """
         return pulumi.get(self, "proxies")
 
     @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]):
+    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArrgs']]]]):
         pulumi.set(self, "proxies", value)
 
     @property
     @pulumi.getter
-    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]:
+    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArrgs']]]]:
         """
         One or more `scm` blocks as documented below.
         """
         return pulumi.get(self, "scms")
 
     @scms.setter
-    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]):
+    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArrgs']]]]):
         pulumi.set(self, "scms", value)
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationDeveloperPortalArgs:
+calass ServiceHostnameConfigurationDeveloperPortalArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -5680,7 +5680,7 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationManagementArgs:
+calass ServiceHostnameConfigurationManagementArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -5874,7 +5874,7 @@ class ServiceHostnameConfigurationManagementArgs:
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationPortalArgs:
+calass ServiceHostnameConfigurationPortalArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -6064,7 +6064,7 @@ class ServiceHostnameConfigurationPortalArgs:
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationProxyArgs:
+calass ServiceHostnameConfigurationProxyArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -6270,7 +6270,7 @@ class ServiceHostnameConfigurationProxyArgs:
 
 
 @pulumi.input_type
-class ServiceHostnameConfigurationScmArgs:
+calass ServiceHostnameConfigurationScmArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -6460,7 +6460,7 @@ class ServiceHostnameConfigurationScmArgs:
 
 
 @pulumi.input_type
-class ServiceIdentityArgs:
+calass ServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -6534,7 +6534,7 @@ class ServiceIdentityArgs:
 
 
 @pulumi.input_type
-class ServicePolicyArgs:
+calass ServicePolicyArrgs:
     def __init__(__self__, *,
                  xml_content: Optional[pulumi.Input[str]] = None,
                  xml_link: Optional[pulumi.Input[str]] = None):
@@ -6573,7 +6573,7 @@ class ServicePolicyArgs:
 
 
 @pulumi.input_type
-class ServiceProtocolsArgs:
+calass ServiceProtocolsArrgs:
     def __init__(__self__, *,
                  enable_http2: Optional[pulumi.Input[bool]] = None):
         """
@@ -6596,7 +6596,7 @@ class ServiceProtocolsArgs:
 
 
 @pulumi.input_type
-class ServiceSecurityArgs:
+calass ServiceSecurityArrgs:
     def __init__(__self__, *,
                  enable_backend_ssl30: Optional[pulumi.Input[bool]] = None,
                  enable_backend_tls10: Optional[pulumi.Input[bool]] = None,
@@ -6943,7 +6943,7 @@ class ServiceSecurityArgs:
 
 
 @pulumi.input_type
-class ServiceSignInArgs:
+calass ServiceSignInArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -6965,13 +6965,13 @@ class ServiceSignInArgs:
 
 
 @pulumi.input_type
-class ServiceSignUpArgs:
+calass ServiceSignUpArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 terms_of_service: pulumi.Input['ServiceSignUpTermsOfServiceArgs']):
+                 terms_of_service: pulumi.Input['ServiceSignUpTermsOfServiceArrgs']):
         """
         :param pulumi.Input[bool] enabled: Can users sign up on the development portal?
-        :param pulumi.Input['ServiceSignUpTermsOfServiceArgs'] terms_of_service: A `terms_of_service` block as defined below.
+        :param pulumi.Input['ServiceSignUpTermsOfServiceArrgs'] terms_of_service: A `terms_of_service` block as defined below.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "terms_of_service", terms_of_service)
@@ -6990,19 +6990,19 @@ class ServiceSignUpArgs:
 
     @property
     @pulumi.getter(name="termsOfService")
-    def terms_of_service(self) -> pulumi.Input['ServiceSignUpTermsOfServiceArgs']:
+    def terms_of_service(self) -> pulumi.Input['ServiceSignUpTermsOfServiceArrgs']:
         """
         A `terms_of_service` block as defined below.
         """
         return pulumi.get(self, "terms_of_service")
 
     @terms_of_service.setter
-    def terms_of_service(self, value: pulumi.Input['ServiceSignUpTermsOfServiceArgs']):
+    def terms_of_service(self, value: pulumi.Input['ServiceSignUpTermsOfServiceArrgs']):
         pulumi.set(self, "terms_of_service", value)
 
 
 @pulumi.input_type
-class ServiceSignUpTermsOfServiceArgs:
+calass ServiceSignUpTermsOfServiceArrgs:
     def __init__(__self__, *,
                  consent_required: pulumi.Input[bool],
                  enabled: pulumi.Input[bool],
@@ -7055,7 +7055,7 @@ class ServiceSignUpTermsOfServiceArgs:
 
 
 @pulumi.input_type
-class ServiceTenantAccessArgs:
+calass ServiceTenantAccessArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  primary_key: Optional[pulumi.Input[str]] = None,
@@ -7125,7 +7125,7 @@ class ServiceTenantAccessArgs:
 
 
 @pulumi.input_type
-class ServiceVirtualNetworkConfigurationArgs:
+calass ServiceVirtualNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
         """

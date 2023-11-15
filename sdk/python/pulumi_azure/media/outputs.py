@@ -107,7 +107,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountFilterPresentationTimeRange(dict):
+calass AccountFilterPresentationTimeRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -216,11 +216,11 @@ class AccountFilterPresentationTimeRange(dict):
 
 
 @pulumi.output_type
-class AccountFilterTrackSelection(dict):
+calass AccountFilterTrackSelection(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.AccountFilterTrackSelectionCondition']):
         """
-        :param Sequence['AccountFilterTrackSelectionConditionArgs'] conditions: One or more `selection` blocks as defined above.
+        :param Sequence['AccountFilterTrackSelectionConditionArrgs'] conditions: One or more `selection` blocks as defined above.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -234,7 +234,7 @@ class AccountFilterTrackSelection(dict):
 
 
 @pulumi.output_type
-class AccountFilterTrackSelectionCondition(dict):
+calass AccountFilterTrackSelectionCondition(dict):
     def __init__(__self__, *,
                  operation: str,
                  property: str,
@@ -274,7 +274,7 @@ class AccountFilterTrackSelectionCondition(dict):
 
 
 @pulumi.output_type
-class AssetFilterPresentationTimeRange(dict):
+calass AssetFilterPresentationTimeRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -384,11 +384,11 @@ class AssetFilterPresentationTimeRange(dict):
 
 
 @pulumi.output_type
-class AssetFilterTrackSelection(dict):
+calass AssetFilterTrackSelection(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.AssetFilterTrackSelectionCondition']):
         """
-        :param Sequence['AssetFilterTrackSelectionConditionArgs'] conditions: One or more `condition` blocks as defined above.
+        :param Sequence['AssetFilterTrackSelectionConditionArrgs'] conditions: One or more `condition` blocks as defined above.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -402,7 +402,7 @@ class AssetFilterTrackSelection(dict):
 
 
 @pulumi.output_type
-class AssetFilterTrackSelectionCondition(dict):
+calass AssetFilterTrackSelectionCondition(dict):
     def __init__(__self__, *,
                  operation: Optional[str] = None,
                  property: Optional[str] = None,
@@ -445,7 +445,7 @@ class AssetFilterTrackSelectionCondition(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOption(dict):
+calass ContentKeyPolicyPolicyOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -487,11 +487,11 @@ class ContentKeyPolicyPolicyOption(dict):
         """
         :param str name: The name which should be used for this Policy Option.
         :param bool clear_key_configuration_enabled: Enable a configuration for non-DRM keys.
-        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs' fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
+        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs' fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
         :param bool open_restriction_enabled: Enable an open restriction. License or key will be delivered on every request.
-        :param Sequence['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs'] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
+        :param Sequence['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs'] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
         :param str playready_response_custom_data: The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
-        :param 'ContentKeyPolicyPolicyOptionTokenRestrictionArgs' token_restriction: A `token_restriction` block as defined below.
+        :param 'ContentKeyPolicyPolicyOptionTokenRestrictionArrgs' token_restriction: A `token_restriction` block as defined below.
         :param str widevine_configuration_template: The Widevine template.
                
                > **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
@@ -580,7 +580,7 @@ class ContentKeyPolicyPolicyOption(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
+calass ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -613,7 +613,7 @@ class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
                  rental_duration_seconds: Optional[int] = None):
         """
         :param str ask: The key that must be used as FairPlay Application Secret key.
-        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs' offline_rental_configuration: A `offline_rental_configuration` block as defined below.
+        :param 'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs' offline_rental_configuration: A `offline_rental_configuration` block as defined below.
         :param str pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         :param str pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param str rental_and_lease_key_type: The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
@@ -682,7 +682,7 @@ class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(dict):
+calass ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -732,7 +732,7 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguratio
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -796,7 +796,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
         :param str expiration_date: The expiration date of license.
         :param str grace_period: The grace period of license.
         :param str license_type: The license type. Supported values are `NonPersistent` or `Persistent`.
-        :param 'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs' play_right: A `play_right` block as defined above.
+        :param 'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs' play_right: A `play_right` block as defined above.
         :param str relative_begin_date: The relative begin date of license.
         :param str relative_expiration_date: The relative expiration date of license.
         :param str security_level: The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
@@ -926,7 +926,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -989,7 +989,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
         :param int compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
         :param int compressed_digital_video_opl: Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
         :param bool digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
-        :param 'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs' explicit_analog_television_output_restriction: An `explicit_analog_television_output_restriction` block as defined above.
+        :param 'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs' explicit_analog_television_output_restriction: An `explicit_analog_television_output_restriction` block as defined above.
         :param str first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
         :param bool image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param bool image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
@@ -1130,7 +1130,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction(dict):
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,7 +1179,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
+calass ContentKeyPolicyPolicyOptionTokenRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1223,7 +1223,7 @@ class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
                  required_claims: Optional[Sequence['outputs.ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim']] = None,
                  token_type: Optional[str] = None):
         """
-        :param Sequence['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs'] alternate_keys: One or more `alternate_key` block as defined above.
+        :param Sequence['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs'] alternate_keys: One or more `alternate_key` block as defined above.
         :param str audience: The audience for the token.
         :param str issuer: The token issuer.
         :param str open_id_connect_discovery_document: The OpenID connect discovery document.
@@ -1231,7 +1231,7 @@ class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
         :param str primary_rsa_token_key_modulus: The RSA parameter modulus.
         :param str primary_symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
         :param str primary_x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
-        :param Sequence['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs'] required_claims: One or more `required_claim` blocks as defined above.
+        :param Sequence['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs'] required_claims: One or more `required_claim` blocks as defined above.
         :param str token_type: The type of token. Supported values are `Jwt` or `Swt`.
                
                > **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
@@ -1341,7 +1341,7 @@ class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey(dict):
+calass ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1423,7 +1423,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey(dict):
 
 
 @pulumi.output_type
-class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
+calass ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[str] = None):
@@ -1454,7 +1454,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
 
 
 @pulumi.output_type
-class JobInputAsset(dict):
+calass JobInputAsset(dict):
     def __init__(__self__, *,
                  name: str,
                  label: Optional[str] = None):
@@ -1484,7 +1484,7 @@ class JobInputAsset(dict):
 
 
 @pulumi.output_type
-class JobOutputAsset(dict):
+calass JobOutputAsset(dict):
     def __init__(__self__, *,
                  name: str,
                  label: Optional[str] = None):
@@ -1514,7 +1514,7 @@ class JobOutputAsset(dict):
 
 
 @pulumi.output_type
-class LiveEventCrossSiteAccessPolicy(dict):
+calass LiveEventCrossSiteAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1564,7 +1564,7 @@ class LiveEventCrossSiteAccessPolicy(dict):
 
 
 @pulumi.output_type
-class LiveEventEncoding(dict):
+calass LiveEventEncoding(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1644,7 +1644,7 @@ class LiveEventEncoding(dict):
 
 
 @pulumi.output_type
-class LiveEventInput(dict):
+calass LiveEventInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1676,7 +1676,7 @@ class LiveEventInput(dict):
                  streaming_protocol: Optional[str] = None):
         """
         :param str access_token: A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
-        :param Sequence['LiveEventInputIpAccessControlAllowArgs'] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined below.
+        :param Sequence['LiveEventInputIpAccessControlAllowArrgs'] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined below.
         :param str key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
         :param str streaming_protocol: The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
         """
@@ -1730,7 +1730,7 @@ class LiveEventInput(dict):
 
 
 @pulumi.output_type
-class LiveEventInputEndpoint(dict):
+calass LiveEventInputEndpoint(dict):
     def __init__(__self__, *,
                  protocol: Optional[str] = None,
                  url: Optional[str] = None):
@@ -1751,7 +1751,7 @@ class LiveEventInputEndpoint(dict):
 
 
 @pulumi.output_type
-class LiveEventInputIpAccessControlAllow(dict):
+calass LiveEventInputIpAccessControlAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1811,7 +1811,7 @@ class LiveEventInputIpAccessControlAllow(dict):
 
 
 @pulumi.output_type
-class LiveEventPreview(dict):
+calass LiveEventPreview(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1843,7 +1843,7 @@ class LiveEventPreview(dict):
                  streaming_policy_name: Optional[str] = None):
         """
         :param str alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
-        :param Sequence['LiveEventPreviewIpAccessControlAllowArgs'] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
+        :param Sequence['LiveEventPreviewIpAccessControlAllowArrgs'] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
         :param str preview_locator: The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
         :param str streaming_policy_name: The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
         """
@@ -1897,7 +1897,7 @@ class LiveEventPreview(dict):
 
 
 @pulumi.output_type
-class LiveEventPreviewEndpoint(dict):
+calass LiveEventPreviewEndpoint(dict):
     def __init__(__self__, *,
                  protocol: Optional[str] = None,
                  url: Optional[str] = None):
@@ -1918,7 +1918,7 @@ class LiveEventPreviewEndpoint(dict):
 
 
 @pulumi.output_type
-class LiveEventPreviewIpAccessControlAllow(dict):
+calass LiveEventPreviewIpAccessControlAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1978,7 +1978,7 @@ class LiveEventPreviewIpAccessControlAllow(dict):
 
 
 @pulumi.output_type
-class ServiceAccountEncryption(dict):
+calass ServiceAccountEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2008,7 +2008,7 @@ class ServiceAccountEncryption(dict):
         """
         :param str current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param str key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-        :param 'ServiceAccountEncryptionManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param 'ServiceAccountEncryptionManagedIdentityArrgs' managed_identity: A `managed_identity` block as defined below.
         :param str type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
         """
         if current_key_identifier is not None:
@@ -2054,7 +2054,7 @@ class ServiceAccountEncryption(dict):
 
 
 @pulumi.output_type
-class ServiceAccountEncryptionManagedIdentity(dict):
+calass ServiceAccountEncryptionManagedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2104,7 +2104,7 @@ class ServiceAccountEncryptionManagedIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceAccountIdentity(dict):
+calass ServiceAccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2179,7 +2179,7 @@ class ServiceAccountIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceAccountKeyDeliveryAccessControl(dict):
+calass ServiceAccountKeyDeliveryAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2229,7 +2229,7 @@ class ServiceAccountKeyDeliveryAccessControl(dict):
 
 
 @pulumi.output_type
-class ServiceAccountStorageAccount(dict):
+calass ServiceAccountStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2258,7 +2258,7 @@ class ServiceAccountStorageAccount(dict):
         :param bool is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
                
                > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
-        :param 'ServiceAccountStorageAccountManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param 'ServiceAccountStorageAccountManagedIdentityArrgs' managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
@@ -2294,7 +2294,7 @@ class ServiceAccountStorageAccount(dict):
 
 
 @pulumi.output_type
-class ServiceAccountStorageAccountManagedIdentity(dict):
+calass ServiceAccountStorageAccountManagedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2344,7 +2344,7 @@ class ServiceAccountStorageAccountManagedIdentity(dict):
 
 
 @pulumi.output_type
-class StreamingEndpointAccessControl(dict):
+calass StreamingEndpointAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2368,8 +2368,8 @@ class StreamingEndpointAccessControl(dict):
                  akamai_signature_header_authentication_keys: Optional[Sequence['outputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey']] = None,
                  ip_allows: Optional[Sequence['outputs.StreamingEndpointAccessControlIpAllow']] = None):
         """
-        :param Sequence['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs'] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
-        :param Sequence['StreamingEndpointAccessControlIpAllowArgs'] ip_allows: A `ip_allow` block as defined below.
+        :param Sequence['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs'] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
+        :param Sequence['StreamingEndpointAccessControlIpAllowArrgs'] ip_allows: A `ip_allow` block as defined below.
         """
         if akamai_signature_header_authentication_keys is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_keys", akamai_signature_header_authentication_keys)
@@ -2394,7 +2394,7 @@ class StreamingEndpointAccessControl(dict):
 
 
 @pulumi.output_type
-class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict):
+calass StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2454,7 +2454,7 @@ class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict)
 
 
 @pulumi.output_type
-class StreamingEndpointAccessControlIpAllow(dict):
+calass StreamingEndpointAccessControlIpAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2514,7 +2514,7 @@ class StreamingEndpointAccessControlIpAllow(dict):
 
 
 @pulumi.output_type
-class StreamingEndpointCrossSiteAccessPolicy(dict):
+calass StreamingEndpointCrossSiteAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2564,7 +2564,7 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
 
 
 @pulumi.output_type
-class StreamingEndpointSkus(dict):
+calass StreamingEndpointSkus(dict):
     def __init__(__self__, *,
                  capacity: Optional[int] = None,
                  name: Optional[str] = None):
@@ -2595,7 +2595,7 @@ class StreamingEndpointSkus(dict):
 
 
 @pulumi.output_type
-class StreamingLocatorContentKey(dict):
+calass StreamingLocatorContentKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2683,7 +2683,7 @@ class StreamingLocatorContentKey(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCbcs(dict):
+calass StreamingPolicyCommonEncryptionCbcs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2713,10 +2713,10 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
                  drm_fairplay: Optional['outputs.StreamingPolicyCommonEncryptionCbcsDrmFairplay'] = None,
                  enabled_protocols: Optional['outputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocols'] = None):
         """
-        :param 'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs' drm_fairplay: A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs' drm_fairplay: A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         if clear_key_encryption is not None:
             pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
@@ -2761,7 +2761,7 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCbcsClearKeyEncryption(dict):
+calass StreamingPolicyCommonEncryptionCbcsClearKeyEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2800,7 +2800,7 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryption(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCbcsDefaultContentKey(dict):
+calass StreamingPolicyCommonEncryptionCbcsDefaultContentKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2848,7 +2848,7 @@ class StreamingPolicyCommonEncryptionCbcsDefaultContentKey(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
+calass StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2898,7 +2898,7 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dict):
+calass StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2970,7 +2970,7 @@ class StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCenc(dict):
+calass StreamingPolicyCommonEncryptionCenc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3009,13 +3009,13 @@ class StreamingPolicyCommonEncryptionCenc(dict):
                  drm_widevine_custom_license_acquisition_url_template: Optional[str] = None,
                  enabled_protocols: Optional['outputs.StreamingPolicyCommonEncryptionCencEnabledProtocols'] = None):
         """
-        :param 'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackArgs'] clear_tracks: One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs'] content_key_to_track_mappings: One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs' drm_playready: A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs' clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackArrgs'] clear_tracks: One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs'] content_key_to_track_mappings: One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs' default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs' drm_playready: A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param str drm_widevine_custom_license_acquisition_url_template: The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs' enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         if clear_key_encryption is not None:
             pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
@@ -3090,7 +3090,7 @@ class StreamingPolicyCommonEncryptionCenc(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencClearKeyEncryption(dict):
+calass StreamingPolicyCommonEncryptionCencClearKeyEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3129,11 +3129,11 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryption(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencClearTrack(dict):
+calass StreamingPolicyCommonEncryptionCencClearTrack(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.StreamingPolicyCommonEncryptionCencClearTrackCondition']):
         """
-        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -3147,7 +3147,7 @@ class StreamingPolicyCommonEncryptionCencClearTrack(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencClearTrackCondition(dict):
+calass StreamingPolicyCommonEncryptionCencClearTrackCondition(dict):
     def __init__(__self__, *,
                  operation: str,
                  property: str,
@@ -3187,7 +3187,7 @@ class StreamingPolicyCommonEncryptionCencClearTrackCondition(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping(dict):
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3210,7 +3210,7 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping(dict):
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None):
         """
-        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs'] tracks: One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs'] tracks: One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         :param str label: Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
         :param str policy_name: The policy used by the default key. Changing this forces a new Streaming Policy to be created.
         """
@@ -3246,11 +3246,11 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack(dict):
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition']):
         """
-        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param Sequence['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs'] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         pulumi.set(__self__, "conditions", conditions)
 
@@ -3264,7 +3264,7 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition(dict):
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition(dict):
     def __init__(__self__, *,
                  operation: str,
                  property: str,
@@ -3304,7 +3304,7 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition(
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencDefaultContentKey(dict):
+calass StreamingPolicyCommonEncryptionCencDefaultContentKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3352,7 +3352,7 @@ class StreamingPolicyCommonEncryptionCencDefaultContentKey(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
+calass StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3402,7 +3402,7 @@ class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
+calass StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3474,7 +3474,7 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyEnvelopeEncryption(dict):
+calass StreamingPolicyEnvelopeEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3502,8 +3502,8 @@ class StreamingPolicyEnvelopeEncryption(dict):
                  enabled_protocols: Optional['outputs.StreamingPolicyEnvelopeEncryptionEnabledProtocols'] = None):
         """
         :param str custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs' default_content_key: A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
-        :param 'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs' enabled_protocols: A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs' default_content_key: A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
+        :param 'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs' enabled_protocols: A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
         """
         if custom_keys_acquisition_url_template is not None:
             pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
@@ -3538,7 +3538,7 @@ class StreamingPolicyEnvelopeEncryption(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyEnvelopeEncryptionDefaultContentKey(dict):
+calass StreamingPolicyEnvelopeEncryptionDefaultContentKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3586,7 +3586,7 @@ class StreamingPolicyEnvelopeEncryptionDefaultContentKey(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyEnvelopeEncryptionEnabledProtocols(dict):
+calass StreamingPolicyEnvelopeEncryptionEnabledProtocols(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3658,7 +3658,7 @@ class StreamingPolicyEnvelopeEncryptionEnabledProtocols(dict):
 
 
 @pulumi.output_type
-class StreamingPolicyNoEncryptionEnabledProtocols(dict):
+calass StreamingPolicyNoEncryptionEnabledProtocols(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3730,7 +3730,7 @@ class StreamingPolicyNoEncryptionEnabledProtocols(dict):
 
 
 @pulumi.output_type
-class TransformOutput(dict):
+calass TransformOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3769,13 +3769,13 @@ class TransformOutput(dict):
                  relative_priority: Optional[str] = None,
                  video_analyzer_preset: Optional['outputs.TransformOutputVideoAnalyzerPreset'] = None):
         """
-        :param 'TransformOutputAudioAnalyzerPresetArgs' audio_analyzer_preset: An `audio_analyzer_preset` block as defined above.
-        :param 'TransformOutputBuiltinPresetArgs' builtin_preset: A `builtin_preset` block as defined above.
-        :param 'TransformOutputCustomPresetArgs' custom_preset: A `custom_preset` block as defined above.
-        :param 'TransformOutputFaceDetectorPresetArgs' face_detector_preset: A `face_detector_preset` block as defined above.
+        :param 'TransformOutputAudioAnalyzerPresetArrgs' audio_analyzer_preset: An `audio_analyzer_preset` block as defined above.
+        :param 'TransformOutputBuiltinPresetArrgs' builtin_preset: A `builtin_preset` block as defined above.
+        :param 'TransformOutputCustomPresetArrgs' custom_preset: A `custom_preset` block as defined above.
+        :param 'TransformOutputFaceDetectorPresetArrgs' face_detector_preset: A `face_detector_preset` block as defined above.
         :param str on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
-        :param 'TransformOutputVideoAnalyzerPresetArgs' video_analyzer_preset: A `video_analyzer_preset` block as defined below.
+        :param 'TransformOutputVideoAnalyzerPresetArrgs' video_analyzer_preset: A `video_analyzer_preset` block as defined below.
                
                > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
@@ -3854,7 +3854,7 @@ class TransformOutput(dict):
 
 
 @pulumi.output_type
-class TransformOutputAudioAnalyzerPreset(dict):
+calass TransformOutputAudioAnalyzerPreset(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3918,7 +3918,7 @@ class TransformOutputAudioAnalyzerPreset(dict):
 
 
 @pulumi.output_type
-class TransformOutputBuiltinPreset(dict):
+calass TransformOutputBuiltinPreset(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3943,7 +3943,7 @@ class TransformOutputBuiltinPreset(dict):
                  preset_configuration: Optional['outputs.TransformOutputBuiltinPresetPresetConfiguration'] = None):
         """
         :param str preset_name: The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
-        :param 'TransformOutputBuiltinPresetPresetConfigurationArgs' preset_configuration: A `present_configuration` block as defined below.
+        :param 'TransformOutputBuiltinPresetPresetConfigurationArrgs' preset_configuration: A `present_configuration` block as defined below.
         """
         pulumi.set(__self__, "preset_name", preset_name)
         if preset_configuration is not None:
@@ -3967,7 +3967,7 @@ class TransformOutputBuiltinPreset(dict):
 
 
 @pulumi.output_type
-class TransformOutputBuiltinPresetPresetConfiguration(dict):
+calass TransformOutputBuiltinPresetPresetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4099,7 +4099,7 @@ class TransformOutputBuiltinPresetPresetConfiguration(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPreset(dict):
+calass TransformOutputCustomPreset(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4123,10 +4123,10 @@ class TransformOutputCustomPreset(dict):
                  experimental_options: Optional[Mapping[str, str]] = None,
                  filter: Optional['outputs.TransformOutputCustomPresetFilter'] = None):
         """
-        :param Sequence['TransformOutputCustomPresetCodecArgs'] codecs: One or more `codec` blocks as defined above.
-        :param Sequence['TransformOutputCustomPresetFormatArgs'] formats: One or more `format` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetCodecArrgs'] codecs: One or more `codec` blocks as defined above.
+        :param Sequence['TransformOutputCustomPresetFormatArrgs'] formats: One or more `format` blocks as defined below.
         :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
-        :param 'TransformOutputCustomPresetFilterArgs' filter: A `filter` block as defined below.
+        :param 'TransformOutputCustomPresetFilterArrgs' filter: A `filter` block as defined below.
         """
         pulumi.set(__self__, "codecs", codecs)
         pulumi.set(__self__, "formats", formats)
@@ -4169,7 +4169,7 @@ class TransformOutputCustomPreset(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodec(dict):
+calass TransformOutputCustomPresetCodec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4211,14 +4211,14 @@ class TransformOutputCustomPresetCodec(dict):
                  jpg_image: Optional['outputs.TransformOutputCustomPresetCodecJpgImage'] = None,
                  png_image: Optional['outputs.TransformOutputCustomPresetCodecPngImage'] = None):
         """
-        :param 'TransformOutputCustomPresetCodecAacAudioArgs' aac_audio: A `aac_audio` block as defined above.
-        :param 'TransformOutputCustomPresetCodecCopyAudioArgs' copy_audio: A `copy_audio` block as defined below.
-        :param 'TransformOutputCustomPresetCodecCopyVideoArgs' copy_video: A `copy_video` block as defined below.
-        :param 'TransformOutputCustomPresetCodecDdAudioArgs' dd_audio: A `dd_audio` block as defined below.
-        :param 'TransformOutputCustomPresetCodecH264VideoArgs' h264_video: A `h264_video` block as defined below.
-        :param 'TransformOutputCustomPresetCodecH265VideoArgs' h265_video: A `h265_video` block as defined below.
-        :param 'TransformOutputCustomPresetCodecJpgImageArgs' jpg_image: A `jpg_image` block as defined below.
-        :param 'TransformOutputCustomPresetCodecPngImageArgs' png_image: A `png_image` block as defined below.
+        :param 'TransformOutputCustomPresetCodecAacAudioArrgs' aac_audio: A `aac_audio` block as defined above.
+        :param 'TransformOutputCustomPresetCodecCopyAudioArrgs' copy_audio: A `copy_audio` block as defined below.
+        :param 'TransformOutputCustomPresetCodecCopyVideoArrgs' copy_video: A `copy_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecDdAudioArrgs' dd_audio: A `dd_audio` block as defined below.
+        :param 'TransformOutputCustomPresetCodecH264VideoArrgs' h264_video: A `h264_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecH265VideoArrgs' h265_video: A `h265_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecJpgImageArrgs' jpg_image: A `jpg_image` block as defined below.
+        :param 'TransformOutputCustomPresetCodecPngImageArrgs' png_image: A `png_image` block as defined below.
                
                > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
         """
@@ -4307,7 +4307,7 @@ class TransformOutputCustomPresetCodec(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecAacAudio(dict):
+calass TransformOutputCustomPresetCodecAacAudio(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4391,7 +4391,7 @@ class TransformOutputCustomPresetCodecAacAudio(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecCopyAudio(dict):
+calass TransformOutputCustomPresetCodecCopyAudio(dict):
     def __init__(__self__, *,
                  label: Optional[str] = None):
         """
@@ -4410,7 +4410,7 @@ class TransformOutputCustomPresetCodecCopyAudio(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecCopyVideo(dict):
+calass TransformOutputCustomPresetCodecCopyVideo(dict):
     def __init__(__self__, *,
                  label: Optional[str] = None):
         """
@@ -4429,7 +4429,7 @@ class TransformOutputCustomPresetCodecCopyVideo(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecDdAudio(dict):
+calass TransformOutputCustomPresetCodecDdAudio(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4501,7 +4501,7 @@ class TransformOutputCustomPresetCodecDdAudio(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecH264Video(dict):
+calass TransformOutputCustomPresetCodecH264Video(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4540,7 +4540,7 @@ class TransformOutputCustomPresetCodecH264Video(dict):
         :param str complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['TransformOutputCustomPresetCodecH264VideoLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetCodecH264VideoLayerArrgs'] layers: One or more `layer` blocks as defined below.
         :param str rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
         :param bool scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         :param str stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
@@ -4629,7 +4629,7 @@ class TransformOutputCustomPresetCodecH264Video(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecH264VideoLayer(dict):
+calass TransformOutputCustomPresetCodecH264VideoLayer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4844,7 +4844,7 @@ class TransformOutputCustomPresetCodecH264VideoLayer(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecH265Video(dict):
+calass TransformOutputCustomPresetCodecH265Video(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4880,7 +4880,7 @@ class TransformOutputCustomPresetCodecH265Video(dict):
         :param str complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['TransformOutputCustomPresetCodecH265VideoLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetCodecH265VideoLayerArrgs'] layers: One or more `layer` blocks as defined below.
         :param bool scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         :param str stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param str sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
@@ -4958,7 +4958,7 @@ class TransformOutputCustomPresetCodecH265Video(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecH265VideoLayer(dict):
+calass TransformOutputCustomPresetCodecH265VideoLayer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5159,7 +5159,7 @@ class TransformOutputCustomPresetCodecH265VideoLayer(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecJpgImage(dict):
+calass TransformOutputCustomPresetCodecJpgImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5197,7 +5197,7 @@ class TransformOutputCustomPresetCodecJpgImage(dict):
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['TransformOutputCustomPresetCodecJpgImageLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetCodecJpgImageLayerArrgs'] layers: One or more `layer` blocks as defined below.
         :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param int sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
         :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
@@ -5296,7 +5296,7 @@ class TransformOutputCustomPresetCodecJpgImage(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecJpgImageLayer(dict):
+calass TransformOutputCustomPresetCodecJpgImageLayer(dict):
     def __init__(__self__, *,
                  height: Optional[str] = None,
                  label: Optional[str] = None,
@@ -5351,7 +5351,7 @@ class TransformOutputCustomPresetCodecJpgImageLayer(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecPngImage(dict):
+calass TransformOutputCustomPresetCodecPngImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5386,7 +5386,7 @@ class TransformOutputCustomPresetCodecPngImage(dict):
         :param str start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param Sequence['TransformOutputCustomPresetCodecPngImageLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetCodecPngImageLayerArrgs'] layers: One or more `layer` blocks as defined below.
         :param str range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param str step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         :param str stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
@@ -5474,7 +5474,7 @@ class TransformOutputCustomPresetCodecPngImage(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetCodecPngImageLayer(dict):
+calass TransformOutputCustomPresetCodecPngImageLayer(dict):
     def __init__(__self__, *,
                  height: Optional[str] = None,
                  label: Optional[str] = None,
@@ -5517,7 +5517,7 @@ class TransformOutputCustomPresetCodecPngImageLayer(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilter(dict):
+calass TransformOutputCustomPresetFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5547,11 +5547,11 @@ class TransformOutputCustomPresetFilter(dict):
                  overlays: Optional[Sequence['outputs.TransformOutputCustomPresetFilterOverlay']] = None,
                  rotation: Optional[str] = None):
         """
-        :param 'TransformOutputCustomPresetFilterCropRectangleArgs' crop_rectangle: A `crop_rectangle` block as defined above.
-        :param 'TransformOutputCustomPresetFilterDeinterlaceArgs' deinterlace: A `deinterlace` block as defined below.
-        :param 'TransformOutputCustomPresetFilterFadeInArgs' fade_in: A `fade_in` block as defined above.
-        :param 'TransformOutputCustomPresetFilterFadeOutArgs' fade_out: A `fade_out` block as defined above.
-        :param Sequence['TransformOutputCustomPresetFilterOverlayArgs'] overlays: One or more `overlay` blocks as defined below.
+        :param 'TransformOutputCustomPresetFilterCropRectangleArrgs' crop_rectangle: A `crop_rectangle` block as defined above.
+        :param 'TransformOutputCustomPresetFilterDeinterlaceArrgs' deinterlace: A `deinterlace` block as defined below.
+        :param 'TransformOutputCustomPresetFilterFadeInArrgs' fade_in: A `fade_in` block as defined above.
+        :param 'TransformOutputCustomPresetFilterFadeOutArrgs' fade_out: A `fade_out` block as defined above.
+        :param Sequence['TransformOutputCustomPresetFilterOverlayArrgs'] overlays: One or more `overlay` blocks as defined below.
         :param str rotation: The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
         """
         if crop_rectangle is not None:
@@ -5617,7 +5617,7 @@ class TransformOutputCustomPresetFilter(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterCropRectangle(dict):
+calass TransformOutputCustomPresetFilterCropRectangle(dict):
     def __init__(__self__, *,
                  height: Optional[str] = None,
                  left: Optional[str] = None,
@@ -5672,7 +5672,7 @@ class TransformOutputCustomPresetFilterCropRectangle(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterDeinterlace(dict):
+calass TransformOutputCustomPresetFilterDeinterlace(dict):
     def __init__(__self__, *,
                  mode: Optional[str] = None,
                  parity: Optional[str] = None):
@@ -5703,7 +5703,7 @@ class TransformOutputCustomPresetFilterDeinterlace(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterFadeIn(dict):
+calass TransformOutputCustomPresetFilterFadeIn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5761,7 +5761,7 @@ class TransformOutputCustomPresetFilterFadeIn(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterFadeOut(dict):
+calass TransformOutputCustomPresetFilterFadeOut(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5819,13 +5819,13 @@ class TransformOutputCustomPresetFilterFadeOut(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterOverlay(dict):
+calass TransformOutputCustomPresetFilterOverlay(dict):
     def __init__(__self__, *,
                  audio: Optional['outputs.TransformOutputCustomPresetFilterOverlayAudio'] = None,
                  video: Optional['outputs.TransformOutputCustomPresetFilterOverlayVideo'] = None):
         """
-        :param 'TransformOutputCustomPresetFilterOverlayAudioArgs' audio: An `audio` block as defined above.
-        :param 'TransformOutputCustomPresetFilterOverlayVideoArgs' video: A `video` block as defined below.
+        :param 'TransformOutputCustomPresetFilterOverlayAudioArrgs' audio: An `audio` block as defined above.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoArrgs' video: A `video` block as defined below.
                
                > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
         """
@@ -5854,7 +5854,7 @@ class TransformOutputCustomPresetFilterOverlay(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterOverlayAudio(dict):
+calass TransformOutputCustomPresetFilterOverlayAudio(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5955,7 +5955,7 @@ class TransformOutputCustomPresetFilterOverlayAudio(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterOverlayVideo(dict):
+calass TransformOutputCustomPresetFilterOverlayVideo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5994,12 +5994,12 @@ class TransformOutputCustomPresetFilterOverlayVideo(dict):
         """
         :param str input_label: The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
         :param float audio_gain_level: The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
-        :param 'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs' crop_rectangle: A `crop_rectangle` block as defined above.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs' crop_rectangle: A `crop_rectangle` block as defined above.
         :param str end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
         :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
         :param float opacity: The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
-        :param 'TransformOutputCustomPresetFilterOverlayVideoPositionArgs' position: A `position` block as defined above.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoPositionArrgs' position: A `position` block as defined above.
         :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "input_label", input_label)
@@ -6094,7 +6094,7 @@ class TransformOutputCustomPresetFilterOverlayVideo(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterOverlayVideoCropRectangle(dict):
+calass TransformOutputCustomPresetFilterOverlayVideoCropRectangle(dict):
     def __init__(__self__, *,
                  height: Optional[str] = None,
                  left: Optional[str] = None,
@@ -6149,7 +6149,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangle(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFilterOverlayVideoPosition(dict):
+calass TransformOutputCustomPresetFilterOverlayVideoPosition(dict):
     def __init__(__self__, *,
                  height: Optional[str] = None,
                  left: Optional[str] = None,
@@ -6204,7 +6204,7 @@ class TransformOutputCustomPresetFilterOverlayVideoPosition(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormat(dict):
+calass TransformOutputCustomPresetFormat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6228,10 +6228,10 @@ class TransformOutputCustomPresetFormat(dict):
                  png: Optional['outputs.TransformOutputCustomPresetFormatPng'] = None,
                  transport_stream: Optional['outputs.TransformOutputCustomPresetFormatTransportStream'] = None):
         """
-        :param 'TransformOutputCustomPresetFormatJpgArgs' jpg: A `jpg` block as defined below.
-        :param 'TransformOutputCustomPresetFormatMp4Args' mp4: A `mp4` block as defined below.
-        :param 'TransformOutputCustomPresetFormatPngArgs' png: A `png` block as defined below.
-        :param 'TransformOutputCustomPresetFormatTransportStreamArgs' transport_stream: A `transport_stream` block as defined below.
+        :param 'TransformOutputCustomPresetFormatJpgArrgs' jpg: A `jpg` block as defined below.
+        :param 'TransformOutputCustomPresetFormatMp4Arrgs' mp4: A `mp4` block as defined below.
+        :param 'TransformOutputCustomPresetFormatPngArrgs' png: A `png` block as defined below.
+        :param 'TransformOutputCustomPresetFormatTransportStreamArrgs' transport_stream: A `transport_stream` block as defined below.
                
                > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
@@ -6280,7 +6280,7 @@ class TransformOutputCustomPresetFormat(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatJpg(dict):
+calass TransformOutputCustomPresetFormatJpg(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6315,7 +6315,7 @@ class TransformOutputCustomPresetFormatJpg(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatMp4(dict):
+calass TransformOutputCustomPresetFormatMp4(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6340,7 +6340,7 @@ class TransformOutputCustomPresetFormatMp4(dict):
                  output_files: Optional[Sequence['outputs.TransformOutputCustomPresetFormatMp4OutputFile']] = None):
         """
         :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param Sequence['TransformOutputCustomPresetFormatMp4OutputFileArgs'] output_files: One or more `output_file` blocks as defined below.
+        :param Sequence['TransformOutputCustomPresetFormatMp4OutputFileArrgs'] output_files: One or more `output_file` blocks as defined below.
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         if output_files is not None:
@@ -6364,7 +6364,7 @@ class TransformOutputCustomPresetFormatMp4(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatMp4OutputFile(dict):
+calass TransformOutputCustomPresetFormatMp4OutputFile(dict):
     def __init__(__self__, *,
                  labels: Sequence[str]):
         """
@@ -6382,7 +6382,7 @@ class TransformOutputCustomPresetFormatMp4OutputFile(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatPng(dict):
+calass TransformOutputCustomPresetFormatPng(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6417,7 +6417,7 @@ class TransformOutputCustomPresetFormatPng(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatTransportStream(dict):
+calass TransformOutputCustomPresetFormatTransportStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6442,7 +6442,7 @@ class TransformOutputCustomPresetFormatTransportStream(dict):
                  output_files: Optional[Sequence['outputs.TransformOutputCustomPresetFormatTransportStreamOutputFile']] = None):
         """
         :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param Sequence['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs'] output_files: One or more `output_file` blocks as defined above.
+        :param Sequence['TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs'] output_files: One or more `output_file` blocks as defined above.
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         if output_files is not None:
@@ -6466,7 +6466,7 @@ class TransformOutputCustomPresetFormatTransportStream(dict):
 
 
 @pulumi.output_type
-class TransformOutputCustomPresetFormatTransportStreamOutputFile(dict):
+calass TransformOutputCustomPresetFormatTransportStreamOutputFile(dict):
     def __init__(__self__, *,
                  labels: Sequence[str]):
         """
@@ -6484,7 +6484,7 @@ class TransformOutputCustomPresetFormatTransportStreamOutputFile(dict):
 
 
 @pulumi.output_type
-class TransformOutputFaceDetectorPreset(dict):
+calass TransformOutputFaceDetectorPreset(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6562,7 +6562,7 @@ class TransformOutputFaceDetectorPreset(dict):
 
 
 @pulumi.output_type
-class TransformOutputVideoAnalyzerPreset(dict):
+calass TransformOutputVideoAnalyzerPreset(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedStorageAccountArgs', 'ManagedStorageAccount']
+__all__ = ['ManagedStorageAccountArrgs', 'ManagedStorageAccount']
 
 @pulumi.input_type
-class ManagedStorageAccountArgs:
+calass ManagedStorageAccountArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
@@ -133,7 +133,7 @@ class ManagedStorageAccountArgs:
 
 
 @pulumi.input_type
-class _ManagedStorageAccountState:
+calass _ManagedStorageAccountState:
     def __init__(__self__, *,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -256,7 +256,7 @@ class _ManagedStorageAccountState:
         pulumi.set(self, "tags", value)
 
 
-class ManagedStorageAccount(pulumi.CustomResource):
+calass ManagedStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -290,7 +290,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 secret_permissions=[
@@ -335,7 +335,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 secret_permissions=[
@@ -390,7 +390,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedStorageAccountArgs,
+                 args: ManagedStorageAccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Managed Storage Account.
@@ -413,7 +413,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 secret_permissions=[
@@ -458,7 +458,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 secret_permissions=[
@@ -498,12 +498,12 @@ class ManagedStorageAccount(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedStorageAccountArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedStorageAccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedStorageAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedStorageAccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -526,7 +526,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedStorageAccountArgs.__new__(ManagedStorageAccountArgs)
+            __props__ = ManagedStorageAccountArrgs.__new__(ManagedStorageAccountArrgs)
 
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")

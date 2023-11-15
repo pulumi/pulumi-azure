@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager""", DeprecationWarning)
 
 @pulumi.output_type
-class GetGeographicalLocationResult:
+calass GetGeographicalLocationResult:
     """
     A collection of values returned by getGeographicalLocation.
     """
@@ -45,7 +45,7 @@ class GetGeographicalLocationResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetGeographicalLocationResult(GetGeographicalLocationResult):
+calass AwaitableGetGeographicalLocationResult(GetGeographicalLocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExpressRouteGatewayArgs', 'ExpressRouteGateway']
+__all__ = ['ExpressRouteGatewayArrgs', 'ExpressRouteGateway']
 
 @pulumi.input_type
-class ExpressRouteGatewayArgs:
+calass ExpressRouteGatewayArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  scale_units: pulumi.Input[int],
@@ -129,7 +129,7 @@ class ExpressRouteGatewayArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteGatewayState:
+calass _ExpressRouteGatewayState:
     def __init__(__self__, *,
                  allow_non_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class _ExpressRouteGatewayState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
-class ExpressRouteGateway(pulumi.CustomResource):
+calass ExpressRouteGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -311,7 +311,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteGatewayArgs,
+                 args: ExpressRouteGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute gateway.
@@ -350,12 +350,12 @@ class ExpressRouteGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -378,7 +378,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteGatewayArgs.__new__(ExpressRouteGatewayArgs)
+            __props__ = ExpressRouteGatewayArrgs.__new__(ExpressRouteGatewayArrgs)
 
             __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
             __props__.__dict__["location"] = location

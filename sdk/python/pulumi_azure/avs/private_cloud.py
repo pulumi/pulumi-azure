@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PrivateCloudArgs', 'PrivateCloud']
+__all__ = ['PrivateCloudArrgs', 'PrivateCloud']
 
 @pulumi.input_type
-class PrivateCloudArgs:
+calass PrivateCloudArrgs:
     def __init__(__self__, *,
-                 management_cluster: pulumi.Input['PrivateCloudManagementClusterArgs'],
+                 management_cluster: pulumi.Input['PrivateCloudManagementClusterArrgs'],
                  network_subnet_cidr: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -28,7 +28,7 @@ class PrivateCloudArgs:
                  vcenter_password: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateCloud resource.
-        :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input['PrivateCloudManagementClusterArrgs'] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
@@ -60,7 +60,7 @@ class PrivateCloudArgs:
 
     @property
     @pulumi.getter(name="managementCluster")
-    def management_cluster(self) -> pulumi.Input['PrivateCloudManagementClusterArgs']:
+    def management_cluster(self) -> pulumi.Input['PrivateCloudManagementClusterArrgs']:
         """
         A `management_cluster` block as defined below.
         > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
@@ -68,7 +68,7 @@ class PrivateCloudArgs:
         return pulumi.get(self, "management_cluster")
 
     @management_cluster.setter
-    def management_cluster(self, value: pulumi.Input['PrivateCloudManagementClusterArgs']):
+    def management_cluster(self, value: pulumi.Input['PrivateCloudManagementClusterArrgs']):
         pulumi.set(self, "management_cluster", value)
 
     @property
@@ -182,13 +182,13 @@ class PrivateCloudArgs:
 
 
 @pulumi.input_type
-class _PrivateCloudState:
+calass _PrivateCloudState:
     def __init__(__self__, *,
-                 circuits: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]] = None,
+                 circuits: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArrgs']]]] = None,
                  hcx_cloud_manager_endpoint: Optional[pulumi.Input[str]] = None,
                  internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
+                 management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArrgs']] = None,
                  management_subnet_cidr: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_subnet_cidr: Optional[pulumi.Input[str]] = None,
@@ -205,12 +205,12 @@ class _PrivateCloudState:
                  vmotion_subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PrivateCloud resources.
-        :param pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]] circuits: A `circuit` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArrgs']]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[str] hcx_cloud_manager_endpoint: The endpoint for the HCX Cloud Manager.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
-        :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input['PrivateCloudManagementClusterArrgs'] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] management_subnet_cidr: The network used to access vCenter Server and NSX-T Manager.
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
@@ -268,14 +268,14 @@ class _PrivateCloudState:
 
     @property
     @pulumi.getter
-    def circuits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]:
+    def circuits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArrgs']]]]:
         """
         A `circuit` block as defined below.
         """
         return pulumi.get(self, "circuits")
 
     @circuits.setter
-    def circuits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]):
+    def circuits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArrgs']]]]):
         pulumi.set(self, "circuits", value)
 
     @property
@@ -317,7 +317,7 @@ class _PrivateCloudState:
 
     @property
     @pulumi.getter(name="managementCluster")
-    def management_cluster(self) -> Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]:
+    def management_cluster(self) -> Optional[pulumi.Input['PrivateCloudManagementClusterArrgs']]:
         """
         A `management_cluster` block as defined below.
         > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
@@ -325,7 +325,7 @@ class _PrivateCloudState:
         return pulumi.get(self, "management_cluster")
 
     @management_cluster.setter
-    def management_cluster(self, value: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]):
+    def management_cluster(self, value: Optional[pulumi.Input['PrivateCloudManagementClusterArrgs']]):
         pulumi.set(self, "management_cluster", value)
 
     @property
@@ -497,14 +497,14 @@ class _PrivateCloudState:
         pulumi.set(self, "vmotion_subnet_cidr", value)
 
 
-class PrivateCloud(pulumi.CustomResource):
+calass PrivateCloud(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']]] = None,
+                 management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_subnet_cidr: Optional[pulumi.Input[str]] = None,
                  nsxt_password: Optional[pulumi.Input[str]] = None,
@@ -529,7 +529,7 @@ class PrivateCloud(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+            management_cluster=azure.avs.PrivateCloudManagementClusterArrgs(
                 size=3,
             ),
             network_subnet_cidr="192.168.48.0/22",
@@ -551,7 +551,7 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
-        :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArrgs']] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
         :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
@@ -565,7 +565,7 @@ class PrivateCloud(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateCloudArgs,
+                 args: PrivateCloudArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VMware Private Cloud.
@@ -583,7 +583,7 @@ class PrivateCloud(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+            management_cluster=azure.avs.PrivateCloudManagementClusterArrgs(
                 size=3,
             ),
             network_subnet_cidr="192.168.48.0/22",
@@ -601,12 +601,12 @@ class PrivateCloud(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateCloudArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateCloudArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateCloudArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -617,7 +617,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']]] = None,
+                 management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_subnet_cidr: Optional[pulumi.Input[str]] = None,
                  nsxt_password: Optional[pulumi.Input[str]] = None,
@@ -632,7 +632,7 @@ class PrivateCloud(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
+            __props__ = PrivateCloudArrgs.__new__(PrivateCloudArrgs)
 
             __props__.__dict__["internet_connection_enabled"] = internet_connection_enabled
             __props__.__dict__["location"] = location
@@ -673,11 +673,11 @@ class PrivateCloud(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            circuits: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateCloudCircuitArgs']]]]] = None,
+            circuits: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateCloudCircuitArrgs']]]]] = None,
             hcx_cloud_manager_endpoint: Optional[pulumi.Input[str]] = None,
             internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']]] = None,
+            management_cluster: Optional[pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArrgs']]] = None,
             management_subnet_cidr: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_subnet_cidr: Optional[pulumi.Input[str]] = None,
@@ -699,12 +699,12 @@ class PrivateCloud(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateCloudCircuitArgs']]]] circuits: A `circuit` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateCloudCircuitArrgs']]]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[str] hcx_cloud_manager_endpoint: The endpoint for the HCX Cloud Manager.
         :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] location: The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
-        :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArgs']] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input[pulumi.InputType['PrivateCloudManagementClusterArrgs']] management_cluster: A `management_cluster` block as defined below.
                > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
         :param pulumi.Input[str] management_subnet_cidr: The network used to access vCenter Server and NSX-T Manager.
         :param pulumi.Input[str] name: The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.

@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StreamInputEventHubV2Args', 'StreamInputEventHubV2']
+__all__ = ['StreamInputEventHubV2Arrgs', 'StreamInputEventHubV2']
 
 @pulumi.input_type
-class StreamInputEventHubV2Args:
+calass StreamInputEventHubV2Arrgs:
     def __init__(__self__, *,
                  eventhub_name: pulumi.Input[str],
-                 serialization: pulumi.Input['StreamInputEventHubV2SerializationArgs'],
+                 serialization: pulumi.Input['StreamInputEventHubV2SerializationArrgs'],
                  servicebus_namespace: pulumi.Input[str],
                  stream_analytics_job_id: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class StreamInputEventHubV2Args:
         """
         The set of arguments for constructing a StreamInputEventHubV2 resource.
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
-        :param pulumi.Input['StreamInputEventHubV2SerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['StreamInputEventHubV2SerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_id: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -70,14 +70,14 @@ class StreamInputEventHubV2Args:
 
     @property
     @pulumi.getter
-    def serialization(self) -> pulumi.Input['StreamInputEventHubV2SerializationArgs']:
+    def serialization(self) -> pulumi.Input['StreamInputEventHubV2SerializationArrgs']:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: pulumi.Input['StreamInputEventHubV2SerializationArgs']):
+    def serialization(self, value: pulumi.Input['StreamInputEventHubV2SerializationArrgs']):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -178,14 +178,14 @@ class StreamInputEventHubV2Args:
 
 
 @pulumi.input_type
-class _StreamInputEventHubV2State:
+calass _StreamInputEventHubV2State:
     def __init__(__self__, *,
                  authentication_mode: Optional[pulumi.Input[str]] = None,
                  eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']] = None,
+                 serialization: Optional[pulumi.Input['StreamInputEventHubV2SerializationArrgs']] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -197,7 +197,7 @@ class _StreamInputEventHubV2State:
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub V2. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
-        :param pulumi.Input['StreamInputEventHubV2SerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input['StreamInputEventHubV2SerializationArrgs'] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -286,14 +286,14 @@ class _StreamInputEventHubV2State:
 
     @property
     @pulumi.getter
-    def serialization(self) -> Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']]:
+    def serialization(self) -> Optional[pulumi.Input['StreamInputEventHubV2SerializationArrgs']]:
         """
         A `serialization` block as defined below.
         """
         return pulumi.get(self, "serialization")
 
     @serialization.setter
-    def serialization(self, value: Optional[pulumi.Input['StreamInputEventHubV2SerializationArgs']]):
+    def serialization(self, value: Optional[pulumi.Input['StreamInputEventHubV2SerializationArrgs']]):
         pulumi.set(self, "serialization", value)
 
     @property
@@ -345,7 +345,7 @@ class _StreamInputEventHubV2State:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
-class StreamInputEventHubV2(pulumi.CustomResource):
+calass StreamInputEventHubV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -355,7 +355,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArrgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -396,7 +396,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
+            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArrgs(
                 type="Json",
                 encoding="UTF8",
             ))
@@ -417,7 +417,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub V2. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
-        :param pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
@@ -427,7 +427,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StreamInputEventHubV2Args,
+                 args: StreamInputEventHubV2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** This resource creates a Stream Input of type `Microsoft.EventHub/EventHub`, to create a Stream Input of type `Microsoft.ServiceBus/EventHub` please use the resource azurerm_stream_analytics_stream_input_eventhub.
@@ -464,7 +464,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArgs(
+            serialization=azure.streamanalytics.StreamInputEventHubV2SerializationArrgs(
                 type="Json",
                 encoding="UTF8",
             ))
@@ -479,12 +479,12 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StreamInputEventHubV2Args args: The arguments to use to populate this resource's properties.
+        :param StreamInputEventHubV2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StreamInputEventHubV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StreamInputEventHubV2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -498,7 +498,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArrgs']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -510,7 +510,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StreamInputEventHubV2Args.__new__(StreamInputEventHubV2Args)
+            __props__ = StreamInputEventHubV2Arrgs.__new__(StreamInputEventHubV2Arrgs)
 
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["eventhub_consumer_group_name"] = eventhub_consumer_group_name
@@ -547,7 +547,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
             eventhub_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_key: Optional[pulumi.Input[str]] = None,
-            serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArgs']]] = None,
+            serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArrgs']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -564,7 +564,7 @@ class StreamInputEventHubV2(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_name: The name of the Event Hub.
         :param pulumi.Input[str] name: The name of the Stream Input EventHub V2. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key: The property the input Event Hub has been partitioned by.
-        :param pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[pulumi.InputType['StreamInputEventHubV2SerializationArrgs']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.

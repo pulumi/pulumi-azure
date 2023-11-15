@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataDiskAttachmentArgs', 'DataDiskAttachment']
+__all__ = ['DataDiskAttachmentArrgs', 'DataDiskAttachment']
 
 @pulumi.input_type
-class DataDiskAttachmentArgs:
+calass DataDiskAttachmentArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  lun: pulumi.Input[int],
@@ -112,7 +112,7 @@ class DataDiskAttachmentArgs:
 
 
 @pulumi.input_type
-class _DataDiskAttachmentState:
+calass _DataDiskAttachmentState:
     def __init__(__self__, *,
                  caching: Optional[pulumi.Input[str]] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _DataDiskAttachmentState:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
-class DataDiskAttachment(pulumi.CustomResource):
+calass DataDiskAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
@@ -267,24 +267,24 @@ class DataDiskAttachment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArrgs(
                 name="myosdisk1",
                 caching="ReadWrite",
                 create_option="FromImage",
                 managed_disk_type="Standard_LRS",
             ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+            os_profile=azure.compute.VirtualMachineOsProfileArrgs(
                 computer_name=vm_name,
                 admin_username="testadmin",
                 admin_password="Password1234!",
             ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArrgs(
                 disable_password_authentication=False,
             ))
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
@@ -321,7 +321,7 @@ class DataDiskAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataDiskAttachmentArgs,
+                 args: DataDiskAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages attaching a Disk to a Virtual Machine.
@@ -353,7 +353,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
@@ -363,24 +363,24 @@ class DataDiskAttachment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
                 version="latest",
             ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArrgs(
                 name="myosdisk1",
                 caching="ReadWrite",
                 create_option="FromImage",
                 managed_disk_type="Standard_LRS",
             ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+            os_profile=azure.compute.VirtualMachineOsProfileArrgs(
                 computer_name=vm_name,
                 admin_username="testadmin",
                 admin_password="Password1234!",
             ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArrgs(
                 disable_password_authentication=False,
             ))
         example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
@@ -405,12 +405,12 @@ class DataDiskAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataDiskAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param DataDiskAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataDiskAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataDiskAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -432,7 +432,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataDiskAttachmentArgs.__new__(DataDiskAttachmentArgs)
+            __props__ = DataDiskAttachmentArrgs.__new__(DataDiskAttachmentArrgs)
 
             if caching is None and not opts.urn:
                 raise TypeError("Missing required property 'caching'")

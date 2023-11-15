@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ModuleArgs', 'Module']
+__all__ = ['ModuleArrgs', 'Module']
 
 @pulumi.input_type
-class ModuleArgs:
+calass ModuleArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
-                 module_link: pulumi.Input['ModuleModuleLinkArgs'],
+                 module_link: pulumi.Input['ModuleModuleLinkArrgs'],
                  resource_group_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Module resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined below.
+        :param pulumi.Input['ModuleModuleLinkArrgs'] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         """
@@ -47,14 +47,14 @@ class ModuleArgs:
 
     @property
     @pulumi.getter(name="moduleLink")
-    def module_link(self) -> pulumi.Input['ModuleModuleLinkArgs']:
+    def module_link(self) -> pulumi.Input['ModuleModuleLinkArrgs']:
         """
         A `module_link` block as defined below.
         """
         return pulumi.get(self, "module_link")
 
     @module_link.setter
-    def module_link(self, value: pulumi.Input['ModuleModuleLinkArgs']):
+    def module_link(self, value: pulumi.Input['ModuleModuleLinkArrgs']):
         pulumi.set(self, "module_link", value)
 
     @property
@@ -83,16 +83,16 @@ class ModuleArgs:
 
 
 @pulumi.input_type
-class _ModuleState:
+calass _ModuleState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 module_link: Optional[pulumi.Input['ModuleModuleLinkArgs']] = None,
+                 module_link: Optional[pulumi.Input['ModuleModuleLinkArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Module resources.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['ModuleModuleLinkArgs'] module_link: A `module_link` block as defined below.
+        :param pulumi.Input['ModuleModuleLinkArrgs'] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -119,14 +119,14 @@ class _ModuleState:
 
     @property
     @pulumi.getter(name="moduleLink")
-    def module_link(self) -> Optional[pulumi.Input['ModuleModuleLinkArgs']]:
+    def module_link(self) -> Optional[pulumi.Input['ModuleModuleLinkArrgs']]:
         """
         A `module_link` block as defined below.
         """
         return pulumi.get(self, "module_link")
 
     @module_link.setter
-    def module_link(self, value: Optional[pulumi.Input['ModuleModuleLinkArgs']]):
+    def module_link(self, value: Optional[pulumi.Input['ModuleModuleLinkArrgs']]):
         pulumi.set(self, "module_link", value)
 
     @property
@@ -154,13 +154,13 @@ class _ModuleState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class Module(pulumi.CustomResource):
+calass Module(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']]] = None,
+                 module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -181,7 +181,7 @@ class Module(pulumi.CustomResource):
         example_module = azure.automation.Module("exampleModule",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            module_link=azure.automation.ModuleModuleLinkArgs(
+            module_link=azure.automation.ModuleModuleLinkArrgs(
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
             ))
         ```
@@ -197,7 +197,7 @@ class Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArrgs']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """
@@ -205,7 +205,7 @@ class Module(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ModuleArgs,
+                 args: ModuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Module.
@@ -224,7 +224,7 @@ class Module(pulumi.CustomResource):
         example_module = azure.automation.Module("exampleModule",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            module_link=azure.automation.ModuleModuleLinkArgs(
+            module_link=azure.automation.ModuleModuleLinkArrgs(
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
             ))
         ```
@@ -238,12 +238,12 @@ class Module(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ModuleArgs args: The arguments to use to populate this resource's properties.
+        :param ModuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ModuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ModuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
-                 module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']]] = None,
+                 module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -263,7 +263,7 @@ class Module(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ModuleArgs.__new__(ModuleArgs)
+            __props__ = ModuleArrgs.__new__(ModuleArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
@@ -286,7 +286,7 @@ class Module(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automation_account_name: Optional[pulumi.Input[str]] = None,
-            module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']]] = None,
+            module_link: Optional[pulumi.Input[pulumi.InputType['ModuleModuleLinkArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'Module':
         """
@@ -297,7 +297,7 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArgs']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ModuleModuleLinkArrgs']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
         """

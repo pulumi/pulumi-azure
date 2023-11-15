@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IntegrationAccountBatchConfigurationArgs', 'IntegrationAccountBatchConfiguration']
+__all__ = ['IntegrationAccountBatchConfigurationArrgs', 'IntegrationAccountBatchConfiguration']
 
 @pulumi.input_type
-class IntegrationAccountBatchConfigurationArgs:
+calass IntegrationAccountBatchConfigurationArrgs:
     def __init__(__self__, *,
                  batch_group_name: pulumi.Input[str],
                  integration_account_name: pulumi.Input[str],
-                 release_criteria: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'],
+                 release_criteria: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs'],
                  resource_group_name: pulumi.Input[str],
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -26,7 +26,7 @@ class IntegrationAccountBatchConfigurationArgs:
         The set of arguments for constructing a IntegrationAccountBatchConfiguration resource.
         :param pulumi.Input[str] batch_group_name: The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
-        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs'] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
@@ -66,14 +66,14 @@ class IntegrationAccountBatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="releaseCriteria")
-    def release_criteria(self) -> pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']:
+    def release_criteria(self) -> pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']:
         """
         A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         """
         return pulumi.get(self, "release_criteria")
 
     @release_criteria.setter
-    def release_criteria(self, value: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']):
+    def release_criteria(self, value: pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']):
         pulumi.set(self, "release_criteria", value)
 
     @property
@@ -114,13 +114,13 @@ class IntegrationAccountBatchConfigurationArgs:
 
 
 @pulumi.input_type
-class _IntegrationAccountBatchConfigurationState:
+calass _IntegrationAccountBatchConfigurationState:
     def __init__(__self__, *,
                  batch_group_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] = None,
+                 release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering IntegrationAccountBatchConfiguration resources.
@@ -128,7 +128,7 @@ class _IntegrationAccountBatchConfigurationState:
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs'] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs'] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
         """
         if batch_group_name is not None:
@@ -194,14 +194,14 @@ class _IntegrationAccountBatchConfigurationState:
 
     @property
     @pulumi.getter(name="releaseCriteria")
-    def release_criteria(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']]:
+    def release_criteria(self) -> Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']]:
         """
         A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         """
         return pulumi.get(self, "release_criteria")
 
     @release_criteria.setter
-    def release_criteria(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']]):
+    def release_criteria(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']]):
         pulumi.set(self, "release_criteria", value)
 
     @property
@@ -217,7 +217,7 @@ class _IntegrationAccountBatchConfigurationState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
+calass IntegrationAccountBatchConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,7 +226,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']]] = None,
+                 release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -247,7 +247,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
-            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(
+            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArrgs(
                 message_count=80,
             ))
         ```
@@ -266,14 +266,14 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationAccountBatchConfigurationArgs,
+                 args: IntegrationAccountBatchConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Batch Configuration.
@@ -293,7 +293,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
-            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(
+            release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArrgs(
                 message_count=80,
             ))
         ```
@@ -307,12 +307,12 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationAccountBatchConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationAccountBatchConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountBatchConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountBatchConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -325,7 +325,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']]] = None,
+                 release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -334,7 +334,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationAccountBatchConfigurationArgs.__new__(IntegrationAccountBatchConfigurationArgs)
+            __props__ = IntegrationAccountBatchConfigurationArrgs.__new__(IntegrationAccountBatchConfigurationArrgs)
 
             if batch_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'batch_group_name'")
@@ -364,7 +364,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             integration_account_name: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']]] = None,
+            release_criteria: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'IntegrationAccountBatchConfiguration':
         """
         Get an existing IntegrationAccountBatchConfiguration resource's state with the given name, id, and optional extra
@@ -377,7 +377,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountBatchConfigurationReleaseCriteriaArrgs']] release_criteria: A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

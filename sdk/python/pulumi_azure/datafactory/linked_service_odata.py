@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceOdataArgs', 'LinkedServiceOdata']
+__all__ = ['LinkedServiceOdataArrgs', 'LinkedServiceOdata']
 
 @pulumi.input_type
-class LinkedServiceOdataArgs:
+calass LinkedServiceOdataArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  url: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']] = None,
+                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class LinkedServiceOdataArgs:
         :param pulumi.Input[str] url: The URL of the OData service endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs'] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs'] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service OData. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -104,14 +104,14 @@ class LinkedServiceOdataArgs:
 
     @property
     @pulumi.getter(name="basicAuthentication")
-    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']]:
+    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']]:
         """
         A `basic_authentication` block as defined below.
         """
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
-    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']]):
+    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']]):
         pulumi.set(self, "basic_authentication", value)
 
     @property
@@ -164,11 +164,11 @@ class LinkedServiceOdataArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceOdataState:
+calass _LinkedServiceOdataState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']] = None,
+                 basic_authentication: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class _LinkedServiceOdataState:
         Input properties used for looking up and filtering LinkedServiceOdata resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs'] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs'] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -232,14 +232,14 @@ class _LinkedServiceOdataState:
 
     @property
     @pulumi.getter(name="basicAuthentication")
-    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']]:
+    def basic_authentication(self) -> Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']]:
         """
         A `basic_authentication` block as defined below.
         """
         return pulumi.get(self, "basic_authentication")
 
     @basic_authentication.setter
-    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArgs']]):
+    def basic_authentication(self, value: Optional[pulumi.Input['LinkedServiceOdataBasicAuthenticationArrgs']]):
         pulumi.set(self, "basic_authentication", value)
 
     @property
@@ -315,14 +315,14 @@ class _LinkedServiceOdataState:
         pulumi.set(self, "url", value)
 
 
-class LinkedServiceOdata(pulumi.CustomResource):
+calass LinkedServiceOdata(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArrgs']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -351,7 +351,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         basic_auth = azure.datafactory.LinkedServiceOdata("basicAuth",
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
+            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArrgs(
                 username="emma",
                 password="Ch4ngeM3!",
             ))
@@ -369,7 +369,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArrgs']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.
@@ -381,7 +381,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceOdataArgs,
+                 args: LinkedServiceOdataArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a Database and Azure Data Factory through OData protocol.
@@ -404,7 +404,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         basic_auth = azure.datafactory.LinkedServiceOdata("basicAuth",
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People",
-            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArgs(
+            basic_authentication=azure.datafactory.LinkedServiceOdataBasicAuthenticationArrgs(
                 username="emma",
                 password="Ch4ngeM3!",
             ))
@@ -419,12 +419,12 @@ class LinkedServiceOdata(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceOdataArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceOdataArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceOdataArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceOdataArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -435,7 +435,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+                 basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArrgs']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -449,7 +449,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceOdataArgs.__new__(LinkedServiceOdataArgs)
+            __props__ = LinkedServiceOdataArrgs.__new__(LinkedServiceOdataArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -476,7 +476,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']]] = None,
+            basic_authentication: Optional[pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArrgs']]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
@@ -492,7 +492,7 @@ class LinkedServiceOdata(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service OData.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service OData.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArgs']] basic_authentication: A `basic_authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceOdataBasicAuthenticationArrgs']] basic_authentication: A `basic_authentication` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service OData.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service OData.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserAssignedIdentityArgs', 'UserAssignedIdentity']
+__all__ = ['UserAssignedIdentityArrgs', 'UserAssignedIdentity']
 
 @pulumi.input_type
-class UserAssignedIdentityArgs:
+calass UserAssignedIdentityArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class UserAssignedIdentityArgs:
 
 
 @pulumi.input_type
-class _UserAssignedIdentityState:
+calass _UserAssignedIdentityState:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _UserAssignedIdentityState:
         pulumi.set(self, "tenant_id", value)
 
 
-class UserAssignedIdentity(pulumi.CustomResource):
+calass UserAssignedIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserAssignedIdentityArgs,
+                 args: UserAssignedIdentityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -280,12 +280,12 @@ class UserAssignedIdentity(pulumi.CustomResource):
          * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`. * Where `{userAssignedIdentityName}` is the name of the User Assigned Identity. For example `userAssignedIdentityValue`.
 
         :param str resource_name: The name of the resource.
-        :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param UserAssignedIdentityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserAssignedIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserAssignedIdentityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -305,7 +305,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserAssignedIdentityArgs.__new__(UserAssignedIdentityArgs)
+            __props__ = UserAssignedIdentityArrgs.__new__(UserAssignedIdentityArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

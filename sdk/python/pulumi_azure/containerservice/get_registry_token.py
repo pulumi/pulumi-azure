@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRegistryTokenResult:
+calass GetRegistryTokenResult:
     """
     A collection of values returned by getRegistryToken.
     """
@@ -81,7 +81,7 @@ class GetRegistryTokenResult:
         return pulumi.get(self, "scope_map_id")
 
 
-class AwaitableGetRegistryTokenResult(GetRegistryTokenResult):
+calass AwaitableGetRegistryTokenResult(GetRegistryTokenResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

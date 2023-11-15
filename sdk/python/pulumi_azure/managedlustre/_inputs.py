@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FileSystemEncryptionKeyArgs',
-    'FileSystemHsmSettingArgs',
-    'FileSystemIdentityArgs',
-    'FileSystemMaintenanceWindowArgs',
+    'FileSystemEncryptionKeyArrgs',
+    'FileSystemHsmSettingArrgs',
+    'FileSystemIdentityArrgs',
+    'FileSystemMaintenanceWindowArrgs',
 ]
 
 @pulumi.input_type
-class FileSystemEncryptionKeyArgs:
+calass FileSystemEncryptionKeyArrgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -54,7 +54,7 @@ class FileSystemEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class FileSystemHsmSettingArgs:
+calass FileSystemHsmSettingArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  logging_container_id: pulumi.Input[str],
@@ -111,7 +111,7 @@ class FileSystemHsmSettingArgs:
 
 
 @pulumi.input_type
-class FileSystemIdentityArgs:
+calass FileSystemIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -148,7 +148,7 @@ class FileSystemIdentityArgs:
 
 
 @pulumi.input_type
-class FileSystemMaintenanceWindowArgs:
+calass FileSystemMaintenanceWindowArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  time_of_day_in_utc: pulumi.Input[str]):

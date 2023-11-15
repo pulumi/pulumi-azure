@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management API Operation Tag.
@@ -195,12 +194,6 @@ func (i *ApiOperationTag) ToApiOperationTagOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTagOutput)
 }
 
-func (i *ApiOperationTag) ToOutput(ctx context.Context) pulumix.Output[*ApiOperationTag] {
-	return pulumix.Output[*ApiOperationTag]{
-		OutputState: i.ToApiOperationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiOperationTagArrayInput is an input type that accepts ApiOperationTagArray and ApiOperationTagArrayOutput values.
 // You can construct a concrete instance of `ApiOperationTagArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i ApiOperationTagArray) ToApiOperationTagArrayOutput() ApiOperationTagArra
 
 func (i ApiOperationTagArray) ToApiOperationTagArrayOutputWithContext(ctx context.Context) ApiOperationTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTagArrayOutput)
-}
-
-func (i ApiOperationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiOperationTag] {
-	return pulumix.Output[[]*ApiOperationTag]{
-		OutputState: i.ToApiOperationTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiOperationTagMapInput is an input type that accepts ApiOperationTagMap and ApiOperationTagMapOutput values.
@@ -257,12 +244,6 @@ func (i ApiOperationTagMap) ToApiOperationTagMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationTagMapOutput)
 }
 
-func (i ApiOperationTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiOperationTag] {
-	return pulumix.Output[map[string]*ApiOperationTag]{
-		OutputState: i.ToApiOperationTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiOperationTagOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationTagOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o ApiOperationTagOutput) ToApiOperationTagOutput() ApiOperationTagOutput {
 
 func (o ApiOperationTagOutput) ToApiOperationTagOutputWithContext(ctx context.Context) ApiOperationTagOutput {
 	return o
-}
-
-func (o ApiOperationTagOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiOperationTag] {
-	return pulumix.Output[*ApiOperationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
@@ -312,12 +287,6 @@ func (o ApiOperationTagArrayOutput) ToApiOperationTagArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ApiOperationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiOperationTag] {
-	return pulumix.Output[[]*ApiOperationTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiOperationTagArrayOutput) Index(i pulumi.IntInput) ApiOperationTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiOperationTag {
 		return vs[0].([]*ApiOperationTag)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o ApiOperationTagMapOutput) ToApiOperationTagMapOutput() ApiOperationTagMa
 
 func (o ApiOperationTagMapOutput) ToApiOperationTagMapOutputWithContext(ctx context.Context) ApiOperationTagMapOutput {
 	return o
-}
-
-func (o ApiOperationTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiOperationTag] {
-	return pulumix.Output[map[string]*ApiOperationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiOperationTagMapOutput) MapIndex(k pulumi.StringInput) ApiOperationTagOutput {

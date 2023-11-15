@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetExpressRouteCircuitResult:
+calass GetExpressRouteCircuitResult:
     """
     A collection of values returned by getExpressRouteCircuit.
     """
@@ -118,7 +118,7 @@ class GetExpressRouteCircuitResult:
         return pulumi.get(self, "sku")
 
 
-class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
+calass AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

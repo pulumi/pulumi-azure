@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TriggerHttpRequestArgs', 'TriggerHttpRequest']
+__all__ = ['TriggerHttpRequestArrgs', 'TriggerHttpRequest']
 
 @pulumi.input_type
-class TriggerHttpRequestArgs:
+calass TriggerHttpRequestArrgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[str],
                  schema: pulumi.Input[str],
@@ -106,7 +106,7 @@ class TriggerHttpRequestArgs:
 
 
 @pulumi.input_type
-class _TriggerHttpRequestState:
+calass _TriggerHttpRequestState:
     def __init__(__self__, *,
                  callback_url: Optional[pulumi.Input[str]] = None,
                  logic_app_id: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _TriggerHttpRequestState:
         pulumi.set(self, "schema", value)
 
 
-class TriggerHttpRequest(pulumi.CustomResource):
+calass TriggerHttpRequest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -278,7 +278,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TriggerHttpRequestArgs,
+                 args: TriggerHttpRequestArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
@@ -315,12 +315,12 @@ class TriggerHttpRequest(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TriggerHttpRequestArgs args: The arguments to use to populate this resource's properties.
+        :param TriggerHttpRequestArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TriggerHttpRequestArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerHttpRequestArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -341,7 +341,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TriggerHttpRequestArgs.__new__(TriggerHttpRequestArgs)
+            __props__ = TriggerHttpRequestArrgs.__new__(TriggerHttpRequestArrgs)
 
             if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")

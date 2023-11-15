@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PolicyCustomRule(dict):
+calass PolicyCustomRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -65,7 +65,7 @@ class PolicyCustomRule(dict):
                  rate_limit_threshold: Optional[int] = None):
         """
         :param str action: Type of action. Possible values are `Allow`, `Block` and `Log`.
-        :param Sequence['PolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_conditions` blocks as defined below.
+        :param Sequence['PolicyCustomRuleMatchConditionArrgs'] match_conditions: One or more `match_conditions` blocks as defined below.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
         :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
@@ -163,7 +163,7 @@ class PolicyCustomRule(dict):
 
 
 @pulumi.output_type
-class PolicyCustomRuleMatchCondition(dict):
+calass PolicyCustomRuleMatchCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -192,7 +192,7 @@ class PolicyCustomRuleMatchCondition(dict):
                  negation_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
-        :param Sequence['PolicyCustomRuleMatchConditionMatchVariableArgs'] match_variables: One or more `match_variables` blocks as defined below.
+        :param Sequence['PolicyCustomRuleMatchConditionMatchVariableArrgs'] match_variables: One or more `match_variables` blocks as defined below.
         :param str operator: Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         :param Sequence[str] match_values: A list of match values. This is **Required** when the `operator` is not `Any`.
         :param bool negation_condition: Describes if this is negate condition or not
@@ -249,7 +249,7 @@ class PolicyCustomRuleMatchCondition(dict):
 
 
 @pulumi.output_type
-class PolicyCustomRuleMatchConditionMatchVariable(dict):
+calass PolicyCustomRuleMatchConditionMatchVariable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -296,7 +296,7 @@ class PolicyCustomRuleMatchConditionMatchVariable(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRules(dict):
+calass PolicyManagedRules(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -318,8 +318,8 @@ class PolicyManagedRules(dict):
                  managed_rule_sets: Sequence['outputs.PolicyManagedRulesManagedRuleSet'],
                  exclusions: Optional[Sequence['outputs.PolicyManagedRulesExclusion']] = None):
         """
-        :param Sequence['PolicyManagedRulesManagedRuleSetArgs'] managed_rule_sets: One or more `managed_rule_set` block defined below.
-        :param Sequence['PolicyManagedRulesExclusionArgs'] exclusions: One or more `exclusion` block defined below.
+        :param Sequence['PolicyManagedRulesManagedRuleSetArrgs'] managed_rule_sets: One or more `managed_rule_set` block defined below.
+        :param Sequence['PolicyManagedRulesExclusionArrgs'] exclusions: One or more `exclusion` block defined below.
         """
         pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
@@ -343,7 +343,7 @@ class PolicyManagedRules(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesExclusion(dict):
+calass PolicyManagedRulesExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -374,7 +374,7 @@ class PolicyManagedRulesExclusion(dict):
         :param str match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         :param str selector: Describes field of the matchVariable collection.
         :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
-        :param 'PolicyManagedRulesExclusionExcludedRuleSetArgs' excluded_rule_set: One or more `excluded_rule_set` block defined below.
+        :param 'PolicyManagedRulesExclusionExcludedRuleSetArrgs' excluded_rule_set: One or more `excluded_rule_set` block defined below.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "selector", selector)
@@ -416,7 +416,7 @@ class PolicyManagedRulesExclusion(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesExclusionExcludedRuleSet(dict):
+calass PolicyManagedRulesExclusionExcludedRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -439,7 +439,7 @@ class PolicyManagedRulesExclusionExcludedRuleSet(dict):
                  type: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        :param Sequence['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs'] rule_groups: One or more `rule_group` block defined below.
+        :param Sequence['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrgs'] rule_groups: One or more `rule_group` block defined below.
         :param str type: The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
         :param str version: The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
         """
@@ -476,7 +476,7 @@ class PolicyManagedRulesExclusionExcludedRuleSet(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
+calass PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -525,7 +525,7 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesManagedRuleSet(dict):
+calass PolicyManagedRulesManagedRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -549,7 +549,7 @@ class PolicyManagedRulesManagedRuleSet(dict):
                  type: Optional[str] = None):
         """
         :param str version: The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
-        :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs'] rule_group_overrides: One or more `rule_group_override` block defined below.
+        :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrgs'] rule_group_overrides: One or more `rule_group_override` block defined below.
         :param str type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         """
         pulumi.set(__self__, "version", version)
@@ -584,7 +584,7 @@ class PolicyManagedRulesManagedRuleSet(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
+calass PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -610,7 +610,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
                  rules: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule']] = None):
         """
         :param str rule_group_name: The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
-        :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs'] rules: One or more `rule` block defined below.
+        :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrgs'] rules: One or more `rule` block defined below.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if disabled_rules is not None:
@@ -644,7 +644,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
 
 
 @pulumi.output_type
-class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
+calass PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
     def __init__(__self__, *,
                  id: str,
                  action: Optional[str] = None,
@@ -686,7 +686,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
 
 
 @pulumi.output_type
-class PolicyPolicySettings(dict):
+calass PolicyPolicySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -723,7 +723,7 @@ class PolicyPolicySettings(dict):
         """
         :param bool enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
         :param int file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
-        :param 'PolicyPolicySettingsLogScrubbingArgs' log_scrubbing: One `log_scrubbing` block as defined below.
+        :param 'PolicyPolicySettingsLogScrubbingArrgs' log_scrubbing: One `log_scrubbing` block as defined below.
         :param int max_request_body_size_in_kb: The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
         :param str mode: Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
@@ -802,13 +802,13 @@ class PolicyPolicySettings(dict):
 
 
 @pulumi.output_type
-class PolicyPolicySettingsLogScrubbing(dict):
+calass PolicyPolicySettingsLogScrubbing(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  rules: Optional[Sequence['outputs.PolicyPolicySettingsLogScrubbingRule']] = None):
         """
         :param bool enabled: Whether the log scrubbing is enabled or disabled. Defaults to `true`.
-        :param Sequence['PolicyPolicySettingsLogScrubbingRuleArgs'] rules: One or more `scrubbing_rule` as define below.
+        :param Sequence['PolicyPolicySettingsLogScrubbingRuleArrgs'] rules: One or more `scrubbing_rule` as define below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -833,7 +833,7 @@ class PolicyPolicySettingsLogScrubbing(dict):
 
 
 @pulumi.output_type
-class PolicyPolicySettingsLogScrubbingRule(dict):
+calass PolicyPolicySettingsLogScrubbingRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

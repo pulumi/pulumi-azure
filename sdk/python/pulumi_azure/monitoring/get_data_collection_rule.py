@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDataCollectionRuleResult:
+calass GetDataCollectionRuleResult:
     """
     A collection of values returned by getDataCollectionRule.
     """
@@ -173,7 +173,7 @@ class GetDataCollectionRuleResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
+calass AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

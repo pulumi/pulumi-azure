@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ContentKeyPolicyArgs', 'ContentKeyPolicy']
+__all__ = ['ContentKeyPolicyArrgs', 'ContentKeyPolicy']
 
 @pulumi.input_type
-class ContentKeyPolicyArgs:
+calass ContentKeyPolicyArrgs:
     def __init__(__self__, *,
                  media_services_account_name: pulumi.Input[str],
-                 policy_options: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]],
+                 policy_options: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContentKeyPolicy resource.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Content Key Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]] policy_options: One or more `policy_option` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]] policy_options: One or more `policy_option` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] name: The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
@@ -51,14 +51,14 @@ class ContentKeyPolicyArgs:
 
     @property
     @pulumi.getter(name="policyOptions")
-    def policy_options(self) -> pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]:
+    def policy_options(self) -> pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]]:
         """
         One or more `policy_option` blocks as defined below.
         """
         return pulumi.get(self, "policy_options")
 
     @policy_options.setter
-    def policy_options(self, value: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]):
+    def policy_options(self, value: pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]]):
         pulumi.set(self, "policy_options", value)
 
     @property
@@ -99,19 +99,19 @@ class ContentKeyPolicyArgs:
 
 
 @pulumi.input_type
-class _ContentKeyPolicyState:
+calass _ContentKeyPolicyState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]] = None,
+                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ContentKeyPolicy resources.
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Content Key Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]] policy_options: One or more `policy_option` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]] policy_options: One or more `policy_option` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
         """
         if description is not None:
@@ -163,14 +163,14 @@ class _ContentKeyPolicyState:
 
     @property
     @pulumi.getter(name="policyOptions")
-    def policy_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]]:
+    def policy_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]]]:
         """
         One or more `policy_option` blocks as defined below.
         """
         return pulumi.get(self, "policy_options")
 
     @policy_options.setter
-    def policy_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]]):
+    def policy_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArrgs']]]]):
         pulumi.set(self, "policy_options", value)
 
     @property
@@ -186,7 +186,7 @@ class _ContentKeyPolicyState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ContentKeyPolicy(pulumi.CustomResource):
+calass ContentKeyPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArgs']]]]] = None,
+                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -216,7 +216,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -224,9 +224,9 @@ class ContentKeyPolicy(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             policy_options=[
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="fairPlay",
-                    fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs(
+                    fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs(
                         ask="bb566284cc124a21c435a92cd3c108c4",
                         pfx="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",
                         pfx_password="password",
@@ -235,13 +235,13 @@ class ContentKeyPolicy(pulumi.CustomResource):
                     ),
                     open_restriction_enabled=True,
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="playReady",
-                    playready_configuration_licenses=[azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs(
+                    playready_configuration_licenses=[azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs(
                         allow_test_devices=True,
                         begin_date="2017-10-16T18:22:53Z",
                         security_level="SL150",
-                        play_right=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs(
+                        play_right=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs(
                             scms_restriction=2,
                             digital_video_only_content_restriction=False,
                             image_constraint_for_analog_component_video_restriction=False,
@@ -252,7 +252,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                             analog_video_opl=150,
                             compressed_digital_audio_opl=250,
                             compressed_digital_video_opl=400,
-                            explicit_analog_television_output_restriction=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs(
+                            explicit_analog_television_output_restriction=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs(
                                 best_effort_enforced=True,
                                 control_bits=3,
                             ),
@@ -263,26 +263,26 @@ class ContentKeyPolicy(pulumi.CustomResource):
                     )],
                     open_restriction_enabled=True,
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="clearKey",
                     clear_key_configuration_enabled=True,
-                    token_restriction=azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionArgs(
+                    token_restriction=azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionArrgs(
                         issuer="urn:issuer",
                         audience="urn:audience",
                         token_type="Swt",
                         primary_symmetric_token_key="AAAAAAAAAAAAAAAAAAAAAA==",
                         alternate_keys=[
-                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs(
+                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs(
                                 rsa_token_key_exponent="AQAB",
                                 rsa_token_key_modulus="AQAD",
                             ),
-                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs(
+                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs(
                                 symmetric_token_key="BBAAAAAAAAAAAAAAAAAAAA==",
                             ),
                         ],
                     ),
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="widevine",
                     widevine_configuration_template=json.dumps({
                         "allowed_track_types": "SD_HD",
@@ -317,14 +317,14 @@ class ContentKeyPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Content Key Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArgs']]]] policy_options: One or more `policy_option` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArrgs']]]] policy_options: One or more `policy_option` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContentKeyPolicyArgs,
+                 args: ContentKeyPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Content Key Policy.
@@ -345,7 +345,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -353,9 +353,9 @@ class ContentKeyPolicy(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             media_services_account_name=example_service_account.name,
             policy_options=[
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="fairPlay",
-                    fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArgs(
+                    fairplay_configuration=azure.media.ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs(
                         ask="bb566284cc124a21c435a92cd3c108c4",
                         pfx="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",
                         pfx_password="password",
@@ -364,13 +364,13 @@ class ContentKeyPolicy(pulumi.CustomResource):
                     ),
                     open_restriction_enabled=True,
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="playReady",
-                    playready_configuration_licenses=[azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs(
+                    playready_configuration_licenses=[azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs(
                         allow_test_devices=True,
                         begin_date="2017-10-16T18:22:53Z",
                         security_level="SL150",
-                        play_right=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs(
+                        play_right=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs(
                             scms_restriction=2,
                             digital_video_only_content_restriction=False,
                             image_constraint_for_analog_component_video_restriction=False,
@@ -381,7 +381,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                             analog_video_opl=150,
                             compressed_digital_audio_opl=250,
                             compressed_digital_video_opl=400,
-                            explicit_analog_television_output_restriction=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs(
+                            explicit_analog_television_output_restriction=azure.media.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs(
                                 best_effort_enforced=True,
                                 control_bits=3,
                             ),
@@ -392,26 +392,26 @@ class ContentKeyPolicy(pulumi.CustomResource):
                     )],
                     open_restriction_enabled=True,
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="clearKey",
                     clear_key_configuration_enabled=True,
-                    token_restriction=azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionArgs(
+                    token_restriction=azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionArrgs(
                         issuer="urn:issuer",
                         audience="urn:audience",
                         token_type="Swt",
                         primary_symmetric_token_key="AAAAAAAAAAAAAAAAAAAAAA==",
                         alternate_keys=[
-                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs(
+                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs(
                                 rsa_token_key_exponent="AQAB",
                                 rsa_token_key_modulus="AQAD",
                             ),
-                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs(
+                            azure.media.ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs(
                                 symmetric_token_key="BBAAAAAAAAAAAAAAAAAAAA==",
                             ),
                         ],
                     ),
                 ),
-                azure.media.ContentKeyPolicyPolicyOptionArgs(
+                azure.media.ContentKeyPolicyPolicyOptionArrgs(
                     name="widevine",
                     widevine_configuration_template=json.dumps({
                         "allowed_track_types": "SD_HD",
@@ -442,12 +442,12 @@ class ContentKeyPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContentKeyPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ContentKeyPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContentKeyPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContentKeyPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -459,7 +459,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArgs']]]]] = None,
+                 policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -468,7 +468,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContentKeyPolicyArgs.__new__(ContentKeyPolicyArgs)
+            __props__ = ContentKeyPolicyArrgs.__new__(ContentKeyPolicyArrgs)
 
             __props__.__dict__["description"] = description
             if media_services_account_name is None and not opts.urn:
@@ -494,7 +494,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArgs']]]]] = None,
+            policy_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ContentKeyPolicy':
         """
         Get an existing ContentKeyPolicy resource's state with the given name, id, and optional extra
@@ -506,7 +506,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Content Key Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArgs']]]] policy_options: One or more `policy_option` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContentKeyPolicyPolicyOptionArrgs']]]] policy_options: One or more `policy_option` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

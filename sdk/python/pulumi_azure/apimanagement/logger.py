@@ -11,27 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LoggerArgs', 'Logger']
+__all__ = ['LoggerArrgs', 'Logger']
 
 @pulumi.input_type
-class LoggerArgs:
+calass LoggerArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArgs']] = None,
+                 application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArrgs']] = None,
                  buffered: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
+                 eventhub: Optional[pulumi.Input['LoggerEventhubArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Logger resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['LoggerApplicationInsightsArgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LoggerApplicationInsightsArrgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] buffered: Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         :param pulumi.Input[str] description: A description of this Logger.
-        :param pulumi.Input['LoggerEventhubArgs'] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LoggerEventhubArrgs'] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
@@ -76,14 +76,14 @@ class LoggerArgs:
 
     @property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional[pulumi.Input['LoggerApplicationInsightsArgs']]:
+    def application_insights(self) -> Optional[pulumi.Input['LoggerApplicationInsightsArrgs']]:
         """
         An `application_insights` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_insights")
 
     @application_insights.setter
-    def application_insights(self, value: Optional[pulumi.Input['LoggerApplicationInsightsArgs']]):
+    def application_insights(self, value: Optional[pulumi.Input['LoggerApplicationInsightsArrgs']]):
         pulumi.set(self, "application_insights", value)
 
     @property
@@ -112,14 +112,14 @@ class LoggerArgs:
 
     @property
     @pulumi.getter
-    def eventhub(self) -> Optional[pulumi.Input['LoggerEventhubArgs']]:
+    def eventhub(self) -> Optional[pulumi.Input['LoggerEventhubArrgs']]:
         """
         An `eventhub` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub")
 
     @eventhub.setter
-    def eventhub(self, value: Optional[pulumi.Input['LoggerEventhubArgs']]):
+    def eventhub(self, value: Optional[pulumi.Input['LoggerEventhubArrgs']]):
         pulumi.set(self, "eventhub", value)
 
     @property
@@ -148,23 +148,23 @@ class LoggerArgs:
 
 
 @pulumi.input_type
-class _LoggerState:
+calass _LoggerState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArgs']] = None,
+                 application_insights: Optional[pulumi.Input['LoggerApplicationInsightsArrgs']] = None,
                  buffered: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
+                 eventhub: Optional[pulumi.Input['LoggerEventhubArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Logger resources.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
-        :param pulumi.Input['LoggerApplicationInsightsArgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LoggerApplicationInsightsArrgs'] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] buffered: Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         :param pulumi.Input[str] description: A description of this Logger.
-        :param pulumi.Input['LoggerEventhubArgs'] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LoggerEventhubArrgs'] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
@@ -200,14 +200,14 @@ class _LoggerState:
 
     @property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional[pulumi.Input['LoggerApplicationInsightsArgs']]:
+    def application_insights(self) -> Optional[pulumi.Input['LoggerApplicationInsightsArrgs']]:
         """
         An `application_insights` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "application_insights")
 
     @application_insights.setter
-    def application_insights(self, value: Optional[pulumi.Input['LoggerApplicationInsightsArgs']]):
+    def application_insights(self, value: Optional[pulumi.Input['LoggerApplicationInsightsArrgs']]):
         pulumi.set(self, "application_insights", value)
 
     @property
@@ -236,14 +236,14 @@ class _LoggerState:
 
     @property
     @pulumi.getter
-    def eventhub(self) -> Optional[pulumi.Input['LoggerEventhubArgs']]:
+    def eventhub(self) -> Optional[pulumi.Input['LoggerEventhubArrgs']]:
         """
         An `eventhub` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "eventhub")
 
     @eventhub.setter
-    def eventhub(self, value: Optional[pulumi.Input['LoggerEventhubArgs']]):
+    def eventhub(self, value: Optional[pulumi.Input['LoggerEventhubArrgs']]):
         pulumi.set(self, "eventhub", value)
 
     @property
@@ -283,16 +283,16 @@ class _LoggerState:
         pulumi.set(self, "resource_id", value)
 
 
-class Logger(pulumi.CustomResource):
+calass Logger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']]] = None,
+                 application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArrgs']]] = None,
                  buffered: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArgs']]] = None,
+                 eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -321,7 +321,7 @@ class Logger(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
             resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
+            application_insights=azure.apimanagement.LoggerApplicationInsightsArrgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         ```
@@ -337,10 +337,10 @@ class Logger(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArrgs']] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] buffered: Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         :param pulumi.Input[str] description: A description of this Logger.
-        :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LoggerEventhubArrgs']] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
@@ -349,7 +349,7 @@ class Logger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoggerArgs,
+                 args: LoggerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logger within an API Management Service.
@@ -375,7 +375,7 @@ class Logger(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example_resource_group.name,
             resource_id=example_insights.id,
-            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
+            application_insights=azure.apimanagement.LoggerApplicationInsightsArrgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
         ```
@@ -389,12 +389,12 @@ class Logger(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoggerArgs args: The arguments to use to populate this resource's properties.
+        :param LoggerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoggerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -404,10 +404,10 @@ class Logger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
-                 application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']]] = None,
+                 application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArrgs']]] = None,
                  buffered: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArgs']]] = None,
+                 eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -418,7 +418,7 @@ class Logger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoggerArgs.__new__(LoggerArgs)
+            __props__ = LoggerArrgs.__new__(LoggerArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
@@ -443,10 +443,10 @@ class Logger(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
-            application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']]] = None,
+            application_insights: Optional[pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArrgs']]] = None,
             buffered: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArgs']]] = None,
+            eventhub: Optional[pulumi.Input[pulumi.InputType['LoggerEventhubArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None) -> 'Logger':
@@ -458,10 +458,10 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArgs']] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LoggerApplicationInsightsArrgs']] application_insights: An `application_insights` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] buffered: Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
         :param pulumi.Input[str] description: A description of this Logger.
-        :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LoggerEventhubArrgs']] eventhub: An `eventhub` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.

@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpacecraftArgs', 'Spacecraft']
+__all__ = ['SpacecraftArrgs', 'Spacecraft']
 
 @pulumi.input_type
-class SpacecraftArgs:
+calass SpacecraftArrgs:
     def __init__(__self__, *,
-                 links: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]],
+                 links: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]],
                  norad_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  title_line: pulumi.Input[str],
@@ -26,7 +26,7 @@ class SpacecraftArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Spacecraft resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] title_line: Title of the two line elements (TLE).
@@ -49,14 +49,14 @@ class SpacecraftArgs:
 
     @property
     @pulumi.getter
-    def links(self) -> pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]:
+    def links(self) -> pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]]:
         """
         A `links` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]):
+    def links(self, value: pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]]):
         pulumi.set(self, "links", value)
 
     @property
@@ -145,9 +145,9 @@ class SpacecraftArgs:
 
 
 @pulumi.input_type
-class _SpacecraftState:
+calass _SpacecraftState:
     def __init__(__self__, *,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  norad_id: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class _SpacecraftState:
                  two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Spacecraft resources.
-        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
@@ -185,14 +185,14 @@ class _SpacecraftState:
 
     @property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]]:
+    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]]]:
         """
         A `links` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]]):
+    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArrgs']]]]):
         pulumi.set(self, "links", value)
 
     @property
@@ -280,12 +280,12 @@ class _SpacecraftState:
         pulumi.set(self, "two_line_elements", value)
 
 
-class Spacecraft(pulumi.CustomResource):
+calass Spacecraft(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  norad_id: Optional[pulumi.Input[str]] = None,
@@ -308,7 +308,7 @@ class Spacecraft(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
+            links=[azure.orbital.SpacecraftLinkArrgs(
                 bandwidth_mhz=100,
                 center_frequency_mhz=101,
                 direction="Uplink",
@@ -335,7 +335,7 @@ class Spacecraft(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArrgs']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.
@@ -348,7 +348,7 @@ class Spacecraft(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpacecraftArgs,
+                 args: SpacecraftArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spacecraft.
@@ -364,7 +364,7 @@ class Spacecraft(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
+            links=[azure.orbital.SpacecraftLinkArrgs(
                 bandwidth_mhz=100,
                 center_frequency_mhz=101,
                 direction="Uplink",
@@ -390,12 +390,12 @@ class Spacecraft(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpacecraftArgs args: The arguments to use to populate this resource's properties.
+        :param SpacecraftArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpacecraftArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpacecraftArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -404,7 +404,7 @@ class Spacecraft(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  norad_id: Optional[pulumi.Input[str]] = None,
@@ -419,7 +419,7 @@ class Spacecraft(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpacecraftArgs.__new__(SpacecraftArgs)
+            __props__ = SpacecraftArrgs.__new__(SpacecraftArrgs)
 
             if links is None and not opts.urn:
                 raise TypeError("Missing required property 'links'")
@@ -449,7 +449,7 @@ class Spacecraft(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]]] = None,
+            links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArrgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             norad_id: Optional[pulumi.Input[str]] = None,
@@ -464,7 +464,7 @@ class Spacecraft(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArrgs']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[str] norad_id: NORAD ID of the Spacecraft.

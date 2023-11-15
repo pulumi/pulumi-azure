@@ -29,7 +29,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LinkedServiceIntegrationRuntime(dict):
+calass LinkedServiceIntegrationRuntime(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -59,7 +59,7 @@ class LinkedServiceIntegrationRuntime(dict):
 
 
 @pulumi.output_type
-class SparkPoolAutoPause(dict):
+calass SparkPoolAutoPause(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -94,7 +94,7 @@ class SparkPoolAutoPause(dict):
 
 
 @pulumi.output_type
-class SparkPoolAutoScale(dict):
+calass SparkPoolAutoScale(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -142,7 +142,7 @@ class SparkPoolAutoScale(dict):
 
 
 @pulumi.output_type
-class SparkPoolLibraryRequirement(dict):
+calass SparkPoolLibraryRequirement(dict):
     def __init__(__self__, *,
                  content: str,
                  filename: str):
@@ -171,7 +171,7 @@ class SparkPoolLibraryRequirement(dict):
 
 
 @pulumi.output_type
-class SparkPoolSparkConfig(dict):
+calass SparkPoolSparkConfig(dict):
     def __init__(__self__, *,
                  content: str,
                  filename: str):
@@ -200,7 +200,7 @@ class SparkPoolSparkConfig(dict):
 
 
 @pulumi.output_type
-class SqlPoolRestore(dict):
+calass SqlPoolRestore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -248,7 +248,7 @@ class SqlPoolRestore(dict):
 
 
 @pulumi.output_type
-class SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
+calass SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
     def __init__(__self__, *,
                  results: Sequence[str]):
         """
@@ -266,7 +266,7 @@ class SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
 
 
 @pulumi.output_type
-class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
+calass SqlPoolVulnerabilityAssessmentRecurringScans(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -326,7 +326,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
 
 
 @pulumi.output_type
-class WorkspaceAadAdmin(dict):
+calass WorkspaceAadAdmin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -385,7 +385,7 @@ class WorkspaceAadAdmin(dict):
 
 
 @pulumi.output_type
-class WorkspaceAzureDevopsRepo(dict):
+calass WorkspaceAzureDevopsRepo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -500,7 +500,7 @@ class WorkspaceAzureDevopsRepo(dict):
 
 
 @pulumi.output_type
-class WorkspaceCustomerManagedKey(dict):
+calass WorkspaceCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -549,7 +549,7 @@ class WorkspaceCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class WorkspaceGithubRepo(dict):
+calass WorkspaceGithubRepo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -655,7 +655,7 @@ class WorkspaceGithubRepo(dict):
 
 
 @pulumi.output_type
-class WorkspaceIdentity(dict):
+calass WorkspaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -734,7 +734,7 @@ class WorkspaceIdentity(dict):
 
 
 @pulumi.output_type
-class WorkspaceSqlAadAdmin(dict):
+calass WorkspaceSqlAadAdmin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -793,7 +793,7 @@ class WorkspaceSqlAadAdmin(dict):
 
 
 @pulumi.output_type
-class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
+calass WorkspaceVulnerabilityAssessmentRecurringScans(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -853,7 +853,7 @@ class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
 
 
 @pulumi.output_type
-class GetWorkspaceIdentityResult(dict):
+calass GetWorkspaceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,

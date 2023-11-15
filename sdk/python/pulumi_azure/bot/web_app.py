@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebAppArgs', 'WebApp']
+__all__ = ['WebAppArrgs', 'WebApp']
 
 @pulumi.input_type
-class WebAppArgs:
+calass WebAppArrgs:
     def __init__(__self__, *,
                  microsoft_app_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -225,7 +225,7 @@ class WebAppArgs:
 
 
 @pulumi.input_type
-class _WebAppState:
+calass _WebAppState:
     def __init__(__self__, *,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
@@ -440,7 +440,7 @@ class _WebAppState:
         pulumi.set(self, "tags", value)
 
 
-class WebApp(pulumi.CustomResource):
+calass WebApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -505,7 +505,7 @@ class WebApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAppArgs,
+                 args: WebAppArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bot Web App.
@@ -534,12 +534,12 @@ class WebApp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAppArgs args: The arguments to use to populate this resource's properties.
+        :param WebAppArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -568,7 +568,7 @@ class WebApp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAppArgs.__new__(WebAppArgs)
+            __props__ = WebAppArrgs.__new__(WebAppArrgs)
 
             __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id

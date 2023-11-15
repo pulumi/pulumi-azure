@@ -39,7 +39,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterAzureActiveDirectory(dict):
+calass ClusterAzureActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -100,7 +100,7 @@ class ClusterAzureActiveDirectory(dict):
 
 
 @pulumi.output_type
-class ClusterCertificate(dict):
+calass ClusterCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -160,7 +160,7 @@ class ClusterCertificate(dict):
 
 
 @pulumi.output_type
-class ClusterCertificateCommonNames(dict):
+calass ClusterCertificateCommonNames(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class ClusterCertificateCommonNames(dict):
                  common_names: Sequence['outputs.ClusterCertificateCommonNamesCommonName'],
                  x509_store_name: str):
         """
-        :param Sequence['ClusterCertificateCommonNamesCommonNameArgs'] common_names: A `common_names` block as defined below.
+        :param Sequence['ClusterCertificateCommonNamesCommonNameArrgs'] common_names: A `common_names` block as defined below.
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
         pulumi.set(__self__, "common_names", common_names)
@@ -208,7 +208,7 @@ class ClusterCertificateCommonNames(dict):
 
 
 @pulumi.output_type
-class ClusterCertificateCommonNamesCommonName(dict):
+calass ClusterCertificateCommonNamesCommonName(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -261,7 +261,7 @@ class ClusterCertificateCommonNamesCommonName(dict):
 
 
 @pulumi.output_type
-class ClusterClientCertificateCommonName(dict):
+calass ClusterClientCertificateCommonName(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -327,7 +327,7 @@ class ClusterClientCertificateCommonName(dict):
 
 
 @pulumi.output_type
-class ClusterClientCertificateThumbprint(dict):
+calass ClusterClientCertificateThumbprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class ClusterClientCertificateThumbprint(dict):
 
 
 @pulumi.output_type
-class ClusterDiagnosticsConfig(dict):
+calass ClusterDiagnosticsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -460,7 +460,7 @@ class ClusterDiagnosticsConfig(dict):
 
 
 @pulumi.output_type
-class ClusterFabricSetting(dict):
+calass ClusterFabricSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Optional[Mapping[str, str]] = None):
@@ -490,7 +490,7 @@ class ClusterFabricSetting(dict):
 
 
 @pulumi.output_type
-class ClusterNodeType(dict):
+calass ClusterNodeType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -548,10 +548,10 @@ class ClusterNodeType(dict):
         :param int instance_count: The number of nodes for this Node Type.
         :param bool is_primary: Is this the Primary Node Type?
         :param str name: The name of the Node Type.
-        :param 'ClusterNodeTypeApplicationPortsArgs' application_ports: A `application_ports` block as defined below.
+        :param 'ClusterNodeTypeApplicationPortsArrgs' application_ports: A `application_ports` block as defined below.
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param str durability_level: The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
-        :param 'ClusterNodeTypeEphemeralPortsArgs' ephemeral_ports: A `ephemeral_ports` block as defined below.
+        :param 'ClusterNodeTypeEphemeralPortsArrgs' ephemeral_ports: A `ephemeral_ports` block as defined below.
         :param bool is_stateless: Should this node type run only stateless services?
         :param bool multiple_availability_zones: Does this node type span availability zones?
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
@@ -685,7 +685,7 @@ class ClusterNodeType(dict):
 
 
 @pulumi.output_type
-class ClusterNodeTypeApplicationPorts(dict):
+calass ClusterNodeTypeApplicationPorts(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -733,7 +733,7 @@ class ClusterNodeTypeApplicationPorts(dict):
 
 
 @pulumi.output_type
-class ClusterNodeTypeEphemeralPorts(dict):
+calass ClusterNodeTypeEphemeralPorts(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -781,7 +781,7 @@ class ClusterNodeTypeEphemeralPorts(dict):
 
 
 @pulumi.output_type
-class ClusterReverseProxyCertificate(dict):
+calass ClusterReverseProxyCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -841,7 +841,7 @@ class ClusterReverseProxyCertificate(dict):
 
 
 @pulumi.output_type
-class ClusterReverseProxyCertificateCommonNames(dict):
+calass ClusterReverseProxyCertificateCommonNames(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -865,7 +865,7 @@ class ClusterReverseProxyCertificateCommonNames(dict):
                  common_names: Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName'],
                  x509_store_name: str):
         """
-        :param Sequence['ClusterReverseProxyCertificateCommonNamesCommonNameArgs'] common_names: A `common_names` block as defined below.
+        :param Sequence['ClusterReverseProxyCertificateCommonNamesCommonNameArrgs'] common_names: A `common_names` block as defined below.
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
         pulumi.set(__self__, "common_names", common_names)
@@ -889,7 +889,7 @@ class ClusterReverseProxyCertificateCommonNames(dict):
 
 
 @pulumi.output_type
-class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
+calass ClusterReverseProxyCertificateCommonNamesCommonName(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -942,7 +942,7 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
 
 
 @pulumi.output_type
-class ClusterUpgradePolicy(dict):
+calass ClusterUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -987,12 +987,12 @@ class ClusterUpgradePolicy(dict):
                  upgrade_replica_set_check_timeout: Optional[str] = None,
                  upgrade_timeout: Optional[str] = None):
         """
-        :param 'ClusterUpgradePolicyDeltaHealthPolicyArgs' delta_health_policy: A `delta_health_policy` block as defined below
+        :param 'ClusterUpgradePolicyDeltaHealthPolicyArrgs' delta_health_policy: A `delta_health_policy` block as defined below
         :param bool force_restart_enabled: Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
         :param str health_check_retry_timeout: Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
         :param str health_check_stable_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
         :param str health_check_wait_duration: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
-        :param 'ClusterUpgradePolicyHealthPolicyArgs' health_policy: A `health_policy` block as defined below
+        :param 'ClusterUpgradePolicyHealthPolicyArrgs' health_policy: A `health_policy` block as defined below
         :param str upgrade_domain_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
         :param str upgrade_replica_set_check_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
         :param str upgrade_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
@@ -1090,7 +1090,7 @@ class ClusterUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class ClusterUpgradePolicyDeltaHealthPolicy(dict):
+calass ClusterUpgradePolicyDeltaHealthPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1154,7 +1154,7 @@ class ClusterUpgradePolicyDeltaHealthPolicy(dict):
 
 
 @pulumi.output_type
-class ClusterUpgradePolicyHealthPolicy(dict):
+calass ClusterUpgradePolicyHealthPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1204,7 +1204,7 @@ class ClusterUpgradePolicyHealthPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedClusterAuthentication(dict):
+calass ManagedClusterAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1226,8 +1226,8 @@ class ManagedClusterAuthentication(dict):
                  active_directory: Optional['outputs.ManagedClusterAuthenticationActiveDirectory'] = None,
                  certificates: Optional[Sequence['outputs.ManagedClusterAuthenticationCertificate']] = None):
         """
-        :param 'ManagedClusterAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined above.
-        :param Sequence['ManagedClusterAuthenticationCertificateArgs'] certificates: One or more `certificate` blocks as defined below.
+        :param 'ManagedClusterAuthenticationActiveDirectoryArrgs' active_directory: A `active_directory` block as defined above.
+        :param Sequence['ManagedClusterAuthenticationCertificateArrgs'] certificates: One or more `certificate` blocks as defined below.
         """
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
@@ -1252,7 +1252,7 @@ class ManagedClusterAuthentication(dict):
 
 
 @pulumi.output_type
-class ManagedClusterAuthenticationActiveDirectory(dict):
+calass ManagedClusterAuthenticationActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1313,7 +1313,7 @@ class ManagedClusterAuthenticationActiveDirectory(dict):
 
 
 @pulumi.output_type
-class ManagedClusterAuthenticationCertificate(dict):
+calass ManagedClusterAuthenticationCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1371,7 +1371,7 @@ class ManagedClusterAuthenticationCertificate(dict):
 
 
 @pulumi.output_type
-class ManagedClusterCustomFabricSetting(dict):
+calass ManagedClusterCustomFabricSetting(dict):
     def __init__(__self__, *,
                  parameter: str,
                  section: str,
@@ -1411,7 +1411,7 @@ class ManagedClusterCustomFabricSetting(dict):
 
 
 @pulumi.output_type
-class ManagedClusterLbRule(dict):
+calass ManagedClusterLbRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1497,7 +1497,7 @@ class ManagedClusterLbRule(dict):
 
 
 @pulumi.output_type
-class ManagedClusterNodeType(dict):
+calass ManagedClusterNodeType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1576,7 +1576,7 @@ class ManagedClusterNodeType(dict):
         :param Mapping[str, str] placement_properties: Specifies a list of placement tags that can be used to indicate where services should run..
         :param bool primary: If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
         :param bool stateless: If set to true, only stateless workloads can run on this node type.
-        :param Sequence['ManagedClusterNodeTypeVmSecretArgs'] vm_secrets: One or more `vm_secrets` blocks as defined below.
+        :param Sequence['ManagedClusterNodeTypeVmSecretArrgs'] vm_secrets: One or more `vm_secrets` blocks as defined below.
         """
         pulumi.set(__self__, "application_port_range", application_port_range)
         pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
@@ -1751,7 +1751,7 @@ class ManagedClusterNodeType(dict):
 
 
 @pulumi.output_type
-class ManagedClusterNodeTypeVmSecret(dict):
+calass ManagedClusterNodeTypeVmSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1773,7 +1773,7 @@ class ManagedClusterNodeTypeVmSecret(dict):
                  certificates: Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate'],
                  vault_id: str):
         """
-        :param Sequence['ManagedClusterNodeTypeVmSecretCertificateArgs'] certificates: One or more `certificates` blocks as defined above.
+        :param Sequence['ManagedClusterNodeTypeVmSecretCertificateArrgs'] certificates: One or more `certificates` blocks as defined above.
         :param str vault_id: The ID of the Vault that contain the certificates.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -1797,7 +1797,7 @@ class ManagedClusterNodeTypeVmSecret(dict):
 
 
 @pulumi.output_type
-class ManagedClusterNodeTypeVmSecretCertificate(dict):
+calass ManagedClusterNodeTypeVmSecretCertificate(dict):
     def __init__(__self__, *,
                  store: str,
                  url: str):

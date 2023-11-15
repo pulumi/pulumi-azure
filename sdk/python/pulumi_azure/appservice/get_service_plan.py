@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServicePlanResult:
+calass GetServicePlanResult:
     """
     A collection of values returned by getServicePlan.
     """
@@ -172,7 +172,7 @@ class GetServicePlanResult:
         return pulumi.get(self, "zone_balancing_enabled")
 
 
-class AwaitableGetServicePlanResult(GetServicePlanResult):
+calass AwaitableGetServicePlanResult(GetServicePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

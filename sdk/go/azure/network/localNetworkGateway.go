@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a local network gateway connection over which specific connections can be configured.
@@ -229,12 +228,6 @@ func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
 }
 
-func (i *LocalNetworkGateway) ToOutput(ctx context.Context) pulumix.Output[*LocalNetworkGateway] {
-	return pulumix.Output[*LocalNetworkGateway]{
-		OutputState: i.ToLocalNetworkGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalNetworkGatewayArrayInput is an input type that accepts LocalNetworkGatewayArray and LocalNetworkGatewayArrayOutput values.
 // You can construct a concrete instance of `LocalNetworkGatewayArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i LocalNetworkGatewayArray) ToLocalNetworkGatewayArrayOutput() LocalNetwor
 
 func (i LocalNetworkGatewayArray) ToLocalNetworkGatewayArrayOutputWithContext(ctx context.Context) LocalNetworkGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayArrayOutput)
-}
-
-func (i LocalNetworkGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalNetworkGateway] {
-	return pulumix.Output[[]*LocalNetworkGateway]{
-		OutputState: i.ToLocalNetworkGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalNetworkGatewayMapInput is an input type that accepts LocalNetworkGatewayMap and LocalNetworkGatewayMapOutput values.
@@ -291,12 +278,6 @@ func (i LocalNetworkGatewayMap) ToLocalNetworkGatewayMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayMapOutput)
 }
 
-func (i LocalNetworkGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalNetworkGateway] {
-	return pulumix.Output[map[string]*LocalNetworkGateway]{
-		OutputState: i.ToLocalNetworkGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutput() LocalNetworkGat
 
 func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx context.Context) LocalNetworkGatewayOutput {
 	return o
-}
-
-func (o LocalNetworkGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalNetworkGateway] {
-	return pulumix.Output[*LocalNetworkGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of string CIDRs representing the address spaces the gateway exposes.
@@ -373,12 +348,6 @@ func (o LocalNetworkGatewayArrayOutput) ToLocalNetworkGatewayArrayOutputWithCont
 	return o
 }
 
-func (o LocalNetworkGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalNetworkGateway] {
-	return pulumix.Output[[]*LocalNetworkGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalNetworkGatewayArrayOutput) Index(i pulumi.IntInput) LocalNetworkGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalNetworkGateway {
 		return vs[0].([]*LocalNetworkGateway)[vs[1].(int)]
@@ -397,12 +366,6 @@ func (o LocalNetworkGatewayMapOutput) ToLocalNetworkGatewayMapOutput() LocalNetw
 
 func (o LocalNetworkGatewayMapOutput) ToLocalNetworkGatewayMapOutputWithContext(ctx context.Context) LocalNetworkGatewayMapOutput {
 	return o
-}
-
-func (o LocalNetworkGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalNetworkGateway] {
-	return pulumix.Output[map[string]*LocalNetworkGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalNetworkGatewayMapOutput) MapIndex(k pulumi.StringInput) LocalNetworkGatewayOutput {

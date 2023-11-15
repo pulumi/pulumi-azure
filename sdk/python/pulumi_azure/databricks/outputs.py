@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccessConnectorIdentity(dict):
+calass AccessConnectorIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,7 +99,7 @@ class AccessConnectorIdentity(dict):
 
 
 @pulumi.output_type
-class WorkspaceCustomParameters(dict):
+calass WorkspaceCustomParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -297,7 +297,7 @@ class WorkspaceCustomParameters(dict):
 
 
 @pulumi.output_type
-class WorkspaceManagedDiskIdentity(dict):
+calass WorkspaceManagedDiskIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -359,7 +359,7 @@ class WorkspaceManagedDiskIdentity(dict):
 
 
 @pulumi.output_type
-class WorkspaceStorageAccountIdentity(dict):
+calass WorkspaceStorageAccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -421,7 +421,7 @@ class WorkspaceStorageAccountIdentity(dict):
 
 
 @pulumi.output_type
-class GetWorkspaceManagedDiskIdentityResult(dict):
+calass GetWorkspaceManagedDiskIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -461,7 +461,7 @@ class GetWorkspaceManagedDiskIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
+calass GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
     def __init__(__self__, *,
                  action_required: str,
                  description: str,
@@ -523,7 +523,7 @@ class GetWorkspacePrivateEndpointConnectionConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetWorkspaceStorageAccountIdentityResult(dict):
+calass GetWorkspaceStorageAccountIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,

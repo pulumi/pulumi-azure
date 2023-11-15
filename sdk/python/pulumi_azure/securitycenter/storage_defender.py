@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StorageDefenderArgs', 'StorageDefender']
+__all__ = ['StorageDefenderArrgs', 'StorageDefender']
 
 @pulumi.input_type
-class StorageDefenderArgs:
+calass StorageDefenderArrgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
@@ -99,7 +99,7 @@ class StorageDefenderArgs:
 
 
 @pulumi.input_type
-class _StorageDefenderState:
+calass _StorageDefenderState:
     def __init__(__self__, *,
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
@@ -186,7 +186,7 @@ class _StorageDefenderState:
         pulumi.set(self, "storage_account_id", value)
 
 
-class StorageDefender(pulumi.CustomResource):
+calass StorageDefender(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -235,7 +235,7 @@ class StorageDefender(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StorageDefenderArgs,
+                 args: StorageDefenderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Defender for Storage.
@@ -264,12 +264,12 @@ class StorageDefender(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StorageDefenderArgs args: The arguments to use to populate this resource's properties.
+        :param StorageDefenderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StorageDefenderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StorageDefenderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class StorageDefender(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StorageDefenderArgs.__new__(StorageDefenderArgs)
+            __props__ = StorageDefenderArrgs.__new__(StorageDefenderArrgs)
 
             __props__.__dict__["malware_scanning_on_upload_cap_gb_per_month"] = malware_scanning_on_upload_cap_gb_per_month
             __props__.__dict__["malware_scanning_on_upload_enabled"] = malware_scanning_on_upload_enabled

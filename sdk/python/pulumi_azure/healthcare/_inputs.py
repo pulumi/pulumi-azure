@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DicomServiceAuthenticationArgs',
-    'DicomServiceIdentityArgs',
-    'DicomServicePrivateEndpointArgs',
-    'FhirServiceAuthenticationArgs',
-    'FhirServiceCorsArgs',
-    'FhirServiceIdentityArgs',
-    'FhirServiceOciArtifactArgs',
-    'MedtechServiceIdentityArgs',
-    'ServiceAuthenticationConfigurationArgs',
-    'ServiceCorsConfigurationArgs',
-    'WorkspacePrivateEndpointConnectionArgs',
+    'DicomServiceAuthenticationArrgs',
+    'DicomServiceIdentityArrgs',
+    'DicomServicePrivateEndpointArrgs',
+    'FhirServiceAuthenticationArrgs',
+    'FhirServiceCorsArrgs',
+    'FhirServiceIdentityArrgs',
+    'FhirServiceOciArtifactArrgs',
+    'MedtechServiceIdentityArrgs',
+    'ServiceAuthenticationConfigurationArrgs',
+    'ServiceCorsConfigurationArrgs',
+    'WorkspacePrivateEndpointConnectionArrgs',
 ]
 
 @pulumi.input_type
-class DicomServiceAuthenticationArgs:
+calass DicomServiceAuthenticationArrgs:
     def __init__(__self__, *,
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authority: Optional[pulumi.Input[str]] = None):
@@ -59,7 +59,7 @@ class DicomServiceAuthenticationArgs:
 
 
 @pulumi.input_type
-class DicomServiceIdentityArgs:
+calass DicomServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -121,7 +121,7 @@ class DicomServiceIdentityArgs:
 
 
 @pulumi.input_type
-class DicomServicePrivateEndpointArgs:
+calass DicomServicePrivateEndpointArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -160,7 +160,7 @@ class DicomServicePrivateEndpointArgs:
 
 
 @pulumi.input_type
-class FhirServiceAuthenticationArgs:
+calass FhirServiceAuthenticationArrgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[str],
                  authority: pulumi.Input[str],
@@ -209,7 +209,7 @@ class FhirServiceAuthenticationArgs:
 
 
 @pulumi.input_type
-class FhirServiceCorsArgs:
+calass FhirServiceCorsArrgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -293,7 +293,7 @@ class FhirServiceCorsArgs:
 
 
 @pulumi.input_type
-class FhirServiceIdentityArgs:
+calass FhirServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -355,7 +355,7 @@ class FhirServiceIdentityArgs:
 
 
 @pulumi.input_type
-class FhirServiceOciArtifactArgs:
+calass FhirServiceOciArtifactArrgs:
     def __init__(__self__, *,
                  login_server: pulumi.Input[str],
                  digest: Optional[pulumi.Input[str]] = None,
@@ -409,7 +409,7 @@ class FhirServiceOciArtifactArgs:
 
 
 @pulumi.input_type
-class MedtechServiceIdentityArgs:
+calass MedtechServiceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -475,7 +475,7 @@ class MedtechServiceIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceAuthenticationConfigurationArgs:
+calass ServiceAuthenticationConfigurationArrgs:
     def __init__(__self__, *,
                  audience: Optional[pulumi.Input[str]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
@@ -532,7 +532,7 @@ class ServiceAuthenticationConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceCorsConfigurationArgs:
+calass ServiceCorsConfigurationArrgs:
     def __init__(__self__, *,
                  allow_credentials: Optional[pulumi.Input[bool]] = None,
                  allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -619,7 +619,7 @@ class ServiceCorsConfigurationArgs:
 
 
 @pulumi.input_type
-class WorkspacePrivateEndpointConnectionArgs:
+calass WorkspacePrivateEndpointConnectionArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):

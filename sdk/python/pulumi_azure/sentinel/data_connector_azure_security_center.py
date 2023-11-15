@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorAzureSecurityCenterArgs', 'DataConnectorAzureSecurityCenter']
+__all__ = ['DataConnectorAzureSecurityCenterArrgs', 'DataConnectorAzureSecurityCenter']
 
 @pulumi.input_type
-class DataConnectorAzureSecurityCenterArgs:
+calass DataConnectorAzureSecurityCenterArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class DataConnectorAzureSecurityCenterArgs:
 
 
 @pulumi.input_type
-class _DataConnectorAzureSecurityCenterState:
+calass _DataConnectorAzureSecurityCenterState:
     def __init__(__self__, *,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _DataConnectorAzureSecurityCenterState:
         pulumi.set(self, "subscription_id", value)
 
 
-class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
+calass DataConnectorAzureSecurityCenter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorAzureSecurityCenterArgs,
+                 args: DataConnectorAzureSecurityCenterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Security Center Data Connector.
@@ -196,12 +196,12 @@ class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorAzureSecurityCenterArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorAzureSecurityCenterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAzureSecurityCenterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAzureSecurityCenterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -220,7 +220,7 @@ class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorAzureSecurityCenterArgs.__new__(DataConnectorAzureSecurityCenterArgs)
+            __props__ = DataConnectorAzureSecurityCenterArrgs.__new__(DataConnectorAzureSecurityCenterArrgs)
 
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

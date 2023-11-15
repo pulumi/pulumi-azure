@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Synapse Workspace keys
@@ -296,12 +295,6 @@ func (i *WorkspaceKey) ToWorkspaceKeyOutputWithContext(ctx context.Context) Work
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyOutput)
 }
 
-func (i *WorkspaceKey) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceKey] {
-	return pulumix.Output[*WorkspaceKey]{
-		OutputState: i.ToWorkspaceKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkspaceKeyArrayInput is an input type that accepts WorkspaceKeyArray and WorkspaceKeyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceKeyArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i WorkspaceKeyArray) ToWorkspaceKeyArrayOutput() WorkspaceKeyArrayOutput {
 
 func (i WorkspaceKeyArray) ToWorkspaceKeyArrayOutputWithContext(ctx context.Context) WorkspaceKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyArrayOutput)
-}
-
-func (i WorkspaceKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceKey] {
-	return pulumix.Output[[]*WorkspaceKey]{
-		OutputState: i.ToWorkspaceKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkspaceKeyMapInput is an input type that accepts WorkspaceKeyMap and WorkspaceKeyMapOutput values.
@@ -358,12 +345,6 @@ func (i WorkspaceKeyMap) ToWorkspaceKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceKeyMapOutput)
 }
 
-func (i WorkspaceKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceKey] {
-	return pulumix.Output[map[string]*WorkspaceKey]{
-		OutputState: i.ToWorkspaceKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceKeyOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o WorkspaceKeyOutput) ToWorkspaceKeyOutput() WorkspaceKeyOutput {
 
 func (o WorkspaceKeyOutput) ToWorkspaceKeyOutputWithContext(ctx context.Context) WorkspaceKeyOutput {
 	return o
-}
-
-func (o WorkspaceKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceKey] {
-	return pulumix.Output[*WorkspaceKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the workspace should be encrypted with this key.
@@ -420,12 +395,6 @@ func (o WorkspaceKeyArrayOutput) ToWorkspaceKeyArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o WorkspaceKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceKey] {
-	return pulumix.Output[[]*WorkspaceKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceKey {
 		return vs[0].([]*WorkspaceKey)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o WorkspaceKeyMapOutput) ToWorkspaceKeyMapOutput() WorkspaceKeyMapOutput {
 
 func (o WorkspaceKeyMapOutput) ToWorkspaceKeyMapOutputWithContext(ctx context.Context) WorkspaceKeyMapOutput {
 	return o
-}
-
-func (o WorkspaceKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceKey] {
-	return pulumix.Output[map[string]*WorkspaceKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceKeyOutput {

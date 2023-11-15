@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountArgs', 'Account']
+__all__ = ['AccountArrgs', 'Account']
 
 @pulumi.input_type
-class AccountArgs:
+calass AccountArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 storage_accounts: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]],
-                 encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']] = None,
+                 storage_accounts: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]],
+                 encryption: Optional[pulumi.Input['AccountEncryptionArrgs']] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArrgs']] = None,
+                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -29,10 +29,10 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input['AccountEncryptionArgs'] encryption: An `encryption` block as defined below.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['AccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input['AccountEncryptionArrgs'] encryption: An `encryption` block as defined below.
+        :param pulumi.Input['AccountIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AccountKeyDeliveryAccessControlArrgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
@@ -72,50 +72,50 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]:
+    def storage_accounts(self) -> pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]):
+    def storage_accounts(self, value: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArrgs']]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keyDeliveryAccessControl")
-    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]:
+    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']]:
         """
         A `key_delivery_access_control` block as defined below.
         """
         return pulumi.get(self, "key_delivery_access_control")
 
     @key_delivery_access_control.setter
-    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]):
+    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']]):
         pulumi.set(self, "key_delivery_access_control", value)
 
     @property
@@ -180,28 +180,28 @@ class AccountArgs:
 
 
 @pulumi.input_type
-class _AccountState:
+calass _AccountState:
     def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
-                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']] = None,
+                 encryption: Optional[pulumi.Input['AccountEncryptionArrgs']] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArrgs']] = None,
+                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input['AccountEncryptionArgs'] encryption: An `encryption` block as defined below.
-        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['AccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
+        :param pulumi.Input['AccountEncryptionArrgs'] encryption: An `encryption` block as defined below.
+        :param pulumi.Input['AccountIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AccountKeyDeliveryAccessControlArrgs'] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
@@ -228,38 +228,38 @@ class _AccountState:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArrgs']]:
         """
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['AccountEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keyDeliveryAccessControl")
-    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]:
+    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']]:
         """
         A `key_delivery_access_control` block as defined below.
         """
         return pulumi.get(self, "key_delivery_access_control")
 
     @key_delivery_access_control.setter
-    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]):
+    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArrgs']]):
         pulumi.set(self, "key_delivery_access_control", value)
 
     @property
@@ -312,14 +312,14 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArrgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -350,21 +350,21 @@ class _AccountState:
 warnings.warn("""azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount""", DeprecationWarning)
 
 
-class Account(pulumi.CustomResource):
+calass Account(pulumi.CustomResource):
     warnings.warn("""azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArrgs']]] = None,
+                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArrgs']]]]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -386,7 +386,7 @@ class Account(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -402,14 +402,14 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: An `encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArrgs']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArrgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
@@ -417,7 +417,7 @@ class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountArgs,
+                 args: AccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Services Account.
@@ -437,7 +437,7 @@ class Account(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -452,12 +452,12 @@ class Account(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param AccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -466,14 +466,14 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArrgs']]] = None,
+                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArrgs']]]]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -484,7 +484,7 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountArgs.__new__(AccountArgs)
+            __props__ = AccountArrgs.__new__(AccountArrgs)
 
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
@@ -510,14 +510,14 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
-            key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArrgs']]] = None,
+            key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArrgs']]]]] = None,
             storage_authentication_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
@@ -527,14 +527,14 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: An `encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArrgs']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArrgs']] key_delivery_access_control: A `key_delivery_access_control` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """

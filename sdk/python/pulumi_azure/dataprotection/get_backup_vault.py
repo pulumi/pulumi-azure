@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBackupVaultResult:
+calass GetBackupVaultResult:
     """
     A collection of values returned by getBackupVault.
     """
@@ -107,7 +107,7 @@ class GetBackupVaultResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetBackupVaultResult(GetBackupVaultResult):
+calass AwaitableGetBackupVaultResult(GetBackupVaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MetadataArgs', 'Metadata']
+__all__ = ['MetadataArrgs', 'Metadata']
 
 @pulumi.input_type
-class MetadataArgs:
+calass MetadataArrgs:
     def __init__(__self__, *,
                  content_id: pulumi.Input[str],
                  kind: pulumi.Input[str],
                  parent_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
-                 author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
-                 category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
+                 author: Optional[pulumi.Input['MetadataAuthorArrgs']] = None,
+                 category: Optional[pulumi.Input['MetadataCategoryArrgs']] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
                  dependency: Optional[pulumi.Input[str]] = None,
@@ -32,8 +32,8 @@ class MetadataArgs:
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
-                 support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
+                 source: Optional[pulumi.Input['MetadataSourceArrgs']] = None,
+                 support: Optional[pulumi.Input['MetadataSupportArrgs']] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -43,8 +43,8 @@ class MetadataArgs:
         :param pulumi.Input[str] kind: The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
-        :param pulumi.Input['MetadataAuthorArgs'] author: An `author` blocks as defined below.
-        :param pulumi.Input['MetadataCategoryArgs'] category: A `category` block as defined below.
+        :param pulumi.Input['MetadataAuthorArrgs'] author: An `author` blocks as defined below.
+        :param pulumi.Input['MetadataCategoryArrgs'] category: A `category` block as defined below.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
         :param pulumi.Input[str] dependency: A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
@@ -53,8 +53,8 @@ class MetadataArgs:
         :param pulumi.Input[str] last_publish_date: The last publish date of solution content item.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input['MetadataSourceArgs'] source: A `source` block as defined below.
-        :param pulumi.Input['MetadataSupportArgs'] support: A `support` block as defined below.
+        :param pulumi.Input['MetadataSourceArrgs'] source: A `source` block as defined below.
+        :param pulumi.Input['MetadataSupportArrgs'] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
@@ -148,26 +148,26 @@ class MetadataArgs:
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input['MetadataAuthorArgs']]:
+    def author(self) -> Optional[pulumi.Input['MetadataAuthorArrgs']]:
         """
         An `author` blocks as defined below.
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input['MetadataAuthorArgs']]):
+    def author(self, value: Optional[pulumi.Input['MetadataAuthorArrgs']]):
         pulumi.set(self, "author", value)
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input['MetadataCategoryArgs']]:
+    def category(self) -> Optional[pulumi.Input['MetadataCategoryArrgs']]:
         """
         A `category` block as defined below.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input['MetadataCategoryArgs']]):
+    def category(self, value: Optional[pulumi.Input['MetadataCategoryArrgs']]):
         pulumi.set(self, "category", value)
 
     @property
@@ -286,26 +286,26 @@ class MetadataArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['MetadataSourceArgs']]:
+    def source(self) -> Optional[pulumi.Input['MetadataSourceArrgs']]:
         """
         A `source` block as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['MetadataSourceArgs']]):
+    def source(self, value: Optional[pulumi.Input['MetadataSourceArrgs']]):
         pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['MetadataSupportArgs']]:
+    def support(self) -> Optional[pulumi.Input['MetadataSupportArrgs']]:
         """
         A `support` block as defined below.
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['MetadataSupportArgs']]):
+    def support(self, value: Optional[pulumi.Input['MetadataSupportArrgs']]):
         pulumi.set(self, "support", value)
 
     @property
@@ -346,10 +346,10 @@ class MetadataArgs:
 
 
 @pulumi.input_type
-class _MetadataState:
+calass _MetadataState:
     def __init__(__self__, *,
-                 author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
-                 category: Optional[pulumi.Input['MetadataCategoryArgs']] = None,
+                 author: Optional[pulumi.Input['MetadataAuthorArrgs']] = None,
+                 category: Optional[pulumi.Input['MetadataCategoryArrgs']] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
@@ -363,16 +363,16 @@ class _MetadataState:
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
-                 support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
+                 source: Optional[pulumi.Input['MetadataSourceArrgs']] = None,
+                 support: Optional[pulumi.Input['MetadataSupportArrgs']] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Metadata resources.
-        :param pulumi.Input['MetadataAuthorArgs'] author: An `author` blocks as defined below.
-        :param pulumi.Input['MetadataCategoryArgs'] category: A `category` block as defined below.
+        :param pulumi.Input['MetadataAuthorArrgs'] author: An `author` blocks as defined below.
+        :param pulumi.Input['MetadataCategoryArrgs'] category: A `category` block as defined below.
         :param pulumi.Input[str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
@@ -384,8 +384,8 @@ class _MetadataState:
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input['MetadataSourceArgs'] source: A `source` block as defined below.
-        :param pulumi.Input['MetadataSupportArgs'] support: A `support` block as defined below.
+        :param pulumi.Input['MetadataSourceArrgs'] source: A `source` block as defined below.
+        :param pulumi.Input['MetadataSupportArrgs'] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
@@ -436,26 +436,26 @@ class _MetadataState:
 
     @property
     @pulumi.getter
-    def author(self) -> Optional[pulumi.Input['MetadataAuthorArgs']]:
+    def author(self) -> Optional[pulumi.Input['MetadataAuthorArrgs']]:
         """
         An `author` blocks as defined below.
         """
         return pulumi.get(self, "author")
 
     @author.setter
-    def author(self, value: Optional[pulumi.Input['MetadataAuthorArgs']]):
+    def author(self, value: Optional[pulumi.Input['MetadataAuthorArrgs']]):
         pulumi.set(self, "author", value)
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input['MetadataCategoryArgs']]:
+    def category(self) -> Optional[pulumi.Input['MetadataCategoryArrgs']]:
         """
         A `category` block as defined below.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input['MetadataCategoryArgs']]):
+    def category(self, value: Optional[pulumi.Input['MetadataCategoryArrgs']]):
         pulumi.set(self, "category", value)
 
     @property
@@ -610,26 +610,26 @@ class _MetadataState:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['MetadataSourceArgs']]:
+    def source(self) -> Optional[pulumi.Input['MetadataSourceArrgs']]:
         """
         A `source` block as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['MetadataSourceArgs']]):
+    def source(self, value: Optional[pulumi.Input['MetadataSourceArrgs']]):
         pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['MetadataSupportArgs']]:
+    def support(self) -> Optional[pulumi.Input['MetadataSupportArrgs']]:
         """
         A `support` block as defined below.
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['MetadataSupportArgs']]):
+    def support(self, value: Optional[pulumi.Input['MetadataSupportArrgs']]):
         pulumi.set(self, "support", value)
 
     @property
@@ -681,13 +681,13 @@ class _MetadataState:
         pulumi.set(self, "workspace_id", value)
 
 
-class Metadata(pulumi.CustomResource):
+calass Metadata(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArrgs']]] = None,
+                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArrgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
@@ -701,8 +701,8 @@ class Metadata(pulumi.CustomResource):
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArrgs']]] = None,
+                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArrgs']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -728,7 +728,7 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArrgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
@@ -758,8 +758,8 @@ class Metadata(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: An `author` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataAuthorArrgs']] author: An `author` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataCategoryArrgs']] category: A `category` block as defined below.
         :param pulumi.Input[str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
@@ -771,8 +771,8 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataSourceArrgs']] source: A `source` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataSupportArrgs']] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
@@ -782,7 +782,7 @@ class Metadata(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetadataArgs,
+                 args: MetadataArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Metadata.
@@ -804,7 +804,7 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArrgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
@@ -833,12 +833,12 @@ class Metadata(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MetadataArgs args: The arguments to use to populate this resource's properties.
+        :param MetadataArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetadataArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MetadataArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -847,8 +847,8 @@ class Metadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+                 author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArrgs']]] = None,
+                 category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArrgs']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
@@ -862,8 +862,8 @@ class Metadata(pulumi.CustomResource):
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArrgs']]] = None,
+                 support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArrgs']]] = None,
                  threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -875,7 +875,7 @@ class Metadata(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetadataArgs.__new__(MetadataArgs)
+            __props__ = MetadataArrgs.__new__(MetadataArrgs)
 
             __props__.__dict__["author"] = author
             __props__.__dict__["category"] = category
@@ -916,8 +916,8 @@ class Metadata(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArgs']]] = None,
-            category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArgs']]] = None,
+            author: Optional[pulumi.Input[pulumi.InputType['MetadataAuthorArrgs']]] = None,
+            category: Optional[pulumi.Input[pulumi.InputType['MetadataCategoryArrgs']]] = None,
             content_id: Optional[pulumi.Input[str]] = None,
             content_schema_version: Optional[pulumi.Input[str]] = None,
             custom_version: Optional[pulumi.Input[str]] = None,
@@ -931,8 +931,8 @@ class Metadata(pulumi.CustomResource):
             preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             preview_images_darks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArgs']]] = None,
-            support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArgs']]] = None,
+            source: Optional[pulumi.Input[pulumi.InputType['MetadataSourceArrgs']]] = None,
+            support: Optional[pulumi.Input[pulumi.InputType['MetadataSupportArrgs']]] = None,
             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
@@ -944,8 +944,8 @@ class Metadata(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: An `author` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataCategoryArgs']] category: A `category` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataAuthorArrgs']] author: An `author` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataCategoryArrgs']] category: A `category` block as defined below.
         :param pulumi.Input[str] content_id: The ID of the content. Used to identify dependencies and content from solutions or community.
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between flow based on the schema version.
         :param pulumi.Input[str] custom_version: The Custom version of the content.
@@ -957,8 +957,8 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
-        :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
-        :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataSourceArrgs']] source: A `source` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetadataSupportArrgs']] support: A `support` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.

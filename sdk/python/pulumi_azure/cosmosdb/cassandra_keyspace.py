@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CassandraKeyspaceArgs', 'CassandraKeyspace']
+__all__ = ['CassandraKeyspaceArrgs', 'CassandraKeyspace']
 
 @pulumi.input_type
-class CassandraKeyspaceArgs:
+calass CassandraKeyspaceArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a CassandraKeyspace resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
@@ -66,7 +66,7 @@ class CassandraKeyspaceArgs:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -75,7 +75,7 @@ class CassandraKeyspaceArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -104,17 +104,17 @@ class CassandraKeyspaceArgs:
 
 
 @pulumi.input_type
-class _CassandraKeyspaceState:
+calass _CassandraKeyspaceState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CassandraKeyspace resources.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
@@ -146,7 +146,7 @@ class _CassandraKeyspaceState:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -155,7 +155,7 @@ class _CassandraKeyspaceState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -195,13 +195,13 @@ class _CassandraKeyspaceState:
         pulumi.set(self, "throughput", value)
 
 
-class CassandraKeyspace(pulumi.CustomResource):
+calass CassandraKeyspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -220,13 +220,13 @@ class CassandraKeyspace(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+            capabilities=[azure.cosmosdb.AccountCapabilityArrgs(
                 name="EnableCassandra",
             )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -247,7 +247,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArrgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
@@ -258,7 +258,7 @@ class CassandraKeyspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CassandraKeyspaceArgs,
+                 args: CassandraKeyspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cassandra KeySpace within a Cosmos DB Account.
@@ -274,13 +274,13 @@ class CassandraKeyspace(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+            capabilities=[azure.cosmosdb.AccountCapabilityArrgs(
                 name="EnableCassandra",
             )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -299,12 +299,12 @@ class CassandraKeyspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CassandraKeyspaceArgs args: The arguments to use to populate this resource's properties.
+        :param CassandraKeyspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CassandraKeyspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CassandraKeyspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -314,7 +314,7 @@ class CassandraKeyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -325,7 +325,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CassandraKeyspaceArgs.__new__(CassandraKeyspaceArgs)
+            __props__ = CassandraKeyspaceArrgs.__new__(CassandraKeyspaceArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
@@ -347,7 +347,7 @@ class CassandraKeyspace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None) -> 'CassandraKeyspace':
@@ -359,7 +359,7 @@ class CassandraKeyspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[pulumi.InputType['CassandraKeyspaceAutoscaleSettingsArrgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.

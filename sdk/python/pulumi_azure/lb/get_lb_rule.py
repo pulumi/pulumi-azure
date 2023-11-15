@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLBRuleResult:
+calass GetLBRuleResult:
     """
     A collection of values returned by getLBRule.
     """
@@ -172,7 +172,7 @@ class GetLBRuleResult:
         return pulumi.get(self, "protocol")
 
 
-class AwaitableGetLBRuleResult(GetLBRuleResult):
+calass AwaitableGetLBRuleResult(GetLBRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

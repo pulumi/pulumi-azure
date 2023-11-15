@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft SQL Virtual Machine Group.
@@ -220,12 +219,6 @@ func (i *VirtualMachineGroup) ToVirtualMachineGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupOutput)
 }
 
-func (i *VirtualMachineGroup) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineGroup] {
-	return pulumix.Output[*VirtualMachineGroup]{
-		OutputState: i.ToVirtualMachineGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineGroupArrayInput is an input type that accepts VirtualMachineGroupArray and VirtualMachineGroupArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineGroupArrayInput` via:
 //
@@ -249,12 +242,6 @@ func (i VirtualMachineGroupArray) ToVirtualMachineGroupArrayOutput() VirtualMach
 
 func (i VirtualMachineGroupArray) ToVirtualMachineGroupArrayOutputWithContext(ctx context.Context) VirtualMachineGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupArrayOutput)
-}
-
-func (i VirtualMachineGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineGroup] {
-	return pulumix.Output[[]*VirtualMachineGroup]{
-		OutputState: i.ToVirtualMachineGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualMachineGroupMapInput is an input type that accepts VirtualMachineGroupMap and VirtualMachineGroupMapOutput values.
@@ -282,12 +269,6 @@ func (i VirtualMachineGroupMap) ToVirtualMachineGroupMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupMapOutput)
 }
 
-func (i VirtualMachineGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineGroup] {
-	return pulumix.Output[map[string]*VirtualMachineGroup]{
-		OutputState: i.ToVirtualMachineGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineGroupOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineGroupOutput) ElementType() reflect.Type {
@@ -300,12 +281,6 @@ func (o VirtualMachineGroupOutput) ToVirtualMachineGroupOutput() VirtualMachineG
 
 func (o VirtualMachineGroupOutput) ToVirtualMachineGroupOutputWithContext(ctx context.Context) VirtualMachineGroupOutput {
 	return o
-}
-
-func (o VirtualMachineGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineGroup] {
-	return pulumix.Output[*VirtualMachineGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
@@ -357,12 +332,6 @@ func (o VirtualMachineGroupArrayOutput) ToVirtualMachineGroupArrayOutputWithCont
 	return o
 }
 
-func (o VirtualMachineGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineGroup] {
-	return pulumix.Output[[]*VirtualMachineGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualMachineGroupArrayOutput) Index(i pulumi.IntInput) VirtualMachineGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachineGroup {
 		return vs[0].([]*VirtualMachineGroup)[vs[1].(int)]
@@ -381,12 +350,6 @@ func (o VirtualMachineGroupMapOutput) ToVirtualMachineGroupMapOutput() VirtualMa
 
 func (o VirtualMachineGroupMapOutput) ToVirtualMachineGroupMapOutputWithContext(ctx context.Context) VirtualMachineGroupMapOutput {
 	return o
-}
-
-func (o VirtualMachineGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineGroup] {
-	return pulumix.Output[map[string]*VirtualMachineGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineGroupMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineGroupOutput {

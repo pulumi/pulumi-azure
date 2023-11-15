@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GalleryApplicationArgs', 'GalleryApplication']
+__all__ = ['GalleryApplicationArrgs', 'GalleryApplication']
 
 @pulumi.input_type
-class GalleryApplicationArgs:
+calass GalleryApplicationArrgs:
     def __init__(__self__, *,
                  gallery_id: pulumi.Input[str],
                  supported_os_type: pulumi.Input[str],
@@ -178,7 +178,7 @@ class GalleryApplicationArgs:
 
 
 @pulumi.input_type
-class _GalleryApplicationState:
+calass _GalleryApplicationState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -345,7 +345,7 @@ class _GalleryApplicationState:
         pulumi.set(self, "tags", value)
 
 
-class GalleryApplication(pulumi.CustomResource):
+calass GalleryApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -405,7 +405,7 @@ class GalleryApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GalleryApplicationArgs,
+                 args: GalleryApplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gallery Application.
@@ -435,12 +435,12 @@ class GalleryApplication(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param GalleryApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GalleryApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GalleryApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -466,7 +466,7 @@ class GalleryApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GalleryApplicationArgs.__new__(GalleryApplicationArgs)
+            __props__ = GalleryApplicationArrgs.__new__(GalleryApplicationArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["end_of_life_date"] = end_of_life_date

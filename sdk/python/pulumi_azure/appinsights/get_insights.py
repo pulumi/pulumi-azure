@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInsightsResult:
+calass GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
@@ -139,7 +139,7 @@ class GetInsightsResult:
         return pulumi.get(self, "workspace_id")
 
 
-class AwaitableGetInsightsResult(GetInsightsResult):
+calass AwaitableGetInsightsResult(GetInsightsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

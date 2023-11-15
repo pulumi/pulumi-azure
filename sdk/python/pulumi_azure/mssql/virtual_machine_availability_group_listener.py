@@ -11,27 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualMachineAvailabilityGroupListenerArgs', 'VirtualMachineAvailabilityGroupListener']
+__all__ = ['VirtualMachineAvailabilityGroupListenerArrgs', 'VirtualMachineAvailabilityGroupListener']
 
 @pulumi.input_type
-class VirtualMachineAvailabilityGroupListenerArgs:
+calass VirtualMachineAvailabilityGroupListenerArrgs:
     def __init__(__self__, *,
-                 replicas: pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]],
+                 replicas: pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]],
                  sql_virtual_machine_group_id: pulumi.Input[str],
                  availability_group_name: Optional[pulumi.Input[str]] = None,
-                 load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] = None,
-                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
+                 load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']] = None,
+                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a VirtualMachineAvailabilityGroupListener resource.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         :param pulumi.Input[str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
-        :param pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs'] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs'] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port of the listener. Changing this forces a new resource to be created.
         """
@@ -50,14 +50,14 @@ class VirtualMachineAvailabilityGroupListenerArgs:
 
     @property
     @pulumi.getter
-    def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]:
+    def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]:
         """
         One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]):
+    def replicas(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]):
         pulumi.set(self, "replicas", value)
 
     @property
@@ -86,7 +86,7 @@ class VirtualMachineAvailabilityGroupListenerArgs:
 
     @property
     @pulumi.getter(name="loadBalancerConfiguration")
-    def load_balancer_configuration(self) -> Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]:
+    def load_balancer_configuration(self) -> Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]:
         """
         A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
 
@@ -95,19 +95,19 @@ class VirtualMachineAvailabilityGroupListenerArgs:
         return pulumi.get(self, "load_balancer_configuration")
 
     @load_balancer_configuration.setter
-    def load_balancer_configuration(self, value: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]):
+    def load_balancer_configuration(self, value: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]):
         pulumi.set(self, "load_balancer_configuration", value)
 
     @property
     @pulumi.getter(name="multiSubnetIpConfigurations")
-    def multi_subnet_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]:
+    def multi_subnet_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]:
         """
         One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "multi_subnet_ip_configurations")
 
     @multi_subnet_ip_configurations.setter
-    def multi_subnet_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]):
+    def multi_subnet_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]):
         pulumi.set(self, "multi_subnet_ip_configurations", value)
 
     @property
@@ -136,25 +136,25 @@ class VirtualMachineAvailabilityGroupListenerArgs:
 
 
 @pulumi.input_type
-class _VirtualMachineAvailabilityGroupListenerState:
+calass _VirtualMachineAvailabilityGroupListenerState:
     def __init__(__self__, *,
                  availability_group_name: Optional[pulumi.Input[str]] = None,
-                 load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] = None,
-                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
+                 load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']] = None,
+                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]] = None,
                  sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualMachineAvailabilityGroupListener resources.
         :param pulumi.Input[str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
-        :param pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs'] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs'] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port of the listener. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         """
         if availability_group_name is not None:
@@ -186,7 +186,7 @@ class _VirtualMachineAvailabilityGroupListenerState:
 
     @property
     @pulumi.getter(name="loadBalancerConfiguration")
-    def load_balancer_configuration(self) -> Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]:
+    def load_balancer_configuration(self) -> Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]:
         """
         A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
 
@@ -195,19 +195,19 @@ class _VirtualMachineAvailabilityGroupListenerState:
         return pulumi.get(self, "load_balancer_configuration")
 
     @load_balancer_configuration.setter
-    def load_balancer_configuration(self, value: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]):
+    def load_balancer_configuration(self, value: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]):
         pulumi.set(self, "load_balancer_configuration", value)
 
     @property
     @pulumi.getter(name="multiSubnetIpConfigurations")
-    def multi_subnet_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]:
+    def multi_subnet_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]:
         """
         One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "multi_subnet_ip_configurations")
 
     @multi_subnet_ip_configurations.setter
-    def multi_subnet_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]):
+    def multi_subnet_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]):
         pulumi.set(self, "multi_subnet_ip_configurations", value)
 
     @property
@@ -236,14 +236,14 @@ class _VirtualMachineAvailabilityGroupListenerState:
 
     @property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]]:
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]]:
         """
         One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]]):
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]]):
         pulumi.set(self, "replicas", value)
 
     @property
@@ -259,17 +259,17 @@ class _VirtualMachineAvailabilityGroupListenerState:
         pulumi.set(self, "sql_virtual_machine_group_id", value)
 
 
-class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
+calass VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_group_name: Optional[pulumi.Input[str]] = None,
-                 load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]] = None,
-                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]] = None,
+                 load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]] = None,
+                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]]] = None,
                  sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -286,20 +286,20 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port of the listener. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualMachineAvailabilityGroupListenerArgs,
+                 args: VirtualMachineAvailabilityGroupListenerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Virtual Machine Availability Group Listener.
@@ -313,12 +313,12 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualMachineAvailabilityGroupListenerArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualMachineAvailabilityGroupListenerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineAvailabilityGroupListenerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineAvailabilityGroupListenerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,11 +328,11 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_group_name: Optional[pulumi.Input[str]] = None,
-                 load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]] = None,
-                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]] = None,
+                 load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]] = None,
+                 multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]]] = None,
                  sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,7 +341,7 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualMachineAvailabilityGroupListenerArgs.__new__(VirtualMachineAvailabilityGroupListenerArgs)
+            __props__ = VirtualMachineAvailabilityGroupListenerArrgs.__new__(VirtualMachineAvailabilityGroupListenerArrgs)
 
             __props__.__dict__["availability_group_name"] = availability_group_name
             __props__.__dict__["load_balancer_configuration"] = load_balancer_configuration
@@ -365,11 +365,11 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             availability_group_name: Optional[pulumi.Input[str]] = None,
-            load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']]] = None,
-            multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]]] = None,
+            load_balancer_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']]] = None,
+            multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
-            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]]] = None,
+            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]]] = None,
             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None) -> 'VirtualMachineAvailabilityGroupListener':
         """
         Get an existing VirtualMachineAvailabilityGroupListener resource's state with the given name, id, and optional extra
@@ -379,13 +379,13 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_group_name: The name of the Availability Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArrgs']] load_balancer_configuration: A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrgs']]]] multi_subnet_ip_configurations: One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port of the listener. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineAvailabilityGroupListenerReplicaArrgs']]]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

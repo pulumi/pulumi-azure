@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SlotCustomHostnameBindingArgs', 'SlotCustomHostnameBinding']
+__all__ = ['SlotCustomHostnameBindingArrgs', 'SlotCustomHostnameBinding']
 
 @pulumi.input_type
-class SlotCustomHostnameBindingArgs:
+calass SlotCustomHostnameBindingArrgs:
     def __init__(__self__, *,
                  app_service_slot_id: pulumi.Input[str],
                  hostname: pulumi.Input[str],
@@ -90,7 +90,7 @@ class SlotCustomHostnameBindingArgs:
 
 
 @pulumi.input_type
-class _SlotCustomHostnameBindingState:
+calass _SlotCustomHostnameBindingState:
     def __init__(__self__, *,
                  app_service_slot_id: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _SlotCustomHostnameBindingState:
         pulumi.set(self, "virtual_ip", value)
 
 
-class SlotCustomHostnameBinding(pulumi.CustomResource):
+calass SlotCustomHostnameBinding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,7 +208,7 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -249,7 +249,7 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SlotCustomHostnameBindingArgs,
+                 args: SlotCustomHostnameBindingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Hostname Binding within an App Service Slot.
@@ -264,7 +264,7 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -291,12 +291,12 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SlotCustomHostnameBindingArgs args: The arguments to use to populate this resource's properties.
+        :param SlotCustomHostnameBindingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SlotCustomHostnameBindingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SlotCustomHostnameBindingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,7 +316,7 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SlotCustomHostnameBindingArgs.__new__(SlotCustomHostnameBindingArgs)
+            __props__ = SlotCustomHostnameBindingArrgs.__new__(SlotCustomHostnameBindingArrgs)
 
             if app_service_slot_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_slot_id'")

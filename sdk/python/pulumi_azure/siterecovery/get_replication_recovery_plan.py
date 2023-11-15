@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationRecoveryPlanResult:
+calass GetReplicationRecoveryPlanResult:
     """
     A collection of values returned by getReplicationRecoveryPlan.
     """
@@ -105,7 +105,7 @@ class GetReplicationRecoveryPlanResult:
         return pulumi.get(self, "target_recovery_fabric_id")
 
 
-class AwaitableGetReplicationRecoveryPlanResult(GetReplicationRecoveryPlanResult):
+calass AwaitableGetReplicationRecoveryPlanResult(GetReplicationRecoveryPlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

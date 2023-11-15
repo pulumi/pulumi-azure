@@ -41,7 +41,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LocalRulestackRuleCategory(dict):
+calass LocalRulestackRuleCategory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -88,7 +88,7 @@ class LocalRulestackRuleCategory(dict):
 
 
 @pulumi.output_type
-class LocalRulestackRuleDestination(dict):
+calass LocalRulestackRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -182,7 +182,7 @@ class LocalRulestackRuleDestination(dict):
 
 
 @pulumi.output_type
-class LocalRulestackRuleSource(dict):
+calass LocalRulestackRuleSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -258,7 +258,7 @@ class LocalRulestackRuleSource(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNat(dict):
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -312,7 +312,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNat(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig(dict):
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -348,7 +348,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig(
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig(dict):
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -384,7 +384,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubLocalRulestackDnsSettings(dict):
+calass NextGenerationFirewallVirtualHubLocalRulestackDnsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -434,7 +434,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettings(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
+calass NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -541,7 +541,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNat(dict):
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -595,7 +595,7 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNat(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig(dict):
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -631,7 +631,7 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig(dict):
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -667,7 +667,7 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig(dict)
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaDnsSettings(dict):
+calass NextGenerationFirewallVirtualHubPanoramaDnsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -717,7 +717,7 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettings(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
+calass NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -824,7 +824,7 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualHubPanoramaPanorama(dict):
+calass NextGenerationFirewallVirtualHubPanoramaPanorama(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -912,7 +912,7 @@ class NextGenerationFirewallVirtualHubPanoramaPanorama(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -940,8 +940,8 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
         """
         :param str name: The name which should be used for this Destination NAT.
         :param str protocol: The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs' backend_config: A `backend_config` block as defined above.
-        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs' frontend_config: A `frontend_config` block as defined below.
+        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs' backend_config: A `backend_config` block as defined above.
+        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs' frontend_config: A `frontend_config` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -984,7 +984,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1030,7 +1030,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendCon
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1080,7 +1080,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1140,7 +1140,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1174,7 +1174,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
                  public_ip_addresses: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
-        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs' vnet_configuration: A `vnet_configuration` block as defined below.
+        :param 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs' vnet_configuration: A `vnet_configuration` block as defined below.
         :param Sequence[str] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
@@ -1222,7 +1222,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration(dict):
+calass NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1295,7 +1295,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfig
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1323,8 +1323,8 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat(dict):
         """
         :param str name: The name which should be used for this Destination NAT.
         :param str protocol: The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        :param 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs' backend_config: A `backend_config` block as defined above.
-        :param 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs' frontend_config: A `frontend_config` block as defined below.
+        :param 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs' backend_config: A `backend_config` block as defined above.
+        :param 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs' frontend_config: A `frontend_config` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -1367,7 +1367,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1413,7 +1413,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig(di
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1463,7 +1463,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig(d
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1523,7 +1523,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1557,7 +1557,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
                  public_ip_addresses: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
-        :param 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs' vnet_configuration: A `vnet_configuration` block as defined below.
+        :param 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs' vnet_configuration: A `vnet_configuration` block as defined below.
         :param Sequence[str] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
@@ -1605,7 +1605,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1678,7 +1678,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguratio
 
 
 @pulumi.output_type
-class NextGenerationFirewallVirtualNetworkPanoramaPanorama(dict):
+calass NextGenerationFirewallVirtualNetworkPanoramaPanorama(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

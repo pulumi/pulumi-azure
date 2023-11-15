@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualNetworkDnsServersArgs', 'VirtualNetworkDnsServers']
+__all__ = ['VirtualNetworkDnsServersArrgs', 'VirtualNetworkDnsServers']
 
 @pulumi.input_type
-class VirtualNetworkDnsServersArgs:
+calass VirtualNetworkDnsServersArrgs:
     def __init__(__self__, *,
                  virtual_network_id: pulumi.Input[str],
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class VirtualNetworkDnsServersArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkDnsServersState:
+calass _VirtualNetworkDnsServersState:
     def __init__(__self__, *,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _VirtualNetworkDnsServersState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class VirtualNetworkDnsServers(pulumi.CustomResource):
+calass VirtualNetworkDnsServers(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -110,7 +110,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
+            subnets=[azure.network.VirtualNetworkSubnetArrgs(
                 name="subnet1",
                 address_prefix="10.0.1.0/24",
             )])
@@ -140,7 +140,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkDnsServersArgs,
+                 args: VirtualNetworkDnsServersArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -154,7 +154,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
+            subnets=[azure.network.VirtualNetworkSubnetArrgs(
                 name="subnet1",
                 address_prefix="10.0.1.0/24",
             )])
@@ -176,12 +176,12 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkDnsServersArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkDnsServersArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkDnsServersArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkDnsServersArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -199,7 +199,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkDnsServersArgs.__new__(VirtualNetworkDnsServersArgs)
+            __props__ = VirtualNetworkDnsServersArrgs.__new__(VirtualNetworkDnsServersArrgs)
 
             __props__.__dict__["dns_servers"] = dns_servers
             if virtual_network_id is None and not opts.urn:

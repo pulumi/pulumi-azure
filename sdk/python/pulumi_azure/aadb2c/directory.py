@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DirectoryArgs', 'Directory']
+__all__ = ['DirectoryArrgs', 'Directory']
 
 @pulumi.input_type
-class DirectoryArgs:
+calass DirectoryArrgs:
     def __init__(__self__, *,
                  data_residency_location: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
@@ -128,7 +128,7 @@ class DirectoryArgs:
 
 
 @pulumi.input_type
-class _DirectoryState:
+calass _DirectoryState:
     def __init__(__self__, *,
                  billing_type: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
@@ -295,7 +295,7 @@ class _DirectoryState:
         pulumi.set(self, "tenant_id", value)
 
 
-class Directory(pulumi.CustomResource):
+calass Directory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -348,7 +348,7 @@ class Directory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DirectoryArgs,
+                 args: DirectoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AAD B2C Directory.
@@ -377,12 +377,12 @@ class Directory(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DirectoryArgs args: The arguments to use to populate this resource's properties.
+        :param DirectoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DirectoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DirectoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -405,7 +405,7 @@ class Directory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DirectoryArgs.__new__(DirectoryArgs)
+            __props__ = DirectoryArrgs.__new__(DirectoryArrgs)
 
             __props__.__dict__["country_code"] = country_code
             if data_residency_location is None and not opts.urn:

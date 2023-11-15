@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterIdentityArgs',
+    'ClusterIdentityArrgs',
 ]
 
 @pulumi.input_type
-class ClusterIdentityArgs:
+calass ClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,

@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GrafanaAzureMonitorWorkspaceIntegration(dict):
+calass GrafanaAzureMonitorWorkspaceIntegration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,7 +50,7 @@ class GrafanaAzureMonitorWorkspaceIntegration(dict):
 
 
 @pulumi.output_type
-class GrafanaIdentity(dict):
+calass GrafanaIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

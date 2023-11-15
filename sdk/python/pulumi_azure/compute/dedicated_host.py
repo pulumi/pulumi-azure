@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DedicatedHostArgs', 'DedicatedHost']
+__all__ = ['DedicatedHostArrgs', 'DedicatedHost']
 
 @pulumi.input_type
-class DedicatedHostArgs:
+calass DedicatedHostArrgs:
     def __init__(__self__, *,
                  dedicated_host_group_id: pulumi.Input[str],
                  platform_fault_domain: pulumi.Input[int],
@@ -145,7 +145,7 @@ class DedicatedHostArgs:
 
 
 @pulumi.input_type
-class _DedicatedHostState:
+calass _DedicatedHostState:
     def __init__(__self__, *,
                  auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
                  dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
@@ -280,7 +280,7 @@ class _DedicatedHostState:
         pulumi.set(self, "tags", value)
 
 
-class DedicatedHost(pulumi.CustomResource):
+calass DedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -338,7 +338,7 @@ class DedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DedicatedHostArgs,
+                 args: DedicatedHostArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage a Dedicated Host within a Dedicated Host Group.
@@ -370,12 +370,12 @@ class DedicatedHost(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
+        :param DedicatedHostArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -399,7 +399,7 @@ class DedicatedHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DedicatedHostArgs.__new__(DedicatedHostArgs)
+            __props__ = DedicatedHostArrgs.__new__(DedicatedHostArrgs)
 
             __props__.__dict__["auto_replace_on_failure"] = auto_replace_on_failure
             if dedicated_host_group_id is None and not opts.urn:

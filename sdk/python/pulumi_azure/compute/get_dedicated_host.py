@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDedicatedHostResult:
+calass GetDedicatedHostResult:
     """
     A collection of values returned by getDedicatedHost.
     """
@@ -81,7 +81,7 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
+calass AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

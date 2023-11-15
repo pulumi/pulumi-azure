@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkSimPolicyArgs', 'NetworkSimPolicy']
+__all__ = ['NetworkSimPolicyArrgs', 'NetworkSimPolicy']
 
 @pulumi.input_type
-class NetworkSimPolicyArgs:
+calass NetworkSimPolicyArrgs:
     def __init__(__self__, *,
                  default_slice_id: pulumi.Input[str],
                  mobile_network_id: pulumi.Input[str],
-                 slices: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]],
-                 user_equipment_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'],
+                 slices: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]],
+                 user_equipment_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
@@ -29,8 +29,8 @@ class NetworkSimPolicyArgs:
         The set of arguments for constructing a NetworkSimPolicy resource.
         :param pulumi.Input[str] default_slice_id: The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
         :param pulumi.Input[str] mobile_network_id: The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        :param pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs'] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         :param pulumi.Input[int] rat_frequency_selection_priority_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
@@ -78,26 +78,26 @@ class NetworkSimPolicyArgs:
 
     @property
     @pulumi.getter
-    def slices(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]:
+    def slices(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]]:
         """
         An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         """
         return pulumi.get(self, "slices")
 
     @slices.setter
-    def slices(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]):
+    def slices(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]]):
         pulumi.set(self, "slices", value)
 
     @property
     @pulumi.getter(name="userEquipmentAggregateMaximumBitRate")
-    def user_equipment_aggregate_maximum_bit_rate(self) -> pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']:
+    def user_equipment_aggregate_maximum_bit_rate(self) -> pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']:
         """
         A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
         return pulumi.get(self, "user_equipment_aggregate_maximum_bit_rate")
 
     @user_equipment_aggregate_maximum_bit_rate.setter
-    def user_equipment_aggregate_maximum_bit_rate(self, value: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']):
+    def user_equipment_aggregate_maximum_bit_rate(self, value: pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']):
         pulumi.set(self, "user_equipment_aggregate_maximum_bit_rate", value)
 
     @property
@@ -162,7 +162,7 @@ class NetworkSimPolicyArgs:
 
 
 @pulumi.input_type
-class _NetworkSimPolicyState:
+calass _NetworkSimPolicyState:
     def __init__(__self__, *,
                  default_slice_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -170,9 +170,9 @@ class _NetworkSimPolicyState:
                  name: Optional[pulumi.Input[str]] = None,
                  rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
                  registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
-                 slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
+                 slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None):
+                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']] = None):
         """
         Input properties used for looking up and filtering NetworkSimPolicy resources.
         :param pulumi.Input[str] default_slice_id: The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
@@ -181,9 +181,9 @@ class _NetworkSimPolicyState:
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         :param pulumi.Input[int] rat_frequency_selection_priority_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
         :param pulumi.Input[int] registration_timer_in_seconds: Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Policies.
-        :param pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        :param pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs'] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
         if default_slice_id is not None:
             pulumi.set(__self__, "default_slice_id", default_slice_id)
@@ -278,14 +278,14 @@ class _NetworkSimPolicyState:
 
     @property
     @pulumi.getter
-    def slices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]]:
+    def slices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]]]:
         """
         An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         """
         return pulumi.get(self, "slices")
 
     @slices.setter
-    def slices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]]):
+    def slices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArrgs']]]]):
         pulumi.set(self, "slices", value)
 
     @property
@@ -302,18 +302,18 @@ class _NetworkSimPolicyState:
 
     @property
     @pulumi.getter(name="userEquipmentAggregateMaximumBitRate")
-    def user_equipment_aggregate_maximum_bit_rate(self) -> Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']]:
+    def user_equipment_aggregate_maximum_bit_rate(self) -> Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']]:
         """
         A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
         return pulumi.get(self, "user_equipment_aggregate_maximum_bit_rate")
 
     @user_equipment_aggregate_maximum_bit_rate.setter
-    def user_equipment_aggregate_maximum_bit_rate(self, value: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']]):
+    def user_equipment_aggregate_maximum_bit_rate(self, value: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']]):
         pulumi.set(self, "user_equipment_aggregate_maximum_bit_rate", value)
 
 
-class NetworkSimPolicy(pulumi.CustomResource):
+calass NetworkSimPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -324,9 +324,9 @@ class NetworkSimPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
                  registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
-                 slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArgs']]]]] = None,
+                 slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']]] = None,
+                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']]] = None,
                  __props__=None):
         """
         Manages a Mobile Network Sim Policy.
@@ -350,11 +350,11 @@ class NetworkSimPolicy(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArrgs(
                 name="default-rule",
                 precedence=1,
                 traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArrgs(
                     direction="Uplink",
                     name="IP-to-server",
                     ports=[],
@@ -365,7 +365,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ))
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
@@ -373,10 +373,10 @@ class NetworkSimPolicy(pulumi.CustomResource):
             location=example_resource_group.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
+            slices=[azure.mobile.NetworkSimPolicySliceArrgs(
                 default_data_network_id=example_network_data_network.id,
                 slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
+                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArrgs(
                     data_network_id=example_network_data_network.id,
                     allocation_and_retention_priority_level=9,
                     default_session_type="IPv4",
@@ -384,13 +384,13 @@ class NetworkSimPolicy(pulumi.CustomResource):
                     preemption_capability="NotPreempt",
                     preemption_vulnerability="Preemptable",
                     allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
+                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrgs(
                         downlink="1 Gbps",
                         uplink="500 Mbps",
                     ),
                 )],
             )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
+            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs(
                 downlink="1 Gbps",
                 uplink="500 Mbps",
             ),
@@ -415,15 +415,15 @@ class NetworkSimPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         :param pulumi.Input[int] rat_frequency_selection_priority_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
         :param pulumi.Input[int] registration_timer_in_seconds: Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArgs']]]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArrgs']]]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Policies.
-        :param pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkSimPolicyArgs,
+                 args: NetworkSimPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim Policy.
@@ -447,11 +447,11 @@ class NetworkSimPolicy(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
+            pcc_rules=[azure.mobile.NetworkServicePccRuleArrgs(
                 name="default-rule",
                 precedence=1,
                 traffic_control_enabled=True,
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
+                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArrgs(
                     direction="Uplink",
                     name="IP-to-server",
                     ports=[],
@@ -462,7 +462,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ))
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
@@ -470,10 +470,10 @@ class NetworkSimPolicy(pulumi.CustomResource):
             location=example_resource_group.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
-            slices=[azure.mobile.NetworkSimPolicySliceArgs(
+            slices=[azure.mobile.NetworkSimPolicySliceArrgs(
                 default_data_network_id=example_network_data_network.id,
                 slice_id=example_network_slice.id,
-                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArgs(
+                data_networks=[azure.mobile.NetworkSimPolicySliceDataNetworkArrgs(
                     data_network_id=example_network_data_network.id,
                     allocation_and_retention_priority_level=9,
                     default_session_type="IPv4",
@@ -481,13 +481,13 @@ class NetworkSimPolicy(pulumi.CustomResource):
                     preemption_capability="NotPreempt",
                     preemption_vulnerability="Preemptable",
                     allowed_services_ids=[example_network_service.id],
-                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs(
+                    session_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrgs(
                         downlink="1 Gbps",
                         uplink="500 Mbps",
                     ),
                 )],
             )],
-            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs(
+            user_equipment_aggregate_maximum_bit_rate=azure.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs(
                 downlink="1 Gbps",
                 uplink="500 Mbps",
             ),
@@ -505,12 +505,12 @@ class NetworkSimPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkSimPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkSimPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkSimPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSimPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -525,9 +525,9 @@ class NetworkSimPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
                  registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
-                 slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArgs']]]]] = None,
+                 slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']]] = None,
+                 user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -535,7 +535,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkSimPolicyArgs.__new__(NetworkSimPolicyArgs)
+            __props__ = NetworkSimPolicyArrgs.__new__(NetworkSimPolicyArrgs)
 
             if default_slice_id is None and not opts.urn:
                 raise TypeError("Missing required property 'default_slice_id'")
@@ -570,9 +570,9 @@ class NetworkSimPolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
             registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
-            slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArgs']]]]] = None,
+            slices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']]] = None) -> 'NetworkSimPolicy':
+            user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']]] = None) -> 'NetworkSimPolicy':
         """
         Get an existing NetworkSimPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -586,9 +586,9 @@ class NetworkSimPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         :param pulumi.Input[int] rat_frequency_selection_priority_index: RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
         :param pulumi.Input[int] registration_timer_in_seconds: Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArgs']]]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimPolicySliceArrgs']]]] slices: An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Policies.
-        :param pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+        :param pulumi.Input[pulumi.InputType['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrgs']] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

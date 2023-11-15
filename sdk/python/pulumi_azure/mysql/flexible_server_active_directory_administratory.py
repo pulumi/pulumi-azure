@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlexibleServerActiveDirectoryAdministratoryArgs', 'FlexibleServerActiveDirectoryAdministratory']
+__all__ = ['FlexibleServerActiveDirectoryAdministratoryArrgs', 'FlexibleServerActiveDirectoryAdministratory']
 
 @pulumi.input_type
-class FlexibleServerActiveDirectoryAdministratoryArgs:
+calass FlexibleServerActiveDirectoryAdministratoryArrgs:
     def __init__(__self__, *,
                  identity_id: pulumi.Input[str],
                  login: pulumi.Input[str],
@@ -75,7 +75,7 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
 
 
 @pulumi.input_type
-class _FlexibleServerActiveDirectoryAdministratoryState:
+calass _FlexibleServerActiveDirectoryAdministratoryState:
     def __init__(__self__, *,
                  identity_id: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
         pulumi.set(self, "tenant_id", value)
 
 
-class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
+calass FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -162,17 +162,17 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlexibleServerActiveDirectoryAdministratoryArgs,
+                 args: FlexibleServerActiveDirectoryAdministratoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param FlexibleServerActiveDirectoryAdministratoryArgs args: The arguments to use to populate this resource's properties.
+        :param FlexibleServerActiveDirectoryAdministratoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerActiveDirectoryAdministratoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -193,7 +193,7 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlexibleServerActiveDirectoryAdministratoryArgs.__new__(FlexibleServerActiveDirectoryAdministratoryArgs)
+            __props__ = FlexibleServerActiveDirectoryAdministratoryArrgs.__new__(FlexibleServerActiveDirectoryAdministratoryArrgs)
 
             if identity_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_id'")

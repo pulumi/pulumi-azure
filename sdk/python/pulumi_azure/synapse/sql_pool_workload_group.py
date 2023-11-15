@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlPoolWorkloadGroupArgs', 'SqlPoolWorkloadGroup']
+__all__ = ['SqlPoolWorkloadGroupArrgs', 'SqlPoolWorkloadGroup']
 
 @pulumi.input_type
-class SqlPoolWorkloadGroupArgs:
+calass SqlPoolWorkloadGroupArrgs:
     def __init__(__self__, *,
                  max_resource_percent: pulumi.Input[int],
                  min_resource_percent: pulumi.Input[int],
@@ -145,7 +145,7 @@ class SqlPoolWorkloadGroupArgs:
 
 
 @pulumi.input_type
-class _SqlPoolWorkloadGroupState:
+calass _SqlPoolWorkloadGroupState:
     def __init__(__self__, *,
                  importance: Optional[pulumi.Input[str]] = None,
                  max_resource_percent: Optional[pulumi.Input[int]] = None,
@@ -280,7 +280,7 @@ class _SqlPoolWorkloadGroupState:
         pulumi.set(self, "sql_pool_id", value)
 
 
-class SqlPoolWorkloadGroup(pulumi.CustomResource):
+calass SqlPoolWorkloadGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -317,7 +317,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -357,7 +357,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlPoolWorkloadGroupArgs,
+                 args: SqlPoolWorkloadGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool Workload Group.
@@ -382,7 +382,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -408,12 +408,12 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlPoolWorkloadGroupArgs args: The arguments to use to populate this resource's properties.
+        :param SqlPoolWorkloadGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolWorkloadGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolWorkloadGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -437,7 +437,7 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlPoolWorkloadGroupArgs.__new__(SqlPoolWorkloadGroupArgs)
+            __props__ = SqlPoolWorkloadGroupArrgs.__new__(SqlPoolWorkloadGroupArrgs)
 
             __props__.__dict__["importance"] = importance
             if max_resource_percent is None and not opts.urn:

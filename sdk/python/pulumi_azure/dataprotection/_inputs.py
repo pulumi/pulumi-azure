@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BackupPolicyDiskRetentionRuleArgs',
-    'BackupPolicyDiskRetentionRuleCriteriaArgs',
-    'BackupPolicyPostgresqlRetentionRuleArgs',
-    'BackupPolicyPostgresqlRetentionRuleCriteriaArgs',
-    'BackupVaultIdentityArgs',
+    'BackupPolicyDiskRetentionRuleArrgs',
+    'BackupPolicyDiskRetentionRuleCriteriaArrgs',
+    'BackupPolicyPostgresqlRetentionRuleArrgs',
+    'BackupPolicyPostgresqlRetentionRuleCriteriaArrgs',
+    'BackupVaultIdentityArrgs',
 ]
 
 @pulumi.input_type
-class BackupPolicyDiskRetentionRuleArgs:
+calass BackupPolicyDiskRetentionRuleArrgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'],
+                 criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArrgs'],
                  duration: pulumi.Input[str],
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int]):
         """
-        :param pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArrgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[int] priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
@@ -37,14 +37,14 @@ class BackupPolicyDiskRetentionRuleArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs']:
+    def criteria(self) -> pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArrgs']:
         """
         A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs']):
+    def criteria(self, value: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArrgs']):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -85,7 +85,7 @@ class BackupPolicyDiskRetentionRuleArgs:
 
 
 @pulumi.input_type
-class BackupPolicyDiskRetentionRuleCriteriaArgs:
+calass BackupPolicyDiskRetentionRuleCriteriaArrgs:
     def __init__(__self__, *,
                  absolute_criteria: Optional[pulumi.Input[str]] = None):
         """
@@ -108,14 +108,14 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
 
 
 @pulumi.input_type
-class BackupPolicyPostgresqlRetentionRuleArgs:
+calass BackupPolicyPostgresqlRetentionRuleArrgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs'],
+                 criteria: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArrgs'],
                  duration: pulumi.Input[str],
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int]):
         """
-        :param pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArrgs'] criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] duration: Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[int] priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -127,14 +127,14 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs']:
+    def criteria(self) -> pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArrgs']:
         """
         A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs']):
+    def criteria(self, value: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArrgs']):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -175,7 +175,7 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
 
 
 @pulumi.input_type
-class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
+calass BackupPolicyPostgresqlRetentionRuleCriteriaArrgs:
     def __init__(__self__, *,
                  absolute_criteria: Optional[pulumi.Input[str]] = None,
                  days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -262,7 +262,7 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
 
 
 @pulumi.input_type
-class BackupVaultIdentityArgs:
+calass BackupVaultIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,

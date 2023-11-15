@@ -10,29 +10,29 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationAntimalwareArgs',
-    'ConfigurationAntimalwareExclusionsArgs',
-    'ConfigurationAzureSecurityBaselineArgs',
-    'ConfigurationBackupArgs',
-    'ConfigurationBackupRetentionPolicyArgs',
-    'ConfigurationBackupRetentionPolicyDailyScheduleArgs',
-    'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs',
-    'ConfigurationBackupRetentionPolicyWeeklyScheduleArgs',
-    'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs',
-    'ConfigurationBackupSchedulePolicyArgs',
+    'ConfigurationAntimalwareArrgs',
+    'ConfigurationAntimalwareExclusionsArrgs',
+    'ConfigurationAzureSecurityBaselineArrgs',
+    'ConfigurationBackupArrgs',
+    'ConfigurationBackupRetentionPolicyArrgs',
+    'ConfigurationBackupRetentionPolicyDailyScheduleArrgs',
+    'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs',
+    'ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs',
+    'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs',
+    'ConfigurationBackupSchedulePolicyArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationAntimalwareArgs:
+calass ConfigurationAntimalwareArrgs:
     def __init__(__self__, *,
-                 exclusions: Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArgs']] = None,
+                 exclusions: Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArrgs']] = None,
                  real_time_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  scheduled_scan_day: Optional[pulumi.Input[int]] = None,
                  scheduled_scan_enabled: Optional[pulumi.Input[bool]] = None,
                  scheduled_scan_time_in_minutes: Optional[pulumi.Input[int]] = None,
                  scheduled_scan_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ConfigurationAntimalwareExclusionsArgs'] exclusions: A `exclusions` block as defined below.
+        :param pulumi.Input['ConfigurationAntimalwareExclusionsArrgs'] exclusions: A `exclusions` block as defined below.
         :param pulumi.Input[bool] real_time_protection_enabled: Whether the real time protection is enabled. Defaults to `false`.
         :param pulumi.Input[int] scheduled_scan_day: The day of the scheduled scan. Possible values are `0` to `8` where `0` is daily, `1` to `7` are the days of the week and `8` is Disabled. Defaults to `8`.
         :param pulumi.Input[bool] scheduled_scan_enabled: Whether the scheduled scan is enabled. Defaults to `false`.
@@ -54,14 +54,14 @@ class ConfigurationAntimalwareArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArgs']]:
+    def exclusions(self) -> Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArrgs']]:
         """
         A `exclusions` block as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArgs']]):
+    def exclusions(self, value: Optional[pulumi.Input['ConfigurationAntimalwareExclusionsArrgs']]):
         pulumi.set(self, "exclusions", value)
 
     @property
@@ -126,7 +126,7 @@ class ConfigurationAntimalwareArgs:
 
 
 @pulumi.input_type
-class ConfigurationAntimalwareExclusionsArgs:
+calass ConfigurationAntimalwareExclusionsArrgs:
     def __init__(__self__, *,
                  extensions: Optional[pulumi.Input[str]] = None,
                  paths: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class ConfigurationAntimalwareExclusionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationAzureSecurityBaselineArgs:
+calass ConfigurationAzureSecurityBaselineArrgs:
     def __init__(__self__, *,
                  assignment_type: Optional[pulumi.Input[str]] = None):
         """
@@ -204,18 +204,18 @@ class ConfigurationAzureSecurityBaselineArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupArgs:
+calass ConfigurationBackupArrgs:
     def __init__(__self__, *,
                  instant_rp_retention_range_in_days: Optional[pulumi.Input[int]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArgs']] = None,
-                 schedule_policy: Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArgs']] = None,
+                 retention_policy: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArrgs']] = None,
+                 schedule_policy: Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArrgs']] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] instant_rp_retention_range_in_days: The retention range in days of the backup policy. Defaults to `5`.
         :param pulumi.Input[str] policy_name: The name of the backup policy.
-        :param pulumi.Input['ConfigurationBackupRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
-        :param pulumi.Input['ConfigurationBackupSchedulePolicyArgs'] schedule_policy: A `schedule_policy` block as defined below.
+        :param pulumi.Input['ConfigurationBackupRetentionPolicyArrgs'] retention_policy: A `retention_policy` block as defined below.
+        :param pulumi.Input['ConfigurationBackupSchedulePolicyArrgs'] schedule_policy: A `schedule_policy` block as defined below.
         :param pulumi.Input[str] time_zone: The timezone of the backup policy. Defaults to `UTC`.
         """
         if instant_rp_retention_range_in_days is not None:
@@ -255,26 +255,26 @@ class ConfigurationBackupArgs:
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    def retention_policy(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArgs']]:
+    def retention_policy(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArrgs']]:
         """
         A `retention_policy` block as defined below.
         """
         return pulumi.get(self, "retention_policy")
 
     @retention_policy.setter
-    def retention_policy(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArgs']]):
+    def retention_policy(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArrgs']]):
         pulumi.set(self, "retention_policy", value)
 
     @property
     @pulumi.getter(name="schedulePolicy")
-    def schedule_policy(self) -> Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArgs']]:
+    def schedule_policy(self) -> Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArrgs']]:
         """
         A `schedule_policy` block as defined below.
         """
         return pulumi.get(self, "schedule_policy")
 
     @schedule_policy.setter
-    def schedule_policy(self, value: Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArgs']]):
+    def schedule_policy(self, value: Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArrgs']]):
         pulumi.set(self, "schedule_policy", value)
 
     @property
@@ -291,15 +291,15 @@ class ConfigurationBackupArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupRetentionPolicyArgs:
+calass ConfigurationBackupRetentionPolicyArrgs:
     def __init__(__self__, *,
-                 daily_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs']] = None,
+                 daily_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArrgs']] = None,
                  retention_policy_type: Optional[pulumi.Input[str]] = None,
-                 weekly_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']] = None):
+                 weekly_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs']] = None):
         """
-        :param pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs'] daily_schedule: A `daily_schedule` block as defined below.
+        :param pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArrgs'] daily_schedule: A `daily_schedule` block as defined below.
         :param pulumi.Input[str] retention_policy_type: The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
-        :param pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs'] weekly_schedule: A `weekly_schedule` block as defined below.
+        :param pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs'] weekly_schedule: A `weekly_schedule` block as defined below.
         """
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
@@ -310,14 +310,14 @@ class ConfigurationBackupRetentionPolicyArgs:
 
     @property
     @pulumi.getter(name="dailySchedule")
-    def daily_schedule(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs']]:
+    def daily_schedule(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArrgs']]:
         """
         A `daily_schedule` block as defined below.
         """
         return pulumi.get(self, "daily_schedule")
 
     @daily_schedule.setter
-    def daily_schedule(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs']]):
+    def daily_schedule(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArrgs']]):
         pulumi.set(self, "daily_schedule", value)
 
     @property
@@ -334,24 +334,24 @@ class ConfigurationBackupRetentionPolicyArgs:
 
     @property
     @pulumi.getter(name="weeklySchedule")
-    def weekly_schedule(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']]:
+    def weekly_schedule(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs']]:
         """
         A `weekly_schedule` block as defined below.
         """
         return pulumi.get(self, "weekly_schedule")
 
     @weekly_schedule.setter
-    def weekly_schedule(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']]):
+    def weekly_schedule(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs']]):
         pulumi.set(self, "weekly_schedule", value)
 
 
 @pulumi.input_type
-class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
+calass ConfigurationBackupRetentionPolicyDailyScheduleArrgs:
     def __init__(__self__, *,
-                 retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs']] = None,
+                 retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs']] = None,
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs'] retention_duration: A `retention_duration` block as defined below.
+        :param pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs'] retention_duration: A `retention_duration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: The retention times of the backup policy.
         """
         if retention_duration is not None:
@@ -361,14 +361,14 @@ class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionDuration")
-    def retention_duration(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs']]:
+    def retention_duration(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs']]:
         """
         A `retention_duration` block as defined below.
         """
         return pulumi.get(self, "retention_duration")
 
     @retention_duration.setter
-    def retention_duration(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs']]):
+    def retention_duration(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs']]):
         pulumi.set(self, "retention_duration", value)
 
     @property
@@ -385,7 +385,7 @@ class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
+calass ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  duration_type: Optional[pulumi.Input[str]] = None):
@@ -424,12 +424,12 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
+calass ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs:
     def __init__(__self__, *,
-                 retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs']] = None,
+                 retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs']] = None,
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs'] retention_duration: A `retention_duration` block as defined below.
+        :param pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs'] retention_duration: A `retention_duration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: The retention times of the backup policy.
         """
         if retention_duration is not None:
@@ -439,14 +439,14 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionDuration")
-    def retention_duration(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs']]:
+    def retention_duration(self) -> Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs']]:
         """
         A `retention_duration` block as defined below.
         """
         return pulumi.get(self, "retention_duration")
 
     @retention_duration.setter
-    def retention_duration(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs']]):
+    def retention_duration(self, value: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs']]):
         pulumi.set(self, "retention_duration", value)
 
     @property
@@ -463,7 +463,7 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
+calass ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  duration_type: Optional[pulumi.Input[str]] = None):
@@ -502,7 +502,7 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
 
 
 @pulumi.input_type
-class ConfigurationBackupSchedulePolicyArgs:
+calass ConfigurationBackupSchedulePolicyArrgs:
     def __init__(__self__, *,
                  schedule_policy_type: Optional[pulumi.Input[str]] = None,
                  schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

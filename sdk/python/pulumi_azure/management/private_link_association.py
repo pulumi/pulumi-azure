@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrivateLinkAssociationArgs', 'PrivateLinkAssociation']
+__all__ = ['PrivateLinkAssociationArrgs', 'PrivateLinkAssociation']
 
 @pulumi.input_type
-class PrivateLinkAssociationArgs:
+calass PrivateLinkAssociationArrgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[str],
                  public_network_access_enabled: pulumi.Input[bool],
@@ -105,7 +105,7 @@ class PrivateLinkAssociationArgs:
 
 
 @pulumi.input_type
-class _PrivateLinkAssociationState:
+calass _PrivateLinkAssociationState:
     def __init__(__self__, *,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _PrivateLinkAssociationState:
         pulumi.set(self, "tenant_id", value)
 
 
-class PrivateLinkAssociation(pulumi.CustomResource):
+calass PrivateLinkAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -280,7 +280,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateLinkAssociationArgs,
+                 args: PrivateLinkAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Management Private Link Association.
@@ -314,12 +314,12 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateLinkAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -339,7 +339,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateLinkAssociationArgs.__new__(PrivateLinkAssociationArgs)
+            __props__ = PrivateLinkAssociationArrgs.__new__(PrivateLinkAssociationArrgs)
 
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")

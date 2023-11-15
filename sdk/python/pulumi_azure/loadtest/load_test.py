@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LoadTestArgs', 'LoadTest']
+__all__ = ['LoadTestArrgs', 'LoadTest']
 
 @pulumi.input_type
-class LoadTestArgs:
+calass LoadTestArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['LoadTestIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['LoadTestIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,7 +26,7 @@ class LoadTestArgs:
         The set of arguments for constructing a LoadTest resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input['LoadTestIdentityArrgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Load Test.
@@ -69,14 +69,14 @@ class LoadTestArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArrgs']]:
         """
         An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LoadTestIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['LoadTestIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -117,11 +117,11 @@ class LoadTestArgs:
 
 
 @pulumi.input_type
-class _LoadTestState:
+calass _LoadTestState:
     def __init__(__self__, *,
                  data_plane_uri: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['LoadTestIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['LoadTestIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,7 @@ class _LoadTestState:
         Input properties used for looking up and filtering LoadTest resources.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input['LoadTestIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input['LoadTestIdentityArrgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -177,14 +177,14 @@ class _LoadTestState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['LoadTestIdentityArrgs']]:
         """
         An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['LoadTestIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['LoadTestIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -236,13 +236,13 @@ class _LoadTestState:
         pulumi.set(self, "tags", value)
 
 
-class LoadTest(pulumi.CustomResource):
+calass LoadTest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -294,7 +294,7 @@ class LoadTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArrgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -304,7 +304,7 @@ class LoadTest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoadTestArgs,
+                 args: LoadTestArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -350,12 +350,12 @@ class LoadTest(pulumi.CustomResource):
          * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`. * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
 
         :param str resource_name: The name of the resource.
-        :param LoadTestArgs args: The arguments to use to populate this resource's properties.
+        :param LoadTestArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoadTestArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoadTestArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -377,7 +377,7 @@ class LoadTest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoadTestArgs.__new__(LoadTestArgs)
+            __props__ = LoadTestArrgs.__new__(LoadTestArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["identity"] = identity
@@ -400,7 +400,7 @@ class LoadTest(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_plane_uri: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['LoadTestIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -414,7 +414,7 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[str] description: Description of the resource. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[pulumi.InputType['LoadTestIdentityArrgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.

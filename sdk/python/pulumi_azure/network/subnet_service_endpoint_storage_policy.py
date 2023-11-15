@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SubnetServiceEndpointStoragePolicyArgs', 'SubnetServiceEndpointStoragePolicy']
+__all__ = ['SubnetServiceEndpointStoragePolicyArrgs', 'SubnetServiceEndpointStoragePolicy']
 
 @pulumi.input_type
-class SubnetServiceEndpointStoragePolicyArgs:
+calass SubnetServiceEndpointStoragePolicyArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 definition: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']] = None,
+                 definition: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SubnetServiceEndpointStoragePolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
-        :param pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs'] definition: A `definition` block as defined below
+        :param pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs'] definition: A `definition` block as defined below
         :param pulumi.Input[str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy.
@@ -53,14 +53,14 @@ class SubnetServiceEndpointStoragePolicyArgs:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]:
+    def definition(self) -> Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]:
         """
         A `definition` block as defined below
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]):
+    def definition(self, value: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]):
         pulumi.set(self, "definition", value)
 
     @property
@@ -101,16 +101,16 @@ class SubnetServiceEndpointStoragePolicyArgs:
 
 
 @pulumi.input_type
-class _SubnetServiceEndpointStoragePolicyState:
+calass _SubnetServiceEndpointStoragePolicyState:
     def __init__(__self__, *,
-                 definition: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']] = None,
+                 definition: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SubnetServiceEndpointStoragePolicy resources.
-        :param pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs'] definition: A `definition` block as defined below
+        :param pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs'] definition: A `definition` block as defined below
         :param pulumi.Input[str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -129,14 +129,14 @@ class _SubnetServiceEndpointStoragePolicyState:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]:
+    def definition(self) -> Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]:
         """
         A `definition` block as defined below
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArgs']]):
+    def definition(self, value: Optional[pulumi.Input['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]):
         pulumi.set(self, "definition", value)
 
     @property
@@ -188,12 +188,12 @@ class _SubnetServiceEndpointStoragePolicyState:
         pulumi.set(self, "tags", value)
 
 
-class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
+calass SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -212,7 +212,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArgs']] definition: A `definition` block as defined below
+        :param pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArrgs']] definition: A `definition` block as defined below
         :param pulumi.Input[str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
@@ -222,7 +222,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetServiceEndpointStoragePolicyArgs,
+                 args: SubnetServiceEndpointStoragePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subnet Service Endpoint Storage Policy.
@@ -236,12 +236,12 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetServiceEndpointStoragePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetServiceEndpointStoragePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetServiceEndpointStoragePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetServiceEndpointStoragePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -250,7 +250,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -262,7 +262,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetServiceEndpointStoragePolicyArgs.__new__(SubnetServiceEndpointStoragePolicyArgs)
+            __props__ = SubnetServiceEndpointStoragePolicyArrgs.__new__(SubnetServiceEndpointStoragePolicyArrgs)
 
             __props__.__dict__["definition"] = definition
             __props__.__dict__["location"] = location
@@ -281,7 +281,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArgs']]] = None,
+            definition: Optional[pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -293,7 +293,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArgs']] definition: A `definition` block as defined below
+        :param pulumi.Input[pulumi.InputType['SubnetServiceEndpointStoragePolicyDefinitionArrgs']] definition: A `definition` block as defined below
         :param pulumi.Input[str] location: The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created.

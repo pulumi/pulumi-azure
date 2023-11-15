@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ActivityLogAlertArgs', 'ActivityLogAlert']
+__all__ = ['ActivityLogAlertArrgs', 'ActivityLogAlert']
 
 @pulumi.input_type
-class ActivityLogAlertArgs:
+calass ActivityLogAlertArrgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['ActivityLogAlertCriteriaArgs'],
+                 criteria: pulumi.Input['ActivityLogAlertCriteriaArrgs'],
                  resource_group_name: pulumi.Input[str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ActivityLogAlert resource.
-        :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
+        :param pulumi.Input['ActivityLogAlertCriteriaArrgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
-        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
@@ -51,14 +51,14 @@ class ActivityLogAlertArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input['ActivityLogAlertCriteriaArgs']:
+    def criteria(self) -> pulumi.Input['ActivityLogAlertCriteriaArrgs']:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input['ActivityLogAlertCriteriaArgs']):
+    def criteria(self, value: pulumi.Input['ActivityLogAlertCriteriaArrgs']):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -87,14 +87,14 @@ class ActivityLogAlertArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -147,10 +147,10 @@ class ActivityLogAlertArgs:
 
 
 @pulumi.input_type
-class _ActivityLogAlertState:
+calass _ActivityLogAlertState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]] = None,
-                 criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]] = None,
+                 criteria: Optional[pulumi.Input['ActivityLogAlertCriteriaArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -159,8 +159,8 @@ class _ActivityLogAlertState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ActivityLogAlert resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input['ActivityLogAlertCriteriaArrgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
@@ -187,26 +187,26 @@ class _ActivityLogAlertState:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArrgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']]:
+    def criteria(self) -> Optional[pulumi.Input['ActivityLogAlertCriteriaArrgs']]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['ActivityLogAlertCriteriaArgs']]):
+    def criteria(self, value: Optional[pulumi.Input['ActivityLogAlertCriteriaArrgs']]):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -282,13 +282,13 @@ class _ActivityLogAlertState:
         pulumi.set(self, "tags", value)
 
 
-class ActivityLogAlert(pulumi.CustomResource):
+calass ActivityLogAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArrgs']]]]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -309,7 +309,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
             resource_group_name=example.name,
             short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -322,12 +322,12 @@ class ActivityLogAlert(pulumi.CustomResource):
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
+            criteria=azure.monitoring.ActivityLogAlertCriteriaArrgs(
                 resource_id=to_monitor.id,
                 operation_name="Microsoft.Storage/storageAccounts/write",
                 category="Recommendation",
             ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
+            actions=[azure.monitoring.ActivityLogAlertActionArrgs(
                 action_group_id=main_action_group.id,
                 webhook_properties={
                     "from": "source",
@@ -345,8 +345,8 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArrgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArrgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.
@@ -358,7 +358,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActivityLogAlertArgs,
+                 args: ActivityLogAlertArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Activity Log Alert within Azure Monitor.
@@ -373,7 +373,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
             resource_group_name=example.name,
             short_name="p0action",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -386,12 +386,12 @@ class ActivityLogAlert(pulumi.CustomResource):
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
-            criteria=azure.monitoring.ActivityLogAlertCriteriaArgs(
+            criteria=azure.monitoring.ActivityLogAlertCriteriaArrgs(
                 resource_id=to_monitor.id,
                 operation_name="Microsoft.Storage/storageAccounts/write",
                 category="Recommendation",
             ),
-            actions=[azure.monitoring.ActivityLogAlertActionArgs(
+            actions=[azure.monitoring.ActivityLogAlertActionArrgs(
                 action_group_id=main_action_group.id,
                 webhook_properties={
                     "from": "source",
@@ -408,12 +408,12 @@ class ActivityLogAlert(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActivityLogAlertArgs args: The arguments to use to populate this resource's properties.
+        :param ActivityLogAlertArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActivityLogAlertArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActivityLogAlertArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -422,8 +422,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArrgs']]]]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -437,7 +437,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActivityLogAlertArgs.__new__(ActivityLogAlertArgs)
+            __props__ = ActivityLogAlertArrgs.__new__(ActivityLogAlertArrgs)
 
             __props__.__dict__["actions"] = actions
             if criteria is None and not opts.urn:
@@ -463,8 +463,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]]] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArrgs']]]]] = None,
+            criteria: Optional[pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -478,8 +478,8 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivityLogAlertActionArrgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ActivityLogAlertCriteriaArrgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] description: The description of this activity log alert.
         :param pulumi.Input[bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the activity log alert. Changing this forces a new resource to be created.

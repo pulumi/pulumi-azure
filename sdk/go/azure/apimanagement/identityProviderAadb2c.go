@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Azure AD B2C Identity Provider.
@@ -309,12 +308,6 @@ func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cOutput)
 }
 
-func (i *IdentityProviderAadb2c) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderAadb2c] {
-	return pulumix.Output[*IdentityProviderAadb2c]{
-		OutputState: i.ToIdentityProviderAadb2cOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderAadb2cArrayInput is an input type that accepts IdentityProviderAadb2cArray and IdentityProviderAadb2cArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderAadb2cArrayInput` via:
 //
@@ -338,12 +331,6 @@ func (i IdentityProviderAadb2cArray) ToIdentityProviderAadb2cArrayOutput() Ident
 
 func (i IdentityProviderAadb2cArray) ToIdentityProviderAadb2cArrayOutputWithContext(ctx context.Context) IdentityProviderAadb2cArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cArrayOutput)
-}
-
-func (i IdentityProviderAadb2cArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderAadb2c] {
-	return pulumix.Output[[]*IdentityProviderAadb2c]{
-		OutputState: i.ToIdentityProviderAadb2cArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderAadb2cMapInput is an input type that accepts IdentityProviderAadb2cMap and IdentityProviderAadb2cMapOutput values.
@@ -371,12 +358,6 @@ func (i IdentityProviderAadb2cMap) ToIdentityProviderAadb2cMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadb2cMapOutput)
 }
 
-func (i IdentityProviderAadb2cMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderAadb2c] {
-	return pulumix.Output[map[string]*IdentityProviderAadb2c]{
-		OutputState: i.ToIdentityProviderAadb2cMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderAadb2cOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderAadb2cOutput) ElementType() reflect.Type {
@@ -389,12 +370,6 @@ func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cOutput() IdentityP
 
 func (o IdentityProviderAadb2cOutput) ToIdentityProviderAadb2cOutputWithContext(ctx context.Context) IdentityProviderAadb2cOutput {
 	return o
-}
-
-func (o IdentityProviderAadb2cOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderAadb2c] {
-	return pulumix.Output[*IdentityProviderAadb2c]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allowed AAD tenant, usually your B2C tenant domain.
@@ -466,12 +441,6 @@ func (o IdentityProviderAadb2cArrayOutput) ToIdentityProviderAadb2cArrayOutputWi
 	return o
 }
 
-func (o IdentityProviderAadb2cArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderAadb2c] {
-	return pulumix.Output[[]*IdentityProviderAadb2c]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderAadb2cArrayOutput) Index(i pulumi.IntInput) IdentityProviderAadb2cOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderAadb2c {
 		return vs[0].([]*IdentityProviderAadb2c)[vs[1].(int)]
@@ -490,12 +459,6 @@ func (o IdentityProviderAadb2cMapOutput) ToIdentityProviderAadb2cMapOutput() Ide
 
 func (o IdentityProviderAadb2cMapOutput) ToIdentityProviderAadb2cMapOutputWithContext(ctx context.Context) IdentityProviderAadb2cMapOutput {
 	return o
-}
-
-func (o IdentityProviderAadb2cMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderAadb2c] {
-	return pulumix.Output[map[string]*IdentityProviderAadb2c]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderAadb2cMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderAadb2cOutput {

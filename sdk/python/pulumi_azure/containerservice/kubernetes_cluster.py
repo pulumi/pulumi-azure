@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KubernetesClusterArgs', 'KubernetesCluster']
+__all__ = ['KubernetesClusterArrgs', 'KubernetesCluster']
 
 @pulumi.input_type
-class KubernetesClusterArgs:
+calass KubernetesClusterArrgs:
     def __init__(__self__, *,
-                 default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
+                 default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
-                 api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
+                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']] = None,
+                 api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
+                 auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
@@ -33,29 +33,29 @@ class KubernetesClusterArgs:
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
-                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
-                 identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']] = None,
+                 identity: Optional[pulumi.Input['KubernetesClusterIdentityArrgs']] = None,
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
-                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
-                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
-                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
-                 kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
+                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']] = None,
+                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']] = None,
+                 kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+                 linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']] = None,
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
-                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
-                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
-                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
-                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
+                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']] = None,
+                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']] = None,
+                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+                 network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']] = None,
                  node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
-                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -63,32 +63,32 @@ class KubernetesClusterArgs:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
-                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
-                 service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
+                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']] = None,
+                 service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
-                 workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
+                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']] = None,
+                 workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a KubernetesCluster resource.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolArrgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAutoScalerProfileArrgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArrgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
@@ -103,35 +103,35 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
-        :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
-        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterHttpProxyConfigArrgs'] http_proxy_config: A `http_proxy_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterIdentityArrgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
-        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
-        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArrgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        :param pulumi.Input['KubernetesClusterKubeletIdentityArrgs'] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
-        :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterLinuxProfileArrgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
                
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
-        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
-        :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowArrgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
+        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs'] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input['KubernetesClusterMonitorMetricsArrgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNetworkProfileArrgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
@@ -143,7 +143,7 @@ class KubernetesClusterArgs:
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
-        :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input['KubernetesClusterOmsAgentArrgs'] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -177,20 +177,20 @@ class KubernetesClusterArgs:
                !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
-        :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterServiceMeshProfileArrgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterServicePrincipalArrgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
-        :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterStorageProfileArrgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
-        :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
+        :param pulumi.Input['KubernetesClusterWebAppRoutingArrgs'] web_app_routing: A `web_app_routing` block as defined below.
+        :param pulumi.Input['KubernetesClusterWindowsProfileArrgs'] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
@@ -319,14 +319,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="defaultNodePool")
-    def default_node_pool(self) -> pulumi.Input['KubernetesClusterDefaultNodePoolArgs']:
+    def default_node_pool(self) -> pulumi.Input['KubernetesClusterDefaultNodePoolArrgs']:
         """
         A `default_node_pool` block as defined below.
         """
         return pulumi.get(self, "default_node_pool")
 
     @default_node_pool.setter
-    def default_node_pool(self, value: pulumi.Input['KubernetesClusterDefaultNodePoolArgs']):
+    def default_node_pool(self, value: pulumi.Input['KubernetesClusterDefaultNodePoolArrgs']):
         pulumi.set(self, "default_node_pool", value)
 
     @property
@@ -343,26 +343,26 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
-    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]:
+    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']]:
         """
         A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         """
         return pulumi.get(self, "aci_connector_linux")
 
     @aci_connector_linux.setter
-    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
+    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']]):
         pulumi.set(self, "aci_connector_linux", value)
 
     @property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']]:
+    def api_server_access_profile(self) -> Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']]:
         """
         An `api_server_access_profile` block as defined below.
         """
         return pulumi.get(self, "api_server_access_profile")
 
     @api_server_access_profile.setter
-    def api_server_access_profile(self, value: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']]):
+    def api_server_access_profile(self, value: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']]):
         pulumi.set(self, "api_server_access_profile", value)
 
     @property
@@ -379,14 +379,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="autoScalerProfile")
-    def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]:
+    def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']]:
         """
         A `auto_scaler_profile` block as defined below.
         """
         return pulumi.get(self, "auto_scaler_profile")
 
     @auto_scaler_profile.setter
-    def auto_scaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]):
+    def auto_scaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']]):
         pulumi.set(self, "auto_scaler_profile", value)
 
     @property
@@ -407,7 +407,7 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
-    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
+    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]:
         """
         A `azure_active_directory_role_based_access_control` block as defined below.
 
@@ -416,7 +416,7 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
     @azure_active_directory_role_based_access_control.setter
-    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]):
+    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]):
         pulumi.set(self, "azure_active_directory_role_based_access_control", value)
 
     @property
@@ -433,14 +433,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="confidentialComputing")
-    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]:
+    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']]:
         """
         A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
 
     @confidential_computing.setter
-    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
+    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']]):
         pulumi.set(self, "confidential_computing", value)
 
     @property
@@ -537,19 +537,19 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
+    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']]:
         """
         A `http_proxy_config` block as defined below.
         """
         return pulumi.get(self, "http_proxy_config")
 
     @http_proxy_config.setter
-    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]):
+    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']]):
         pulumi.set(self, "http_proxy_config", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
 
@@ -558,7 +558,7 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -589,7 +589,7 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="ingressApplicationGateway")
-    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]:
+    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']]:
         """
         A `ingress_application_gateway` block as defined below.
 
@@ -598,43 +598,43 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "ingress_application_gateway")
 
     @ingress_application_gateway.setter
-    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]):
+    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']]):
         pulumi.set(self, "ingress_application_gateway", value)
 
     @property
     @pulumi.getter(name="keyManagementService")
-    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]:
+    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']]:
         """
         A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         """
         return pulumi.get(self, "key_management_service")
 
     @key_management_service.setter
-    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]):
+    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']]):
         pulumi.set(self, "key_management_service", value)
 
     @property
     @pulumi.getter(name="keyVaultSecretsProvider")
-    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
+    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']]:
         """
         A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         """
         return pulumi.get(self, "key_vault_secrets_provider")
 
     @key_vault_secrets_provider.setter
-    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]):
+    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']]):
         pulumi.set(self, "key_vault_secrets_provider", value)
 
     @property
     @pulumi.getter(name="kubeletIdentity")
-    def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]:
+    def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']]:
         """
         A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identity")
 
     @kubelet_identity.setter
-    def kubelet_identity(self, value: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]):
+    def kubelet_identity(self, value: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']]):
         pulumi.set(self, "kubelet_identity", value)
 
     @property
@@ -653,14 +653,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']]:
+    def linux_profile(self) -> Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']]:
         """
         A `linux_profile` block as defined below.
         """
         return pulumi.get(self, "linux_profile")
 
     @linux_profile.setter
-    def linux_profile(self, value: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']]):
+    def linux_profile(self, value: Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']]):
         pulumi.set(self, "linux_profile", value)
 
     @property
@@ -691,62 +691,62 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowAutoUpgrade")
-    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]:
+    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]:
         """
         A `maintenance_window_auto_upgrade` block as defined below.
         """
         return pulumi.get(self, "maintenance_window_auto_upgrade")
 
     @maintenance_window_auto_upgrade.setter
-    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]):
+    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]):
         pulumi.set(self, "maintenance_window_auto_upgrade", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowNodeOs")
-    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]:
+    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']]:
         """
         A `maintenance_window_node_os` block as defined below.
         """
         return pulumi.get(self, "maintenance_window_node_os")
 
     @maintenance_window_node_os.setter
-    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]):
+    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']]):
         pulumi.set(self, "maintenance_window_node_os", value)
 
     @property
     @pulumi.getter(name="microsoftDefender")
-    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
+    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']]:
         """
         A `microsoft_defender` block as defined below.
         """
         return pulumi.get(self, "microsoft_defender")
 
     @microsoft_defender.setter
-    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
+    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']]):
         pulumi.set(self, "microsoft_defender", value)
 
     @property
     @pulumi.getter(name="monitorMetrics")
-    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]:
+    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']]:
         """
         Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         """
         return pulumi.get(self, "monitor_metrics")
 
     @monitor_metrics.setter
-    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]):
+    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']]):
         pulumi.set(self, "monitor_metrics", value)
 
     @property
@@ -763,7 +763,7 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]:
+    def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']]:
         """
         A `network_profile` block as defined below. Changing this forces a new resource to be created.
 
@@ -772,7 +772,7 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]):
+    def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']]):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -819,14 +819,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="omsAgent")
-    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
+    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']]:
         """
         A `oms_agent` block as defined below.
         """
         return pulumi.get(self, "oms_agent")
 
     @oms_agent.setter
-    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]):
+    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']]):
         pulumi.set(self, "oms_agent", value)
 
     @property
@@ -944,7 +944,7 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="serviceMeshProfile")
-    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
+    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']]:
         """
         A `service_mesh_profile` block as defined below.
 
@@ -953,12 +953,12 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "service_mesh_profile")
 
     @service_mesh_profile.setter
-    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]):
+    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']]):
         pulumi.set(self, "service_mesh_profile", value)
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
+    def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']]:
         """
         A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
 
@@ -967,7 +967,7 @@ class KubernetesClusterArgs:
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]):
+    def service_principal(self, value: Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']]):
         pulumi.set(self, "service_principal", value)
 
     @property
@@ -986,14 +986,14 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]:
+    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']]:
         """
         A `storage_profile` block as defined below.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
+    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @property
@@ -1010,38 +1010,38 @@ class KubernetesClusterArgs:
 
     @property
     @pulumi.getter(name="webAppRouting")
-    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
+    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']]:
         """
         A `web_app_routing` block as defined below.
         """
         return pulumi.get(self, "web_app_routing")
 
     @web_app_routing.setter
-    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]):
+    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']]):
         pulumi.set(self, "web_app_routing", value)
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']]:
         """
         A `windows_profile` block as defined below.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]):
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @property
     @pulumi.getter(name="workloadAutoscalerProfile")
-    def workload_autoscaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']]:
+    def workload_autoscaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']]:
         """
         A `workload_autoscaler_profile` block defined below.
         """
         return pulumi.get(self, "workload_autoscaler_profile")
 
     @workload_autoscaler_profile.setter
-    def workload_autoscaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']]):
+    def workload_autoscaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']]):
         pulumi.set(self, "workload_autoscaler_profile", value)
 
     @property
@@ -1062,18 +1062,18 @@ class KubernetesClusterArgs:
 
 
 @pulumi.input_type
-class _KubernetesClusterState:
+calass _KubernetesClusterState:
     def __init__(__self__, *,
-                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
-                 api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
+                 aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']] = None,
+                 api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
+                 auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+                 confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
+                 default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
@@ -1082,35 +1082,35 @@ class _KubernetesClusterState:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
-                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
-                 identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']] = None,
+                 identity: Optional[pulumi.Input['KubernetesClusterIdentityArrgs']] = None,
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
-                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
-                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
-                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
+                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']] = None,
+                 key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']] = None,
                  kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
-                 kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]] = None,
+                 kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArrgs']]]] = None,
                  kube_config_raw: Optional[pulumi.Input[str]] = None,
-                 kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]]] = None,
-                 kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
+                 kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArrgs']]]] = None,
+                 kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+                 linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']] = None,
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
-                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
-                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
-                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
-                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
+                 maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']] = None,
+                 microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']] = None,
+                 monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+                 network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']] = None,
                  node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  node_resource_group_id: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
                  oidc_issuer_url: Optional[pulumi.Input[str]] = None,
-                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+                 oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  portal_fqdn: Optional[pulumi.Input[str]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1121,34 +1121,34 @@ class _KubernetesClusterState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
-                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
-                 service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
+                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']] = None,
+                 service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+                 storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
-                 workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
+                 web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']] = None,
+                 workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering KubernetesCluster resources.
-        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input['KubernetesClusterApiServerAccessProfileArgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs'] api_server_access_profile: An `api_server_access_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterAutoScalerProfileArrgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs'] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input['KubernetesClusterConfidentialComputingArrgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolArrgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -1162,39 +1162,39 @@ class _KubernetesClusterState:
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
-        :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
-        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterHttpProxyConfigArrgs'] http_proxy_config: A `http_proxy_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterIdentityArrgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs'] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input['KubernetesClusterKeyManagementServiceArgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
-        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        :param pulumi.Input['KubernetesClusterKeyManagementServiceArrgs'] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        :param pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs'] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArrgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input['KubernetesClusterKubeletIdentityArgs'] kubelet_identity: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArrgs']]] kube_configs: A `kube_config` block as defined below.
+        :param pulumi.Input['KubernetesClusterKubeletIdentityArrgs'] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
-        :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterLinuxProfileArrgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
                
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
-        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
-        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArgs'] microsoft_defender: A `microsoft_defender` block as defined below.
-        :param pulumi.Input['KubernetesClusterMonitorMetricsArgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowArrgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs'] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs'] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
+        :param pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs'] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input['KubernetesClusterMonitorMetricsArrgs'] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileArgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNetworkProfileArrgs'] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
@@ -1208,7 +1208,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
-        :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input['KubernetesClusterOmsAgentArrgs'] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -1245,20 +1245,20 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
-        :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterServiceMeshProfileArrgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input['KubernetesClusterServicePrincipalArrgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
-        :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterStorageProfileArrgs'] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
-        :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
-        :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
+        :param pulumi.Input['KubernetesClusterWebAppRoutingArrgs'] web_app_routing: A `web_app_routing` block as defined below.
+        :param pulumi.Input['KubernetesClusterWindowsProfileArrgs'] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
@@ -1409,26 +1409,26 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
-    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]:
+    def aci_connector_linux(self) -> Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']]:
         """
         A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         """
         return pulumi.get(self, "aci_connector_linux")
 
     @aci_connector_linux.setter
-    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']]):
+    def aci_connector_linux(self, value: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArrgs']]):
         pulumi.set(self, "aci_connector_linux", value)
 
     @property
     @pulumi.getter(name="apiServerAccessProfile")
-    def api_server_access_profile(self) -> Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']]:
+    def api_server_access_profile(self) -> Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']]:
         """
         An `api_server_access_profile` block as defined below.
         """
         return pulumi.get(self, "api_server_access_profile")
 
     @api_server_access_profile.setter
-    def api_server_access_profile(self, value: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']]):
+    def api_server_access_profile(self, value: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArrgs']]):
         pulumi.set(self, "api_server_access_profile", value)
 
     @property
@@ -1445,14 +1445,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="autoScalerProfile")
-    def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]:
+    def auto_scaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']]:
         """
         A `auto_scaler_profile` block as defined below.
         """
         return pulumi.get(self, "auto_scaler_profile")
 
     @auto_scaler_profile.setter
-    def auto_scaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']]):
+    def auto_scaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArrgs']]):
         pulumi.set(self, "auto_scaler_profile", value)
 
     @property
@@ -1473,7 +1473,7 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="azureActiveDirectoryRoleBasedAccessControl")
-    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]:
+    def azure_active_directory_role_based_access_control(self) -> Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]:
         """
         A `azure_active_directory_role_based_access_control` block as defined below.
 
@@ -1482,7 +1482,7 @@ class _KubernetesClusterState:
         return pulumi.get(self, "azure_active_directory_role_based_access_control")
 
     @azure_active_directory_role_based_access_control.setter
-    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]):
+    def azure_active_directory_role_based_access_control(self, value: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]):
         pulumi.set(self, "azure_active_directory_role_based_access_control", value)
 
     @property
@@ -1499,14 +1499,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="confidentialComputing")
-    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]:
+    def confidential_computing(self) -> Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']]:
         """
         A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         """
         return pulumi.get(self, "confidential_computing")
 
     @confidential_computing.setter
-    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']]):
+    def confidential_computing(self, value: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArrgs']]):
         pulumi.set(self, "confidential_computing", value)
 
     @property
@@ -1525,14 +1525,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="defaultNodePool")
-    def default_node_pool(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']]:
+    def default_node_pool(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArrgs']]:
         """
         A `default_node_pool` block as defined below.
         """
         return pulumi.get(self, "default_node_pool")
 
     @default_node_pool.setter
-    def default_node_pool(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']]):
+    def default_node_pool(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArrgs']]):
         pulumi.set(self, "default_node_pool", value)
 
     @property
@@ -1639,19 +1639,19 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]:
+    def http_proxy_config(self) -> Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']]:
         """
         A `http_proxy_config` block as defined below.
         """
         return pulumi.get(self, "http_proxy_config")
 
     @http_proxy_config.setter
-    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']]):
+    def http_proxy_config(self, value: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArrgs']]):
         pulumi.set(self, "http_proxy_config", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
 
@@ -1660,7 +1660,7 @@ class _KubernetesClusterState:
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -1691,7 +1691,7 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="ingressApplicationGateway")
-    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]:
+    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']]:
         """
         A `ingress_application_gateway` block as defined below.
 
@@ -1700,31 +1700,31 @@ class _KubernetesClusterState:
         return pulumi.get(self, "ingress_application_gateway")
 
     @ingress_application_gateway.setter
-    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']]):
+    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArrgs']]):
         pulumi.set(self, "ingress_application_gateway", value)
 
     @property
     @pulumi.getter(name="keyManagementService")
-    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]:
+    def key_management_service(self) -> Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']]:
         """
         A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         """
         return pulumi.get(self, "key_management_service")
 
     @key_management_service.setter
-    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']]):
+    def key_management_service(self, value: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArrgs']]):
         pulumi.set(self, "key_management_service", value)
 
     @property
     @pulumi.getter(name="keyVaultSecretsProvider")
-    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]:
+    def key_vault_secrets_provider(self) -> Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']]:
         """
         A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         """
         return pulumi.get(self, "key_vault_secrets_provider")
 
     @key_vault_secrets_provider.setter
-    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']]):
+    def key_vault_secrets_provider(self, value: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArrgs']]):
         pulumi.set(self, "key_vault_secrets_provider", value)
 
     @property
@@ -1741,14 +1741,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="kubeAdminConfigs")
-    def kube_admin_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]]:
+    def kube_admin_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArrgs']]]]:
         """
         A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         """
         return pulumi.get(self, "kube_admin_configs")
 
     @kube_admin_configs.setter
-    def kube_admin_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]]):
+    def kube_admin_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArrgs']]]]):
         pulumi.set(self, "kube_admin_configs", value)
 
     @property
@@ -1765,26 +1765,26 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="kubeConfigs")
-    def kube_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]]]:
+    def kube_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArrgs']]]]:
         """
         A `kube_config` block as defined below.
         """
         return pulumi.get(self, "kube_configs")
 
     @kube_configs.setter
-    def kube_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]]]):
+    def kube_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArrgs']]]]):
         pulumi.set(self, "kube_configs", value)
 
     @property
     @pulumi.getter(name="kubeletIdentity")
-    def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]:
+    def kubelet_identity(self) -> Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']]:
         """
         A `kubelet_identity` block as defined below.
         """
         return pulumi.get(self, "kubelet_identity")
 
     @kubelet_identity.setter
-    def kubelet_identity(self, value: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]):
+    def kubelet_identity(self, value: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArrgs']]):
         pulumi.set(self, "kubelet_identity", value)
 
     @property
@@ -1803,14 +1803,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="linuxProfile")
-    def linux_profile(self) -> Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']]:
+    def linux_profile(self) -> Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']]:
         """
         A `linux_profile` block as defined below.
         """
         return pulumi.get(self, "linux_profile")
 
     @linux_profile.setter
-    def linux_profile(self, value: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']]):
+    def linux_profile(self, value: Optional[pulumi.Input['KubernetesClusterLinuxProfileArrgs']]):
         pulumi.set(self, "linux_profile", value)
 
     @property
@@ -1841,62 +1841,62 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="maintenanceWindow")
-    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]:
+    def maintenance_window(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']]:
         """
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
 
     @maintenance_window.setter
-    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']]):
+    def maintenance_window(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArrgs']]):
         pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowAutoUpgrade")
-    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]:
+    def maintenance_window_auto_upgrade(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]:
         """
         A `maintenance_window_auto_upgrade` block as defined below.
         """
         return pulumi.get(self, "maintenance_window_auto_upgrade")
 
     @maintenance_window_auto_upgrade.setter
-    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]):
+    def maintenance_window_auto_upgrade(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]):
         pulumi.set(self, "maintenance_window_auto_upgrade", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowNodeOs")
-    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]:
+    def maintenance_window_node_os(self) -> Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']]:
         """
         A `maintenance_window_node_os` block as defined below.
         """
         return pulumi.get(self, "maintenance_window_node_os")
 
     @maintenance_window_node_os.setter
-    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']]):
+    def maintenance_window_node_os(self, value: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArrgs']]):
         pulumi.set(self, "maintenance_window_node_os", value)
 
     @property
     @pulumi.getter(name="microsoftDefender")
-    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]:
+    def microsoft_defender(self) -> Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']]:
         """
         A `microsoft_defender` block as defined below.
         """
         return pulumi.get(self, "microsoft_defender")
 
     @microsoft_defender.setter
-    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']]):
+    def microsoft_defender(self, value: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArrgs']]):
         pulumi.set(self, "microsoft_defender", value)
 
     @property
     @pulumi.getter(name="monitorMetrics")
-    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]:
+    def monitor_metrics(self) -> Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']]:
         """
         Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         """
         return pulumi.get(self, "monitor_metrics")
 
     @monitor_metrics.setter
-    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']]):
+    def monitor_metrics(self, value: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArrgs']]):
         pulumi.set(self, "monitor_metrics", value)
 
     @property
@@ -1913,7 +1913,7 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]:
+    def network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']]:
         """
         A `network_profile` block as defined below. Changing this forces a new resource to be created.
 
@@ -1922,7 +1922,7 @@ class _KubernetesClusterState:
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']]):
+    def network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileArrgs']]):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -1993,14 +1993,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="omsAgent")
-    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]:
+    def oms_agent(self) -> Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']]:
         """
         A `oms_agent` block as defined below.
         """
         return pulumi.get(self, "oms_agent")
 
     @oms_agent.setter
-    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']]):
+    def oms_agent(self, value: Optional[pulumi.Input['KubernetesClusterOmsAgentArrgs']]):
         pulumi.set(self, "oms_agent", value)
 
     @property
@@ -2154,7 +2154,7 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="serviceMeshProfile")
-    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
+    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']]:
         """
         A `service_mesh_profile` block as defined below.
 
@@ -2163,12 +2163,12 @@ class _KubernetesClusterState:
         return pulumi.get(self, "service_mesh_profile")
 
     @service_mesh_profile.setter
-    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]):
+    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArrgs']]):
         pulumi.set(self, "service_mesh_profile", value)
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
+    def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']]:
         """
         A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
 
@@ -2177,7 +2177,7 @@ class _KubernetesClusterState:
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]):
+    def service_principal(self, value: Optional[pulumi.Input['KubernetesClusterServicePrincipalArrgs']]):
         pulumi.set(self, "service_principal", value)
 
     @property
@@ -2196,14 +2196,14 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="storageProfile")
-    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]:
+    def storage_profile(self) -> Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']]:
         """
         A `storage_profile` block as defined below.
         """
         return pulumi.get(self, "storage_profile")
 
     @storage_profile.setter
-    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
+    def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArrgs']]):
         pulumi.set(self, "storage_profile", value)
 
     @property
@@ -2220,38 +2220,38 @@ class _KubernetesClusterState:
 
     @property
     @pulumi.getter(name="webAppRouting")
-    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]:
+    def web_app_routing(self) -> Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']]:
         """
         A `web_app_routing` block as defined below.
         """
         return pulumi.get(self, "web_app_routing")
 
     @web_app_routing.setter
-    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']]):
+    def web_app_routing(self, value: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArrgs']]):
         pulumi.set(self, "web_app_routing", value)
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]:
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']]:
         """
         A `windows_profile` block as defined below.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']]):
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileArrgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @property
     @pulumi.getter(name="workloadAutoscalerProfile")
-    def workload_autoscaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']]:
+    def workload_autoscaler_profile(self) -> Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']]:
         """
         A `workload_autoscaler_profile` block defined below.
         """
         return pulumi.get(self, "workload_autoscaler_profile")
 
     @workload_autoscaler_profile.setter
-    def workload_autoscaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']]):
+    def workload_autoscaler_profile(self, value: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArrgs']]):
         pulumi.set(self, "workload_autoscaler_profile", value)
 
     @property
@@ -2271,50 +2271,50 @@ class _KubernetesClusterState:
         pulumi.set(self, "workload_identity_enabled", value)
 
 
-class KubernetesCluster(pulumi.CustomResource):
+calass KubernetesCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
-                 api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArgs']]] = None,
+                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArrgs']]] = None,
+                 api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArrgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
+                 auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArrgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArrgs']]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
+                 default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArrgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
-                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArrgs']]] = None,
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
-                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
-                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
-                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
-                 kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
+                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArrgs']]] = None,
+                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArrgs']]] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArrgs']]] = None,
+                 kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArrgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArrgs']]] = None,
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
-                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
-                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
-                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
-                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArrgs']]] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArrgs']]] = None,
+                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArrgs']]] = None,
+                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArrgs']]] = None,
                  node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
-                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArrgs']]] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2323,14 +2323,14 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
-                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
-                 service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
+                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArrgs']]] = None,
+                 service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArrgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
-                 workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
+                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArrgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArrgs']]] = None,
+                 workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArrgs']]] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -2349,12 +2349,12 @@ class KubernetesCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_D2_v2",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -2374,23 +2374,23 @@ class KubernetesCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArgs']] api_server_access_profile: An `api_server_access_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArrgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArrgs']] api_server_access_profile: An `api_server_access_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArrgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArrgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArrgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -2402,35 +2402,35 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArrgs']] http_proxy_config: A `http_proxy_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArrgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArrgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArrgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArrgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArrgs']] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArrgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
                
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArrgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArrgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArrgs']] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArrgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArrgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
@@ -2442,7 +2442,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArrgs']] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_cluster_public_fqdn_enabled: Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
@@ -2477,20 +2477,20 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArrgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArrgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArrgs']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArrgs']] web_app_routing: A `web_app_routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArrgs']] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArrgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
@@ -2501,7 +2501,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KubernetesClusterArgs,
+                 args: KubernetesClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
@@ -2519,12 +2519,12 @@ class KubernetesCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_D2_v2",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -2543,12 +2543,12 @@ class KubernetesCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KubernetesClusterArgs args: The arguments to use to populate this resource's properties.
+        :param KubernetesClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KubernetesClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KubernetesClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -2557,45 +2557,45 @@ class KubernetesCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
-                 api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArgs']]] = None,
+                 aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArrgs']]] = None,
+                 api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArrgs']]] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
+                 auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArrgs']]] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
-                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
+                 azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]] = None,
                  azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+                 confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArrgs']]] = None,
                  custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
+                 default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArrgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
-                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArrgs']]] = None,
                  image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
                  image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
-                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
-                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
-                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
-                 kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
+                 ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArrgs']]] = None,
+                 key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArrgs']]] = None,
+                 key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArrgs']]] = None,
+                 kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArrgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
-                 linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+                 linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArrgs']]] = None,
                  local_account_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
-                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
-                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
-                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
-                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
+                 maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArrgs']]] = None,
+                 maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]] = None,
+                 maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArrgs']]] = None,
+                 microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArrgs']]] = None,
+                 monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArrgs']]] = None,
                  node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  node_resource_group: Optional[pulumi.Input[str]] = None,
                  oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
-                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+                 oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArrgs']]] = None,
                  open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2604,14 +2604,14 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
-                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
-                 service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
+                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArrgs']]] = None,
+                 service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArrgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
-                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
-                 workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
+                 web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArrgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArrgs']]] = None,
+                 workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArrgs']]] = None,
                  workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -2620,7 +2620,7 @@ class KubernetesCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
+            __props__ = KubernetesClusterArrgs.__new__(KubernetesClusterArrgs)
 
             __props__.__dict__["aci_connector_linux"] = aci_connector_linux
             __props__.__dict__["api_server_access_profile"] = api_server_access_profile
@@ -2704,16 +2704,16 @@ class KubernetesCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']]] = None,
-            api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArgs']]] = None,
+            aci_connector_linux: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArrgs']]] = None,
+            api_server_access_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArrgs']]] = None,
             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']]] = None,
+            auto_scaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArrgs']]] = None,
             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
-            azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']]] = None,
+            azure_active_directory_role_based_access_control: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']]] = None,
             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
-            confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']]] = None,
+            confidential_computing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArrgs']]] = None,
             custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
+            default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArrgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
@@ -2722,35 +2722,35 @@ class KubernetesCluster(pulumi.CustomResource):
             fqdn: Optional[pulumi.Input[str]] = None,
             http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
             http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
-            http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+            http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArrgs']]] = None,
             image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
             image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
-            ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']]] = None,
-            key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']]] = None,
-            key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']]] = None,
+            ingress_application_gateway: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArrgs']]] = None,
+            key_management_service: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArrgs']]] = None,
+            key_vault_secrets_provider: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArrgs']]] = None,
             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
-            kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]]] = None,
+            kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArrgs']]]]] = None,
             kube_config_raw: Optional[pulumi.Input[str]] = None,
-            kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]]] = None,
-            kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]] = None,
+            kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArrgs']]]]] = None,
+            kubelet_identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArrgs']]] = None,
             kubernetes_version: Optional[pulumi.Input[str]] = None,
-            linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
+            linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArrgs']]] = None,
             local_account_disabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']]] = None,
-            maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']]] = None,
-            maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']]] = None,
-            microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']]] = None,
-            monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']]] = None,
+            maintenance_window: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArrgs']]] = None,
+            maintenance_window_auto_upgrade: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']]] = None,
+            maintenance_window_node_os: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArrgs']]] = None,
+            microsoft_defender: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArrgs']]] = None,
+            monitor_metrics: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']]] = None,
+            network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArrgs']]] = None,
             node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
             node_resource_group: Optional[pulumi.Input[str]] = None,
             node_resource_group_id: Optional[pulumi.Input[str]] = None,
             oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
             oidc_issuer_url: Optional[pulumi.Input[str]] = None,
-            oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']]] = None,
+            oms_agent: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArrgs']]] = None,
             open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
             portal_fqdn: Optional[pulumi.Input[str]] = None,
             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2761,14 +2761,14 @@ class KubernetesCluster(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
             run_command_enabled: Optional[pulumi.Input[bool]] = None,
-            service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
-            service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
+            service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArrgs']]] = None,
+            service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArrgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
-            storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+            storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
-            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
-            workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']]] = None,
+            web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArrgs']]] = None,
+            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArrgs']]] = None,
+            workload_autoscaler_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArrgs']]] = None,
             workload_identity_enabled: Optional[pulumi.Input[bool]] = None) -> 'KubernetesCluster':
         """
         Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
@@ -2777,23 +2777,23 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArgs']] api_server_access_profile: An `api_server_access_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAciConnectorLinuxArrgs']] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterApiServerAccessProfileArrgs']] api_server_access_profile: An `api_server_access_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAutoScalerProfileArrgs']] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
                
                !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
                
                > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs']] azure_active_directory_role_based_access_control: A `azure_active_directory_role_based_access_control` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArrgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
                
                > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArrgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -2807,39 +2807,39 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArrgs']] http_proxy_config: A `http_proxy_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArrgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[bool] image_cleaner_enabled: Specifies whether Image Cleaner is enabled.
         :param pulumi.Input[int] image_cleaner_interval_hours: Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIngressApplicationGatewayArrgs']] ingress_application_gateway: A `ingress_application_gateway` block as defined below.
                
                > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyManagementServiceArrgs']] key_management_service: A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKeyVaultSecretsProviderArrgs']] key_vault_secrets_provider: A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArrgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']] kubelet_identity: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArrgs']]]] kube_configs: A `kube_config` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArrgs']] kubelet_identity: A `kubelet_identity` block as defined below.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
                > **Note:** Upgrading your cluster may take up to 10 minutes per node.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArrgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[bool] local_account_disabled: If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
                
                > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArgs']] microsoft_defender: A `microsoft_defender` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowArrgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowAutoUpgradeArrgs']] maintenance_window_auto_upgrade: A `maintenance_window_auto_upgrade` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMaintenanceWindowNodeOsArrgs']] maintenance_window_node_os: A `maintenance_window_node_os` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMicrosoftDefenderArrgs']] microsoft_defender: A `microsoft_defender` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterMonitorMetricsArrgs']] monitor_metrics: Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNetworkProfileArrgs']] network_profile: A `network_profile` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         :param pulumi.Input[str] node_os_channel_upgrade: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
@@ -2853,7 +2853,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
         :param pulumi.Input[bool] oidc_issuer_enabled: Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         :param pulumi.Input[str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArgs']] oms_agent: A `oms_agent` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterOmsAgentArrgs']] oms_agent: A `oms_agent` block as defined below.
         :param pulumi.Input[bool] open_service_mesh_enabled: Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         :param pulumi.Input[str] portal_fqdn: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
@@ -2890,20 +2890,20 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArrgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureServiceMeshPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArrgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArrgs']] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArrgs']] web_app_routing: A `web_app_routing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArrgs']] windows_profile: A `windows_profile` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArrgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
         :param pulumi.Input[bool] workload_identity_enabled: Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
                
                > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.

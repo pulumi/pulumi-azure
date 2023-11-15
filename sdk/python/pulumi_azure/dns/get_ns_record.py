@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNsRecordResult:
+calass GetNsRecordResult:
     """
     A collection of values returned by getNsRecord.
     """
@@ -103,7 +103,7 @@ class GetNsRecordResult:
         return pulumi.get(self, "zone_name")
 
 
-class AwaitableGetNsRecordResult(GetNsRecordResult):
+calass AwaitableGetNsRecordResult(GetNsRecordResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

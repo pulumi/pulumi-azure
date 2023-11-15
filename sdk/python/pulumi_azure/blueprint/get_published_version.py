@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublishedVersionResult:
+calass GetPublishedVersionResult:
     """
     A collection of values returned by getPublishedVersion.
     """
@@ -119,7 +119,7 @@ class GetPublishedVersionResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetPublishedVersionResult(GetPublishedVersionResult):
+calass AwaitableGetPublishedVersionResult(GetPublishedVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

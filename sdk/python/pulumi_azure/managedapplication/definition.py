@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DefinitionArgs', 'Definition']
+__all__ = ['DefinitionArrgs', 'Definition']
 
 @pulumi.input_type
-class DefinitionArgs:
+calass DefinitionArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  lock_level: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,7 +33,7 @@ class DefinitionArgs:
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
         :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -105,14 +105,14 @@ class DefinitionArgs:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]]:
         """
         One or more `authorization` block defined below.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @property
@@ -215,9 +215,9 @@ class DefinitionArgs:
 
 
 @pulumi.input_type
-class _DefinitionState:
+calass _DefinitionState:
     def __init__(__self__, *,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _DefinitionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
@@ -273,14 +273,14 @@ class _DefinitionState:
 
     @property
     @pulumi.getter
-    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]]:
         """
         One or more `authorization` block defined below.
         """
         return pulumi.get(self, "authorizations")
 
     @authorizations.setter
-    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArrgs']]]]):
         pulumi.set(self, "authorizations", value)
 
     @property
@@ -418,12 +418,12 @@ class _DefinitionState:
         pulumi.set(self, "tags", value)
 
 
-class Definition(pulumi.CustomResource):
+calass Definition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArrgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -454,7 +454,7 @@ class Definition(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedApplicationDefinition",
             description="Test Managed Application Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArrgs(
                 service_principal_id=current.object_id,
                 role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
             )])
@@ -470,7 +470,7 @@ class Definition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArrgs']]]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
@@ -489,7 +489,7 @@ class Definition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DefinitionArgs,
+                 args: DefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Application Definition.
@@ -509,7 +509,7 @@ class Definition(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedApplicationDefinition",
             description="Test Managed Application Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArrgs(
                 service_principal_id=current.object_id,
                 role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
             )])
@@ -524,12 +524,12 @@ class Definition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param DefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -538,7 +538,7 @@ class Definition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArrgs']]]]] = None,
                  create_ui_definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -557,7 +557,7 @@ class Definition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DefinitionArgs.__new__(DefinitionArgs)
+            __props__ = DefinitionArrgs.__new__(DefinitionArrgs)
 
             __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["create_ui_definition"] = create_ui_definition
@@ -587,7 +587,7 @@ class Definition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+            authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArrgs']]]]] = None,
             create_ui_definition: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
@@ -606,7 +606,7 @@ class Definition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArrgs']]]] authorizations: One or more `authorization` block defined below.
         :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
         :param pulumi.Input[str] description: Specifies the managed application definition description.
         :param pulumi.Input[str] display_name: Specifies the managed application definition display name.

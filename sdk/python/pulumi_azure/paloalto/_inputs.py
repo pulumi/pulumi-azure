@@ -10,37 +10,37 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LocalRulestackRuleCategoryArgs',
-    'LocalRulestackRuleDestinationArgs',
-    'LocalRulestackRuleSourceArgs',
-    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs',
-    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs',
-    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs',
-    'NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs',
-    'NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs',
-    'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs',
-    'NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs',
-    'NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs',
-    'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs',
-    'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs',
-    'NextGenerationFirewallVirtualHubPanoramaPanoramaArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs',
-    'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs',
-    'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs',
+    'LocalRulestackRuleCategoryArrgs',
+    'LocalRulestackRuleDestinationArrgs',
+    'LocalRulestackRuleSourceArrgs',
+    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrgs',
+    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArrgs',
+    'NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArrgs',
+    'NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArrgs',
+    'NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs',
+    'NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs',
+    'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs',
+    'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrgs',
 ]
 
 @pulumi.input_type
-class LocalRulestackRuleCategoryArgs:
+calass LocalRulestackRuleCategoryArrgs:
     def __init__(__self__, *,
                  custom_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
                  feeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -78,7 +78,7 @@ class LocalRulestackRuleCategoryArgs:
 
 
 @pulumi.input_type
-class LocalRulestackRuleDestinationArgs:
+calass LocalRulestackRuleDestinationArrgs:
     def __init__(__self__, *,
                  cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  countries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -173,7 +173,7 @@ class LocalRulestackRuleDestinationArgs:
 
 
 @pulumi.input_type
-class LocalRulestackRuleSourceArgs:
+calass LocalRulestackRuleSourceArrgs:
     def __init__(__self__, *,
                  cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  countries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -248,12 +248,12 @@ class LocalRulestackRuleSourceArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']] = None,
-                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']] = None):
+                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArrgs']] = None,
+                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArrgs']] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
         if backend_config is not None:
@@ -281,25 +281,25 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
 
     @property
     @pulumi.getter(name="backendConfig")
-    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']]:
+    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArrgs']]:
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
-    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']]):
+    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArrgs']]):
         pulumi.set(self, "backend_config", value)
 
     @property
     @pulumi.getter(name="frontendConfig")
-    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']]:
+    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArrgs']]:
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
-    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']]):
+    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArrgs']]):
         pulumi.set(self, "frontend_config", value)
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs:
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
@@ -326,7 +326,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs:
+calass NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
@@ -353,7 +353,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
+calass NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArrgs:
     def __init__(__self__, *,
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -394,7 +394,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
+calass NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArrgs:
     def __init__(__self__, *,
                  network_virtual_appliance_id: pulumi.Input[str],
                  public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -504,12 +504,12 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']] = None,
-                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']] = None):
+                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArrgs']] = None,
+                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArrgs']] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
         if backend_config is not None:
@@ -537,25 +537,25 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
 
     @property
     @pulumi.getter(name="backendConfig")
-    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']]:
+    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArrgs']]:
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
-    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']]):
+    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArrgs']]):
         pulumi.set(self, "backend_config", value)
 
     @property
     @pulumi.getter(name="frontendConfig")
-    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']]:
+    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArrgs']]:
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
-    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']]):
+    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArrgs']]):
         pulumi.set(self, "frontend_config", value)
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
@@ -582,7 +582,7 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
+calass NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
@@ -609,7 +609,7 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
+calass NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs:
     def __init__(__self__, *,
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -650,7 +650,7 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
+calass NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs:
     def __init__(__self__, *,
                  network_virtual_appliance_id: pulumi.Input[str],
                  public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -760,7 +760,7 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
+calass NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs:
     def __init__(__self__, *,
                  device_group_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
@@ -849,17 +849,17 @@ class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs']] = None,
-                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs']] = None):
+                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs']] = None,
+                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Destination NAT.
         :param pulumi.Input[str] protocol: The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs'] backend_config: A `backend_config` block as defined above.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs'] frontend_config: A `frontend_config` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -894,31 +894,31 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs:
 
     @property
     @pulumi.getter(name="backendConfig")
-    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs']]:
+    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs']]:
         """
         A `backend_config` block as defined above.
         """
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
-    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs']]):
+    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs']]):
         pulumi.set(self, "backend_config", value)
 
     @property
     @pulumi.getter(name="frontendConfig")
-    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs']]:
+    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs']]:
         """
         A `frontend_config` block as defined below.
         """
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
-    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs']]):
+    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs']]):
         pulumi.set(self, "frontend_config", value)
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
@@ -955,7 +955,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendCon
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
@@ -996,7 +996,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArrgs:
     def __init__(__self__, *,
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1047,16 +1047,16 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArrgs:
     def __init__(__self__, *,
                  public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs'],
+                 vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs'],
                  egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs'] vnet_configuration: A `vnet_configuration` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs'] vnet_configuration: A `vnet_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
@@ -1082,14 +1082,14 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="vnetConfiguration")
-    def vnet_configuration(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs']:
+    def vnet_configuration(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs']:
         """
         A `vnet_configuration` block as defined below.
         """
         return pulumi.get(self, "vnet_configuration")
 
     @vnet_configuration.setter
-    def vnet_configuration(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs']):
+    def vnet_configuration(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs']):
         pulumi.set(self, "vnet_configuration", value)
 
     @property
@@ -1124,7 +1124,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs:
+calass NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArrgs:
     def __init__(__self__, *,
                  virtual_network_id: pulumi.Input[str],
                  ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
@@ -1190,17 +1190,17 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfig
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  protocol: pulumi.Input[str],
-                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs']] = None,
-                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs']] = None):
+                 backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs']] = None,
+                 frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Destination NAT.
         :param pulumi.Input[str] protocol: The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs'] backend_config: A `backend_config` block as defined above.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs'] frontend_config: A `frontend_config` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocol", protocol)
@@ -1235,31 +1235,31 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs:
 
     @property
     @pulumi.getter(name="backendConfig")
-    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs']]:
+    def backend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs']]:
         """
         A `backend_config` block as defined above.
         """
         return pulumi.get(self, "backend_config")
 
     @backend_config.setter
-    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs']]):
+    def backend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs']]):
         pulumi.set(self, "backend_config", value)
 
     @property
     @pulumi.getter(name="frontendConfig")
-    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs']]:
+    def frontend_config(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs']]:
         """
         A `frontend_config` block as defined below.
         """
         return pulumi.get(self, "frontend_config")
 
     @frontend_config.setter
-    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs']]):
+    def frontend_config(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs']]):
         pulumi.set(self, "frontend_config", value)
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
@@ -1296,7 +1296,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArg
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
@@ -1337,7 +1337,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigAr
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArrgs:
     def __init__(__self__, *,
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1388,16 +1388,16 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArrgs:
     def __init__(__self__, *,
                  public_ip_address_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs'],
+                 vnet_configuration: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs'],
                  egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
-        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs'] vnet_configuration: A `vnet_configuration` block as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs'] vnet_configuration: A `vnet_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
@@ -1423,14 +1423,14 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="vnetConfiguration")
-    def vnet_configuration(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs']:
+    def vnet_configuration(self) -> pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs']:
         """
         A `vnet_configuration` block as defined below.
         """
         return pulumi.get(self, "vnet_configuration")
 
     @vnet_configuration.setter
-    def vnet_configuration(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs']):
+    def vnet_configuration(self, value: pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs']):
         pulumi.set(self, "vnet_configuration", value)
 
     @property
@@ -1465,7 +1465,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArrgs:
     def __init__(__self__, *,
                  virtual_network_id: pulumi.Input[str],
                  ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
@@ -1531,7 +1531,7 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguratio
 
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs:
+calass NextGenerationFirewallVirtualNetworkPanoramaPanoramaArrgs:
     def __init__(__self__, *,
                  device_group_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,

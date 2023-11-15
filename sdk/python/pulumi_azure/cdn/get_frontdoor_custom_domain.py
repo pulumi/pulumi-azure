@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorCustomDomainResult:
+calass GetFrontdoorCustomDomainResult:
     """
     A collection of values returned by getFrontdoorCustomDomain.
     """
@@ -123,7 +123,7 @@ class GetFrontdoorCustomDomainResult:
         return pulumi.get(self, "validation_token")
 
 
-class AwaitableGetFrontdoorCustomDomainResult(GetFrontdoorCustomDomainResult):
+calass AwaitableGetFrontdoorCustomDomainResult(GetFrontdoorCustomDomainResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

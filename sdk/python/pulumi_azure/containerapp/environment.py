@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnvironmentArgs', 'Environment']
+__all__ = ['EnvironmentArrgs', 'Environment']
 
 @pulumi.input_type
-class EnvironmentArgs:
+calass EnvironmentArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class EnvironmentArgs:
 
 
 @pulumi.input_type
-class _EnvironmentState:
+calass _EnvironmentState:
     def __init__(__self__, *,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
@@ -418,7 +418,7 @@ class _EnvironmentState:
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
-class Environment(pulumi.CustomResource):
+calass Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -484,7 +484,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: EnvironmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment.
@@ -516,12 +516,12 @@ class Environment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param EnvironmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -546,7 +546,7 @@ class Environment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
+            __props__ = EnvironmentArrgs.__new__(EnvironmentArrgs)
 
             __props__.__dict__["dapr_application_insights_connection_string"] = None if dapr_application_insights_connection_string is None else pulumi.Output.secret(dapr_application_insights_connection_string)
             __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id

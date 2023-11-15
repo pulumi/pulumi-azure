@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConfigurationKeysResult:
+calass GetConfigurationKeysResult:
     """
     A collection of values returned by getConfigurationKeys.
     """
@@ -77,7 +77,7 @@ class GetConfigurationKeysResult:
         return pulumi.get(self, "label")
 
 
-class AwaitableGetConfigurationKeysResult(GetConfigurationKeysResult):
+calass AwaitableGetConfigurationKeysResult(GetConfigurationKeysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

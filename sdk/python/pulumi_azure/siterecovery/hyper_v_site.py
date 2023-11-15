@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HyperVSiteArgs', 'HyperVSite']
+__all__ = ['HyperVSiteArrgs', 'HyperVSite']
 
 @pulumi.input_type
-class HyperVSiteArgs:
+calass HyperVSiteArrgs:
     def __init__(__self__, *,
                  recovery_vault_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class HyperVSiteArgs:
 
 
 @pulumi.input_type
-class _HyperVSiteState:
+calass _HyperVSiteState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _HyperVSiteState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
-class HyperVSite(pulumi.CustomResource):
+calass HyperVSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,7 +133,7 @@ class HyperVSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HyperVSiteArgs,
+                 args: HyperVSiteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a HyperV Site in Recovery Service Vault.
@@ -162,12 +162,12 @@ class HyperVSite(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HyperVSiteArgs args: The arguments to use to populate this resource's properties.
+        :param HyperVSiteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HyperVSiteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HyperVSiteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -185,7 +185,7 @@ class HyperVSite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HyperVSiteArgs.__new__(HyperVSiteArgs)
+            __props__ = HyperVSiteArrgs.__new__(HyperVSiteArrgs)
 
             __props__.__dict__["name"] = name
             if recovery_vault_id is None and not opts.urn:

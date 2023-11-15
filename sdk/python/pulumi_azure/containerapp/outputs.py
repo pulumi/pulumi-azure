@@ -68,7 +68,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppDapr(dict):
+calass AppDapr(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -131,7 +131,7 @@ class AppDapr(dict):
 
 
 @pulumi.output_type
-class AppIdentity(dict):
+calass AppIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -198,7 +198,7 @@ class AppIdentity(dict):
 
 
 @pulumi.output_type
-class AppIngress(dict):
+calass AppIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -237,11 +237,11 @@ class AppIngress(dict):
                  transport: Optional[str] = None):
         """
         :param int target_port: The target port on the container for the Ingress traffic.
-        :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
+        :param Sequence['AppIngressTrafficWeightArrgs'] traffic_weights: A `traffic_weight` block as detailed below.
                
                > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
-        :param 'AppIngressCustomDomainArgs' custom_domain: One or more `custom_domain` block as detailed below.
+        :param 'AppIngressCustomDomainArrgs' custom_domain: One or more `custom_domain` block as detailed below.
         :param int exposed_port: The exposed port on the container for the Ingress traffic.
                
                > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
@@ -334,7 +334,7 @@ class AppIngress(dict):
 
 
 @pulumi.output_type
-class AppIngressCustomDomain(dict):
+calass AppIngressCustomDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -394,7 +394,7 @@ class AppIngressCustomDomain(dict):
 
 
 @pulumi.output_type
-class AppIngressTrafficWeight(dict):
+calass AppIngressTrafficWeight(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -471,7 +471,7 @@ class AppIngressTrafficWeight(dict):
 
 
 @pulumi.output_type
-class AppRegistry(dict):
+calass AppRegistry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -546,7 +546,7 @@ class AppRegistry(dict):
 
 
 @pulumi.output_type
-class AppSecret(dict):
+calass AppSecret(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -579,7 +579,7 @@ class AppSecret(dict):
 
 
 @pulumi.output_type
-class AppTemplate(dict):
+calass AppTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -620,15 +620,15 @@ class AppTemplate(dict):
                  tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
                  volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None):
         """
-        :param Sequence['AppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
-        :param Sequence['AppTemplateAzureQueueScaleRuleArgs'] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
-        :param Sequence['AppTemplateCustomScaleRuleArgs'] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
-        :param Sequence['AppTemplateHttpScaleRuleArgs'] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateContainerArrgs'] containers: One or more `container` blocks as detailed below.
+        :param Sequence['AppTemplateAzureQueueScaleRuleArrgs'] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateCustomScaleRuleArrgs'] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateHttpScaleRuleArrgs'] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
-        :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
-        :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
+        :param Sequence['AppTemplateTcpScaleRuleArrgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateVolumeArrgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "containers", containers)
         if azure_queue_scale_rules is not None:
@@ -722,7 +722,7 @@ class AppTemplate(dict):
 
 
 @pulumi.output_type
-class AppTemplateAzureQueueScaleRule(dict):
+calass AppTemplateAzureQueueScaleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -748,7 +748,7 @@ class AppTemplateAzureQueueScaleRule(dict):
                  queue_length: int,
                  queue_name: str):
         """
-        :param Sequence['AppTemplateAzureQueueScaleRuleAuthenticationArgs'] authentications: One or more `authentication` blocks as defined below.
+        :param Sequence['AppTemplateAzureQueueScaleRuleAuthenticationArrgs'] authentications: One or more `authentication` blocks as defined below.
         :param str name: The name of the Scaling Rule
         :param int queue_length: The value of the length of the queue to trigger scaling actions.
         :param str queue_name: The name of the Azure Queue
@@ -792,7 +792,7 @@ class AppTemplateAzureQueueScaleRule(dict):
 
 
 @pulumi.output_type
-class AppTemplateAzureQueueScaleRuleAuthentication(dict):
+calass AppTemplateAzureQueueScaleRuleAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -840,7 +840,7 @@ class AppTemplateAzureQueueScaleRuleAuthentication(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainer(dict):
+calass AppTemplateContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -890,14 +890,14 @@ class AppTemplateContainer(dict):
         :param str name: The name of the container
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param Sequence['AppTemplateContainerEnvArrgs'] envs: One or more `env` blocks as detailed below.
         :param str ephemeral_storage: The amount of ephemeral storage available to the Container App. 
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
-        :param Sequence['AppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
-        :param Sequence['AppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
-        :param Sequence['AppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        :param Sequence['AppTemplateContainerLivenessProbeArrgs'] liveness_probes: A `liveness_probe` block as detailed below.
+        :param Sequence['AppTemplateContainerReadinessProbeArrgs'] readiness_probes: A `readiness_probe` block as detailed below.
+        :param Sequence['AppTemplateContainerStartupProbeArrgs'] startup_probes: A `startup_probe` block as detailed below.
+        :param Sequence['AppTemplateContainerVolumeMountArrgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "image", image)
@@ -1024,7 +1024,7 @@ class AppTemplateContainer(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerEnv(dict):
+calass AppTemplateContainerEnv(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1087,7 +1087,7 @@ class AppTemplateContainerEnv(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerLivenessProbe(dict):
+calass AppTemplateContainerLivenessProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1126,7 +1126,7 @@ class AppTemplateContainerLivenessProbe(dict):
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['AppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['AppTemplateContainerLivenessProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
@@ -1235,7 +1235,7 @@ class AppTemplateContainerLivenessProbe(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerLivenessProbeHeader(dict):
+calass AppTemplateContainerLivenessProbeHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1264,7 +1264,7 @@ class AppTemplateContainerLivenessProbeHeader(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerReadinessProbe(dict):
+calass AppTemplateContainerReadinessProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1300,7 +1300,7 @@ class AppTemplateContainerReadinessProbe(dict):
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['AppTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['AppTemplateContainerReadinessProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -1398,7 +1398,7 @@ class AppTemplateContainerReadinessProbe(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerReadinessProbeHeader(dict):
+calass AppTemplateContainerReadinessProbeHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1427,7 +1427,7 @@ class AppTemplateContainerReadinessProbeHeader(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerStartupProbe(dict):
+calass AppTemplateContainerStartupProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1463,7 +1463,7 @@ class AppTemplateContainerStartupProbe(dict):
         :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param str transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['AppTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['AppTemplateContainerStartupProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -1561,7 +1561,7 @@ class AppTemplateContainerStartupProbe(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerStartupProbeHeader(dict):
+calass AppTemplateContainerStartupProbeHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1590,7 +1590,7 @@ class AppTemplateContainerStartupProbeHeader(dict):
 
 
 @pulumi.output_type
-class AppTemplateContainerVolumeMount(dict):
+calass AppTemplateContainerVolumeMount(dict):
     def __init__(__self__, *,
                  name: str,
                  path: str):
@@ -1619,7 +1619,7 @@ class AppTemplateContainerVolumeMount(dict):
 
 
 @pulumi.output_type
-class AppTemplateCustomScaleRule(dict):
+calass AppTemplateCustomScaleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1646,7 +1646,7 @@ class AppTemplateCustomScaleRule(dict):
         :param str custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
         :param Mapping[str, str] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
         :param str name: The name of the Scaling Rule
-        :param Sequence['AppTemplateCustomScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        :param Sequence['AppTemplateCustomScaleRuleAuthenticationArrgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "custom_rule_type", custom_rule_type)
         pulumi.set(__self__, "metadata", metadata)
@@ -1688,7 +1688,7 @@ class AppTemplateCustomScaleRule(dict):
 
 
 @pulumi.output_type
-class AppTemplateCustomScaleRuleAuthentication(dict):
+calass AppTemplateCustomScaleRuleAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1736,7 +1736,7 @@ class AppTemplateCustomScaleRuleAuthentication(dict):
 
 
 @pulumi.output_type
-class AppTemplateHttpScaleRule(dict):
+calass AppTemplateHttpScaleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1761,7 +1761,7 @@ class AppTemplateHttpScaleRule(dict):
         """
         :param str concurrent_requests: The number of concurrent requests to trigger scaling.
         :param str name: The name of the Scaling Rule
-        :param Sequence['AppTemplateHttpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        :param Sequence['AppTemplateHttpScaleRuleAuthenticationArrgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "concurrent_requests", concurrent_requests)
         pulumi.set(__self__, "name", name)
@@ -1794,7 +1794,7 @@ class AppTemplateHttpScaleRule(dict):
 
 
 @pulumi.output_type
-class AppTemplateHttpScaleRuleAuthentication(dict):
+calass AppTemplateHttpScaleRuleAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1843,7 +1843,7 @@ class AppTemplateHttpScaleRuleAuthentication(dict):
 
 
 @pulumi.output_type
-class AppTemplateTcpScaleRule(dict):
+calass AppTemplateTcpScaleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1868,7 +1868,7 @@ class AppTemplateTcpScaleRule(dict):
         """
         :param str concurrent_requests: The number of concurrent requests to trigger scaling.
         :param str name: The name of the Scaling Rule
-        :param Sequence['AppTemplateTcpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
+        :param Sequence['AppTemplateTcpScaleRuleAuthenticationArrgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "concurrent_requests", concurrent_requests)
         pulumi.set(__self__, "name", name)
@@ -1901,7 +1901,7 @@ class AppTemplateTcpScaleRule(dict):
 
 
 @pulumi.output_type
-class AppTemplateTcpScaleRuleAuthentication(dict):
+calass AppTemplateTcpScaleRuleAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1950,7 +1950,7 @@ class AppTemplateTcpScaleRuleAuthentication(dict):
 
 
 @pulumi.output_type
-class AppTemplateVolume(dict):
+calass AppTemplateVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2011,7 +2011,7 @@ class AppTemplateVolume(dict):
 
 
 @pulumi.output_type
-class EnvironmentDaprComponentMetadata(dict):
+calass EnvironmentDaprComponentMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2070,7 +2070,7 @@ class EnvironmentDaprComponentMetadata(dict):
 
 
 @pulumi.output_type
-class EnvironmentDaprComponentSecret(dict):
+calass EnvironmentDaprComponentSecret(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2099,7 +2099,7 @@ class EnvironmentDaprComponentSecret(dict):
 
 
 @pulumi.output_type
-class GetAppDaprResult(dict):
+calass GetAppDaprResult(dict):
     def __init__(__self__, *,
                  app_id: str,
                  app_port: int,
@@ -2139,7 +2139,7 @@ class GetAppDaprResult(dict):
 
 
 @pulumi.output_type
-class GetAppIdentityResult(dict):
+calass GetAppIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -2182,7 +2182,7 @@ class GetAppIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetAppIngressResult(dict):
+calass GetAppIngressResult(dict):
     def __init__(__self__, *,
                  allow_insecure_connections: bool,
                  custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
@@ -2194,11 +2194,11 @@ class GetAppIngressResult(dict):
                  transport: str):
         """
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
-        :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
+        :param Sequence['GetAppIngressCustomDomainArrgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param bool external_enabled: Is this an external Ingress.
         :param str fqdn: The FQDN of the ingress.
         :param int target_port: The target port on the container for the Ingress traffic.
-        :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
+        :param Sequence['GetAppIngressTrafficWeightArrgs'] traffic_weights: A `traffic_weight` block as detailed below.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
         pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
@@ -2273,7 +2273,7 @@ class GetAppIngressResult(dict):
 
 
 @pulumi.output_type
-class GetAppIngressCustomDomainResult(dict):
+calass GetAppIngressCustomDomainResult(dict):
     def __init__(__self__, *,
                  certificate_binding_type: str,
                  certificate_id: str,
@@ -2313,7 +2313,7 @@ class GetAppIngressCustomDomainResult(dict):
 
 
 @pulumi.output_type
-class GetAppIngressTrafficWeightResult(dict):
+calass GetAppIngressTrafficWeightResult(dict):
     def __init__(__self__, *,
                  label: str,
                  latest_revision: bool,
@@ -2364,7 +2364,7 @@ class GetAppIngressTrafficWeightResult(dict):
 
 
 @pulumi.output_type
-class GetAppRegistryResult(dict):
+calass GetAppRegistryResult(dict):
     def __init__(__self__, *,
                  identity: str,
                  password_secret_name: str,
@@ -2415,7 +2415,7 @@ class GetAppRegistryResult(dict):
 
 
 @pulumi.output_type
-class GetAppSecretResult(dict):
+calass GetAppSecretResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2444,7 +2444,7 @@ class GetAppSecretResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateResult(dict):
+calass GetAppTemplateResult(dict):
     def __init__(__self__, *,
                  azure_queue_scale_rules: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult'],
                  containers: Sequence['outputs.GetAppTemplateContainerResult'],
@@ -2456,11 +2456,11 @@ class GetAppTemplateResult(dict):
                  volumes: Sequence['outputs.GetAppTemplateVolumeResult'],
                  custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None):
         """
-        :param Sequence['GetAppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
+        :param Sequence['GetAppTemplateContainerArrgs'] containers: One or more `container` blocks as detailed below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
-        :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
+        :param Sequence['GetAppTemplateVolumeArrgs'] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
         pulumi.set(__self__, "containers", containers)
@@ -2535,7 +2535,7 @@ class GetAppTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateAzureQueueScaleRuleResult(dict):
+calass GetAppTemplateAzureQueueScaleRuleResult(dict):
     def __init__(__self__, *,
                  authentications: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleAuthenticationResult'],
                  name: str,
@@ -2574,7 +2574,7 @@ class GetAppTemplateAzureQueueScaleRuleResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
+calass GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
     def __init__(__self__, *,
                  secret_name: str,
                  trigger_parameter: str):
@@ -2599,7 +2599,7 @@ class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerResult(dict):
+calass GetAppTemplateContainerResult(dict):
     def __init__(__self__, *,
                  args: Sequence[str],
                  commands: Sequence[str],
@@ -2617,15 +2617,15 @@ class GetAppTemplateContainerResult(dict):
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
-        :param Sequence['GetAppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param Sequence['GetAppTemplateContainerEnvArrgs'] envs: One or more `env` blocks as detailed below.
         :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
         :param str image: The image to use to create the container.
-        :param Sequence['GetAppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
+        :param Sequence['GetAppTemplateContainerLivenessProbeArrgs'] liveness_probes: A `liveness_probe` block as detailed below.
         :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
         :param str name: The name of the Container App.
-        :param Sequence['GetAppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
-        :param Sequence['GetAppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
-        :param Sequence['GetAppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        :param Sequence['GetAppTemplateContainerReadinessProbeArrgs'] readiness_probes: A `readiness_probe` block as detailed below.
+        :param Sequence['GetAppTemplateContainerStartupProbeArrgs'] startup_probes: A `startup_probe` block as detailed below.
+        :param Sequence['GetAppTemplateContainerVolumeMountArrgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "args", args)
         pulumi.set(__self__, "commands", commands)
@@ -2738,7 +2738,7 @@ class GetAppTemplateContainerResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerEnvResult(dict):
+calass GetAppTemplateContainerEnvResult(dict):
     def __init__(__self__, *,
                  name: str,
                  secret_name: str,
@@ -2778,7 +2778,7 @@ class GetAppTemplateContainerEnvResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerLivenessProbeResult(dict):
+calass GetAppTemplateContainerLivenessProbeResult(dict):
     def __init__(__self__, *,
                  failure_count_threshold: int,
                  headers: Sequence['outputs.GetAppTemplateContainerLivenessProbeHeaderResult'],
@@ -2792,7 +2792,7 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
                  transport: str):
         """
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['GetAppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['GetAppTemplateContainerLivenessProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
@@ -2895,7 +2895,7 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
+calass GetAppTemplateContainerLivenessProbeHeaderResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2924,7 +2924,7 @@ class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerReadinessProbeResult(dict):
+calass GetAppTemplateContainerReadinessProbeResult(dict):
     def __init__(__self__, *,
                  failure_count_threshold: int,
                  headers: Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult'],
@@ -2937,7 +2937,7 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
                  transport: str):
         """
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['GetAppTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['GetAppTemplateContainerReadinessProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The path in the container at which to mount this volume.
@@ -3030,7 +3030,7 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
+calass GetAppTemplateContainerReadinessProbeHeaderResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3059,7 +3059,7 @@ class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerStartupProbeResult(dict):
+calass GetAppTemplateContainerStartupProbeResult(dict):
     def __init__(__self__, *,
                  failure_count_threshold: int,
                  headers: Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult'],
@@ -3072,7 +3072,7 @@ class GetAppTemplateContainerStartupProbeResult(dict):
                  transport: str):
         """
         :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param Sequence['GetAppTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param Sequence['GetAppTemplateContainerStartupProbeHeaderArrgs'] headers: A `header` block as detailed below.
         :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param str path: The path in the container at which to mount this volume.
@@ -3165,7 +3165,7 @@ class GetAppTemplateContainerStartupProbeResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerStartupProbeHeaderResult(dict):
+calass GetAppTemplateContainerStartupProbeHeaderResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3194,7 +3194,7 @@ class GetAppTemplateContainerStartupProbeHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateContainerVolumeMountResult(dict):
+calass GetAppTemplateContainerVolumeMountResult(dict):
     def __init__(__self__, *,
                  name: str,
                  path: str):
@@ -3223,7 +3223,7 @@ class GetAppTemplateContainerVolumeMountResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateCustomScaleRuleResult(dict):
+calass GetAppTemplateCustomScaleRuleResult(dict):
     def __init__(__self__, *,
                  authentications: Sequence['outputs.GetAppTemplateCustomScaleRuleAuthenticationResult'],
                  custom_rule_type: str,
@@ -3262,7 +3262,7 @@ class GetAppTemplateCustomScaleRuleResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
+calass GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
     def __init__(__self__, *,
                  secret_name: str,
                  trigger_parameter: str):
@@ -3287,7 +3287,7 @@ class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateHttpScaleRuleResult(dict):
+calass GetAppTemplateHttpScaleRuleResult(dict):
     def __init__(__self__, *,
                  authentications: Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult'],
                  concurrent_requests: str,
@@ -3319,7 +3319,7 @@ class GetAppTemplateHttpScaleRuleResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
+calass GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
     def __init__(__self__, *,
                  secret_name: str,
                  trigger_parameter: str):
@@ -3344,7 +3344,7 @@ class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateTcpScaleRuleResult(dict):
+calass GetAppTemplateTcpScaleRuleResult(dict):
     def __init__(__self__, *,
                  authentications: Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult'],
                  concurrent_requests: str,
@@ -3376,7 +3376,7 @@ class GetAppTemplateTcpScaleRuleResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
+calass GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
     def __init__(__self__, *,
                  secret_name: str,
                  trigger_parameter: str):
@@ -3401,7 +3401,7 @@ class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetAppTemplateVolumeResult(dict):
+calass GetAppTemplateVolumeResult(dict):
     def __init__(__self__, *,
                  name: str,
                  storage_name: str,

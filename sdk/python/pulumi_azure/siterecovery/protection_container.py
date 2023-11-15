@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProtectionContainerArgs', 'ProtectionContainer']
+__all__ = ['ProtectionContainerArrgs', 'ProtectionContainer']
 
 @pulumi.input_type
-class ProtectionContainerArgs:
+calass ProtectionContainerArrgs:
     def __init__(__self__, *,
                  recovery_fabric_name: pulumi.Input[str],
                  recovery_vault_name: pulumi.Input[str],
@@ -81,7 +81,7 @@ class ProtectionContainerArgs:
 
 
 @pulumi.input_type
-class _ProtectionContainerState:
+calass _ProtectionContainerState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_fabric_name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _ProtectionContainerState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ProtectionContainer(pulumi.CustomResource):
+calass ProtectionContainer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,7 +206,7 @@ class ProtectionContainer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProtectionContainerArgs,
+                 args: ProtectionContainerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
@@ -242,12 +242,12 @@ class ProtectionContainer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.
+        :param ProtectionContainerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProtectionContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectionContainerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -267,7 +267,7 @@ class ProtectionContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProtectionContainerArgs.__new__(ProtectionContainerArgs)
+            __props__ = ProtectionContainerArrgs.__new__(ProtectionContainerArrgs)
 
             __props__.__dict__["name"] = name
             if recovery_fabric_name is None and not opts.urn:

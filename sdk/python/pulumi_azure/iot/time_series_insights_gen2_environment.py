@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TimeSeriesInsightsGen2EnvironmentArgs', 'TimeSeriesInsightsGen2Environment']
+__all__ = ['TimeSeriesInsightsGen2EnvironmentArrgs', 'TimeSeriesInsightsGen2Environment']
 
 @pulumi.input_type
-class TimeSeriesInsightsGen2EnvironmentArgs:
+calass TimeSeriesInsightsGen2EnvironmentArrgs:
     def __init__(__self__, *,
                  id_properties: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
-                 storage: pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'],
+                 storage: pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,7 +29,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_properties: A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'] storage: A `storage` block as defined below.
+        :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -86,14 +86,14 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def storage(self) -> pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']:
+    def storage(self) -> pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs']:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']):
+    def storage(self, value: pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs']):
         pulumi.set(self, "storage", value)
 
     @property
@@ -146,7 +146,7 @@ class TimeSeriesInsightsGen2EnvironmentArgs:
 
 
 @pulumi.input_type
-class _TimeSeriesInsightsGen2EnvironmentState:
+calass _TimeSeriesInsightsGen2EnvironmentState:
     def __init__(__self__, *,
                  data_access_fqdn: Optional[pulumi.Input[str]] = None,
                  id_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -154,7 +154,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']] = None,
+                 storage: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None):
         """
@@ -165,7 +165,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs'] storage: A `storage` block as defined below.
+        :param pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
@@ -262,14 +262,14 @@ class _TimeSeriesInsightsGen2EnvironmentState:
 
     @property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']]:
+    def storage(self) -> Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs']]:
         """
         A `storage` block as defined below.
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArgs']]):
+    def storage(self, value: Optional[pulumi.Input['TimeSeriesInsightsGen2EnvironmentStorageArrgs']]):
         pulumi.set(self, "storage", value)
 
     @property
@@ -297,7 +297,7 @@ class _TimeSeriesInsightsGen2EnvironmentState:
         pulumi.set(self, "warm_store_data_retention_time", value)
 
 
-class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
+calass TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -307,7 +307,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -332,7 +332,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=storage.name,
                 key=storage.primary_access_key,
             ))
@@ -353,7 +353,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArrgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
@@ -361,7 +361,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TimeSeriesInsightsGen2EnvironmentArgs,
+                 args: TimeSeriesInsightsGen2EnvironmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights Gen2 Environment.
@@ -384,7 +384,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=storage.name,
                 key=storage.primary_access_key,
             ))
@@ -399,12 +399,12 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TimeSeriesInsightsGen2EnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param TimeSeriesInsightsGen2EnvironmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsGen2EnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsGen2EnvironmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -418,7 +418,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -428,7 +428,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TimeSeriesInsightsGen2EnvironmentArgs.__new__(TimeSeriesInsightsGen2EnvironmentArgs)
+            __props__ = TimeSeriesInsightsGen2EnvironmentArrgs.__new__(TimeSeriesInsightsGen2EnvironmentArrgs)
 
             if id_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'id_properties'")
@@ -463,7 +463,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
-            storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+            storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             warm_store_data_retention_time: Optional[pulumi.Input[str]] = None) -> 'TimeSeriesInsightsGen2Environment':
         """
@@ -479,7 +479,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArrgs']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """

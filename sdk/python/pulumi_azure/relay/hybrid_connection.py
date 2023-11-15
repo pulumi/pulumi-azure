@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HybridConnectionArgs', 'HybridConnection']
+__all__ = ['HybridConnectionArrgs', 'HybridConnection']
 
 @pulumi.input_type
-class HybridConnectionArgs:
+calass HybridConnectionArrgs:
     def __init__(__self__, *,
                  relay_namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -98,7 +98,7 @@ class HybridConnectionArgs:
 
 
 @pulumi.input_type
-class _HybridConnectionState:
+calass _HybridConnectionState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  relay_namespace_name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _HybridConnectionState:
         pulumi.set(self, "user_metadata", value)
 
 
-class HybridConnection(pulumi.CustomResource):
+calass HybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class HybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HybridConnectionArgs,
+                 args: HybridConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Hybrid Connection.
@@ -275,12 +275,12 @@ class HybridConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param HybridConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class HybridConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HybridConnectionArgs.__new__(HybridConnectionArgs)
+            __props__ = HybridConnectionArrgs.__new__(HybridConnectionArrgs)
 
             __props__.__dict__["name"] = name
             if relay_namespace_name is None and not opts.urn:

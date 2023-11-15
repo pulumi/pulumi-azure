@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GatewayHostNameConfigurationArgs', 'GatewayHostNameConfiguration']
+__all__ = ['GatewayHostNameConfigurationArrgs', 'GatewayHostNameConfiguration']
 
 @pulumi.input_type
-class GatewayHostNameConfigurationArgs:
+calass GatewayHostNameConfigurationArrgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[str],
                  certificate_id: pulumi.Input[str],
@@ -160,7 +160,7 @@ class GatewayHostNameConfigurationArgs:
 
 
 @pulumi.input_type
-class _GatewayHostNameConfigurationState:
+calass _GatewayHostNameConfigurationState:
     def __init__(__self__, *,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
@@ -311,7 +311,7 @@ class _GatewayHostNameConfigurationState:
         pulumi.set(self, "tls11_enabled", value)
 
 
-class GatewayHostNameConfiguration(pulumi.CustomResource):
+calass GatewayHostNameConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -346,7 +346,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         example_gateway = azure.apimanagement.Gateway("exampleGateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
+            location_data=azure.apimanagement.GatewayLocationDataArrgs(
                 name="example name",
                 city="example city",
                 district="example district",
@@ -391,7 +391,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GatewayHostNameConfigurationArgs,
+                 args: GatewayHostNameConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Gateway Host Name Configuration.
@@ -413,7 +413,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         example_gateway = azure.apimanagement.Gateway("exampleGateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
+            location_data=azure.apimanagement.GatewayLocationDataArrgs(
                 name="example name",
                 city="example city",
                 district="example district",
@@ -443,12 +443,12 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GatewayHostNameConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param GatewayHostNameConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GatewayHostNameConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayHostNameConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -473,7 +473,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GatewayHostNameConfigurationArgs.__new__(GatewayHostNameConfigurationArgs)
+            __props__ = GatewayHostNameConfigurationArrgs.__new__(GatewayHostNameConfigurationArrgs)
 
             if api_management_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_id'")

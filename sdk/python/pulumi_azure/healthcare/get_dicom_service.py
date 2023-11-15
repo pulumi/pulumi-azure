@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDicomServiceResult:
+calass GetDicomServiceResult:
     """
     A collection of values returned by getDicomService.
     """
@@ -112,7 +112,7 @@ class GetDicomServiceResult:
         return pulumi.get(self, "workspace_id")
 
 
-class AwaitableGetDicomServiceResult(GetDicomServiceResult):
+calass AwaitableGetDicomServiceResult(GetDicomServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

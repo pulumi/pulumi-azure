@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkspaceArgs', 'Workspace']
+__all__ = ['WorkspaceArrgs', 'Workspace']
 
 @pulumi.input_type
-class WorkspaceArgs:
+calass WorkspaceArrgs:
     def __init__(__self__, *,
                  application_insights_id: pulumi.Input[str],
-                 identity: pulumi.Input['WorkspaceIdentityArgs'],
+                 identity: pulumi.Input['WorkspaceIdentityArrgs'],
                  key_vault_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArrgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +38,7 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkspaceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -48,7 +48,7 @@ class WorkspaceArgs:
                
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceEncryptionArrgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
@@ -114,14 +114,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['WorkspaceIdentityArgs']:
+    def identity(self) -> pulumi.Input['WorkspaceIdentityArrgs']:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['WorkspaceIdentityArgs']):
+    def identity(self, value: pulumi.Input['WorkspaceIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -190,14 +190,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArrgs']]:
         """
         An `encryption` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
@@ -339,16 +339,16 @@ class WorkspaceArgs:
 
 
 @pulumi.input_type
-class _WorkspaceState:
+calass _WorkspaceState:
     def __init__(__self__, *,
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+                 encryption: Optional[pulumi.Input['WorkspaceEncryptionArrgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WorkspaceIdentityArrgs']] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -370,10 +370,10 @@ class _WorkspaceState:
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-        :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceEncryptionArrgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkspaceIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -490,14 +490,14 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionArrgs']]:
         """
         An `encryption` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
@@ -526,14 +526,14 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -700,7 +700,7 @@ class _WorkspaceState:
         pulumi.set(self, "workspace_id", value)
 
 
-class Workspace(pulumi.CustomResource):
+calass Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -708,10 +708,10 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArrgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -754,7 +754,7 @@ class Workspace(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -816,10 +816,10 @@ class Workspace(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+            encryption=azure.machinelearning.WorkspaceEncryptionArrgs(
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
             ))
@@ -939,11 +939,11 @@ class Workspace(pulumi.CustomResource):
             storage_account_id=example_account.id,
             high_business_impact=True,
             primary_user_assigned_identity=example_user_assigned_identity.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+            encryption=azure.machinelearning.WorkspaceEncryptionArrgs(
                 user_assigned_identity_id=example_user_assigned_identity.id,
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
@@ -972,10 +972,10 @@ class Workspace(pulumi.CustomResource):
                
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArrgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -997,7 +997,7 @@ class Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceArgs,
+                 args: WorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -1028,7 +1028,7 @@ class Workspace(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -1090,10 +1090,10 @@ class Workspace(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+            encryption=azure.machinelearning.WorkspaceEncryptionArrgs(
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
             ))
@@ -1213,11 +1213,11 @@ class Workspace(pulumi.CustomResource):
             storage_account_id=example_account.id,
             high_business_impact=True,
             primary_user_assigned_identity=example_user_assigned_identity.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
-            encryption=azure.machinelearning.WorkspaceEncryptionArgs(
+            encryption=azure.machinelearning.WorkspaceEncryptionArrgs(
                 user_assigned_identity_id=example_user_assigned_identity.id,
                 key_vault_id=example_key_vault.id,
                 key_id=example_key.id,
@@ -1240,12 +1240,12 @@ class Workspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1257,10 +1257,10 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: Optional[pulumi.Input[str]] = None,
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArrgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1280,7 +1280,7 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
+            __props__ = WorkspaceArrgs.__new__(WorkspaceArrgs)
 
             if application_insights_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_insights_id'")
@@ -1327,10 +1327,10 @@ class Workspace(pulumi.CustomResource):
             container_registry_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             discovery_url: Optional[pulumi.Input[str]] = None,
-            encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArrgs']]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             high_business_impact: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']]] = None,
             image_build_compute_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1357,10 +1357,10 @@ class Workspace(pulumi.CustomResource):
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArrgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
-        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

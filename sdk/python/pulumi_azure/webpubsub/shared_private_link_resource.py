@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResource']
+__all__ = ['SharedPrivateLinkResourceArrgs', 'SharedPrivateLinkResource']
 
 @pulumi.input_type
-class SharedPrivateLinkResourceArgs:
+calass SharedPrivateLinkResourceArrgs:
     def __init__(__self__, *,
                  subresource_name: pulumi.Input[str],
                  target_resource_id: pulumi.Input[str],
@@ -105,7 +105,7 @@ class SharedPrivateLinkResourceArgs:
 
 
 @pulumi.input_type
-class _SharedPrivateLinkResourceState:
+calass _SharedPrivateLinkResourceState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  request_message: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _SharedPrivateLinkResourceState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
-class SharedPrivateLinkResource(pulumi.CustomResource):
+calass SharedPrivateLinkResource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -244,7 +244,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=["managecontacts"],
@@ -286,7 +286,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedPrivateLinkResourceArgs,
+                 args: SharedPrivateLinkResourceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Resource for a Web Pubsub service.
@@ -305,7 +305,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=["managecontacts"],
@@ -332,12 +332,12 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
+        :param SharedPrivateLinkResourceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedPrivateLinkResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedPrivateLinkResourceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -358,7 +358,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedPrivateLinkResourceArgs.__new__(SharedPrivateLinkResourceArgs)
+            __props__ = SharedPrivateLinkResourceArrgs.__new__(SharedPrivateLinkResourceArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["request_message"] = request_message

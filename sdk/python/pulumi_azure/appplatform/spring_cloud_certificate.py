@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudCertificateArgs', 'SpringCloudCertificate']
+__all__ = ['SpringCloudCertificateArrgs', 'SpringCloudCertificate']
 
 @pulumi.input_type
-class SpringCloudCertificateArgs:
+calass SpringCloudCertificateArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
@@ -114,7 +114,7 @@ class SpringCloudCertificateArgs:
 
 
 @pulumi.input_type
-class _SpringCloudCertificateState:
+calass _SpringCloudCertificateState:
     def __init__(__self__, *,
                  certificate_content: Optional[pulumi.Input[str]] = None,
                  exclude_private_key: Optional[pulumi.Input[bool]] = None,
@@ -233,7 +233,7 @@ class _SpringCloudCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
-class SpringCloudCertificate(pulumi.CustomResource):
+calass SpringCloudCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,7 +264,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     secret_permissions=["Set"],
@@ -275,7 +275,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "Update",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=example_service_principal.object_id,
                     secret_permissions=[
@@ -290,28 +290,28 @@ class SpringCloudCertificate(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArrgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArrgs(
                     name="Self",
                 ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArrgs(
                     exportable=True,
                     key_size=2048,
                     key_type="RSA",
                     reuse_key=True,
                 ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArrgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArrgs(
                         action_type="AutoRenew",
                     ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArrgs(
                         days_before_expiry=30,
                     ),
                 )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArrgs(
                     content_type="application/x-pkcs12",
                 ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArrgs(
                     key_usages=[
                         "cRLSign",
                         "dataEncipherment",
@@ -355,7 +355,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudCertificateArgs,
+                 args: SpringCloudCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Certificate.
@@ -376,7 +376,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     secret_permissions=["Set"],
@@ -387,7 +387,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "Update",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=example_service_principal.object_id,
                     secret_permissions=[
@@ -402,28 +402,28 @@ class SpringCloudCertificate(pulumi.CustomResource):
             ])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArrgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArrgs(
                     name="Self",
                 ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArrgs(
                     exportable=True,
                     key_size=2048,
                     key_type="RSA",
                     reuse_key=True,
                 ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArrgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArrgs(
                         action_type="AutoRenew",
                     ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArrgs(
                         days_before_expiry=30,
                     ),
                 )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArrgs(
                     content_type="application/x-pkcs12",
                 ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArrgs(
                     key_usages=[
                         "cRLSign",
                         "dataEncipherment",
@@ -455,12 +455,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -482,7 +482,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudCertificateArgs.__new__(SpringCloudCertificateArgs)
+            __props__ = SpringCloudCertificateArrgs.__new__(SpringCloudCertificateArrgs)
 
             __props__.__dict__["certificate_content"] = certificate_content
             __props__.__dict__["exclude_private_key"] = exclude_private_key

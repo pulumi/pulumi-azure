@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterManagedPrivateEndpointArgs', 'ClusterManagedPrivateEndpoint']
+__all__ = ['ClusterManagedPrivateEndpointArrgs', 'ClusterManagedPrivateEndpoint']
 
 @pulumi.input_type
-class ClusterManagedPrivateEndpointArgs:
+calass ClusterManagedPrivateEndpointArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  group_id: pulumi.Input[str],
@@ -128,7 +128,7 @@ class ClusterManagedPrivateEndpointArgs:
 
 
 @pulumi.input_type
-class _ClusterManagedPrivateEndpointState:
+calass _ClusterManagedPrivateEndpointState:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
@@ -247,7 +247,7 @@ class _ClusterManagedPrivateEndpointState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
+calass ClusterManagedPrivateEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,7 +274,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -314,7 +314,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterManagedPrivateEndpointArgs,
+                 args: ClusterManagedPrivateEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Private Endpoint for a Kusto Cluster.
@@ -330,7 +330,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
@@ -357,12 +357,12 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterManagedPrivateEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterManagedPrivateEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterManagedPrivateEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -385,7 +385,7 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterManagedPrivateEndpointArgs.__new__(ClusterManagedPrivateEndpointArgs)
+            __props__ = ClusterManagedPrivateEndpointArrgs.__new__(ClusterManagedPrivateEndpointArrgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

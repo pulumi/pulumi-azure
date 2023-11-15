@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ActiveRoleAssignmentSchedule(dict):
+calass ActiveRoleAssignmentSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42,7 +42,7 @@ class ActiveRoleAssignmentSchedule(dict):
                  expiration: Optional['outputs.ActiveRoleAssignmentScheduleExpiration'] = None,
                  start_date_time: Optional[str] = None):
         """
-        :param 'ActiveRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
+        :param 'ActiveRoleAssignmentScheduleExpirationArrgs' expiration: A `expiration` block as defined above.
         :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
         """
         if expiration is not None:
@@ -68,7 +68,7 @@ class ActiveRoleAssignmentSchedule(dict):
 
 
 @pulumi.output_type
-class ActiveRoleAssignmentScheduleExpiration(dict):
+calass ActiveRoleAssignmentScheduleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -132,7 +132,7 @@ class ActiveRoleAssignmentScheduleExpiration(dict):
 
 
 @pulumi.output_type
-class ActiveRoleAssignmentTicket(dict):
+calass ActiveRoleAssignmentTicket(dict):
     def __init__(__self__, *,
                  number: Optional[str] = None,
                  system: Optional[str] = None):
@@ -163,7 +163,7 @@ class ActiveRoleAssignmentTicket(dict):
 
 
 @pulumi.output_type
-class EligibleRoleAssignmentSchedule(dict):
+calass EligibleRoleAssignmentSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,7 +185,7 @@ class EligibleRoleAssignmentSchedule(dict):
                  expiration: Optional['outputs.EligibleRoleAssignmentScheduleExpiration'] = None,
                  start_date_time: Optional[str] = None):
         """
-        :param 'EligibleRoleAssignmentScheduleExpirationArgs' expiration: A `expiration` block as defined above.
+        :param 'EligibleRoleAssignmentScheduleExpirationArrgs' expiration: A `expiration` block as defined above.
         :param str start_date_time: The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
         """
         if expiration is not None:
@@ -211,7 +211,7 @@ class EligibleRoleAssignmentSchedule(dict):
 
 
 @pulumi.output_type
-class EligibleRoleAssignmentScheduleExpiration(dict):
+calass EligibleRoleAssignmentScheduleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -275,7 +275,7 @@ class EligibleRoleAssignmentScheduleExpiration(dict):
 
 
 @pulumi.output_type
-class EligibleRoleAssignmentTicket(dict):
+calass EligibleRoleAssignmentTicket(dict):
     def __init__(__self__, *,
                  number: Optional[str] = None,
                  system: Optional[str] = None):

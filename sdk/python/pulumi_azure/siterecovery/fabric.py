@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FabricArgs', 'Fabric']
+__all__ = ['FabricArrgs', 'Fabric']
 
 @pulumi.input_type
-class FabricArgs:
+calass FabricArrgs:
     def __init__(__self__, *,
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -82,7 +82,7 @@ class FabricArgs:
 
 
 @pulumi.input_type
-class _FabricState:
+calass _FabricState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _FabricState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class Fabric(pulumi.CustomResource):
+calass Fabric(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -203,7 +203,7 @@ class Fabric(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FabricArgs,
+                 args: FabricArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
@@ -235,12 +235,12 @@ class Fabric(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FabricArgs args: The arguments to use to populate this resource's properties.
+        :param FabricArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FabricArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FabricArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -260,7 +260,7 @@ class Fabric(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FabricArgs.__new__(FabricArgs)
+            __props__ = FabricArrgs.__new__(FabricArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

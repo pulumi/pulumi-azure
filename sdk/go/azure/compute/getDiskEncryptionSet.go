@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Disk Encryption Set.
@@ -115,12 +114,6 @@ func (o LookupDiskEncryptionSetResultOutput) ToLookupDiskEncryptionSetResultOutp
 
 func (o LookupDiskEncryptionSetResultOutput) ToLookupDiskEncryptionSetResultOutputWithContext(ctx context.Context) LookupDiskEncryptionSetResultOutput {
 	return o
-}
-
-func (o LookupDiskEncryptionSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDiskEncryptionSetResult] {
-	return pulumix.Output[LookupDiskEncryptionSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the Azure Disk Encryption Set Key automatically rotated to latest version?

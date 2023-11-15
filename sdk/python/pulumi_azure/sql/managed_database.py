@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedDatabaseArgs', 'ManagedDatabase']
+__all__ = ['ManagedDatabaseArrgs', 'ManagedDatabase']
 
 @pulumi.input_type
-class ManagedDatabaseArgs:
+calass ManagedDatabaseArrgs:
     def __init__(__self__, *,
                  sql_managed_instance_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class ManagedDatabaseArgs:
 
 
 @pulumi.input_type
-class _ManagedDatabaseState:
+calass _ManagedDatabaseState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _ManagedDatabaseState:
         pulumi.set(self, "sql_managed_instance_id", value)
 
 
-class ManagedDatabase(pulumi.CustomResource):
+calass ManagedDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,7 +184,7 @@ class ManagedDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedDatabaseArgs,
+                 args: ManagedDatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Azure Managed Database.
@@ -230,12 +230,12 @@ class ManagedDatabase(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedDatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedDatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -254,7 +254,7 @@ class ManagedDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedDatabaseArgs.__new__(ManagedDatabaseArgs)
+            __props__ = ManagedDatabaseArrgs.__new__(ManagedDatabaseArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

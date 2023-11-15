@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ProviderPolicyArgs',
+    'ProviderPolicyArrgs',
 ]
 
 @pulumi.input_type
-class ProviderPolicyArgs:
+calass ProviderPolicyArrgs:
     def __init__(__self__, *,
                  data: Optional[pulumi.Input[str]] = None,
                  environment_type: Optional[pulumi.Input[str]] = None):

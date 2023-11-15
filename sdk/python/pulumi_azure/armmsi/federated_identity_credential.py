@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FederatedIdentityCredentialArgs', 'FederatedIdentityCredential']
+__all__ = ['FederatedIdentityCredentialArrgs', 'FederatedIdentityCredential']
 
 @pulumi.input_type
-class FederatedIdentityCredentialArgs:
+calass FederatedIdentityCredentialArrgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[str],
                  issuer: pulumi.Input[str],
@@ -111,7 +111,7 @@ class FederatedIdentityCredentialArgs:
 
 
 @pulumi.input_type
-class _FederatedIdentityCredentialState:
+calass _FederatedIdentityCredentialState:
     def __init__(__self__, *,
                  audience: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _FederatedIdentityCredentialState:
         pulumi.set(self, "subject", value)
 
 
-class FederatedIdentityCredential(pulumi.CustomResource):
+calass FederatedIdentityCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FederatedIdentityCredentialArgs,
+                 args: FederatedIdentityCredentialArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Federated Identity Credential.
@@ -264,12 +264,12 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.
+        :param FederatedIdentityCredentialArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FederatedIdentityCredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FederatedIdentityCredentialArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FederatedIdentityCredentialArgs.__new__(FederatedIdentityCredentialArgs)
+            __props__ = FederatedIdentityCredentialArrgs.__new__(FederatedIdentityCredentialArrgs)
 
             if audience is None and not opts.urn:
                 raise TypeError("Missing required property 'audience'")

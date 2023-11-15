@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMariaDbServerResult:
+calass GetMariaDbServerResult:
     """
     A collection of values returned by getMariaDbServer.
     """
@@ -140,7 +140,7 @@ class GetMariaDbServerResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
+calass AwaitableGetMariaDbServerResult(GetMariaDbServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventGridTopicArgs', 'EventGridTopic']
+__all__ = ['EventGridTopicArrgs', 'EventGridTopic']
 
 @pulumi.input_type
-class EventGridTopicArgs:
+calass EventGridTopicArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['EventGridTopicIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
+                 identity: Optional[pulumi.Input['EventGridTopicIdentityArrgs']] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']] = None,
+                 input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,10 +30,10 @@ class EventGridTopicArgs:
         """
         The set of arguments for constructing a EventGridTopic resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventGridTopicIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventGridTopicInputMappingFieldsArrgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -77,50 +77,50 @@ class EventGridTopicArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @property
@@ -197,13 +197,13 @@ class EventGridTopicArgs:
 
 
 @pulumi.input_type
-class _EventGridTopicState:
+calass _EventGridTopicState:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['EventGridTopicIdentityArgs']] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']] = None,
-                 input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']] = None,
+                 identity: Optional[pulumi.Input['EventGridTopicIdentityArrgs']] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']] = None,
+                 input_mapping_fields: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -216,10 +216,10 @@ class _EventGridTopicState:
         """
         Input properties used for looking up and filtering EventGridTopic resources.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
-        :param pulumi.Input['EventGridTopicIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['EventGridTopicInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventGridTopicIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventGridTopicInputMappingFieldsArrgs'] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -273,50 +273,50 @@ class _EventGridTopicState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['EventGridTopicIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['EventGridTopicIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="inboundIpRules")
-    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]]:
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]]:
         """
         One or more `inbound_ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "inbound_ip_rules")
 
     @inbound_ip_rules.setter
-    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArgs']]]]):
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventGridTopicInboundIpRuleArrgs']]]]):
         pulumi.set(self, "inbound_ip_rules", value)
 
     @property
     @pulumi.getter(name="inputMappingDefaultValues")
-    def input_mapping_default_values(self) -> Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']]:
+    def input_mapping_default_values(self) -> Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']]:
         """
         A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_default_values")
 
     @input_mapping_default_values.setter
-    def input_mapping_default_values(self, value: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArgs']]):
+    def input_mapping_default_values(self, value: Optional[pulumi.Input['EventGridTopicInputMappingDefaultValuesArrgs']]):
         pulumi.set(self, "input_mapping_default_values", value)
 
     @property
     @pulumi.getter(name="inputMappingFields")
-    def input_mapping_fields(self) -> Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']]:
+    def input_mapping_fields(self) -> Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']]:
         """
         A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "input_mapping_fields")
 
     @input_mapping_fields.setter
-    def input_mapping_fields(self, value: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArgs']]):
+    def input_mapping_fields(self, value: Optional[pulumi.Input['EventGridTopicInputMappingFieldsArrgs']]):
         pulumi.set(self, "input_mapping_fields", value)
 
     @property
@@ -431,17 +431,17 @@ class _EventGridTopicState:
 warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic""", DeprecationWarning)
 
 
-class EventGridTopic(pulumi.CustomResource):
+calass EventGridTopic(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArrgs']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArrgs']]]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArrgs']]] = None,
+                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArrgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -480,10 +480,10 @@ class EventGridTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArrgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArrgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArrgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -496,7 +496,7 @@ class EventGridTopic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventGridTopicArgs,
+                 args: EventGridTopicArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EventGrid Topic
@@ -527,12 +527,12 @@ class EventGridTopic(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventGridTopicArgs args: The arguments to use to populate this resource's properties.
+        :param EventGridTopicArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventGridTopicArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventGridTopicArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -541,10 +541,10 @@ class EventGridTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
-                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
-                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
-                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArrgs']]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArrgs']]]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArrgs']]] = None,
+                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArrgs']]] = None,
                  input_schema: Optional[pulumi.Input[str]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -560,7 +560,7 @@ class EventGridTopic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventGridTopicArgs.__new__(EventGridTopicArgs)
+            __props__ = EventGridTopicArrgs.__new__(EventGridTopicArrgs)
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
@@ -591,10 +591,10 @@ class EventGridTopic(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']]] = None,
-            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]]] = None,
-            input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']]] = None,
-            input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['EventGridTopicIdentityArrgs']]] = None,
+            inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArrgs']]]]] = None,
+            input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArrgs']]] = None,
+            input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArrgs']]] = None,
             input_schema: Optional[pulumi.Input[str]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -612,10 +612,10 @@ class EventGridTopic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint: The Endpoint associated with the EventGrid Topic.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventGridTopicInboundIpRuleArrgs']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingDefaultValuesArrgs']] input_mapping_default_values: A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['EventGridTopicInputMappingFieldsArrgs']] input_mapping_fields: A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] local_auth_enabled: Whether local authentication methods is enabled for the EventGrid Topic. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

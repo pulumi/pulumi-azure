@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGatewayHostNameConfigurationResult:
+calass GetGatewayHostNameConfigurationResult:
     """
     A collection of values returned by getGatewayHostNameConfiguration.
     """
@@ -125,7 +125,7 @@ class GetGatewayHostNameConfigurationResult:
         return pulumi.get(self, "tls11_enabled")
 
 
-class AwaitableGetGatewayHostNameConfigurationResult(GetGatewayHostNameConfigurationResult):
+calass AwaitableGetGatewayHostNameConfigurationResult(GetGatewayHostNameConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

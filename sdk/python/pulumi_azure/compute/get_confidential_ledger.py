@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConfidentialLedgerResult:
+calass GetConfidentialLedgerResult:
     """
     A collection of values returned by getConfidentialLedger.
     """
@@ -123,7 +123,7 @@ class GetConfidentialLedgerResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetConfidentialLedgerResult(GetConfidentialLedgerResult):
+calass AwaitableGetConfidentialLedgerResult(GetConfidentialLedgerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

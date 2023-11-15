@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourcePolicyExemptionArgs', 'ResourcePolicyExemption']
+__all__ = ['ResourcePolicyExemptionArrgs', 'ResourcePolicyExemption']
 
 @pulumi.input_type
-class ResourcePolicyExemptionArgs:
+calass ResourcePolicyExemptionArrgs:
     def __init__(__self__, *,
                  exemption_category: pulumi.Input[str],
                  policy_assignment_id: pulumi.Input[str],
@@ -161,7 +161,7 @@ class ResourcePolicyExemptionArgs:
 
 
 @pulumi.input_type
-class _ResourcePolicyExemptionState:
+calass _ResourcePolicyExemptionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -312,7 +312,7 @@ class _ResourcePolicyExemptionState:
         pulumi.set(self, "resource_id", value)
 
 
-class ResourcePolicyExemption(pulumi.CustomResource):
+calass ResourcePolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -346,7 +346,7 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example_policy_set_definition.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
+            identity=azure.core.ResourcePolicyAssignmentIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("exampleResourcePolicyExemption",
@@ -379,7 +379,7 @@ class ResourcePolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourcePolicyExemptionArgs,
+                 args: ResourcePolicyExemptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Policy Exemption.
@@ -400,7 +400,7 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example_policy_set_definition.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
+            identity=azure.core.ResourcePolicyAssignmentIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("exampleResourcePolicyExemption",
@@ -418,12 +418,12 @@ class ResourcePolicyExemption(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourcePolicyExemptionArgs args: The arguments to use to populate this resource's properties.
+        :param ResourcePolicyExemptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyExemptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyExemptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -448,7 +448,7 @@ class ResourcePolicyExemption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourcePolicyExemptionArgs.__new__(ResourcePolicyExemptionArgs)
+            __props__ = ResourcePolicyExemptionArrgs.__new__(ResourcePolicyExemptionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

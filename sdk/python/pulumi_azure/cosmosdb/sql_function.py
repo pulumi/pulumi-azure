@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlFunctionArgs', 'SqlFunction']
+__all__ = ['SqlFunctionArrgs', 'SqlFunction']
 
 @pulumi.input_type
-class SqlFunctionArgs:
+calass SqlFunctionArrgs:
     def __init__(__self__, *,
                  body: pulumi.Input[str],
                  container_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class SqlFunctionArgs:
 
 
 @pulumi.input_type
-class _SqlFunctionState:
+calass _SqlFunctionState:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
                  container_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _SqlFunctionState:
         pulumi.set(self, "name", value)
 
 
-class SqlFunction(pulumi.CustomResource):
+calass SqlFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,7 +173,7 @@ class SqlFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlFunctionArgs,
+                 args: SqlFunctionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL User Defined Function.
@@ -209,12 +209,12 @@ class SqlFunction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlFunctionArgs args: The arguments to use to populate this resource's properties.
+        :param SqlFunctionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlFunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlFunctionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -233,7 +233,7 @@ class SqlFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlFunctionArgs.__new__(SqlFunctionArgs)
+            __props__ = SqlFunctionArrgs.__new__(SqlFunctionArrgs)
 
             if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")

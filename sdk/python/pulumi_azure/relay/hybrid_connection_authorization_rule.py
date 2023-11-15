@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HybridConnectionAuthorizationRuleArgs', 'HybridConnectionAuthorizationRule']
+__all__ = ['HybridConnectionAuthorizationRuleArrgs', 'HybridConnectionAuthorizationRule']
 
 @pulumi.input_type
-class HybridConnectionAuthorizationRuleArgs:
+calass HybridConnectionAuthorizationRuleArrgs:
     def __init__(__self__, *,
                  hybrid_connection_name: pulumi.Input[str],
                  namespace_name: pulumi.Input[str],
@@ -129,7 +129,7 @@ class HybridConnectionAuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _HybridConnectionAuthorizationRuleState:
+calass _HybridConnectionAuthorizationRuleState:
     def __init__(__self__, *,
                  hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                  listen: Optional[pulumi.Input[bool]] = None,
@@ -312,7 +312,7 @@ class _HybridConnectionAuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
-class HybridConnectionAuthorizationRule(pulumi.CustomResource):
+calass HybridConnectionAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,7 +378,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HybridConnectionAuthorizationRuleArgs,
+                 args: HybridConnectionAuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Relay Hybrid Connection Authorization Rule.
@@ -420,12 +420,12 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HybridConnectionAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param HybridConnectionAuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionAuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -448,7 +448,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HybridConnectionAuthorizationRuleArgs.__new__(HybridConnectionAuthorizationRuleArgs)
+            __props__ = HybridConnectionAuthorizationRuleArrgs.__new__(HybridConnectionAuthorizationRuleArrgs)
 
             if hybrid_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hybrid_connection_name'")

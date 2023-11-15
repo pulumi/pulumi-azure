@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMcaAccountScopeResult:
+calass GetMcaAccountScopeResult:
     """
     A collection of values returned by getMcaAccountScope.
     """
@@ -59,7 +59,7 @@ class GetMcaAccountScopeResult:
         return pulumi.get(self, "invoice_section_name")
 
 
-class AwaitableGetMcaAccountScopeResult(GetMcaAccountScopeResult):
+calass AwaitableGetMcaAccountScopeResult(GetMcaAccountScopeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

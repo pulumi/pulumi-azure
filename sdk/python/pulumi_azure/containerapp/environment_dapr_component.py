@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EnvironmentDaprComponentArgs', 'EnvironmentDaprComponent']
+__all__ = ['EnvironmentDaprComponentArrgs', 'EnvironmentDaprComponent']
 
 @pulumi.input_type
-class EnvironmentDaprComponentArgs:
+calass EnvironmentDaprComponentArrgs:
     def __init__(__self__, *,
                  component_type: pulumi.Input[str],
                  container_app_environment_id: pulumi.Input[str],
                  version: pulumi.Input[str],
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None):
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentDaprComponent resource.
         :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`.
@@ -32,12 +32,12 @@ class EnvironmentDaprComponentArgs:
         :param pulumi.Input[str] version: The version of the component.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
                
                > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]] secrets: A `secret` block as detailed below.
         """
         pulumi.set(__self__, "component_type", component_type)
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -117,14 +117,14 @@ class EnvironmentDaprComponentArgs:
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
+    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]]:
         """
         One or more `metadata` blocks as detailed below.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
+    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @property
@@ -155,28 +155,28 @@ class EnvironmentDaprComponentArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]]:
         """
         A `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
 
 @pulumi.input_type
-class _EnvironmentDaprComponentState:
+calass _EnvironmentDaprComponentState:
     def __init__(__self__, *,
                  component_type: Optional[pulumi.Input[str]] = None,
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentDaprComponent resources.
@@ -184,12 +184,12 @@ class _EnvironmentDaprComponentState:
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
                
                > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[str] version: The version of the component.
         """
         if component_type is not None:
@@ -261,14 +261,14 @@ class _EnvironmentDaprComponentState:
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]:
+    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]]:
         """
         One or more `metadata` blocks as detailed below.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]]]):
+    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArrgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @property
@@ -299,14 +299,14 @@ class _EnvironmentDaprComponentState:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]]:
         """
         A `secret` block as detailed below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -322,7 +322,7 @@ class _EnvironmentDaprComponentState:
         pulumi.set(self, "version", value)
 
 
-class EnvironmentDaprComponent(pulumi.CustomResource):
+calass EnvironmentDaprComponent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -331,10 +331,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArrgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -376,19 +376,19 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArrgs']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
                
                > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArgs']]]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArrgs']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[str] version: The version of the component.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentDaprComponentArgs,
+                 args: EnvironmentDaprComponentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dapr Component for a Container App Environment.
@@ -424,12 +424,12 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentDaprComponentArgs args: The arguments to use to populate this resource's properties.
+        :param EnvironmentDaprComponentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentDaprComponentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentDaprComponentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -442,10 +442,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
                  container_app_environment_id: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArgs']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArrgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -454,7 +454,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentDaprComponentArgs.__new__(EnvironmentDaprComponentArgs)
+            __props__ = EnvironmentDaprComponentArrgs.__new__(EnvironmentDaprComponentArrgs)
 
             if component_type is None and not opts.urn:
                 raise TypeError("Missing required property 'component_type'")
@@ -487,10 +487,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             container_app_environment_id: Optional[pulumi.Input[str]] = None,
             ignore_errors: Optional[pulumi.Input[bool]] = None,
             init_timeout: Optional[pulumi.Input[str]] = None,
-            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]]] = None,
+            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArgs']]]]] = None,
+            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArrgs']]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'EnvironmentDaprComponent':
         """
         Get an existing EnvironmentDaprComponent resource's state with the given name, id, and optional extra
@@ -503,12 +503,12 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArrgs']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
                
                > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArgs']]]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentSecretArrgs']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[str] version: The version of the component.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

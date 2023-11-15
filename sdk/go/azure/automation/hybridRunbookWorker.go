@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Automation Hybrid Runbook Worker.
@@ -305,12 +304,6 @@ func (i *HybridRunbookWorker) ToHybridRunbookWorkerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(HybridRunbookWorkerOutput)
 }
 
-func (i *HybridRunbookWorker) ToOutput(ctx context.Context) pulumix.Output[*HybridRunbookWorker] {
-	return pulumix.Output[*HybridRunbookWorker]{
-		OutputState: i.ToHybridRunbookWorkerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HybridRunbookWorkerArrayInput is an input type that accepts HybridRunbookWorkerArray and HybridRunbookWorkerArrayOutput values.
 // You can construct a concrete instance of `HybridRunbookWorkerArrayInput` via:
 //
@@ -334,12 +327,6 @@ func (i HybridRunbookWorkerArray) ToHybridRunbookWorkerArrayOutput() HybridRunbo
 
 func (i HybridRunbookWorkerArray) ToHybridRunbookWorkerArrayOutputWithContext(ctx context.Context) HybridRunbookWorkerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HybridRunbookWorkerArrayOutput)
-}
-
-func (i HybridRunbookWorkerArray) ToOutput(ctx context.Context) pulumix.Output[[]*HybridRunbookWorker] {
-	return pulumix.Output[[]*HybridRunbookWorker]{
-		OutputState: i.ToHybridRunbookWorkerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HybridRunbookWorkerMapInput is an input type that accepts HybridRunbookWorkerMap and HybridRunbookWorkerMapOutput values.
@@ -367,12 +354,6 @@ func (i HybridRunbookWorkerMap) ToHybridRunbookWorkerMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HybridRunbookWorkerMapOutput)
 }
 
-func (i HybridRunbookWorkerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridRunbookWorker] {
-	return pulumix.Output[map[string]*HybridRunbookWorker]{
-		OutputState: i.ToHybridRunbookWorkerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HybridRunbookWorkerOutput struct{ *pulumi.OutputState }
 
 func (HybridRunbookWorkerOutput) ElementType() reflect.Type {
@@ -385,12 +366,6 @@ func (o HybridRunbookWorkerOutput) ToHybridRunbookWorkerOutput() HybridRunbookWo
 
 func (o HybridRunbookWorkerOutput) ToHybridRunbookWorkerOutputWithContext(ctx context.Context) HybridRunbookWorkerOutput {
 	return o
-}
-
-func (o HybridRunbookWorkerOutput) ToOutput(ctx context.Context) pulumix.Output[*HybridRunbookWorker] {
-	return pulumix.Output[*HybridRunbookWorker]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
@@ -457,12 +432,6 @@ func (o HybridRunbookWorkerArrayOutput) ToHybridRunbookWorkerArrayOutputWithCont
 	return o
 }
 
-func (o HybridRunbookWorkerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HybridRunbookWorker] {
-	return pulumix.Output[[]*HybridRunbookWorker]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HybridRunbookWorkerArrayOutput) Index(i pulumi.IntInput) HybridRunbookWorkerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HybridRunbookWorker {
 		return vs[0].([]*HybridRunbookWorker)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o HybridRunbookWorkerMapOutput) ToHybridRunbookWorkerMapOutput() HybridRun
 
 func (o HybridRunbookWorkerMapOutput) ToHybridRunbookWorkerMapOutputWithContext(ctx context.Context) HybridRunbookWorkerMapOutput {
 	return o
-}
-
-func (o HybridRunbookWorkerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HybridRunbookWorker] {
-	return pulumix.Output[map[string]*HybridRunbookWorker]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HybridRunbookWorkerMapOutput) MapIndex(k pulumi.StringInput) HybridRunbookWorkerOutput {

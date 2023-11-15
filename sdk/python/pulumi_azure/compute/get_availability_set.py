@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAvailabilitySetResult:
+calass GetAvailabilitySetResult:
     """
     A collection of values returned by getAvailabilitySet.
     """
@@ -106,7 +106,7 @@ class GetAvailabilitySetResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
+calass AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

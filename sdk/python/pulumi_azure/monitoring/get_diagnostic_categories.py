@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDiagnosticCategoriesResult:
+calass GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
@@ -90,7 +90,7 @@ class GetDiagnosticCategoriesResult:
         return pulumi.get(self, "resource_id")
 
 
-class AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
+calass AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

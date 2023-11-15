@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverForwardingRuleResult:
+calass GetResolverForwardingRuleResult:
     """
     A collection of values returned by getResolverForwardingRule.
     """
@@ -96,7 +96,7 @@ class GetResolverForwardingRuleResult:
         return pulumi.get(self, "target_dns_servers")
 
 
-class AwaitableGetResolverForwardingRuleResult(GetResolverForwardingRuleResult):
+calass AwaitableGetResolverForwardingRuleResult(GetResolverForwardingRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AnalyzerArgs', 'Analyzer']
+__all__ = ['AnalyzerArrgs', 'Analyzer']
 
 @pulumi.input_type
-class AnalyzerArgs:
+calass AnalyzerArrgs:
     def __init__(__self__, *,
-                 identity: pulumi.Input['AnalyzerIdentityArgs'],
+                 identity: pulumi.Input['AnalyzerIdentityArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 storage_account: pulumi.Input['AnalyzerStorageAccountArgs'],
+                 storage_account: pulumi.Input['AnalyzerStorageAccountArrgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AnalyzerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input['AnalyzerStorageAccountArrgs'] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
@@ -43,14 +43,14 @@ class AnalyzerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['AnalyzerIdentityArgs']:
+    def identity(self) -> pulumi.Input['AnalyzerIdentityArrgs']:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['AnalyzerIdentityArgs']):
+    def identity(self, value: pulumi.Input['AnalyzerIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -67,14 +67,14 @@ class AnalyzerArgs:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> pulumi.Input['AnalyzerStorageAccountArgs']:
+    def storage_account(self) -> pulumi.Input['AnalyzerStorageAccountArrgs']:
         """
         A `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: pulumi.Input['AnalyzerStorageAccountArgs']):
+    def storage_account(self, value: pulumi.Input['AnalyzerStorageAccountArrgs']):
         pulumi.set(self, "storage_account", value)
 
     @property
@@ -115,21 +115,21 @@ class AnalyzerArgs:
 
 
 @pulumi.input_type
-class _AnalyzerState:
+calass _AnalyzerState:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['AnalyzerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['AnalyzerIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArgs']] = None,
+                 storage_account: Optional[pulumi.Input['AnalyzerStorageAccountArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Analyzer resources.
-        :param pulumi.Input['AnalyzerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AnalyzerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input['AnalyzerStorageAccountArgs'] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input['AnalyzerStorageAccountArrgs'] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         if identity is not None:
@@ -147,14 +147,14 @@ class _AnalyzerState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AnalyzerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AnalyzerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AnalyzerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AnalyzerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -195,14 +195,14 @@ class _AnalyzerState:
 
     @property
     @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[pulumi.Input['AnalyzerStorageAccountArgs']]:
+    def storage_account(self) -> Optional[pulumi.Input['AnalyzerStorageAccountArrgs']]:
         """
         A `storage_account` block as defined below.
         """
         return pulumi.get(self, "storage_account")
 
     @storage_account.setter
-    def storage_account(self, value: Optional[pulumi.Input['AnalyzerStorageAccountArgs']]):
+    def storage_account(self, value: Optional[pulumi.Input['AnalyzerStorageAccountArrgs']]):
         pulumi.set(self, "storage_account", value)
 
     @property
@@ -218,16 +218,16 @@ class _AnalyzerState:
         pulumi.set(self, "tags", value)
 
 
-class Analyzer(pulumi.CustomResource):
+calass Analyzer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -261,11 +261,11 @@ class Analyzer(pulumi.CustomResource):
         example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArrgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
             ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+            identity=azure.videoanalyzer.AnalyzerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -288,18 +288,18 @@ class Analyzer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArrgs']] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AnalyzerArgs,
+                 args: AnalyzerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Video Analyzer.
@@ -332,11 +332,11 @@ class Analyzer(pulumi.CustomResource):
         example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArrgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
             ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+            identity=azure.videoanalyzer.AnalyzerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -358,12 +358,12 @@ class Analyzer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AnalyzerArgs args: The arguments to use to populate this resource's properties.
+        :param AnalyzerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AnalyzerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyzerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -372,11 +372,11 @@ class Analyzer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -385,7 +385,7 @@ class Analyzer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
+            __props__ = AnalyzerArrgs.__new__(AnalyzerArrgs)
 
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
@@ -409,11 +409,11 @@ class Analyzer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AnalyzerIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']]] = None,
+            storage_account: Optional[pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Analyzer':
         """
         Get an existing Analyzer resource's state with the given name, id, and optional extra
@@ -422,11 +422,11 @@ class Analyzer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArgs']] storage_account: A `storage_account` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AnalyzerStorageAccountArrgs']] storage_account: A `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

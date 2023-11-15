@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CosmosdbDataConnectionArgs', 'CosmosdbDataConnection']
+__all__ = ['CosmosdbDataConnectionArrgs', 'CosmosdbDataConnection']
 
 @pulumi.input_type
-class CosmosdbDataConnectionArgs:
+calass CosmosdbDataConnectionArrgs:
     def __init__(__self__, *,
                  cosmosdb_container_id: pulumi.Input[str],
                  kusto_database_id: pulumi.Input[str],
@@ -144,7 +144,7 @@ class CosmosdbDataConnectionArgs:
 
 
 @pulumi.input_type
-class _CosmosdbDataConnectionState:
+calass _CosmosdbDataConnectionState:
     def __init__(__self__, *,
                  cosmosdb_container_id: Optional[pulumi.Input[str]] = None,
                  kusto_database_id: Optional[pulumi.Input[str]] = None,
@@ -279,7 +279,7 @@ class _CosmosdbDataConnectionState:
         pulumi.set(self, "table_name", value)
 
 
-class CosmosdbDataConnection(pulumi.CustomResource):
+calass CosmosdbDataConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -308,11 +308,11 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ),
-            identity=azure.kusto.ClusterIdentityArgs(
+            identity=azure.kusto.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -324,12 +324,12 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Session",
                 max_interval_in_seconds=5,
                 max_staleness_prefix=100,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -400,7 +400,7 @@ class CosmosdbDataConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CosmosdbDataConnectionArgs,
+                 args: CosmosdbDataConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto / Cosmos Database Data Connection.
@@ -417,11 +417,11 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         example_cluster = azure.kusto.Cluster("exampleCluster",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ),
-            identity=azure.kusto.ClusterIdentityArgs(
+            identity=azure.kusto.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -433,12 +433,12 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Session",
                 max_interval_in_seconds=5,
                 max_staleness_prefix=100,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -495,12 +495,12 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CosmosdbDataConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param CosmosdbDataConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CosmosdbDataConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CosmosdbDataConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -524,7 +524,7 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CosmosdbDataConnectionArgs.__new__(CosmosdbDataConnectionArgs)
+            __props__ = CosmosdbDataConnectionArrgs.__new__(CosmosdbDataConnectionArrgs)
 
             if cosmosdb_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmosdb_container_id'")

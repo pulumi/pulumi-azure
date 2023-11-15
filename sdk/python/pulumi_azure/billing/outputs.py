@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountCostManagementExportExportDataOptions(dict):
+calass AccountCostManagementExportExportDataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,7 +61,7 @@ class AccountCostManagementExportExportDataOptions(dict):
 
 
 @pulumi.output_type
-class AccountCostManagementExportExportDataStorageLocation(dict):
+calass AccountCostManagementExportExportDataStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

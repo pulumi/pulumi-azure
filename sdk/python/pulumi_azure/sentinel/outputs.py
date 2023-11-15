@@ -65,7 +65,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
+calass AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -137,7 +137,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
+calass AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  exclude: Optional[str] = None,
@@ -192,7 +192,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyBuiltInRequiredDataConnector(dict):
+calass AlertRuleAnomalyBuiltInRequiredDataConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,7 +242,7 @@ class AlertRuleAnomalyBuiltInRequiredDataConnector(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
+calass AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyBuiltInThresholdObservation(dict):
+calass AlertRuleAnomalyBuiltInThresholdObservation(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  max: Optional[str] = None,
@@ -381,7 +381,7 @@ class AlertRuleAnomalyBuiltInThresholdObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyDuplicateMultiSelectObservation(dict):
+calass AlertRuleAnomalyDuplicateMultiSelectObservation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -451,7 +451,7 @@ class AlertRuleAnomalyDuplicateMultiSelectObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyDuplicatePrioritizedExcludeObservation(dict):
+calass AlertRuleAnomalyDuplicatePrioritizedExcludeObservation(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -505,7 +505,7 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyDuplicateRequiredDataConnector(dict):
+calass AlertRuleAnomalyDuplicateRequiredDataConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -555,7 +555,7 @@ class AlertRuleAnomalyDuplicateRequiredDataConnector(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyDuplicateSingleSelectObservation(dict):
+calass AlertRuleAnomalyDuplicateSingleSelectObservation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -625,7 +625,7 @@ class AlertRuleAnomalyDuplicateSingleSelectObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleAnomalyDuplicateThresholdObservation(dict):
+calass AlertRuleAnomalyDuplicateThresholdObservation(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -690,7 +690,7 @@ class AlertRuleAnomalyDuplicateThresholdObservation(dict):
 
 
 @pulumi.output_type
-class AlertRuleFusionSource(dict):
+calass AlertRuleFusionSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -715,7 +715,7 @@ class AlertRuleFusionSource(dict):
         """
         :param str name: The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
         :param bool enabled: Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
-        :param Sequence['AlertRuleFusionSourceSubTypeArgs'] sub_types: One or more `sub_type` blocks as defined below.
+        :param Sequence['AlertRuleFusionSourceSubTypeArrgs'] sub_types: One or more `sub_type` blocks as defined below.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
@@ -749,7 +749,7 @@ class AlertRuleFusionSource(dict):
 
 
 @pulumi.output_type
-class AlertRuleFusionSourceSubType(dict):
+calass AlertRuleFusionSourceSubType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -807,7 +807,7 @@ class AlertRuleFusionSourceSubType(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtAlertDetailsOverride(dict):
+calass AlertRuleNrtAlertDetailsOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -842,7 +842,7 @@ class AlertRuleNrtAlertDetailsOverride(dict):
         """
         :param str description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param str display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        :param Sequence['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs'] dynamic_properties: A list of `dynamic_property` blocks as defined below.
+        :param Sequence['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs'] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param str severity_column_name: The column name to take the alert severity from.
         :param str tactics_column_name: The column name to take the alert tactics from.
         """
@@ -899,7 +899,7 @@ class AlertRuleNrtAlertDetailsOverride(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtAlertDetailsOverrideDynamicProperty(dict):
+calass AlertRuleNrtAlertDetailsOverrideDynamicProperty(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -928,7 +928,7 @@ class AlertRuleNrtAlertDetailsOverrideDynamicProperty(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtEntityMapping(dict):
+calass AlertRuleNrtEntityMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -953,7 +953,7 @@ class AlertRuleNrtEntityMapping(dict):
                  field_mappings: Sequence['outputs.AlertRuleNrtEntityMappingFieldMapping']):
         """
         :param str entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        :param Sequence['AlertRuleNrtEntityMappingFieldMappingArgs'] field_mappings: A list of `field_mapping` blocks as defined below.
+        :param Sequence['AlertRuleNrtEntityMappingFieldMappingArrgs'] field_mappings: A list of `field_mapping` blocks as defined below.
         """
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "field_mappings", field_mappings)
@@ -976,7 +976,7 @@ class AlertRuleNrtEntityMapping(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtEntityMappingFieldMapping(dict):
+calass AlertRuleNrtEntityMappingFieldMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1022,7 +1022,7 @@ class AlertRuleNrtEntityMappingFieldMapping(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtEventGrouping(dict):
+calass AlertRuleNrtEventGrouping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1057,7 +1057,7 @@ class AlertRuleNrtEventGrouping(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtIncident(dict):
+calass AlertRuleNrtIncident(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1080,7 +1080,7 @@ class AlertRuleNrtIncident(dict):
                  grouping: 'outputs.AlertRuleNrtIncidentGrouping'):
         """
         :param bool create_incident_enabled: Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
-        :param 'AlertRuleNrtIncidentGroupingArgs' grouping: A `grouping` block as defined below.
+        :param 'AlertRuleNrtIncidentGroupingArrgs' grouping: A `grouping` block as defined below.
         """
         pulumi.set(__self__, "create_incident_enabled", create_incident_enabled)
         pulumi.set(__self__, "grouping", grouping)
@@ -1103,7 +1103,7 @@ class AlertRuleNrtIncident(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtIncidentGrouping(dict):
+calass AlertRuleNrtIncidentGrouping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1221,7 +1221,7 @@ class AlertRuleNrtIncidentGrouping(dict):
 
 
 @pulumi.output_type
-class AlertRuleNrtSentinelEntityMapping(dict):
+calass AlertRuleNrtSentinelEntityMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1256,7 +1256,7 @@ class AlertRuleNrtSentinelEntityMapping(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledAlertDetailsOverride(dict):
+calass AlertRuleScheduledAlertDetailsOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1291,7 +1291,7 @@ class AlertRuleScheduledAlertDetailsOverride(dict):
         """
         :param str description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param str display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        :param Sequence['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs'] dynamic_properties: A list of `dynamic_property` blocks as defined below.
+        :param Sequence['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs'] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param str severity_column_name: The column name to take the alert severity from.
         :param str tactics_column_name: The column name to take the alert tactics from.
         """
@@ -1348,7 +1348,7 @@ class AlertRuleScheduledAlertDetailsOverride(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledAlertDetailsOverrideDynamicProperty(dict):
+calass AlertRuleScheduledAlertDetailsOverrideDynamicProperty(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1377,7 +1377,7 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicProperty(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledEntityMapping(dict):
+calass AlertRuleScheduledEntityMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1402,7 +1402,7 @@ class AlertRuleScheduledEntityMapping(dict):
                  field_mappings: Sequence['outputs.AlertRuleScheduledEntityMappingFieldMapping']):
         """
         :param str entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        :param Sequence['AlertRuleScheduledEntityMappingFieldMappingArgs'] field_mappings: A list of `field_mapping` blocks as defined below.
+        :param Sequence['AlertRuleScheduledEntityMappingFieldMappingArrgs'] field_mappings: A list of `field_mapping` blocks as defined below.
         """
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "field_mappings", field_mappings)
@@ -1425,7 +1425,7 @@ class AlertRuleScheduledEntityMapping(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledEntityMappingFieldMapping(dict):
+calass AlertRuleScheduledEntityMappingFieldMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1471,7 +1471,7 @@ class AlertRuleScheduledEntityMappingFieldMapping(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledEventGrouping(dict):
+calass AlertRuleScheduledEventGrouping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1506,7 +1506,7 @@ class AlertRuleScheduledEventGrouping(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledIncidentConfiguration(dict):
+calass AlertRuleScheduledIncidentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1529,7 +1529,7 @@ class AlertRuleScheduledIncidentConfiguration(dict):
                  grouping: 'outputs.AlertRuleScheduledIncidentConfigurationGrouping'):
         """
         :param bool create_incident: Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        :param 'AlertRuleScheduledIncidentConfigurationGroupingArgs' grouping: A `grouping` block as defined below.
+        :param 'AlertRuleScheduledIncidentConfigurationGroupingArrgs' grouping: A `grouping` block as defined below.
         """
         pulumi.set(__self__, "create_incident", create_incident)
         pulumi.set(__self__, "grouping", grouping)
@@ -1552,7 +1552,7 @@ class AlertRuleScheduledIncidentConfiguration(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledIncidentConfigurationGrouping(dict):
+calass AlertRuleScheduledIncidentConfigurationGrouping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1670,7 +1670,7 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
 
 
 @pulumi.output_type
-class AlertRuleScheduledSentinelEntityMapping(dict):
+calass AlertRuleScheduledSentinelEntityMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1705,7 +1705,7 @@ class AlertRuleScheduledSentinelEntityMapping(dict):
 
 
 @pulumi.output_type
-class AuthomationRuleActionIncident(dict):
+calass AuthomationRuleActionIncident(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1826,7 +1826,7 @@ class AuthomationRuleActionIncident(dict):
 
 
 @pulumi.output_type
-class AuthomationRuleActionPlaybook(dict):
+calass AuthomationRuleActionPlaybook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1886,7 +1886,7 @@ class AuthomationRuleActionPlaybook(dict):
 
 
 @pulumi.output_type
-class AuthomationRuleCondition(dict):
+calass AuthomationRuleCondition(dict):
     def __init__(__self__, *,
                  operator: str,
                  property: str,
@@ -1926,7 +1926,7 @@ class AuthomationRuleCondition(dict):
 
 
 @pulumi.output_type
-class AutomationRuleActionIncident(dict):
+calass AutomationRuleActionIncident(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2047,7 +2047,7 @@ class AutomationRuleActionIncident(dict):
 
 
 @pulumi.output_type
-class AutomationRuleActionPlaybook(dict):
+calass AutomationRuleActionPlaybook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2107,7 +2107,7 @@ class AutomationRuleActionPlaybook(dict):
 
 
 @pulumi.output_type
-class AutomationRuleCondition(dict):
+calass AutomationRuleCondition(dict):
     def __init__(__self__, *,
                  operator: str,
                  property: str,
@@ -2147,7 +2147,7 @@ class AutomationRuleCondition(dict):
 
 
 @pulumi.output_type
-class MetadataAuthor(dict):
+calass MetadataAuthor(dict):
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  link: Optional[str] = None,
@@ -2190,7 +2190,7 @@ class MetadataAuthor(dict):
 
 
 @pulumi.output_type
-class MetadataCategory(dict):
+calass MetadataCategory(dict):
     def __init__(__self__, *,
                  domains: Optional[Sequence[str]] = None,
                  verticals: Optional[Sequence[str]] = None):
@@ -2221,7 +2221,7 @@ class MetadataCategory(dict):
 
 
 @pulumi.output_type
-class MetadataSource(dict):
+calass MetadataSource(dict):
     def __init__(__self__, *,
                  kind: str,
                  id: Optional[str] = None,
@@ -2263,7 +2263,7 @@ class MetadataSource(dict):
 
 
 @pulumi.output_type
-class MetadataSupport(dict):
+calass MetadataSupport(dict):
     def __init__(__self__, *,
                  tier: str,
                  email: Optional[str] = None,
@@ -2317,7 +2317,7 @@ class MetadataSupport(dict):
 
 
 @pulumi.output_type
-class ThreatIntelligenceIndicatorExternalReference(dict):
+calass ThreatIntelligenceIndicatorExternalReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2401,7 +2401,7 @@ class ThreatIntelligenceIndicatorExternalReference(dict):
 
 
 @pulumi.output_type
-class ThreatIntelligenceIndicatorGranularMarking(dict):
+calass ThreatIntelligenceIndicatorGranularMarking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2461,7 +2461,7 @@ class ThreatIntelligenceIndicatorGranularMarking(dict):
 
 
 @pulumi.output_type
-class ThreatIntelligenceIndicatorKillChainPhase(dict):
+calass ThreatIntelligenceIndicatorKillChainPhase(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
@@ -2480,7 +2480,7 @@ class ThreatIntelligenceIndicatorKillChainPhase(dict):
 
 
 @pulumi.output_type
-class ThreatIntelligenceIndicatorParsedPattern(dict):
+calass ThreatIntelligenceIndicatorParsedPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2505,7 +2505,7 @@ class ThreatIntelligenceIndicatorParsedPattern(dict):
                  pattern_type_values: Optional[Sequence['outputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue']] = None):
         """
         :param str pattern_type_key: The type key of parsed pattern.
-        :param Sequence['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs'] pattern_type_values: A `pattern_type_values` block as defined below.
+        :param Sequence['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs'] pattern_type_values: A `pattern_type_values` block as defined below.
         """
         if pattern_type_key is not None:
             pulumi.set(__self__, "pattern_type_key", pattern_type_key)
@@ -2530,7 +2530,7 @@ class ThreatIntelligenceIndicatorParsedPattern(dict):
 
 
 @pulumi.output_type
-class ThreatIntelligenceIndicatorParsedPatternPatternTypeValue(dict):
+calass ThreatIntelligenceIndicatorParsedPatternPatternTypeValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2578,7 +2578,7 @@ class ThreatIntelligenceIndicatorParsedPatternPatternTypeValue(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleAnomalyMultiSelectObservationResult(dict):
+calass GetAlertRuleAnomalyMultiSelectObservationResult(dict):
     def __init__(__self__, *,
                  description: str,
                  name: str,
@@ -2629,7 +2629,7 @@ class GetAlertRuleAnomalyMultiSelectObservationResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleAnomalyPrioritizedExcludeObservationResult(dict):
+calass GetAlertRuleAnomalyPrioritizedExcludeObservationResult(dict):
     def __init__(__self__, *,
                  description: str,
                  exclude: str,
@@ -2680,7 +2680,7 @@ class GetAlertRuleAnomalyPrioritizedExcludeObservationResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleAnomalyRequiredDataConnectorResult(dict):
+calass GetAlertRuleAnomalyRequiredDataConnectorResult(dict):
     def __init__(__self__, *,
                  connector_id: str,
                  data_types: Sequence[str]):
@@ -2709,7 +2709,7 @@ class GetAlertRuleAnomalyRequiredDataConnectorResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleAnomalySingleSelectObservationResult(dict):
+calass GetAlertRuleAnomalySingleSelectObservationResult(dict):
     def __init__(__self__, *,
                  description: str,
                  name: str,
@@ -2760,7 +2760,7 @@ class GetAlertRuleAnomalySingleSelectObservationResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleAnomalyThresholdObservationResult(dict):
+calass GetAlertRuleAnomalyThresholdObservationResult(dict):
     def __init__(__self__, *,
                  description: str,
                  max: str,
@@ -2822,7 +2822,7 @@ class GetAlertRuleAnomalyThresholdObservationResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleTemplateNrtTemplateResult(dict):
+calass GetAlertRuleTemplateNrtTemplateResult(dict):
     def __init__(__self__, *,
                  description: str,
                  query: str,
@@ -2873,7 +2873,7 @@ class GetAlertRuleTemplateNrtTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleTemplateScheduledTemplateResult(dict):
+calass GetAlertRuleTemplateScheduledTemplateResult(dict):
     def __init__(__self__, *,
                  description: str,
                  query: str,
@@ -2968,7 +2968,7 @@ class GetAlertRuleTemplateScheduledTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetAlertRuleTemplateSecurityIncidentTemplateResult(dict):
+calass GetAlertRuleTemplateSecurityIncidentTemplateResult(dict):
     def __init__(__self__, *,
                  description: str,
                  product_filter: str):

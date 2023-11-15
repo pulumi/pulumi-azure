@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AuthorizationRuleArgs', 'AuthorizationRule']
+__all__ = ['AuthorizationRuleArrgs', 'AuthorizationRule']
 
 @pulumi.input_type
-class AuthorizationRuleArgs:
+calass AuthorizationRuleArrgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  notification_hub_name: pulumi.Input[str],
@@ -133,7 +133,7 @@ class AuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _AuthorizationRuleState:
+calass _AuthorizationRuleState:
     def __init__(__self__, *,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -288,7 +288,7 @@ class _AuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
-class AuthorizationRule(pulumi.CustomResource):
+calass AuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -353,7 +353,7 @@ class AuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AuthorizationRuleArgs,
+                 args: AuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
@@ -392,12 +392,12 @@ class AuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param AuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -420,7 +420,7 @@ class AuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AuthorizationRuleArgs.__new__(AuthorizationRuleArgs)
+            __props__ = AuthorizationRuleArrgs.__new__(AuthorizationRuleArrgs)
 
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage

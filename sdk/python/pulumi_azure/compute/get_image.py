@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetImageResult:
+calass GetImageResult:
     """
     A collection of values returned by getImage.
     """
@@ -126,7 +126,7 @@ class GetImageResult:
         return pulumi.get(self, "zone_resilient")
 
 
-class AwaitableGetImageResult(GetImageResult):
+calass AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

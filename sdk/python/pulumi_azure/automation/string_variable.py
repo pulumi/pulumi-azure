@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StringVariableArgs', 'StringVariable']
+__all__ = ['StringVariableArrgs', 'StringVariable']
 
 @pulumi.input_type
-class StringVariableArgs:
+calass StringVariableArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -114,7 +114,7 @@ class StringVariableArgs:
 
 
 @pulumi.input_type
-class _StringVariableState:
+calass _StringVariableState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _StringVariableState:
         pulumi.set(self, "value", value)
 
 
-class StringVariable(pulumi.CustomResource):
+calass StringVariable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class StringVariable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StringVariableArgs,
+                 args: StringVariableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a string variable in Azure Automation
@@ -301,12 +301,12 @@ class StringVariable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StringVariableArgs args: The arguments to use to populate this resource's properties.
+        :param StringVariableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StringVariableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StringVariableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,7 +328,7 @@ class StringVariable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StringVariableArgs.__new__(StringVariableArgs)
+            __props__ = StringVariableArrgs.__new__(StringVariableArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

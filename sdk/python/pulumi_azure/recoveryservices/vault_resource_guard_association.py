@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VaultResourceGuardAssociationArgs', 'VaultResourceGuardAssociation']
+__all__ = ['VaultResourceGuardAssociationArrgs', 'VaultResourceGuardAssociation']
 
 @pulumi.input_type
-class VaultResourceGuardAssociationArgs:
+calass VaultResourceGuardAssociationArrgs:
     def __init__(__self__, *,
                  resource_guard_id: pulumi.Input[str],
                  vault_id: pulumi.Input[str],
@@ -76,7 +76,7 @@ class VaultResourceGuardAssociationArgs:
 
 
 @pulumi.input_type
-class _VaultResourceGuardAssociationState:
+calass _VaultResourceGuardAssociationState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_guard_id: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class _VaultResourceGuardAssociationState:
         pulumi.set(self, "vault_id", value)
 
 
-class VaultResourceGuardAssociation(pulumi.CustomResource):
+calass VaultResourceGuardAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +193,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VaultResourceGuardAssociationArgs,
+                 args: VaultResourceGuardAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an association of a Resource Guard and Recovery Services Vault.
@@ -227,12 +227,12 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultResourceGuardAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param VaultResourceGuardAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultResourceGuardAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultResourceGuardAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -251,7 +251,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultResourceGuardAssociationArgs.__new__(VaultResourceGuardAssociationArgs)
+            __props__ = VaultResourceGuardAssociationArrgs.__new__(VaultResourceGuardAssociationArrgs)
 
             __props__.__dict__["name"] = name
             if resource_guard_id is None and not opts.urn:

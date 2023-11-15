@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PlanArgs', 'Plan']
+__all__ = ['PlanArrgs', 'Plan']
 
 @pulumi.input_type
-class PlanArgs:
+calass PlanArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 sku: pulumi.Input['PlanSkuArgs'],
+                 sku: pulumi.Input['PlanSkuArrgs'],
                  app_service_environment_id: Optional[pulumi.Input[str]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class PlanArgs:
         """
         The set of arguments for constructing a Plan resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
+        :param pulumi.Input['PlanSkuArrgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
                
                > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
@@ -86,14 +86,14 @@ class PlanArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['PlanSkuArgs']:
+    def sku(self) -> pulumi.Input['PlanSkuArrgs']:
         """
         A `sku` block as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['PlanSkuArgs']):
+    def sku(self, value: pulumi.Input['PlanSkuArrgs']):
         pulumi.set(self, "sku", value)
 
     @property
@@ -224,7 +224,7 @@ class PlanArgs:
 
 
 @pulumi.input_type
-class _PlanState:
+calass _PlanState:
     def __init__(__self__, *,
                  app_service_environment_id: Optional[pulumi.Input[str]] = None,
                  is_xenon: Optional[pulumi.Input[bool]] = None,
@@ -236,7 +236,7 @@ class _PlanState:
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
+                 sku: Optional[pulumi.Input['PlanSkuArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -255,7 +255,7 @@ class _PlanState:
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input['PlanSkuArgs'] sku: A `sku` block as documented below.
+        :param pulumi.Input['PlanSkuArrgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                
@@ -414,14 +414,14 @@ class _PlanState:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['PlanSkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['PlanSkuArrgs']]:
         """
         A `sku` block as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['PlanSkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['PlanSkuArrgs']]):
         pulumi.set(self, "sku", value)
 
     @property
@@ -451,7 +451,7 @@ class _PlanState:
         pulumi.set(self, "zone_redundant", value)
 
 
-class Plan(pulumi.CustomResource):
+calass Plan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -465,7 +465,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -485,7 +485,7 @@ class Plan(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -501,7 +501,7 @@ class Plan(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -518,7 +518,7 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -535,7 +535,7 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="xenon",
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="PremiumContainer",
                 size="PC2",
             ))
@@ -564,7 +564,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[pulumi.InputType['PlanSkuArrgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                
@@ -574,7 +574,7 @@ class Plan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PlanArgs,
+                 args: PlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Plan component.
@@ -592,7 +592,7 @@ class Plan(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -608,7 +608,7 @@ class Plan(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -625,7 +625,7 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -642,7 +642,7 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="xenon",
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="PremiumContainer",
                 size="PC2",
             ))
@@ -657,12 +657,12 @@ class Plan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PlanArgs args: The arguments to use to populate this resource's properties.
+        :param PlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -680,7 +680,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -690,7 +690,7 @@ class Plan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PlanArgs.__new__(PlanArgs)
+            __props__ = PlanArrgs.__new__(PlanArrgs)
 
             __props__.__dict__["app_service_environment_id"] = app_service_environment_id
             __props__.__dict__["is_xenon"] = is_xenon
@@ -729,7 +729,7 @@ class Plan(pulumi.CustomResource):
             per_site_scaling: Optional[pulumi.Input[bool]] = None,
             reserved: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Plan':
         """
@@ -753,7 +753,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[pulumi.InputType['PlanSkuArrgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                

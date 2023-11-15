@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Policy to back up PostgreSQL.
@@ -257,12 +256,6 @@ func (i *BackupPolicyPostgresql) ToBackupPolicyPostgresqlOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlOutput)
 }
 
-func (i *BackupPolicyPostgresql) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyPostgresql] {
-	return pulumix.Output[*BackupPolicyPostgresql]{
-		OutputState: i.ToBackupPolicyPostgresqlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupPolicyPostgresqlArrayInput is an input type that accepts BackupPolicyPostgresqlArray and BackupPolicyPostgresqlArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyPostgresqlArrayInput` via:
 //
@@ -286,12 +279,6 @@ func (i BackupPolicyPostgresqlArray) ToBackupPolicyPostgresqlArrayOutput() Backu
 
 func (i BackupPolicyPostgresqlArray) ToBackupPolicyPostgresqlArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlArrayOutput)
-}
-
-func (i BackupPolicyPostgresqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyPostgresql] {
-	return pulumix.Output[[]*BackupPolicyPostgresql]{
-		OutputState: i.ToBackupPolicyPostgresqlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BackupPolicyPostgresqlMapInput is an input type that accepts BackupPolicyPostgresqlMap and BackupPolicyPostgresqlMapOutput values.
@@ -319,12 +306,6 @@ func (i BackupPolicyPostgresqlMap) ToBackupPolicyPostgresqlMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlMapOutput)
 }
 
-func (i BackupPolicyPostgresqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyPostgresql] {
-	return pulumix.Output[map[string]*BackupPolicyPostgresql]{
-		OutputState: i.ToBackupPolicyPostgresqlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyPostgresqlOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPostgresqlOutput) ElementType() reflect.Type {
@@ -337,12 +318,6 @@ func (o BackupPolicyPostgresqlOutput) ToBackupPolicyPostgresqlOutput() BackupPol
 
 func (o BackupPolicyPostgresqlOutput) ToBackupPolicyPostgresqlOutputWithContext(ctx context.Context) BackupPolicyPostgresqlOutput {
 	return o
-}
-
-func (o BackupPolicyPostgresqlOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyPostgresql] {
-	return pulumix.Output[*BackupPolicyPostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -391,12 +366,6 @@ func (o BackupPolicyPostgresqlArrayOutput) ToBackupPolicyPostgresqlArrayOutputWi
 	return o
 }
 
-func (o BackupPolicyPostgresqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyPostgresql] {
-	return pulumix.Output[[]*BackupPolicyPostgresql]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BackupPolicyPostgresqlArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupPolicyPostgresql {
 		return vs[0].([]*BackupPolicyPostgresql)[vs[1].(int)]
@@ -415,12 +384,6 @@ func (o BackupPolicyPostgresqlMapOutput) ToBackupPolicyPostgresqlMapOutput() Bac
 
 func (o BackupPolicyPostgresqlMapOutput) ToBackupPolicyPostgresqlMapOutputWithContext(ctx context.Context) BackupPolicyPostgresqlMapOutput {
 	return o
-}
-
-func (o BackupPolicyPostgresqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyPostgresql] {
-	return pulumix.Output[map[string]*BackupPolicyPostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPolicyPostgresqlMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyPostgresqlOutput {

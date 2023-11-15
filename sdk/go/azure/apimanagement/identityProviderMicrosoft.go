@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Microsoft Identity Provider.
@@ -203,12 +202,6 @@ func (i *IdentityProviderMicrosoft) ToIdentityProviderMicrosoftOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftOutput)
 }
 
-func (i *IdentityProviderMicrosoft) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderMicrosoft] {
-	return pulumix.Output[*IdentityProviderMicrosoft]{
-		OutputState: i.ToIdentityProviderMicrosoftOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderMicrosoftArrayInput is an input type that accepts IdentityProviderMicrosoftArray and IdentityProviderMicrosoftArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderMicrosoftArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i IdentityProviderMicrosoftArray) ToIdentityProviderMicrosoftArrayOutput()
 
 func (i IdentityProviderMicrosoftArray) ToIdentityProviderMicrosoftArrayOutputWithContext(ctx context.Context) IdentityProviderMicrosoftArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftArrayOutput)
-}
-
-func (i IdentityProviderMicrosoftArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderMicrosoft] {
-	return pulumix.Output[[]*IdentityProviderMicrosoft]{
-		OutputState: i.ToIdentityProviderMicrosoftArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderMicrosoftMapInput is an input type that accepts IdentityProviderMicrosoftMap and IdentityProviderMicrosoftMapOutput values.
@@ -265,12 +252,6 @@ func (i IdentityProviderMicrosoftMap) ToIdentityProviderMicrosoftMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMicrosoftMapOutput)
 }
 
-func (i IdentityProviderMicrosoftMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderMicrosoft] {
-	return pulumix.Output[map[string]*IdentityProviderMicrosoft]{
-		OutputState: i.ToIdentityProviderMicrosoftMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderMicrosoftOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderMicrosoftOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftOutput() Ide
 
 func (o IdentityProviderMicrosoftOutput) ToIdentityProviderMicrosoftOutputWithContext(ctx context.Context) IdentityProviderMicrosoftOutput {
 	return o
-}
-
-func (o IdentityProviderMicrosoftOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderMicrosoft] {
-	return pulumix.Output[*IdentityProviderMicrosoft]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
@@ -325,12 +300,6 @@ func (o IdentityProviderMicrosoftArrayOutput) ToIdentityProviderMicrosoftArrayOu
 	return o
 }
 
-func (o IdentityProviderMicrosoftArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderMicrosoft] {
-	return pulumix.Output[[]*IdentityProviderMicrosoft]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderMicrosoftArrayOutput) Index(i pulumi.IntInput) IdentityProviderMicrosoftOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderMicrosoft {
 		return vs[0].([]*IdentityProviderMicrosoft)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o IdentityProviderMicrosoftMapOutput) ToIdentityProviderMicrosoftMapOutput
 
 func (o IdentityProviderMicrosoftMapOutput) ToIdentityProviderMicrosoftMapOutputWithContext(ctx context.Context) IdentityProviderMicrosoftMapOutput {
 	return o
-}
-
-func (o IdentityProviderMicrosoftMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderMicrosoft] {
-	return pulumix.Output[map[string]*IdentityProviderMicrosoft]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderMicrosoftMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderMicrosoftOutput {

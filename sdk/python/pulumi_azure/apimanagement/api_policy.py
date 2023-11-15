@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApiPolicyArgs', 'ApiPolicy']
+__all__ = ['ApiPolicyArrgs', 'ApiPolicy']
 
 @pulumi.input_type
-class ApiPolicyArgs:
+calass ApiPolicyArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  api_name: pulumi.Input[str],
@@ -97,7 +97,7 @@ class ApiPolicyArgs:
 
 
 @pulumi.input_type
-class _ApiPolicyState:
+calass _ApiPolicyState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _ApiPolicyState:
         pulumi.set(self, "xml_link", value)
 
 
-class ApiPolicy(pulumi.CustomResource):
+calass ApiPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class ApiPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiPolicyArgs,
+                 args: ApiPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management API Policy
@@ -276,12 +276,12 @@ class ApiPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ApiPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -302,7 +302,7 @@ class ApiPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiPolicyArgs.__new__(ApiPolicyArgs)
+            __props__ = ApiPolicyArrgs.__new__(ApiPolicyArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")

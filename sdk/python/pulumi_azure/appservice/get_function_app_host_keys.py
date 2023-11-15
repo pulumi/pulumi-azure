@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFunctionAppHostKeysResult:
+calass GetFunctionAppHostKeysResult:
     """
     A collection of values returned by getFunctionAppHostKeys.
     """
@@ -128,7 +128,7 @@ class GetFunctionAppHostKeysResult:
         return pulumi.get(self, "webpubsub_extension_key")
 
 
-class AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
+calass AwaitableGetFunctionAppHostKeysResult(GetFunctionAppHostKeysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

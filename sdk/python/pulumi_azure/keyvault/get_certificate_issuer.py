@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCertificateIssuerResult:
+calass GetCertificateIssuerResult:
     """
     A collection of values returned by getCertificateIssuer.
     """
@@ -96,7 +96,7 @@ class GetCertificateIssuerResult:
         return pulumi.get(self, "provider_name")
 
 
-class AwaitableGetCertificateIssuerResult(GetCertificateIssuerResult):
+calass AwaitableGetCertificateIssuerResult(GetCertificateIssuerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

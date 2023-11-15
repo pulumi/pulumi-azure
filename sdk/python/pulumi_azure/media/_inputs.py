@@ -10,103 +10,103 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountFilterPresentationTimeRangeArgs',
-    'AccountFilterTrackSelectionArgs',
-    'AccountFilterTrackSelectionConditionArgs',
-    'AssetFilterPresentationTimeRangeArgs',
-    'AssetFilterTrackSelectionArgs',
-    'AssetFilterTrackSelectionConditionArgs',
-    'ContentKeyPolicyPolicyOptionArgs',
-    'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs',
-    'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs',
-    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs',
-    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs',
-    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs',
-    'ContentKeyPolicyPolicyOptionTokenRestrictionArgs',
-    'ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs',
-    'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs',
-    'JobInputAssetArgs',
-    'JobOutputAssetArgs',
-    'LiveEventCrossSiteAccessPolicyArgs',
-    'LiveEventEncodingArgs',
-    'LiveEventInputArgs',
-    'LiveEventInputEndpointArgs',
-    'LiveEventInputIpAccessControlAllowArgs',
-    'LiveEventPreviewArgs',
-    'LiveEventPreviewEndpointArgs',
-    'LiveEventPreviewIpAccessControlAllowArgs',
-    'ServiceAccountEncryptionArgs',
-    'ServiceAccountEncryptionManagedIdentityArgs',
-    'ServiceAccountIdentityArgs',
-    'ServiceAccountKeyDeliveryAccessControlArgs',
-    'ServiceAccountStorageAccountArgs',
-    'ServiceAccountStorageAccountManagedIdentityArgs',
-    'StreamingEndpointAccessControlArgs',
-    'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs',
-    'StreamingEndpointAccessControlIpAllowArgs',
-    'StreamingEndpointCrossSiteAccessPolicyArgs',
-    'StreamingEndpointSkusArgs',
-    'StreamingLocatorContentKeyArgs',
-    'StreamingPolicyCommonEncryptionCbcsArgs',
-    'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs',
-    'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs',
-    'StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs',
-    'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs',
-    'StreamingPolicyCommonEncryptionCencArgs',
-    'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs',
-    'StreamingPolicyCommonEncryptionCencClearTrackArgs',
-    'StreamingPolicyCommonEncryptionCencClearTrackConditionArgs',
-    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs',
-    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs',
-    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs',
-    'StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs',
-    'StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs',
-    'StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs',
-    'StreamingPolicyEnvelopeEncryptionArgs',
-    'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs',
-    'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs',
-    'StreamingPolicyNoEncryptionEnabledProtocolsArgs',
-    'TransformOutputArgs',
-    'TransformOutputAudioAnalyzerPresetArgs',
-    'TransformOutputBuiltinPresetArgs',
-    'TransformOutputBuiltinPresetPresetConfigurationArgs',
-    'TransformOutputCustomPresetArgs',
-    'TransformOutputCustomPresetCodecArgs',
-    'TransformOutputCustomPresetCodecAacAudioArgs',
-    'TransformOutputCustomPresetCodecCopyAudioArgs',
-    'TransformOutputCustomPresetCodecCopyVideoArgs',
-    'TransformOutputCustomPresetCodecDdAudioArgs',
-    'TransformOutputCustomPresetCodecH264VideoArgs',
-    'TransformOutputCustomPresetCodecH264VideoLayerArgs',
-    'TransformOutputCustomPresetCodecH265VideoArgs',
-    'TransformOutputCustomPresetCodecH265VideoLayerArgs',
-    'TransformOutputCustomPresetCodecJpgImageArgs',
-    'TransformOutputCustomPresetCodecJpgImageLayerArgs',
-    'TransformOutputCustomPresetCodecPngImageArgs',
-    'TransformOutputCustomPresetCodecPngImageLayerArgs',
-    'TransformOutputCustomPresetFilterArgs',
-    'TransformOutputCustomPresetFilterCropRectangleArgs',
-    'TransformOutputCustomPresetFilterDeinterlaceArgs',
-    'TransformOutputCustomPresetFilterFadeInArgs',
-    'TransformOutputCustomPresetFilterFadeOutArgs',
-    'TransformOutputCustomPresetFilterOverlayArgs',
-    'TransformOutputCustomPresetFilterOverlayAudioArgs',
-    'TransformOutputCustomPresetFilterOverlayVideoArgs',
-    'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs',
-    'TransformOutputCustomPresetFilterOverlayVideoPositionArgs',
-    'TransformOutputCustomPresetFormatArgs',
-    'TransformOutputCustomPresetFormatJpgArgs',
-    'TransformOutputCustomPresetFormatMp4Args',
-    'TransformOutputCustomPresetFormatMp4OutputFileArgs',
-    'TransformOutputCustomPresetFormatPngArgs',
-    'TransformOutputCustomPresetFormatTransportStreamArgs',
-    'TransformOutputCustomPresetFormatTransportStreamOutputFileArgs',
-    'TransformOutputFaceDetectorPresetArgs',
-    'TransformOutputVideoAnalyzerPresetArgs',
+    'AccountFilterPresentationTimeRangeArrgs',
+    'AccountFilterTrackSelectionArrgs',
+    'AccountFilterTrackSelectionConditionArrgs',
+    'AssetFilterPresentationTimeRangeArrgs',
+    'AssetFilterTrackSelectionArrgs',
+    'AssetFilterTrackSelectionConditionArrgs',
+    'ContentKeyPolicyPolicyOptionArrgs',
+    'ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs',
+    'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionArrgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs',
+    'JobInputAssetArrgs',
+    'JobOutputAssetArrgs',
+    'LiveEventCrossSiteAccessPolicyArrgs',
+    'LiveEventEncodingArrgs',
+    'LiveEventInputArrgs',
+    'LiveEventInputEndpointArrgs',
+    'LiveEventInputIpAccessControlAllowArrgs',
+    'LiveEventPreviewArrgs',
+    'LiveEventPreviewEndpointArrgs',
+    'LiveEventPreviewIpAccessControlAllowArrgs',
+    'ServiceAccountEncryptionArrgs',
+    'ServiceAccountEncryptionManagedIdentityArrgs',
+    'ServiceAccountIdentityArrgs',
+    'ServiceAccountKeyDeliveryAccessControlArrgs',
+    'ServiceAccountStorageAccountArrgs',
+    'ServiceAccountStorageAccountManagedIdentityArrgs',
+    'StreamingEndpointAccessControlArrgs',
+    'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs',
+    'StreamingEndpointAccessControlIpAllowArrgs',
+    'StreamingEndpointCrossSiteAccessPolicyArrgs',
+    'StreamingEndpointSkusArrgs',
+    'StreamingLocatorContentKeyArrgs',
+    'StreamingPolicyCommonEncryptionCbcsArrgs',
+    'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs',
+    'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs',
+    'StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs',
+    'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs',
+    'StreamingPolicyCommonEncryptionCencArrgs',
+    'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs',
+    'StreamingPolicyCommonEncryptionCencClearTrackArrgs',
+    'StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs',
+    'StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs',
+    'StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs',
+    'StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs',
+    'StreamingPolicyEnvelopeEncryptionArrgs',
+    'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs',
+    'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs',
+    'StreamingPolicyNoEncryptionEnabledProtocolsArrgs',
+    'TransformOutputArrgs',
+    'TransformOutputAudioAnalyzerPresetArrgs',
+    'TransformOutputBuiltinPresetArrgs',
+    'TransformOutputBuiltinPresetPresetConfigurationArrgs',
+    'TransformOutputCustomPresetArrgs',
+    'TransformOutputCustomPresetCodecArrgs',
+    'TransformOutputCustomPresetCodecAacAudioArrgs',
+    'TransformOutputCustomPresetCodecCopyAudioArrgs',
+    'TransformOutputCustomPresetCodecCopyVideoArrgs',
+    'TransformOutputCustomPresetCodecDdAudioArrgs',
+    'TransformOutputCustomPresetCodecH264VideoArrgs',
+    'TransformOutputCustomPresetCodecH264VideoLayerArrgs',
+    'TransformOutputCustomPresetCodecH265VideoArrgs',
+    'TransformOutputCustomPresetCodecH265VideoLayerArrgs',
+    'TransformOutputCustomPresetCodecJpgImageArrgs',
+    'TransformOutputCustomPresetCodecJpgImageLayerArrgs',
+    'TransformOutputCustomPresetCodecPngImageArrgs',
+    'TransformOutputCustomPresetCodecPngImageLayerArrgs',
+    'TransformOutputCustomPresetFilterArrgs',
+    'TransformOutputCustomPresetFilterCropRectangleArrgs',
+    'TransformOutputCustomPresetFilterDeinterlaceArrgs',
+    'TransformOutputCustomPresetFilterFadeInArrgs',
+    'TransformOutputCustomPresetFilterFadeOutArrgs',
+    'TransformOutputCustomPresetFilterOverlayArrgs',
+    'TransformOutputCustomPresetFilterOverlayAudioArrgs',
+    'TransformOutputCustomPresetFilterOverlayVideoArrgs',
+    'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs',
+    'TransformOutputCustomPresetFilterOverlayVideoPositionArrgs',
+    'TransformOutputCustomPresetFormatArrgs',
+    'TransformOutputCustomPresetFormatJpgArrgs',
+    'TransformOutputCustomPresetFormatMp4Arrgs',
+    'TransformOutputCustomPresetFormatMp4OutputFileArrgs',
+    'TransformOutputCustomPresetFormatPngArrgs',
+    'TransformOutputCustomPresetFormatTransportStreamArrgs',
+    'TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs',
+    'TransformOutputFaceDetectorPresetArrgs',
+    'TransformOutputVideoAnalyzerPresetArrgs',
 ]
 
 @pulumi.input_type
-class AccountFilterPresentationTimeRangeArgs:
+calass AccountFilterPresentationTimeRangeArrgs:
     def __init__(__self__, *,
                  unit_timescale_in_milliseconds: pulumi.Input[int],
                  end_in_units: Optional[pulumi.Input[int]] = None,
@@ -212,29 +212,29 @@ class AccountFilterPresentationTimeRangeArgs:
 
 
 @pulumi.input_type
-class AccountFilterTrackSelectionArgs:
+calass AccountFilterTrackSelectionArrgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]] conditions: One or more `selection` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArrgs']]] conditions: One or more `selection` blocks as defined above.
         """
         pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArrgs']]]:
         """
         One or more `selection` blocks as defined above.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArrgs']]]):
         pulumi.set(self, "conditions", value)
 
 
 @pulumi.input_type
-class AccountFilterTrackSelectionConditionArgs:
+calass AccountFilterTrackSelectionConditionArrgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
                  property: pulumi.Input[str],
@@ -286,7 +286,7 @@ class AccountFilterTrackSelectionConditionArgs:
 
 
 @pulumi.input_type
-class AssetFilterPresentationTimeRangeArgs:
+calass AssetFilterPresentationTimeRangeArrgs:
     def __init__(__self__, *,
                  end_in_units: Optional[pulumi.Input[int]] = None,
                  force_end: Optional[pulumi.Input[bool]] = None,
@@ -393,29 +393,29 @@ class AssetFilterPresentationTimeRangeArgs:
 
 
 @pulumi.input_type
-class AssetFilterTrackSelectionArgs:
+calass AssetFilterTrackSelectionArrgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]]):
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]] conditions: One or more `condition` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArrgs']]] conditions: One or more `condition` blocks as defined above.
         """
         pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArrgs']]]:
         """
         One or more `condition` blocks as defined above.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArrgs']]]):
         pulumi.set(self, "conditions", value)
 
 
 @pulumi.input_type
-class AssetFilterTrackSelectionConditionArgs:
+calass AssetFilterTrackSelectionConditionArrgs:
     def __init__(__self__, *,
                  operation: Optional[pulumi.Input[str]] = None,
                  property: Optional[pulumi.Input[str]] = None,
@@ -470,24 +470,24 @@ class AssetFilterTrackSelectionConditionArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionArgs:
+calass ContentKeyPolicyPolicyOptionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  clear_key_configuration_enabled: Optional[pulumi.Input[bool]] = None,
-                 fairplay_configuration: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs']] = None,
+                 fairplay_configuration: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs']] = None,
                  open_restriction_enabled: Optional[pulumi.Input[bool]] = None,
-                 playready_configuration_licenses: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]]] = None,
+                 playready_configuration_licenses: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs']]]] = None,
                  playready_response_custom_data: Optional[pulumi.Input[str]] = None,
-                 token_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs']] = None,
+                 token_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArrgs']] = None,
                  widevine_configuration_template: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name which should be used for this Policy Option.
         :param pulumi.Input[bool] clear_key_configuration_enabled: Enable a configuration for non-DRM keys.
-        :param pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs'] fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs'] fairplay_configuration: A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
         :param pulumi.Input[bool] open_restriction_enabled: Enable an open restriction. License or key will be delivered on every request.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs']]] playready_configuration_licenses: One or more `playready_configuration_license` blocks as defined above.
         :param pulumi.Input[str] playready_response_custom_data: The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
-        :param pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs'] token_restriction: A `token_restriction` block as defined below.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArrgs'] token_restriction: A `token_restriction` block as defined below.
         :param pulumi.Input[str] widevine_configuration_template: The Widevine template.
                
                > **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
@@ -534,14 +534,14 @@ class ContentKeyPolicyPolicyOptionArgs:
 
     @property
     @pulumi.getter(name="fairplayConfiguration")
-    def fairplay_configuration(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs']]:
+    def fairplay_configuration(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs']]:
         """
         A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
         """
         return pulumi.get(self, "fairplay_configuration")
 
     @fairplay_configuration.setter
-    def fairplay_configuration(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgs']]):
+    def fairplay_configuration(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs']]):
         pulumi.set(self, "fairplay_configuration", value)
 
     @property
@@ -558,14 +558,14 @@ class ContentKeyPolicyPolicyOptionArgs:
 
     @property
     @pulumi.getter(name="playreadyConfigurationLicenses")
-    def playready_configuration_licenses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]]]:
+    def playready_configuration_licenses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs']]]]:
         """
         One or more `playready_configuration_license` blocks as defined above.
         """
         return pulumi.get(self, "playready_configuration_licenses")
 
     @playready_configuration_licenses.setter
-    def playready_configuration_licenses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs']]]]):
+    def playready_configuration_licenses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs']]]]):
         pulumi.set(self, "playready_configuration_licenses", value)
 
     @property
@@ -582,14 +582,14 @@ class ContentKeyPolicyPolicyOptionArgs:
 
     @property
     @pulumi.getter(name="tokenRestriction")
-    def token_restriction(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs']]:
+    def token_restriction(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArrgs']]:
         """
         A `token_restriction` block as defined below.
         """
         return pulumi.get(self, "token_restriction")
 
     @token_restriction.setter
-    def token_restriction(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgs']]):
+    def token_restriction(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArrgs']]):
         pulumi.set(self, "token_restriction", value)
 
     @property
@@ -608,17 +608,17 @@ class ContentKeyPolicyPolicyOptionArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
+calass ContentKeyPolicyPolicyOptionFairplayConfigurationArrgs:
     def __init__(__self__, *,
                  ask: Optional[pulumi.Input[str]] = None,
-                 offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs']] = None,
+                 offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs']] = None,
                  pfx: Optional[pulumi.Input[str]] = None,
                  pfx_password: Optional[pulumi.Input[str]] = None,
                  rental_and_lease_key_type: Optional[pulumi.Input[str]] = None,
                  rental_duration_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] ask: The key that must be used as FairPlay Application Secret key.
-        :param pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs'] offline_rental_configuration: A `offline_rental_configuration` block as defined below.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs'] offline_rental_configuration: A `offline_rental_configuration` block as defined below.
         :param pulumi.Input[str] pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         :param pulumi.Input[str] pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param pulumi.Input[str] rental_and_lease_key_type: The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
@@ -651,14 +651,14 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
 
     @property
     @pulumi.getter(name="offlineRentalConfiguration")
-    def offline_rental_configuration(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs']]:
+    def offline_rental_configuration(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs']]:
         """
         A `offline_rental_configuration` block as defined below.
         """
         return pulumi.get(self, "offline_rental_configuration")
 
     @offline_rental_configuration.setter
-    def offline_rental_configuration(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs']]):
+    def offline_rental_configuration(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs']]):
         pulumi.set(self, "offline_rental_configuration", value)
 
     @property
@@ -711,7 +711,7 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs:
+calass ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArrgs:
     def __init__(__self__, *,
                  playback_duration_seconds: Optional[pulumi.Input[int]] = None,
                  storage_duration_seconds: Optional[pulumi.Input[int]] = None):
@@ -750,7 +750,7 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguratio
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrgs:
     def __init__(__self__, *,
                  allow_test_devices: Optional[pulumi.Input[bool]] = None,
                  begin_date: Optional[pulumi.Input[str]] = None,
@@ -760,7 +760,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  grace_period: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 play_right: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs']] = None,
+                 play_right: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs']] = None,
                  relative_begin_date: Optional[pulumi.Input[str]] = None,
                  relative_expiration_date: Optional[pulumi.Input[str]] = None,
                  security_level: Optional[pulumi.Input[str]] = None):
@@ -775,7 +775,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
         :param pulumi.Input[str] expiration_date: The expiration date of license.
         :param pulumi.Input[str] grace_period: The grace period of license.
         :param pulumi.Input[str] license_type: The license type. Supported values are `NonPersistent` or `Persistent`.
-        :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs'] play_right: A `play_right` block as defined above.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs'] play_right: A `play_right` block as defined above.
         :param pulumi.Input[str] relative_begin_date: The relative begin date of license.
         :param pulumi.Input[str] relative_expiration_date: The relative expiration date of license.
         :param pulumi.Input[str] security_level: The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
@@ -905,14 +905,14 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
 
     @property
     @pulumi.getter(name="playRight")
-    def play_right(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs']]:
+    def play_right(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs']]:
         """
         A `play_right` block as defined above.
         """
         return pulumi.get(self, "play_right")
 
     @play_right.setter
-    def play_right(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs']]):
+    def play_right(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs']]):
         pulumi.set(self, "play_right", value)
 
     @property
@@ -953,7 +953,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArrgs:
     def __init__(__self__, *,
                  agc_and_color_stripe_restriction: Optional[pulumi.Input[int]] = None,
                  allow_passing_video_content_to_unknown_output: Optional[pulumi.Input[str]] = None,
@@ -961,7 +961,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
                  compressed_digital_audio_opl: Optional[pulumi.Input[int]] = None,
                  compressed_digital_video_opl: Optional[pulumi.Input[int]] = None,
                  digital_video_only_content_restriction: Optional[pulumi.Input[bool]] = None,
-                 explicit_analog_television_output_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']] = None,
+                 explicit_analog_television_output_restriction: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs']] = None,
                  first_play_expiration: Optional[pulumi.Input[str]] = None,
                  image_constraint_for_analog_component_video_restriction: Optional[pulumi.Input[bool]] = None,
                  image_constraint_for_analog_computer_monitor_restriction: Optional[pulumi.Input[bool]] = None,
@@ -975,7 +975,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
         :param pulumi.Input[int] compressed_digital_audio_opl: Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
         :param pulumi.Input[int] compressed_digital_video_opl: Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
         :param pulumi.Input[bool] digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
-        :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs'] explicit_analog_television_output_restriction: An `explicit_analog_television_output_restriction` block as defined above.
+        :param pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs'] explicit_analog_television_output_restriction: An `explicit_analog_television_output_restriction` block as defined above.
         :param pulumi.Input[str] first_play_expiration: The amount of time that the license is valid after the license is first used to play content.
         :param pulumi.Input[bool] image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param pulumi.Input[bool] image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
@@ -1084,14 +1084,14 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
 
     @property
     @pulumi.getter(name="explicitAnalogTelevisionOutputRestriction")
-    def explicit_analog_television_output_restriction(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']]:
+    def explicit_analog_television_output_restriction(self) -> Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs']]:
         """
         An `explicit_analog_television_output_restriction` block as defined above.
         """
         return pulumi.get(self, "explicit_analog_television_output_restriction")
 
     @explicit_analog_television_output_restriction.setter
-    def explicit_analog_television_output_restriction(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs']]):
+    def explicit_analog_television_output_restriction(self, value: Optional[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs']]):
         pulumi.set(self, "explicit_analog_television_output_restriction", value)
 
     @property
@@ -1168,7 +1168,7 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs:
+calass ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArrgs:
     def __init__(__self__, *,
                  control_bits: pulumi.Input[int],
                  best_effort_enforced: Optional[pulumi.Input[bool]] = None):
@@ -1206,9 +1206,9 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
+calass ContentKeyPolicyPolicyOptionTokenRestrictionArrgs:
     def __init__(__self__, *,
-                 alternate_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]] = None,
+                 alternate_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs']]]] = None,
                  audience: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  open_id_connect_discovery_document: Optional[pulumi.Input[str]] = None,
@@ -1216,10 +1216,10 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
                  primary_rsa_token_key_modulus: Optional[pulumi.Input[str]] = None,
                  primary_symmetric_token_key: Optional[pulumi.Input[str]] = None,
                  primary_x509_token_key_raw: Optional[pulumi.Input[str]] = None,
-                 required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]]] = None,
+                 required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs']]]] = None,
                  token_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]] alternate_keys: One or more `alternate_key` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs']]] alternate_keys: One or more `alternate_key` block as defined above.
         :param pulumi.Input[str] audience: The audience for the token.
         :param pulumi.Input[str] issuer: The token issuer.
         :param pulumi.Input[str] open_id_connect_discovery_document: The OpenID connect discovery document.
@@ -1227,7 +1227,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
         :param pulumi.Input[str] primary_rsa_token_key_modulus: The RSA parameter modulus.
         :param pulumi.Input[str] primary_symmetric_token_key: The key value of the key. Specifies a symmetric key for token validation.
         :param pulumi.Input[str] primary_x509_token_key_raw: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
-        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]] required_claims: One or more `required_claim` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs']]] required_claims: One or more `required_claim` blocks as defined above.
         :param pulumi.Input[str] token_type: The type of token. Supported values are `Jwt` or `Swt`.
                
                > **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
@@ -1255,14 +1255,14 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
 
     @property
     @pulumi.getter(name="alternateKeys")
-    def alternate_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]]:
+    def alternate_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs']]]]:
         """
         One or more `alternate_key` block as defined above.
         """
         return pulumi.get(self, "alternate_keys")
 
     @alternate_keys.setter
-    def alternate_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs']]]]):
+    def alternate_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs']]]]):
         pulumi.set(self, "alternate_keys", value)
 
     @property
@@ -1351,14 +1351,14 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
 
     @property
     @pulumi.getter(name="requiredClaims")
-    def required_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]]]:
+    def required_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs']]]]:
         """
         One or more `required_claim` blocks as defined above.
         """
         return pulumi.get(self, "required_claims")
 
     @required_claims.setter
-    def required_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs']]]]):
+    def required_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs']]]]):
         pulumi.set(self, "required_claims", value)
 
     @property
@@ -1377,7 +1377,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
+calass ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrgs:
     def __init__(__self__, *,
                  rsa_token_key_exponent: Optional[pulumi.Input[str]] = None,
                  rsa_token_key_modulus: Optional[pulumi.Input[str]] = None,
@@ -1452,7 +1452,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
 
 
 @pulumi.input_type
-class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs:
+calass ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -1491,7 +1491,7 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs:
 
 
 @pulumi.input_type
-class JobInputAssetArgs:
+calass JobInputAssetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  label: Optional[pulumi.Input[str]] = None):
@@ -1529,7 +1529,7 @@ class JobInputAssetArgs:
 
 
 @pulumi.input_type
-class JobOutputAssetArgs:
+calass JobOutputAssetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  label: Optional[pulumi.Input[str]] = None):
@@ -1567,7 +1567,7 @@ class JobOutputAssetArgs:
 
 
 @pulumi.input_type
-class LiveEventCrossSiteAccessPolicyArgs:
+calass LiveEventCrossSiteAccessPolicyArrgs:
     def __init__(__self__, *,
                  client_access_policy: Optional[pulumi.Input[str]] = None,
                  cross_domain_policy: Optional[pulumi.Input[str]] = None):
@@ -1606,7 +1606,7 @@ class LiveEventCrossSiteAccessPolicyArgs:
 
 
 @pulumi.input_type
-class LiveEventEncodingArgs:
+calass LiveEventEncodingArrgs:
     def __init__(__self__, *,
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  preset_name: Optional[pulumi.Input[str]] = None,
@@ -1681,16 +1681,16 @@ class LiveEventEncodingArgs:
 
 
 @pulumi.input_type
-class LiveEventInputArgs:
+calass LiveEventInputArrgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]] = None,
-                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArrgs']]]] = None,
+                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArrgs']]]] = None,
                  key_frame_interval_duration: Optional[pulumi.Input[str]] = None,
                  streaming_protocol: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] access_token: A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArrgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined below.
         :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
         :param pulumi.Input[str] streaming_protocol: The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
         """
@@ -1719,23 +1719,23 @@ class LiveEventInputArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArrgs']]]]:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArrgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
     @pulumi.getter(name="ipAccessControlAllows")
-    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]]:
+    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArrgs']]]]:
         """
         One or more `ip_access_control_allow` blocks as defined below.
         """
         return pulumi.get(self, "ip_access_control_allows")
 
     @ip_access_control_allows.setter
-    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgs']]]]):
+    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArrgs']]]]):
         pulumi.set(self, "ip_access_control_allows", value)
 
     @property
@@ -1764,7 +1764,7 @@ class LiveEventInputArgs:
 
 
 @pulumi.input_type
-class LiveEventInputEndpointArgs:
+calass LiveEventInputEndpointArrgs:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -1793,7 +1793,7 @@ class LiveEventInputEndpointArgs:
 
 
 @pulumi.input_type
-class LiveEventInputIpAccessControlAllowArgs:
+calass LiveEventInputIpAccessControlAllowArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1848,16 +1848,16 @@ class LiveEventInputIpAccessControlAllowArgs:
 
 
 @pulumi.input_type
-class LiveEventPreviewArgs:
+calass LiveEventPreviewArrgs:
     def __init__(__self__, *,
                  alternative_media_id: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]] = None,
-                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArrgs']]]] = None,
+                 ip_access_control_allows: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArrgs']]]] = None,
                  preview_locator: Optional[pulumi.Input[str]] = None,
                  streaming_policy_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] alternative_media_id: An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
-        :param pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArrgs']]] ip_access_control_allows: One or more `ip_access_control_allow` blocks as defined above.
         :param pulumi.Input[str] preview_locator: The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
         :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
         """
@@ -1886,23 +1886,23 @@ class LiveEventPreviewArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArrgs']]]]:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArrgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
     @pulumi.getter(name="ipAccessControlAllows")
-    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]]:
+    def ip_access_control_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArrgs']]]]:
         """
         One or more `ip_access_control_allow` blocks as defined above.
         """
         return pulumi.get(self, "ip_access_control_allows")
 
     @ip_access_control_allows.setter
-    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgs']]]]):
+    def ip_access_control_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArrgs']]]]):
         pulumi.set(self, "ip_access_control_allows", value)
 
     @property
@@ -1931,7 +1931,7 @@ class LiveEventPreviewArgs:
 
 
 @pulumi.input_type
-class LiveEventPreviewEndpointArgs:
+calass LiveEventPreviewEndpointArrgs:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -1960,7 +1960,7 @@ class LiveEventPreviewEndpointArgs:
 
 
 @pulumi.input_type
-class LiveEventPreviewIpAccessControlAllowArgs:
+calass LiveEventPreviewIpAccessControlAllowArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -2015,16 +2015,16 @@ class LiveEventPreviewIpAccessControlAllowArgs:
 
 
 @pulumi.input_type
-class ServiceAccountEncryptionArgs:
+calass ServiceAccountEncryptionArrgs:
     def __init__(__self__, *,
                  current_key_identifier: Optional[pulumi.Input[str]] = None,
                  key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
-                 managed_identity: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']] = None,
+                 managed_identity: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-        :param pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input['ServiceAccountEncryptionManagedIdentityArrgs'] managed_identity: A `managed_identity` block as defined below.
         :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
         """
         if current_key_identifier is not None:
@@ -2062,14 +2062,14 @@ class ServiceAccountEncryptionArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']]:
+    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArrgs']]:
         """
         A `managed_identity` block as defined below.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs']]):
+    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountEncryptionManagedIdentityArrgs']]):
         pulumi.set(self, "managed_identity", value)
 
     @property
@@ -2086,7 +2086,7 @@ class ServiceAccountEncryptionArgs:
 
 
 @pulumi.input_type
-class ServiceAccountEncryptionManagedIdentityArgs:
+calass ServiceAccountEncryptionManagedIdentityArrgs:
     def __init__(__self__, *,
                  use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
@@ -2125,7 +2125,7 @@ class ServiceAccountEncryptionManagedIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceAccountIdentityArgs:
+calass ServiceAccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2195,7 +2195,7 @@ class ServiceAccountIdentityArgs:
 
 
 @pulumi.input_type
-class ServiceAccountKeyDeliveryAccessControlArgs:
+calass ServiceAccountKeyDeliveryAccessControlArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2234,17 +2234,17 @@ class ServiceAccountKeyDeliveryAccessControlArgs:
 
 
 @pulumi.input_type
-class ServiceAccountStorageAccountArgs:
+calass ServiceAccountStorageAccountArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  is_primary: Optional[pulumi.Input[bool]] = None,
-                 managed_identity: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']] = None):
+                 managed_identity: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArrgs']] = None):
         """
         :param pulumi.Input[str] id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param pulumi.Input[bool] is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
                
                > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
-        :param pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input['ServiceAccountStorageAccountManagedIdentityArrgs'] managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
@@ -2280,19 +2280,19 @@ class ServiceAccountStorageAccountArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']]:
+    def managed_identity(self) -> Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArrgs']]:
         """
         A `managed_identity` block as defined below.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgs']]):
+    def managed_identity(self, value: Optional[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArrgs']]):
         pulumi.set(self, "managed_identity", value)
 
 
 @pulumi.input_type
-class ServiceAccountStorageAccountManagedIdentityArgs:
+calass ServiceAccountStorageAccountManagedIdentityArrgs:
     def __init__(__self__, *,
                  use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
@@ -2331,13 +2331,13 @@ class ServiceAccountStorageAccountManagedIdentityArgs:
 
 
 @pulumi.input_type
-class StreamingEndpointAccessControlArgs:
+calass StreamingEndpointAccessControlArrgs:
     def __init__(__self__, *,
-                 akamai_signature_header_authentication_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None,
-                 ip_allows: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]] = None):
+                 akamai_signature_header_authentication_keys: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs']]]] = None,
+                 ip_allows: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]] ip_allows: A `ip_allow` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs']]] akamai_signature_header_authentication_keys: One or more `akamai_signature_header_authentication_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArrgs']]] ip_allows: A `ip_allow` block as defined below.
         """
         if akamai_signature_header_authentication_keys is not None:
             pulumi.set(__self__, "akamai_signature_header_authentication_keys", akamai_signature_header_authentication_keys)
@@ -2346,31 +2346,31 @@ class StreamingEndpointAccessControlArgs:
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeys")
-    def akamai_signature_header_authentication_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]]]:
+    def akamai_signature_header_authentication_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs']]]]:
         """
         One or more `akamai_signature_header_authentication_key` blocks as defined below.
         """
         return pulumi.get(self, "akamai_signature_header_authentication_keys")
 
     @akamai_signature_header_authentication_keys.setter
-    def akamai_signature_header_authentication_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs']]]]):
+    def akamai_signature_header_authentication_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs']]]]):
         pulumi.set(self, "akamai_signature_header_authentication_keys", value)
 
     @property
     @pulumi.getter(name="ipAllows")
-    def ip_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]]:
+    def ip_allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArrgs']]]]:
         """
         A `ip_allow` block as defined below.
         """
         return pulumi.get(self, "ip_allows")
 
     @ip_allows.setter
-    def ip_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]]):
+    def ip_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArrgs']]]]):
         pulumi.set(self, "ip_allows", value)
 
 
 @pulumi.input_type
-class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs:
+calass StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrgs:
     def __init__(__self__, *,
                  base64_key: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
@@ -2425,7 +2425,7 @@ class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs:
 
 
 @pulumi.input_type
-class StreamingEndpointAccessControlIpAllowArgs:
+calass StreamingEndpointAccessControlIpAllowArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -2480,7 +2480,7 @@ class StreamingEndpointAccessControlIpAllowArgs:
 
 
 @pulumi.input_type
-class StreamingEndpointCrossSiteAccessPolicyArgs:
+calass StreamingEndpointCrossSiteAccessPolicyArrgs:
     def __init__(__self__, *,
                  client_access_policy: Optional[pulumi.Input[str]] = None,
                  cross_domain_policy: Optional[pulumi.Input[str]] = None):
@@ -2519,7 +2519,7 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
 
 
 @pulumi.input_type
-class StreamingEndpointSkusArgs:
+calass StreamingEndpointSkusArrgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -2558,7 +2558,7 @@ class StreamingEndpointSkusArgs:
 
 
 @pulumi.input_type
-class StreamingLocatorContentKeyArgs:
+calass StreamingLocatorContentKeyArrgs:
     def __init__(__self__, *,
                  content_key_id: Optional[pulumi.Input[str]] = None,
                  label_reference_in_streaming_policy: Optional[pulumi.Input[str]] = None,
@@ -2645,17 +2645,17 @@ class StreamingLocatorContentKeyArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCbcsArgs:
+calass StreamingPolicyCommonEncryptionCbcsArrgs:
     def __init__(__self__, *,
-                 clear_key_encryption: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs']] = None,
-                 default_content_key: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs']] = None,
-                 drm_fairplay: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs']] = None,
-                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs']] = None):
+                 clear_key_encryption: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs']] = None,
+                 default_content_key: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs']] = None,
+                 drm_fairplay: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs']] = None,
+                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs']] = None):
         """
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs'] clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs'] default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs'] drm_fairplay: A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs'] enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs'] clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs'] default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs'] drm_fairplay: A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs'] enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         if clear_key_encryption is not None:
             pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
@@ -2668,55 +2668,55 @@ class StreamingPolicyCommonEncryptionCbcsArgs:
 
     @property
     @pulumi.getter(name="clearKeyEncryption")
-    def clear_key_encryption(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs']]:
+    def clear_key_encryption(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs']]:
         """
         A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "clear_key_encryption")
 
     @clear_key_encryption.setter
-    def clear_key_encryption(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs']]):
+    def clear_key_encryption(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs']]):
         pulumi.set(self, "clear_key_encryption", value)
 
     @property
     @pulumi.getter(name="defaultContentKey")
-    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs']]:
+    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs']]:
         """
         A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "default_content_key")
 
     @default_content_key.setter
-    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs']]):
+    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs']]):
         pulumi.set(self, "default_content_key", value)
 
     @property
     @pulumi.getter(name="drmFairplay")
-    def drm_fairplay(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs']]:
+    def drm_fairplay(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs']]:
         """
         A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "drm_fairplay")
 
     @drm_fairplay.setter
-    def drm_fairplay(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs']]):
+    def drm_fairplay(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs']]):
         pulumi.set(self, "drm_fairplay", value)
 
     @property
     @pulumi.getter(name="enabledProtocols")
-    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs']]:
+    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs']]:
         """
         A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "enabled_protocols")
 
     @enabled_protocols.setter
-    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs']]):
+    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs']]):
         pulumi.set(self, "enabled_protocols", value)
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
+calass StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArrgs:
     def __init__(__self__, *,
                  custom_keys_acquisition_url_template: pulumi.Input[str]):
         """
@@ -2742,7 +2742,7 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs:
+calass StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArrgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
@@ -2781,7 +2781,7 @@ class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs:
+calass StreamingPolicyCommonEncryptionCbcsDrmFairplayArrgs:
     def __init__(__self__, *,
                  allow_persistent_license: Optional[pulumi.Input[bool]] = None,
                  custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None):
@@ -2820,7 +2820,7 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs:
+calass StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArrgs:
     def __init__(__self__, *,
                  dash: Optional[pulumi.Input[bool]] = None,
                  download: Optional[pulumi.Input[bool]] = None,
@@ -2891,23 +2891,23 @@ class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencArgs:
+calass StreamingPolicyCommonEncryptionCencArrgs:
     def __init__(__self__, *,
-                 clear_key_encryption: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs']] = None,
-                 clear_tracks: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArgs']]]] = None,
-                 content_key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs']]]] = None,
-                 default_content_key: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs']] = None,
-                 drm_playready: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs']] = None,
+                 clear_key_encryption: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs']] = None,
+                 clear_tracks: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArrgs']]]] = None,
+                 content_key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs']]]] = None,
+                 default_content_key: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs']] = None,
+                 drm_playready: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs']] = None,
                  drm_widevine_custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None,
-                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs']] = None):
+                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs']] = None):
         """
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs'] clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArgs']]] clear_tracks: One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs']]] content_key_to_track_mappings: One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs'] default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs'] drm_playready: A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs'] clear_key_encryption: A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArrgs']]] clear_tracks: One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs']]] content_key_to_track_mappings: One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs'] default_content_key: A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs'] drm_playready: A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] drm_widevine_custom_license_acquisition_url_template: The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs'] enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs'] enabled_protocols: A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         if clear_key_encryption is not None:
             pulumi.set(__self__, "clear_key_encryption", clear_key_encryption)
@@ -2926,62 +2926,62 @@ class StreamingPolicyCommonEncryptionCencArgs:
 
     @property
     @pulumi.getter(name="clearKeyEncryption")
-    def clear_key_encryption(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs']]:
+    def clear_key_encryption(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs']]:
         """
         A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "clear_key_encryption")
 
     @clear_key_encryption.setter
-    def clear_key_encryption(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs']]):
+    def clear_key_encryption(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs']]):
         pulumi.set(self, "clear_key_encryption", value)
 
     @property
     @pulumi.getter(name="clearTracks")
-    def clear_tracks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArgs']]]]:
+    def clear_tracks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArrgs']]]]:
         """
         One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "clear_tracks")
 
     @clear_tracks.setter
-    def clear_tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArgs']]]]):
+    def clear_tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArrgs']]]]):
         pulumi.set(self, "clear_tracks", value)
 
     @property
     @pulumi.getter(name="contentKeyToTrackMappings")
-    def content_key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs']]]]:
+    def content_key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs']]]]:
         """
         One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "content_key_to_track_mappings")
 
     @content_key_to_track_mappings.setter
-    def content_key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs']]]]):
+    def content_key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs']]]]):
         pulumi.set(self, "content_key_to_track_mappings", value)
 
     @property
     @pulumi.getter(name="defaultContentKey")
-    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs']]:
+    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs']]:
         """
         A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "default_content_key")
 
     @default_content_key.setter
-    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs']]):
+    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs']]):
         pulumi.set(self, "default_content_key", value)
 
     @property
     @pulumi.getter(name="drmPlayready")
-    def drm_playready(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs']]:
+    def drm_playready(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs']]:
         """
         A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "drm_playready")
 
     @drm_playready.setter
-    def drm_playready(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs']]):
+    def drm_playready(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs']]):
         pulumi.set(self, "drm_playready", value)
 
     @property
@@ -2998,19 +2998,19 @@ class StreamingPolicyCommonEncryptionCencArgs:
 
     @property
     @pulumi.getter(name="enabledProtocols")
-    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs']]:
+    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs']]:
         """
         A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "enabled_protocols")
 
     @enabled_protocols.setter
-    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs']]):
+    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs']]):
         pulumi.set(self, "enabled_protocols", value)
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
+calass StreamingPolicyCommonEncryptionCencClearKeyEncryptionArrgs:
     def __init__(__self__, *,
                  custom_keys_acquisition_url_template: pulumi.Input[str]):
         """
@@ -3036,29 +3036,29 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencClearTrackArgs:
+calass StreamingPolicyCommonEncryptionCencClearTrackArrgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]]):
+                 conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs']]] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs']]]:
         """
         One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs']]]):
         pulumi.set(self, "conditions", value)
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencClearTrackConditionArgs:
+calass StreamingPolicyCommonEncryptionCencClearTrackConditionArrgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
                  property: pulumi.Input[str],
@@ -3110,13 +3110,13 @@ class StreamingPolicyCommonEncryptionCencClearTrackConditionArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrgs:
     def __init__(__self__, *,
-                 tracks: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs']]],
+                 tracks: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs']]],
                  label: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs']]] tracks: One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs']]] tracks: One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] label: Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
         :param pulumi.Input[str] policy_name: The policy used by the default key. Changing this forces a new Streaming Policy to be created.
         """
@@ -3128,14 +3128,14 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
 
     @property
     @pulumi.getter
-    def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs']]]:
+    def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs']]]:
         """
         One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "tracks")
 
     @tracks.setter
-    def tracks(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs']]]):
+    def tracks(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs']]]):
         pulumi.set(self, "tracks", value)
 
     @property
@@ -3164,29 +3164,29 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs:
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]]):
+                 conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs']]] conditions: One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs']]]:
         """
         One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs']]]):
         pulumi.set(self, "conditions", value)
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs:
+calass StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrgs:
     def __init__(__self__, *,
                  operation: pulumi.Input[str],
                  property: pulumi.Input[str],
@@ -3238,7 +3238,7 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionA
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs:
+calass StreamingPolicyCommonEncryptionCencDefaultContentKeyArrgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
@@ -3277,7 +3277,7 @@ class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs:
+calass StreamingPolicyCommonEncryptionCencDrmPlayreadyArrgs:
     def __init__(__self__, *,
                  custom_attributes: Optional[pulumi.Input[str]] = None,
                  custom_license_acquisition_url_template: Optional[pulumi.Input[str]] = None):
@@ -3316,7 +3316,7 @@ class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs:
+calass StreamingPolicyCommonEncryptionCencEnabledProtocolsArrgs:
     def __init__(__self__, *,
                  dash: Optional[pulumi.Input[bool]] = None,
                  download: Optional[pulumi.Input[bool]] = None,
@@ -3387,15 +3387,15 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyEnvelopeEncryptionArgs:
+calass StreamingPolicyEnvelopeEncryptionArrgs:
     def __init__(__self__, *,
                  custom_keys_acquisition_url_template: Optional[pulumi.Input[str]] = None,
-                 default_content_key: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs']] = None,
-                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs']] = None):
+                 default_content_key: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs']] = None,
+                 enabled_protocols: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs']] = None):
         """
         :param pulumi.Input[str] custom_keys_acquisition_url_template: The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs'] default_content_key: A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
-        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs'] enabled_protocols: A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs'] default_content_key: A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
+        :param pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs'] enabled_protocols: A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
         """
         if custom_keys_acquisition_url_template is not None:
             pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
@@ -3418,31 +3418,31 @@ class StreamingPolicyEnvelopeEncryptionArgs:
 
     @property
     @pulumi.getter(name="defaultContentKey")
-    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs']]:
+    def default_content_key(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs']]:
         """
         A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "default_content_key")
 
     @default_content_key.setter
-    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs']]):
+    def default_content_key(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs']]):
         pulumi.set(self, "default_content_key", value)
 
     @property
     @pulumi.getter(name="enabledProtocols")
-    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs']]:
+    def enabled_protocols(self) -> Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs']]:
         """
         A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "enabled_protocols")
 
     @enabled_protocols.setter
-    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs']]):
+    def enabled_protocols(self, value: Optional[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs']]):
         pulumi.set(self, "enabled_protocols", value)
 
 
 @pulumi.input_type
-class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs:
+calass StreamingPolicyEnvelopeEncryptionDefaultContentKeyArrgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
@@ -3481,7 +3481,7 @@ class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs:
+calass StreamingPolicyEnvelopeEncryptionEnabledProtocolsArrgs:
     def __init__(__self__, *,
                  dash: Optional[pulumi.Input[bool]] = None,
                  download: Optional[pulumi.Input[bool]] = None,
@@ -3552,7 +3552,7 @@ class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs:
 
 
 @pulumi.input_type
-class StreamingPolicyNoEncryptionEnabledProtocolsArgs:
+calass StreamingPolicyNoEncryptionEnabledProtocolsArrgs:
     def __init__(__self__, *,
                  dash: Optional[pulumi.Input[bool]] = None,
                  download: Optional[pulumi.Input[bool]] = None,
@@ -3623,23 +3623,23 @@ class StreamingPolicyNoEncryptionEnabledProtocolsArgs:
 
 
 @pulumi.input_type
-class TransformOutputArgs:
+calass TransformOutputArrgs:
     def __init__(__self__, *,
-                 audio_analyzer_preset: Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArgs']] = None,
-                 builtin_preset: Optional[pulumi.Input['TransformOutputBuiltinPresetArgs']] = None,
-                 custom_preset: Optional[pulumi.Input['TransformOutputCustomPresetArgs']] = None,
-                 face_detector_preset: Optional[pulumi.Input['TransformOutputFaceDetectorPresetArgs']] = None,
+                 audio_analyzer_preset: Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArrgs']] = None,
+                 builtin_preset: Optional[pulumi.Input['TransformOutputBuiltinPresetArrgs']] = None,
+                 custom_preset: Optional[pulumi.Input['TransformOutputCustomPresetArrgs']] = None,
+                 face_detector_preset: Optional[pulumi.Input['TransformOutputFaceDetectorPresetArrgs']] = None,
                  on_error_action: Optional[pulumi.Input[str]] = None,
                  relative_priority: Optional[pulumi.Input[str]] = None,
-                 video_analyzer_preset: Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArgs']] = None):
+                 video_analyzer_preset: Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArrgs']] = None):
         """
-        :param pulumi.Input['TransformOutputAudioAnalyzerPresetArgs'] audio_analyzer_preset: An `audio_analyzer_preset` block as defined above.
-        :param pulumi.Input['TransformOutputBuiltinPresetArgs'] builtin_preset: A `builtin_preset` block as defined above.
-        :param pulumi.Input['TransformOutputCustomPresetArgs'] custom_preset: A `custom_preset` block as defined above.
-        :param pulumi.Input['TransformOutputFaceDetectorPresetArgs'] face_detector_preset: A `face_detector_preset` block as defined above.
+        :param pulumi.Input['TransformOutputAudioAnalyzerPresetArrgs'] audio_analyzer_preset: An `audio_analyzer_preset` block as defined above.
+        :param pulumi.Input['TransformOutputBuiltinPresetArrgs'] builtin_preset: A `builtin_preset` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetArrgs'] custom_preset: A `custom_preset` block as defined above.
+        :param pulumi.Input['TransformOutputFaceDetectorPresetArrgs'] face_detector_preset: A `face_detector_preset` block as defined above.
         :param pulumi.Input[str] on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         :param pulumi.Input[str] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
-        :param pulumi.Input['TransformOutputVideoAnalyzerPresetArgs'] video_analyzer_preset: A `video_analyzer_preset` block as defined below.
+        :param pulumi.Input['TransformOutputVideoAnalyzerPresetArrgs'] video_analyzer_preset: A `video_analyzer_preset` block as defined below.
                
                > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
@@ -3660,50 +3660,50 @@ class TransformOutputArgs:
 
     @property
     @pulumi.getter(name="audioAnalyzerPreset")
-    def audio_analyzer_preset(self) -> Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArgs']]:
+    def audio_analyzer_preset(self) -> Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArrgs']]:
         """
         An `audio_analyzer_preset` block as defined above.
         """
         return pulumi.get(self, "audio_analyzer_preset")
 
     @audio_analyzer_preset.setter
-    def audio_analyzer_preset(self, value: Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArgs']]):
+    def audio_analyzer_preset(self, value: Optional[pulumi.Input['TransformOutputAudioAnalyzerPresetArrgs']]):
         pulumi.set(self, "audio_analyzer_preset", value)
 
     @property
     @pulumi.getter(name="builtinPreset")
-    def builtin_preset(self) -> Optional[pulumi.Input['TransformOutputBuiltinPresetArgs']]:
+    def builtin_preset(self) -> Optional[pulumi.Input['TransformOutputBuiltinPresetArrgs']]:
         """
         A `builtin_preset` block as defined above.
         """
         return pulumi.get(self, "builtin_preset")
 
     @builtin_preset.setter
-    def builtin_preset(self, value: Optional[pulumi.Input['TransformOutputBuiltinPresetArgs']]):
+    def builtin_preset(self, value: Optional[pulumi.Input['TransformOutputBuiltinPresetArrgs']]):
         pulumi.set(self, "builtin_preset", value)
 
     @property
     @pulumi.getter(name="customPreset")
-    def custom_preset(self) -> Optional[pulumi.Input['TransformOutputCustomPresetArgs']]:
+    def custom_preset(self) -> Optional[pulumi.Input['TransformOutputCustomPresetArrgs']]:
         """
         A `custom_preset` block as defined above.
         """
         return pulumi.get(self, "custom_preset")
 
     @custom_preset.setter
-    def custom_preset(self, value: Optional[pulumi.Input['TransformOutputCustomPresetArgs']]):
+    def custom_preset(self, value: Optional[pulumi.Input['TransformOutputCustomPresetArrgs']]):
         pulumi.set(self, "custom_preset", value)
 
     @property
     @pulumi.getter(name="faceDetectorPreset")
-    def face_detector_preset(self) -> Optional[pulumi.Input['TransformOutputFaceDetectorPresetArgs']]:
+    def face_detector_preset(self) -> Optional[pulumi.Input['TransformOutputFaceDetectorPresetArrgs']]:
         """
         A `face_detector_preset` block as defined above.
         """
         return pulumi.get(self, "face_detector_preset")
 
     @face_detector_preset.setter
-    def face_detector_preset(self, value: Optional[pulumi.Input['TransformOutputFaceDetectorPresetArgs']]):
+    def face_detector_preset(self, value: Optional[pulumi.Input['TransformOutputFaceDetectorPresetArrgs']]):
         pulumi.set(self, "face_detector_preset", value)
 
     @property
@@ -3732,7 +3732,7 @@ class TransformOutputArgs:
 
     @property
     @pulumi.getter(name="videoAnalyzerPreset")
-    def video_analyzer_preset(self) -> Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArgs']]:
+    def video_analyzer_preset(self) -> Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArrgs']]:
         """
         A `video_analyzer_preset` block as defined below.
 
@@ -3741,12 +3741,12 @@ class TransformOutputArgs:
         return pulumi.get(self, "video_analyzer_preset")
 
     @video_analyzer_preset.setter
-    def video_analyzer_preset(self, value: Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArgs']]):
+    def video_analyzer_preset(self, value: Optional[pulumi.Input['TransformOutputVideoAnalyzerPresetArrgs']]):
         pulumi.set(self, "video_analyzer_preset", value)
 
 
 @pulumi.input_type
-class TransformOutputAudioAnalyzerPresetArgs:
+calass TransformOutputAudioAnalyzerPresetArrgs:
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[pulumi.Input[str]] = None,
                  audio_language: Optional[pulumi.Input[str]] = None,
@@ -3801,13 +3801,13 @@ class TransformOutputAudioAnalyzerPresetArgs:
 
 
 @pulumi.input_type
-class TransformOutputBuiltinPresetArgs:
+calass TransformOutputBuiltinPresetArrgs:
     def __init__(__self__, *,
                  preset_name: pulumi.Input[str],
-                 preset_configuration: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']] = None):
+                 preset_configuration: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] preset_name: The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
-        :param pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs'] preset_configuration: A `present_configuration` block as defined below.
+        :param pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArrgs'] preset_configuration: A `present_configuration` block as defined below.
         """
         pulumi.set(__self__, "preset_name", preset_name)
         if preset_configuration is not None:
@@ -3827,19 +3827,19 @@ class TransformOutputBuiltinPresetArgs:
 
     @property
     @pulumi.getter(name="presetConfiguration")
-    def preset_configuration(self) -> Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']]:
+    def preset_configuration(self) -> Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArrgs']]:
         """
         A `present_configuration` block as defined below.
         """
         return pulumi.get(self, "preset_configuration")
 
     @preset_configuration.setter
-    def preset_configuration(self, value: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']]):
+    def preset_configuration(self, value: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArrgs']]):
         pulumi.set(self, "preset_configuration", value)
 
 
 @pulumi.input_type
-class TransformOutputBuiltinPresetPresetConfigurationArgs:
+calass TransformOutputBuiltinPresetPresetConfigurationArrgs:
     def __init__(__self__, *,
                  complexity: Optional[pulumi.Input[str]] = None,
                  interleave_output: Optional[pulumi.Input[str]] = None,
@@ -3974,17 +3974,17 @@ class TransformOutputBuiltinPresetPresetConfigurationArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetArgs:
+calass TransformOutputCustomPresetArrgs:
     def __init__(__self__, *,
-                 codecs: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]],
-                 formats: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]],
+                 codecs: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArrgs']]],
+                 formats: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArrgs']]],
                  experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 filter: Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']] = None):
+                 filter: Optional[pulumi.Input['TransformOutputCustomPresetFilterArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]] codecs: One or more `codec` blocks as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]] formats: One or more `format` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArrgs']]] codecs: One or more `codec` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArrgs']]] formats: One or more `format` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
-        :param pulumi.Input['TransformOutputCustomPresetFilterArgs'] filter: A `filter` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFilterArrgs'] filter: A `filter` block as defined below.
         """
         pulumi.set(__self__, "codecs", codecs)
         pulumi.set(__self__, "formats", formats)
@@ -3995,26 +3995,26 @@ class TransformOutputCustomPresetArgs:
 
     @property
     @pulumi.getter
-    def codecs(self) -> pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]]:
+    def codecs(self) -> pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArrgs']]]:
         """
         One or more `codec` blocks as defined above.
         """
         return pulumi.get(self, "codecs")
 
     @codecs.setter
-    def codecs(self, value: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgs']]]):
+    def codecs(self, value: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArrgs']]]):
         pulumi.set(self, "codecs", value)
 
     @property
     @pulumi.getter
-    def formats(self) -> pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]]:
+    def formats(self) -> pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArrgs']]]:
         """
         One or more `format` blocks as defined below.
         """
         return pulumi.get(self, "formats")
 
     @formats.setter
-    def formats(self, value: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgs']]]):
+    def formats(self, value: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArrgs']]]):
         pulumi.set(self, "formats", value)
 
     @property
@@ -4031,37 +4031,37 @@ class TransformOutputCustomPresetArgs:
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']]:
+    def filter(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterArrgs']]:
         """
         A `filter` block as defined below.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']]):
+    def filter(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterArrgs']]):
         pulumi.set(self, "filter", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecArgs:
+calass TransformOutputCustomPresetCodecArrgs:
     def __init__(__self__, *,
-                 aac_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArgs']] = None,
-                 copy_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArgs']] = None,
-                 copy_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArgs']] = None,
-                 dd_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgs']] = None,
-                 h264_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgs']] = None,
-                 h265_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs']] = None,
-                 jpg_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgs']] = None,
-                 png_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArgs']] = None):
+                 aac_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArrgs']] = None,
+                 copy_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArrgs']] = None,
+                 copy_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArrgs']] = None,
+                 dd_audio: Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArrgs']] = None,
+                 h264_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArrgs']] = None,
+                 h265_video: Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArrgs']] = None,
+                 jpg_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArrgs']] = None,
+                 png_image: Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArrgs']] = None):
         """
-        :param pulumi.Input['TransformOutputCustomPresetCodecAacAudioArgs'] aac_audio: A `aac_audio` block as defined above.
-        :param pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArgs'] copy_audio: A `copy_audio` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArgs'] copy_video: A `copy_video` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgs'] dd_audio: A `dd_audio` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgs'] h264_video: A `h264_video` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs'] h265_video: A `h265_video` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgs'] jpg_image: A `jpg_image` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetCodecPngImageArgs'] png_image: A `png_image` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecAacAudioArrgs'] aac_audio: A `aac_audio` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArrgs'] copy_audio: A `copy_audio` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArrgs'] copy_video: A `copy_video` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecDdAudioArrgs'] dd_audio: A `dd_audio` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecH264VideoArrgs'] h264_video: A `h264_video` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecH265VideoArrgs'] h265_video: A `h265_video` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecJpgImageArrgs'] jpg_image: A `jpg_image` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetCodecPngImageArrgs'] png_image: A `png_image` block as defined below.
                
                > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
         """
@@ -4084,91 +4084,91 @@ class TransformOutputCustomPresetCodecArgs:
 
     @property
     @pulumi.getter(name="aacAudio")
-    def aac_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArgs']]:
+    def aac_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArrgs']]:
         """
         A `aac_audio` block as defined above.
         """
         return pulumi.get(self, "aac_audio")
 
     @aac_audio.setter
-    def aac_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArgs']]):
+    def aac_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArrgs']]):
         pulumi.set(self, "aac_audio", value)
 
     @property
     @pulumi.getter(name="copyAudio")
-    def copy_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArgs']]:
+    def copy_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArrgs']]:
         """
         A `copy_audio` block as defined below.
         """
         return pulumi.get(self, "copy_audio")
 
     @copy_audio.setter
-    def copy_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArgs']]):
+    def copy_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArrgs']]):
         pulumi.set(self, "copy_audio", value)
 
     @property
     @pulumi.getter(name="copyVideo")
-    def copy_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArgs']]:
+    def copy_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArrgs']]:
         """
         A `copy_video` block as defined below.
         """
         return pulumi.get(self, "copy_video")
 
     @copy_video.setter
-    def copy_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArgs']]):
+    def copy_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArrgs']]):
         pulumi.set(self, "copy_video", value)
 
     @property
     @pulumi.getter(name="ddAudio")
-    def dd_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgs']]:
+    def dd_audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArrgs']]:
         """
         A `dd_audio` block as defined below.
         """
         return pulumi.get(self, "dd_audio")
 
     @dd_audio.setter
-    def dd_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgs']]):
+    def dd_audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArrgs']]):
         pulumi.set(self, "dd_audio", value)
 
     @property
     @pulumi.getter(name="h264Video")
-    def h264_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgs']]:
+    def h264_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArrgs']]:
         """
         A `h264_video` block as defined below.
         """
         return pulumi.get(self, "h264_video")
 
     @h264_video.setter
-    def h264_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgs']]):
+    def h264_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArrgs']]):
         pulumi.set(self, "h264_video", value)
 
     @property
     @pulumi.getter(name="h265Video")
-    def h265_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs']]:
+    def h265_video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArrgs']]:
         """
         A `h265_video` block as defined below.
         """
         return pulumi.get(self, "h265_video")
 
     @h265_video.setter
-    def h265_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgs']]):
+    def h265_video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArrgs']]):
         pulumi.set(self, "h265_video", value)
 
     @property
     @pulumi.getter(name="jpgImage")
-    def jpg_image(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgs']]:
+    def jpg_image(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArrgs']]:
         """
         A `jpg_image` block as defined below.
         """
         return pulumi.get(self, "jpg_image")
 
     @jpg_image.setter
-    def jpg_image(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgs']]):
+    def jpg_image(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArrgs']]):
         pulumi.set(self, "jpg_image", value)
 
     @property
     @pulumi.getter(name="pngImage")
-    def png_image(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArgs']]:
+    def png_image(self) -> Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArrgs']]:
         """
         A `png_image` block as defined below.
 
@@ -4177,12 +4177,12 @@ class TransformOutputCustomPresetCodecArgs:
         return pulumi.get(self, "png_image")
 
     @png_image.setter
-    def png_image(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArgs']]):
+    def png_image(self, value: Optional[pulumi.Input['TransformOutputCustomPresetCodecPngImageArrgs']]):
         pulumi.set(self, "png_image", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecAacAudioArgs:
+calass TransformOutputCustomPresetCodecAacAudioArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[int]] = None,
                  channels: Optional[pulumi.Input[int]] = None,
@@ -4269,7 +4269,7 @@ class TransformOutputCustomPresetCodecAacAudioArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecCopyAudioArgs:
+calass TransformOutputCustomPresetCodecCopyAudioArrgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None):
         """
@@ -4292,7 +4292,7 @@ class TransformOutputCustomPresetCodecCopyAudioArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecCopyVideoArgs:
+calass TransformOutputCustomPresetCodecCopyVideoArrgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None):
         """
@@ -4315,7 +4315,7 @@ class TransformOutputCustomPresetCodecCopyVideoArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecDdAudioArgs:
+calass TransformOutputCustomPresetCodecDdAudioArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[int]] = None,
                  channels: Optional[pulumi.Input[int]] = None,
@@ -4386,12 +4386,12 @@ class TransformOutputCustomPresetCodecDdAudioArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecH264VideoArgs:
+calass TransformOutputCustomPresetCodecH264VideoArrgs:
     def __init__(__self__, *,
                  complexity: Optional[pulumi.Input[str]] = None,
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArrgs']]]] = None,
                  rate_control_mode: Optional[pulumi.Input[str]] = None,
                  scene_change_detection_enabled: Optional[pulumi.Input[bool]] = None,
                  stretch_mode: Optional[pulumi.Input[str]] = None,
@@ -4400,7 +4400,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArrgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
         :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
@@ -4461,14 +4461,14 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
 
     @property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]]]:
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArrgs']]]]:
         """
         One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]]]):
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArrgs']]]]):
         pulumi.set(self, "layers", value)
 
     @property
@@ -4521,7 +4521,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecH264VideoLayerArgs:
+calass TransformOutputCustomPresetCodecH264VideoLayerArrgs:
     def __init__(__self__, *,
                  bitrate: pulumi.Input[int],
                  adaptive_b_frame_enabled: Optional[pulumi.Input[bool]] = None,
@@ -4767,12 +4767,12 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecH265VideoArgs:
+calass TransformOutputCustomPresetCodecH265VideoArrgs:
     def __init__(__self__, *,
                  complexity: Optional[pulumi.Input[str]] = None,
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArrgs']]]] = None,
                  scene_change_detection_enabled: Optional[pulumi.Input[bool]] = None,
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  sync_mode: Optional[pulumi.Input[str]] = None):
@@ -4780,7 +4780,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArrgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param pulumi.Input[str] sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
@@ -4838,14 +4838,14 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
 
     @property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]]]:
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArrgs']]]]:
         """
         One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]]]):
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArrgs']]]]):
         pulumi.set(self, "layers", value)
 
     @property
@@ -4886,7 +4886,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecH265VideoLayerArgs:
+calass TransformOutputCustomPresetCodecH265VideoLayerArrgs:
     def __init__(__self__, *,
                  bitrate: pulumi.Input[int],
                  adaptive_b_frame_enabled: Optional[pulumi.Input[bool]] = None,
@@ -5116,12 +5116,12 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecJpgImageArgs:
+calass TransformOutputCustomPresetCodecJpgImageArrgs:
     def __init__(__self__, *,
                  start: pulumi.Input[str],
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArrgs']]]] = None,
                  range: Optional[pulumi.Input[str]] = None,
                  sprite_column: Optional[pulumi.Input[int]] = None,
                  step: Optional[pulumi.Input[str]] = None,
@@ -5131,7 +5131,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArrgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[int] sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
         :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
@@ -5194,14 +5194,14 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
 
     @property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]]]:
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArrgs']]]]:
         """
         One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]]]):
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArrgs']]]]):
         pulumi.set(self, "layers", value)
 
     @property
@@ -5266,7 +5266,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecJpgImageLayerArgs:
+calass TransformOutputCustomPresetCodecJpgImageLayerArrgs:
     def __init__(__self__, *,
                  height: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -5337,12 +5337,12 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecPngImageArgs:
+calass TransformOutputCustomPresetCodecPngImageArrgs:
     def __init__(__self__, *,
                  start: pulumi.Input[str],
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]]] = None,
+                 layers: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArrgs']]]] = None,
                  range: Optional[pulumi.Input[str]] = None,
                  step: Optional[pulumi.Input[str]] = None,
                  stretch_mode: Optional[pulumi.Input[str]] = None,
@@ -5351,7 +5351,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArrgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
         :param pulumi.Input[str] stretch_mode: The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
@@ -5411,14 +5411,14 @@ class TransformOutputCustomPresetCodecPngImageArgs:
 
     @property
     @pulumi.getter
-    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]]]:
+    def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArrgs']]]]:
         """
         One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
     @layers.setter
-    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]]]):
+    def layers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArrgs']]]]):
         pulumi.set(self, "layers", value)
 
     @property
@@ -5471,7 +5471,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetCodecPngImageLayerArgs:
+calass TransformOutputCustomPresetCodecPngImageLayerArrgs:
     def __init__(__self__, *,
                  height: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -5526,20 +5526,20 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterArgs:
+calass TransformOutputCustomPresetFilterArrgs:
     def __init__(__self__, *,
-                 crop_rectangle: Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArgs']] = None,
-                 deinterlace: Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArgs']] = None,
-                 fade_in: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArgs']] = None,
-                 fade_out: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgs']] = None,
-                 overlays: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgs']]]] = None,
+                 crop_rectangle: Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArrgs']] = None,
+                 deinterlace: Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArrgs']] = None,
+                 fade_in: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArrgs']] = None,
+                 fade_out: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArrgs']] = None,
+                 overlays: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArrgs']]]] = None,
                  rotation: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArgs'] crop_rectangle: A `crop_rectangle` block as defined above.
-        :param pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArgs'] deinterlace: A `deinterlace` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetFilterFadeInArgs'] fade_in: A `fade_in` block as defined above.
-        :param pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgs'] fade_out: A `fade_out` block as defined above.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgs']]] overlays: One or more `overlay` blocks as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArrgs'] crop_rectangle: A `crop_rectangle` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArrgs'] deinterlace: A `deinterlace` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFilterFadeInArrgs'] fade_in: A `fade_in` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetFilterFadeOutArrgs'] fade_out: A `fade_out` block as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArrgs']]] overlays: One or more `overlay` blocks as defined below.
         :param pulumi.Input[str] rotation: The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
         """
         if crop_rectangle is not None:
@@ -5557,62 +5557,62 @@ class TransformOutputCustomPresetFilterArgs:
 
     @property
     @pulumi.getter(name="cropRectangle")
-    def crop_rectangle(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArgs']]:
+    def crop_rectangle(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArrgs']]:
         """
         A `crop_rectangle` block as defined above.
         """
         return pulumi.get(self, "crop_rectangle")
 
     @crop_rectangle.setter
-    def crop_rectangle(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArgs']]):
+    def crop_rectangle(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArrgs']]):
         pulumi.set(self, "crop_rectangle", value)
 
     @property
     @pulumi.getter
-    def deinterlace(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArgs']]:
+    def deinterlace(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArrgs']]:
         """
         A `deinterlace` block as defined below.
         """
         return pulumi.get(self, "deinterlace")
 
     @deinterlace.setter
-    def deinterlace(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArgs']]):
+    def deinterlace(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArrgs']]):
         pulumi.set(self, "deinterlace", value)
 
     @property
     @pulumi.getter(name="fadeIn")
-    def fade_in(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArgs']]:
+    def fade_in(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArrgs']]:
         """
         A `fade_in` block as defined above.
         """
         return pulumi.get(self, "fade_in")
 
     @fade_in.setter
-    def fade_in(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArgs']]):
+    def fade_in(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeInArrgs']]):
         pulumi.set(self, "fade_in", value)
 
     @property
     @pulumi.getter(name="fadeOut")
-    def fade_out(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgs']]:
+    def fade_out(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArrgs']]:
         """
         A `fade_out` block as defined above.
         """
         return pulumi.get(self, "fade_out")
 
     @fade_out.setter
-    def fade_out(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgs']]):
+    def fade_out(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArrgs']]):
         pulumi.set(self, "fade_out", value)
 
     @property
     @pulumi.getter
-    def overlays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgs']]]]:
+    def overlays(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArrgs']]]]:
         """
         One or more `overlay` blocks as defined below.
         """
         return pulumi.get(self, "overlays")
 
     @overlays.setter
-    def overlays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgs']]]]):
+    def overlays(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArrgs']]]]):
         pulumi.set(self, "overlays", value)
 
     @property
@@ -5629,7 +5629,7 @@ class TransformOutputCustomPresetFilterArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterCropRectangleArgs:
+calass TransformOutputCustomPresetFilterCropRectangleArrgs:
     def __init__(__self__, *,
                  height: Optional[pulumi.Input[str]] = None,
                  left: Optional[pulumi.Input[str]] = None,
@@ -5700,7 +5700,7 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterDeinterlaceArgs:
+calass TransformOutputCustomPresetFilterDeinterlaceArrgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None,
                  parity: Optional[pulumi.Input[str]] = None):
@@ -5739,7 +5739,7 @@ class TransformOutputCustomPresetFilterDeinterlaceArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterFadeInArgs:
+calass TransformOutputCustomPresetFilterFadeInArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
                  fade_color: pulumi.Input[str],
@@ -5792,7 +5792,7 @@ class TransformOutputCustomPresetFilterFadeInArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterFadeOutArgs:
+calass TransformOutputCustomPresetFilterFadeOutArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
                  fade_color: pulumi.Input[str],
@@ -5845,13 +5845,13 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterOverlayArgs:
+calass TransformOutputCustomPresetFilterOverlayArrgs:
     def __init__(__self__, *,
-                 audio: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs']] = None,
-                 video: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']] = None):
+                 audio: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArrgs']] = None,
+                 video: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArrgs']] = None):
         """
-        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs'] audio: An `audio` block as defined above.
-        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs'] video: A `video` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArrgs'] audio: An `audio` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArrgs'] video: A `video` block as defined below.
                
                > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
         """
@@ -5862,19 +5862,19 @@ class TransformOutputCustomPresetFilterOverlayArgs:
 
     @property
     @pulumi.getter
-    def audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs']]:
+    def audio(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArrgs']]:
         """
         An `audio` block as defined above.
         """
         return pulumi.get(self, "audio")
 
     @audio.setter
-    def audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgs']]):
+    def audio(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArrgs']]):
         pulumi.set(self, "audio", value)
 
     @property
     @pulumi.getter
-    def video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']]:
+    def video(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArrgs']]:
         """
         A `video` block as defined below.
 
@@ -5883,12 +5883,12 @@ class TransformOutputCustomPresetFilterOverlayArgs:
         return pulumi.get(self, "video")
 
     @video.setter
-    def video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']]):
+    def video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArrgs']]):
         pulumi.set(self, "video", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterOverlayAudioArgs:
+calass TransformOutputCustomPresetFilterOverlayAudioArrgs:
     def __init__(__self__, *,
                  input_label: pulumi.Input[str],
                  audio_gain_level: Optional[pulumi.Input[float]] = None,
@@ -5990,26 +5990,26 @@ class TransformOutputCustomPresetFilterOverlayAudioArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterOverlayVideoArgs:
+calass TransformOutputCustomPresetFilterOverlayVideoArrgs:
     def __init__(__self__, *,
                  input_label: pulumi.Input[str],
                  audio_gain_level: Optional[pulumi.Input[float]] = None,
-                 crop_rectangle: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs']] = None,
+                 crop_rectangle: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs']] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  fade_in_duration: Optional[pulumi.Input[str]] = None,
                  fade_out_duration: Optional[pulumi.Input[str]] = None,
                  opacity: Optional[pulumi.Input[float]] = None,
-                 position: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgs']] = None,
+                 position: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArrgs']] = None,
                  start: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] input_label: The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
         :param pulumi.Input[float] audio_gain_level: The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
-        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs'] crop_rectangle: A `crop_rectangle` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs'] crop_rectangle: A `crop_rectangle` block as defined above.
         :param pulumi.Input[str] end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
         :param pulumi.Input[str] fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
         :param pulumi.Input[str] fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
         :param pulumi.Input[float] opacity: The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
-        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgs'] position: A `position` block as defined above.
+        :param pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArrgs'] position: A `position` block as defined above.
         :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
         pulumi.set(__self__, "input_label", input_label)
@@ -6056,14 +6056,14 @@ class TransformOutputCustomPresetFilterOverlayVideoArgs:
 
     @property
     @pulumi.getter(name="cropRectangle")
-    def crop_rectangle(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs']]:
+    def crop_rectangle(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs']]:
         """
         A `crop_rectangle` block as defined above.
         """
         return pulumi.get(self, "crop_rectangle")
 
     @crop_rectangle.setter
-    def crop_rectangle(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs']]):
+    def crop_rectangle(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs']]):
         pulumi.set(self, "crop_rectangle", value)
 
     @property
@@ -6116,14 +6116,14 @@ class TransformOutputCustomPresetFilterOverlayVideoArgs:
 
     @property
     @pulumi.getter
-    def position(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgs']]:
+    def position(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArrgs']]:
         """
         A `position` block as defined above.
         """
         return pulumi.get(self, "position")
 
     @position.setter
-    def position(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgs']]):
+    def position(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArrgs']]):
         pulumi.set(self, "position", value)
 
     @property
@@ -6140,7 +6140,7 @@ class TransformOutputCustomPresetFilterOverlayVideoArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
+calass TransformOutputCustomPresetFilterOverlayVideoCropRectangleArrgs:
     def __init__(__self__, *,
                  height: Optional[pulumi.Input[str]] = None,
                  left: Optional[pulumi.Input[str]] = None,
@@ -6211,7 +6211,7 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
+calass TransformOutputCustomPresetFilterOverlayVideoPositionArrgs:
     def __init__(__self__, *,
                  height: Optional[pulumi.Input[str]] = None,
                  left: Optional[pulumi.Input[str]] = None,
@@ -6282,17 +6282,17 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatArgs:
+calass TransformOutputCustomPresetFormatArrgs:
     def __init__(__self__, *,
-                 jpg: Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArgs']] = None,
-                 mp4: Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Args']] = None,
-                 png: Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArgs']] = None,
-                 transport_stream: Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs']] = None):
+                 jpg: Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArrgs']] = None,
+                 mp4: Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Arrgs']] = None,
+                 png: Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArrgs']] = None,
+                 transport_stream: Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArrgs']] = None):
         """
-        :param pulumi.Input['TransformOutputCustomPresetFormatJpgArgs'] jpg: A `jpg` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetFormatMp4Args'] mp4: A `mp4` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetFormatPngArgs'] png: A `png` block as defined below.
-        :param pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs'] transport_stream: A `transport_stream` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFormatJpgArrgs'] jpg: A `jpg` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFormatMp4Arrgs'] mp4: A `mp4` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFormatPngArrgs'] png: A `png` block as defined below.
+        :param pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArrgs'] transport_stream: A `transport_stream` block as defined below.
                
                > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
         """
@@ -6307,43 +6307,43 @@ class TransformOutputCustomPresetFormatArgs:
 
     @property
     @pulumi.getter
-    def jpg(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArgs']]:
+    def jpg(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArrgs']]:
         """
         A `jpg` block as defined below.
         """
         return pulumi.get(self, "jpg")
 
     @jpg.setter
-    def jpg(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArgs']]):
+    def jpg(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatJpgArrgs']]):
         pulumi.set(self, "jpg", value)
 
     @property
     @pulumi.getter
-    def mp4(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Args']]:
+    def mp4(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Arrgs']]:
         """
         A `mp4` block as defined below.
         """
         return pulumi.get(self, "mp4")
 
     @mp4.setter
-    def mp4(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Args']]):
+    def mp4(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatMp4Arrgs']]):
         pulumi.set(self, "mp4", value)
 
     @property
     @pulumi.getter
-    def png(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArgs']]:
+    def png(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArrgs']]:
         """
         A `png` block as defined below.
         """
         return pulumi.get(self, "png")
 
     @png.setter
-    def png(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArgs']]):
+    def png(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatPngArrgs']]):
         pulumi.set(self, "png", value)
 
     @property
     @pulumi.getter(name="transportStream")
-    def transport_stream(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs']]:
+    def transport_stream(self) -> Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArrgs']]:
         """
         A `transport_stream` block as defined below.
 
@@ -6352,12 +6352,12 @@ class TransformOutputCustomPresetFormatArgs:
         return pulumi.get(self, "transport_stream")
 
     @transport_stream.setter
-    def transport_stream(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgs']]):
+    def transport_stream(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArrgs']]):
         pulumi.set(self, "transport_stream", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatJpgArgs:
+calass TransformOutputCustomPresetFormatJpgArrgs:
     def __init__(__self__, *,
                  filename_pattern: pulumi.Input[str]):
         """
@@ -6379,13 +6379,13 @@ class TransformOutputCustomPresetFormatJpgArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatMp4Args:
+calass TransformOutputCustomPresetFormatMp4Arrgs:
     def __init__(__self__, *,
                  filename_pattern: pulumi.Input[str],
-                 output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgs']]]] = None):
+                 output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArrgs']]]] = None):
         """
         :param pulumi.Input[str] filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgs']]] output_files: One or more `output_file` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArrgs']]] output_files: One or more `output_file` blocks as defined below.
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         if output_files is not None:
@@ -6405,19 +6405,19 @@ class TransformOutputCustomPresetFormatMp4Args:
 
     @property
     @pulumi.getter(name="outputFiles")
-    def output_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgs']]]]:
+    def output_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArrgs']]]]:
         """
         One or more `output_file` blocks as defined below.
         """
         return pulumi.get(self, "output_files")
 
     @output_files.setter
-    def output_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgs']]]]):
+    def output_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArrgs']]]]):
         pulumi.set(self, "output_files", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatMp4OutputFileArgs:
+calass TransformOutputCustomPresetFormatMp4OutputFileArrgs:
     def __init__(__self__, *,
                  labels: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -6439,7 +6439,7 @@ class TransformOutputCustomPresetFormatMp4OutputFileArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatPngArgs:
+calass TransformOutputCustomPresetFormatPngArrgs:
     def __init__(__self__, *,
                  filename_pattern: pulumi.Input[str]):
         """
@@ -6461,13 +6461,13 @@ class TransformOutputCustomPresetFormatPngArgs:
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatTransportStreamArgs:
+calass TransformOutputCustomPresetFormatTransportStreamArrgs:
     def __init__(__self__, *,
                  filename_pattern: pulumi.Input[str],
-                 output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs']]]] = None):
+                 output_files: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs']]]] = None):
         """
         :param pulumi.Input[str] filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs']]] output_files: One or more `output_file` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs']]] output_files: One or more `output_file` blocks as defined above.
         """
         pulumi.set(__self__, "filename_pattern", filename_pattern)
         if output_files is not None:
@@ -6487,19 +6487,19 @@ class TransformOutputCustomPresetFormatTransportStreamArgs:
 
     @property
     @pulumi.getter(name="outputFiles")
-    def output_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs']]]]:
+    def output_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs']]]]:
         """
         One or more `output_file` blocks as defined above.
         """
         return pulumi.get(self, "output_files")
 
     @output_files.setter
-    def output_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs']]]]):
+    def output_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs']]]]):
         pulumi.set(self, "output_files", value)
 
 
 @pulumi.input_type
-class TransformOutputCustomPresetFormatTransportStreamOutputFileArgs:
+calass TransformOutputCustomPresetFormatTransportStreamOutputFileArrgs:
     def __init__(__self__, *,
                  labels: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -6521,7 +6521,7 @@ class TransformOutputCustomPresetFormatTransportStreamOutputFileArgs:
 
 
 @pulumi.input_type
-class TransformOutputFaceDetectorPresetArgs:
+calass TransformOutputFaceDetectorPresetArrgs:
     def __init__(__self__, *,
                  analysis_resolution: Optional[pulumi.Input[str]] = None,
                  blur_type: Optional[pulumi.Input[str]] = None,
@@ -6592,7 +6592,7 @@ class TransformOutputFaceDetectorPresetArgs:
 
 
 @pulumi.input_type
-class TransformOutputVideoAnalyzerPresetArgs:
+calass TransformOutputVideoAnalyzerPresetArrgs:
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[pulumi.Input[str]] = None,
                  audio_language: Optional[pulumi.Input[str]] = None,

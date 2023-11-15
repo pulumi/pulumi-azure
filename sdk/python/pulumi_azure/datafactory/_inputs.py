@@ -10,109 +10,109 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomDatasetLinkedServiceArgs',
-    'DataFlowSinkArgs',
-    'DataFlowSinkDatasetArgs',
-    'DataFlowSinkFlowletArgs',
-    'DataFlowSinkLinkedServiceArgs',
-    'DataFlowSinkRejectedLinkedServiceArgs',
-    'DataFlowSinkSchemaLinkedServiceArgs',
-    'DataFlowSourceArgs',
-    'DataFlowSourceDatasetArgs',
-    'DataFlowSourceFlowletArgs',
-    'DataFlowSourceLinkedServiceArgs',
-    'DataFlowSourceRejectedLinkedServiceArgs',
-    'DataFlowSourceSchemaLinkedServiceArgs',
-    'DataFlowTransformationArgs',
-    'DataFlowTransformationDatasetArgs',
-    'DataFlowTransformationFlowletArgs',
-    'DataFlowTransformationLinkedServiceArgs',
-    'DatasetAzureBlobSchemaColumnArgs',
-    'DatasetAzureSqlTableSchemaColumnArgs',
-    'DatasetBinaryAzureBlobStorageLocationArgs',
-    'DatasetBinaryCompressionArgs',
-    'DatasetBinaryHttpServerLocationArgs',
-    'DatasetBinarySftpServerLocationArgs',
-    'DatasetCosmosDBApiSchemaColumnArgs',
-    'DatasetDelimitedTextAzureBlobFsLocationArgs',
-    'DatasetDelimitedTextAzureBlobStorageLocationArgs',
-    'DatasetDelimitedTextHttpServerLocationArgs',
-    'DatasetDelimitedTextSchemaColumnArgs',
-    'DatasetHttpSchemaColumnArgs',
-    'DatasetJsonAzureBlobStorageLocationArgs',
-    'DatasetJsonHttpServerLocationArgs',
-    'DatasetJsonSchemaColumnArgs',
-    'DatasetMysqlSchemaColumnArgs',
-    'DatasetParquetAzureBlobFsLocationArgs',
-    'DatasetParquetAzureBlobStorageLocationArgs',
-    'DatasetParquetHttpServerLocationArgs',
-    'DatasetParquetSchemaColumnArgs',
-    'DatasetPostgresqlSchemaColumnArgs',
-    'DatasetSnowflakeSchemaColumnArgs',
-    'DatasetSqlServerTableSchemaColumnArgs',
-    'FactoryGithubConfigurationArgs',
-    'FactoryGlobalParameterArgs',
-    'FactoryIdentityArgs',
-    'FactoryVstsConfigurationArgs',
-    'FlowletDataFlowSinkArgs',
-    'FlowletDataFlowSinkDatasetArgs',
-    'FlowletDataFlowSinkFlowletArgs',
-    'FlowletDataFlowSinkLinkedServiceArgs',
-    'FlowletDataFlowSinkRejectedLinkedServiceArgs',
-    'FlowletDataFlowSinkSchemaLinkedServiceArgs',
-    'FlowletDataFlowSourceArgs',
-    'FlowletDataFlowSourceDatasetArgs',
-    'FlowletDataFlowSourceFlowletArgs',
-    'FlowletDataFlowSourceLinkedServiceArgs',
-    'FlowletDataFlowSourceRejectedLinkedServiceArgs',
-    'FlowletDataFlowSourceSchemaLinkedServiceArgs',
-    'FlowletDataFlowTransformationArgs',
-    'FlowletDataFlowTransformationDatasetArgs',
-    'FlowletDataFlowTransformationFlowletArgs',
-    'FlowletDataFlowTransformationLinkedServiceArgs',
-    'IntegrationRuntimeManagedCatalogInfoArgs',
-    'IntegrationRuntimeManagedCustomSetupScriptArgs',
-    'IntegrationRuntimeManagedVnetIntegrationArgs',
-    'IntegrationRuntimeSelfHostedRbacAuthorizationArgs',
-    'IntegrationRuntimeSsisCatalogInfoArgs',
-    'IntegrationRuntimeSsisCustomSetupScriptArgs',
-    'IntegrationRuntimeSsisExpressCustomSetupArgs',
-    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs',
-    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs',
-    'IntegrationRuntimeSsisExpressCustomSetupComponentArgs',
-    'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs',
-    'IntegrationRuntimeSsisExpressVnetIntegrationArgs',
-    'IntegrationRuntimeSsisPackageStoreArgs',
-    'IntegrationRuntimeSsisProxyArgs',
-    'IntegrationRuntimeSsisVnetIntegrationArgs',
-    'LinkedCustomServiceIntegrationRuntimeArgs',
-    'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs',
-    'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs',
-    'LinkedServiceAzureDatabricksInstancePoolArgs',
-    'LinkedServiceAzureDatabricksKeyVaultPasswordArgs',
-    'LinkedServiceAzureDatabricksNewClusterConfigArgs',
-    'LinkedServiceAzureFileStorageKeyVaultPasswordArgs',
-    'LinkedServiceAzureFunctionKeyVaultKeyArgs',
-    'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs',
-    'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
-    'LinkedServiceOdataBasicAuthenticationArgs',
-    'LinkedServiceOdbcBasicAuthenticationArgs',
-    'LinkedServiceSnowflakeKeyVaultPasswordArgs',
-    'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
-    'LinkedServiceSqlServerKeyVaultPasswordArgs',
-    'LinkedServiceSynapseKeyVaultPasswordArgs',
-    'TriggerBlobEventPipelineArgs',
-    'TriggerCustomEventPipelineArgs',
-    'TriggerSchedulePipelineArgs',
-    'TriggerScheduleScheduleArgs',
-    'TriggerScheduleScheduleMonthlyArgs',
-    'TriggerTumblingWindowPipelineArgs',
-    'TriggerTumblingWindowRetryArgs',
-    'TriggerTumblingWindowTriggerDependencyArgs',
+    'CustomDatasetLinkedServiceArrgs',
+    'DataFlowSinkArrgs',
+    'DataFlowSinkDatasetArrgs',
+    'DataFlowSinkFlowletArrgs',
+    'DataFlowSinkLinkedServiceArrgs',
+    'DataFlowSinkRejectedLinkedServiceArrgs',
+    'DataFlowSinkSchemaLinkedServiceArrgs',
+    'DataFlowSourceArrgs',
+    'DataFlowSourceDatasetArrgs',
+    'DataFlowSourceFlowletArrgs',
+    'DataFlowSourceLinkedServiceArrgs',
+    'DataFlowSourceRejectedLinkedServiceArrgs',
+    'DataFlowSourceSchemaLinkedServiceArrgs',
+    'DataFlowTransformationArrgs',
+    'DataFlowTransformationDatasetArrgs',
+    'DataFlowTransformationFlowletArrgs',
+    'DataFlowTransformationLinkedServiceArrgs',
+    'DatasetAzureBlobSchemaColumnArrgs',
+    'DatasetAzureSqlTableSchemaColumnArrgs',
+    'DatasetBinaryAzureBlobStorageLocationArrgs',
+    'DatasetBinaryCompressionArrgs',
+    'DatasetBinaryHttpServerLocationArrgs',
+    'DatasetBinarySftpServerLocationArrgs',
+    'DatasetCosmosDBApiSchemaColumnArrgs',
+    'DatasetDelimitedTextAzureBlobFsLocationArrgs',
+    'DatasetDelimitedTextAzureBlobStorageLocationArrgs',
+    'DatasetDelimitedTextHttpServerLocationArrgs',
+    'DatasetDelimitedTextSchemaColumnArrgs',
+    'DatasetHttpSchemaColumnArrgs',
+    'DatasetJsonAzureBlobStorageLocationArrgs',
+    'DatasetJsonHttpServerLocationArrgs',
+    'DatasetJsonSchemaColumnArrgs',
+    'DatasetMysqlSchemaColumnArrgs',
+    'DatasetParquetAzureBlobFsLocationArrgs',
+    'DatasetParquetAzureBlobStorageLocationArrgs',
+    'DatasetParquetHttpServerLocationArrgs',
+    'DatasetParquetSchemaColumnArrgs',
+    'DatasetPostgresqlSchemaColumnArrgs',
+    'DatasetSnowflakeSchemaColumnArrgs',
+    'DatasetSqlServerTableSchemaColumnArrgs',
+    'FactoryGithubConfigurationArrgs',
+    'FactoryGlobalParameterArrgs',
+    'FactoryIdentityArrgs',
+    'FactoryVstsConfigurationArrgs',
+    'FlowletDataFlowSinkArrgs',
+    'FlowletDataFlowSinkDatasetArrgs',
+    'FlowletDataFlowSinkFlowletArrgs',
+    'FlowletDataFlowSinkLinkedServiceArrgs',
+    'FlowletDataFlowSinkRejectedLinkedServiceArrgs',
+    'FlowletDataFlowSinkSchemaLinkedServiceArrgs',
+    'FlowletDataFlowSourceArrgs',
+    'FlowletDataFlowSourceDatasetArrgs',
+    'FlowletDataFlowSourceFlowletArrgs',
+    'FlowletDataFlowSourceLinkedServiceArrgs',
+    'FlowletDataFlowSourceRejectedLinkedServiceArrgs',
+    'FlowletDataFlowSourceSchemaLinkedServiceArrgs',
+    'FlowletDataFlowTransformationArrgs',
+    'FlowletDataFlowTransformationDatasetArrgs',
+    'FlowletDataFlowTransformationFlowletArrgs',
+    'FlowletDataFlowTransformationLinkedServiceArrgs',
+    'IntegrationRuntimeManagedCatalogInfoArrgs',
+    'IntegrationRuntimeManagedCustomSetupScriptArrgs',
+    'IntegrationRuntimeManagedVnetIntegrationArrgs',
+    'IntegrationRuntimeSelfHostedRbacAuthorizationArrgs',
+    'IntegrationRuntimeSsisCatalogInfoArrgs',
+    'IntegrationRuntimeSsisCustomSetupScriptArrgs',
+    'IntegrationRuntimeSsisExpressCustomSetupArrgs',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs',
+    'IntegrationRuntimeSsisExpressCustomSetupComponentArrgs',
+    'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs',
+    'IntegrationRuntimeSsisExpressVnetIntegrationArrgs',
+    'IntegrationRuntimeSsisPackageStoreArrgs',
+    'IntegrationRuntimeSsisProxyArrgs',
+    'IntegrationRuntimeSsisVnetIntegrationArrgs',
+    'LinkedCustomServiceIntegrationRuntimeArrgs',
+    'LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs',
+    'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs',
+    'LinkedServiceAzureDatabricksInstancePoolArrgs',
+    'LinkedServiceAzureDatabricksKeyVaultPasswordArrgs',
+    'LinkedServiceAzureDatabricksNewClusterConfigArrgs',
+    'LinkedServiceAzureFileStorageKeyVaultPasswordArrgs',
+    'LinkedServiceAzureFunctionKeyVaultKeyArrgs',
+    'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArrgs',
+    'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArrgs',
+    'LinkedServiceOdataBasicAuthenticationArrgs',
+    'LinkedServiceOdbcBasicAuthenticationArrgs',
+    'LinkedServiceSnowflakeKeyVaultPasswordArrgs',
+    'LinkedServiceSqlServerKeyVaultConnectionStringArrgs',
+    'LinkedServiceSqlServerKeyVaultPasswordArrgs',
+    'LinkedServiceSynapseKeyVaultPasswordArrgs',
+    'TriggerBlobEventPipelineArrgs',
+    'TriggerCustomEventPipelineArrgs',
+    'TriggerSchedulePipelineArrgs',
+    'TriggerScheduleScheduleArrgs',
+    'TriggerScheduleScheduleMonthlyArrgs',
+    'TriggerTumblingWindowPipelineArrgs',
+    'TriggerTumblingWindowRetryArrgs',
+    'TriggerTumblingWindowTriggerDependencyArrgs',
 ]
 
 @pulumi.input_type
-class CustomDatasetLinkedServiceArgs:
+calass CustomDatasetLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -150,23 +150,23 @@ class CustomDatasetLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSinkArgs:
+calass DataFlowSinkArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['DataFlowSinkDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['DataFlowSinkDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowSinkFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['DataFlowSinkFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['DataFlowSinkLinkedServiceArrgs']] = None,
+                 rejected_linked_service: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArrgs']] = None,
+                 schema_linked_service: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow Source.
-        :param pulumi.Input['DataFlowSinkDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['DataFlowSinkDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow Source.
-        :param pulumi.Input['DataFlowSinkFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['DataFlowSinkLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
-        :param pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSinkFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['DataFlowSinkLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSinkRejectedLinkedServiceArrgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSinkSchemaLinkedServiceArrgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -196,14 +196,14 @@ class DataFlowSinkArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowSinkDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['DataFlowSinkDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowSinkDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['DataFlowSinkDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -220,55 +220,55 @@ class DataFlowSinkArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowSinkFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowSinkFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowSinkFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowSinkFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['DataFlowSinkLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['DataFlowSinkLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
     @property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArrgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArrgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArrgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArrgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
 @pulumi.input_type
-class DataFlowSinkDatasetArgs:
+calass DataFlowSinkDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -306,7 +306,7 @@ class DataFlowSinkDatasetArgs:
 
 
 @pulumi.input_type
-class DataFlowSinkFlowletArgs:
+calass DataFlowSinkFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -360,7 +360,7 @@ class DataFlowSinkFlowletArgs:
 
 
 @pulumi.input_type
-class DataFlowSinkLinkedServiceArgs:
+calass DataFlowSinkLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -398,7 +398,7 @@ class DataFlowSinkLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSinkRejectedLinkedServiceArgs:
+calass DataFlowSinkRejectedLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -436,7 +436,7 @@ class DataFlowSinkRejectedLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSinkSchemaLinkedServiceArgs:
+calass DataFlowSinkSchemaLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -474,23 +474,23 @@ class DataFlowSinkSchemaLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSourceArgs:
+calass DataFlowSourceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['DataFlowSourceDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['DataFlowSourceDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowSourceFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['DataFlowSourceFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['DataFlowSourceLinkedServiceArrgs']] = None,
+                 rejected_linked_service: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArrgs']] = None,
+                 schema_linked_service: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow Source.
-        :param pulumi.Input['DataFlowSourceDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['DataFlowSourceDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow Source.
-        :param pulumi.Input['DataFlowSourceFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['DataFlowSourceLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
-        :param pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSourceFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['DataFlowSourceLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSourceRejectedLinkedServiceArrgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param pulumi.Input['DataFlowSourceSchemaLinkedServiceArrgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -520,14 +520,14 @@ class DataFlowSourceArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowSourceDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['DataFlowSourceDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowSourceDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['DataFlowSourceDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -544,55 +544,55 @@ class DataFlowSourceArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowSourceFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowSourceFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowSourceFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowSourceFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['DataFlowSourceLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['DataFlowSourceLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
     @property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArrgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArrgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArrgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArrgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
 @pulumi.input_type
-class DataFlowSourceDatasetArgs:
+calass DataFlowSourceDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -630,7 +630,7 @@ class DataFlowSourceDatasetArgs:
 
 
 @pulumi.input_type
-class DataFlowSourceFlowletArgs:
+calass DataFlowSourceFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -684,7 +684,7 @@ class DataFlowSourceFlowletArgs:
 
 
 @pulumi.input_type
-class DataFlowSourceLinkedServiceArgs:
+calass DataFlowSourceLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -722,7 +722,7 @@ class DataFlowSourceLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSourceRejectedLinkedServiceArgs:
+calass DataFlowSourceRejectedLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -760,7 +760,7 @@ class DataFlowSourceRejectedLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowSourceSchemaLinkedServiceArgs:
+calass DataFlowSourceSchemaLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -798,19 +798,19 @@ class DataFlowSourceSchemaLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DataFlowTransformationArgs:
+calass DataFlowTransformationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['DataFlowTransformationDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['DataFlowTransformationDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowTransformationFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['DataFlowTransformationFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow transformation.
-        :param pulumi.Input['DataFlowTransformationDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['DataFlowTransformationDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow transformation.
-        :param pulumi.Input['DataFlowTransformationFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['DataFlowTransformationLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['DataFlowTransformationFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['DataFlowTransformationLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -836,14 +836,14 @@ class DataFlowTransformationArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['DataFlowTransformationDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['DataFlowTransformationDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['DataFlowTransformationDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['DataFlowTransformationDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -860,31 +860,31 @@ class DataFlowTransformationArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['DataFlowTransformationFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['DataFlowTransformationFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['DataFlowTransformationFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['DataFlowTransformationFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['DataFlowTransformationLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
 
 @pulumi.input_type
-class DataFlowTransformationDatasetArgs:
+calass DataFlowTransformationDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -922,7 +922,7 @@ class DataFlowTransformationDatasetArgs:
 
 
 @pulumi.input_type
-class DataFlowTransformationFlowletArgs:
+calass DataFlowTransformationFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -976,7 +976,7 @@ class DataFlowTransformationFlowletArgs:
 
 
 @pulumi.input_type
-class DataFlowTransformationLinkedServiceArgs:
+calass DataFlowTransformationLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -1014,7 +1014,7 @@ class DataFlowTransformationLinkedServiceArgs:
 
 
 @pulumi.input_type
-class DatasetAzureBlobSchemaColumnArgs:
+calass DatasetAzureBlobSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1068,7 +1068,7 @@ class DatasetAzureBlobSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetAzureSqlTableSchemaColumnArgs:
+calass DatasetAzureSqlTableSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1122,7 +1122,7 @@ class DatasetAzureSqlTableSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetBinaryAzureBlobStorageLocationArgs:
+calass DatasetBinaryAzureBlobStorageLocationArrgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1224,7 +1224,7 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
 
 
 @pulumi.input_type
-class DatasetBinaryCompressionArgs:
+calass DatasetBinaryCompressionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  level: Optional[pulumi.Input[str]] = None):
@@ -1262,7 +1262,7 @@ class DatasetBinaryCompressionArgs:
 
 
 @pulumi.input_type
-class DatasetBinaryHttpServerLocationArgs:
+calass DatasetBinaryHttpServerLocationArrgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -1346,7 +1346,7 @@ class DatasetBinaryHttpServerLocationArgs:
 
 
 @pulumi.input_type
-class DatasetBinarySftpServerLocationArgs:
+calass DatasetBinarySftpServerLocationArrgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -1415,7 +1415,7 @@ class DatasetBinarySftpServerLocationArgs:
 
 
 @pulumi.input_type
-class DatasetCosmosDBApiSchemaColumnArgs:
+calass DatasetCosmosDBApiSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1469,7 +1469,7 @@ class DatasetCosmosDBApiSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetDelimitedTextAzureBlobFsLocationArgs:
+calass DatasetDelimitedTextAzureBlobFsLocationArrgs:
     def __init__(__self__, *,
                  dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1572,7 +1572,7 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
 
 
 @pulumi.input_type
-class DatasetDelimitedTextAzureBlobStorageLocationArgs:
+calass DatasetDelimitedTextAzureBlobStorageLocationArrgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1674,7 +1674,7 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
 
 
 @pulumi.input_type
-class DatasetDelimitedTextHttpServerLocationArgs:
+calass DatasetDelimitedTextHttpServerLocationArrgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -1758,7 +1758,7 @@ class DatasetDelimitedTextHttpServerLocationArgs:
 
 
 @pulumi.input_type
-class DatasetDelimitedTextSchemaColumnArgs:
+calass DatasetDelimitedTextSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1812,7 +1812,7 @@ class DatasetDelimitedTextSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetHttpSchemaColumnArgs:
+calass DatasetHttpSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1866,7 +1866,7 @@ class DatasetHttpSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetJsonAzureBlobStorageLocationArgs:
+calass DatasetJsonAzureBlobStorageLocationArrgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  filename: pulumi.Input[str],
@@ -1966,7 +1966,7 @@ class DatasetJsonAzureBlobStorageLocationArgs:
 
 
 @pulumi.input_type
-class DatasetJsonHttpServerLocationArgs:
+calass DatasetJsonHttpServerLocationArrgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -2050,7 +2050,7 @@ class DatasetJsonHttpServerLocationArgs:
 
 
 @pulumi.input_type
-class DatasetJsonSchemaColumnArgs:
+calass DatasetJsonSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2104,7 +2104,7 @@ class DatasetJsonSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetMysqlSchemaColumnArgs:
+calass DatasetMysqlSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2158,7 +2158,7 @@ class DatasetMysqlSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetParquetAzureBlobFsLocationArgs:
+calass DatasetParquetAzureBlobFsLocationArrgs:
     def __init__(__self__, *,
                  dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
                  dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2261,7 +2261,7 @@ class DatasetParquetAzureBlobFsLocationArgs:
 
 
 @pulumi.input_type
-class DatasetParquetAzureBlobStorageLocationArgs:
+calass DatasetParquetAzureBlobStorageLocationArrgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2363,7 +2363,7 @@ class DatasetParquetAzureBlobStorageLocationArgs:
 
 
 @pulumi.input_type
-class DatasetParquetHttpServerLocationArgs:
+calass DatasetParquetHttpServerLocationArrgs:
     def __init__(__self__, *,
                  filename: pulumi.Input[str],
                  relative_url: pulumi.Input[str],
@@ -2448,7 +2448,7 @@ class DatasetParquetHttpServerLocationArgs:
 
 
 @pulumi.input_type
-class DatasetParquetSchemaColumnArgs:
+calass DatasetParquetSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2502,7 +2502,7 @@ class DatasetParquetSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetPostgresqlSchemaColumnArgs:
+calass DatasetPostgresqlSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2556,7 +2556,7 @@ class DatasetPostgresqlSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetSnowflakeSchemaColumnArgs:
+calass DatasetSnowflakeSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  precision: Optional[pulumi.Input[int]] = None,
@@ -2626,7 +2626,7 @@ class DatasetSnowflakeSchemaColumnArgs:
 
 
 @pulumi.input_type
-class DatasetSqlServerTableSchemaColumnArgs:
+calass DatasetSqlServerTableSchemaColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -2680,7 +2680,7 @@ class DatasetSqlServerTableSchemaColumnArgs:
 
 
 @pulumi.input_type
-class FactoryGithubConfigurationArgs:
+calass FactoryGithubConfigurationArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -2782,7 +2782,7 @@ class FactoryGithubConfigurationArgs:
 
 
 @pulumi.input_type
-class FactoryGlobalParameterArgs:
+calass FactoryGlobalParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -2838,7 +2838,7 @@ class FactoryGlobalParameterArgs:
 
 
 @pulumi.input_type
-class FactoryIdentityArgs:
+calass FactoryIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2912,7 +2912,7 @@ class FactoryIdentityArgs:
 
 
 @pulumi.input_type
-class FactoryVstsConfigurationArgs:
+calass FactoryVstsConfigurationArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -3025,23 +3025,23 @@ class FactoryVstsConfigurationArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkArgs:
+calass FlowletDataFlowSinkArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArrgs']] = None,
+                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArrgs']] = None,
+                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow Source.
-        :param pulumi.Input['FlowletDataFlowSinkDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSinkDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow Source.
-        :param pulumi.Input['FlowletDataFlowSinkFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSinkFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSinkLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArrgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArrgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -3071,14 +3071,14 @@ class FlowletDataFlowSinkArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSinkDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -3095,55 +3095,55 @@ class FlowletDataFlowSinkArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSinkFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
     @property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArrgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArrgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArrgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArrgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkDatasetArgs:
+calass FlowletDataFlowSinkDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3181,7 +3181,7 @@ class FlowletDataFlowSinkDatasetArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkFlowletArgs:
+calass FlowletDataFlowSinkFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -3235,7 +3235,7 @@ class FlowletDataFlowSinkFlowletArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkLinkedServiceArgs:
+calass FlowletDataFlowSinkLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3273,7 +3273,7 @@ class FlowletDataFlowSinkLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkRejectedLinkedServiceArgs:
+calass FlowletDataFlowSinkRejectedLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3311,7 +3311,7 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSinkSchemaLinkedServiceArgs:
+calass FlowletDataFlowSinkSchemaLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3349,23 +3349,23 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceArgs:
+calass FlowletDataFlowSourceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']] = None,
-                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']] = None,
-                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArrgs']] = None,
+                 rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArrgs']] = None,
+                 schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow Source.
-        :param pulumi.Input['FlowletDataFlowSourceDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSourceDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow Source.
-        :param pulumi.Input['FlowletDataFlowSourceFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
-        :param pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSourceFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSourceLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArrgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArrgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -3395,14 +3395,14 @@ class FlowletDataFlowSourceArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowSourceDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -3419,55 +3419,55 @@ class FlowletDataFlowSourceArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowSourceFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
     @property
     @pulumi.getter(name="rejectedLinkedService")
-    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']]:
+    def rejected_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArrgs']]:
         """
         A `rejected_linked_service` block as defined below.
         """
         return pulumi.get(self, "rejected_linked_service")
 
     @rejected_linked_service.setter
-    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']]):
+    def rejected_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArrgs']]):
         pulumi.set(self, "rejected_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
-    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']]:
+    def schema_linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArrgs']]:
         """
         A `schema_linked_service` block as defined below.
         """
         return pulumi.get(self, "schema_linked_service")
 
     @schema_linked_service.setter
-    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']]):
+    def schema_linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArrgs']]):
         pulumi.set(self, "schema_linked_service", value)
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceDatasetArgs:
+calass FlowletDataFlowSourceDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3505,7 +3505,7 @@ class FlowletDataFlowSourceDatasetArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceFlowletArgs:
+calass FlowletDataFlowSourceFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -3559,7 +3559,7 @@ class FlowletDataFlowSourceFlowletArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceLinkedServiceArgs:
+calass FlowletDataFlowSourceLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3597,7 +3597,7 @@ class FlowletDataFlowSourceLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceRejectedLinkedServiceArgs:
+calass FlowletDataFlowSourceRejectedLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3635,7 +3635,7 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowSourceSchemaLinkedServiceArgs:
+calass FlowletDataFlowSourceSchemaLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3673,19 +3673,19 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowTransformationArgs:
+calass FlowletDataFlowTransformationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 dataset: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']] = None,
+                 dataset: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']] = None,
-                 linked_service: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArrgs']] = None,
+                 linked_service: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name for the Data Flow transformation.
-        :param pulumi.Input['FlowletDataFlowTransformationDatasetArgs'] dataset: A `dataset` block as defined below.
+        :param pulumi.Input['FlowletDataFlowTransformationDatasetArrgs'] dataset: A `dataset` block as defined below.
         :param pulumi.Input[str] description: The description for the Data Flow transformation.
-        :param pulumi.Input['FlowletDataFlowTransformationFlowletArgs'] flowlet: A `flowlet` block as defined below.
-        :param pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['FlowletDataFlowTransformationFlowletArrgs'] flowlet: A `flowlet` block as defined below.
+        :param pulumi.Input['FlowletDataFlowTransformationLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         if dataset is not None:
@@ -3711,14 +3711,14 @@ class FlowletDataFlowTransformationArgs:
 
     @property
     @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']]:
+    def dataset(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArrgs']]:
         """
         A `dataset` block as defined below.
         """
         return pulumi.get(self, "dataset")
 
     @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']]):
+    def dataset(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArrgs']]):
         pulumi.set(self, "dataset", value)
 
     @property
@@ -3735,31 +3735,31 @@ class FlowletDataFlowTransformationArgs:
 
     @property
     @pulumi.getter
-    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']]:
+    def flowlet(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArrgs']]:
         """
         A `flowlet` block as defined below.
         """
         return pulumi.get(self, "flowlet")
 
     @flowlet.setter
-    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']]):
+    def flowlet(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArrgs']]):
         pulumi.set(self, "flowlet", value)
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
 
 @pulumi.input_type
-class FlowletDataFlowTransformationDatasetArgs:
+calass FlowletDataFlowTransformationDatasetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3797,7 +3797,7 @@ class FlowletDataFlowTransformationDatasetArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowTransformationFlowletArgs:
+calass FlowletDataFlowTransformationFlowletArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  dataset_parameters: Optional[pulumi.Input[str]] = None,
@@ -3851,7 +3851,7 @@ class FlowletDataFlowTransformationFlowletArgs:
 
 
 @pulumi.input_type
-class FlowletDataFlowTransformationLinkedServiceArgs:
+calass FlowletDataFlowTransformationLinkedServiceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -3889,7 +3889,7 @@ class FlowletDataFlowTransformationLinkedServiceArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeManagedCatalogInfoArgs:
+calass IntegrationRuntimeManagedCatalogInfoArrgs:
     def __init__(__self__, *,
                  server_endpoint: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
@@ -3959,7 +3959,7 @@ class IntegrationRuntimeManagedCatalogInfoArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeManagedCustomSetupScriptArgs:
+calass IntegrationRuntimeManagedCustomSetupScriptArrgs:
     def __init__(__self__, *,
                  blob_container_uri: pulumi.Input[str],
                  sas_token: pulumi.Input[str]):
@@ -3996,7 +3996,7 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeManagedVnetIntegrationArgs:
+calass IntegrationRuntimeManagedVnetIntegrationArrgs:
     def __init__(__self__, *,
                  subnet_name: pulumi.Input[str],
                  vnet_id: pulumi.Input[str]):
@@ -4033,7 +4033,7 @@ class IntegrationRuntimeManagedVnetIntegrationArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
+calass IntegrationRuntimeSelfHostedRbacAuthorizationArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str]):
         """
@@ -4063,7 +4063,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisCatalogInfoArgs:
+calass IntegrationRuntimeSsisCatalogInfoArrgs:
     def __init__(__self__, *,
                  server_endpoint: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
@@ -4165,7 +4165,7 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisCustomSetupScriptArgs:
+calass IntegrationRuntimeSsisCustomSetupScriptArrgs:
     def __init__(__self__, *,
                  blob_container_uri: pulumi.Input[str],
                  sas_token: pulumi.Input[str]):
@@ -4202,15 +4202,15 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressCustomSetupArgs:
+calass IntegrationRuntimeSsisExpressCustomSetupArrgs:
     def __init__(__self__, *,
-                 command_keys: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]] = None,
+                 command_keys: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArrgs']]]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  powershell_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]] command_keys: One or more `command_key` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]] components: One or more `component` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs']]] command_keys: One or more `command_key` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArrgs']]] components: One or more `component` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
         :param pulumi.Input[str] powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
                
@@ -4227,26 +4227,26 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
 
     @property
     @pulumi.getter(name="commandKeys")
-    def command_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]:
+    def command_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs']]]]:
         """
         One or more `command_key` blocks as defined below.
         """
         return pulumi.get(self, "command_keys")
 
     @command_keys.setter
-    def command_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]):
+    def command_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs']]]]):
         pulumi.set(self, "command_keys", value)
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArrgs']]]]:
         """
         One or more `component` blocks as defined below.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
@@ -4277,16 +4277,16 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
+calass IntegrationRuntimeSsisExpressCustomSetupCommandKeyArrgs:
     def __init__(__self__, *,
                  target_name: pulumi.Input[str],
                  user_name: pulumi.Input[str],
-                 key_vault_password: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']] = None,
+                 key_vault_password: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs']] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] target_name: The target computer or domain name.
         :param pulumi.Input[str] user_name: The username for the target device.
-        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs'] key_vault_password: A `key_vault_secret_reference` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs'] key_vault_password: A `key_vault_secret_reference` block as defined below.
         :param pulumi.Input[str] password: The password for the target device.
         """
         pulumi.set(__self__, "target_name", target_name)
@@ -4322,14 +4322,14 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
 
     @property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs']]:
         """
         A `key_vault_secret_reference` block as defined below.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @property
@@ -4346,7 +4346,7 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
+calass IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str],
@@ -4415,14 +4415,14 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
+calass IntegrationRuntimeSsisExpressCustomSetupComponentArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 key_vault_license: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']] = None,
+                 key_vault_license: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs']] = None,
                  license: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Component Name installed for the Azure-SSIS Integration Runtime.
-        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs'] key_vault_license: A `key_vault_secret_reference` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs'] key_vault_license: A `key_vault_secret_reference` block as defined below.
         :param pulumi.Input[str] license: The license used for the Component.
         """
         pulumi.set(__self__, "name", name)
@@ -4445,14 +4445,14 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
 
     @property
     @pulumi.getter(name="keyVaultLicense")
-    def key_vault_license(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]:
+    def key_vault_license(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs']]:
         """
         A `key_vault_secret_reference` block as defined below.
         """
         return pulumi.get(self, "key_vault_license")
 
     @key_vault_license.setter
-    def key_vault_license(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]):
+    def key_vault_license(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs']]):
         pulumi.set(self, "key_vault_license", value)
 
     @property
@@ -4469,7 +4469,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
+calass IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str],
@@ -4538,7 +4538,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisExpressVnetIntegrationArgs:
+calass IntegrationRuntimeSsisExpressVnetIntegrationArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str]):
         """
@@ -4560,7 +4560,7 @@ class IntegrationRuntimeSsisExpressVnetIntegrationArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisPackageStoreArgs:
+calass IntegrationRuntimeSsisPackageStoreArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -4597,7 +4597,7 @@ class IntegrationRuntimeSsisPackageStoreArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisProxyArgs:
+calass IntegrationRuntimeSsisProxyArrgs:
     def __init__(__self__, *,
                  self_hosted_integration_runtime_name: pulumi.Input[str],
                  staging_storage_linked_service_name: pulumi.Input[str],
@@ -4650,7 +4650,7 @@ class IntegrationRuntimeSsisProxyArgs:
 
 
 @pulumi.input_type
-class IntegrationRuntimeSsisVnetIntegrationArgs:
+calass IntegrationRuntimeSsisVnetIntegrationArrgs:
     def __init__(__self__, *,
                  public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -4725,7 +4725,7 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
 
 
 @pulumi.input_type
-class LinkedCustomServiceIntegrationRuntimeArgs:
+calass LinkedCustomServiceIntegrationRuntimeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -4763,7 +4763,7 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
+calass LinkedServiceAzureBlobStorageKeyVaultSasTokenArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -4800,7 +4800,7 @@ class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs:
+calass LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -4837,7 +4837,7 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureDatabricksInstancePoolArgs:
+calass LinkedServiceAzureDatabricksInstancePoolArrgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[str],
                  instance_pool_id: pulumi.Input[str],
@@ -4906,7 +4906,7 @@ class LinkedServiceAzureDatabricksInstancePoolArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
+calass LinkedServiceAzureDatabricksKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -4943,7 +4943,7 @@ class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureDatabricksNewClusterConfigArgs:
+calass LinkedServiceAzureDatabricksNewClusterConfigArrgs:
     def __init__(__self__, *,
                  cluster_version: pulumi.Input[str],
                  node_type: pulumi.Input[str],
@@ -5108,7 +5108,7 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
+calass LinkedServiceAzureFileStorageKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5145,7 +5145,7 @@ class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureFunctionKeyVaultKeyArgs:
+calass LinkedServiceAzureFunctionKeyVaultKeyArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5182,7 +5182,7 @@ class LinkedServiceAzureFunctionKeyVaultKeyArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs:
+calass LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5219,7 +5219,7 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
+calass LinkedServiceAzureSqlDatabaseKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5256,7 +5256,7 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class LinkedServiceOdataBasicAuthenticationArgs:
+calass LinkedServiceOdataBasicAuthenticationArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -5293,7 +5293,7 @@ class LinkedServiceOdataBasicAuthenticationArgs:
 
 
 @pulumi.input_type
-class LinkedServiceOdbcBasicAuthenticationArgs:
+calass LinkedServiceOdbcBasicAuthenticationArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -5330,7 +5330,7 @@ class LinkedServiceOdbcBasicAuthenticationArgs:
 
 
 @pulumi.input_type
-class LinkedServiceSnowflakeKeyVaultPasswordArgs:
+calass LinkedServiceSnowflakeKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5367,7 +5367,7 @@ class LinkedServiceSnowflakeKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class LinkedServiceSqlServerKeyVaultConnectionStringArgs:
+calass LinkedServiceSqlServerKeyVaultConnectionStringArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5404,7 +5404,7 @@ class LinkedServiceSqlServerKeyVaultConnectionStringArgs:
 
 
 @pulumi.input_type
-class LinkedServiceSqlServerKeyVaultPasswordArgs:
+calass LinkedServiceSqlServerKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5441,7 +5441,7 @@ class LinkedServiceSqlServerKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class LinkedServiceSynapseKeyVaultPasswordArgs:
+calass LinkedServiceSynapseKeyVaultPasswordArrgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input[str],
                  secret_name: pulumi.Input[str]):
@@ -5478,7 +5478,7 @@ class LinkedServiceSynapseKeyVaultPasswordArgs:
 
 
 @pulumi.input_type
-class TriggerBlobEventPipelineArgs:
+calass TriggerBlobEventPipelineArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -5516,7 +5516,7 @@ class TriggerBlobEventPipelineArgs:
 
 
 @pulumi.input_type
-class TriggerCustomEventPipelineArgs:
+calass TriggerCustomEventPipelineArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -5554,7 +5554,7 @@ class TriggerCustomEventPipelineArgs:
 
 
 @pulumi.input_type
-class TriggerSchedulePipelineArgs:
+calass TriggerSchedulePipelineArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -5592,19 +5592,19 @@ class TriggerSchedulePipelineArgs:
 
 
 @pulumi.input_type
-class TriggerScheduleScheduleArgs:
+calass TriggerScheduleScheduleArrgs:
     def __init__(__self__, *,
                  days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]] = None):
+                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArrgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_months: Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: Hours of the day on which the trigger is scheduled.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: Minutes of the hour on which the trigger is scheduled.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArrgs']]] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         if days_of_months is not None:
             pulumi.set(__self__, "days_of_months", days_of_months)
@@ -5667,19 +5667,19 @@ class TriggerScheduleScheduleArgs:
 
     @property
     @pulumi.getter
-    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]:
+    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArrgs']]]]:
         """
         A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
         return pulumi.get(self, "monthlies")
 
     @monthlies.setter
-    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]):
+    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArrgs']]]]):
         pulumi.set(self, "monthlies", value)
 
 
 @pulumi.input_type
-class TriggerScheduleScheduleMonthlyArgs:
+calass TriggerScheduleScheduleMonthlyArrgs:
     def __init__(__self__, *,
                  weekday: pulumi.Input[str],
                  week: Optional[pulumi.Input[int]] = None):
@@ -5717,7 +5717,7 @@ class TriggerScheduleScheduleMonthlyArgs:
 
 
 @pulumi.input_type
-class TriggerTumblingWindowPipelineArgs:
+calass TriggerTumblingWindowPipelineArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -5755,7 +5755,7 @@ class TriggerTumblingWindowPipelineArgs:
 
 
 @pulumi.input_type
-class TriggerTumblingWindowRetryArgs:
+calass TriggerTumblingWindowRetryArrgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  interval: Optional[pulumi.Input[int]] = None):
@@ -5793,7 +5793,7 @@ class TriggerTumblingWindowRetryArgs:
 
 
 @pulumi.input_type
-class TriggerTumblingWindowTriggerDependencyArgs:
+calass TriggerTumblingWindowTriggerDependencyArrgs:
     def __init__(__self__, *,
                  offset: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,

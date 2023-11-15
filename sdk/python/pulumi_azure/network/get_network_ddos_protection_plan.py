@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkDdosProtectionPlanResult:
+calass GetNetworkDdosProtectionPlanResult:
     """
     A collection of values returned by getNetworkDdosProtectionPlan.
     """
@@ -84,7 +84,7 @@ class GetNetworkDdosProtectionPlanResult:
         return pulumi.get(self, "virtual_network_ids")
 
 
-class AwaitableGetNetworkDdosProtectionPlanResult(GetNetworkDdosProtectionPlanResult):
+calass AwaitableGetNetworkDdosProtectionPlanResult(GetNetworkDdosProtectionPlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

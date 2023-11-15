@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAgentResult(dict):
+calass GetAgentResult(dict):
     def __init__(__self__, *,
                  extensions_allow_lists: Sequence['outputs.GetAgentExtensionsAllowListResult'],
                  extensions_block_lists: Sequence['outputs.GetAgentExtensionsBlockListResult'],
@@ -38,8 +38,8 @@ class GetAgentResult(dict):
                  proxy_bypasses: Sequence[str],
                  proxy_url: str):
         """
-        :param Sequence['GetAgentExtensionsAllowListArgs'] extensions_allow_lists: A `extensions_allow_list` block as defined below.
-        :param Sequence['GetAgentExtensionsBlockListArgs'] extensions_block_lists: A `extensions_block_list` block as defined below.
+        :param Sequence['GetAgentExtensionsAllowListArrgs'] extensions_allow_lists: A `extensions_allow_list` block as defined below.
+        :param Sequence['GetAgentExtensionsBlockListArrgs'] extensions_block_lists: A `extensions_block_list` block as defined below.
         :param bool extensions_enabled: Specifies whether the extension service is enabled or disabled.
         :param bool guest_configuration_enabled: Specified whether the guest configuration service is enabled or disabled.
         :param Sequence[str] incoming_connections_ports: Specifies the list of ports that the agent will be able to listen on.
@@ -112,7 +112,7 @@ class GetAgentResult(dict):
 
 
 @pulumi.output_type
-class GetAgentExtensionsAllowListResult(dict):
+calass GetAgentExtensionsAllowListResult(dict):
     def __init__(__self__, *,
                  publisher: str,
                  type: str):
@@ -141,7 +141,7 @@ class GetAgentExtensionsAllowListResult(dict):
 
 
 @pulumi.output_type
-class GetAgentExtensionsBlockListResult(dict):
+calass GetAgentExtensionsBlockListResult(dict):
     def __init__(__self__, *,
                  publisher: str,
                  type: str):
@@ -170,7 +170,7 @@ class GetAgentExtensionsBlockListResult(dict):
 
 
 @pulumi.output_type
-class GetCloudMetadataResult(dict):
+calass GetCloudMetadataResult(dict):
     def __init__(__self__, *,
                  provider: str):
         """
@@ -188,7 +188,7 @@ class GetCloudMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetIdentityResult(dict):
+calass GetIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -228,7 +228,7 @@ class GetIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetLocationDataResult(dict):
+calass GetLocationDataResult(dict):
     def __init__(__self__, *,
                  city: str,
                  country_or_region: str,
@@ -279,15 +279,15 @@ class GetLocationDataResult(dict):
 
 
 @pulumi.output_type
-class GetOsProfileResult(dict):
+calass GetOsProfileResult(dict):
     def __init__(__self__, *,
                  computer_name: str,
                  linuxes: Sequence['outputs.GetOsProfileLinuxResult'],
                  windows: Sequence['outputs.GetOsProfileWindowResult']):
         """
         :param str computer_name: Specifies the host OS name of the Azure Arc machine.
-        :param Sequence['GetOsProfileLinuxArgs'] linuxes: A `linux` block as defined above.
-        :param Sequence['GetOsProfileWindowArgs'] windows: A `windows` block as defined below.
+        :param Sequence['GetOsProfileLinuxArrgs'] linuxes: A `linux` block as defined above.
+        :param Sequence['GetOsProfileWindowArrgs'] windows: A `windows` block as defined below.
         """
         pulumi.set(__self__, "computer_name", computer_name)
         pulumi.set(__self__, "linuxes", linuxes)
@@ -319,11 +319,11 @@ class GetOsProfileResult(dict):
 
 
 @pulumi.output_type
-class GetOsProfileLinuxResult(dict):
+calass GetOsProfileLinuxResult(dict):
     def __init__(__self__, *,
                  patches: Sequence['outputs.GetOsProfileLinuxPatchResult']):
         """
-        :param Sequence['GetOsProfileLinuxPatchArgs'] patches: A `patch` block as defined above.
+        :param Sequence['GetOsProfileLinuxPatchArrgs'] patches: A `patch` block as defined above.
         """
         pulumi.set(__self__, "patches", patches)
 
@@ -337,7 +337,7 @@ class GetOsProfileLinuxResult(dict):
 
 
 @pulumi.output_type
-class GetOsProfileLinuxPatchResult(dict):
+calass GetOsProfileLinuxPatchResult(dict):
     def __init__(__self__, *,
                  assessment_mode: str,
                  patch_mode: str):
@@ -366,11 +366,11 @@ class GetOsProfileLinuxPatchResult(dict):
 
 
 @pulumi.output_type
-class GetOsProfileWindowResult(dict):
+calass GetOsProfileWindowResult(dict):
     def __init__(__self__, *,
                  patches: Sequence['outputs.GetOsProfileWindowPatchResult']):
         """
-        :param Sequence['GetOsProfileWindowPatchArgs'] patches: A `patch` block as defined above.
+        :param Sequence['GetOsProfileWindowPatchArrgs'] patches: A `patch` block as defined above.
         """
         pulumi.set(__self__, "patches", patches)
 
@@ -384,7 +384,7 @@ class GetOsProfileWindowResult(dict):
 
 
 @pulumi.output_type
-class GetOsProfileWindowPatchResult(dict):
+calass GetOsProfileWindowPatchResult(dict):
     def __init__(__self__, *,
                  assessment_mode: str,
                  patch_mode: str):
@@ -413,13 +413,13 @@ class GetOsProfileWindowPatchResult(dict):
 
 
 @pulumi.output_type
-class GetServiceStatusResult(dict):
+calass GetServiceStatusResult(dict):
     def __init__(__self__, *,
                  extension_services: Sequence['outputs.GetServiceStatusExtensionServiceResult'],
                  guest_configuration_services: Sequence['outputs.GetServiceStatusGuestConfigurationServiceResult']):
         """
-        :param Sequence['GetServiceStatusExtensionServiceArgs'] extension_services: A `extension_service` block as defined above.
-        :param Sequence['GetServiceStatusGuestConfigurationServiceArgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
+        :param Sequence['GetServiceStatusExtensionServiceArrgs'] extension_services: A `extension_service` block as defined above.
+        :param Sequence['GetServiceStatusGuestConfigurationServiceArrgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
         """
         pulumi.set(__self__, "extension_services", extension_services)
         pulumi.set(__self__, "guest_configuration_services", guest_configuration_services)
@@ -442,7 +442,7 @@ class GetServiceStatusResult(dict):
 
 
 @pulumi.output_type
-class GetServiceStatusExtensionServiceResult(dict):
+calass GetServiceStatusExtensionServiceResult(dict):
     def __init__(__self__, *,
                  startup_type: str,
                  status: str):
@@ -471,7 +471,7 @@ class GetServiceStatusExtensionServiceResult(dict):
 
 
 @pulumi.output_type
-class GetServiceStatusGuestConfigurationServiceResult(dict):
+calass GetServiceStatusGuestConfigurationServiceResult(dict):
     def __init__(__self__, *,
                  startup_type: str,
                  status: str):

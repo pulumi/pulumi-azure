@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LogzTagRuleArgs', 'LogzTagRule']
+__all__ = ['LogzTagRuleArrgs', 'LogzTagRule']
 
 @pulumi.input_type
-class LogzTagRuleArgs:
+calass LogzTagRuleArrgs:
     def __init__(__self__, *,
                  logz_monitor_id: pulumi.Input[str],
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None):
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]] = None):
         """
         The set of arguments for constructing a LogzTagRule resource.
         :param pulumi.Input[str] logz_monitor_id: The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
         if send_aad_logs is not None:
@@ -89,32 +89,32 @@ class LogzTagRuleArgs:
 
     @property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]]:
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]]:
         """
         One or more (up to 10) `tag_filter` blocks as defined below.
         """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]]):
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
 @pulumi.input_type
-class _LogzTagRuleState:
+calass _LogzTagRuleState:
     def __init__(__self__, *,
                  logz_monitor_id: Optional[pulumi.Input[str]] = None,
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None):
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]] = None):
         """
         Input properties used for looking up and filtering LogzTagRule resources.
         :param pulumi.Input[str] logz_monitor_id: The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         if logz_monitor_id is not None:
             pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
@@ -177,18 +177,18 @@ class _LogzTagRuleState:
 
     @property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]]:
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]]:
         """
         One or more (up to 10) `tag_filter` blocks as defined below.
         """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]]):
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArrgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
-class LogzTagRule(pulumi.CustomResource):
+calass LogzTagRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -197,7 +197,7 @@ class LogzTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a logz Tag Rule.
@@ -212,12 +212,12 @@ class LogzTagRule(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -226,12 +226,12 @@ class LogzTagRule(pulumi.CustomResource):
         example_logz_tag_rule = azure.monitoring.LogzTagRule("exampleLogzTagRule",
             logz_monitor_id=example_logz_monitor.id,
             tag_filters=[
-                azure.monitoring.LogzTagRuleTagFilterArgs(
+                azure.monitoring.LogzTagRuleTagFilterArrgs(
                     name="name1",
                     action="Include",
                     value="value1",
                 ),
-                azure.monitoring.LogzTagRuleTagFilterArgs(
+                azure.monitoring.LogzTagRuleTagFilterArrgs(
                     name="name2",
                     action="Exclude",
                     value="value2",
@@ -256,13 +256,13 @@ class LogzTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArrgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogzTagRuleArgs,
+                 args: LogzTagRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a logz Tag Rule.
@@ -277,12 +277,12 @@ class LogzTagRule(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -291,12 +291,12 @@ class LogzTagRule(pulumi.CustomResource):
         example_logz_tag_rule = azure.monitoring.LogzTagRule("exampleLogzTagRule",
             logz_monitor_id=example_logz_monitor.id,
             tag_filters=[
-                azure.monitoring.LogzTagRuleTagFilterArgs(
+                azure.monitoring.LogzTagRuleTagFilterArrgs(
                     name="name1",
                     action="Include",
                     value="value1",
                 ),
-                azure.monitoring.LogzTagRuleTagFilterArgs(
+                azure.monitoring.LogzTagRuleTagFilterArrgs(
                     name="name2",
                     action="Exclude",
                     value="value2",
@@ -316,12 +316,12 @@ class LogzTagRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogzTagRuleArgs args: The arguments to use to populate this resource's properties.
+        :param LogzTagRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogzTagRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogzTagRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -334,7 +334,7 @@ class LogzTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,7 +342,7 @@ class LogzTagRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogzTagRuleArgs.__new__(LogzTagRuleArgs)
+            __props__ = LogzTagRuleArrgs.__new__(LogzTagRuleArrgs)
 
             if logz_monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logz_monitor_id'")
@@ -365,7 +365,7 @@ class LogzTagRule(pulumi.CustomResource):
             send_aad_logs: Optional[pulumi.Input[bool]] = None,
             send_activity_logs: Optional[pulumi.Input[bool]] = None,
             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None) -> 'LogzTagRule':
+            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArrgs']]]]] = None) -> 'LogzTagRule':
         """
         Get an existing LogzTagRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -377,7 +377,7 @@ class LogzTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArrgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

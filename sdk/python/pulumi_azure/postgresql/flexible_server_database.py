@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FlexibleServerDatabaseArgs', 'FlexibleServerDatabase']
+__all__ = ['FlexibleServerDatabaseArrgs', 'FlexibleServerDatabase']
 
 @pulumi.input_type
-class FlexibleServerDatabaseArgs:
+calass FlexibleServerDatabaseArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  charset: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class FlexibleServerDatabaseArgs:
 
 
 @pulumi.input_type
-class _FlexibleServerDatabaseState:
+calass _FlexibleServerDatabaseState:
     def __init__(__self__, *,
                  charset: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _FlexibleServerDatabaseState:
         pulumi.set(self, "server_id", value)
 
 
-class FlexibleServerDatabase(pulumi.CustomResource):
+calass FlexibleServerDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,7 +207,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FlexibleServerDatabaseArgs,
+                 args: FlexibleServerDatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a PostgreSQL Flexible Server Database.
@@ -242,12 +242,12 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FlexibleServerDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param FlexibleServerDatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlexibleServerDatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -267,7 +267,7 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlexibleServerDatabaseArgs.__new__(FlexibleServerDatabaseArgs)
+            __props__ = FlexibleServerDatabaseArrgs.__new__(FlexibleServerDatabaseArrgs)
 
             __props__.__dict__["charset"] = charset
             __props__.__dict__["collation"] = collation

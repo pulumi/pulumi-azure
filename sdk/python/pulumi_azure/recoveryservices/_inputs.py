@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'VaultEncryptionArgs',
-    'VaultIdentityArgs',
-    'VaultMonitoringArgs',
+    'VaultEncryptionArrgs',
+    'VaultIdentityArrgs',
+    'VaultMonitoringArrgs',
 ]
 
 @pulumi.input_type
-class VaultEncryptionArgs:
+calass VaultEncryptionArrgs:
     def __init__(__self__, *,
                  infrastructure_encryption_enabled: pulumi.Input[bool],
                  key_id: pulumi.Input[str],
@@ -93,7 +93,7 @@ class VaultEncryptionArgs:
 
 
 @pulumi.input_type
-class VaultIdentityArgs:
+calass VaultIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -167,7 +167,7 @@ class VaultIdentityArgs:
 
 
 @pulumi.input_type
-class VaultMonitoringArgs:
+calass VaultMonitoringArrgs:
     def __init__(__self__, *,
                  alerts_for_all_job_failures_enabled: Optional[pulumi.Input[bool]] = None,
                  alerts_for_critical_operation_failures_enabled: Optional[pulumi.Input[bool]] = None):

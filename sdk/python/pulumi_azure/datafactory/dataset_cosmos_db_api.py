@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetCosmosDBApiArgs', 'DatasetCosmosDBApi']
+__all__ = ['DatasetCosmosDBApiArrgs', 'DatasetCosmosDBApi']
 
 @pulumi.input_type
-class DatasetCosmosDBApiArgs:
+calass DatasetCosmosDBApiArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -25,7 +25,7 @@ class DatasetCosmosDBApiArgs:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]] = None):
         """
         The set of arguments for constructing a DatasetCosmosDBApi resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -39,7 +39,7 @@ class DatasetCosmosDBApiArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -172,19 +172,19 @@ class DatasetCosmosDBApiArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
 @pulumi.input_type
-class _DatasetCosmosDBApiState:
+calass _DatasetCosmosDBApiState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -195,7 +195,7 @@ class _DatasetCosmosDBApiState:
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetCosmosDBApi resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -209,7 +209,7 @@ class _DatasetCosmosDBApiState:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -344,18 +344,18 @@ class _DatasetCosmosDBApiState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
-class DatasetCosmosDBApi(pulumi.CustomResource):
+calass DatasetCosmosDBApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -369,7 +369,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
@@ -417,13 +417,13 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetCosmosDBApiArgs,
+                 args: DatasetCosmosDBApiArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
@@ -459,12 +459,12 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetCosmosDBApiArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetCosmosDBApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetCosmosDBApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetCosmosDBApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -482,7 +482,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,7 +490,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetCosmosDBApiArgs.__new__(DatasetCosmosDBApiArgs)
+            __props__ = DatasetCosmosDBApiArrgs.__new__(DatasetCosmosDBApiArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -525,7 +525,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]]] = None) -> 'DatasetCosmosDBApi':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArrgs']]]]] = None) -> 'DatasetCosmosDBApi':
         """
         Get an existing DatasetCosmosDBApi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -544,7 +544,7 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetCosmosDBApiSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PolicySetDefinitionPolicyDefinitionGroup(dict):
+calass PolicySetDefinitionPolicyDefinitionGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -107,7 +107,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
 
 
 @pulumi.output_type
-class PolicySetDefinitionPolicyDefinitionReference(dict):
+calass PolicySetDefinitionPolicyDefinitionReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
 
 
 @pulumi.output_type
-class VirtualMachineConfigurationAssignmentConfiguration(dict):
+calass VirtualMachineConfigurationAssignmentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,7 +218,7 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         :param str content_uri: The content URI where the Guest Configuration package is stored.
                
                > **NOTE:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
-        :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
+        :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArrgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
         if assignment_type is not None:
@@ -276,7 +276,7 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
+calass VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -305,7 +305,7 @@ class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
 
 
 @pulumi.output_type
-class GetPolicyAssignmentIdentityResult(dict):
+calass GetPolicyAssignmentIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -356,7 +356,7 @@ class GetPolicyAssignmentIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyAssignmentNonComplianceMessageResult(dict):
+calass GetPolicyAssignmentNonComplianceMessageResult(dict):
     def __init__(__self__, *,
                  content: str,
                  policy_definition_reference_id: str):
@@ -385,7 +385,7 @@ class GetPolicyAssignmentNonComplianceMessageResult(dict):
 
 
 @pulumi.output_type
-class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
+calass GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
     def __init__(__self__, *,
                  additional_metadata_resource_id: str,
                  category: str,
@@ -451,7 +451,7 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
 
 
 @pulumi.output_type
-class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
+calass GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     def __init__(__self__, *,
                  parameter_values: str,
                  parameters: Mapping[str, str],

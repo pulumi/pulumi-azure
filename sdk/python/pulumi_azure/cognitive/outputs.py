@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountCustomerManagedKey(dict):
+calass AccountCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -70,7 +70,7 @@ class AccountCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountNetworkAcls(dict):
+calass AccountNetworkAcls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -178,7 +178,7 @@ class AccountNetworkAcls(dict):
         """
         :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
-        :param Sequence['AccountNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
+        :param Sequence['AccountNetworkAclsVirtualNetworkRuleArrgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -212,7 +212,7 @@ class AccountNetworkAcls(dict):
 
 
 @pulumi.output_type
-class AccountNetworkAclsVirtualNetworkRule(dict):
+calass AccountNetworkAclsVirtualNetworkRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -261,7 +261,7 @@ class AccountNetworkAclsVirtualNetworkRule(dict):
 
 
 @pulumi.output_type
-class AccountStorage(dict):
+calass AccountStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -310,7 +310,7 @@ class AccountStorage(dict):
 
 
 @pulumi.output_type
-class DeploymentModel(dict):
+calass DeploymentModel(dict):
     def __init__(__self__, *,
                  format: str,
                  name: str,
@@ -350,7 +350,7 @@ class DeploymentModel(dict):
 
 
 @pulumi.output_type
-class DeploymentScale(dict):
+calass DeploymentScale(dict):
     def __init__(__self__, *,
                  type: str,
                  capacity: Optional[int] = None,

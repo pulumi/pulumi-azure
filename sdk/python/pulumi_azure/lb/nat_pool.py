@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NatPoolArgs', 'NatPool']
+__all__ = ['NatPoolArrgs', 'NatPool']
 
 @pulumi.input_type
-class NatPoolArgs:
+calass NatPoolArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_ip_configuration_name: pulumi.Input[str],
@@ -189,7 +189,7 @@ class NatPoolArgs:
 
 
 @pulumi.input_type
-class _NatPoolState:
+calass _NatPoolState:
     def __init__(__self__, *,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
@@ -384,7 +384,7 @@ class _NatPoolState:
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
-class NatPool(pulumi.CustomResource):
+calass NatPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -422,7 +422,7 @@ class NatPool(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -462,7 +462,7 @@ class NatPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NatPoolArgs,
+                 args: NatPoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Load Balancer NAT pool.
@@ -485,7 +485,7 @@ class NatPool(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -508,12 +508,12 @@ class NatPool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NatPoolArgs args: The arguments to use to populate this resource's properties.
+        :param NatPoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NatPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NatPoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -540,7 +540,7 @@ class NatPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NatPoolArgs.__new__(NatPoolArgs)
+            __props__ = NatPoolArrgs.__new__(NatPoolArrgs)
 
             if backend_port is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_port'")

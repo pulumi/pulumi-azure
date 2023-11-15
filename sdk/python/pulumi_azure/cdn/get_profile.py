@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProfileResult:
+calass GetProfileResult:
     """
     A collection of values returned by getProfile.
     """
@@ -84,7 +84,7 @@ class GetProfileResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetProfileResult(GetProfileResult):
+calass AwaitableGetProfileResult(GetProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

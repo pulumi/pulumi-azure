@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ResourceGroupPolicyRemediation struct {
@@ -148,12 +147,6 @@ func (i *ResourceGroupPolicyRemediation) ToResourceGroupPolicyRemediationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyRemediationOutput)
 }
 
-func (i *ResourceGroupPolicyRemediation) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[*ResourceGroupPolicyRemediation]{
-		OutputState: i.ToResourceGroupPolicyRemediationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupPolicyRemediationArrayInput is an input type that accepts ResourceGroupPolicyRemediationArray and ResourceGroupPolicyRemediationArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyRemediationArrayInput` via:
 //
@@ -177,12 +170,6 @@ func (i ResourceGroupPolicyRemediationArray) ToResourceGroupPolicyRemediationArr
 
 func (i ResourceGroupPolicyRemediationArray) ToResourceGroupPolicyRemediationArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyRemediationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyRemediationArrayOutput)
-}
-
-func (i ResourceGroupPolicyRemediationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[[]*ResourceGroupPolicyRemediation]{
-		OutputState: i.ToResourceGroupPolicyRemediationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupPolicyRemediationMapInput is an input type that accepts ResourceGroupPolicyRemediationMap and ResourceGroupPolicyRemediationMapOutput values.
@@ -210,12 +197,6 @@ func (i ResourceGroupPolicyRemediationMap) ToResourceGroupPolicyRemediationMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyRemediationMapOutput)
 }
 
-func (i ResourceGroupPolicyRemediationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyRemediation]{
-		OutputState: i.ToResourceGroupPolicyRemediationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupPolicyRemediationOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyRemediationOutput) ElementType() reflect.Type {
@@ -228,12 +209,6 @@ func (o ResourceGroupPolicyRemediationOutput) ToResourceGroupPolicyRemediationOu
 
 func (o ResourceGroupPolicyRemediationOutput) ToResourceGroupPolicyRemediationOutputWithContext(ctx context.Context) ResourceGroupPolicyRemediationOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyRemediationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[*ResourceGroupPolicyRemediation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupPolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
@@ -291,12 +266,6 @@ func (o ResourceGroupPolicyRemediationArrayOutput) ToResourceGroupPolicyRemediat
 	return o
 }
 
-func (o ResourceGroupPolicyRemediationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[[]*ResourceGroupPolicyRemediation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupPolicyRemediationArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyRemediationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupPolicyRemediation {
 		return vs[0].([]*ResourceGroupPolicyRemediation)[vs[1].(int)]
@@ -315,12 +284,6 @@ func (o ResourceGroupPolicyRemediationMapOutput) ToResourceGroupPolicyRemediatio
 
 func (o ResourceGroupPolicyRemediationMapOutput) ToResourceGroupPolicyRemediationMapOutputWithContext(ctx context.Context) ResourceGroupPolicyRemediationMapOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyRemediationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyRemediation] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyRemediation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupPolicyRemediationMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupPolicyRemediationOutput {

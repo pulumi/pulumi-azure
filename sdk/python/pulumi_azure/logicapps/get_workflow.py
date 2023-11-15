@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWorkflowResult:
+calass GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
@@ -184,7 +184,7 @@ class GetWorkflowResult:
         return pulumi.get(self, "workflow_version")
 
 
-class AwaitableGetWorkflowResult(GetWorkflowResult):
+calass AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

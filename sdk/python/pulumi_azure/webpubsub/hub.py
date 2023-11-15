@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HubArgs', 'Hub']
+__all__ = ['HubArrgs', 'Hub']
 
 @pulumi.input_type
-class HubArgs:
+calass HubArrgs:
     def __init__(__self__, *,
                  web_pubsub_id: pulumi.Input[str],
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Hub resource.
         :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]] event_handlers: An `event_handler` block as defined below.
                
                > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]] event_listeners: An `event_listener` block as defined below.
                
                > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
@@ -71,7 +71,7 @@ class HubArgs:
 
     @property
     @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
+    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]]:
         """
         An `event_handler` block as defined below.
 
@@ -80,12 +80,12 @@ class HubArgs:
         return pulumi.get(self, "event_handlers")
 
     @event_handlers.setter
-    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
+    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]]):
         pulumi.set(self, "event_handlers", value)
 
     @property
     @pulumi.getter(name="eventListeners")
-    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]]:
         """
         An `event_listener` block as defined below.
 
@@ -94,7 +94,7 @@ class HubArgs:
         return pulumi.get(self, "event_listeners")
 
     @event_listeners.setter
-    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]]):
         pulumi.set(self, "event_listeners", value)
 
     @property
@@ -111,21 +111,21 @@ class HubArgs:
 
 
 @pulumi.input_type
-class _HubState:
+calass _HubState:
     def __init__(__self__, *,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Hub resources.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]] event_handlers: An `event_handler` block as defined below.
                
                > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]] event_listeners: An `event_listener` block as defined below.
                
                > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
@@ -157,7 +157,7 @@ class _HubState:
 
     @property
     @pulumi.getter(name="eventHandlers")
-    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]:
+    def event_handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]]:
         """
         An `event_handler` block as defined below.
 
@@ -166,12 +166,12 @@ class _HubState:
         return pulumi.get(self, "event_handlers")
 
     @event_handlers.setter
-    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]]):
+    def event_handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArrgs']]]]):
         pulumi.set(self, "event_handlers", value)
 
     @property
     @pulumi.getter(name="eventListeners")
-    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]]:
         """
         An `event_listener` block as defined below.
 
@@ -180,7 +180,7 @@ class _HubState:
         return pulumi.get(self, "event_listeners")
 
     @event_listeners.setter
-    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArrgs']]]]):
         pulumi.set(self, "event_listeners", value)
 
     @property
@@ -208,14 +208,14 @@ class _HubState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
-class Hub(pulumi.CustomResource):
+calass Hub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArrgs']]]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -240,7 +240,7 @@ class Hub(pulumi.CustomResource):
         example_hub = azure.webpubsub.Hub("exampleHub",
             web_pubsub_id=example_service.id,
             event_handlers=[
-                azure.webpubsub.HubEventHandlerArgs(
+                azure.webpubsub.HubEventHandlerArrgs(
                     url_template="https://test.com/api/{hub}/{event}",
                     user_event_pattern="*",
                     system_events=[
@@ -248,17 +248,17 @@ class Hub(pulumi.CustomResource):
                         "connected",
                     ],
                 ),
-                azure.webpubsub.HubEventHandlerArgs(
+                azure.webpubsub.HubEventHandlerArrgs(
                     url_template="https://test.com/api/{hub}/{event}",
                     user_event_pattern="event1, event2",
                     system_events=["connected"],
-                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
+                    auth=azure.webpubsub.HubEventHandlerAuthArrgs(
                         managed_identity_id=example_user_assigned_identity.id,
                     ),
                 ),
             ],
             event_listeners=[
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=[
                         "event1",
@@ -267,13 +267,13 @@ class Hub(pulumi.CustomResource):
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
                     eventhub_name=azurerm_eventhub["test1"]["name"],
                 ),
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=["*"],
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
                     eventhub_name=azurerm_eventhub["test1"]["name"],
                 ),
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=["event1"],
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
@@ -296,10 +296,10 @@ class Hub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArrgs']]]] event_handlers: An `event_handler` block as defined below.
                
                > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArrgs']]]] event_listeners: An `event_listener` block as defined below.
                
                > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
@@ -309,7 +309,7 @@ class Hub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HubArgs,
+                 args: HubArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the hub settings for a Web Pubsub.
@@ -332,7 +332,7 @@ class Hub(pulumi.CustomResource):
         example_hub = azure.webpubsub.Hub("exampleHub",
             web_pubsub_id=example_service.id,
             event_handlers=[
-                azure.webpubsub.HubEventHandlerArgs(
+                azure.webpubsub.HubEventHandlerArrgs(
                     url_template="https://test.com/api/{hub}/{event}",
                     user_event_pattern="*",
                     system_events=[
@@ -340,17 +340,17 @@ class Hub(pulumi.CustomResource):
                         "connected",
                     ],
                 ),
-                azure.webpubsub.HubEventHandlerArgs(
+                azure.webpubsub.HubEventHandlerArrgs(
                     url_template="https://test.com/api/{hub}/{event}",
                     user_event_pattern="event1, event2",
                     system_events=["connected"],
-                    auth=azure.webpubsub.HubEventHandlerAuthArgs(
+                    auth=azure.webpubsub.HubEventHandlerAuthArrgs(
                         managed_identity_id=example_user_assigned_identity.id,
                     ),
                 ),
             ],
             event_listeners=[
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=[
                         "event1",
@@ -359,13 +359,13 @@ class Hub(pulumi.CustomResource):
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
                     eventhub_name=azurerm_eventhub["test1"]["name"],
                 ),
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=["*"],
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
                     eventhub_name=azurerm_eventhub["test1"]["name"],
                 ),
-                azure.webpubsub.HubEventListenerArgs(
+                azure.webpubsub.HubEventListenerArrgs(
                     system_event_name_filters=["connected"],
                     user_event_name_filters=["event1"],
                     eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
@@ -385,12 +385,12 @@ class Hub(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HubArgs args: The arguments to use to populate this resource's properties.
+        :param HubArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HubArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -400,8 +400,8 @@ class Hub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
-                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
+                 event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArrgs']]]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -411,7 +411,7 @@ class Hub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HubArgs.__new__(HubArgs)
+            __props__ = HubArrgs.__new__(HubArrgs)
 
             __props__.__dict__["anonymous_connections_enabled"] = anonymous_connections_enabled
             __props__.__dict__["event_handlers"] = event_handlers
@@ -431,8 +431,8 @@ class Hub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
-            event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
-            event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
+            event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArrgs']]]]] = None,
+            event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             web_pubsub_id: Optional[pulumi.Input[str]] = None) -> 'Hub':
         """
@@ -444,10 +444,10 @@ class Hub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArrgs']]]] event_handlers: An `event_handler` block as defined below.
                
                > **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArrgs']]]] event_listeners: An `event_listener` block as defined below.
                
                > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerMicrosoftSupportAuditingPolicyArgs', 'ServerMicrosoftSupportAuditingPolicy']
+__all__ = ['ServerMicrosoftSupportAuditingPolicyArrgs', 'ServerMicrosoftSupportAuditingPolicy']
 
 @pulumi.input_type
-class ServerMicrosoftSupportAuditingPolicyArgs:
+calass ServerMicrosoftSupportAuditingPolicyArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  blob_storage_endpoint: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
 
 
 @pulumi.input_type
-class _ServerMicrosoftSupportAuditingPolicyState:
+calass _ServerMicrosoftSupportAuditingPolicyState:
     def __init__(__self__, *,
                  blob_storage_endpoint: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -226,7 +226,7 @@ class _ServerMicrosoftSupportAuditingPolicyState:
         pulumi.set(self, "storage_account_subscription_id", value)
 
 
-class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
+calass ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,7 +292,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -315,13 +315,13 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
+            network_rules=azure.storage.AccountNetworkRulesArrgs(
                 default_action="Deny",
                 ip_rules=["127.0.0.1"],
                 virtual_network_subnet_ids=[example_subnet.id],
                 bypasses=["AzureServices"],
             ),
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
@@ -358,7 +358,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerMicrosoftSupportAuditingPolicyArgs,
+                 args: ServerMicrosoftSupportAuditingPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Server Microsoft Support Auditing Policy.
@@ -414,7 +414,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -437,13 +437,13 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
+            network_rules=azure.storage.AccountNetworkRulesArrgs(
                 default_action="Deny",
                 ip_rules=["127.0.0.1"],
                 virtual_network_subnet_ids=[example_subnet.id],
                 bypasses=["AzureServices"],
             ),
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
@@ -466,12 +466,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerMicrosoftSupportAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerMicrosoftSupportAuditingPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerMicrosoftSupportAuditingPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerMicrosoftSupportAuditingPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -493,7 +493,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerMicrosoftSupportAuditingPolicyArgs.__new__(ServerMicrosoftSupportAuditingPolicyArgs)
+            __props__ = ServerMicrosoftSupportAuditingPolicyArrgs.__new__(ServerMicrosoftSupportAuditingPolicyArrgs)
 
             __props__.__dict__["blob_storage_endpoint"] = blob_storage_endpoint
             __props__.__dict__["enabled"] = enabled

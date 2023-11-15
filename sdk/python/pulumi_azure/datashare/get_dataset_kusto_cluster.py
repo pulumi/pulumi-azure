@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDatasetKustoClusterResult:
+calass GetDatasetKustoClusterResult:
     """
     A collection of values returned by getDatasetKustoCluster.
     """
@@ -84,7 +84,7 @@ class GetDatasetKustoClusterResult:
         return pulumi.get(self, "share_id")
 
 
-class AwaitableGetDatasetKustoClusterResult(GetDatasetKustoClusterResult):
+calass AwaitableGetDatasetKustoClusterResult(GetDatasetKustoClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

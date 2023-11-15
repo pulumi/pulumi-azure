@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterExtensionIdentity(dict):
+calass ClusterExtensionIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -82,7 +82,7 @@ class ClusterExtensionIdentity(dict):
 
 
 @pulumi.output_type
-class ClusterIdentity(dict):
+calass ClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -143,7 +143,7 @@ class ClusterIdentity(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBlobStorage(dict):
+calass FluxConfigurationBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -186,7 +186,7 @@ class FluxConfigurationBlobStorage(dict):
         :param str account_key: Specifies the account key (shared key) to access the storage account.
         :param str local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         :param str sas_token: Specifies the shared access token to access the storage container.
-        :param 'FluxConfigurationBlobStorageServicePrincipalArgs' service_principal: A `service_principal` block as defined below.
+        :param 'FluxConfigurationBlobStorageServicePrincipalArrgs' service_principal: A `service_principal` block as defined below.
         :param int sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         :param int timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
@@ -262,7 +262,7 @@ class FluxConfigurationBlobStorage(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBlobStorageServicePrincipal(dict):
+calass FluxConfigurationBlobStorageServicePrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -366,7 +366,7 @@ class FluxConfigurationBlobStorageServicePrincipal(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBucket(dict):
+calass FluxConfigurationBucket(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -496,7 +496,7 @@ class FluxConfigurationBucket(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationGitRepository(dict):
+calass FluxConfigurationGitRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -667,7 +667,7 @@ class FluxConfigurationGitRepository(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationKustomization(dict):
+calass FluxConfigurationKustomization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatabaseArgs', 'Database']
+__all__ = ['DatabaseArrgs', 'Database']
 
 @pulumi.input_type
-class DatabaseArgs:
+calass DatabaseArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -23,10 +23,10 @@ class DatabaseArgs:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
+                 import_: Optional[pulumi.Input['DatabaseImportArrgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+                 long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
@@ -37,11 +37,11 @@ class DatabaseArgs:
                  restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
-                 short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
+                 short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+                 threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -59,10 +59,10 @@ class DatabaseArgs:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArrgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input['DatabaseLongTermRetentionPolicyArrgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
@@ -77,13 +77,13 @@ class DatabaseArgs:
         :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
+        :param pulumi.Input['DatabaseShortTermRetentionPolicyArrgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['DatabaseThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
@@ -237,14 +237,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="import")
-    def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
+    def import_(self) -> Optional[pulumi.Input['DatabaseImportArrgs']]:
         """
         A Database Import block as documented below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
     @import_.setter
-    def import_(self, value: Optional[pulumi.Input['DatabaseImportArgs']]):
+    def import_(self, value: Optional[pulumi.Input['DatabaseImportArrgs']]):
         pulumi.set(self, "import_", value)
 
     @property
@@ -273,14 +273,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="longTermRetentionPolicy")
-    def long_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]:
+    def long_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']]:
         """
         A `long_term_retention_policy` block as defined below.
         """
         return pulumi.get(self, "long_term_retention_policy")
 
     @long_term_retention_policy.setter
-    def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]):
+    def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']]):
         pulumi.set(self, "long_term_retention_policy", value)
 
     @property
@@ -409,14 +409,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="shortTermRetentionPolicy")
-    def short_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]:
+    def short_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']]:
         """
         A `short_term_retention_policy` block as defined below.
         """
         return pulumi.get(self, "short_term_retention_policy")
 
     @short_term_retention_policy.setter
-    def short_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]):
+    def short_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']]):
         pulumi.set(self, "short_term_retention_policy", value)
 
     @property
@@ -459,14 +459,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
@@ -497,7 +497,7 @@ class DatabaseArgs:
 
 
 @pulumi.input_type
-class _DatabaseState:
+calass _DatabaseState:
     def __init__(__self__, *,
                  auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
@@ -505,10 +505,10 @@ class _DatabaseState:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
+                 import_: Optional[pulumi.Input['DatabaseImportArrgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+                 long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
@@ -520,11 +520,11 @@ class _DatabaseState:
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
+                 short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+                 threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -539,10 +539,10 @@ class _DatabaseState:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArrgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input['DatabaseLongTermRetentionPolicyArrgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
@@ -560,13 +560,13 @@ class _DatabaseState:
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
-        :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
+        :param pulumi.Input['DatabaseShortTermRetentionPolicyArrgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['DatabaseThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
@@ -707,14 +707,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="import")
-    def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
+    def import_(self) -> Optional[pulumi.Input['DatabaseImportArrgs']]:
         """
         A Database Import block as documented below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
     @import_.setter
-    def import_(self, value: Optional[pulumi.Input['DatabaseImportArgs']]):
+    def import_(self, value: Optional[pulumi.Input['DatabaseImportArrgs']]):
         pulumi.set(self, "import_", value)
 
     @property
@@ -743,14 +743,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="longTermRetentionPolicy")
-    def long_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]:
+    def long_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']]:
         """
         A `long_term_retention_policy` block as defined below.
         """
         return pulumi.get(self, "long_term_retention_policy")
 
     @long_term_retention_policy.setter
-    def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]):
+    def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArrgs']]):
         pulumi.set(self, "long_term_retention_policy", value)
 
     @property
@@ -893,14 +893,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="shortTermRetentionPolicy")
-    def short_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]:
+    def short_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']]:
         """
         A `short_term_retention_policy` block as defined below.
         """
         return pulumi.get(self, "short_term_retention_policy")
 
     @short_term_retention_policy.setter
-    def short_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]):
+    def short_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArrgs']]):
         pulumi.set(self, "short_term_retention_policy", value)
 
     @property
@@ -943,14 +943,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
@@ -980,7 +980,7 @@ class _DatabaseState:
         pulumi.set(self, "zone_redundant", value)
 
 
-class Database(pulumi.CustomResource):
+calass Database(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -991,10 +991,10 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArrgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+                 long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArrgs']]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
@@ -1006,11 +1006,11 @@ class Database(pulumi.CustomResource):
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
+                 short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArrgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArrgs']]] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1068,10 +1068,10 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArrgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArrgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
@@ -1089,13 +1089,13 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
-        :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArrgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
@@ -1105,7 +1105,7 @@ class Database(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatabaseArgs,
+                 args: DatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Database.
@@ -1150,12 +1150,12 @@ class Database(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param DatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1170,10 +1170,10 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArrgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
-                 long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+                 long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArrgs']]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
@@ -1185,11 +1185,11 @@ class Database(pulumi.CustomResource):
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sample_name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
+                 short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArrgs']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArrgs']]] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1199,7 +1199,7 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatabaseArgs.__new__(DatabaseArgs)
+            __props__ = DatabaseArrgs.__new__(DatabaseArrgs)
 
             __props__.__dict__["auto_pause_delay_in_minutes"] = auto_pause_delay_in_minutes
             __props__.__dict__["collation"] = collation
@@ -1247,10 +1247,10 @@ class Database(pulumi.CustomResource):
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
-            import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
+            import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArrgs']]] = None,
             ledger_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
-            long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+            long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArrgs']]] = None,
             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
             max_size_gb: Optional[pulumi.Input[int]] = None,
             min_capacity: Optional[pulumi.Input[float]] = None,
@@ -1262,11 +1262,11 @@ class Database(pulumi.CustomResource):
             restore_point_in_time: Optional[pulumi.Input[str]] = None,
             sample_name: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
-            short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
+            short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArrgs']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArrgs']]] = None,
             transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Database':
         """
@@ -1286,10 +1286,10 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArrgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
-        :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArrgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
@@ -1307,13 +1307,13 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
-        :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArrgs']] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
         :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.

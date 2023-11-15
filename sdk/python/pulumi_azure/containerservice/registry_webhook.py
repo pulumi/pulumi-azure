@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegistryWebhookArgs', 'RegistryWebhook']
+__all__ = ['RegistryWebhookArrgs', 'RegistryWebhook']
 
 @pulumi.input_type
-class RegistryWebhookArgs:
+calass RegistryWebhookArrgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  registry_name: pulumi.Input[str],
@@ -176,7 +176,7 @@ class RegistryWebhookArgs:
 
 
 @pulumi.input_type
-class _RegistryWebhookState:
+calass _RegistryWebhookState:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -343,7 +343,7 @@ class _RegistryWebhookState:
         pulumi.set(self, "tags", value)
 
 
-class RegistryWebhook(pulumi.CustomResource):
+calass RegistryWebhook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -412,7 +412,7 @@ class RegistryWebhook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegistryWebhookArgs,
+                 args: RegistryWebhookArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Webhook.
@@ -451,12 +451,12 @@ class RegistryWebhook(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegistryWebhookArgs args: The arguments to use to populate this resource's properties.
+        :param RegistryWebhookArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegistryWebhookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryWebhookArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -482,7 +482,7 @@ class RegistryWebhook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegistryWebhookArgs.__new__(RegistryWebhookArgs)
+            __props__ = RegistryWebhookArrgs.__new__(RegistryWebhookArrgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")

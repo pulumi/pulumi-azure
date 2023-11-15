@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SharedAccessPolicyArgs', 'SharedAccessPolicy']
+__all__ = ['SharedAccessPolicyArrgs', 'SharedAccessPolicy']
 
 @pulumi.input_type
-class SharedAccessPolicyArgs:
+calass SharedAccessPolicyArrgs:
     def __init__(__self__, *,
                  iothub_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -138,7 +138,7 @@ class SharedAccessPolicyArgs:
 
 
 @pulumi.input_type
-class _SharedAccessPolicyState:
+calass _SharedAccessPolicyState:
     def __init__(__self__, *,
                  device_connect: Optional[pulumi.Input[bool]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
@@ -329,7 +329,7 @@ class _SharedAccessPolicyState:
         pulumi.set(self, "service_connect", value)
 
 
-class SharedAccessPolicy(pulumi.CustomResource):
+calass SharedAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -355,7 +355,7 @@ class SharedAccessPolicy(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -392,7 +392,7 @@ class SharedAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedAccessPolicyArgs,
+                 args: SharedAccessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Shared Access Policy
@@ -407,7 +407,7 @@ class SharedAccessPolicy(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -427,12 +427,12 @@ class SharedAccessPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SharedAccessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedAccessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -455,7 +455,7 @@ class SharedAccessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedAccessPolicyArgs.__new__(SharedAccessPolicyArgs)
+            __props__ = SharedAccessPolicyArrgs.__new__(SharedAccessPolicyArrgs)
 
             __props__.__dict__["device_connect"] = device_connect
             if iothub_name is None and not opts.urn:

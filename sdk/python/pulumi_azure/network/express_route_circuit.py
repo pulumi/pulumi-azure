@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuitArgs', 'ExpressRouteCircuit']
+__all__ = ['ExpressRouteCircuitArrgs', 'ExpressRouteCircuit']
 
 @pulumi.input_type
-class ExpressRouteCircuitArgs:
+calass ExpressRouteCircuitArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 sku: pulumi.Input['ExpressRouteCircuitSkuArgs'],
+                 sku: pulumi.Input['ExpressRouteCircuitSkuArrgs'],
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
@@ -31,7 +31,7 @@ class ExpressRouteCircuitArgs:
         """
         The set of arguments for constructing a ExpressRouteCircuit resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
-        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input['ExpressRouteCircuitSkuArrgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         :param pulumi.Input[str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
@@ -86,14 +86,14 @@ class ExpressRouteCircuitArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input['ExpressRouteCircuitSkuArgs']:
+    def sku(self) -> pulumi.Input['ExpressRouteCircuitSkuArrgs']:
         """
         A `sku` block for the ExpressRoute circuit as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input['ExpressRouteCircuitSkuArgs']):
+    def sku(self, value: pulumi.Input['ExpressRouteCircuitSkuArrgs']):
         pulumi.set(self, "sku", value)
 
     @property
@@ -224,7 +224,7 @@ class ExpressRouteCircuitArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteCircuitState:
+calass _ExpressRouteCircuitState:
     def __init__(__self__, *,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
@@ -238,7 +238,7 @@ class _ExpressRouteCircuitState:
                  service_key: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']] = None,
+                 sku: Optional[pulumi.Input['ExpressRouteCircuitSkuArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ExpressRouteCircuit resources.
@@ -260,7 +260,7 @@ class _ExpressRouteCircuitState:
         :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
-        :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input['ExpressRouteCircuitSkuArrgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if allow_classic_operations is not None:
@@ -444,14 +444,14 @@ class _ExpressRouteCircuitState:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['ExpressRouteCircuitSkuArrgs']]:
         """
         A `sku` block for the ExpressRoute circuit as documented below.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ExpressRouteCircuitSkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['ExpressRouteCircuitSkuArrgs']]):
         pulumi.set(self, "sku", value)
 
     @property
@@ -467,7 +467,7 @@ class _ExpressRouteCircuitState:
         pulumi.set(self, "tags", value)
 
 
-class ExpressRouteCircuit(pulumi.CustomResource):
+calass ExpressRouteCircuit(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -482,7 +482,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -501,7 +501,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ),
@@ -536,14 +536,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArrgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteCircuitArgs,
+                 args: ExpressRouteCircuitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute circuit.
@@ -561,7 +561,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ),
@@ -579,12 +579,12 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteCircuitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -603,7 +603,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  peering_location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -612,7 +612,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteCircuitArgs.__new__(ExpressRouteCircuitArgs)
+            __props__ = ExpressRouteCircuitArrgs.__new__(ExpressRouteCircuitArrgs)
 
             __props__.__dict__["allow_classic_operations"] = allow_classic_operations
             __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
@@ -656,7 +656,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             service_key: Optional[pulumi.Input[str]] = None,
             service_provider_name: Optional[pulumi.Input[str]] = None,
             service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ExpressRouteCircuit':
         """
         Get an existing ExpressRouteCircuit resource's state with the given name, id, and optional extra
@@ -683,7 +683,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArrgs']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

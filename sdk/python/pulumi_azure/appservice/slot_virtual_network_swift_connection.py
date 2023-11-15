@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SlotVirtualNetworkSwiftConnectionArgs', 'SlotVirtualNetworkSwiftConnection']
+__all__ = ['SlotVirtualNetworkSwiftConnectionArrgs', 'SlotVirtualNetworkSwiftConnection']
 
 @pulumi.input_type
-class SlotVirtualNetworkSwiftConnectionArgs:
+calass SlotVirtualNetworkSwiftConnectionArrgs:
     def __init__(__self__, *,
                  app_service_id: pulumi.Input[str],
                  slot_name: pulumi.Input[str],
@@ -65,7 +65,7 @@ class SlotVirtualNetworkSwiftConnectionArgs:
 
 
 @pulumi.input_type
-class _SlotVirtualNetworkSwiftConnectionState:
+calass _SlotVirtualNetworkSwiftConnectionState:
     def __init__(__self__, *,
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  slot_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _SlotVirtualNetworkSwiftConnectionState:
         pulumi.set(self, "subnet_id", value)
 
 
-class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
+calass SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -147,9 +147,9 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -157,7 +157,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -194,7 +194,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SlotVirtualNetworkSwiftConnectionArgs,
+                 args: SlotVirtualNetworkSwiftConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
@@ -214,9 +214,9 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="example-delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Web/serverFarms",
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
@@ -224,7 +224,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -252,12 +252,12 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SlotVirtualNetworkSwiftConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param SlotVirtualNetworkSwiftConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SlotVirtualNetworkSwiftConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SlotVirtualNetworkSwiftConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -276,7 +276,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SlotVirtualNetworkSwiftConnectionArgs.__new__(SlotVirtualNetworkSwiftConnectionArgs)
+            __props__ = SlotVirtualNetworkSwiftConnectionArrgs.__new__(SlotVirtualNetworkSwiftConnectionArrgs)
 
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")

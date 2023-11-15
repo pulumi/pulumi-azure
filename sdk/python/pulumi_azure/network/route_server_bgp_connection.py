@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteServerBgpConnectionArgs', 'RouteServerBgpConnection']
+__all__ = ['RouteServerBgpConnectionArrgs', 'RouteServerBgpConnection']
 
 @pulumi.input_type
-class RouteServerBgpConnectionArgs:
+calass RouteServerBgpConnectionArrgs:
     def __init__(__self__, *,
                  peer_asn: pulumi.Input[int],
                  peer_ip: pulumi.Input[str],
@@ -81,7 +81,7 @@ class RouteServerBgpConnectionArgs:
 
 
 @pulumi.input_type
-class _RouteServerBgpConnectionState:
+calass _RouteServerBgpConnectionState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
@@ -152,7 +152,7 @@ class _RouteServerBgpConnectionState:
         pulumi.set(self, "route_server_id", value)
 
 
-class RouteServerBgpConnection(pulumi.CustomResource):
+calass RouteServerBgpConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -220,7 +220,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteServerBgpConnectionArgs,
+                 args: RouteServerBgpConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Bgp Connection for a Route Server
@@ -270,12 +270,12 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteServerBgpConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param RouteServerBgpConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteServerBgpConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteServerBgpConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteServerBgpConnectionArgs.__new__(RouteServerBgpConnectionArgs)
+            __props__ = RouteServerBgpConnectionArrgs.__new__(RouteServerBgpConnectionArrgs)
 
             __props__.__dict__["name"] = name
             if peer_asn is None and not opts.urn:

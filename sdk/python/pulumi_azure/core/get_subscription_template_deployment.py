@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubscriptionTemplateDeploymentResult:
+calass GetSubscriptionTemplateDeploymentResult:
     """
     A collection of values returned by getSubscriptionTemplateDeployment.
     """
@@ -54,7 +54,7 @@ class GetSubscriptionTemplateDeploymentResult:
         return pulumi.get(self, "output_content")
 
 
-class AwaitableGetSubscriptionTemplateDeploymentResult(GetSubscriptionTemplateDeploymentResult):
+calass AwaitableGetSubscriptionTemplateDeploymentResult(GetSubscriptionTemplateDeploymentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

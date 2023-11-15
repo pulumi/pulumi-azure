@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GatewayCertificateAuthorityArgs', 'GatewayCertificateAuthority']
+__all__ = ['GatewayCertificateAuthorityArrgs', 'GatewayCertificateAuthority']
 
 @pulumi.input_type
-class GatewayCertificateAuthorityArgs:
+calass GatewayCertificateAuthorityArrgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[str],
                  certificate_name: pulumi.Input[str],
@@ -81,7 +81,7 @@ class GatewayCertificateAuthorityArgs:
 
 
 @pulumi.input_type
-class _GatewayCertificateAuthorityState:
+calass _GatewayCertificateAuthorityState:
     def __init__(__self__, *,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _GatewayCertificateAuthorityState:
         pulumi.set(self, "is_trusted", value)
 
 
-class GatewayCertificateAuthority(pulumi.CustomResource):
+calass GatewayCertificateAuthority(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -182,7 +182,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         example_gateway = azure.apimanagement.Gateway("exampleGateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
+            location_data=azure.apimanagement.GatewayLocationDataArrgs(
                 name="example name",
                 city="example city",
                 district="example district",
@@ -218,7 +218,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GatewayCertificateAuthorityArgs,
+                 args: GatewayCertificateAuthorityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Gateway Certificate Authority.
@@ -240,7 +240,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         example_gateway = azure.apimanagement.Gateway("exampleGateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
+            location_data=azure.apimanagement.GatewayLocationDataArrgs(
                 name="example name",
                 city="example city",
                 district="example district",
@@ -266,12 +266,12 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GatewayCertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
+        :param GatewayCertificateAuthorityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GatewayCertificateAuthorityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayCertificateAuthorityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GatewayCertificateAuthorityArgs.__new__(GatewayCertificateAuthorityArgs)
+            __props__ = GatewayCertificateAuthorityArrgs.__new__(GatewayCertificateAuthorityArrgs)
 
             if api_management_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_id'")

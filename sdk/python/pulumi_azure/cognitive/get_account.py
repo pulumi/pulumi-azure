@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccountResult:
+calass GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
@@ -139,7 +139,7 @@ class GetAccountResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAccountResult(GetAccountResult):
+calass AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

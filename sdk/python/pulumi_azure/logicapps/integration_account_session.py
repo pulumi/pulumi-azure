@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationAccountSessionArgs', 'IntegrationAccountSession']
+__all__ = ['IntegrationAccountSessionArrgs', 'IntegrationAccountSession']
 
 @pulumi.input_type
-class IntegrationAccountSessionArgs:
+calass IntegrationAccountSessionArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  integration_account_name: pulumi.Input[str],
@@ -81,7 +81,7 @@ class IntegrationAccountSessionArgs:
 
 
 @pulumi.input_type
-class _IntegrationAccountSessionState:
+calass _IntegrationAccountSessionState:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _IntegrationAccountSessionState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IntegrationAccountSession(pulumi.CustomResource):
+calass IntegrationAccountSession(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,7 +204,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationAccountSessionArgs,
+                 args: IntegrationAccountSessionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Session.
@@ -238,12 +238,12 @@ class IntegrationAccountSession(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationAccountSessionArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationAccountSessionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountSessionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountSessionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -263,7 +263,7 @@ class IntegrationAccountSession(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationAccountSessionArgs.__new__(IntegrationAccountSessionArgs)
+            __props__ = IntegrationAccountSessionArrgs.__new__(IntegrationAccountSessionArrgs)
 
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")

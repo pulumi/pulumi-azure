@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualNetworkPeeringArgs', 'VirtualNetworkPeering']
+__all__ = ['VirtualNetworkPeeringArrgs', 'VirtualNetworkPeering']
 
 @pulumi.input_type
-class VirtualNetworkPeeringArgs:
+calass VirtualNetworkPeeringArrgs:
     def __init__(__self__, *,
                  remote_address_space_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  remote_virtual_network_id: pulumi.Input[str],
@@ -168,7 +168,7 @@ class VirtualNetworkPeeringArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkPeeringState:
+calass _VirtualNetworkPeeringState:
     def __init__(__self__, *,
                  address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
@@ -363,7 +363,7 @@ class _VirtualNetworkPeeringState:
         pulumi.set(self, "workspace_id", value)
 
 
-class VirtualNetworkPeering(pulumi.CustomResource):
+calass VirtualNetworkPeering(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -437,7 +437,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkPeeringArgs,
+                 args: VirtualNetworkPeeringArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databricks Virtual Network Peering
@@ -479,12 +479,12 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkPeeringArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkPeeringArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -509,7 +509,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkPeeringArgs.__new__(VirtualNetworkPeeringArgs)
+            __props__ = VirtualNetworkPeeringArrgs.__new__(VirtualNetworkPeeringArrgs)
 
             __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
             __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit

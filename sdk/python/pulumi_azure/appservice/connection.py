@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectionArgs', 'Connection']
+__all__ = ['ConnectionArrgs', 'Connection']
 
 @pulumi.input_type
-class ConnectionArgs:
+calass ConnectionArrgs:
     def __init__(__self__, *,
                  app_service_id: pulumi.Input[str],
-                 authentication: pulumi.Input['ConnectionAuthenticationArgs'],
+                 authentication: pulumi.Input['ConnectionAuthenticationArrgs'],
                  target_resource_id: pulumi.Input[str],
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
+                 secret_store: Optional[pulumi.Input['ConnectionSecretStoreArrgs']] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input['ConnectionAuthenticationArrgs'] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['ConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input['ConnectionSecretStoreArrgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
@@ -61,7 +61,7 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> pulumi.Input['ConnectionAuthenticationArgs']:
+    def authentication(self) -> pulumi.Input['ConnectionAuthenticationArrgs']:
         """
         The authentication info. An `authentication` block as defined below.
 
@@ -70,7 +70,7 @@ class ConnectionArgs:
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: pulumi.Input['ConnectionAuthenticationArgs']):
+    def authentication(self, value: pulumi.Input['ConnectionAuthenticationArrgs']):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -111,14 +111,14 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['ConnectionSecretStoreArgs']]:
+    def secret_store(self) -> Optional[pulumi.Input['ConnectionSecretStoreArrgs']]:
         """
         An option to store secret value in secure place. An `secret_store` block as defined below.
         """
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['ConnectionSecretStoreArgs']]):
+    def secret_store(self, value: Optional[pulumi.Input['ConnectionSecretStoreArrgs']]):
         pulumi.set(self, "secret_store", value)
 
     @property
@@ -135,24 +135,24 @@ class ConnectionArgs:
 
 
 @pulumi.input_type
-class _ConnectionState:
+calass _ConnectionState:
     def __init__(__self__, *,
                  app_service_id: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input['ConnectionAuthenticationArgs']] = None,
+                 authentication: Optional[pulumi.Input['ConnectionAuthenticationArrgs']] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
+                 secret_store: Optional[pulumi.Input['ConnectionSecretStoreArrgs']] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input['ConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input['ConnectionAuthenticationArrgs'] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input['ConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input['ConnectionSecretStoreArrgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
@@ -185,7 +185,7 @@ class _ConnectionState:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['ConnectionAuthenticationArgs']]:
+    def authentication(self) -> Optional[pulumi.Input['ConnectionAuthenticationArrgs']]:
         """
         The authentication info. An `authentication` block as defined below.
 
@@ -194,7 +194,7 @@ class _ConnectionState:
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['ConnectionAuthenticationArgs']]):
+    def authentication(self, value: Optional[pulumi.Input['ConnectionAuthenticationArrgs']]):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -223,14 +223,14 @@ class _ConnectionState:
 
     @property
     @pulumi.getter(name="secretStore")
-    def secret_store(self) -> Optional[pulumi.Input['ConnectionSecretStoreArgs']]:
+    def secret_store(self) -> Optional[pulumi.Input['ConnectionSecretStoreArrgs']]:
         """
         An option to store secret value in secure place. An `secret_store` block as defined below.
         """
         return pulumi.get(self, "secret_store")
 
     @secret_store.setter
-    def secret_store(self, value: Optional[pulumi.Input['ConnectionSecretStoreArgs']]):
+    def secret_store(self, value: Optional[pulumi.Input['ConnectionSecretStoreArrgs']]):
         pulumi.set(self, "secret_store", value)
 
     @property
@@ -258,16 +258,16 @@ class _ConnectionState:
         pulumi.set(self, "vnet_solution", value)
 
 
-class Connection(pulumi.CustomResource):
+calass Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArrgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArrgs']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -286,12 +286,12 @@ class Connection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -313,11 +313,11 @@ class Connection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config=azure.appservice.LinuxWebAppSiteConfigArrgs())
         example_connection = azure.appservice.Connection("exampleConnection",
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
+            authentication=azure.appservice.ConnectionAuthenticationArrgs(
                 type="systemAssignedIdentity",
             ))
         ```
@@ -333,12 +333,12 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArrgs']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArrgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
@@ -346,7 +346,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: ConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a service connector for app service.
@@ -363,12 +363,12 @@ class Connection(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
                 max_interval_in_seconds=10,
                 max_staleness_prefix=200,
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -390,11 +390,11 @@ class Connection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxWebAppSiteConfigArgs())
+            site_config=azure.appservice.LinuxWebAppSiteConfigArrgs())
         example_connection = azure.appservice.Connection("exampleConnection",
             app_service_id=example_linux_web_app.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appservice.ConnectionAuthenticationArgs(
+            authentication=azure.appservice.ConnectionAuthenticationArrgs(
                 type="systemAssignedIdentity",
             ))
         ```
@@ -408,12 +408,12 @@ class Connection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -423,10 +423,10 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArrgs']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArrgs']]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -436,7 +436,7 @@ class Connection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionArgs.__new__(ConnectionArgs)
+            __props__ = ConnectionArrgs.__new__(ConnectionArrgs)
 
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")
@@ -462,10 +462,10 @@ class Connection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_id: Optional[pulumi.Input[str]] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[pulumi.InputType['ConnectionAuthenticationArrgs']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']]] = None,
+            secret_store: Optional[pulumi.Input[pulumi.InputType['ConnectionSecretStoreArrgs']]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'Connection':
         """
@@ -476,12 +476,12 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_id: The ID of the data source web app. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionAuthenticationArrgs']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionSecretStoreArrgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerKeyArgs', 'ServerKey']
+__all__ = ['ServerKeyArrgs', 'ServerKey']
 
 @pulumi.input_type
-class ServerKeyArgs:
+calass ServerKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  server_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ServerKeyArgs:
 
 
 @pulumi.input_type
-class _ServerKeyState:
+calass _ServerKeyState:
     def __init__(__self__, *,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ServerKeyState:
         pulumi.set(self, "server_id", value)
 
 
-class ServerKey(pulumi.CustomResource):
+calass ServerKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -124,7 +124,7 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
+            identity=azure.mysql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         server = azure.keyvault.AccessPolicy("server",
@@ -196,7 +196,7 @@ class ServerKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerKeyArgs,
+                 args: ServerKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a MySQL Server.
@@ -225,7 +225,7 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
+            identity=azure.mysql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         server = azure.keyvault.AccessPolicy("server",
@@ -289,12 +289,12 @@ class ServerKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerKeyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -312,7 +312,7 @@ class ServerKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerKeyArgs.__new__(ServerKeyArgs)
+            __props__ = ServerKeyArrgs.__new__(ServerKeyArrgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")

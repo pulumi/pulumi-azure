@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
+__all__ = ['ClusterCustomerManagedKeyArrgs', 'ClusterCustomerManagedKey']
 
 @pulumi.input_type
-class ClusterCustomerManagedKeyArgs:
+calass ClusterCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  log_analytics_cluster_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ClusterCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class _ClusterCustomerManagedKeyState:
+calass _ClusterCustomerManagedKeyState:
     def __init__(__self__, *,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  log_analytics_cluster_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ClusterCustomerManagedKeyState:
         pulumi.set(self, "log_analytics_cluster_id", value)
 
 
-class ClusterCustomerManagedKey(pulumi.CustomResource):
+calass ClusterCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -111,7 +111,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
+            identity=azure.loganalytics.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -120,7 +120,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -130,7 +130,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Set"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_cluster.identity.tenant_id,
                     object_id=example_cluster.identity.principal_id,
                     key_permissions=[
@@ -177,7 +177,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterCustomerManagedKeyArgs,
+                 args: ClusterCustomerManagedKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Cluster Customer Managed Key.
@@ -193,7 +193,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
+            identity=azure.loganalytics.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -202,7 +202,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -212,7 +212,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Set"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_cluster.identity.tenant_id,
                     object_id=example_cluster.identity.principal_id,
                     key_permissions=[
@@ -251,12 +251,12 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterCustomerManagedKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterCustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterCustomerManagedKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -274,7 +274,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterCustomerManagedKeyArgs.__new__(ClusterCustomerManagedKeyArgs)
+            __props__ = ClusterCustomerManagedKeyArrgs.__new__(ClusterCustomerManagedKeyArrgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetElasticPoolResult:
+calass GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
@@ -162,7 +162,7 @@ class GetElasticPoolResult:
         return pulumi.get(self, "zone_redundant")
 
 
-class AwaitableGetElasticPoolResult(GetElasticPoolResult):
+calass AwaitableGetElasticPoolResult(GetElasticPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

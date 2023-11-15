@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProtectedFileShareArgs', 'ProtectedFileShare']
+__all__ = ['ProtectedFileShareArrgs', 'ProtectedFileShare']
 
 @pulumi.input_type
-class ProtectedFileShareArgs:
+calass ProtectedFileShareArrgs:
     def __init__(__self__, *,
                  backup_policy_id: pulumi.Input[str],
                  recovery_vault_name: pulumi.Input[str],
@@ -99,7 +99,7 @@ class ProtectedFileShareArgs:
 
 
 @pulumi.input_type
-class _ProtectedFileShareState:
+calass _ProtectedFileShareState:
     def __init__(__self__, *,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
@@ -190,7 +190,7 @@ class _ProtectedFileShareState:
         pulumi.set(self, "source_storage_account_id", value)
 
 
-class ProtectedFileShare(pulumi.CustomResource):
+calass ProtectedFileShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -230,11 +230,11 @@ class ProtectedFileShare(pulumi.CustomResource):
         example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
+            backup=azure.backup.PolicyFileShareBackupArrgs(
                 frequency="Daily",
                 time="23:00",
             ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
+            retention_daily=azure.backup.PolicyFileShareRetentionDailyArrgs(
                 count=10,
             ))
         share1 = azure.backup.ProtectedFileShare("share1",
@@ -269,7 +269,7 @@ class ProtectedFileShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProtectedFileShareArgs,
+                 args: ProtectedFileShareArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
@@ -300,11 +300,11 @@ class ProtectedFileShare(pulumi.CustomResource):
         example_policy_file_share = azure.backup.PolicyFileShare("examplePolicyFileShare",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
+            backup=azure.backup.PolicyFileShareBackupArrgs(
                 frequency="Daily",
                 time="23:00",
             ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
+            retention_daily=azure.backup.PolicyFileShareRetentionDailyArrgs(
                 count=10,
             ))
         share1 = azure.backup.ProtectedFileShare("share1",
@@ -326,12 +326,12 @@ class ProtectedFileShare(pulumi.CustomResource):
          -> **NOTE** The ID requires quoting as there are semicolons. This user unfriendly ID can be found in the Deployments of the used resourcegroup, look for an Deployment which starts with `ConfigureAFSProtection-`, click then `Go to resource`.
 
         :param str resource_name: The name of the resource.
-        :param ProtectedFileShareArgs args: The arguments to use to populate this resource's properties.
+        :param ProtectedFileShareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProtectedFileShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectedFileShareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -352,7 +352,7 @@ class ProtectedFileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProtectedFileShareArgs.__new__(ProtectedFileShareArgs)
+            __props__ = ProtectedFileShareArrgs.__new__(ProtectedFileShareArrgs)
 
             if backup_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_id'")

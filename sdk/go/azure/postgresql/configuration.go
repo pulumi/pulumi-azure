@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Sets a PostgreSQL Configuration value on a PostgreSQL Server.
@@ -206,12 +205,6 @@ func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
 }
 
-func (i *Configuration) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
-	return pulumix.Output[*Configuration]{
-		OutputState: i.ToConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationArrayInput is an input type that accepts ConfigurationArray and ConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i ConfigurationArray) ToConfigurationArrayOutput() ConfigurationArrayOutpu
 
 func (i ConfigurationArray) ToConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationArrayOutput)
-}
-
-func (i ConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
-	return pulumix.Output[[]*Configuration]{
-		OutputState: i.ToConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationMapInput is an input type that accepts ConfigurationMap and ConfigurationMapOutput values.
@@ -268,12 +255,6 @@ func (i ConfigurationMap) ToConfigurationMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationMapOutput)
 }
 
-func (i ConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
-	return pulumix.Output[map[string]*Configuration]{
-		OutputState: i.ToConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
 
 func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
 	return o
-}
-
-func (o ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
-	return pulumix.Output[*Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -328,12 +303,6 @@ func (o ConfigurationArrayOutput) ToConfigurationArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
-	return pulumix.Output[[]*Configuration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Configuration {
 		return vs[0].([]*Configuration)[vs[1].(int)]
@@ -352,12 +321,6 @@ func (o ConfigurationMapOutput) ToConfigurationMapOutput() ConfigurationMapOutpu
 
 func (o ConfigurationMapOutput) ToConfigurationMapOutputWithContext(ctx context.Context) ConfigurationMapOutput {
 	return o
-}
-
-func (o ConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
-	return pulumix.Output[map[string]*Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationMapOutput) MapIndex(k pulumi.StringInput) ConfigurationOutput {

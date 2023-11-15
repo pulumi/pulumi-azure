@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEventHubResult:
+calass GetEventHubResult:
     """
     A collection of values returned by getEventHub.
     """
@@ -81,7 +81,7 @@ class GetEventHubResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetEventHubResult(GetEventHubResult):
+calass AwaitableGetEventHubResult(GetEventHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

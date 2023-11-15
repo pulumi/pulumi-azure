@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InferenceClusterArgs', 'InferenceCluster']
+__all__ = ['InferenceClusterArrgs', 'InferenceCluster']
 
 @pulumi.input_type
-class InferenceClusterArgs:
+calass InferenceClusterArrgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[str],
                  machine_learning_workspace_id: pulumi.Input[str],
                  cluster_purpose: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['InferenceClusterIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
+                 ssl: Optional[pulumi.Input['InferenceClusterSslArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a InferenceCluster resource.
@@ -33,10 +33,10 @@ class InferenceClusterArgs:
                
                > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterSslArgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterSslArrgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
@@ -108,14 +108,14 @@ class InferenceClusterArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -144,14 +144,14 @@ class InferenceClusterArgs:
 
     @property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArgs']]:
+    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArrgs']]:
         """
         A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArgs']]):
+    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArrgs']]):
         pulumi.set(self, "ssl", value)
 
     @property
@@ -168,16 +168,16 @@ class InferenceClusterArgs:
 
 
 @pulumi.input_type
-class _InferenceClusterState:
+calass _InferenceClusterState:
     def __init__(__self__, *,
                  cluster_purpose: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['InferenceClusterIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['InferenceClusterIdentityArrgs']] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
+                 ssl: Optional[pulumi.Input['InferenceClusterSslArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering InferenceCluster resources.
@@ -185,12 +185,12 @@ class _InferenceClusterState:
                
                > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input['InferenceClusterSslArgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input['InferenceClusterSslArrgs'] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         if cluster_purpose is not None:
@@ -240,14 +240,14 @@ class _InferenceClusterState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['InferenceClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['InferenceClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -300,14 +300,14 @@ class _InferenceClusterState:
 
     @property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArgs']]:
+    def ssl(self) -> Optional[pulumi.Input['InferenceClusterSslArrgs']]:
         """
         A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArgs']]):
+    def ssl(self, value: Optional[pulumi.Input['InferenceClusterSslArrgs']]):
         pulumi.set(self, "ssl", value)
 
     @property
@@ -323,19 +323,19 @@ class _InferenceClusterState:
         pulumi.set(self, "tags", value)
 
 
-class InferenceCluster(pulumi.CustomResource):
+calass InferenceCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_purpose: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArrgs']]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArgs']]] = None,
+                 ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -376,7 +376,7 @@ class InferenceCluster(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -391,13 +391,13 @@ class InferenceCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix_private_cluster="prefix",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=3,
                 vm_size="Standard_D3_v2",
                 vnet_subnet_id=example_subnet.id,
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_inference_cluster = azure.machinelearning.InferenceCluster("exampleInferenceCluster",
@@ -425,19 +425,19 @@ class InferenceCluster(pulumi.CustomResource):
                
                > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterSslArgs']] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterSslArrgs']] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InferenceClusterArgs,
+                 args: InferenceClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Inference Cluster.
@@ -477,7 +477,7 @@ class InferenceCluster(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
@@ -492,13 +492,13 @@ class InferenceCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix_private_cluster="prefix",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=3,
                 vm_size="Standard_D3_v2",
                 vnet_subnet_id=example_subnet.id,
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_inference_cluster = azure.machinelearning.InferenceCluster("exampleInferenceCluster",
@@ -521,12 +521,12 @@ class InferenceCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InferenceClusterArgs args: The arguments to use to populate this resource's properties.
+        :param InferenceClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InferenceClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InferenceClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -537,12 +537,12 @@ class InferenceCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_purpose: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArrgs']]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArgs']]] = None,
+                 ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -551,7 +551,7 @@ class InferenceCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InferenceClusterArgs.__new__(InferenceClusterArgs)
+            __props__ = InferenceClusterArrgs.__new__(InferenceClusterArrgs)
 
             __props__.__dict__["cluster_purpose"] = cluster_purpose
             __props__.__dict__["description"] = description
@@ -578,12 +578,12 @@ class InferenceCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_purpose: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['InferenceClusterIdentityArrgs']]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArgs']]] = None,
+            ssl: Optional[pulumi.Input[pulumi.InputType['InferenceClusterSslArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'InferenceCluster':
         """
         Get an existing InferenceCluster resource's state with the given name, id, and optional extra
@@ -596,12 +596,12 @@ class InferenceCluster(pulumi.CustomResource):
                
                > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         :param pulumi.Input[str] description: The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['InferenceClusterSslArgs']] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['InferenceClusterSslArrgs']] ssl: A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

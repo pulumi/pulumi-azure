@@ -11,34 +11,34 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServicePlanArgs', 'ServicePlan']
+__all__ = ['ServicePlanArrgs', 'ServicePlan']
 
 @pulumi.input_type
-class ServicePlanArgs:
+calass ServicePlanArrgs:
     def __init__(__self__, *,
                  allowed_regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
-                 default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']] = None,
-                 default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']] = None,
+                 default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']] = None,
+                 default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']] = None,
                  default_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
+                 support: Optional[pulumi.Input['ServicePlanSupportArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServicePlan resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this Lab Service Plan. The allowed region's count must be between `1` and `28`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServicePlanDefaultAutoShutdownArgs'] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
-        :param pulumi.Input['ServicePlanDefaultConnectionArgs'] default_connection: A `default_connection` block as defined below.
+        :param pulumi.Input['ServicePlanDefaultAutoShutdownArrgs'] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
+        :param pulumi.Input['ServicePlanDefaultConnectionArrgs'] default_connection: A `default_connection` block as defined below.
         :param pulumi.Input[str] default_network_subnet_id: The resource ID of the Subnet for the Lab Service Plan network profile.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
                
                > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
-        :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
+        :param pulumi.Input['ServicePlanSupportArrgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
         pulumi.set(__self__, "allowed_regions", allowed_regions)
@@ -86,26 +86,26 @@ class ServicePlanArgs:
 
     @property
     @pulumi.getter(name="defaultAutoShutdown")
-    def default_auto_shutdown(self) -> Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']]:
+    def default_auto_shutdown(self) -> Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']]:
         """
         A `default_auto_shutdown` block as defined below.
         """
         return pulumi.get(self, "default_auto_shutdown")
 
     @default_auto_shutdown.setter
-    def default_auto_shutdown(self, value: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']]):
+    def default_auto_shutdown(self, value: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']]):
         pulumi.set(self, "default_auto_shutdown", value)
 
     @property
     @pulumi.getter(name="defaultConnection")
-    def default_connection(self) -> Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']]:
+    def default_connection(self) -> Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']]:
         """
         A `default_connection` block as defined below.
         """
         return pulumi.get(self, "default_connection")
 
     @default_connection.setter
-    def default_connection(self, value: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']]):
+    def default_connection(self, value: Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']]):
         pulumi.set(self, "default_connection", value)
 
     @property
@@ -160,14 +160,14 @@ class ServicePlanArgs:
 
     @property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['ServicePlanSupportArgs']]:
+    def support(self) -> Optional[pulumi.Input['ServicePlanSupportArrgs']]:
         """
         A `support` block as defined below.
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['ServicePlanSupportArgs']]):
+    def support(self, value: Optional[pulumi.Input['ServicePlanSupportArrgs']]):
         pulumi.set(self, "support", value)
 
     @property
@@ -184,23 +184,23 @@ class ServicePlanArgs:
 
 
 @pulumi.input_type
-class _ServicePlanState:
+calass _ServicePlanState:
     def __init__(__self__, *,
                  allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']] = None,
-                 default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']] = None,
+                 default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']] = None,
+                 default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']] = None,
                  default_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
+                 support: Optional[pulumi.Input['ServicePlanSupportArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ServicePlan resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this Lab Service Plan. The allowed region's count must be between `1` and `28`.
-        :param pulumi.Input['ServicePlanDefaultAutoShutdownArgs'] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
-        :param pulumi.Input['ServicePlanDefaultConnectionArgs'] default_connection: A `default_connection` block as defined below.
+        :param pulumi.Input['ServicePlanDefaultAutoShutdownArrgs'] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
+        :param pulumi.Input['ServicePlanDefaultConnectionArrgs'] default_connection: A `default_connection` block as defined below.
         :param pulumi.Input[str] default_network_subnet_id: The resource ID of the Subnet for the Lab Service Plan network profile.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
@@ -208,7 +208,7 @@ class _ServicePlanState:
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
                
                > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
-        :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
+        :param pulumi.Input['ServicePlanSupportArrgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
         if allowed_regions is not None:
@@ -246,26 +246,26 @@ class _ServicePlanState:
 
     @property
     @pulumi.getter(name="defaultAutoShutdown")
-    def default_auto_shutdown(self) -> Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']]:
+    def default_auto_shutdown(self) -> Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']]:
         """
         A `default_auto_shutdown` block as defined below.
         """
         return pulumi.get(self, "default_auto_shutdown")
 
     @default_auto_shutdown.setter
-    def default_auto_shutdown(self, value: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']]):
+    def default_auto_shutdown(self, value: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArrgs']]):
         pulumi.set(self, "default_auto_shutdown", value)
 
     @property
     @pulumi.getter(name="defaultConnection")
-    def default_connection(self) -> Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']]:
+    def default_connection(self) -> Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']]:
         """
         A `default_connection` block as defined below.
         """
         return pulumi.get(self, "default_connection")
 
     @default_connection.setter
-    def default_connection(self, value: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']]):
+    def default_connection(self, value: Optional[pulumi.Input['ServicePlanDefaultConnectionArrgs']]):
         pulumi.set(self, "default_connection", value)
 
     @property
@@ -332,14 +332,14 @@ class _ServicePlanState:
 
     @property
     @pulumi.getter
-    def support(self) -> Optional[pulumi.Input['ServicePlanSupportArgs']]:
+    def support(self) -> Optional[pulumi.Input['ServicePlanSupportArrgs']]:
         """
         A `support` block as defined below.
         """
         return pulumi.get(self, "support")
 
     @support.setter
-    def support(self, value: Optional[pulumi.Input['ServicePlanSupportArgs']]):
+    def support(self, value: Optional[pulumi.Input['ServicePlanSupportArrgs']]):
         pulumi.set(self, "support", value)
 
     @property
@@ -355,20 +355,20 @@ class _ServicePlanState:
         pulumi.set(self, "tags", value)
 
 
-class ServicePlan(pulumi.CustomResource):
+calass ServicePlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArgs']]] = None,
-                 default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArgs']]] = None,
+                 default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArrgs']]] = None,
+                 default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArrgs']]] = None,
                  default_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']]] = None,
+                 support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -400,8 +400,8 @@ class ServicePlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this Lab Service Plan. The allowed region's count must be between `1` and `28`.
-        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArgs']] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArgs']] default_connection: A `default_connection` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArrgs']] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArrgs']] default_connection: A `default_connection` block as defined below.
         :param pulumi.Input[str] default_network_subnet_id: The resource ID of the Subnet for the Lab Service Plan network profile.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
@@ -409,14 +409,14 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
                
                > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
-        :param pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanSupportArrgs']] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServicePlanArgs,
+                 args: ServicePlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Plan.
@@ -445,12 +445,12 @@ class ServicePlan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServicePlanArgs args: The arguments to use to populate this resource's properties.
+        :param ServicePlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServicePlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServicePlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -460,14 +460,14 @@ class ServicePlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArgs']]] = None,
-                 default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArgs']]] = None,
+                 default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArrgs']]] = None,
+                 default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArrgs']]] = None,
                  default_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shared_gallery_id: Optional[pulumi.Input[str]] = None,
-                 support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']]] = None,
+                 support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -476,7 +476,7 @@ class ServicePlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServicePlanArgs.__new__(ServicePlanArgs)
+            __props__ = ServicePlanArrgs.__new__(ServicePlanArrgs)
 
             if allowed_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_regions'")
@@ -503,14 +503,14 @@ class ServicePlan(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArgs']]] = None,
-            default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArgs']]] = None,
+            default_auto_shutdown: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArrgs']]] = None,
+            default_connection: Optional[pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArrgs']]] = None,
             default_network_subnet_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             shared_gallery_id: Optional[pulumi.Input[str]] = None,
-            support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']]] = None,
+            support: Optional[pulumi.Input[pulumi.InputType['ServicePlanSupportArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ServicePlan':
         """
         Get an existing ServicePlan resource's state with the given name, id, and optional extra
@@ -520,8 +520,8 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_regions: The allowed regions for the lab creator to use when creating labs using this Lab Service Plan. The allowed region's count must be between `1` and `28`.
-        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArgs']] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArgs']] default_connection: A `default_connection` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultAutoShutdownArrgs']] default_auto_shutdown: A `default_auto_shutdown` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanDefaultConnectionArrgs']] default_connection: A `default_connection` block as defined below.
         :param pulumi.Input[str] default_network_subnet_id: The resource ID of the Subnet for the Lab Service Plan network profile.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Lab Service Plan. Changing this forces a new resource to be created.
@@ -529,7 +529,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] shared_gallery_id: The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
                
                > **NOTE:** The built-in `Azure Lab Services` Service Principal with role needs to be assigned to the Shared Image Gallery while using this property.
-        :param pulumi.Input[pulumi.InputType['ServicePlanSupportArgs']] support: A `support` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServicePlanSupportArrgs']] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

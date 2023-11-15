@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
@@ -272,12 +271,6 @@ func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionOutput)
 }
 
-func (i *LinkedServiceAzureFunction) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureFunction] {
-	return pulumix.Output[*LinkedServiceAzureFunction]{
-		OutputState: i.ToLinkedServiceAzureFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceAzureFunctionArrayInput is an input type that accepts LinkedServiceAzureFunctionArray and LinkedServiceAzureFunctionArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFunctionArrayInput` via:
 //
@@ -301,12 +294,6 @@ func (i LinkedServiceAzureFunctionArray) ToLinkedServiceAzureFunctionArrayOutput
 
 func (i LinkedServiceAzureFunctionArray) ToLinkedServiceAzureFunctionArrayOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionArrayOutput)
-}
-
-func (i LinkedServiceAzureFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureFunction] {
-	return pulumix.Output[[]*LinkedServiceAzureFunction]{
-		OutputState: i.ToLinkedServiceAzureFunctionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceAzureFunctionMapInput is an input type that accepts LinkedServiceAzureFunctionMap and LinkedServiceAzureFunctionMapOutput values.
@@ -334,12 +321,6 @@ func (i LinkedServiceAzureFunctionMap) ToLinkedServiceAzureFunctionMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFunctionMapOutput)
 }
 
-func (i LinkedServiceAzureFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureFunction] {
-	return pulumix.Output[map[string]*LinkedServiceAzureFunction]{
-		OutputState: i.ToLinkedServiceAzureFunctionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceAzureFunctionOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFunctionOutput) ElementType() reflect.Type {
@@ -352,12 +333,6 @@ func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionOutput() L
 
 func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionOutput {
 	return o
-}
-
-func (o LinkedServiceAzureFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureFunction] {
-	return pulumix.Output[*LinkedServiceAzureFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -428,12 +403,6 @@ func (o LinkedServiceAzureFunctionArrayOutput) ToLinkedServiceAzureFunctionArray
 	return o
 }
 
-func (o LinkedServiceAzureFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureFunction] {
-	return pulumix.Output[[]*LinkedServiceAzureFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceAzureFunctionArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureFunction {
 		return vs[0].([]*LinkedServiceAzureFunction)[vs[1].(int)]
@@ -452,12 +421,6 @@ func (o LinkedServiceAzureFunctionMapOutput) ToLinkedServiceAzureFunctionMapOutp
 
 func (o LinkedServiceAzureFunctionMapOutput) ToLinkedServiceAzureFunctionMapOutputWithContext(ctx context.Context) LinkedServiceAzureFunctionMapOutput {
 	return o
-}
-
-func (o LinkedServiceAzureFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureFunction] {
-	return pulumix.Output[map[string]*LinkedServiceAzureFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceAzureFunctionMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureFunctionOutput {

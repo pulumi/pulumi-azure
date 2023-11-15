@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AssessmentStatusArgs',
-    'AutomationActionArgs',
-    'AutomationSourceArgs',
-    'AutomationSourceRuleSetArgs',
-    'AutomationSourceRuleSetRuleArgs',
-    'SubscriptionPricingExtensionArgs',
+    'AssessmentStatusArrgs',
+    'AutomationActionArrgs',
+    'AutomationSourceArrgs',
+    'AutomationSourceRuleSetArrgs',
+    'AutomationSourceRuleSetRuleArrgs',
+    'SubscriptionPricingExtensionArrgs',
 ]
 
 @pulumi.input_type
-class AssessmentStatusArgs:
+calass AssessmentStatusArrgs:
     def __init__(__self__, *,
                  code: pulumi.Input[str],
                  cause: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,7 @@ class AssessmentStatusArgs:
 
 
 @pulumi.input_type
-class AutomationActionArgs:
+calass AutomationActionArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -142,13 +142,13 @@ class AutomationActionArgs:
 
 
 @pulumi.input_type
-class AutomationSourceArgs:
+calass AutomationSourceArrgs:
     def __init__(__self__, *,
                  event_source: pulumi.Input[str],
-                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]] = None):
+                 rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArrgs']]]] = None):
         """
         :param pulumi.Input[str] event_source: Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArrgs']]] rule_sets: A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
                
                > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
         """
@@ -170,7 +170,7 @@ class AutomationSourceArgs:
 
     @property
     @pulumi.getter(name="ruleSets")
-    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]:
+    def rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArrgs']]]]:
         """
         A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
 
@@ -179,16 +179,16 @@ class AutomationSourceArgs:
         return pulumi.get(self, "rule_sets")
 
     @rule_sets.setter
-    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]):
+    def rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArrgs']]]]):
         pulumi.set(self, "rule_sets", value)
 
 
 @pulumi.input_type
-class AutomationSourceRuleSetArgs:
+calass AutomationSourceRuleSetArrgs:
     def __init__(__self__, *,
-                 rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArrgs']]] rules: One or more `rule` blocks as defined below.
                
                > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
         """
@@ -196,7 +196,7 @@ class AutomationSourceRuleSetArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArrgs']]]:
         """
         One or more `rule` blocks as defined below.
 
@@ -205,12 +205,12 @@ class AutomationSourceRuleSetArgs:
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class AutomationSourceRuleSetRuleArgs:
+calass AutomationSourceRuleSetRuleArrgs:
     def __init__(__self__, *,
                  expected_value: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -281,7 +281,7 @@ class AutomationSourceRuleSetRuleArgs:
 
 
 @pulumi.input_type
-class SubscriptionPricingExtensionArgs:
+calass SubscriptionPricingExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  additional_extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):

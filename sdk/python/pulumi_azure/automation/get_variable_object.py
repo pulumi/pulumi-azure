@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVariableObjectResult:
+calass GetVariableObjectResult:
     """
     A collection of values returned by getVariableObject.
     """
@@ -92,7 +92,7 @@ class GetVariableObjectResult:
         return pulumi.get(self, "value")
 
 
-class AwaitableGetVariableObjectResult(GetVariableObjectResult):
+calass AwaitableGetVariableObjectResult(GetVariableObjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

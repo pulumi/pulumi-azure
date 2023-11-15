@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventhubDataConnectionArgs', 'EventhubDataConnection']
+__all__ = ['EventhubDataConnectionArrgs', 'EventhubDataConnection']
 
 @pulumi.input_type
-class EventhubDataConnectionArgs:
+calass EventhubDataConnectionArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  consumer_group: pulumi.Input[str],
@@ -239,7 +239,7 @@ class EventhubDataConnectionArgs:
 
 
 @pulumi.input_type
-class _EventhubDataConnectionState:
+calass _EventhubDataConnectionState:
     def __init__(__self__, *,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  compression: Optional[pulumi.Input[str]] = None,
@@ -470,7 +470,7 @@ class _EventhubDataConnectionState:
         pulumi.set(self, "table_name", value)
 
 
-class EventhubDataConnection(pulumi.CustomResource):
+calass EventhubDataConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -503,7 +503,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         cluster = azure.kusto.Cluster("cluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -568,7 +568,7 @@ class EventhubDataConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventhubDataConnectionArgs,
+                 args: EventhubDataConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
@@ -583,7 +583,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         cluster = azure.kusto.Cluster("cluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
+            sku=azure.kusto.ClusterSkuArrgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
@@ -628,12 +628,12 @@ class EventhubDataConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventhubDataConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param EventhubDataConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventhubDataConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventhubDataConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -663,7 +663,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventhubDataConnectionArgs.__new__(EventhubDataConnectionArgs)
+            __props__ = EventhubDataConnectionArrgs.__new__(EventhubDataConnectionArrgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

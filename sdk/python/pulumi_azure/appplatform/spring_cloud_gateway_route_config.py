@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudGatewayRouteConfigArgs', 'SpringCloudGatewayRouteConfig']
+__all__ = ['SpringCloudGatewayRouteConfigArrgs', 'SpringCloudGatewayRouteConfig']
 
 @pulumi.input_type
-class SpringCloudGatewayRouteConfigArgs:
+calass SpringCloudGatewayRouteConfigArrgs:
     def __init__(__self__, *,
                  spring_cloud_gateway_id: pulumi.Input[str],
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
+                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -30,12 +30,12 @@ class SpringCloudGatewayRouteConfigArgs:
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
-        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
+        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
         """
@@ -95,14 +95,14 @@ class SpringCloudGatewayRouteConfigArgs:
 
     @property
     @pulumi.getter(name="openApi")
-    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]:
+    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']]:
         """
         One or more `open_api` blocks as defined below.
         """
         return pulumi.get(self, "open_api")
 
     @open_api.setter
-    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]):
+    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']]):
         pulumi.set(self, "open_api", value)
 
     @property
@@ -133,14 +133,14 @@ class SpringCloudGatewayRouteConfigArgs:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
@@ -169,14 +169,14 @@ class SpringCloudGatewayRouteConfigArgs:
 
 
 @pulumi.input_type
-class _SpringCloudGatewayRouteConfigState:
+calass _SpringCloudGatewayRouteConfigState:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
+                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None):
@@ -184,12 +184,12 @@ class _SpringCloudGatewayRouteConfigState:
         Input properties used for looking up and filtering SpringCloudGatewayRouteConfig resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
-        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
+        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
@@ -239,14 +239,14 @@ class _SpringCloudGatewayRouteConfigState:
 
     @property
     @pulumi.getter(name="openApi")
-    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]:
+    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']]:
         """
         One or more `open_api` blocks as defined below.
         """
         return pulumi.get(self, "open_api")
 
     @open_api.setter
-    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]):
+    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArrgs']]):
         pulumi.set(self, "open_api", value)
 
     @property
@@ -277,14 +277,14 @@ class _SpringCloudGatewayRouteConfigState:
 
     @property
     @pulumi.getter
-    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]:
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]]:
         """
         One or more `route` blocks as defined below.
         """
         return pulumi.get(self, "routes")
 
     @routes.setter
-    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]):
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArrgs']]]]):
         pulumi.set(self, "routes", value)
 
     @property
@@ -324,17 +324,17 @@ class _SpringCloudGatewayRouteConfigState:
         pulumi.set(self, "sso_validation_enabled", value)
 
 
-class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
+calass SpringCloudGatewayRouteConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
+                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArrgs']]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArrgs']]]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -363,7 +363,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
             spring_cloud_app_id=example_spring_cloud_app.id,
             protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
+            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArrgs(
                 description="example description",
                 filters=[
                     "StripPrefix=2",
@@ -394,12 +394,12 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']] open_api: One or more `open_api` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArrgs']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArrgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?
@@ -408,7 +408,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudGatewayRouteConfigArgs,
+                 args: SpringCloudGatewayRouteConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Gateway Route Config.
@@ -434,7 +434,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             spring_cloud_gateway_id=example_spring_cloud_gateway.id,
             spring_cloud_app_id=example_spring_cloud_app.id,
             protocol="HTTPS",
-            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArgs(
+            routes=[azure.appplatform.SpringCloudGatewayRouteConfigRouteArrgs(
                 description="example description",
                 filters=[
                     "StripPrefix=2",
@@ -462,12 +462,12 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudGatewayRouteConfigArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudGatewayRouteConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudGatewayRouteConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudGatewayRouteConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -478,10 +478,10 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
+                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArrgs']]] = None,
                  predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArrgs']]]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
                  sso_validation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -492,7 +492,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudGatewayRouteConfigArgs.__new__(SpringCloudGatewayRouteConfigArgs)
+            __props__ = SpringCloudGatewayRouteConfigArrgs.__new__(SpringCloudGatewayRouteConfigArrgs)
 
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
@@ -517,10 +517,10 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
+            open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArrgs']]] = None,
             predicates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArrgs']]]]] = None,
             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
             sso_validation_enabled: Optional[pulumi.Input[bool]] = None) -> 'SpringCloudGatewayRouteConfig':
@@ -533,12 +533,12 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filters: Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']] open_api: One or more `open_api` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArrgs']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] predicates: Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
         :param pulumi.Input[str] protocol: Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. 
                
                > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArrgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[bool] sso_validation_enabled: Should the sso validation be enabled in app level?

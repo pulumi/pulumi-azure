@@ -10,38 +10,38 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AppDaprArgs',
-    'AppIdentityArgs',
-    'AppIngressArgs',
-    'AppIngressCustomDomainArgs',
-    'AppIngressTrafficWeightArgs',
-    'AppRegistryArgs',
-    'AppSecretArgs',
-    'AppTemplateArgs',
-    'AppTemplateAzureQueueScaleRuleArgs',
-    'AppTemplateAzureQueueScaleRuleAuthenticationArgs',
-    'AppTemplateContainerArgs',
-    'AppTemplateContainerEnvArgs',
-    'AppTemplateContainerLivenessProbeArgs',
-    'AppTemplateContainerLivenessProbeHeaderArgs',
-    'AppTemplateContainerReadinessProbeArgs',
-    'AppTemplateContainerReadinessProbeHeaderArgs',
-    'AppTemplateContainerStartupProbeArgs',
-    'AppTemplateContainerStartupProbeHeaderArgs',
-    'AppTemplateContainerVolumeMountArgs',
-    'AppTemplateCustomScaleRuleArgs',
-    'AppTemplateCustomScaleRuleAuthenticationArgs',
-    'AppTemplateHttpScaleRuleArgs',
-    'AppTemplateHttpScaleRuleAuthenticationArgs',
-    'AppTemplateTcpScaleRuleArgs',
-    'AppTemplateTcpScaleRuleAuthenticationArgs',
-    'AppTemplateVolumeArgs',
-    'EnvironmentDaprComponentMetadataArgs',
-    'EnvironmentDaprComponentSecretArgs',
+    'AppDaprArrgs',
+    'AppIdentityArrgs',
+    'AppIngressArrgs',
+    'AppIngressCustomDomainArrgs',
+    'AppIngressTrafficWeightArrgs',
+    'AppRegistryArrgs',
+    'AppSecretArrgs',
+    'AppTemplateArrgs',
+    'AppTemplateAzureQueueScaleRuleArrgs',
+    'AppTemplateAzureQueueScaleRuleAuthenticationArrgs',
+    'AppTemplateContainerArrgs',
+    'AppTemplateContainerEnvArrgs',
+    'AppTemplateContainerLivenessProbeArrgs',
+    'AppTemplateContainerLivenessProbeHeaderArrgs',
+    'AppTemplateContainerReadinessProbeArrgs',
+    'AppTemplateContainerReadinessProbeHeaderArrgs',
+    'AppTemplateContainerStartupProbeArrgs',
+    'AppTemplateContainerStartupProbeHeaderArrgs',
+    'AppTemplateContainerVolumeMountArrgs',
+    'AppTemplateCustomScaleRuleArrgs',
+    'AppTemplateCustomScaleRuleAuthenticationArrgs',
+    'AppTemplateHttpScaleRuleArrgs',
+    'AppTemplateHttpScaleRuleAuthenticationArrgs',
+    'AppTemplateTcpScaleRuleArrgs',
+    'AppTemplateTcpScaleRuleAuthenticationArrgs',
+    'AppTemplateVolumeArrgs',
+    'EnvironmentDaprComponentMetadataArrgs',
+    'EnvironmentDaprComponentSecretArrgs',
 ]
 
 @pulumi.input_type
-class AppDaprArgs:
+calass AppDaprArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  app_port: Optional[pulumi.Input[int]] = None,
@@ -95,7 +95,7 @@ class AppDaprArgs:
 
 
 @pulumi.input_type
-class AppIdentityArgs:
+calass AppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -157,23 +157,23 @@ class AppIdentityArgs:
 
 
 @pulumi.input_type
-class AppIngressArgs:
+calass AppIngressArrgs:
     def __init__(__self__, *,
                  target_port: pulumi.Input[int],
-                 traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]],
+                 traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArrgs']]],
                  allow_insecure_connections: Optional[pulumi.Input[bool]] = None,
-                 custom_domain: Optional[pulumi.Input['AppIngressCustomDomainArgs']] = None,
+                 custom_domain: Optional[pulumi.Input['AppIngressCustomDomainArrgs']] = None,
                  exposed_port: Optional[pulumi.Input[int]] = None,
                  external_enabled: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  transport: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] target_port: The target port on the container for the Ingress traffic.
-        :param pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]] traffic_weights: A `traffic_weight` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArrgs']]] traffic_weights: A `traffic_weight` block as detailed below.
                
                > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         :param pulumi.Input[bool] allow_insecure_connections: Should this ingress allow insecure connections?
-        :param pulumi.Input['AppIngressCustomDomainArgs'] custom_domain: One or more `custom_domain` block as detailed below.
+        :param pulumi.Input['AppIngressCustomDomainArrgs'] custom_domain: One or more `custom_domain` block as detailed below.
         :param pulumi.Input[int] exposed_port: The exposed port on the container for the Ingress traffic.
                
                > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
@@ -210,7 +210,7 @@ class AppIngressArgs:
 
     @property
     @pulumi.getter(name="trafficWeights")
-    def traffic_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]]:
+    def traffic_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArrgs']]]:
         """
         A `traffic_weight` block as detailed below.
 
@@ -219,7 +219,7 @@ class AppIngressArgs:
         return pulumi.get(self, "traffic_weights")
 
     @traffic_weights.setter
-    def traffic_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]]):
+    def traffic_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArrgs']]]):
         pulumi.set(self, "traffic_weights", value)
 
     @property
@@ -236,14 +236,14 @@ class AppIngressArgs:
 
     @property
     @pulumi.getter(name="customDomain")
-    def custom_domain(self) -> Optional[pulumi.Input['AppIngressCustomDomainArgs']]:
+    def custom_domain(self) -> Optional[pulumi.Input['AppIngressCustomDomainArrgs']]:
         """
         One or more `custom_domain` block as detailed below.
         """
         return pulumi.get(self, "custom_domain")
 
     @custom_domain.setter
-    def custom_domain(self, value: Optional[pulumi.Input['AppIngressCustomDomainArgs']]):
+    def custom_domain(self, value: Optional[pulumi.Input['AppIngressCustomDomainArrgs']]):
         pulumi.set(self, "custom_domain", value)
 
     @property
@@ -298,7 +298,7 @@ class AppIngressArgs:
 
 
 @pulumi.input_type
-class AppIngressCustomDomainArgs:
+calass AppIngressCustomDomainArrgs:
     def __init__(__self__, *,
                  certificate_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -351,7 +351,7 @@ class AppIngressCustomDomainArgs:
 
 
 @pulumi.input_type
-class AppIngressTrafficWeightArgs:
+calass AppIngressTrafficWeightArrgs:
     def __init__(__self__, *,
                  percentage: pulumi.Input[int],
                  label: Optional[pulumi.Input[str]] = None,
@@ -425,7 +425,7 @@ class AppIngressTrafficWeightArgs:
 
 
 @pulumi.input_type
-class AppRegistryArgs:
+calass AppRegistryArrgs:
     def __init__(__self__, *,
                  server: pulumi.Input[str],
                  identity: Optional[pulumi.Input[str]] = None,
@@ -499,7 +499,7 @@ class AppRegistryArgs:
 
 
 @pulumi.input_type
-class AppSecretArgs:
+calass AppSecretArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -540,27 +540,27 @@ class AppSecretArgs:
 
 
 @pulumi.input_type
-class AppTemplateArgs:
+calass AppTemplateArrgs:
     def __init__(__self__, *,
-                 containers: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]],
-                 azure_queue_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]] = None,
-                 custom_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]] = None,
-                 http_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]] = None,
+                 containers: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArrgs']]],
+                 azure_queue_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArrgs']]]] = None,
+                 custom_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArrgs']]]] = None,
+                 http_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArrgs']]]] = None,
                  max_replicas: Optional[pulumi.Input[int]] = None,
                  min_replicas: Optional[pulumi.Input[int]] = None,
                  revision_suffix: Optional[pulumi.Input[str]] = None,
-                 tcp_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgs']]]] = None):
+                 tcp_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArrgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]] containers: One or more `container` blocks as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArrgs']]] containers: One or more `container` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArrgs']]] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArrgs']]] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArrgs']]] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
         :param pulumi.Input[int] max_replicas: The maximum number of replicas for this container.
         :param pulumi.Input[int] min_replicas: The minimum number of replicas for this container.
         :param pulumi.Input[str] revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgs']]] volumes: A `volume` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArrgs']]] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArrgs']]] volumes: A `volume` block as detailed below.
         """
         pulumi.set(__self__, "containers", containers)
         if azure_queue_scale_rules is not None:
@@ -582,50 +582,50 @@ class AppTemplateArgs:
 
     @property
     @pulumi.getter
-    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]]:
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArrgs']]]:
         """
         One or more `container` blocks as detailed below.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArgs']]]):
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerArrgs']]]):
         pulumi.set(self, "containers", value)
 
     @property
     @pulumi.getter(name="azureQueueScaleRules")
-    def azure_queue_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]]:
+    def azure_queue_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArrgs']]]]:
         """
         One or more `azure_queue_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "azure_queue_scale_rules")
 
     @azure_queue_scale_rules.setter
-    def azure_queue_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]]):
+    def azure_queue_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArrgs']]]]):
         pulumi.set(self, "azure_queue_scale_rules", value)
 
     @property
     @pulumi.getter(name="customScaleRules")
-    def custom_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]]:
+    def custom_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArrgs']]]]:
         """
         One or more `custom_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "custom_scale_rules")
 
     @custom_scale_rules.setter
-    def custom_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]]):
+    def custom_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArrgs']]]]):
         pulumi.set(self, "custom_scale_rules", value)
 
     @property
     @pulumi.getter(name="httpScaleRules")
-    def http_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]]:
+    def http_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArrgs']]]]:
         """
         One or more `http_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "http_scale_rules")
 
     @http_scale_rules.setter
-    def http_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]]):
+    def http_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArrgs']]]]):
         pulumi.set(self, "http_scale_rules", value)
 
     @property
@@ -666,38 +666,38 @@ class AppTemplateArgs:
 
     @property
     @pulumi.getter(name="tcpScaleRules")
-    def tcp_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]]:
+    def tcp_scale_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArrgs']]]]:
         """
         One or more `tcp_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "tcp_scale_rules")
 
     @tcp_scale_rules.setter
-    def tcp_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]]):
+    def tcp_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArrgs']]]]):
         pulumi.set(self, "tcp_scale_rules", value)
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArrgs']]]]:
         """
         A `volume` block as detailed below.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArrgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
-class AppTemplateAzureQueueScaleRuleArgs:
+calass AppTemplateAzureQueueScaleRuleArrgs:
     def __init__(__self__, *,
-                 authentications: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgs']]],
+                 authentications: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArrgs']]],
                  name: pulumi.Input[str],
                  queue_length: pulumi.Input[int],
                  queue_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgs']]] authentications: One or more `authentication` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArrgs']]] authentications: One or more `authentication` blocks as defined below.
         :param pulumi.Input[str] name: The name of the Scaling Rule
         :param pulumi.Input[int] queue_length: The value of the length of the queue to trigger scaling actions.
         :param pulumi.Input[str] queue_name: The name of the Azure Queue
@@ -709,14 +709,14 @@ class AppTemplateAzureQueueScaleRuleArgs:
 
     @property
     @pulumi.getter
-    def authentications(self) -> pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgs']]]:
+    def authentications(self) -> pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArrgs']]]:
         """
         One or more `authentication` blocks as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArgs']]]):
+    def authentications(self, value: pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleAuthenticationArrgs']]]):
         pulumi.set(self, "authentications", value)
 
     @property
@@ -757,7 +757,7 @@ class AppTemplateAzureQueueScaleRuleArgs:
 
 
 @pulumi.input_type
-class AppTemplateAzureQueueScaleRuleAuthenticationArgs:
+calass AppTemplateAzureQueueScaleRuleAuthenticationArrgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[str],
                  trigger_parameter: pulumi.Input[str]):
@@ -794,7 +794,7 @@ class AppTemplateAzureQueueScaleRuleAuthenticationArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerArgs:
+calass AppTemplateContainerArrgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[float],
                  image: pulumi.Input[str],
@@ -802,12 +802,12 @@ class AppTemplateContainerArgs:
                  name: pulumi.Input[str],
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 envs: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]]] = None,
+                 envs: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArrgs']]]] = None,
                  ephemeral_storage: Optional[pulumi.Input[str]] = None,
-                 liveness_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]]] = None,
-                 readiness_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]]] = None,
-                 startup_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]] = None):
+                 liveness_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArrgs']]]] = None,
+                 readiness_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArrgs']]]] = None,
+                 startup_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArrgs']]]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArrgs']]]] = None):
         """
         :param pulumi.Input[float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
                
@@ -819,14 +819,14 @@ class AppTemplateContainerArgs:
         :param pulumi.Input[str] name: The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArrgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[str] ephemeral_storage: The amount of ephemeral storage available to the Container App. 
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]] liveness_probes: A `liveness_probe` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]] readiness_probes: A `readiness_probe` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]] startup_probes: A `startup_probe` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArrgs']]] liveness_probes: A `liveness_probe` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArrgs']]] readiness_probes: A `readiness_probe` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArrgs']]] startup_probes: A `startup_probe` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArrgs']]] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "image", image)
@@ -927,14 +927,14 @@ class AppTemplateContainerArgs:
 
     @property
     @pulumi.getter
-    def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]]]:
+    def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArrgs']]]]:
         """
         One or more `env` blocks as detailed below.
         """
         return pulumi.get(self, "envs")
 
     @envs.setter
-    def envs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]]]):
+    def envs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArrgs']]]]):
         pulumi.set(self, "envs", value)
 
     @property
@@ -953,55 +953,55 @@ class AppTemplateContainerArgs:
 
     @property
     @pulumi.getter(name="livenessProbes")
-    def liveness_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]]]:
+    def liveness_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArrgs']]]]:
         """
         A `liveness_probe` block as detailed below.
         """
         return pulumi.get(self, "liveness_probes")
 
     @liveness_probes.setter
-    def liveness_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]]]):
+    def liveness_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArrgs']]]]):
         pulumi.set(self, "liveness_probes", value)
 
     @property
     @pulumi.getter(name="readinessProbes")
-    def readiness_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]]]:
+    def readiness_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArrgs']]]]:
         """
         A `readiness_probe` block as detailed below.
         """
         return pulumi.get(self, "readiness_probes")
 
     @readiness_probes.setter
-    def readiness_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]]]):
+    def readiness_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArrgs']]]]):
         pulumi.set(self, "readiness_probes", value)
 
     @property
     @pulumi.getter(name="startupProbes")
-    def startup_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]]:
+    def startup_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArrgs']]]]:
         """
         A `startup_probe` block as detailed below.
         """
         return pulumi.get(self, "startup_probes")
 
     @startup_probes.setter
-    def startup_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]]):
+    def startup_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArrgs']]]]):
         pulumi.set(self, "startup_probes", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]]:
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArrgs']]]]:
         """
         A `volume_mounts` block as detailed below.
         """
         return pulumi.get(self, "volume_mounts")
 
     @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]]):
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArrgs']]]]):
         pulumi.set(self, "volume_mounts", value)
 
 
 @pulumi.input_type
-class AppTemplateContainerEnvArgs:
+calass AppTemplateContainerEnvArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -1059,12 +1059,12 @@ class AppTemplateContainerEnvArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerLivenessProbeArgs:
+calass AppTemplateContainerLivenessProbeArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  transport: pulumi.Input[str],
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArrgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  initial_delay: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
@@ -1075,7 +1075,7 @@ class AppTemplateContainerLivenessProbeArgs:
         :param pulumi.Input[int] port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param pulumi.Input[str] transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]] headers: A `header` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArrgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param pulumi.Input[int] initial_delay: The time in seconds to wait after the container has started before the probe is started.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
@@ -1140,14 +1140,14 @@ class AppTemplateContainerLivenessProbeArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArrgs']]]]:
         """
         A `header` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -1224,7 +1224,7 @@ class AppTemplateContainerLivenessProbeArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerLivenessProbeHeaderArgs:
+calass AppTemplateContainerLivenessProbeHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1261,12 +1261,12 @@ class AppTemplateContainerLivenessProbeHeaderArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerReadinessProbeArgs:
+calass AppTemplateContainerReadinessProbeArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  transport: pulumi.Input[str],
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArrgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -1276,7 +1276,7 @@ class AppTemplateContainerReadinessProbeArgs:
         :param pulumi.Input[int] port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param pulumi.Input[str] transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]] headers: A `header` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArrgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -1338,14 +1338,14 @@ class AppTemplateContainerReadinessProbeArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArrgs']]]]:
         """
         A `header` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -1410,7 +1410,7 @@ class AppTemplateContainerReadinessProbeArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerReadinessProbeHeaderArgs:
+calass AppTemplateContainerReadinessProbeHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1447,12 +1447,12 @@ class AppTemplateContainerReadinessProbeHeaderArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerStartupProbeArgs:
+calass AppTemplateContainerStartupProbeArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  transport: pulumi.Input[str],
                  failure_count_threshold: Optional[pulumi.Input[int]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArrgs']]]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -1462,7 +1462,7 @@ class AppTemplateContainerStartupProbeArgs:
         :param pulumi.Input[int] port: The port number on which to connect. Possible values are between `1` and `65535`.
         :param pulumi.Input[str] transport: Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
         :param pulumi.Input[int] failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]] headers: A `header` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArrgs']]] headers: A `header` block as detailed below.
         :param pulumi.Input[str] host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         :param pulumi.Input[int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
@@ -1524,14 +1524,14 @@ class AppTemplateContainerStartupProbeArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]]]:
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArrgs']]]]:
         """
         A `header` block as detailed below.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]]]):
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArrgs']]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -1596,7 +1596,7 @@ class AppTemplateContainerStartupProbeArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerStartupProbeHeaderArgs:
+calass AppTemplateContainerStartupProbeHeaderArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1633,7 +1633,7 @@ class AppTemplateContainerStartupProbeHeaderArgs:
 
 
 @pulumi.input_type
-class AppTemplateContainerVolumeMountArgs:
+calass AppTemplateContainerVolumeMountArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: pulumi.Input[str]):
@@ -1670,17 +1670,17 @@ class AppTemplateContainerVolumeMountArgs:
 
 
 @pulumi.input_type
-class AppTemplateCustomScaleRuleArgs:
+calass AppTemplateCustomScaleRuleArrgs:
     def __init__(__self__, *,
                  custom_rule_type: pulumi.Input[str],
                  metadata: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  name: pulumi.Input[str],
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]] = None):
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArrgs']]]] = None):
         """
         :param pulumi.Input[str] custom_rule_type: The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of string key-value pairs to configure the Custom Scale Rule.
         :param pulumi.Input[str] name: The name of the Scaling Rule
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]] authentications: Zero or more `authentication` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArrgs']]] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "custom_rule_type", custom_rule_type)
         pulumi.set(__self__, "metadata", metadata)
@@ -1726,19 +1726,19 @@ class AppTemplateCustomScaleRuleArgs:
 
     @property
     @pulumi.getter
-    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]]:
+    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArrgs']]]]:
         """
         Zero or more `authentication` blocks as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]]):
+    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArrgs']]]]):
         pulumi.set(self, "authentications", value)
 
 
 @pulumi.input_type
-class AppTemplateCustomScaleRuleAuthenticationArgs:
+calass AppTemplateCustomScaleRuleAuthenticationArrgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[str],
                  trigger_parameter: pulumi.Input[str]):
@@ -1775,15 +1775,15 @@ class AppTemplateCustomScaleRuleAuthenticationArgs:
 
 
 @pulumi.input_type
-class AppTemplateHttpScaleRuleArgs:
+calass AppTemplateHttpScaleRuleArrgs:
     def __init__(__self__, *,
                  concurrent_requests: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]]] = None):
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArrgs']]]] = None):
         """
         :param pulumi.Input[str] concurrent_requests: The number of concurrent requests to trigger scaling.
         :param pulumi.Input[str] name: The name of the Scaling Rule
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]] authentications: Zero or more `authentication` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArrgs']]] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "concurrent_requests", concurrent_requests)
         pulumi.set(__self__, "name", name)
@@ -1816,19 +1816,19 @@ class AppTemplateHttpScaleRuleArgs:
 
     @property
     @pulumi.getter
-    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]]]:
+    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArrgs']]]]:
         """
         Zero or more `authentication` blocks as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]]]):
+    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArrgs']]]]):
         pulumi.set(self, "authentications", value)
 
 
 @pulumi.input_type
-class AppTemplateHttpScaleRuleAuthenticationArgs:
+calass AppTemplateHttpScaleRuleAuthenticationArrgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[str],
                  trigger_parameter: Optional[pulumi.Input[str]] = None):
@@ -1866,15 +1866,15 @@ class AppTemplateHttpScaleRuleAuthenticationArgs:
 
 
 @pulumi.input_type
-class AppTemplateTcpScaleRuleArgs:
+calass AppTemplateTcpScaleRuleArrgs:
     def __init__(__self__, *,
                  concurrent_requests: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]]] = None):
+                 authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArrgs']]]] = None):
         """
         :param pulumi.Input[str] concurrent_requests: The number of concurrent requests to trigger scaling.
         :param pulumi.Input[str] name: The name of the Scaling Rule
-        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]] authentications: Zero or more `authentication` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArrgs']]] authentications: Zero or more `authentication` blocks as defined below.
         """
         pulumi.set(__self__, "concurrent_requests", concurrent_requests)
         pulumi.set(__self__, "name", name)
@@ -1907,19 +1907,19 @@ class AppTemplateTcpScaleRuleArgs:
 
     @property
     @pulumi.getter
-    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]]]:
+    def authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArrgs']]]]:
         """
         Zero or more `authentication` blocks as defined below.
         """
         return pulumi.get(self, "authentications")
 
     @authentications.setter
-    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]]]):
+    def authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArrgs']]]]):
         pulumi.set(self, "authentications", value)
 
 
 @pulumi.input_type
-class AppTemplateTcpScaleRuleAuthenticationArgs:
+calass AppTemplateTcpScaleRuleAuthenticationArrgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[str],
                  trigger_parameter: Optional[pulumi.Input[str]] = None):
@@ -1957,7 +1957,7 @@ class AppTemplateTcpScaleRuleAuthenticationArgs:
 
 
 @pulumi.input_type
-class AppTemplateVolumeArgs:
+calass AppTemplateVolumeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  storage_name: Optional[pulumi.Input[str]] = None,
@@ -2011,7 +2011,7 @@ class AppTemplateVolumeArgs:
 
 
 @pulumi.input_type
-class EnvironmentDaprComponentMetadataArgs:
+calass EnvironmentDaprComponentMetadataArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secret_name: Optional[pulumi.Input[str]] = None,
@@ -2065,7 +2065,7 @@ class EnvironmentDaprComponentMetadataArgs:
 
 
 @pulumi.input_type
-class EnvironmentDaprComponentSecretArgs:
+calass EnvironmentDaprComponentSecretArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

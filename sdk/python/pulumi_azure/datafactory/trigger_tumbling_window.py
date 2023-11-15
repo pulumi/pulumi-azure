@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TriggerTumblingWindowArgs', 'TriggerTumblingWindow']
+__all__ = ['TriggerTumblingWindowArrgs', 'TriggerTumblingWindow']
 
 @pulumi.input_type
-class TriggerTumblingWindowArgs:
+calass TriggerTumblingWindowArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  frequency: pulumi.Input[str],
                  interval: pulumi.Input[int],
-                 pipeline: pulumi.Input['TriggerTumblingWindowPipelineArgs'],
+                 pipeline: pulumi.Input['TriggerTumblingWindowPipelineArrgs'],
                  start_time: pulumi.Input[str],
                  activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,14 +29,14 @@ class TriggerTumblingWindowArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
+                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']] = None,
+                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]] = None):
         """
         The set of arguments for constructing a TriggerTumblingWindow resource.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[str] frequency: Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
         :param pulumi.Input[int] interval: Specifies the interval of Tumbling Window. Changing this forces a new resource.
-        :param pulumi.Input['TriggerTumblingWindowPipelineArgs'] pipeline: A `pipeline` block as defined below.
+        :param pulumi.Input['TriggerTumblingWindowPipelineArrgs'] pipeline: A `pipeline` block as defined below.
         :param pulumi.Input[str] start_time: Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
@@ -46,8 +46,8 @@ class TriggerTumblingWindowArgs:
         :param pulumi.Input[str] end_time: Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
         :param pulumi.Input[int] max_concurrency: The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input['TriggerTumblingWindowRetryArgs'] retry: A `retry` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
+        :param pulumi.Input['TriggerTumblingWindowRetryArrgs'] retry: A `retry` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "frequency", frequency)
@@ -113,14 +113,14 @@ class TriggerTumblingWindowArgs:
 
     @property
     @pulumi.getter
-    def pipeline(self) -> pulumi.Input['TriggerTumblingWindowPipelineArgs']:
+    def pipeline(self) -> pulumi.Input['TriggerTumblingWindowPipelineArrgs']:
         """
         A `pipeline` block as defined below.
         """
         return pulumi.get(self, "pipeline")
 
     @pipeline.setter
-    def pipeline(self, value: pulumi.Input['TriggerTumblingWindowPipelineArgs']):
+    def pipeline(self, value: pulumi.Input['TriggerTumblingWindowPipelineArrgs']):
         pulumi.set(self, "pipeline", value)
 
     @property
@@ -233,31 +233,31 @@ class TriggerTumblingWindowArgs:
 
     @property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]:
+    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']]:
         """
         A `retry` block as defined below.
         """
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]):
+    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']]):
         pulumi.set(self, "retry", value)
 
     @property
     @pulumi.getter(name="triggerDependencies")
-    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
+    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]]:
         """
         One or more `trigger_dependency` block as defined below.
         """
         return pulumi.get(self, "trigger_dependencies")
 
     @trigger_dependencies.setter
-    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
+    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]]):
         pulumi.set(self, "trigger_dependencies", value)
 
 
 @pulumi.input_type
-class _TriggerTumblingWindowState:
+calass _TriggerTumblingWindowState:
     def __init__(__self__, *,
                  activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -270,10 +270,10 @@ class _TriggerTumblingWindowState:
                  interval: Optional[pulumi.Input[int]] = None,
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']] = None,
-                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']] = None,
+                 pipeline: Optional[pulumi.Input['TriggerTumblingWindowPipelineArrgs']] = None,
+                 retry: Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]] = None):
+                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]] = None):
         """
         Input properties used for looking up and filtering TriggerTumblingWindow resources.
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -287,10 +287,10 @@ class _TriggerTumblingWindowState:
         :param pulumi.Input[int] interval: Specifies the interval of Tumbling Window. Changing this forces a new resource.
         :param pulumi.Input[int] max_concurrency: The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input['TriggerTumblingWindowPipelineArgs'] pipeline: A `pipeline` block as defined below.
-        :param pulumi.Input['TriggerTumblingWindowRetryArgs'] retry: A `retry` block as defined below.
+        :param pulumi.Input['TriggerTumblingWindowPipelineArrgs'] pipeline: A `pipeline` block as defined below.
+        :param pulumi.Input['TriggerTumblingWindowRetryArrgs'] retry: A `retry` block as defined below.
         :param pulumi.Input[str] start_time: Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
         if activated is not None:
             pulumi.set(__self__, "activated", activated)
@@ -457,26 +457,26 @@ class _TriggerTumblingWindowState:
 
     @property
     @pulumi.getter
-    def pipeline(self) -> Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']]:
+    def pipeline(self) -> Optional[pulumi.Input['TriggerTumblingWindowPipelineArrgs']]:
         """
         A `pipeline` block as defined below.
         """
         return pulumi.get(self, "pipeline")
 
     @pipeline.setter
-    def pipeline(self, value: Optional[pulumi.Input['TriggerTumblingWindowPipelineArgs']]):
+    def pipeline(self, value: Optional[pulumi.Input['TriggerTumblingWindowPipelineArrgs']]):
         pulumi.set(self, "pipeline", value)
 
     @property
     @pulumi.getter
-    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]:
+    def retry(self) -> Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']]:
         """
         A `retry` block as defined below.
         """
         return pulumi.get(self, "retry")
 
     @retry.setter
-    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArgs']]):
+    def retry(self, value: Optional[pulumi.Input['TriggerTumblingWindowRetryArrgs']]):
         pulumi.set(self, "retry", value)
 
     @property
@@ -493,18 +493,18 @@ class _TriggerTumblingWindowState:
 
     @property
     @pulumi.getter(name="triggerDependencies")
-    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]:
+    def trigger_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]]:
         """
         One or more `trigger_dependency` block as defined below.
         """
         return pulumi.get(self, "trigger_dependencies")
 
     @trigger_dependencies.setter
-    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArgs']]]]):
+    def trigger_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTumblingWindowTriggerDependencyArrgs']]]]):
         pulumi.set(self, "trigger_dependencies", value)
 
 
-class TriggerTumblingWindow(pulumi.CustomResource):
+calass TriggerTumblingWindow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -520,10 +520,10 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                  interval: Optional[pulumi.Input[int]] = None,
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArgs']]] = None,
-                 retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArgs']]] = None,
+                 pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArrgs']]] = None,
+                 retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArrgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArgs']]]]] = None,
+                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
@@ -552,17 +552,17 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
+            retry=azure.datafactory.TriggerTumblingWindowRetryArrgs(
                 count=1,
                 interval=30,
             ),
-            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
+            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArrgs(
                 name=example_pipeline.name,
                 parameters={
                     "Env": "Prod",
                 },
             ),
-            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
+            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArrgs(
                 size="24:00:00",
                 offset="-24:00:00",
             )],
@@ -593,16 +593,16 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         :param pulumi.Input[int] interval: Specifies the interval of Tumbling Window. Changing this forces a new resource.
         :param pulumi.Input[int] max_concurrency: The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArgs']] pipeline: A `pipeline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArgs']] retry: A `retry` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArrgs']] pipeline: A `pipeline` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArrgs']] retry: A `retry` block as defined below.
         :param pulumi.Input[str] start_time: Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArgs']]]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArrgs']]]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TriggerTumblingWindowArgs,
+                 args: TriggerTumblingWindowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Tumbling Window Trigger inside an Azure Data Factory.
@@ -631,17 +631,17 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            retry=azure.datafactory.TriggerTumblingWindowRetryArgs(
+            retry=azure.datafactory.TriggerTumblingWindowRetryArrgs(
                 count=1,
                 interval=30,
             ),
-            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArgs(
+            pipeline=azure.datafactory.TriggerTumblingWindowPipelineArrgs(
                 name=example_pipeline.name,
                 parameters={
                     "Env": "Prod",
                 },
             ),
-            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArgs(
+            trigger_dependencies=[azure.datafactory.TriggerTumblingWindowTriggerDependencyArrgs(
                 size="24:00:00",
                 offset="-24:00:00",
             )],
@@ -660,12 +660,12 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TriggerTumblingWindowArgs args: The arguments to use to populate this resource's properties.
+        :param TriggerTumblingWindowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TriggerTumblingWindowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerTumblingWindowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -685,10 +685,10 @@ class TriggerTumblingWindow(pulumi.CustomResource):
                  interval: Optional[pulumi.Input[int]] = None,
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArgs']]] = None,
-                 retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArgs']]] = None,
+                 pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArrgs']]] = None,
+                 retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArrgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArgs']]]]] = None,
+                 trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -696,7 +696,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TriggerTumblingWindowArgs.__new__(TriggerTumblingWindowArgs)
+            __props__ = TriggerTumblingWindowArrgs.__new__(TriggerTumblingWindowArrgs)
 
             __props__.__dict__["activated"] = activated
             __props__.__dict__["additional_properties"] = additional_properties
@@ -744,10 +744,10 @@ class TriggerTumblingWindow(pulumi.CustomResource):
             interval: Optional[pulumi.Input[int]] = None,
             max_concurrency: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArgs']]] = None,
-            retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArgs']]] = None,
+            pipeline: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArrgs']]] = None,
+            retry: Optional[pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArrgs']]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
-            trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArgs']]]]] = None) -> 'TriggerTumblingWindow':
+            trigger_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArrgs']]]]] = None) -> 'TriggerTumblingWindow':
         """
         Get an existing TriggerTumblingWindow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -766,10 +766,10 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         :param pulumi.Input[int] interval: Specifies the interval of Tumbling Window. Changing this forces a new resource.
         :param pulumi.Input[int] max_concurrency: The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArgs']] pipeline: A `pipeline` block as defined below.
-        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArgs']] retry: A `retry` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowPipelineArrgs']] pipeline: A `pipeline` block as defined below.
+        :param pulumi.Input[pulumi.InputType['TriggerTumblingWindowRetryArrgs']] retry: A `retry` block as defined below.
         :param pulumi.Input[str] start_time: Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArgs']]]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTumblingWindowTriggerDependencyArrgs']]]] trigger_dependencies: One or more `trigger_dependency` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

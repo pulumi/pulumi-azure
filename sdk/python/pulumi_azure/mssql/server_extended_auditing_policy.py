@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerExtendedAuditingPolicyArgs', 'ServerExtendedAuditingPolicy']
+__all__ = ['ServerExtendedAuditingPolicyArrgs', 'ServerExtendedAuditingPolicy']
 
 @pulumi.input_type
-class ServerExtendedAuditingPolicyArgs:
+calass ServerExtendedAuditingPolicyArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -151,7 +151,7 @@ class ServerExtendedAuditingPolicyArgs:
 
 
 @pulumi.input_type
-class _ServerExtendedAuditingPolicyState:
+calass _ServerExtendedAuditingPolicyState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
@@ -290,7 +290,7 @@ class _ServerExtendedAuditingPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
-class ServerExtendedAuditingPolicy(pulumi.CustomResource):
+calass ServerExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -361,7 +361,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -384,13 +384,13 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
+            network_rules=azure.storage.AccountNetworkRulesArrgs(
                 default_action="Deny",
                 ip_rules=["127.0.0.1"],
                 virtual_network_subnet_ids=[example_subnet.id],
                 bypasses=["AzureServices"],
             ),
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
@@ -430,7 +430,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerExtendedAuditingPolicyArgs,
+                 args: ServerExtendedAuditingPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a MS SQL Server Extended Auditing Policy.
@@ -489,7 +489,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_assignment = azure.authorization.Assignment("exampleAssignment",
@@ -512,13 +512,13 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
+            network_rules=azure.storage.AccountNetworkRulesArrgs(
                 default_action="Deny",
                 ip_rules=["127.0.0.1"],
                 virtual_network_subnet_ids=[example_subnet.id],
                 bypasses=["AzureServices"],
             ),
-            identity=azure.storage.AccountIdentityArgs(
+            identity=azure.storage.AccountIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
@@ -542,12 +542,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerExtendedAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerExtendedAuditingPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerExtendedAuditingPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerExtendedAuditingPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -571,7 +571,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerExtendedAuditingPolicyArgs.__new__(ServerExtendedAuditingPolicyArgs)
+            __props__ = ServerExtendedAuditingPolicyArrgs.__new__(ServerExtendedAuditingPolicyArrgs)
 
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled

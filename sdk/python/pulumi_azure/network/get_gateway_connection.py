@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGatewayConnectionResult:
+calass GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
@@ -287,7 +287,7 @@ class GetGatewayConnectionResult:
         return pulumi.get(self, "virtual_network_gateway_id")
 
 
-class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
+calass AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPrivateCloudResult:
+calass GetPrivateCloudResult:
     """
     A collection of values returned by getPrivateCloud.
     """
@@ -217,7 +217,7 @@ class GetPrivateCloudResult:
         return pulumi.get(self, "vmotion_subnet_cidr")
 
 
-class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
+calass AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

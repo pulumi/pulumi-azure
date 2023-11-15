@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccessConnectorArgs', 'AccessConnector']
+__all__ = ['AccessConnectorArrgs', 'AccessConnector']
 
 @pulumi.input_type
-class AccessConnectorArgs:
+calass AccessConnectorArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['AccessConnectorIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['AccessConnectorIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccessConnector resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccessConnectorIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AccessConnectorIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -53,14 +53,14 @@ class AccessConnectorArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccessConnectorIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AccessConnectorIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccessConnectorIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AccessConnectorIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -101,16 +101,16 @@ class AccessConnectorArgs:
 
 
 @pulumi.input_type
-class _AccessConnectorState:
+calass _AccessConnectorState:
     def __init__(__self__, *,
-                 identity: Optional[pulumi.Input['AccessConnectorIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['AccessConnectorIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AccessConnector resources.
-        :param pulumi.Input['AccessConnectorIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AccessConnectorIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
@@ -129,14 +129,14 @@ class _AccessConnectorState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AccessConnectorIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AccessConnectorIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AccessConnectorIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AccessConnectorIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -188,12 +188,12 @@ class _AccessConnectorState:
         pulumi.set(self, "tags", value)
 
 
-class AccessConnector(pulumi.CustomResource):
+calass AccessConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -212,7 +212,7 @@ class AccessConnector(pulumi.CustomResource):
         example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
+            identity=azure.databricks.AccessConnectorIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -230,7 +230,7 @@ class AccessConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessConnectorIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccessConnectorIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.
@@ -240,7 +240,7 @@ class AccessConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessConnectorArgs,
+                 args: AccessConnectorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databricks Access Connector
@@ -255,7 +255,7 @@ class AccessConnector(pulumi.CustomResource):
         example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.databricks.AccessConnectorIdentityArgs(
+            identity=azure.databricks.AccessConnectorIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -272,12 +272,12 @@ class AccessConnector(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccessConnectorArgs args: The arguments to use to populate this resource's properties.
+        :param AccessConnectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccessConnectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccessConnectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -286,7 +286,7 @@ class AccessConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -298,7 +298,7 @@ class AccessConnector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccessConnectorArgs.__new__(AccessConnectorArgs)
+            __props__ = AccessConnectorArrgs.__new__(AccessConnectorArrgs)
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -317,7 +317,7 @@ class AccessConnector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccessConnectorIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -329,7 +329,7 @@ class AccessConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessConnectorIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccessConnectorIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created.

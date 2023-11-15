@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationAntimalware(dict):
+calass ConfigurationAntimalware(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -58,7 +58,7 @@ class ConfigurationAntimalware(dict):
                  scheduled_scan_time_in_minutes: Optional[int] = None,
                  scheduled_scan_type: Optional[str] = None):
         """
-        :param 'ConfigurationAntimalwareExclusionsArgs' exclusions: A `exclusions` block as defined below.
+        :param 'ConfigurationAntimalwareExclusionsArrgs' exclusions: A `exclusions` block as defined below.
         :param bool real_time_protection_enabled: Whether the real time protection is enabled. Defaults to `false`.
         :param int scheduled_scan_day: The day of the scheduled scan. Possible values are `0` to `8` where `0` is daily, `1` to `7` are the days of the week and `8` is Disabled. Defaults to `8`.
         :param bool scheduled_scan_enabled: Whether the scheduled scan is enabled. Defaults to `false`.
@@ -128,7 +128,7 @@ class ConfigurationAntimalware(dict):
 
 
 @pulumi.output_type
-class ConfigurationAntimalwareExclusions(dict):
+calass ConfigurationAntimalwareExclusions(dict):
     def __init__(__self__, *,
                  extensions: Optional[str] = None,
                  paths: Optional[str] = None,
@@ -171,7 +171,7 @@ class ConfigurationAntimalwareExclusions(dict):
 
 
 @pulumi.output_type
-class ConfigurationAzureSecurityBaseline(dict):
+calass ConfigurationAzureSecurityBaseline(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,7 +207,7 @@ class ConfigurationAzureSecurityBaseline(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackup(dict):
+calass ConfigurationBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,8 +242,8 @@ class ConfigurationBackup(dict):
         """
         :param int instant_rp_retention_range_in_days: The retention range in days of the backup policy. Defaults to `5`.
         :param str policy_name: The name of the backup policy.
-        :param 'ConfigurationBackupRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-        :param 'ConfigurationBackupSchedulePolicyArgs' schedule_policy: A `schedule_policy` block as defined below.
+        :param 'ConfigurationBackupRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'ConfigurationBackupSchedulePolicyArrgs' schedule_policy: A `schedule_policy` block as defined below.
         :param str time_zone: The timezone of the backup policy. Defaults to `UTC`.
         """
         if instant_rp_retention_range_in_days is not None:
@@ -299,7 +299,7 @@ class ConfigurationBackup(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupRetentionPolicy(dict):
+calass ConfigurationBackupRetentionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -326,9 +326,9 @@ class ConfigurationBackupRetentionPolicy(dict):
                  retention_policy_type: Optional[str] = None,
                  weekly_schedule: Optional['outputs.ConfigurationBackupRetentionPolicyWeeklySchedule'] = None):
         """
-        :param 'ConfigurationBackupRetentionPolicyDailyScheduleArgs' daily_schedule: A `daily_schedule` block as defined below.
+        :param 'ConfigurationBackupRetentionPolicyDailyScheduleArrgs' daily_schedule: A `daily_schedule` block as defined below.
         :param str retention_policy_type: The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
-        :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleArgs' weekly_schedule: A `weekly_schedule` block as defined below.
+        :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleArrgs' weekly_schedule: A `weekly_schedule` block as defined below.
         """
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
@@ -363,7 +363,7 @@ class ConfigurationBackupRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupRetentionPolicyDailySchedule(dict):
+calass ConfigurationBackupRetentionPolicyDailySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -387,7 +387,7 @@ class ConfigurationBackupRetentionPolicyDailySchedule(dict):
                  retention_duration: Optional['outputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration'] = None,
                  retention_times: Optional[Sequence[str]] = None):
         """
-        :param 'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs' retention_duration: A `retention_duration` block as defined below.
+        :param 'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArrgs' retention_duration: A `retention_duration` block as defined below.
         :param Sequence[str] retention_times: The retention times of the backup policy.
         """
         if retention_duration is not None:
@@ -413,7 +413,7 @@ class ConfigurationBackupRetentionPolicyDailySchedule(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration(dict):
+calass ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -461,7 +461,7 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupRetentionPolicyWeeklySchedule(dict):
+calass ConfigurationBackupRetentionPolicyWeeklySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -485,7 +485,7 @@ class ConfigurationBackupRetentionPolicyWeeklySchedule(dict):
                  retention_duration: Optional['outputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration'] = None,
                  retention_times: Optional[Sequence[str]] = None):
         """
-        :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs' retention_duration: A `retention_duration` block as defined below.
+        :param 'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArrgs' retention_duration: A `retention_duration` block as defined below.
         :param Sequence[str] retention_times: The retention times of the backup policy.
         """
         if retention_duration is not None:
@@ -511,7 +511,7 @@ class ConfigurationBackupRetentionPolicyWeeklySchedule(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration(dict):
+calass ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -559,7 +559,7 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration(dict):
 
 
 @pulumi.output_type
-class ConfigurationBackupSchedulePolicy(dict):
+calass ConfigurationBackupSchedulePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

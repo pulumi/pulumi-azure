@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PostgresqlRoleArgs', 'PostgresqlRole']
+__all__ = ['PostgresqlRoleArrgs', 'PostgresqlRole']
 
 @pulumi.input_type
-class PostgresqlRoleArgs:
+calass PostgresqlRoleArrgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -66,7 +66,7 @@ class PostgresqlRoleArgs:
 
 
 @pulumi.input_type
-class _PostgresqlRoleState:
+calass _PostgresqlRoleState:
     def __init__(__self__, *,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _PostgresqlRoleState:
         pulumi.set(self, "password", value)
 
 
-class PostgresqlRole(pulumi.CustomResource):
+calass PostgresqlRole(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,7 +170,7 @@ class PostgresqlRole(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PostgresqlRoleArgs,
+                 args: PostgresqlRoleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Cosmos DB for PostgreSQL Role.
@@ -203,12 +203,12 @@ class PostgresqlRole(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PostgresqlRoleArgs args: The arguments to use to populate this resource's properties.
+        :param PostgresqlRoleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PostgresqlRoleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PostgresqlRoleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -227,7 +227,7 @@ class PostgresqlRole(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PostgresqlRoleArgs.__new__(PostgresqlRoleArgs)
+            __props__ = PostgresqlRoleArrgs.__new__(PostgresqlRoleArrgs)
 
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")

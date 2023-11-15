@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GrafanaArgs', 'Grafana']
+__all__ = ['GrafanaArrgs', 'Grafana']
 
 @pulumi.input_type
-class GrafanaArgs:
+calass GrafanaArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] = None,
+                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['GrafanaIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['GrafanaIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -33,9 +33,9 @@ class GrafanaArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
-        :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
-        :param pulumi.Input['GrafanaIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input['GrafanaIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
@@ -105,14 +105,14 @@ class GrafanaArgs:
 
     @property
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
-    def azure_monitor_workspace_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]:
+    def azure_monitor_workspace_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]:
         """
         A `azure_monitor_workspace_integrations` block as defined below.
         """
         return pulumi.get(self, "azure_monitor_workspace_integrations")
 
     @azure_monitor_workspace_integrations.setter
-    def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]):
+    def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]):
         pulumi.set(self, "azure_monitor_workspace_integrations", value)
 
     @property
@@ -129,14 +129,14 @@ class GrafanaArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['GrafanaIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['GrafanaIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['GrafanaIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['GrafanaIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -213,15 +213,15 @@ class GrafanaArgs:
 
 
 @pulumi.input_type
-class _GrafanaState:
+calass _GrafanaState:
     def __init__(__self__, *,
                  api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] = None,
+                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['GrafanaIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['GrafanaIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -234,11 +234,11 @@ class _GrafanaState:
         Input properties used for looking up and filtering Grafana resources.
         :param pulumi.Input[bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
-        :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana instance.
         :param pulumi.Input[str] grafana_version: The Grafana software version.
-        :param pulumi.Input['GrafanaIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input['GrafanaIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.
@@ -305,14 +305,14 @@ class _GrafanaState:
 
     @property
     @pulumi.getter(name="azureMonitorWorkspaceIntegrations")
-    def azure_monitor_workspace_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]:
+    def azure_monitor_workspace_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]:
         """
         A `azure_monitor_workspace_integrations` block as defined below.
         """
         return pulumi.get(self, "azure_monitor_workspace_integrations")
 
     @azure_monitor_workspace_integrations.setter
-    def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]):
+    def azure_monitor_workspace_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]):
         pulumi.set(self, "azure_monitor_workspace_integrations", value)
 
     @property
@@ -353,14 +353,14 @@ class _GrafanaState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['GrafanaIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['GrafanaIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['GrafanaIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['GrafanaIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -460,16 +460,16 @@ class _GrafanaState:
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
-class Grafana(pulumi.CustomResource):
+calass Grafana(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
+                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -494,7 +494,7 @@ class Grafana(pulumi.CustomResource):
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
-            identity=azure.dashboard.GrafanaIdentityArgs(
+            identity=azure.dashboard.GrafanaIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -514,9 +514,9 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[pulumi.InputType['GrafanaIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
@@ -529,7 +529,7 @@ class Grafana(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GrafanaArgs,
+                 args: GrafanaArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dashboard Grafana.
@@ -547,7 +547,7 @@ class Grafana(pulumi.CustomResource):
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
-            identity=azure.dashboard.GrafanaIdentityArgs(
+            identity=azure.dashboard.GrafanaIdentityArrgs(
                 type="SystemAssigned",
             ),
             tags={
@@ -564,12 +564,12 @@ class Grafana(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GrafanaArgs args: The arguments to use to populate this resource's properties.
+        :param GrafanaArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GrafanaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GrafanaArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -580,9 +580,9 @@ class Grafana(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_enabled: Optional[pulumi.Input[bool]] = None,
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
+                 azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -597,7 +597,7 @@ class Grafana(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GrafanaArgs.__new__(GrafanaArgs)
+            __props__ = GrafanaArrgs.__new__(GrafanaArrgs)
 
             __props__.__dict__["api_key_enabled"] = api_key_enabled
             __props__.__dict__["auto_generated_domain_name_label_scope"] = auto_generated_domain_name_label_scope
@@ -628,11 +628,11 @@ class Grafana(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key_enabled: Optional[pulumi.Input[bool]] = None,
             auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
-            azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
+            azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]]] = None,
             deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             grafana_version: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -650,11 +650,11 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] api_key_enabled: Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArrgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana instance.
         :param pulumi.Input[str] grafana_version: The Grafana software version.
-        :param pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[pulumi.InputType['GrafanaIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.

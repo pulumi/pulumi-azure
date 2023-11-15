@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAppServicePlanResult:
+calass GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
@@ -173,7 +173,7 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "zone_redundant")
 
 
-class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
+calass AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

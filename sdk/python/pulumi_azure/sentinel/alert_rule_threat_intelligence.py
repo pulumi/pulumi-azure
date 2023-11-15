@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AlertRuleThreatIntelligenceArgs', 'AlertRuleThreatIntelligence']
+__all__ = ['AlertRuleThreatIntelligenceArrgs', 'AlertRuleThreatIntelligence']
 
 @pulumi.input_type
-class AlertRuleThreatIntelligenceArgs:
+calass AlertRuleThreatIntelligenceArrgs:
     def __init__(__self__, *,
                  alert_rule_template_guid: pulumi.Input[str],
                  log_analytics_workspace_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class AlertRuleThreatIntelligenceArgs:
 
 
 @pulumi.input_type
-class _AlertRuleThreatIntelligenceState:
+calass _AlertRuleThreatIntelligenceState:
     def __init__(__self__, *,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -153,7 +153,7 @@ class _AlertRuleThreatIntelligenceState:
         pulumi.set(self, "name", value)
 
 
-class AlertRuleThreatIntelligence(pulumi.CustomResource):
+calass AlertRuleThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -183,7 +183,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArrgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
@@ -213,7 +213,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlertRuleThreatIntelligenceArgs,
+                 args: AlertRuleThreatIntelligenceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Threat Intelligence Alert Rule.
@@ -235,7 +235,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
+            plan=azure.operationalinsights.AnalyticsSolutionPlanArrgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
@@ -255,12 +255,12 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AlertRuleThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.
+        :param AlertRuleThreatIntelligenceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleThreatIntelligenceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleThreatIntelligenceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -280,7 +280,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlertRuleThreatIntelligenceArgs.__new__(AlertRuleThreatIntelligenceArgs)
+            __props__ = AlertRuleThreatIntelligenceArrgs.__new__(AlertRuleThreatIntelligenceArrgs)
 
             if alert_rule_template_guid is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_template_guid'")

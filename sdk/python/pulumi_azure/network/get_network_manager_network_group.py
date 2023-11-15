@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkManagerNetworkGroupResult:
+calass GetNetworkManagerNetworkGroupResult:
     """
     A collection of values returned by getNetworkManagerNetworkGroup.
     """
@@ -62,7 +62,7 @@ class GetNetworkManagerNetworkGroupResult:
         return pulumi.get(self, "network_manager_id")
 
 
-class AwaitableGetNetworkManagerNetworkGroupResult(GetNetworkManagerNetworkGroupResult):
+calass AwaitableGetNetworkManagerNetworkGroupResult(GetNetworkManagerNetworkGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

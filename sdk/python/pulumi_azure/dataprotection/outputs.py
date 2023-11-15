@@ -20,14 +20,14 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BackupPolicyDiskRetentionRule(dict):
+calass BackupPolicyDiskRetentionRule(dict):
     def __init__(__self__, *,
                  criteria: 'outputs.BackupPolicyDiskRetentionRuleCriteria',
                  duration: str,
                  name: str,
                  priority: int):
         """
-        :param 'BackupPolicyDiskRetentionRuleCriteriaArgs' criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param 'BackupPolicyDiskRetentionRuleCriteriaArrgs' criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param str duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param str name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
         :param int priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
@@ -71,7 +71,7 @@ class BackupPolicyDiskRetentionRule(dict):
 
 
 @pulumi.output_type
-class BackupPolicyDiskRetentionRuleCriteria(dict):
+calass BackupPolicyDiskRetentionRuleCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -107,14 +107,14 @@ class BackupPolicyDiskRetentionRuleCriteria(dict):
 
 
 @pulumi.output_type
-class BackupPolicyPostgresqlRetentionRule(dict):
+calass BackupPolicyPostgresqlRetentionRule(dict):
     def __init__(__self__, *,
                  criteria: 'outputs.BackupPolicyPostgresqlRetentionRuleCriteria',
                  duration: str,
                  name: str,
                  priority: int):
         """
-        :param 'BackupPolicyPostgresqlRetentionRuleCriteriaArgs' criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param 'BackupPolicyPostgresqlRetentionRuleCriteriaArrgs' criteria: A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param str duration: Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param str name: The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param int priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -158,7 +158,7 @@ class BackupPolicyPostgresqlRetentionRule(dict):
 
 
 @pulumi.output_type
-class BackupPolicyPostgresqlRetentionRuleCriteria(dict):
+calass BackupPolicyPostgresqlRetentionRuleCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -250,7 +250,7 @@ class BackupPolicyPostgresqlRetentionRuleCriteria(dict):
 
 
 @pulumi.output_type
-class BackupVaultIdentity(dict):
+calass BackupVaultIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,7 +311,7 @@ class BackupVaultIdentity(dict):
 
 
 @pulumi.output_type
-class GetBackupVaultIdentityResult(dict):
+calass GetBackupVaultIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,

@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class MonitorDatadogOrganization(dict):
+calass MonitorDatadogOrganization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class MonitorDatadogOrganization(dict):
 
 
 @pulumi.output_type
-class MonitorIdentity(dict):
+calass MonitorIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -214,7 +214,7 @@ class MonitorIdentity(dict):
 
 
 @pulumi.output_type
-class MonitorTagRuleLog(dict):
+calass MonitorTagRuleLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -243,7 +243,7 @@ class MonitorTagRuleLog(dict):
                  subscription_log_enabled: Optional[bool] = None):
         """
         :param bool aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
-        :param Sequence['MonitorTagRuleLogFilterArgs'] filters: A `filter` block as defined below.
+        :param Sequence['MonitorTagRuleLogFilterArrgs'] filters: A `filter` block as defined below.
                
                > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param bool resource_log_enabled: Whether Azure resource logs should be sent for the Monitor resource?
@@ -294,7 +294,7 @@ class MonitorTagRuleLog(dict):
 
 
 @pulumi.output_type
-class MonitorTagRuleLogFilter(dict):
+calass MonitorTagRuleLogFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -334,11 +334,11 @@ class MonitorTagRuleLogFilter(dict):
 
 
 @pulumi.output_type
-class MonitorTagRuleMetric(dict):
+calass MonitorTagRuleMetric(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.MonitorTagRuleMetricFilter']] = None):
         """
-        :param Sequence['MonitorTagRuleMetricFilterArgs'] filters: A `filter` block as defined below.
+        :param Sequence['MonitorTagRuleMetricFilterArrgs'] filters: A `filter` block as defined below.
                
                > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
@@ -357,7 +357,7 @@ class MonitorTagRuleMetric(dict):
 
 
 @pulumi.output_type
-class MonitorTagRuleMetricFilter(dict):
+calass MonitorTagRuleMetricFilter(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -397,7 +397,7 @@ class MonitorTagRuleMetricFilter(dict):
 
 
 @pulumi.output_type
-class MonitorUser(dict):
+calass MonitorUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

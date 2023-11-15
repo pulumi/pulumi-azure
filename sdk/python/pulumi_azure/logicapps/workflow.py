@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkflowArgs', 'Workflow']
+__all__ = ['WorkflowArrgs', 'Workflow']
 
 @pulumi.input_type
-class WorkflowArgs:
+calass WorkflowArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
+                 access_control: Optional[pulumi.Input['WorkflowAccessControlArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WorkflowIdentityArrgs']] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -32,9 +32,9 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlArrgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
-        :param pulumi.Input['WorkflowIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkflowIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
@@ -87,14 +87,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArrgs']]:
         """
         A `access_control` block as defined below.
         """
         return pulumi.get(self, "access_control")
 
     @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArrgs']]):
         pulumi.set(self, "access_control", value)
 
     @property
@@ -111,14 +111,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -233,14 +233,14 @@ class WorkflowArgs:
 
 
 @pulumi.input_type
-class _WorkflowState:
+calass _WorkflowState:
     def __init__(__self__, *,
-                 access_control: Optional[pulumi.Input['WorkflowAccessControlArgs']] = None,
+                 access_control: Optional[pulumi.Input['WorkflowAccessControlArrgs']] = None,
                  access_endpoint: Optional[pulumi.Input[str]] = None,
                  connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['WorkflowIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WorkflowIdentityArrgs']] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -255,12 +255,12 @@ class _WorkflowState:
                  workflow_version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
-        :param pulumi.Input['WorkflowAccessControlArgs'] access_control: A `access_control` block as defined below.
+        :param pulumi.Input['WorkflowAccessControlArrgs'] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint IP addresses of connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing IP addresses of connector.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
-        :param pulumi.Input['WorkflowIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['WorkflowIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
@@ -315,14 +315,14 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArgs']]:
+    def access_control(self) -> Optional[pulumi.Input['WorkflowAccessControlArrgs']]:
         """
         A `access_control` block as defined below.
         """
         return pulumi.get(self, "access_control")
 
     @access_control.setter
-    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArgs']]):
+    def access_control(self, value: Optional[pulumi.Input['WorkflowAccessControlArrgs']]):
         pulumi.set(self, "access_control", value)
 
     @property
@@ -375,14 +375,14 @@ class _WorkflowState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkflowIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkflowIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -532,14 +532,14 @@ class _WorkflowState:
         pulumi.set(self, "workflow_version", value)
 
 
-class Workflow(pulumi.CustomResource):
+calass Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArrgs']]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -576,9 +576,9 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']] access_control: A `access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArrgs']] access_control: A `access_control` block as defined below.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkflowIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
@@ -596,7 +596,7 @@ class Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkflowArgs,
+                 args: WorkflowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Workflow.
@@ -622,12 +622,12 @@ class Workflow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkflowArgs args: The arguments to use to populate this resource's properties.
+        :param WorkflowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -636,9 +636,9 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArrgs']]] = None,
                  integration_service_environment_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -656,7 +656,7 @@ class Workflow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkflowArgs.__new__(WorkflowArgs)
+            __props__ = WorkflowArrgs.__new__(WorkflowArrgs)
 
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["enabled"] = enabled
@@ -688,12 +688,12 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']]] = None,
+            access_control: Optional[pulumi.Input[pulumi.InputType['WorkflowAccessControlArrgs']]] = None,
             access_endpoint: Optional[pulumi.Input[str]] = None,
             connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WorkflowIdentityArrgs']]] = None,
             integration_service_environment_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
@@ -713,12 +713,12 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArgs']] access_control: A `access_control` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkflowAccessControlArrgs']] access_control: A `access_control` block as defined below.
         :param pulumi.Input[str] access_endpoint: The Access Endpoint for the Logic App Workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint IP addresses of connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing IP addresses of connector.
         :param pulumi.Input[bool] enabled: Is the Logic App Workflow enabled? Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['WorkflowIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WorkflowIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.

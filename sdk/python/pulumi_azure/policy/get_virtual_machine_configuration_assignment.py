@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualMachineConfigurationAssignmentResult:
+calass GetVirtualMachineConfigurationAssignmentResult:
     """
     A collection of values returned by getVirtualMachineConfigurationAssignment.
     """
@@ -125,7 +125,7 @@ class GetVirtualMachineConfigurationAssignmentResult:
         return pulumi.get(self, "virtual_machine_name")
 
 
-class AwaitableGetVirtualMachineConfigurationAssignmentResult(GetVirtualMachineConfigurationAssignmentResult):
+calass AwaitableGetVirtualMachineConfigurationAssignmentResult(GetVirtualMachineConfigurationAssignmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

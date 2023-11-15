@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProviderResult:
+calass GetProviderResult:
     """
     A collection of values returned by getProvider.
     """
@@ -95,7 +95,7 @@ class GetProviderResult:
         return pulumi.get(self, "trust_model")
 
 
-class AwaitableGetProviderResult(GetProviderResult):
+calass AwaitableGetProviderResult(GetProviderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

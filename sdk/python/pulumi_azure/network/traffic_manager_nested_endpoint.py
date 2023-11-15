@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TrafficManagerNestedEndpointArgs', 'TrafficManagerNestedEndpoint']
+__all__ = ['TrafficManagerNestedEndpointArrgs', 'TrafficManagerNestedEndpoint']
 
 @pulumi.input_type
-class TrafficManagerNestedEndpointArgs:
+calass TrafficManagerNestedEndpointArrgs:
     def __init__(__self__, *,
                  minimum_child_endpoints: pulumi.Input[int],
                  profile_id: pulumi.Input[str],
                  target_resource_id: pulumi.Input[str],
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,7 +27,7 @@ class TrafficManagerNestedEndpointArgs:
                  minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a TrafficManagerNestedEndpoint resource.
@@ -36,7 +36,7 @@ class TrafficManagerNestedEndpointArgs:
                ~>**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -44,7 +44,7 @@ class TrafficManagerNestedEndpointArgs:
         :param pulumi.Input[int] minimum_required_child_endpoints_ipv6: This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
         pulumi.set(__self__, "minimum_child_endpoints", minimum_child_endpoints)
@@ -111,14 +111,14 @@ class TrafficManagerNestedEndpointArgs:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @property
@@ -207,14 +207,14 @@ class TrafficManagerNestedEndpointArgs:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
@@ -231,9 +231,9 @@ class TrafficManagerNestedEndpointArgs:
 
 
 @pulumi.input_type
-class _TrafficManagerNestedEndpointState:
+calass _TrafficManagerNestedEndpointState:
     def __init__(__self__, *,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -243,12 +243,12 @@ class _TrafficManagerNestedEndpointState:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerNestedEndpoint resources.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -260,7 +260,7 @@ class _TrafficManagerNestedEndpointState:
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
@@ -293,14 +293,14 @@ class _TrafficManagerNestedEndpointState:
 
     @property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]:
         """
         One or more `custom_header` blocks as defined below.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @property
@@ -415,14 +415,14 @@ class _TrafficManagerNestedEndpointState:
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]]:
         """
         One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArrgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
@@ -450,12 +450,12 @@ class _TrafficManagerNestedEndpointState:
         pulumi.set(self, "weight", value)
 
 
-class TrafficManagerNestedEndpoint(pulumi.CustomResource):
+calass TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -465,7 +465,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArrgs']]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -487,11 +487,11 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         parent = azure.network.TrafficManagerProfile("parent",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name="parent-profile",
                 ttl=100,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=80,
                 path="/",
@@ -505,11 +505,11 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         nested = azure.network.TrafficManagerProfile("nested",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name="nested-profile",
                 ttl=30,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=443,
                 path="/",
@@ -532,7 +532,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArrgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -544,7 +544,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArrgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
@@ -552,7 +552,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficManagerNestedEndpointArgs,
+                 args: TrafficManagerNestedEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Nested Endpoint within a Traffic Manager Profile.
@@ -572,11 +572,11 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         parent = azure.network.TrafficManagerProfile("parent",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name="parent-profile",
                 ttl=100,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=80,
                 path="/",
@@ -590,11 +590,11 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         nested = azure.network.TrafficManagerProfile("nested",
             resource_group_name=example_resource_group.name,
             traffic_routing_method="Priority",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
+            dns_config=azure.network.TrafficManagerProfileDnsConfigArrgs(
                 relative_name="nested-profile",
                 ttl=30,
             ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
+            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArrgs(
                 protocol="HTTP",
                 port=443,
                 path="/",
@@ -616,12 +616,12 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrafficManagerNestedEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficManagerNestedEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficManagerNestedEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficManagerNestedEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -630,7 +630,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -640,7 +640,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArrgs']]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -650,7 +650,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficManagerNestedEndpointArgs.__new__(TrafficManagerNestedEndpointArgs)
+            __props__ = TrafficManagerNestedEndpointArrgs.__new__(TrafficManagerNestedEndpointArrgs)
 
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["enabled"] = enabled
@@ -681,7 +681,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]]] = None,
+            custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArrgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             endpoint_location: Optional[pulumi.Input[str]] = None,
             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -691,7 +691,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             profile_id: Optional[pulumi.Input[str]] = None,
-            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]]] = None,
+            subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArrgs']]]]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             weight: Optional[pulumi.Input[int]] = None) -> 'TrafficManagerNestedEndpoint':
         """
@@ -701,7 +701,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointCustomHeaderArrgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -713,7 +713,7 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the External Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerNestedEndpointSubnetArrgs']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNamespaceDisasterRecoveryConfigResult:
+calass GetNamespaceDisasterRecoveryConfigResult:
     """
     A collection of values returned by getNamespaceDisasterRecoveryConfig.
     """
@@ -121,7 +121,7 @@ class GetNamespaceDisasterRecoveryConfigResult:
         return pulumi.get(self, "secondary_connection_string_alias")
 
 
-class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterRecoveryConfigResult):
+calass AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterRecoveryConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

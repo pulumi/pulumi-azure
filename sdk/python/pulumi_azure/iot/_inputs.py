@@ -10,40 +10,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'IoTHubCloudToDeviceArgs',
-    'IoTHubCloudToDeviceFeedbackArgs',
-    'IoTHubEndpointArgs',
-    'IoTHubEnrichmentArgs',
-    'IoTHubFallbackRouteArgs',
-    'IoTHubFileUploadArgs',
-    'IoTHubIdentityArgs',
-    'IoTHubNetworkRuleSetArgs',
-    'IoTHubNetworkRuleSetIpRuleArgs',
-    'IoTHubRouteArgs',
-    'IoTHubSharedAccessPolicyArgs',
-    'IoTHubSkuArgs',
-    'IotHubDeviceUpdateAccountIdentityArgs',
-    'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs',
-    'IotHubDpsIpFilterRuleArgs',
-    'IotHubDpsLinkedHubArgs',
-    'IotHubDpsSkuArgs',
-    'SecurityDeviceGroupAllowRuleArgs',
-    'SecurityDeviceGroupRangeRuleArgs',
-    'SecuritySolutionAdditionalWorkspaceArgs',
-    'SecuritySolutionRecommendationsEnabledArgs',
-    'TimeSeriesInsightsGen2EnvironmentStorageArgs',
-    'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
+    'IoTHubCloudToDeviceArrgs',
+    'IoTHubCloudToDeviceFeedbackArrgs',
+    'IoTHubEndpointArrgs',
+    'IoTHubEnrichmentArrgs',
+    'IoTHubFallbackRouteArrgs',
+    'IoTHubFileUploadArrgs',
+    'IoTHubIdentityArrgs',
+    'IoTHubNetworkRuleSetArrgs',
+    'IoTHubNetworkRuleSetIpRuleArrgs',
+    'IoTHubRouteArrgs',
+    'IoTHubSharedAccessPolicyArrgs',
+    'IoTHubSkuArrgs',
+    'IotHubDeviceUpdateAccountIdentityArrgs',
+    'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArrgs',
+    'IotHubDpsIpFilterRuleArrgs',
+    'IotHubDpsLinkedHubArrgs',
+    'IotHubDpsSkuArrgs',
+    'SecurityDeviceGroupAllowRuleArrgs',
+    'SecurityDeviceGroupRangeRuleArrgs',
+    'SecuritySolutionAdditionalWorkspaceArrgs',
+    'SecuritySolutionRecommendationsEnabledArrgs',
+    'TimeSeriesInsightsGen2EnvironmentStorageArrgs',
+    'TimeSeriesInsightsReferenceDataSetKeyPropertyArrgs',
 ]
 
 @pulumi.input_type
-class IoTHubCloudToDeviceArgs:
+calass IoTHubCloudToDeviceArrgs:
     def __init__(__self__, *,
                  default_ttl: Optional[pulumi.Input[str]] = None,
-                 feedbacks: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]] = None,
+                 feedbacks: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArrgs']]]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] default_ttl: The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]] feedbacks: A `feedback` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArrgs']]] feedbacks: A `feedback` block as defined below.
         :param pulumi.Input[int] max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
         """
         if default_ttl is not None:
@@ -67,14 +67,14 @@ class IoTHubCloudToDeviceArgs:
 
     @property
     @pulumi.getter
-    def feedbacks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]]:
+    def feedbacks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArrgs']]]]:
         """
         A `feedback` block as defined below.
         """
         return pulumi.get(self, "feedbacks")
 
     @feedbacks.setter
-    def feedbacks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]]):
+    def feedbacks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArrgs']]]]):
         pulumi.set(self, "feedbacks", value)
 
     @property
@@ -91,7 +91,7 @@ class IoTHubCloudToDeviceArgs:
 
 
 @pulumi.input_type
-class IoTHubCloudToDeviceFeedbackArgs:
+calass IoTHubCloudToDeviceFeedbackArrgs:
     def __init__(__self__, *,
                  lock_duration: Optional[pulumi.Input[str]] = None,
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
@@ -146,7 +146,7 @@ class IoTHubCloudToDeviceFeedbackArgs:
 
 
 @pulumi.input_type
-class IoTHubEndpointArgs:
+calass IoTHubEndpointArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -367,7 +367,7 @@ class IoTHubEndpointArgs:
 
 
 @pulumi.input_type
-class IoTHubEnrichmentArgs:
+calass IoTHubEnrichmentArrgs:
     def __init__(__self__, *,
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  key: pulumi.Input[str],
@@ -419,7 +419,7 @@ class IoTHubEnrichmentArgs:
 
 
 @pulumi.input_type
-class IoTHubFallbackRouteArgs:
+calass IoTHubFallbackRouteArrgs:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -490,7 +490,7 @@ class IoTHubFallbackRouteArgs:
 
 
 @pulumi.input_type
-class IoTHubFileUploadArgs:
+calass IoTHubFileUploadArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
@@ -647,7 +647,7 @@ class IoTHubFileUploadArgs:
 
 
 @pulumi.input_type
-class IoTHubIdentityArgs:
+calass IoTHubIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -721,15 +721,15 @@ class IoTHubIdentityArgs:
 
 
 @pulumi.input_type
-class IoTHubNetworkRuleSetArgs:
+calass IoTHubNetworkRuleSetArrgs:
     def __init__(__self__, *,
                  apply_to_builtin_eventhub_endpoint: Optional[pulumi.Input[bool]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArrgs']]]] = None):
         """
         :param pulumi.Input[bool] apply_to_builtin_eventhub_endpoint: Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
         :param pulumi.Input[str] default_action: Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
-        :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if apply_to_builtin_eventhub_endpoint is not None:
             pulumi.set(__self__, "apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
@@ -764,19 +764,19 @@ class IoTHubNetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
 @pulumi.input_type
-class IoTHubNetworkRuleSetIpRuleArgs:
+calass IoTHubNetworkRuleSetIpRuleArrgs:
     def __init__(__self__, *,
                  ip_mask: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -829,7 +829,7 @@ class IoTHubNetworkRuleSetIpRuleArgs:
 
 
 @pulumi.input_type
-class IoTHubRouteArgs:
+calass IoTHubRouteArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -912,7 +912,7 @@ class IoTHubRouteArgs:
 
 
 @pulumi.input_type
-class IoTHubSharedAccessPolicyArgs:
+calass IoTHubSharedAccessPolicyArrgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
@@ -983,7 +983,7 @@ class IoTHubSharedAccessPolicyArgs:
 
 
 @pulumi.input_type
-class IoTHubSkuArgs:
+calass IoTHubSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
@@ -1024,7 +1024,7 @@ class IoTHubSkuArgs:
 
 
 @pulumi.input_type
-class IotHubDeviceUpdateAccountIdentityArgs:
+calass IotHubDeviceUpdateAccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1098,7 +1098,7 @@ class IotHubDeviceUpdateAccountIdentityArgs:
 
 
 @pulumi.input_type
-class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
+calass IotHubDeviceUpdateInstanceDiagnosticStorageAccountArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  id: pulumi.Input[str]):
@@ -1135,7 +1135,7 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
 
 
 @pulumi.input_type
-class IotHubDpsIpFilterRuleArgs:
+calass IotHubDpsIpFilterRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  ip_mask: pulumi.Input[str],
@@ -1203,7 +1203,7 @@ class IotHubDpsIpFilterRuleArgs:
 
 
 @pulumi.input_type
-class IotHubDpsLinkedHubArgs:
+calass IotHubDpsLinkedHubArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  location: pulumi.Input[str],
@@ -1288,7 +1288,7 @@ class IotHubDpsLinkedHubArgs:
 
 
 @pulumi.input_type
-class IotHubDpsSkuArgs:
+calass IotHubDpsSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
@@ -1325,7 +1325,7 @@ class IotHubDpsSkuArgs:
 
 
 @pulumi.input_type
-class SecurityDeviceGroupAllowRuleArgs:
+calass SecurityDeviceGroupAllowRuleArrgs:
     def __init__(__self__, *,
                  connection_from_ips_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_to_ips_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1396,7 +1396,7 @@ class SecurityDeviceGroupAllowRuleArgs:
 
 
 @pulumi.input_type
-class SecurityDeviceGroupRangeRuleArgs:
+calass SecurityDeviceGroupRangeRuleArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
                  max: pulumi.Input[int],
@@ -1463,7 +1463,7 @@ class SecurityDeviceGroupRangeRuleArgs:
 
 
 @pulumi.input_type
-class SecuritySolutionAdditionalWorkspaceArgs:
+calass SecuritySolutionAdditionalWorkspaceArrgs:
     def __init__(__self__, *,
                  data_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  workspace_id: pulumi.Input[str]):
@@ -1500,7 +1500,7 @@ class SecuritySolutionAdditionalWorkspaceArgs:
 
 
 @pulumi.input_type
-class SecuritySolutionRecommendationsEnabledArgs:
+calass SecuritySolutionRecommendationsEnabledArrgs:
     def __init__(__self__, *,
                  acr_authentication: Optional[pulumi.Input[bool]] = None,
                  agent_send_unutilized_msg: Optional[pulumi.Input[bool]] = None,
@@ -1763,7 +1763,7 @@ class SecuritySolutionRecommendationsEnabledArgs:
 
 
 @pulumi.input_type
-class TimeSeriesInsightsGen2EnvironmentStorageArgs:
+calass TimeSeriesInsightsGen2EnvironmentStorageArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -1800,7 +1800,7 @@ class TimeSeriesInsightsGen2EnvironmentStorageArgs:
 
 
 @pulumi.input_type
-class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:
+calass TimeSeriesInsightsReferenceDataSetKeyPropertyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):

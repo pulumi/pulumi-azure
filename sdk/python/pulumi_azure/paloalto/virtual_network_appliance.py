@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualNetworkApplianceArgs', 'VirtualNetworkAppliance']
+__all__ = ['VirtualNetworkApplianceArrgs', 'VirtualNetworkAppliance']
 
 @pulumi.input_type
-class VirtualNetworkApplianceArgs:
+calass VirtualNetworkApplianceArrgs:
     def __init__(__self__, *,
                  virtual_hub_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -43,7 +43,7 @@ class VirtualNetworkApplianceArgs:
 
 
 @pulumi.input_type
-class _VirtualNetworkApplianceState:
+calass _VirtualNetworkApplianceState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _VirtualNetworkApplianceState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
-class VirtualNetworkAppliance(pulumi.CustomResource):
+calass VirtualNetworkAppliance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -91,17 +91,17 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkApplianceArgs,
+                 args: VirtualNetworkApplianceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a VirtualNetworkAppliance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkApplianceArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkApplianceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkApplianceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkApplianceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -119,7 +119,7 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkApplianceArgs.__new__(VirtualNetworkApplianceArgs)
+            __props__ = VirtualNetworkApplianceArrgs.__new__(VirtualNetworkApplianceArrgs)
 
             __props__.__dict__["name"] = name
             if virtual_hub_id is None and not opts.urn:

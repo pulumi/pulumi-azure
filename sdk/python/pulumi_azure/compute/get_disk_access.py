@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDiskAccessResult:
+calass GetDiskAccessResult:
     """
     A collection of values returned by getDiskAccess.
     """
@@ -59,7 +59,7 @@ class GetDiskAccessResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDiskAccessResult(GetDiskAccessResult):
+calass AwaitableGetDiskAccessResult(GetDiskAccessResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

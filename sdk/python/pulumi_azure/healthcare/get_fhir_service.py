@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFhirServiceResult:
+calass GetFhirServiceResult:
     """
     A collection of values returned by getFhirService.
     """
@@ -151,7 +151,7 @@ class GetFhirServiceResult:
         return pulumi.get(self, "workspace_id")
 
 
-class AwaitableGetFhirServiceResult(GetFhirServiceResult):
+calass AwaitableGetFhirServiceResult(GetFhirServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

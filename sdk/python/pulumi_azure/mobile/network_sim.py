@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkSimArgs', 'NetworkSim']
+__all__ = ['NetworkSimArrgs', 'NetworkSim']
 
 @pulumi.input_type
-class NetworkSimArgs:
+calass NetworkSimArrgs:
     def __init__(__self__, *,
                  authentication_key: pulumi.Input[str],
                  integrated_circuit_card_identifier: pulumi.Input[str],
@@ -24,7 +24,7 @@ class NetworkSimArgs:
                  device_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sim_policy_id: Optional[pulumi.Input[str]] = None,
-                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None):
+                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]] = None):
         """
         The set of arguments for constructing a NetworkSim resource.
         :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
@@ -35,7 +35,7 @@ class NetworkSimArgs:
         :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
         :param pulumi.Input[str] sim_policy_id: The ID of SIM policy used by this SIM.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]] static_ip_configurations: A `static_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]] static_ip_configurations: A `static_ip_configuration` block as defined below.
         """
         pulumi.set(__self__, "authentication_key", authentication_key)
         pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
@@ -149,19 +149,19 @@ class NetworkSimArgs:
 
     @property
     @pulumi.getter(name="staticIpConfigurations")
-    def static_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]]:
+    def static_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]]:
         """
         A `static_ip_configuration` block as defined below.
         """
         return pulumi.get(self, "static_ip_configurations")
 
     @static_ip_configurations.setter
-    def static_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]]):
+    def static_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]]):
         pulumi.set(self, "static_ip_configurations", value)
 
 
 @pulumi.input_type
-class _NetworkSimState:
+calass _NetworkSimState:
     def __init__(__self__, *,
                  authentication_key: Optional[pulumi.Input[str]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class _NetworkSimState:
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  sim_policy_id: Optional[pulumi.Input[str]] = None,
                  sim_state: Optional[pulumi.Input[str]] = None,
-                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
+                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]] = None,
                  vendor_key_fingerprint: Optional[pulumi.Input[str]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None):
         """
@@ -186,7 +186,7 @@ class _NetworkSimState:
         :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] sim_policy_id: The ID of SIM policy used by this SIM.
         :param pulumi.Input[str] sim_state: The state of the SIM resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]] static_ip_configurations: A `static_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]] static_ip_configurations: A `static_ip_configuration` block as defined below.
         :param pulumi.Input[str] vendor_key_fingerprint: The public key fingerprint of the SIM vendor who provided this SIM, if any.
         :param pulumi.Input[str] vendor_name: The name of the SIM vendor who provided this SIM, if any.
         """
@@ -325,14 +325,14 @@ class _NetworkSimState:
 
     @property
     @pulumi.getter(name="staticIpConfigurations")
-    def static_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]]:
+    def static_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]]:
         """
         A `static_ip_configuration` block as defined below.
         """
         return pulumi.get(self, "static_ip_configurations")
 
     @static_ip_configurations.setter
-    def static_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]]):
+    def static_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArrgs']]]]):
         pulumi.set(self, "static_ip_configurations", value)
 
     @property
@@ -360,7 +360,7 @@ class _NetworkSimState:
         pulumi.set(self, "vendor_name", value)
 
 
-class NetworkSim(pulumi.CustomResource):
+calass NetworkSim(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -373,7 +373,7 @@ class NetworkSim(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  sim_policy_id: Optional[pulumi.Input[str]] = None,
-                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArgs']]]]] = None,
+                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Mobile Network Sim.
@@ -396,7 +396,7 @@ class NetworkSim(pulumi.CustomResource):
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ))
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
@@ -416,7 +416,7 @@ class NetworkSim(pulumi.CustomResource):
             integrated_circuit_card_identifier="8900000000000000000",
             international_mobile_subscriber_identity="000000000000000",
             operator_key_code="00000000000000000000000000000000",
-            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
+            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArrgs(
                 attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
                 slice_id=azurerm_mobile_network_slice["test"]["id"],
                 static_ipv4_address="2.4.0.1",
@@ -441,13 +441,13 @@ class NetworkSim(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
         :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] sim_policy_id: The ID of SIM policy used by this SIM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArgs']]]] static_ip_configurations: A `static_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArrgs']]]] static_ip_configurations: A `static_ip_configuration` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkSimArgs,
+                 args: NetworkSimArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Sim.
@@ -470,7 +470,7 @@ class NetworkSim(pulumi.CustomResource):
         example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
             mobile_network_id=example_network.id,
             location=example_resource_group.location,
-            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
+            single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrgs(
                 slice_service_type=1,
             ))
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork",
@@ -490,7 +490,7 @@ class NetworkSim(pulumi.CustomResource):
             integrated_circuit_card_identifier="8900000000000000000",
             international_mobile_subscriber_identity="000000000000000",
             operator_key_code="00000000000000000000000000000000",
-            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArgs(
+            static_ip_configurations=[azure.mobile.NetworkSimStaticIpConfigurationArrgs(
                 attached_data_network_id=data["azurerm_mobile_network_attached_data_network"]["test"]["id"],
                 slice_id=azurerm_mobile_network_slice["test"]["id"],
                 static_ipv4_address="2.4.0.1",
@@ -506,12 +506,12 @@ class NetworkSim(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkSimArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkSimArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkSimArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSimArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -528,7 +528,7 @@ class NetworkSim(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  sim_policy_id: Optional[pulumi.Input[str]] = None,
-                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArgs']]]]] = None,
+                 static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -536,7 +536,7 @@ class NetworkSim(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkSimArgs.__new__(NetworkSimArgs)
+            __props__ = NetworkSimArrgs.__new__(NetworkSimArrgs)
 
             if authentication_key is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_key'")
@@ -581,7 +581,7 @@ class NetworkSim(pulumi.CustomResource):
             operator_key_code: Optional[pulumi.Input[str]] = None,
             sim_policy_id: Optional[pulumi.Input[str]] = None,
             sim_state: Optional[pulumi.Input[str]] = None,
-            static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArgs']]]]] = None,
+            static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArrgs']]]]] = None,
             vendor_key_fingerprint: Optional[pulumi.Input[str]] = None,
             vendor_name: Optional[pulumi.Input[str]] = None) -> 'NetworkSim':
         """
@@ -600,7 +600,7 @@ class NetworkSim(pulumi.CustomResource):
         :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] sim_policy_id: The ID of SIM policy used by this SIM.
         :param pulumi.Input[str] sim_state: The state of the SIM resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArgs']]]] static_ip_configurations: A `static_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkSimStaticIpConfigurationArrgs']]]] static_ip_configurations: A `static_ip_configuration` block as defined below.
         :param pulumi.Input[str] vendor_key_fingerprint: The public key fingerprint of the SIM vendor who provided this SIM, if any.
         :param pulumi.Input[str] vendor_name: The name of the SIM vendor who provided this SIM, if any.
         """

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorAwsS3Args', 'DataConnectorAwsS3']
+__all__ = ['DataConnectorAwsS3Arrgs', 'DataConnectorAwsS3']
 
 @pulumi.input_type
-class DataConnectorAwsS3Args:
+calass DataConnectorAwsS3Arrgs:
     def __init__(__self__, *,
                  aws_role_arn: pulumi.Input[str],
                  destination_table: pulumi.Input[str],
@@ -96,7 +96,7 @@ class DataConnectorAwsS3Args:
 
 
 @pulumi.input_type
-class _DataConnectorAwsS3State:
+calass _DataConnectorAwsS3State:
     def __init__(__self__, *,
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
                  destination_table: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class _DataConnectorAwsS3State:
         pulumi.set(self, "sqs_urls", value)
 
 
-class DataConnectorAwsS3(pulumi.CustomResource):
+calass DataConnectorAwsS3(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -236,7 +236,7 @@ class DataConnectorAwsS3(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorAwsS3Args,
+                 args: DataConnectorAwsS3Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a AWS S3 Data Connector.
@@ -269,12 +269,12 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorAwsS3Args args: The arguments to use to populate this resource's properties.
+        :param DataConnectorAwsS3Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAwsS3Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAwsS3Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorAwsS3Args.__new__(DataConnectorAwsS3Args)
+            __props__ = DataConnectorAwsS3Arrgs.__new__(DataConnectorAwsS3Arrgs)
 
             if aws_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_role_arn'")

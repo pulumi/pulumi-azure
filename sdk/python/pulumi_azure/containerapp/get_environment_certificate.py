@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEnvironmentCertificateResult:
+calass GetEnvironmentCertificateResult:
     """
     A collection of values returned by getEnvironmentCertificate.
     """
@@ -117,7 +117,7 @@ class GetEnvironmentCertificateResult:
         return pulumi.get(self, "thumbprint")
 
 
-class AwaitableGetEnvironmentCertificateResult(GetEnvironmentCertificateResult):
+calass AwaitableGetEnvironmentCertificateResult(GetEnvironmentCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

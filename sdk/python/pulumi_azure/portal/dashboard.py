@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DashboardArgs', 'Dashboard']
+__all__ = ['DashboardArrgs', 'Dashboard']
 
 @pulumi.input_type
-class DashboardArgs:
+calass DashboardArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  dashboard_properties: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class DashboardArgs:
 
 
 @pulumi.input_type
-class _DashboardState:
+calass _DashboardState:
     def __init__(__self__, *,
                  dashboard_properties: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class _DashboardState:
         pulumi.set(self, "tags", value)
 
 
-class Dashboard(pulumi.CustomResource):
+calass Dashboard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -369,7 +369,7 @@ class Dashboard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DashboardArgs,
+                 args: DashboardArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a shared dashboard in the Azure Portal.
@@ -522,12 +522,12 @@ class Dashboard(pulumi.CustomResource):
          Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
 
         :param str resource_name: The name of the resource.
-        :param DashboardArgs args: The arguments to use to populate this resource's properties.
+        :param DashboardArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DashboardArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -548,7 +548,7 @@ class Dashboard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DashboardArgs.__new__(DashboardArgs)
+            __props__ = DashboardArrgs.__new__(DashboardArrgs)
 
             __props__.__dict__["dashboard_properties"] = dashboard_properties
             __props__.__dict__["location"] = location

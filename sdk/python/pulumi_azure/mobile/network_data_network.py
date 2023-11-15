@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkDataNetworkArgs', 'NetworkDataNetwork']
+__all__ = ['NetworkDataNetworkArrgs', 'NetworkDataNetwork']
 
 @pulumi.input_type
-class NetworkDataNetworkArgs:
+calass NetworkDataNetworkArrgs:
     def __init__(__self__, *,
                  mobile_network_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class NetworkDataNetworkArgs:
 
 
 @pulumi.input_type
-class _NetworkDataNetworkState:
+calass _NetworkDataNetworkState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _NetworkDataNetworkState:
         pulumi.set(self, "tags", value)
 
 
-class NetworkDataNetwork(pulumi.CustomResource):
+calass NetworkDataNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,7 +241,7 @@ class NetworkDataNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkDataNetworkArgs,
+                 args: NetworkDataNetworkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Data Network.
@@ -276,12 +276,12 @@ class NetworkDataNetwork(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkDataNetworkArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkDataNetworkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkDataNetworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkDataNetworkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -302,7 +302,7 @@ class NetworkDataNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkDataNetworkArgs.__new__(NetworkDataNetworkArgs)
+            __props__ = NetworkDataNetworkArrgs.__new__(NetworkDataNetworkArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

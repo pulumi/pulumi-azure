@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CacheNfsTargetArgs', 'CacheNfsTarget']
+__all__ = ['CacheNfsTargetArrgs', 'CacheNfsTarget']
 
 @pulumi.input_type
-class CacheNfsTargetArgs:
+calass CacheNfsTargetArrgs:
     def __init__(__self__, *,
                  cache_name: pulumi.Input[str],
-                 namespace_junctions: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]],
+                 namespace_junctions: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]],
                  resource_group_name: pulumi.Input[str],
                  target_host_name: pulumi.Input[str],
                  usage_model: pulumi.Input[str],
@@ -25,7 +25,7 @@ class CacheNfsTargetArgs:
         """
         The set of arguments for constructing a CacheNfsTarget resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
@@ -53,14 +53,14 @@ class CacheNfsTargetArgs:
 
     @property
     @pulumi.getter(name="namespaceJunctions")
-    def namespace_junctions(self) -> pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]:
+    def namespace_junctions(self) -> pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]]:
         """
         Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         """
         return pulumi.get(self, "namespace_junctions")
 
     @namespace_junctions.setter
-    def namespace_junctions(self, value: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]):
+    def namespace_junctions(self, value: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]]):
         pulumi.set(self, "namespace_junctions", value)
 
     @property
@@ -113,11 +113,11 @@ class CacheNfsTargetArgs:
 
 
 @pulumi.input_type
-class _CacheNfsTargetState:
+calass _CacheNfsTargetState:
     def __init__(__self__, *,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_host_name: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None):
@@ -125,7 +125,7 @@ class _CacheNfsTargetState:
         Input properties used for looking up and filtering CacheNfsTarget resources.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
@@ -169,14 +169,14 @@ class _CacheNfsTargetState:
 
     @property
     @pulumi.getter(name="namespaceJunctions")
-    def namespace_junctions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]:
+    def namespace_junctions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]]]:
         """
         Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         """
         return pulumi.get(self, "namespace_junctions")
 
     @namespace_junctions.setter
-    def namespace_junctions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]]):
+    def namespace_junctions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArrgs']]]]):
         pulumi.set(self, "namespace_junctions", value)
 
     @property
@@ -216,14 +216,14 @@ class _CacheNfsTargetState:
         pulumi.set(self, "usage_model", value)
 
 
-class CacheNfsTarget(pulumi.CustomResource):
+calass CacheNfsTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_host_name: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
@@ -245,7 +245,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArrgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
@@ -254,7 +254,7 @@ class CacheNfsTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CacheNfsTargetArgs,
+                 args: CacheNfsTargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NFS Target within a HPC Cache.
@@ -270,12 +270,12 @@ class CacheNfsTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CacheNfsTargetArgs args: The arguments to use to populate this resource's properties.
+        :param CacheNfsTargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CacheNfsTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CacheNfsTargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -286,7 +286,7 @@ class CacheNfsTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArrgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_host_name: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
@@ -297,7 +297,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CacheNfsTargetArgs.__new__(CacheNfsTargetArgs)
+            __props__ = CacheNfsTargetArrgs.__new__(CacheNfsTargetArrgs)
 
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
@@ -327,7 +327,7 @@ class CacheNfsTarget(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cache_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+            namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             target_host_name: Optional[pulumi.Input[str]] = None,
             usage_model: Optional[pulumi.Input[str]] = None) -> 'CacheNfsTarget':
@@ -340,7 +340,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArrgs']]]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.

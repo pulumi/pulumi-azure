@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceAzureTableStorageArgs', 'LinkedServiceAzureTableStorage']
+__all__ = ['LinkedServiceAzureTableStorageArrgs', 'LinkedServiceAzureTableStorage']
 
 @pulumi.input_type
-class LinkedServiceAzureTableStorageArgs:
+calass LinkedServiceAzureTableStorageArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -150,7 +150,7 @@ class LinkedServiceAzureTableStorageArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceAzureTableStorageState:
+calass _LinkedServiceAzureTableStorageState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -289,7 +289,7 @@ class _LinkedServiceAzureTableStorageState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceAzureTableStorage(pulumi.CustomResource):
+calass LinkedServiceAzureTableStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -348,7 +348,7 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceAzureTableStorageArgs,
+                 args: LinkedServiceAzureTableStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Table Storage and Azure Data Factory.
@@ -379,12 +379,12 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceAzureTableStorageArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceAzureTableStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureTableStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureTableStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -408,7 +408,7 @@ class LinkedServiceAzureTableStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceAzureTableStorageArgs.__new__(LinkedServiceAzureTableStorageArgs)
+            __props__ = LinkedServiceAzureTableStorageArrgs.__new__(LinkedServiceAzureTableStorageArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

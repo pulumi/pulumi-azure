@@ -10,53 +10,53 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AlertRuleAnomalyBuiltInMultiSelectObservationArgs',
-    'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs',
-    'AlertRuleAnomalyBuiltInRequiredDataConnectorArgs',
-    'AlertRuleAnomalyBuiltInSingleSelectObservationArgs',
-    'AlertRuleAnomalyBuiltInThresholdObservationArgs',
-    'AlertRuleAnomalyDuplicateMultiSelectObservationArgs',
-    'AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs',
-    'AlertRuleAnomalyDuplicateRequiredDataConnectorArgs',
-    'AlertRuleAnomalyDuplicateSingleSelectObservationArgs',
-    'AlertRuleAnomalyDuplicateThresholdObservationArgs',
-    'AlertRuleFusionSourceArgs',
-    'AlertRuleFusionSourceSubTypeArgs',
-    'AlertRuleNrtAlertDetailsOverrideArgs',
-    'AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs',
-    'AlertRuleNrtEntityMappingArgs',
-    'AlertRuleNrtEntityMappingFieldMappingArgs',
-    'AlertRuleNrtEventGroupingArgs',
-    'AlertRuleNrtIncidentArgs',
-    'AlertRuleNrtIncidentGroupingArgs',
-    'AlertRuleNrtSentinelEntityMappingArgs',
-    'AlertRuleScheduledAlertDetailsOverrideArgs',
-    'AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs',
-    'AlertRuleScheduledEntityMappingArgs',
-    'AlertRuleScheduledEntityMappingFieldMappingArgs',
-    'AlertRuleScheduledEventGroupingArgs',
-    'AlertRuleScheduledIncidentConfigurationArgs',
-    'AlertRuleScheduledIncidentConfigurationGroupingArgs',
-    'AlertRuleScheduledSentinelEntityMappingArgs',
-    'AuthomationRuleActionIncidentArgs',
-    'AuthomationRuleActionPlaybookArgs',
-    'AuthomationRuleConditionArgs',
-    'AutomationRuleActionIncidentArgs',
-    'AutomationRuleActionPlaybookArgs',
-    'AutomationRuleConditionArgs',
-    'MetadataAuthorArgs',
-    'MetadataCategoryArgs',
-    'MetadataSourceArgs',
-    'MetadataSupportArgs',
-    'ThreatIntelligenceIndicatorExternalReferenceArgs',
-    'ThreatIntelligenceIndicatorGranularMarkingArgs',
-    'ThreatIntelligenceIndicatorKillChainPhaseArgs',
-    'ThreatIntelligenceIndicatorParsedPatternArgs',
-    'ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs',
+    'AlertRuleAnomalyBuiltInMultiSelectObservationArrgs',
+    'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrgs',
+    'AlertRuleAnomalyBuiltInRequiredDataConnectorArrgs',
+    'AlertRuleAnomalyBuiltInSingleSelectObservationArrgs',
+    'AlertRuleAnomalyBuiltInThresholdObservationArrgs',
+    'AlertRuleAnomalyDuplicateMultiSelectObservationArrgs',
+    'AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs',
+    'AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs',
+    'AlertRuleAnomalyDuplicateSingleSelectObservationArrgs',
+    'AlertRuleAnomalyDuplicateThresholdObservationArrgs',
+    'AlertRuleFusionSourceArrgs',
+    'AlertRuleFusionSourceSubTypeArrgs',
+    'AlertRuleNrtAlertDetailsOverrideArrgs',
+    'AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs',
+    'AlertRuleNrtEntityMappingArrgs',
+    'AlertRuleNrtEntityMappingFieldMappingArrgs',
+    'AlertRuleNrtEventGroupingArrgs',
+    'AlertRuleNrtIncidentArrgs',
+    'AlertRuleNrtIncidentGroupingArrgs',
+    'AlertRuleNrtSentinelEntityMappingArrgs',
+    'AlertRuleScheduledAlertDetailsOverrideArrgs',
+    'AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs',
+    'AlertRuleScheduledEntityMappingArrgs',
+    'AlertRuleScheduledEntityMappingFieldMappingArrgs',
+    'AlertRuleScheduledEventGroupingArrgs',
+    'AlertRuleScheduledIncidentConfigurationArrgs',
+    'AlertRuleScheduledIncidentConfigurationGroupingArrgs',
+    'AlertRuleScheduledSentinelEntityMappingArrgs',
+    'AuthomationRuleActionIncidentArrgs',
+    'AuthomationRuleActionPlaybookArrgs',
+    'AuthomationRuleConditionArrgs',
+    'AutomationRuleActionIncidentArrgs',
+    'AutomationRuleActionPlaybookArrgs',
+    'AutomationRuleConditionArrgs',
+    'MetadataAuthorArrgs',
+    'MetadataCategoryArrgs',
+    'MetadataSourceArrgs',
+    'MetadataSupportArrgs',
+    'ThreatIntelligenceIndicatorExternalReferenceArrgs',
+    'ThreatIntelligenceIndicatorGranularMarkingArrgs',
+    'ThreatIntelligenceIndicatorKillChainPhaseArrgs',
+    'ThreatIntelligenceIndicatorParsedPatternArrgs',
+    'ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs',
 ]
 
 @pulumi.input_type
-class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
+calass AlertRuleAnomalyBuiltInMultiSelectObservationArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
+calass AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  exclude: Optional[pulumi.Input[str]] = None,
@@ -198,7 +198,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
+calass AlertRuleAnomalyBuiltInRequiredDataConnectorArrgs:
     def __init__(__self__, *,
                  connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -237,7 +237,7 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
+calass AlertRuleAnomalyBuiltInSingleSelectObservationArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -308,7 +308,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyBuiltInThresholdObservationArgs:
+calass AlertRuleAnomalyBuiltInThresholdObservationArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  max: Optional[pulumi.Input[str]] = None,
@@ -395,7 +395,7 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
+calass AlertRuleAnomalyDuplicateMultiSelectObservationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -464,7 +464,7 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
+calass AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -534,7 +534,7 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
+calass AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs:
     def __init__(__self__, *,
                  connector_id: Optional[pulumi.Input[str]] = None,
                  data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -573,7 +573,7 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
+calass AlertRuleAnomalyDuplicateSingleSelectObservationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -642,7 +642,7 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicateThresholdObservationArgs:
+calass AlertRuleAnomalyDuplicateThresholdObservationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -727,15 +727,15 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
 
 
 @pulumi.input_type
-class AlertRuleFusionSourceArgs:
+calass AlertRuleFusionSourceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None):
+                 sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArrgs']]]] = None):
         """
         :param pulumi.Input[str] name: The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
         :param pulumi.Input[bool] enabled: Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]] sub_types: One or more `sub_type` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArrgs']]] sub_types: One or more `sub_type` blocks as defined below.
         """
         pulumi.set(__self__, "name", name)
         if enabled is not None:
@@ -769,19 +769,19 @@ class AlertRuleFusionSourceArgs:
 
     @property
     @pulumi.getter(name="subTypes")
-    def sub_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]:
+    def sub_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArrgs']]]]:
         """
         One or more `sub_type` blocks as defined below.
         """
         return pulumi.get(self, "sub_types")
 
     @sub_types.setter
-    def sub_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]):
+    def sub_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArrgs']]]]):
         pulumi.set(self, "sub_types", value)
 
 
 @pulumi.input_type
-class AlertRuleFusionSourceSubTypeArgs:
+calass AlertRuleFusionSourceSubTypeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  severities_alloweds: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -834,17 +834,17 @@ class AlertRuleFusionSourceSubTypeArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtAlertDetailsOverrideArgs:
+calass AlertRuleNrtAlertDetailsOverrideArrgs:
     def __init__(__self__, *,
                  description_format: Optional[pulumi.Input[str]] = None,
                  display_name_format: Optional[pulumi.Input[str]] = None,
-                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
+                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs']]]] = None,
                  severity_column_name: Optional[pulumi.Input[str]] = None,
                  tactics_column_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param pulumi.Input[str] severity_column_name: The column name to take the alert severity from.
         :param pulumi.Input[str] tactics_column_name: The column name to take the alert tactics from.
         """
@@ -885,14 +885,14 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
 
     @property
     @pulumi.getter(name="dynamicProperties")
-    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]:
+    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs']]]]:
         """
         A list of `dynamic_property` blocks as defined below.
         """
         return pulumi.get(self, "dynamic_properties")
 
     @dynamic_properties.setter
-    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]):
+    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs']]]]):
         pulumi.set(self, "dynamic_properties", value)
 
     @property
@@ -921,7 +921,7 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
+calass AlertRuleNrtAlertDetailsOverrideDynamicPropertyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -958,13 +958,13 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtEntityMappingArgs:
+calass AlertRuleNrtEntityMappingArrgs:
     def __init__(__self__, *,
                  entity_type: pulumi.Input[str],
-                 field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]]):
+                 field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArrgs']]]):
         """
         :param pulumi.Input[str] entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]] field_mappings: A list of `field_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArrgs']]] field_mappings: A list of `field_mapping` blocks as defined below.
         """
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "field_mappings", field_mappings)
@@ -983,19 +983,19 @@ class AlertRuleNrtEntityMappingArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]]:
+    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArrgs']]]:
         """
         A list of `field_mapping` blocks as defined below.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]]):
+    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArrgs']]]):
         pulumi.set(self, "field_mappings", value)
 
 
 @pulumi.input_type
-class AlertRuleNrtEntityMappingFieldMappingArgs:
+calass AlertRuleNrtEntityMappingFieldMappingArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str],
                  identifier: pulumi.Input[str]):
@@ -1032,7 +1032,7 @@ class AlertRuleNrtEntityMappingFieldMappingArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtEventGroupingArgs:
+calass AlertRuleNrtEventGroupingArrgs:
     def __init__(__self__, *,
                  aggregation_method: pulumi.Input[str]):
         """
@@ -1054,13 +1054,13 @@ class AlertRuleNrtEventGroupingArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtIncidentArgs:
+calass AlertRuleNrtIncidentArrgs:
     def __init__(__self__, *,
                  create_incident_enabled: pulumi.Input[bool],
-                 grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArgs']):
+                 grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArrgs']):
         """
         :param pulumi.Input[bool] create_incident_enabled: Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
-        :param pulumi.Input['AlertRuleNrtIncidentGroupingArgs'] grouping: A `grouping` block as defined below.
+        :param pulumi.Input['AlertRuleNrtIncidentGroupingArrgs'] grouping: A `grouping` block as defined below.
         """
         pulumi.set(__self__, "create_incident_enabled", create_incident_enabled)
         pulumi.set(__self__, "grouping", grouping)
@@ -1079,19 +1079,19 @@ class AlertRuleNrtIncidentArgs:
 
     @property
     @pulumi.getter
-    def grouping(self) -> pulumi.Input['AlertRuleNrtIncidentGroupingArgs']:
+    def grouping(self) -> pulumi.Input['AlertRuleNrtIncidentGroupingArrgs']:
         """
         A `grouping` block as defined below.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: pulumi.Input['AlertRuleNrtIncidentGroupingArgs']):
+    def grouping(self, value: pulumi.Input['AlertRuleNrtIncidentGroupingArrgs']):
         pulumi.set(self, "grouping", value)
 
 
 @pulumi.input_type
-class AlertRuleNrtIncidentGroupingArgs:
+calass AlertRuleNrtIncidentGroupingArrgs:
     def __init__(__self__, *,
                  by_alert_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  by_custom_details: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1210,7 +1210,7 @@ class AlertRuleNrtIncidentGroupingArgs:
 
 
 @pulumi.input_type
-class AlertRuleNrtSentinelEntityMappingArgs:
+calass AlertRuleNrtSentinelEntityMappingArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str]):
         """
@@ -1232,17 +1232,17 @@ class AlertRuleNrtSentinelEntityMappingArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledAlertDetailsOverrideArgs:
+calass AlertRuleScheduledAlertDetailsOverrideArrgs:
     def __init__(__self__, *,
                  description_format: Optional[pulumi.Input[str]] = None,
                  display_name_format: Optional[pulumi.Input[str]] = None,
-                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
+                 dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs']]]] = None,
                  severity_column_name: Optional[pulumi.Input[str]] = None,
                  tactics_column_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
         :param pulumi.Input[str] display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs']]] dynamic_properties: A list of `dynamic_property` blocks as defined below.
         :param pulumi.Input[str] severity_column_name: The column name to take the alert severity from.
         :param pulumi.Input[str] tactics_column_name: The column name to take the alert tactics from.
         """
@@ -1283,14 +1283,14 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
 
     @property
     @pulumi.getter(name="dynamicProperties")
-    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]:
+    def dynamic_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs']]]]:
         """
         A list of `dynamic_property` blocks as defined below.
         """
         return pulumi.get(self, "dynamic_properties")
 
     @dynamic_properties.setter
-    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]):
+    def dynamic_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs']]]]):
         pulumi.set(self, "dynamic_properties", value)
 
     @property
@@ -1319,7 +1319,7 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
+calass AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1356,13 +1356,13 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledEntityMappingArgs:
+calass AlertRuleScheduledEntityMappingArrgs:
     def __init__(__self__, *,
                  entity_type: pulumi.Input[str],
-                 field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]):
+                 field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArrgs']]]):
         """
         :param pulumi.Input[str] entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]] field_mappings: A list of `field_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArrgs']]] field_mappings: A list of `field_mapping` blocks as defined below.
         """
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "field_mappings", field_mappings)
@@ -1381,19 +1381,19 @@ class AlertRuleScheduledEntityMappingArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]:
+    def field_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArrgs']]]:
         """
         A list of `field_mapping` blocks as defined below.
         """
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]]):
+    def field_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArrgs']]]):
         pulumi.set(self, "field_mappings", value)
 
 
 @pulumi.input_type
-class AlertRuleScheduledEntityMappingFieldMappingArgs:
+calass AlertRuleScheduledEntityMappingFieldMappingArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str],
                  identifier: pulumi.Input[str]):
@@ -1430,7 +1430,7 @@ class AlertRuleScheduledEntityMappingFieldMappingArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledEventGroupingArgs:
+calass AlertRuleScheduledEventGroupingArrgs:
     def __init__(__self__, *,
                  aggregation_method: pulumi.Input[str]):
         """
@@ -1452,13 +1452,13 @@ class AlertRuleScheduledEventGroupingArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledIncidentConfigurationArgs:
+calass AlertRuleScheduledIncidentConfigurationArrgs:
     def __init__(__self__, *,
                  create_incident: pulumi.Input[bool],
-                 grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']):
+                 grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArrgs']):
         """
         :param pulumi.Input[bool] create_incident: Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        :param pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs'] grouping: A `grouping` block as defined below.
+        :param pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArrgs'] grouping: A `grouping` block as defined below.
         """
         pulumi.set(__self__, "create_incident", create_incident)
         pulumi.set(__self__, "grouping", grouping)
@@ -1477,19 +1477,19 @@ class AlertRuleScheduledIncidentConfigurationArgs:
 
     @property
     @pulumi.getter
-    def grouping(self) -> pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']:
+    def grouping(self) -> pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArrgs']:
         """
         A `grouping` block as defined below.
         """
         return pulumi.get(self, "grouping")
 
     @grouping.setter
-    def grouping(self, value: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']):
+    def grouping(self, value: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArrgs']):
         pulumi.set(self, "grouping", value)
 
 
 @pulumi.input_type
-class AlertRuleScheduledIncidentConfigurationGroupingArgs:
+calass AlertRuleScheduledIncidentConfigurationGroupingArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  entity_matching_method: Optional[pulumi.Input[str]] = None,
@@ -1608,7 +1608,7 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
 
 
 @pulumi.input_type
-class AlertRuleScheduledSentinelEntityMappingArgs:
+calass AlertRuleScheduledSentinelEntityMappingArrgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str]):
         """
@@ -1630,7 +1630,7 @@ class AlertRuleScheduledSentinelEntityMappingArgs:
 
 
 @pulumi.input_type
-class AuthomationRuleActionIncidentArgs:
+calass AuthomationRuleActionIncidentArrgs:
     def __init__(__self__, *,
                  order: pulumi.Input[int],
                  classification: Optional[pulumi.Input[str]] = None,
@@ -1760,7 +1760,7 @@ class AuthomationRuleActionIncidentArgs:
 
 
 @pulumi.input_type
-class AuthomationRuleActionPlaybookArgs:
+calass AuthomationRuleActionPlaybookArrgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[str],
                  order: pulumi.Input[int],
@@ -1813,7 +1813,7 @@ class AuthomationRuleActionPlaybookArgs:
 
 
 @pulumi.input_type
-class AuthomationRuleConditionArgs:
+calass AuthomationRuleConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  property: pulumi.Input[str],
@@ -1865,7 +1865,7 @@ class AuthomationRuleConditionArgs:
 
 
 @pulumi.input_type
-class AutomationRuleActionIncidentArgs:
+calass AutomationRuleActionIncidentArrgs:
     def __init__(__self__, *,
                  order: pulumi.Input[int],
                  classification: Optional[pulumi.Input[str]] = None,
@@ -1995,7 +1995,7 @@ class AutomationRuleActionIncidentArgs:
 
 
 @pulumi.input_type
-class AutomationRuleActionPlaybookArgs:
+calass AutomationRuleActionPlaybookArrgs:
     def __init__(__self__, *,
                  logic_app_id: pulumi.Input[str],
                  order: pulumi.Input[int],
@@ -2048,7 +2048,7 @@ class AutomationRuleActionPlaybookArgs:
 
 
 @pulumi.input_type
-class AutomationRuleConditionArgs:
+calass AutomationRuleConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  property: pulumi.Input[str],
@@ -2100,7 +2100,7 @@ class AutomationRuleConditionArgs:
 
 
 @pulumi.input_type
-class MetadataAuthorArgs:
+calass MetadataAuthorArrgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  link: Optional[pulumi.Input[str]] = None,
@@ -2155,7 +2155,7 @@ class MetadataAuthorArgs:
 
 
 @pulumi.input_type
-class MetadataCategoryArgs:
+calass MetadataCategoryArrgs:
     def __init__(__self__, *,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2194,7 +2194,7 @@ class MetadataCategoryArgs:
 
 
 @pulumi.input_type
-class MetadataSourceArgs:
+calass MetadataSourceArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
@@ -2248,7 +2248,7 @@ class MetadataSourceArgs:
 
 
 @pulumi.input_type
-class MetadataSupportArgs:
+calass MetadataSupportArrgs:
     def __init__(__self__, *,
                  tier: pulumi.Input[str],
                  email: Optional[pulumi.Input[str]] = None,
@@ -2318,7 +2318,7 @@ class MetadataSupportArgs:
 
 
 @pulumi.input_type
-class ThreatIntelligenceIndicatorExternalReferenceArgs:
+calass ThreatIntelligenceIndicatorExternalReferenceArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2405,7 +2405,7 @@ class ThreatIntelligenceIndicatorExternalReferenceArgs:
 
 
 @pulumi.input_type
-class ThreatIntelligenceIndicatorGranularMarkingArgs:
+calass ThreatIntelligenceIndicatorGranularMarkingArrgs:
     def __init__(__self__, *,
                  language: Optional[pulumi.Input[str]] = None,
                  marking_ref: Optional[pulumi.Input[str]] = None,
@@ -2460,7 +2460,7 @@ class ThreatIntelligenceIndicatorGranularMarkingArgs:
 
 
 @pulumi.input_type
-class ThreatIntelligenceIndicatorKillChainPhaseArgs:
+calass ThreatIntelligenceIndicatorKillChainPhaseArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -2483,13 +2483,13 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgs:
 
 
 @pulumi.input_type
-class ThreatIntelligenceIndicatorParsedPatternArgs:
+calass ThreatIntelligenceIndicatorParsedPatternArrgs:
     def __init__(__self__, *,
                  pattern_type_key: Optional[pulumi.Input[str]] = None,
-                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None):
+                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs']]]] = None):
         """
         :param pulumi.Input[str] pattern_type_key: The type key of parsed pattern.
-        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]] pattern_type_values: A `pattern_type_values` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs']]] pattern_type_values: A `pattern_type_values` block as defined below.
         """
         if pattern_type_key is not None:
             pulumi.set(__self__, "pattern_type_key", pattern_type_key)
@@ -2510,19 +2510,19 @@ class ThreatIntelligenceIndicatorParsedPatternArgs:
 
     @property
     @pulumi.getter(name="patternTypeValues")
-    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]:
+    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs']]]]:
         """
         A `pattern_type_values` block as defined below.
         """
         return pulumi.get(self, "pattern_type_values")
 
     @pattern_type_values.setter
-    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]):
+    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs']]]]):
         pulumi.set(self, "pattern_type_values", value)
 
 
 @pulumi.input_type
-class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
+calass ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArrgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None,
                  value_type: Optional[pulumi.Input[str]] = None):

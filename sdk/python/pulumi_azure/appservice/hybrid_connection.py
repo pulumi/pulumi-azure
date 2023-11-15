@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HybridConnectionArgs', 'HybridConnection']
+__all__ = ['HybridConnectionArrgs', 'HybridConnection']
 
 @pulumi.input_type
-class HybridConnectionArgs:
+calass HybridConnectionArrgs:
     def __init__(__self__, *,
                  app_service_name: pulumi.Input[str],
                  hostname: pulumi.Input[str],
@@ -111,7 +111,7 @@ class HybridConnectionArgs:
 
 
 @pulumi.input_type
-class _HybridConnectionState:
+calass _HybridConnectionState:
     def __init__(__self__, *,
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
@@ -290,7 +290,7 @@ class _HybridConnectionState:
         pulumi.set(self, "service_bus_suffix", value)
 
 
-class HybridConnection(pulumi.CustomResource):
+calass HybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -319,7 +319,7 @@ class HybridConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -365,7 +365,7 @@ class HybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HybridConnectionArgs,
+                 args: HybridConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
@@ -384,7 +384,7 @@ class HybridConnection(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Standard",
                 size="S1",
             ))
@@ -418,12 +418,12 @@ class HybridConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param HybridConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -445,7 +445,7 @@ class HybridConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HybridConnectionArgs.__new__(HybridConnectionArgs)
+            __props__ = HybridConnectionArrgs.__new__(HybridConnectionArrgs)
 
             if app_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_name'")

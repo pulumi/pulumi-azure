@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LoadTestIdentityArgs',
+    'LoadTestIdentityArrgs',
 ]
 
 @pulumi.input_type
-class LoadTestIdentityArgs:
+calass LoadTestIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

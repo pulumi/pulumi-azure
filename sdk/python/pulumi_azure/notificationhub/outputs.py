@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HubApnsCredential(dict):
+calass HubApnsCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -103,7 +103,7 @@ class HubApnsCredential(dict):
 
 
 @pulumi.output_type
-class HubGcmCredential(dict):
+calass HubGcmCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -138,7 +138,7 @@ class HubGcmCredential(dict):
 
 
 @pulumi.output_type
-class GetHubApnsCredentialResult(dict):
+calass GetHubApnsCredentialResult(dict):
     def __init__(__self__, *,
                  application_mode: str,
                  bundle_id: str,
@@ -200,7 +200,7 @@ class GetHubApnsCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetHubGcmCredentialResult(dict):
+calass GetHubGcmCredentialResult(dict):
     def __init__(__self__, *,
                  api_key: str):
         """
@@ -218,7 +218,7 @@ class GetHubGcmCredentialResult(dict):
 
 
 @pulumi.output_type
-class GetNamespaceSkuResult(dict):
+calass GetNamespaceSkuResult(dict):
     def __init__(__self__, *,
                  name: str):
         """

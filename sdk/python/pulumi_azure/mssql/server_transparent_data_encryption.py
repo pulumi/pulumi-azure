@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerTransparentDataEncryptionArgs', 'ServerTransparentDataEncryption']
+__all__ = ['ServerTransparentDataEncryptionArrgs', 'ServerTransparentDataEncryption']
 
 @pulumi.input_type
-class ServerTransparentDataEncryptionArgs:
+calass ServerTransparentDataEncryptionArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -75,7 +75,7 @@ class ServerTransparentDataEncryptionArgs:
 
 
 @pulumi.input_type
-class _ServerTransparentDataEncryptionState:
+calass _ServerTransparentDataEncryptionState:
     def __init__(__self__, *,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class _ServerTransparentDataEncryptionState:
         pulumi.set(self, "server_id", value)
 
 
-class ServerTransparentDataEncryption(pulumi.CustomResource):
+calass ServerTransparentDataEncryption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,7 +171,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
@@ -195,14 +195,14 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
             tags={
                 "environment": "production",
             },
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         # Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
@@ -215,7 +215,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -229,7 +229,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                         "GetRotationPolicy",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_server.identity.tenant_id,
                     object_id=example_server.identity.principal_id,
                     key_permissions=[
@@ -275,7 +275,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerTransparentDataEncryptionArgs,
+                 args: ServerTransparentDataEncryptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
@@ -301,7 +301,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
@@ -325,14 +325,14 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
             tags={
                 "environment": "production",
             },
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="SystemAssigned",
             ))
         # Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
@@ -345,7 +345,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -359,7 +359,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                         "GetRotationPolicy",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_server.identity.tenant_id,
                     object_id=example_server.identity.principal_id,
                     key_permissions=[
@@ -392,12 +392,12 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.
+        :param ServerTransparentDataEncryptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerTransparentDataEncryptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerTransparentDataEncryptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -416,7 +416,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerTransparentDataEncryptionArgs.__new__(ServerTransparentDataEncryptionArgs)
+            __props__ = ServerTransparentDataEncryptionArrgs.__new__(ServerTransparentDataEncryptionArrgs)
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FrontdoorRouteDisableLinkToDefaultDomainArgs', 'FrontdoorRouteDisableLinkToDefaultDomain']
+__all__ = ['FrontdoorRouteDisableLinkToDefaultDomainArrgs', 'FrontdoorRouteDisableLinkToDefaultDomain']
 
 @pulumi.input_type
-class FrontdoorRouteDisableLinkToDefaultDomainArgs:
+calass FrontdoorRouteDisableLinkToDefaultDomainArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_custom_domain_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cdn_frontdoor_route_id: pulumi.Input[str]):
@@ -62,7 +62,7 @@ class FrontdoorRouteDisableLinkToDefaultDomainArgs:
 
 
 @pulumi.input_type
-class _FrontdoorRouteDisableLinkToDefaultDomainState:
+calass _FrontdoorRouteDisableLinkToDefaultDomainState:
     def __init__(__self__, *,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_route_id: Optional[pulumi.Input[str]] = None):
@@ -113,7 +113,7 @@ class _FrontdoorRouteDisableLinkToDefaultDomainState:
         pulumi.set(self, "cdn_frontdoor_route_id", value)
 
 
-class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
+calass FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -157,7 +157,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorRouteDisableLinkToDefaultDomainArgs,
+                 args: FrontdoorRouteDisableLinkToDefaultDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Link To Default Domain property of a Front Door (standard/premium) Route.
@@ -187,12 +187,12 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorRouteDisableLinkToDefaultDomainArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorRouteDisableLinkToDefaultDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRouteDisableLinkToDefaultDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRouteDisableLinkToDefaultDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -210,7 +210,7 @@ class FrontdoorRouteDisableLinkToDefaultDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorRouteDisableLinkToDefaultDomainArgs.__new__(FrontdoorRouteDisableLinkToDefaultDomainArgs)
+            __props__ = FrontdoorRouteDisableLinkToDefaultDomainArrgs.__new__(FrontdoorRouteDisableLinkToDefaultDomainArrgs)
 
             if cdn_frontdoor_custom_domain_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_custom_domain_ids'")

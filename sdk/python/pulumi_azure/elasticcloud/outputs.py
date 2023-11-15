@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ElasticsearchLogs(dict):
+calass ElasticsearchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -48,7 +48,7 @@ class ElasticsearchLogs(dict):
                  send_azuread_logs: Optional[bool] = None,
                  send_subscription_logs: Optional[bool] = None):
         """
-        :param Sequence['ElasticsearchLogsFilteringTagArgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
+        :param Sequence['ElasticsearchLogsFilteringTagArrgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
         :param bool send_activity_logs: Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param bool send_azuread_logs: Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
         :param bool send_subscription_logs: Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
@@ -96,7 +96,7 @@ class ElasticsearchLogs(dict):
 
 
 @pulumi.output_type
-class ElasticsearchLogsFilteringTag(dict):
+calass ElasticsearchLogsFilteringTag(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -136,14 +136,14 @@ class ElasticsearchLogsFilteringTag(dict):
 
 
 @pulumi.output_type
-class GetElasticsearchLogResult(dict):
+calass GetElasticsearchLogResult(dict):
     def __init__(__self__, *,
                  filtering_tags: Sequence['outputs.GetElasticsearchLogFilteringTagResult'],
                  send_activity_logs: bool,
                  send_azuread_logs: bool,
                  send_subscription_logs: bool):
         """
-        :param Sequence['GetElasticsearchLogFilteringTagArgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
+        :param Sequence['GetElasticsearchLogFilteringTagArrgs'] filtering_tags: A list of `filtering_tag` blocks as defined above.
         :param bool send_activity_logs: Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
         :param bool send_azuread_logs: Should the AzureAD Logs should be sent to the Elasticsearch cluster?
         :param bool send_subscription_logs: Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
@@ -187,7 +187,7 @@ class GetElasticsearchLogResult(dict):
 
 
 @pulumi.output_type
-class GetElasticsearchLogFilteringTagResult(dict):
+calass GetElasticsearchLogFilteringTagResult(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,

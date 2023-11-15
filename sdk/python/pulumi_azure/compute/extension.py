@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExtensionArgs', 'Extension']
+__all__ = ['ExtensionArrgs', 'Extension']
 
 @pulumi.input_type
-class ExtensionArgs:
+calass ExtensionArrgs:
     def __init__(__self__, *,
                  publisher: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -25,7 +25,7 @@ class ExtensionArgs:
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -50,7 +50,7 @@ class ExtensionArgs:
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
                > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
@@ -202,7 +202,7 @@ class ExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']]:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
@@ -211,7 +211,7 @@ class ExtensionArgs:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -254,14 +254,14 @@ class ExtensionArgs:
 
 
 @pulumi.input_type
-class _ExtensionState:
+calass _ExtensionState:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -280,7 +280,7 @@ class _ExtensionState:
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
                > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
@@ -392,7 +392,7 @@ class _ExtensionState:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']]:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
@@ -401,7 +401,7 @@ class _ExtensionState:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['ExtensionProtectedSettingsFromKeyVaultArrgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -497,7 +497,7 @@ class _ExtensionState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
-class Extension(pulumi.CustomResource):
+calass Extension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -507,7 +507,7 @@ class Extension(pulumi.CustomResource):
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArrgs']]] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -542,7 +542,7 @@ class Extension(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -553,15 +553,15 @@ class Extension(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -600,7 +600,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
                > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArrgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.
@@ -623,7 +623,7 @@ class Extension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExtensionArgs,
+                 args: ExtensionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
@@ -651,7 +651,7 @@ class Extension(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -662,15 +662,15 @@ class Extension(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -699,12 +699,12 @@ class Extension(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param ExtensionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -718,7 +718,7 @@ class Extension(pulumi.CustomResource):
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArrgs']]] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[str]] = None,
@@ -733,7 +733,7 @@ class Extension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExtensionArgs.__new__(ExtensionArgs)
+            __props__ = ExtensionArrgs.__new__(ExtensionArrgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
             __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
@@ -773,7 +773,7 @@ class Extension(pulumi.CustomResource):
             failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
-            protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']]] = None,
+            protected_settings_from_key_vault: Optional[pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArrgs']]] = None,
             provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             publisher: Optional[pulumi.Input[str]] = None,
             settings: Optional[pulumi.Input[str]] = None,
@@ -797,7 +797,7 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] protected_settings: The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
                
                > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ExtensionProtectedSettingsFromKeyVaultArrgs']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Specifies the collection of extension names after which this extension needs to be provisioned.

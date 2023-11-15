@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetResult:
+calass GetVirtualMachineScaleSetResult:
     """
     A collection of values returned by getVirtualMachineScaleSet.
     """
@@ -99,7 +99,7 @@ class GetVirtualMachineScaleSetResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
+calass AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

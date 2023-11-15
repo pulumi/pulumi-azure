@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MoverArgs', 'Mover']
+__all__ = ['MoverArrgs', 'Mover']
 
 @pulumi.input_type
-class MoverArgs:
+calass MoverArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class MoverArgs:
 
 
 @pulumi.input_type
-class _MoverState:
+calass _MoverState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _MoverState:
         pulumi.set(self, "tags", value)
 
 
-class Mover(pulumi.CustomResource):
+calass Mover(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -236,7 +236,7 @@ class Mover(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MoverArgs,
+                 args: MoverArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover.
@@ -266,12 +266,12 @@ class Mover(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MoverArgs args: The arguments to use to populate this resource's properties.
+        :param MoverArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MoverArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MoverArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -292,7 +292,7 @@ class Mover(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MoverArgs.__new__(MoverArgs)
+            __props__ = MoverArrgs.__new__(MoverArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkSimGroupResult:
+calass GetNetworkSimGroupResult:
     """
     A collection of values returned by getNetworkSimGroup.
     """
@@ -96,7 +96,7 @@ class GetNetworkSimGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetNetworkSimGroupResult(GetNetworkSimGroupResult):
+calass AwaitableGetNetworkSimGroupResult(GetNetworkSimGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

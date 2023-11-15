@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VaultArgs', 'Vault']
+__all__ = ['VaultArrgs', 'Vault']
 
 @pulumi.input_type
-class VaultArgs:
+calass VaultArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
                  classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+                 encryption: Optional[pulumi.Input['VaultEncryptionArrgs']] = None,
+                 identity: Optional[pulumi.Input['VaultIdentityArrgs']] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
+                 monitoring: Optional[pulumi.Input['VaultMonitoringArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
@@ -38,13 +38,13 @@ class VaultArgs:
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input['VaultEncryptionArrgs'] encryption: An `encryption` block as defined below. Required with `identity`.
                
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['VaultIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input['VaultMonitoringArrgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
@@ -130,7 +130,7 @@ class VaultArgs:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArrgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
 
@@ -139,19 +139,19 @@ class VaultArgs:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VaultIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['VaultIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VaultIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['VaultIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -180,14 +180,14 @@ class VaultArgs:
 
     @property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArrgs']]:
         """
         A `monitoring` block as defined below.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArrgs']]):
         pulumi.set(self, "monitoring", value)
 
     @property
@@ -252,15 +252,15 @@ class VaultArgs:
 
 
 @pulumi.input_type
-class _VaultState:
+calass _VaultState:
     def __init__(__self__, *,
                  classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+                 encryption: Optional[pulumi.Input['VaultEncryptionArrgs']] = None,
+                 identity: Optional[pulumi.Input['VaultIdentityArrgs']] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
+                 monitoring: Optional[pulumi.Input['VaultMonitoringArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -274,13 +274,13 @@ class _VaultState:
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input['VaultEncryptionArrgs'] encryption: An `encryption` block as defined below. Required with `identity`.
                
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['VaultIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input['VaultMonitoringArrgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -346,7 +346,7 @@ class _VaultState:
 
     @property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArrgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
 
@@ -355,19 +355,19 @@ class _VaultState:
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['VaultEncryptionArrgs']]):
         pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['VaultIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['VaultIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['VaultIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['VaultIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -396,14 +396,14 @@ class _VaultState:
 
     @property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArgs']]:
+    def monitoring(self) -> Optional[pulumi.Input['VaultMonitoringArrgs']]:
         """
         A `monitoring` block as defined below.
         """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArgs']]):
+    def monitoring(self, value: Optional[pulumi.Input['VaultMonitoringArrgs']]):
         pulumi.set(self, "monitoring", value)
 
     @property
@@ -491,18 +491,18 @@ class _VaultState:
         pulumi.set(self, "tags", value)
 
 
-class Vault(pulumi.CustomResource):
+calass Vault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArrgs']]] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
+                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -542,13 +542,13 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input[pulumi.InputType['VaultEncryptionArrgs']] encryption: An `encryption` block as defined below. Required with `identity`.
                
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VaultIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VaultMonitoringArrgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -561,7 +561,7 @@ class Vault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VaultArgs,
+                 args: VaultArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Recovery Services Vault.
@@ -589,12 +589,12 @@ class Vault(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultArgs args: The arguments to use to populate this resource's properties.
+        :param VaultArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -605,11 +605,11 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArrgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArrgs']]] = None,
                  immutability: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
+                 monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -624,7 +624,7 @@ class Vault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultArgs.__new__(VaultArgs)
+            __props__ = VaultArrgs.__new__(VaultArrgs)
 
             __props__.__dict__["classic_vmware_replication_enabled"] = classic_vmware_replication_enabled
             __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
@@ -656,11 +656,11 @@ class Vault(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
-            encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+            encryption: Optional[pulumi.Input[pulumi.InputType['VaultEncryptionArrgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArrgs']]] = None,
             immutability: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArgs']]] = None,
+            monitoring: Optional[pulumi.Input[pulumi.InputType['VaultMonitoringArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -679,13 +679,13 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input[pulumi.InputType['VaultEncryptionArrgs']] encryption: An `encryption` block as defined below. Required with `identity`.
                
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VaultIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input[pulumi.InputType['VaultMonitoringArrgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.

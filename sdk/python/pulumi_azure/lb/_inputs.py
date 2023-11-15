@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BackendAddressPoolAddressInboundNatRulePortMappingArgs',
-    'BackendAddressPoolTunnelInterfaceArgs',
-    'LoadBalancerFrontendIpConfigurationArgs',
-    'OutboundRuleFrontendIpConfigurationArgs',
+    'BackendAddressPoolAddressInboundNatRulePortMappingArrgs',
+    'BackendAddressPoolTunnelInterfaceArrgs',
+    'LoadBalancerFrontendIpConfigurationArrgs',
+    'OutboundRuleFrontendIpConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
+calass BackendAddressPoolAddressInboundNatRulePortMappingArrgs:
     def __init__(__self__, *,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  frontend_port: Optional[pulumi.Input[int]] = None,
@@ -72,7 +72,7 @@ class BackendAddressPoolAddressInboundNatRulePortMappingArgs:
 
 
 @pulumi.input_type
-class BackendAddressPoolTunnelInterfaceArgs:
+calass BackendAddressPoolTunnelInterfaceArrgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[int],
                  port: pulumi.Input[int],
@@ -139,7 +139,7 @@ class BackendAddressPoolTunnelInterfaceArgs:
 
 
 @pulumi.input_type
-class LoadBalancerFrontendIpConfigurationArgs:
+calass LoadBalancerFrontendIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  gateway_load_balancer_frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
@@ -357,7 +357,7 @@ class LoadBalancerFrontendIpConfigurationArgs:
 
 
 @pulumi.input_type
-class OutboundRuleFrontendIpConfigurationArgs:
+calass OutboundRuleFrontendIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):

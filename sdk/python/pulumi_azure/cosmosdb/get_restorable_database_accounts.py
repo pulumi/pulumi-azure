@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRestorableDatabaseAccountsResult:
+calass GetRestorableDatabaseAccountsResult:
     """
     A collection of values returned by getRestorableDatabaseAccounts.
     """
@@ -66,7 +66,7 @@ class GetRestorableDatabaseAccountsResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetRestorableDatabaseAccountsResult(GetRestorableDatabaseAccountsResult):
+calass AwaitableGetRestorableDatabaseAccountsResult(GetRestorableDatabaseAccountsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DatabaseImportArgs',
-    'DatabaseThreatDetectionPolicyArgs',
-    'FailoverGroupPartnerServerArgs',
-    'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
-    'FailoverGroupReadonlyEndpointFailoverPolicyArgs',
-    'ManagedInstanceFailoverGroupPartnerRegionArgs',
-    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
-    'ManagedInstanceIdentityArgs',
-    'SqlServerIdentityArgs',
-    'SqlServerThreatDetectionPolicyArgs',
+    'DatabaseImportArrgs',
+    'DatabaseThreatDetectionPolicyArrgs',
+    'FailoverGroupPartnerServerArrgs',
+    'FailoverGroupReadWriteEndpointFailoverPolicyArrgs',
+    'FailoverGroupReadonlyEndpointFailoverPolicyArrgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArrgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArrgs',
+    'ManagedInstanceIdentityArrgs',
+    'SqlServerIdentityArrgs',
+    'SqlServerThreatDetectionPolicyArrgs',
 ]
 
 @pulumi.input_type
-class DatabaseImportArgs:
+calass DatabaseImportArrgs:
     def __init__(__self__, *,
                  administrator_login: pulumi.Input[str],
                  administrator_login_password: pulumi.Input[str],
@@ -136,7 +136,7 @@ class DatabaseImportArgs:
 
 
 @pulumi.input_type
-class DatabaseThreatDetectionPolicyArgs:
+calass DatabaseThreatDetectionPolicyArrgs:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[str]] = None,
@@ -255,7 +255,7 @@ class DatabaseThreatDetectionPolicyArgs:
 
 
 @pulumi.input_type
-class FailoverGroupPartnerServerArgs:
+calass FailoverGroupPartnerServerArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -309,7 +309,7 @@ class FailoverGroupPartnerServerArgs:
 
 
 @pulumi.input_type
-class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
+calass FailoverGroupReadWriteEndpointFailoverPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  grace_minutes: Optional[pulumi.Input[int]] = None):
@@ -347,7 +347,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 
 @pulumi.input_type
-class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
+calass FailoverGroupReadonlyEndpointFailoverPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
         """
@@ -369,7 +369,7 @@ class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceFailoverGroupPartnerRegionArgs:
+calass ManagedInstanceFailoverGroupPartnerRegionArrgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None):
@@ -408,7 +408,7 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
+calass ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  grace_minutes: Optional[pulumi.Input[int]] = None):
@@ -446,7 +446,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
 
 
 @pulumi.input_type
-class ManagedInstanceIdentityArgs:
+calass ManagedInstanceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -500,7 +500,7 @@ class ManagedInstanceIdentityArgs:
 
 
 @pulumi.input_type
-class SqlServerIdentityArgs:
+calass SqlServerIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -558,7 +558,7 @@ class SqlServerIdentityArgs:
 
 
 @pulumi.input_type
-class SqlServerThreatDetectionPolicyArgs:
+calass SqlServerThreatDetectionPolicyArrgs:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[bool]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceArgs', 'Workspace']
+__all__ = ['WorkspaceArrgs', 'Workspace']
 
 @pulumi.input_type
-class WorkspaceArgs:
+calass WorkspaceArrgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[str],
                  workspace_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class WorkspaceArgs:
 
 
 @pulumi.input_type
-class _WorkspaceState:
+calass _WorkspaceState:
     def __init__(__self__, *,
                  scope: Optional[pulumi.Input[str]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _WorkspaceState:
         pulumi.set(self, "workspace_id", value)
 
 
-class Workspace(pulumi.CustomResource):
+calass Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -135,7 +135,7 @@ class Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceArgs,
+                 args: WorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the subscription's Security Center Workspace.
@@ -167,12 +167,12 @@ class Workspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -190,7 +190,7 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
+            __props__ = WorkspaceArrgs.__new__(WorkspaceArrgs)
 
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

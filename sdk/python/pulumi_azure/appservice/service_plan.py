@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServicePlanArgs', 'ServicePlan']
+__all__ = ['ServicePlanArrgs', 'ServicePlan']
 
 @pulumi.input_type
-class ServicePlanArgs:
+calass ServicePlanArrgs:
     def __init__(__self__, *,
                  os_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -209,7 +209,7 @@ class ServicePlanArgs:
 
 
 @pulumi.input_type
-class _ServicePlanState:
+calass _ServicePlanState:
     def __init__(__self__, *,
                  app_service_environment_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -440,7 +440,7 @@ class _ServicePlanState:
         pulumi.set(self, "zone_balancing_enabled", value)
 
 
-class ServicePlan(pulumi.CustomResource):
+calass ServicePlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -508,7 +508,7 @@ class ServicePlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServicePlanArgs,
+                 args: ServicePlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service: Service Plan.
@@ -536,12 +536,12 @@ class ServicePlan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServicePlanArgs args: The arguments to use to populate this resource's properties.
+        :param ServicePlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServicePlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServicePlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -568,7 +568,7 @@ class ServicePlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServicePlanArgs.__new__(ServicePlanArgs)
+            __props__ = ServicePlanArrgs.__new__(ServicePlanArrgs)
 
             __props__.__dict__["app_service_environment_id"] = app_service_environment_id
             __props__.__dict__["location"] = location

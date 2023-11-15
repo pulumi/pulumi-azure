@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CassandraDatacenterArgs', 'CassandraDatacenter']
+__all__ = ['CassandraDatacenterArrgs', 'CassandraDatacenter']
 
 @pulumi.input_type
-class CassandraDatacenterArgs:
+calass CassandraDatacenterArrgs:
     def __init__(__self__, *,
                  cassandra_cluster_id: pulumi.Input[str],
                  delegated_management_subnet_id: pulumi.Input[str],
@@ -214,7 +214,7 @@ class CassandraDatacenterArgs:
 
 
 @pulumi.input_type
-class _CassandraDatacenterState:
+calass _CassandraDatacenterState:
     def __init__(__self__, *,
                  availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_storage_customer_key_uri: Optional[pulumi.Input[str]] = None,
@@ -417,7 +417,7 @@ class _CassandraDatacenterState:
         pulumi.set(self, "sku_name", value)
 
 
-class CassandraDatacenter(pulumi.CustomResource):
+calass CassandraDatacenter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -510,7 +510,7 @@ class CassandraDatacenter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CassandraDatacenterArgs,
+                 args: CassandraDatacenterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cassandra Datacenter.
@@ -567,12 +567,12 @@ class CassandraDatacenter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CassandraDatacenterArgs args: The arguments to use to populate this resource's properties.
+        :param CassandraDatacenterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CassandraDatacenterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CassandraDatacenterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -600,7 +600,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CassandraDatacenterArgs.__new__(CassandraDatacenterArgs)
+            __props__ = CassandraDatacenterArrgs.__new__(CassandraDatacenterArrgs)
 
             __props__.__dict__["availability_zones_enabled"] = availability_zones_enabled
             __props__.__dict__["backup_storage_customer_key_uri"] = backup_storage_customer_key_uri

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnrichmentArgs', 'Enrichment']
+__all__ = ['EnrichmentArrgs', 'Enrichment']
 
 @pulumi.input_type
-class EnrichmentArgs:
+calass EnrichmentArrgs:
     def __init__(__self__, *,
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  iothub_name: pulumi.Input[str],
@@ -95,7 +95,7 @@ class EnrichmentArgs:
 
 
 @pulumi.input_type
-class _EnrichmentState:
+calass _EnrichmentState:
     def __init__(__self__, *,
                  endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iothub_name: Optional[pulumi.Input[str]] = None,
@@ -182,7 +182,7 @@ class _EnrichmentState:
         pulumi.set(self, "value", value)
 
 
-class Enrichment(pulumi.CustomResource):
+calass Enrichment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -218,7 +218,7 @@ class Enrichment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnrichmentArgs,
+                 args: EnrichmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Enrichment
@@ -234,12 +234,12 @@ class Enrichment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnrichmentArgs args: The arguments to use to populate this resource's properties.
+        :param EnrichmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnrichmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnrichmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -260,7 +260,7 @@ class Enrichment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnrichmentArgs.__new__(EnrichmentArgs)
+            __props__ = EnrichmentArrgs.__new__(EnrichmentArrgs)
 
             if endpoint_names is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_names'")

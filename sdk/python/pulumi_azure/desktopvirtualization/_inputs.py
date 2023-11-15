@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HostPoolScheduledAgentUpdatesArgs',
-    'HostPoolScheduledAgentUpdatesScheduleArgs',
-    'ScalingPlanHostPoolArgs',
-    'ScalingPlanScheduleArgs',
+    'HostPoolScheduledAgentUpdatesArrgs',
+    'HostPoolScheduledAgentUpdatesScheduleArrgs',
+    'ScalingPlanHostPoolArrgs',
+    'ScalingPlanScheduleArrgs',
 ]
 
 @pulumi.input_type
-class HostPoolScheduledAgentUpdatesArgs:
+calass HostPoolScheduledAgentUpdatesArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArrgs']]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_session_host_timezone: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] enabled: Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
                
                > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
-        :param pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]] schedules: A `schedule` block as defined below. A maximum of two blocks can be added.
+        :param pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArrgs']]] schedules: A `schedule` block as defined below. A maximum of two blocks can be added.
         :param pulumi.Input[str] timezone: Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
         :param pulumi.Input[bool] use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
         """
@@ -56,14 +56,14 @@ class HostPoolScheduledAgentUpdatesArgs:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]:
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArrgs']]]]:
         """
         A `schedule` block as defined below. A maximum of two blocks can be added.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]):
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArrgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -92,7 +92,7 @@ class HostPoolScheduledAgentUpdatesArgs:
 
 
 @pulumi.input_type
-class HostPoolScheduledAgentUpdatesScheduleArgs:
+calass HostPoolScheduledAgentUpdatesScheduleArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  hour_of_day: pulumi.Input[int]):
@@ -129,7 +129,7 @@ class HostPoolScheduledAgentUpdatesScheduleArgs:
 
 
 @pulumi.input_type
-class ScalingPlanHostPoolArgs:
+calass ScalingPlanHostPoolArrgs:
     def __init__(__self__, *,
                  hostpool_id: pulumi.Input[str],
                  scaling_plan_enabled: pulumi.Input[bool]):
@@ -166,7 +166,7 @@ class ScalingPlanHostPoolArgs:
 
 
 @pulumi.input_type
-class ScalingPlanScheduleArgs:
+calass ScalingPlanScheduleArrgs:
     def __init__(__self__, *,
                  days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],

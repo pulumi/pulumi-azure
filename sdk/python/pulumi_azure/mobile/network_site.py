@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkSiteArgs', 'NetworkSite']
+__all__ = ['NetworkSiteArrgs', 'NetworkSite']
 
 @pulumi.input_type
-class NetworkSiteArgs:
+calass NetworkSiteArrgs:
     def __init__(__self__, *,
                  mobile_network_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class NetworkSiteArgs:
 
 
 @pulumi.input_type
-class _NetworkSiteState:
+calass _NetworkSiteState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class _NetworkSiteState:
         pulumi.set(self, "tags", value)
 
 
-class NetworkSite(pulumi.CustomResource):
+calass NetworkSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,7 +226,7 @@ class NetworkSite(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkSiteArgs,
+                 args: NetworkSiteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mobile Network Site.
@@ -264,12 +264,12 @@ class NetworkSite(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkSiteArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkSiteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkSiteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkSiteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class NetworkSite(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkSiteArgs.__new__(NetworkSiteArgs)
+            __props__ = NetworkSiteArrgs.__new__(NetworkSiteArrgs)
 
             __props__.__dict__["location"] = location
             if mobile_network_id is None and not opts.urn:

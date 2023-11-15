@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointServicebusArgs', 'EndpointServicebus']
+__all__ = ['EndpointServicebusArrgs', 'EndpointServicebus']
 
 @pulumi.input_type
-class EndpointServicebusArgs:
+calass EndpointServicebusArrgs:
     def __init__(__self__, *,
                  digital_twins_id: pulumi.Input[str],
                  servicebus_primary_connection_string: pulumi.Input[str],
@@ -97,7 +97,7 @@ class EndpointServicebusArgs:
 
 
 @pulumi.input_type
-class _EndpointServicebusState:
+calass _EndpointServicebusState:
     def __init__(__self__, *,
                  dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
                  digital_twins_id: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _EndpointServicebusState:
         pulumi.set(self, "servicebus_secondary_connection_string", value)
 
 
-class EndpointServicebus(pulumi.CustomResource):
+calass EndpointServicebus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -244,7 +244,7 @@ class EndpointServicebus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointServicebusArgs,
+                 args: EndpointServicebusArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Service Bus Endpoint.
@@ -284,12 +284,12 @@ class EndpointServicebus(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointServicebusArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointServicebusArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointServicebusArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointServicebusArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -310,7 +310,7 @@ class EndpointServicebus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointServicebusArgs.__new__(EndpointServicebusArgs)
+            __props__ = EndpointServicebusArrgs.__new__(EndpointServicebusArrgs)
 
             __props__.__dict__["dead_letter_storage_secret"] = None if dead_letter_storage_secret is None else pulumi.Output.secret(dead_letter_storage_secret)
             if digital_twins_id is None and not opts.urn:

@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountIdentityArgs',
-    'DatasetBlobStorageStorageAccountArgs',
-    'ShareSnapshotScheduleArgs',
+    'AccountIdentityArrgs',
+    'DatasetBlobStorageStorageAccountArrgs',
+    'ShareSnapshotScheduleArrgs',
 ]
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -74,7 +74,7 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class DatasetBlobStorageStorageAccountArgs:
+calass DatasetBlobStorageStorageAccountArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -126,7 +126,7 @@ class DatasetBlobStorageStorageAccountArgs:
 
 
 @pulumi.input_type
-class ShareSnapshotScheduleArgs:
+calass ShareSnapshotScheduleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  recurrence: pulumi.Input[str],

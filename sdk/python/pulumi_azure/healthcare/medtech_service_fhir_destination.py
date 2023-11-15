@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MedtechServiceFhirDestinationArgs', 'MedtechServiceFhirDestination']
+__all__ = ['MedtechServiceFhirDestinationArrgs', 'MedtechServiceFhirDestination']
 
 @pulumi.input_type
-class MedtechServiceFhirDestinationArgs:
+calass MedtechServiceFhirDestinationArrgs:
     def __init__(__self__, *,
                  destination_fhir_mapping_json: pulumi.Input[str],
                  destination_fhir_service_id: pulumi.Input[str],
@@ -112,7 +112,7 @@ class MedtechServiceFhirDestinationArgs:
 
 
 @pulumi.input_type
-class _MedtechServiceFhirDestinationState:
+calass _MedtechServiceFhirDestinationState:
     def __init__(__self__, *,
                  destination_fhir_mapping_json: Optional[pulumi.Input[str]] = None,
                  destination_fhir_service_id: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _MedtechServiceFhirDestinationState:
         pulumi.set(self, "name", value)
 
 
-class MedtechServiceFhirDestination(pulumi.CustomResource):
+calass MedtechServiceFhirDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -258,7 +258,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+            authentication=azure.healthcare.FhirServiceAuthenticationArrgs(
                 authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 audience="https://examplefhir.fhir.azurehealthcareapis.com",
             ))
@@ -321,7 +321,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MedtechServiceFhirDestinationArgs,
+                 args: MedtechServiceFhirDestinationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Healthcare Med Tech Service Fhir Destination.
@@ -354,7 +354,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
+            authentication=azure.healthcare.FhirServiceAuthenticationArrgs(
                 authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 audience="https://examplefhir.fhir.azurehealthcareapis.com",
             ))
@@ -405,12 +405,12 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MedtechServiceFhirDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param MedtechServiceFhirDestinationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MedtechServiceFhirDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MedtechServiceFhirDestinationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -432,7 +432,7 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MedtechServiceFhirDestinationArgs.__new__(MedtechServiceFhirDestinationArgs)
+            __props__ = MedtechServiceFhirDestinationArrgs.__new__(MedtechServiceFhirDestinationArrgs)
 
             if destination_fhir_mapping_json is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_fhir_mapping_json'")

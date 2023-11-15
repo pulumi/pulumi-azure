@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLBOutboundRuleResult:
+calass GetLBOutboundRuleResult:
     """
     A collection of values returned by getLBOutboundRule.
     """
@@ -121,7 +121,7 @@ class GetLBOutboundRuleResult:
         return pulumi.get(self, "tcp_reset_enabled")
 
 
-class AwaitableGetLBOutboundRuleResult(GetLBOutboundRuleResult):
+calass AwaitableGetLBOutboundRuleResult(GetLBOutboundRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

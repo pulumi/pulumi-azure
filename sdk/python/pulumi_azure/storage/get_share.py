@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetShareResult:
+calass GetShareResult:
     """
     A collection of values returned by getShare.
     """
@@ -94,7 +94,7 @@ class GetShareResult:
         return pulumi.get(self, "storage_account_name")
 
 
-class AwaitableGetShareResult(GetShareResult):
+calass AwaitableGetShareResult(GetShareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -109,7 +109,7 @@ class AwaitableGetShareResult(GetShareResult):
             storage_account_name=self.storage_account_name)
 
 
-def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = None,
+def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArrgs']]] = None,
               metadata: Optional[Mapping[str, str]] = None,
               name: Optional[str] = None,
               storage_account_name: Optional[str] = None,
@@ -129,7 +129,7 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
     ```
 
 
-    :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.
+    :param Sequence[pulumi.InputType['GetShareAclArrgs']] acls: One or more acl blocks as defined below.
     :param Mapping[str, str] metadata: A map of custom file share metadata.
     :param str name: The name of the share.
     :param str storage_account_name: The name of the storage account.
@@ -153,7 +153,7 @@ def get_share(acls: Optional[Sequence[pulumi.InputType['GetShareAclArgs']]] = No
 
 
 @_utilities.lift_output_func(get_share)
-def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetShareAclArgs']]]]] = None,
+def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetShareAclArrgs']]]]] = None,
                      metadata: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      storage_account_name: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ def get_share_output(acls: Optional[pulumi.Input[Optional[Sequence[pulumi.InputT
     ```
 
 
-    :param Sequence[pulumi.InputType['GetShareAclArgs']] acls: One or more acl blocks as defined below.
+    :param Sequence[pulumi.InputType['GetShareAclArrgs']] acls: One or more acl blocks as defined below.
     :param Mapping[str, str] metadata: A map of custom file share metadata.
     :param str name: The name of the share.
     :param str storage_account_name: The name of the storage account.

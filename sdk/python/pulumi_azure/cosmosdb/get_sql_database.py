@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSqlDatabaseResult:
+calass GetSqlDatabaseResult:
     """
     A collection of values returned by getSqlDatabase.
     """
@@ -82,7 +82,7 @@ class GetSqlDatabaseResult:
         return pulumi.get(self, "throughput")
 
 
-class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
+calass AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

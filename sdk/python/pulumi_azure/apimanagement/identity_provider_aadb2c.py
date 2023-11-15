@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IdentityProviderAadb2cArgs', 'IdentityProviderAadb2c']
+__all__ = ['IdentityProviderAadb2cArrgs', 'IdentityProviderAadb2c']
 
 @pulumi.input_type
-class IdentityProviderAadb2cArgs:
+calass IdentityProviderAadb2cArrgs:
     def __init__(__self__, *,
                  allowed_tenant: pulumi.Input[str],
                  api_management_name: pulumi.Input[str],
@@ -187,7 +187,7 @@ class IdentityProviderAadb2cArgs:
 
 
 @pulumi.input_type
-class _IdentityProviderAadb2cState:
+calass _IdentityProviderAadb2cState:
     def __init__(__self__, *,
                  allowed_tenant: Optional[pulumi.Input[str]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
@@ -370,7 +370,7 @@ class _IdentityProviderAadb2cState:
         pulumi.set(self, "signup_policy", value)
 
 
-class IdentityProviderAadb2c(pulumi.CustomResource):
+calass IdentityProviderAadb2c(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -447,7 +447,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityProviderAadb2cArgs,
+                 args: IdentityProviderAadb2cArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management Azure AD B2C Identity Provider.
@@ -492,12 +492,12 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IdentityProviderAadb2cArgs args: The arguments to use to populate this resource's properties.
+        :param IdentityProviderAadb2cArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderAadb2cArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderAadb2cArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -524,7 +524,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IdentityProviderAadb2cArgs.__new__(IdentityProviderAadb2cArgs)
+            __props__ = IdentityProviderAadb2cArrgs.__new__(IdentityProviderAadb2cArrgs)
 
             if allowed_tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_tenant'")

@@ -35,7 +35,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountActiveDirectory(dict):
+calass AccountActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -130,7 +130,7 @@ class AccountActiveDirectory(dict):
 
 
 @pulumi.output_type
-class SnapshotPolicyDailySchedule(dict):
+calass SnapshotPolicyDailySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -187,7 +187,7 @@ class SnapshotPolicyDailySchedule(dict):
 
 
 @pulumi.output_type
-class SnapshotPolicyHourlySchedule(dict):
+calass SnapshotPolicyHourlySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -233,7 +233,7 @@ class SnapshotPolicyHourlySchedule(dict):
 
 
 @pulumi.output_type
-class SnapshotPolicyMonthlySchedule(dict):
+calass SnapshotPolicyMonthlySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -303,7 +303,7 @@ class SnapshotPolicyMonthlySchedule(dict):
 
 
 @pulumi.output_type
-class SnapshotPolicyWeeklySchedule(dict):
+calass SnapshotPolicyWeeklySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class SnapshotPolicyWeeklySchedule(dict):
 
 
 @pulumi.output_type
-class VolumeDataProtectionReplication(dict):
+calass VolumeDataProtectionReplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -444,7 +444,7 @@ class VolumeDataProtectionReplication(dict):
 
 
 @pulumi.output_type
-class VolumeDataProtectionSnapshotPolicy(dict):
+calass VolumeDataProtectionSnapshotPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -473,7 +473,7 @@ class VolumeDataProtectionSnapshotPolicy(dict):
 
 
 @pulumi.output_type
-class VolumeExportPolicyRule(dict):
+calass VolumeExportPolicyRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -577,7 +577,7 @@ class VolumeExportPolicyRule(dict):
 
 
 @pulumi.output_type
-class VolumeGroupSapHanaVolume(dict):
+calass VolumeGroupSapHanaVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -642,7 +642,7 @@ class VolumeGroupSapHanaVolume(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         :param str capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param Sequence['VolumeGroupSapHanaVolumeExportPolicyRuleArgs'] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
+        :param Sequence['VolumeGroupSapHanaVolumeExportPolicyRuleArrgs'] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
         :param str name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param str protocols: The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
         :param str security_style: Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -653,8 +653,8 @@ class VolumeGroupSapHanaVolume(dict):
         :param float throughput_in_mibps: Throughput of this volume in Mibps.
         :param str volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param str volume_spec_name: Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param 'VolumeGroupSapHanaVolumeDataProtectionReplicationArgs' data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param 'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs' data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param 'VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs' data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param 'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs' data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param str id: The ID of the Application Volume Group.
         :param str proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         :param Mapping[str, str] tags: A mapping of tags which should be assigned to the Application Volume Group.
@@ -827,7 +827,7 @@ class VolumeGroupSapHanaVolume(dict):
 
 
 @pulumi.output_type
-class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
+calass VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -902,7 +902,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
 
 
 @pulumi.output_type
-class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy(dict):
+calass VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -937,7 +937,7 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy(dict):
 
 
 @pulumi.output_type
-class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
+calass VolumeGroupSapHanaVolumeExportPolicyRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1053,7 +1053,7 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
 
 
 @pulumi.output_type
-class GetSnapshotPolicyDailyScheduleResult(dict):
+calass GetSnapshotPolicyDailyScheduleResult(dict):
     def __init__(__self__, *,
                  hour: int,
                  minute: int,
@@ -1093,7 +1093,7 @@ class GetSnapshotPolicyDailyScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotPolicyHourlyScheduleResult(dict):
+calass GetSnapshotPolicyHourlyScheduleResult(dict):
     def __init__(__self__, *,
                  minute: int,
                  snapshots_to_keep: int):
@@ -1122,7 +1122,7 @@ class GetSnapshotPolicyHourlyScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotPolicyMonthlyScheduleResult(dict):
+calass GetSnapshotPolicyMonthlyScheduleResult(dict):
     def __init__(__self__, *,
                  days_of_months: Sequence[int],
                  hour: int,
@@ -1169,7 +1169,7 @@ class GetSnapshotPolicyMonthlyScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotPolicyWeeklyScheduleResult(dict):
+calass GetSnapshotPolicyWeeklyScheduleResult(dict):
     def __init__(__self__, *,
                  days_of_weeks: Sequence[str],
                  hour: int,
@@ -1220,7 +1220,7 @@ class GetSnapshotPolicyWeeklyScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetVolumeDataProtectionReplicationResult(dict):
+calass GetVolumeDataProtectionReplicationResult(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  remote_volume_location: str,
@@ -1271,7 +1271,7 @@ class GetVolumeDataProtectionReplicationResult(dict):
 
 
 @pulumi.output_type
-class GetVolumeGroupSapHanaVolumeResult(dict):
+calass GetVolumeGroupSapHanaVolumeResult(dict):
     def __init__(__self__, *,
                  capacity_pool_id: str,
                  data_protection_replications: Sequence['outputs.GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult'],
@@ -1293,9 +1293,9 @@ class GetVolumeGroupSapHanaVolumeResult(dict):
                  volume_spec_name: str):
         """
         :param str capacity_pool_id: The ID of the Capacity Pool.
-        :param Sequence['GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs'] data_protection_replications: A `data_protection_replication` block as defined below.
-        :param Sequence['GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policies: A `data_protection_snapshot_policy` block as defined below.
-        :param Sequence['GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs'] export_policy_rules: A `export_policy_rule` block as defined below.
+        :param Sequence['GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrgs'] data_protection_replications: A `data_protection_replication` block as defined below.
+        :param Sequence['GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs'] data_protection_snapshot_policies: A `data_protection_snapshot_policy` block as defined below.
+        :param Sequence['GetVolumeGroupSapHanaVolumeExportPolicyRuleArrgs'] export_policy_rules: A `export_policy_rule` block as defined below.
         :param str id: Volume ID.
         :param Sequence[str] mount_ip_addresses: A `mount_ip_addresses` block as defined below.
         :param str name: The name of this Application Volume Group for SAP HANA application.
@@ -1476,7 +1476,7 @@ class GetVolumeGroupSapHanaVolumeResult(dict):
 
 
 @pulumi.output_type
-class GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult(dict):
+calass GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  remote_volume_location: str,
@@ -1527,7 +1527,7 @@ class GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult(dict):
 
 
 @pulumi.output_type
-class GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult(dict):
+calass GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult(dict):
     def __init__(__self__, *,
                  snapshot_policy_id: str):
         """
@@ -1545,7 +1545,7 @@ class GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetVolumeGroupSapHanaVolumeExportPolicyRuleResult(dict):
+calass GetVolumeGroupSapHanaVolumeExportPolicyRuleResult(dict):
     def __init__(__self__, *,
                  allowed_clients: str,
                  nfsv3_enabled: bool,

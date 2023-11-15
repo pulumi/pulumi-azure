@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorMicrosoftCloudAppSecurityArgs', 'DataConnectorMicrosoftCloudAppSecurity']
+__all__ = ['DataConnectorMicrosoftCloudAppSecurityArrgs', 'DataConnectorMicrosoftCloudAppSecurity']
 
 @pulumi.input_type
-class DataConnectorMicrosoftCloudAppSecurityArgs:
+calass DataConnectorMicrosoftCloudAppSecurityArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  alerts_enabled: Optional[pulumi.Input[bool]] = None,
@@ -107,7 +107,7 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
 
 
 @pulumi.input_type
-class _DataConnectorMicrosoftCloudAppSecurityState:
+calass _DataConnectorMicrosoftCloudAppSecurityState:
     def __init__(__self__, *,
                  alerts_enabled: Optional[pulumi.Input[bool]] = None,
                  discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
@@ -202,7 +202,7 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
         pulumi.set(self, "tenant_id", value)
 
 
-class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
+calass DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorMicrosoftCloudAppSecurityArgs,
+                 args: DataConnectorMicrosoftCloudAppSecurityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Cloud App Security Data Connector.
@@ -288,12 +288,12 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorMicrosoftCloudAppSecurityArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorMicrosoftCloudAppSecurityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorMicrosoftCloudAppSecurityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorMicrosoftCloudAppSecurityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -314,7 +314,7 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorMicrosoftCloudAppSecurityArgs.__new__(DataConnectorMicrosoftCloudAppSecurityArgs)
+            __props__ = DataConnectorMicrosoftCloudAppSecurityArrgs.__new__(DataConnectorMicrosoftCloudAppSecurityArrgs)
 
             __props__.__dict__["alerts_enabled"] = alerts_enabled
             __props__.__dict__["discovery_logs_enabled"] = discovery_logs_enabled

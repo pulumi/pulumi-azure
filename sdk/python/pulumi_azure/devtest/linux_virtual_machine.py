@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinuxVirtualMachineArgs', 'LinuxVirtualMachine']
+__all__ = ['LinuxVirtualMachineArrgs', 'LinuxVirtualMachine']
 
 @pulumi.input_type
-class LinuxVirtualMachineArgs:
+calass LinuxVirtualMachineArrgs:
     def __init__(__self__, *,
-                 gallery_image_reference: pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs'],
+                 gallery_image_reference: pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs'],
                  lab_name: pulumi.Input[str],
                  lab_subnet_name: pulumi.Input[str],
                  lab_virtual_network_id: pulumi.Input[str],
@@ -26,7 +26,7 @@ class LinuxVirtualMachineArgs:
                  username: pulumi.Input[str],
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class LinuxVirtualMachineArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LinuxVirtualMachine resource.
-        :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -45,7 +45,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
@@ -88,14 +88,14 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']:
+    def gallery_image_reference(self) -> pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs']:
         """
         A `gallery_image_reference` block as defined below.
         """
         return pulumi.get(self, "gallery_image_reference")
 
     @gallery_image_reference.setter
-    def gallery_image_reference(self, value: pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']):
+    def gallery_image_reference(self, value: pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs']):
         pulumi.set(self, "gallery_image_reference", value)
 
     @property
@@ -208,7 +208,7 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -217,7 +217,7 @@ class LinuxVirtualMachineArgs:
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @property
@@ -298,13 +298,13 @@ class LinuxVirtualMachineArgs:
 
 
 @pulumi.input_type
-class _LinuxVirtualMachineState:
+calass _LinuxVirtualMachineState:
     def __init__(__self__, *,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
-                 gallery_image_reference: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]] = None,
+                 gallery_image_reference: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs']] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -324,8 +324,8 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
-        :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -424,19 +424,19 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="galleryImageReference")
-    def gallery_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']]:
+    def gallery_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs']]:
         """
         A `gallery_image_reference` block as defined below.
         """
         return pulumi.get(self, "gallery_image_reference")
 
     @gallery_image_reference.setter
-    def gallery_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs']]):
+    def gallery_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArrgs']]):
         pulumi.set(self, "gallery_image_reference", value)
 
     @property
     @pulumi.getter(name="inboundNatRules")
-    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
 
@@ -445,7 +445,7 @@ class _LinuxVirtualMachineState:
         return pulumi.get(self, "inbound_nat_rules")
 
     @inbound_nat_rules.setter
-    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]):
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArrgs']]]]):
         pulumi.set(self, "inbound_nat_rules", value)
 
     @property
@@ -621,15 +621,15 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "username", value)
 
 
-class LinuxVirtualMachine(pulumi.CustomResource):
+calass LinuxVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArrgs']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArrgs']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -663,7 +663,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
             lab_name=example_lab.name,
             resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+            subnet=azure.devtest.VirtualNetworkSubnetArrgs(
                 use_public_ip_address="Allow",
                 use_in_virtual_machine_creation="Allow",
             ))
@@ -678,7 +678,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
-            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
+            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -698,8 +698,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArrgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArrgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
@@ -724,7 +724,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinuxVirtualMachineArgs,
+                 args: LinuxVirtualMachineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
@@ -745,7 +745,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         example_virtual_network = azure.devtest.VirtualNetwork("exampleVirtualNetwork",
             lab_name=example_lab.name,
             resource_group_name=example_resource_group.name,
-            subnet=azure.devtest.VirtualNetworkSubnetArgs(
+            subnet=azure.devtest.VirtualNetworkSubnetArrgs(
                 use_public_ip_address="Allow",
                 use_in_virtual_machine_creation="Allow",
             ))
@@ -760,7 +760,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
             notes="Some notes about this Virtual Machine.",
-            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArgs(
+            gallery_image_reference=azure.devtest.LinuxVirtualMachineGalleryImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -777,12 +777,12 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinuxVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param LinuxVirtualMachineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinuxVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinuxVirtualMachineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -793,8 +793,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_claim: Optional[pulumi.Input[bool]] = None,
                  disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']]] = None,
-                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArrgs']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArrgs']]]]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -815,7 +815,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinuxVirtualMachineArgs.__new__(LinuxVirtualMachineArgs)
+            __props__ = LinuxVirtualMachineArrgs.__new__(LinuxVirtualMachineArrgs)
 
             __props__.__dict__["allow_claim"] = allow_claim
             __props__.__dict__["disallow_public_ip_address"] = disallow_public_ip_address
@@ -867,8 +867,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             allow_claim: Optional[pulumi.Input[bool]] = None,
             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
-            gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']]] = None,
-            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]]] = None,
+            gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArrgs']]] = None,
+            inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArrgs']]]]] = None,
             lab_name: Optional[pulumi.Input[str]] = None,
             lab_subnet_name: Optional[pulumi.Input[str]] = None,
             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -893,8 +893,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArrgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArrgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.

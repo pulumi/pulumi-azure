@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ComputeClusterIdentityArgs',
-    'ComputeClusterScaleSettingsArgs',
-    'ComputeClusterSshArgs',
-    'ComputeInstanceAssignToUserArgs',
-    'ComputeInstanceIdentityArgs',
-    'ComputeInstanceSshArgs',
-    'InferenceClusterIdentityArgs',
-    'InferenceClusterSslArgs',
-    'SynapseSparkIdentityArgs',
-    'WorkspaceEncryptionArgs',
-    'WorkspaceIdentityArgs',
+    'ComputeClusterIdentityArrgs',
+    'ComputeClusterScaleSettingsArrgs',
+    'ComputeClusterSshArrgs',
+    'ComputeInstanceAssignToUserArrgs',
+    'ComputeInstanceIdentityArrgs',
+    'ComputeInstanceSshArrgs',
+    'InferenceClusterIdentityArrgs',
+    'InferenceClusterSslArrgs',
+    'SynapseSparkIdentityArrgs',
+    'WorkspaceEncryptionArrgs',
+    'WorkspaceIdentityArrgs',
 ]
 
 @pulumi.input_type
-class ComputeClusterIdentityArgs:
+calass ComputeClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -98,7 +98,7 @@ class ComputeClusterIdentityArgs:
 
 
 @pulumi.input_type
-class ComputeClusterScaleSettingsArgs:
+calass ComputeClusterScaleSettingsArrgs:
     def __init__(__self__, *,
                  max_node_count: pulumi.Input[int],
                  min_node_count: pulumi.Input[int],
@@ -150,7 +150,7 @@ class ComputeClusterScaleSettingsArgs:
 
 
 @pulumi.input_type
-class ComputeClusterSshArgs:
+calass ComputeClusterSshArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  admin_password: Optional[pulumi.Input[str]] = None,
@@ -208,7 +208,7 @@ class ComputeClusterSshArgs:
 
 
 @pulumi.input_type
-class ComputeInstanceAssignToUserArgs:
+calass ComputeInstanceAssignToUserArrgs:
     def __init__(__self__, *,
                  object_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
@@ -247,7 +247,7 @@ class ComputeInstanceAssignToUserArgs:
 
 
 @pulumi.input_type
-class ComputeInstanceIdentityArgs:
+calass ComputeInstanceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -321,7 +321,7 @@ class ComputeInstanceIdentityArgs:
 
 
 @pulumi.input_type
-class ComputeInstanceSshArgs:
+calass ComputeInstanceSshArrgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[str],
                  port: Optional[pulumi.Input[int]] = None,
@@ -375,7 +375,7 @@ class ComputeInstanceSshArgs:
 
 
 @pulumi.input_type
-class InferenceClusterIdentityArgs:
+calass InferenceClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -449,7 +449,7 @@ class InferenceClusterIdentityArgs:
 
 
 @pulumi.input_type
-class InferenceClusterSslArgs:
+calass InferenceClusterSslArrgs:
     def __init__(__self__, *,
                  cert: Optional[pulumi.Input[str]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
@@ -536,7 +536,7 @@ class InferenceClusterSslArgs:
 
 
 @pulumi.input_type
-class SynapseSparkIdentityArgs:
+calass SynapseSparkIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -610,7 +610,7 @@ class SynapseSparkIdentityArgs:
 
 
 @pulumi.input_type
-class WorkspaceEncryptionArgs:
+calass WorkspaceEncryptionArrgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
@@ -667,7 +667,7 @@ class WorkspaceEncryptionArgs:
 
 
 @pulumi.input_type
-class WorkspaceIdentityArgs:
+calass WorkspaceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

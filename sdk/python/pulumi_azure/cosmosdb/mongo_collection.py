@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MongoCollectionArgs', 'MongoCollection']
+__all__ = ['MongoCollectionArrgs', 'MongoCollection']
 
 @pulumi.input_type
-class MongoCollectionArgs:
+calass MongoCollectionArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  shard_key: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
@@ -33,7 +33,7 @@ class MongoCollectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
         """
@@ -105,11 +105,11 @@ class MongoCollectionArgs:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']]:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -126,14 +126,14 @@ class MongoCollectionArgs:
 
     @property
     @pulumi.getter
-    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
+    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]]):
         pulumi.set(self, "indices", value)
 
     @property
@@ -171,18 +171,18 @@ class MongoCollectionArgs:
 
 
 @pulumi.input_type
-class _MongoCollectionState:
+calass _MongoCollectionState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
+                 indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_key: Optional[pulumi.Input[str]] = None,
-                 system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]] = None,
+                 system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArrgs']]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering MongoCollection resources.
@@ -190,11 +190,11 @@ class _MongoCollectionState:
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArrgs']]] system_indexes: One or more `system_indexes` blocks as defined below.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -245,11 +245,11 @@ class _MongoCollectionState:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']]:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -278,14 +278,14 @@ class _MongoCollectionState:
 
     @property
     @pulumi.getter
-    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]:
+    def indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]]:
         """
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
 
     @indices.setter
-    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]]):
+    def indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArrgs']]]]):
         pulumi.set(self, "indices", value)
 
     @property
@@ -326,14 +326,14 @@ class _MongoCollectionState:
 
     @property
     @pulumi.getter(name="systemIndexes")
-    def system_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]:
+    def system_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArrgs']]]]:
         """
         One or more `system_indexes` blocks as defined below.
         """
         return pulumi.get(self, "system_indexes")
 
     @system_indexes.setter
-    def system_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArgs']]]]):
+    def system_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionSystemIndexArrgs']]]]):
         pulumi.set(self, "system_indexes", value)
 
     @property
@@ -346,17 +346,17 @@ class _MongoCollectionState:
         pulumi.set(self, "throughput", value)
 
 
-class MongoCollection(pulumi.CustomResource):
+calass MongoCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArrgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]]] = None,
+                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_key: Optional[pulumi.Input[str]] = None,
@@ -383,7 +383,7 @@ class MongoCollection(pulumi.CustomResource):
             default_ttl_seconds=777,
             shard_key="uniqueKey",
             throughput=400,
-            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
+            indices=[azure.cosmosdb.MongoCollectionIndexArrgs(
                 keys=["_id"],
                 unique=True,
             )])
@@ -403,7 +403,7 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArrgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
@@ -412,7 +412,7 @@ class MongoCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MongoCollectionArgs,
+                 args: MongoCollectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Mongo Collection within a Cosmos DB Account.
@@ -435,7 +435,7 @@ class MongoCollection(pulumi.CustomResource):
             default_ttl_seconds=777,
             shard_key="uniqueKey",
             throughput=400,
-            indices=[azure.cosmosdb.MongoCollectionIndexArgs(
+            indices=[azure.cosmosdb.MongoCollectionIndexArrgs(
                 keys=["_id"],
                 unique=True,
             )])
@@ -450,12 +450,12 @@ class MongoCollection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MongoCollectionArgs args: The arguments to use to populate this resource's properties.
+        :param MongoCollectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MongoCollectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MongoCollectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -466,10 +466,10 @@ class MongoCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArrgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
-                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]]] = None,
+                 indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  shard_key: Optional[pulumi.Input[str]] = None,
@@ -481,7 +481,7 @@ class MongoCollection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MongoCollectionArgs.__new__(MongoCollectionArgs)
+            __props__ = MongoCollectionArrgs.__new__(MongoCollectionArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
@@ -512,14 +512,14 @@ class MongoCollection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArrgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl_seconds: Optional[pulumi.Input[int]] = None,
-            indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]]] = None,
+            indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             shard_key: Optional[pulumi.Input[str]] = None,
-            system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]]] = None,
+            system_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArrgs']]]]] = None,
             throughput: Optional[pulumi.Input[int]] = None) -> 'MongoCollection':
         """
         Get an existing MongoCollection resource's state with the given name, id, and optional extra
@@ -532,11 +532,11 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArgs']]]] indices: One or more `index` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionIndexArrgs']]]] indices: One or more `index` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArgs']]]] system_indexes: One or more `system_indexes` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MongoCollectionSystemIndexArrgs']]]] system_indexes: One or more `system_indexes` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

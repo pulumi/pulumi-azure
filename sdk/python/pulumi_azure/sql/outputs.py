@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DatabaseImport(dict):
+calass DatabaseImport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -139,7 +139,7 @@ class DatabaseImport(dict):
 
 
 @pulumi.output_type
-class DatabaseThreatDetectionPolicy(dict):
+calass DatabaseThreatDetectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -257,7 +257,7 @@ class DatabaseThreatDetectionPolicy(dict):
 
 
 @pulumi.output_type
-class FailoverGroupPartnerServer(dict):
+calass FailoverGroupPartnerServer(dict):
     def __init__(__self__, *,
                  id: str,
                  location: Optional[str] = None,
@@ -299,7 +299,7 @@ class FailoverGroupPartnerServer(dict):
 
 
 @pulumi.output_type
-class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
+calass FailoverGroupReadWriteEndpointFailoverPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -346,7 +346,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
 
 
 @pulumi.output_type
-class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
+calass FailoverGroupReadonlyEndpointFailoverPolicy(dict):
     def __init__(__self__, *,
                  mode: str):
         """
@@ -364,7 +364,7 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceFailoverGroupPartnerRegion(dict):
+calass ManagedInstanceFailoverGroupPartnerRegion(dict):
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  role: Optional[str] = None):
@@ -395,7 +395,7 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
+calass ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -442,7 +442,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceIdentity(dict):
+calass ManagedInstanceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -503,7 +503,7 @@ class ManagedInstanceIdentity(dict):
 
 
 @pulumi.output_type
-class SqlServerIdentity(dict):
+calass SqlServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -568,7 +568,7 @@ class SqlServerIdentity(dict):
 
 
 @pulumi.output_type
-class SqlServerThreatDetectionPolicy(dict):
+calass SqlServerThreatDetectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -686,7 +686,7 @@ class SqlServerThreatDetectionPolicy(dict):
 
 
 @pulumi.output_type
-class GetServerIdentityResult(dict):
+calass GetServerIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -726,7 +726,7 @@ class GetServerIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetSqlManagedInstanceIdentityResult(dict):
+calass GetSqlManagedInstanceIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,

@@ -10,25 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FunctionJavaScriptUDFInputArgs',
-    'FunctionJavaScriptUDFOutputArgs',
-    'FunctionJavascriptUdaInputArgs',
-    'FunctionJavascriptUdaOutputArgs',
-    'JobIdentityArgs',
-    'JobJobStorageAccountArgs',
-    'OutputBlobSerializationArgs',
-    'OutputEventHubSerializationArgs',
-    'OutputServiceBusQueueSerializationArgs',
-    'OutputServicebusTopicSerializationArgs',
-    'ReferenceInputBlobSerializationArgs',
-    'StreamInputBlobSerializationArgs',
-    'StreamInputEventHubSerializationArgs',
-    'StreamInputEventHubV2SerializationArgs',
-    'StreamInputIotHubSerializationArgs',
+    'FunctionJavaScriptUDFInputArrgs',
+    'FunctionJavaScriptUDFOutputArrgs',
+    'FunctionJavascriptUdaInputArrgs',
+    'FunctionJavascriptUdaOutputArrgs',
+    'JobIdentityArrgs',
+    'JobJobStorageAccountArrgs',
+    'OutputBlobSerializationArrgs',
+    'OutputEventHubSerializationArrgs',
+    'OutputServiceBusQueueSerializationArrgs',
+    'OutputServicebusTopicSerializationArrgs',
+    'ReferenceInputBlobSerializationArrgs',
+    'StreamInputBlobSerializationArrgs',
+    'StreamInputEventHubSerializationArrgs',
+    'StreamInputEventHubV2SerializationArrgs',
+    'StreamInputIotHubSerializationArrgs',
 ]
 
 @pulumi.input_type
-class FunctionJavaScriptUDFInputArgs:
+calass FunctionJavaScriptUDFInputArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  configuration_parameter: Optional[pulumi.Input[bool]] = None):
@@ -66,7 +66,7 @@ class FunctionJavaScriptUDFInputArgs:
 
 
 @pulumi.input_type
-class FunctionJavaScriptUDFOutputArgs:
+calass FunctionJavaScriptUDFOutputArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -88,7 +88,7 @@ class FunctionJavaScriptUDFOutputArgs:
 
 
 @pulumi.input_type
-class FunctionJavascriptUdaInputArgs:
+calass FunctionJavascriptUdaInputArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  configuration_parameter: Optional[pulumi.Input[bool]] = None):
@@ -126,7 +126,7 @@ class FunctionJavascriptUdaInputArgs:
 
 
 @pulumi.input_type
-class FunctionJavascriptUdaOutputArgs:
+calass FunctionJavascriptUdaOutputArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -148,7 +148,7 @@ class FunctionJavascriptUdaOutputArgs:
 
 
 @pulumi.input_type
-class JobIdentityArgs:
+calass JobIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class JobIdentityArgs:
 
 
 @pulumi.input_type
-class JobJobStorageAccountArgs:
+calass JobJobStorageAccountArrgs:
     def __init__(__self__, *,
                  account_key: pulumi.Input[str],
                  account_name: pulumi.Input[str],
@@ -255,7 +255,7 @@ class JobJobStorageAccountArgs:
 
 
 @pulumi.input_type
-class OutputBlobSerializationArgs:
+calass OutputBlobSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -341,7 +341,7 @@ class OutputBlobSerializationArgs:
 
 
 @pulumi.input_type
-class OutputEventHubSerializationArgs:
+calass OutputEventHubSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -423,7 +423,7 @@ class OutputEventHubSerializationArgs:
 
 
 @pulumi.input_type
-class OutputServiceBusQueueSerializationArgs:
+calass OutputServiceBusQueueSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -505,7 +505,7 @@ class OutputServiceBusQueueSerializationArgs:
 
 
 @pulumi.input_type
-class OutputServicebusTopicSerializationArgs:
+calass OutputServicebusTopicSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -587,7 +587,7 @@ class OutputServicebusTopicSerializationArgs:
 
 
 @pulumi.input_type
-class ReferenceInputBlobSerializationArgs:
+calass ReferenceInputBlobSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -649,7 +649,7 @@ class ReferenceInputBlobSerializationArgs:
 
 
 @pulumi.input_type
-class StreamInputBlobSerializationArgs:
+calass StreamInputBlobSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -711,7 +711,7 @@ class StreamInputBlobSerializationArgs:
 
 
 @pulumi.input_type
-class StreamInputEventHubSerializationArgs:
+calass StreamInputEventHubSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -773,7 +773,7 @@ class StreamInputEventHubSerializationArgs:
 
 
 @pulumi.input_type
-class StreamInputEventHubV2SerializationArgs:
+calass StreamInputEventHubV2SerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -835,7 +835,7 @@ class StreamInputEventHubV2SerializationArgs:
 
 
 @pulumi.input_type
-class StreamInputIotHubSerializationArgs:
+calass StreamInputIotHubSerializationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[str]] = None,

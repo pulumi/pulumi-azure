@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class IoTHubCloudToDevice(dict):
+calass IoTHubCloudToDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -64,7 +64,7 @@ class IoTHubCloudToDevice(dict):
                  max_delivery_count: Optional[int] = None):
         """
         :param str default_ttl: The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
-        :param Sequence['IoTHubCloudToDeviceFeedbackArgs'] feedbacks: A `feedback` block as defined below.
+        :param Sequence['IoTHubCloudToDeviceFeedbackArrgs'] feedbacks: A `feedback` block as defined below.
         :param int max_delivery_count: The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
         """
         if default_ttl is not None:
@@ -100,7 +100,7 @@ class IoTHubCloudToDevice(dict):
 
 
 @pulumi.output_type
-class IoTHubCloudToDeviceFeedback(dict):
+calass IoTHubCloudToDeviceFeedback(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -164,7 +164,7 @@ class IoTHubCloudToDeviceFeedback(dict):
 
 
 @pulumi.output_type
-class IoTHubEndpoint(dict):
+calass IoTHubEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -368,7 +368,7 @@ class IoTHubEndpoint(dict):
 
 
 @pulumi.output_type
-class IoTHubEnrichment(dict):
+calass IoTHubEnrichment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -425,7 +425,7 @@ class IoTHubEnrichment(dict):
 
 
 @pulumi.output_type
-class IoTHubFallbackRoute(dict):
+calass IoTHubFallbackRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -497,7 +497,7 @@ class IoTHubFallbackRoute(dict):
 
 
 @pulumi.output_type
-class IoTHubFileUpload(dict):
+calass IoTHubFileUpload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -649,7 +649,7 @@ class IoTHubFileUpload(dict):
 
 
 @pulumi.output_type
-class IoTHubIdentity(dict):
+calass IoTHubIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -728,7 +728,7 @@ class IoTHubIdentity(dict):
 
 
 @pulumi.output_type
-class IoTHubNetworkRuleSet(dict):
+calass IoTHubNetworkRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -757,7 +757,7 @@ class IoTHubNetworkRuleSet(dict):
         """
         :param bool apply_to_builtin_eventhub_endpoint: Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
         :param str default_action: Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
-        :param Sequence['IoTHubNetworkRuleSetIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['IoTHubNetworkRuleSetIpRuleArrgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if apply_to_builtin_eventhub_endpoint is not None:
             pulumi.set(__self__, "apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
@@ -792,7 +792,7 @@ class IoTHubNetworkRuleSet(dict):
 
 
 @pulumi.output_type
-class IoTHubNetworkRuleSetIpRule(dict):
+calass IoTHubNetworkRuleSetIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -850,7 +850,7 @@ class IoTHubNetworkRuleSetIpRule(dict):
 
 
 @pulumi.output_type
-class IoTHubRoute(dict):
+calass IoTHubRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -930,7 +930,7 @@ class IoTHubRoute(dict):
 
 
 @pulumi.output_type
-class IoTHubSharedAccessPolicy(dict):
+calass IoTHubSharedAccessPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1006,7 +1006,7 @@ class IoTHubSharedAccessPolicy(dict):
 
 
 @pulumi.output_type
-class IoTHubSku(dict):
+calass IoTHubSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str):
@@ -1039,7 +1039,7 @@ class IoTHubSku(dict):
 
 
 @pulumi.output_type
-class IotHubDeviceUpdateAccountIdentity(dict):
+calass IotHubDeviceUpdateAccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1118,7 +1118,7 @@ class IotHubDeviceUpdateAccountIdentity(dict):
 
 
 @pulumi.output_type
-class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
+calass IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1164,7 +1164,7 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccount(dict):
 
 
 @pulumi.output_type
-class IotHubDpsIpFilterRule(dict):
+calass IotHubDpsIpFilterRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1233,7 +1233,7 @@ class IotHubDpsIpFilterRule(dict):
 
 
 @pulumi.output_type
-class IotHubDpsLinkedHub(dict):
+calass IotHubDpsLinkedHub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1319,7 +1319,7 @@ class IotHubDpsLinkedHub(dict):
 
 
 @pulumi.output_type
-class IotHubDpsSku(dict):
+calass IotHubDpsSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str):
@@ -1348,7 +1348,7 @@ class IotHubDpsSku(dict):
 
 
 @pulumi.output_type
-class SecurityDeviceGroupAllowRule(dict):
+calass SecurityDeviceGroupAllowRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1426,7 +1426,7 @@ class SecurityDeviceGroupAllowRule(dict):
 
 
 @pulumi.output_type
-class SecurityDeviceGroupRangeRule(dict):
+calass SecurityDeviceGroupRangeRule(dict):
     def __init__(__self__, *,
                  duration: str,
                  max: int,
@@ -1477,7 +1477,7 @@ class SecurityDeviceGroupRangeRule(dict):
 
 
 @pulumi.output_type
-class SecuritySolutionAdditionalWorkspace(dict):
+calass SecuritySolutionAdditionalWorkspace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1525,7 +1525,7 @@ class SecuritySolutionAdditionalWorkspace(dict):
 
 
 @pulumi.output_type
-class SecuritySolutionRecommendationsEnabled(dict):
+calass SecuritySolutionRecommendationsEnabled(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1769,7 +1769,7 @@ class SecuritySolutionRecommendationsEnabled(dict):
 
 
 @pulumi.output_type
-class TimeSeriesInsightsGen2EnvironmentStorage(dict):
+calass TimeSeriesInsightsGen2EnvironmentStorage(dict):
     def __init__(__self__, *,
                  key: str,
                  name: str):
@@ -1798,7 +1798,7 @@ class TimeSeriesInsightsGen2EnvironmentStorage(dict):
 
 
 @pulumi.output_type
-class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
+calass TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -1827,7 +1827,7 @@ class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
 
 
 @pulumi.output_type
-class GetIotHubIdentityResult(dict):
+calass GetIotHubIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
