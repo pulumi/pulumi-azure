@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Deployment.
@@ -252,12 +251,6 @@ func (i *NetworkManagerDeployment) ToNetworkManagerDeploymentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerDeploymentOutput)
 }
 
-func (i *NetworkManagerDeployment) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerDeployment] {
-	return pulumix.Output[*NetworkManagerDeployment]{
-		OutputState: i.ToNetworkManagerDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerDeploymentArrayInput is an input type that accepts NetworkManagerDeploymentArray and NetworkManagerDeploymentArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerDeploymentArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i NetworkManagerDeploymentArray) ToNetworkManagerDeploymentArrayOutput() N
 
 func (i NetworkManagerDeploymentArray) ToNetworkManagerDeploymentArrayOutputWithContext(ctx context.Context) NetworkManagerDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerDeploymentArrayOutput)
-}
-
-func (i NetworkManagerDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerDeployment] {
-	return pulumix.Output[[]*NetworkManagerDeployment]{
-		OutputState: i.ToNetworkManagerDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerDeploymentMapInput is an input type that accepts NetworkManagerDeploymentMap and NetworkManagerDeploymentMapOutput values.
@@ -314,12 +301,6 @@ func (i NetworkManagerDeploymentMap) ToNetworkManagerDeploymentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerDeploymentMapOutput)
 }
 
-func (i NetworkManagerDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerDeployment] {
-	return pulumix.Output[map[string]*NetworkManagerDeployment]{
-		OutputState: i.ToNetworkManagerDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerDeploymentOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerDeploymentOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o NetworkManagerDeploymentOutput) ToNetworkManagerDeploymentOutput() Netwo
 
 func (o NetworkManagerDeploymentOutput) ToNetworkManagerDeploymentOutputWithContext(ctx context.Context) NetworkManagerDeploymentOutput {
 	return o
-}
-
-func (o NetworkManagerDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerDeployment] {
-	return pulumix.Output[*NetworkManagerDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
@@ -379,12 +354,6 @@ func (o NetworkManagerDeploymentArrayOutput) ToNetworkManagerDeploymentArrayOutp
 	return o
 }
 
-func (o NetworkManagerDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerDeployment] {
-	return pulumix.Output[[]*NetworkManagerDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerDeploymentArrayOutput) Index(i pulumi.IntInput) NetworkManagerDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerDeployment {
 		return vs[0].([]*NetworkManagerDeployment)[vs[1].(int)]
@@ -403,12 +372,6 @@ func (o NetworkManagerDeploymentMapOutput) ToNetworkManagerDeploymentMapOutput()
 
 func (o NetworkManagerDeploymentMapOutput) ToNetworkManagerDeploymentMapOutputWithContext(ctx context.Context) NetworkManagerDeploymentMapOutput {
 	return o
-}
-
-func (o NetworkManagerDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerDeployment] {
-	return pulumix.Output[map[string]*NetworkManagerDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerDeploymentMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerDeploymentOutput {

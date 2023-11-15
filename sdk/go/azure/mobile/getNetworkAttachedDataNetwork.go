@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Mobile Network Attached Data Network.
@@ -129,12 +128,6 @@ func (o LookupNetworkAttachedDataNetworkResultOutput) ToLookupNetworkAttachedDat
 
 func (o LookupNetworkAttachedDataNetworkResultOutput) ToLookupNetworkAttachedDataNetworkResultOutputWithContext(ctx context.Context) LookupNetworkAttachedDataNetworkResultOutput {
 	return o
-}
-
-func (o LookupNetworkAttachedDataNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkAttachedDataNetworkResult] {
-	return pulumix.Output[LookupNetworkAttachedDataNetworkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The DNS servers to signal to UEs to use for this attached data network.

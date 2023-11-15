@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Load Balancer
@@ -118,12 +117,6 @@ func (o GetLBResultOutput) ToGetLBResultOutput() GetLBResultOutput {
 
 func (o GetLBResultOutput) ToGetLBResultOutputWithContext(ctx context.Context) GetLBResultOutput {
 	return o
-}
-
-func (o GetLBResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLBResult] {
-	return pulumix.Output[GetLBResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `frontendIpConfiguration` block as documented below.

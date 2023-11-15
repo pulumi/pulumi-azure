@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Spring Cloud Application with a MySQL Database.
@@ -255,12 +254,6 @@ func (i *SpringCloudAppMysqlAssociation) ToSpringCloudAppMysqlAssociationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationOutput)
 }
 
-func (i *SpringCloudAppMysqlAssociation) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[*SpringCloudAppMysqlAssociation]{
-		OutputState: i.ToSpringCloudAppMysqlAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudAppMysqlAssociationArrayInput is an input type that accepts SpringCloudAppMysqlAssociationArray and SpringCloudAppMysqlAssociationArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppMysqlAssociationArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i SpringCloudAppMysqlAssociationArray) ToSpringCloudAppMysqlAssociationArr
 
 func (i SpringCloudAppMysqlAssociationArray) ToSpringCloudAppMysqlAssociationArrayOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationArrayOutput)
-}
-
-func (i SpringCloudAppMysqlAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[[]*SpringCloudAppMysqlAssociation]{
-		OutputState: i.ToSpringCloudAppMysqlAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudAppMysqlAssociationMapInput is an input type that accepts SpringCloudAppMysqlAssociationMap and SpringCloudAppMysqlAssociationMapOutput values.
@@ -317,12 +304,6 @@ func (i SpringCloudAppMysqlAssociationMap) ToSpringCloudAppMysqlAssociationMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppMysqlAssociationMapOutput)
 }
 
-func (i SpringCloudAppMysqlAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[map[string]*SpringCloudAppMysqlAssociation]{
-		OutputState: i.ToSpringCloudAppMysqlAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudAppMysqlAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppMysqlAssociationOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationOu
 
 func (o SpringCloudAppMysqlAssociationOutput) ToSpringCloudAppMysqlAssociationOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationOutput {
 	return o
-}
-
-func (o SpringCloudAppMysqlAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[*SpringCloudAppMysqlAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
@@ -387,12 +362,6 @@ func (o SpringCloudAppMysqlAssociationArrayOutput) ToSpringCloudAppMysqlAssociat
 	return o
 }
 
-func (o SpringCloudAppMysqlAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[[]*SpringCloudAppMysqlAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudAppMysqlAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppMysqlAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppMysqlAssociation {
 		return vs[0].([]*SpringCloudAppMysqlAssociation)[vs[1].(int)]
@@ -411,12 +380,6 @@ func (o SpringCloudAppMysqlAssociationMapOutput) ToSpringCloudAppMysqlAssociatio
 
 func (o SpringCloudAppMysqlAssociationMapOutput) ToSpringCloudAppMysqlAssociationMapOutputWithContext(ctx context.Context) SpringCloudAppMysqlAssociationMapOutput {
 	return o
-}
-
-func (o SpringCloudAppMysqlAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppMysqlAssociation] {
-	return pulumix.Output[map[string]*SpringCloudAppMysqlAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudAppMysqlAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppMysqlAssociationOutput {

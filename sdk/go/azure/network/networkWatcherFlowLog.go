@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -307,12 +306,6 @@ func (i *NetworkWatcherFlowLog) ToNetworkWatcherFlowLogOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherFlowLogOutput)
 }
 
-func (i *NetworkWatcherFlowLog) ToOutput(ctx context.Context) pulumix.Output[*NetworkWatcherFlowLog] {
-	return pulumix.Output[*NetworkWatcherFlowLog]{
-		OutputState: i.ToNetworkWatcherFlowLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkWatcherFlowLogArrayInput is an input type that accepts NetworkWatcherFlowLogArray and NetworkWatcherFlowLogArrayOutput values.
 // You can construct a concrete instance of `NetworkWatcherFlowLogArrayInput` via:
 //
@@ -336,12 +329,6 @@ func (i NetworkWatcherFlowLogArray) ToNetworkWatcherFlowLogArrayOutput() Network
 
 func (i NetworkWatcherFlowLogArray) ToNetworkWatcherFlowLogArrayOutputWithContext(ctx context.Context) NetworkWatcherFlowLogArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherFlowLogArrayOutput)
-}
-
-func (i NetworkWatcherFlowLogArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkWatcherFlowLog] {
-	return pulumix.Output[[]*NetworkWatcherFlowLog]{
-		OutputState: i.ToNetworkWatcherFlowLogArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkWatcherFlowLogMapInput is an input type that accepts NetworkWatcherFlowLogMap and NetworkWatcherFlowLogMapOutput values.
@@ -369,12 +356,6 @@ func (i NetworkWatcherFlowLogMap) ToNetworkWatcherFlowLogMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherFlowLogMapOutput)
 }
 
-func (i NetworkWatcherFlowLogMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkWatcherFlowLog] {
-	return pulumix.Output[map[string]*NetworkWatcherFlowLog]{
-		OutputState: i.ToNetworkWatcherFlowLogMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkWatcherFlowLogOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherFlowLogOutput) ElementType() reflect.Type {
@@ -387,12 +368,6 @@ func (o NetworkWatcherFlowLogOutput) ToNetworkWatcherFlowLogOutput() NetworkWatc
 
 func (o NetworkWatcherFlowLogOutput) ToNetworkWatcherFlowLogOutputWithContext(ctx context.Context) NetworkWatcherFlowLogOutput {
 	return o
-}
-
-func (o NetworkWatcherFlowLogOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkWatcherFlowLog] {
-	return pulumix.Output[*NetworkWatcherFlowLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Network Flow Logging be Enabled?
@@ -466,12 +441,6 @@ func (o NetworkWatcherFlowLogArrayOutput) ToNetworkWatcherFlowLogArrayOutputWith
 	return o
 }
 
-func (o NetworkWatcherFlowLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkWatcherFlowLog] {
-	return pulumix.Output[[]*NetworkWatcherFlowLog]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkWatcherFlowLogArrayOutput) Index(i pulumi.IntInput) NetworkWatcherFlowLogOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkWatcherFlowLog {
 		return vs[0].([]*NetworkWatcherFlowLog)[vs[1].(int)]
@@ -490,12 +459,6 @@ func (o NetworkWatcherFlowLogMapOutput) ToNetworkWatcherFlowLogMapOutput() Netwo
 
 func (o NetworkWatcherFlowLogMapOutput) ToNetworkWatcherFlowLogMapOutputWithContext(ctx context.Context) NetworkWatcherFlowLogMapOutput {
 	return o
-}
-
-func (o NetworkWatcherFlowLogMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkWatcherFlowLog] {
-	return pulumix.Output[map[string]*NetworkWatcherFlowLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkWatcherFlowLogMapOutput) MapIndex(k pulumi.StringInput) NetworkWatcherFlowLogOutput {

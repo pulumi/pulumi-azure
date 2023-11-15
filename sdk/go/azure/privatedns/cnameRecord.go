@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage DNS CNAME Records within Azure Private DNS.
@@ -218,12 +217,6 @@ func (i *CnameRecord) ToCnameRecordOutputWithContext(ctx context.Context) CnameR
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordOutput)
 }
 
-func (i *CnameRecord) ToOutput(ctx context.Context) pulumix.Output[*CnameRecord] {
-	return pulumix.Output[*CnameRecord]{
-		OutputState: i.ToCnameRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CnameRecordArrayInput is an input type that accepts CnameRecordArray and CnameRecordArrayOutput values.
 // You can construct a concrete instance of `CnameRecordArrayInput` via:
 //
@@ -247,12 +240,6 @@ func (i CnameRecordArray) ToCnameRecordArrayOutput() CnameRecordArrayOutput {
 
 func (i CnameRecordArray) ToCnameRecordArrayOutputWithContext(ctx context.Context) CnameRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordArrayOutput)
-}
-
-func (i CnameRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*CnameRecord] {
-	return pulumix.Output[[]*CnameRecord]{
-		OutputState: i.ToCnameRecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CnameRecordMapInput is an input type that accepts CnameRecordMap and CnameRecordMapOutput values.
@@ -280,12 +267,6 @@ func (i CnameRecordMap) ToCnameRecordMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordMapOutput)
 }
 
-func (i CnameRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CnameRecord] {
-	return pulumix.Output[map[string]*CnameRecord]{
-		OutputState: i.ToCnameRecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CnameRecordOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordOutput) ElementType() reflect.Type {
@@ -298,12 +279,6 @@ func (o CnameRecordOutput) ToCnameRecordOutput() CnameRecordOutput {
 
 func (o CnameRecordOutput) ToCnameRecordOutputWithContext(ctx context.Context) CnameRecordOutput {
 	return o
-}
-
-func (o CnameRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*CnameRecord] {
-	return pulumix.Output[*CnameRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS CNAME Record.
@@ -355,12 +330,6 @@ func (o CnameRecordArrayOutput) ToCnameRecordArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o CnameRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CnameRecord] {
-	return pulumix.Output[[]*CnameRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CnameRecordArrayOutput) Index(i pulumi.IntInput) CnameRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CnameRecord {
 		return vs[0].([]*CnameRecord)[vs[1].(int)]
@@ -379,12 +348,6 @@ func (o CnameRecordMapOutput) ToCnameRecordMapOutput() CnameRecordMapOutput {
 
 func (o CnameRecordMapOutput) ToCnameRecordMapOutputWithContext(ctx context.Context) CnameRecordMapOutput {
 	return o
-}
-
-func (o CnameRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CnameRecord] {
-	return pulumix.Output[map[string]*CnameRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CnameRecordMapOutput) MapIndex(k pulumi.StringInput) CnameRecordOutput {

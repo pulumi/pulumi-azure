@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access the configuration of the AzureRM provider.
@@ -86,12 +85,6 @@ func (o GetClientConfigResultOutput) ToGetClientConfigResultOutput() GetClientCo
 
 func (o GetClientConfigResultOutput) ToGetClientConfigResultOutputWithContext(ctx context.Context) GetClientConfigResultOutput {
 	return o
-}
-
-func (o GetClientConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClientConfigResult] {
-	return pulumix.Output[GetClientConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // is set to the Azure Client ID (Application Object ID).

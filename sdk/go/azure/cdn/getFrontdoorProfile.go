@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Profile.
@@ -112,12 +111,6 @@ func (o LookupFrontdoorProfileResultOutput) ToLookupFrontdoorProfileResultOutput
 
 func (o LookupFrontdoorProfileResultOutput) ToLookupFrontdoorProfileResultOutputWithContext(ctx context.Context) LookupFrontdoorProfileResultOutput {
 	return o
-}
-
-func (o LookupFrontdoorProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorProfileResult] {
-	return pulumix.Output[LookupFrontdoorProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

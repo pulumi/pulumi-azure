@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Deployment Script of Azure PowerShell.
@@ -347,12 +346,6 @@ func (i *ResourceDeploymentScriptPowerShell) ToResourceDeploymentScriptPowerShel
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellOutput)
 }
 
-func (i *ResourceDeploymentScriptPowerShell) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[*ResourceDeploymentScriptPowerShell]{
-		OutputState: i.ToResourceDeploymentScriptPowerShellOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceDeploymentScriptPowerShellArrayInput is an input type that accepts ResourceDeploymentScriptPowerShellArray and ResourceDeploymentScriptPowerShellArrayOutput values.
 // You can construct a concrete instance of `ResourceDeploymentScriptPowerShellArrayInput` via:
 //
@@ -376,12 +369,6 @@ func (i ResourceDeploymentScriptPowerShellArray) ToResourceDeploymentScriptPower
 
 func (i ResourceDeploymentScriptPowerShellArray) ToResourceDeploymentScriptPowerShellArrayOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellArrayOutput)
-}
-
-func (i ResourceDeploymentScriptPowerShellArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[[]*ResourceDeploymentScriptPowerShell]{
-		OutputState: i.ToResourceDeploymentScriptPowerShellArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceDeploymentScriptPowerShellMapInput is an input type that accepts ResourceDeploymentScriptPowerShellMap and ResourceDeploymentScriptPowerShellMapOutput values.
@@ -409,12 +396,6 @@ func (i ResourceDeploymentScriptPowerShellMap) ToResourceDeploymentScriptPowerSh
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDeploymentScriptPowerShellMapOutput)
 }
 
-func (i ResourceDeploymentScriptPowerShellMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[map[string]*ResourceDeploymentScriptPowerShell]{
-		OutputState: i.ToResourceDeploymentScriptPowerShellMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDeploymentScriptPowerShellOutput struct{ *pulumi.OutputState }
 
 func (ResourceDeploymentScriptPowerShellOutput) ElementType() reflect.Type {
@@ -427,12 +408,6 @@ func (o ResourceDeploymentScriptPowerShellOutput) ToResourceDeploymentScriptPowe
 
 func (o ResourceDeploymentScriptPowerShellOutput) ToResourceDeploymentScriptPowerShellOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellOutput {
 	return o
-}
-
-func (o ResourceDeploymentScriptPowerShellOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[*ResourceDeploymentScriptPowerShell]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
@@ -547,12 +522,6 @@ func (o ResourceDeploymentScriptPowerShellArrayOutput) ToResourceDeploymentScrip
 	return o
 }
 
-func (o ResourceDeploymentScriptPowerShellArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[[]*ResourceDeploymentScriptPowerShell]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDeploymentScriptPowerShellArrayOutput) Index(i pulumi.IntInput) ResourceDeploymentScriptPowerShellOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceDeploymentScriptPowerShell {
 		return vs[0].([]*ResourceDeploymentScriptPowerShell)[vs[1].(int)]
@@ -571,12 +540,6 @@ func (o ResourceDeploymentScriptPowerShellMapOutput) ToResourceDeploymentScriptP
 
 func (o ResourceDeploymentScriptPowerShellMapOutput) ToResourceDeploymentScriptPowerShellMapOutputWithContext(ctx context.Context) ResourceDeploymentScriptPowerShellMapOutput {
 	return o
-}
-
-func (o ResourceDeploymentScriptPowerShellMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDeploymentScriptPowerShell] {
-	return pulumix.Output[map[string]*ResourceDeploymentScriptPowerShell]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDeploymentScriptPowerShellMapOutput) MapIndex(k pulumi.StringInput) ResourceDeploymentScriptPowerShellOutput {

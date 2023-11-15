@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source return the available Extended Locations for a specific Azure Region.
@@ -100,12 +99,6 @@ func (o GetExtendedLocationsResultOutput) ToGetExtendedLocationsResultOutput() G
 
 func (o GetExtendedLocationsResultOutput) ToGetExtendedLocationsResultOutputWithContext(ctx context.Context) GetExtendedLocationsResultOutput {
 	return o
-}
-
-func (o GetExtendedLocationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExtendedLocationsResult] {
-	return pulumix.Output[GetExtendedLocationsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The available extended locations for the Azure Location.

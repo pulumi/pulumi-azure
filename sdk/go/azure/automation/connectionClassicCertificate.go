@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Connection with type `AzureClassicCertificate`.
@@ -232,12 +231,6 @@ func (i *ConnectionClassicCertificate) ToConnectionClassicCertificateOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateOutput)
 }
 
-func (i *ConnectionClassicCertificate) ToOutput(ctx context.Context) pulumix.Output[*ConnectionClassicCertificate] {
-	return pulumix.Output[*ConnectionClassicCertificate]{
-		OutputState: i.ToConnectionClassicCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionClassicCertificateArrayInput is an input type that accepts ConnectionClassicCertificateArray and ConnectionClassicCertificateArrayOutput values.
 // You can construct a concrete instance of `ConnectionClassicCertificateArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i ConnectionClassicCertificateArray) ToConnectionClassicCertificateArrayOu
 
 func (i ConnectionClassicCertificateArray) ToConnectionClassicCertificateArrayOutputWithContext(ctx context.Context) ConnectionClassicCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateArrayOutput)
-}
-
-func (i ConnectionClassicCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionClassicCertificate] {
-	return pulumix.Output[[]*ConnectionClassicCertificate]{
-		OutputState: i.ToConnectionClassicCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectionClassicCertificateMapInput is an input type that accepts ConnectionClassicCertificateMap and ConnectionClassicCertificateMapOutput values.
@@ -294,12 +281,6 @@ func (i ConnectionClassicCertificateMap) ToConnectionClassicCertificateMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionClassicCertificateMapOutput)
 }
 
-func (i ConnectionClassicCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionClassicCertificate] {
-	return pulumix.Output[map[string]*ConnectionClassicCertificate]{
-		OutputState: i.ToConnectionClassicCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionClassicCertificateOutput struct{ *pulumi.OutputState }
 
 func (ConnectionClassicCertificateOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificateOutput
 
 func (o ConnectionClassicCertificateOutput) ToConnectionClassicCertificateOutputWithContext(ctx context.Context) ConnectionClassicCertificateOutput {
 	return o
-}
-
-func (o ConnectionClassicCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionClassicCertificate] {
-	return pulumix.Output[*ConnectionClassicCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -369,12 +344,6 @@ func (o ConnectionClassicCertificateArrayOutput) ToConnectionClassicCertificateA
 	return o
 }
 
-func (o ConnectionClassicCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionClassicCertificate] {
-	return pulumix.Output[[]*ConnectionClassicCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionClassicCertificateArrayOutput) Index(i pulumi.IntInput) ConnectionClassicCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionClassicCertificate {
 		return vs[0].([]*ConnectionClassicCertificate)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o ConnectionClassicCertificateMapOutput) ToConnectionClassicCertificateMap
 
 func (o ConnectionClassicCertificateMapOutput) ToConnectionClassicCertificateMapOutputWithContext(ctx context.Context) ConnectionClassicCertificateMapOutput {
 	return o
-}
-
-func (o ConnectionClassicCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionClassicCertificate] {
-	return pulumix.Output[map[string]*ConnectionClassicCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionClassicCertificateMapOutput) MapIndex(k pulumi.StringInput) ConnectionClassicCertificateOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Customer Managed Key for a MySQL Server.
@@ -254,12 +253,6 @@ func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
 }
 
-func (i *ServerKey) ToOutput(ctx context.Context) pulumix.Output[*ServerKey] {
-	return pulumix.Output[*ServerKey]{
-		OutputState: i.ToServerKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerKeyArrayInput is an input type that accepts ServerKeyArray and ServerKeyArrayOutput values.
 // You can construct a concrete instance of `ServerKeyArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i ServerKeyArray) ToServerKeyArrayOutput() ServerKeyArrayOutput {
 
 func (i ServerKeyArray) ToServerKeyArrayOutputWithContext(ctx context.Context) ServerKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyArrayOutput)
-}
-
-func (i ServerKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerKey] {
-	return pulumix.Output[[]*ServerKey]{
-		OutputState: i.ToServerKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerKeyMapInput is an input type that accepts ServerKeyMap and ServerKeyMapOutput values.
@@ -316,12 +303,6 @@ func (i ServerKeyMap) ToServerKeyMapOutputWithContext(ctx context.Context) Serve
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyMapOutput)
 }
 
-func (i ServerKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerKey] {
-	return pulumix.Output[map[string]*ServerKey]{
-		OutputState: i.ToServerKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerKeyOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o ServerKeyOutput) ToServerKeyOutput() ServerKeyOutput {
 
 func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyOutput {
 	return o
-}
-
-func (o ServerKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerKey] {
-	return pulumix.Output[*ServerKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL to a Key Vault Key.
@@ -366,12 +341,6 @@ func (o ServerKeyArrayOutput) ToServerKeyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ServerKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerKey] {
-	return pulumix.Output[[]*ServerKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerKeyArrayOutput) Index(i pulumi.IntInput) ServerKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerKey {
 		return vs[0].([]*ServerKey)[vs[1].(int)]
@@ -390,12 +359,6 @@ func (o ServerKeyMapOutput) ToServerKeyMapOutput() ServerKeyMapOutput {
 
 func (o ServerKeyMapOutput) ToServerKeyMapOutputWithContext(ctx context.Context) ServerKeyMapOutput {
 	return o
-}
-
-func (o ServerKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerKey] {
-	return pulumix.Output[map[string]*ServerKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerKeyMapOutput) MapIndex(k pulumi.StringInput) ServerKeyOutput {

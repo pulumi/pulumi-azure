@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault.
@@ -377,12 +376,6 @@ func (i *KeyVault) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultOutput)
 }
 
-func (i *KeyVault) ToOutput(ctx context.Context) pulumix.Output[*KeyVault] {
-	return pulumix.Output[*KeyVault]{
-		OutputState: i.ToKeyVaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyVaultArrayInput is an input type that accepts KeyVaultArray and KeyVaultArrayOutput values.
 // You can construct a concrete instance of `KeyVaultArrayInput` via:
 //
@@ -406,12 +399,6 @@ func (i KeyVaultArray) ToKeyVaultArrayOutput() KeyVaultArrayOutput {
 
 func (i KeyVaultArray) ToKeyVaultArrayOutputWithContext(ctx context.Context) KeyVaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultArrayOutput)
-}
-
-func (i KeyVaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeyVault] {
-	return pulumix.Output[[]*KeyVault]{
-		OutputState: i.ToKeyVaultArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KeyVaultMapInput is an input type that accepts KeyVaultMap and KeyVaultMapOutput values.
@@ -439,12 +426,6 @@ func (i KeyVaultMap) ToKeyVaultMapOutputWithContext(ctx context.Context) KeyVaul
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMapOutput)
 }
 
-func (i KeyVaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyVault] {
-	return pulumix.Output[map[string]*KeyVault]{
-		OutputState: i.ToKeyVaultMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultOutput) ElementType() reflect.Type {
@@ -457,12 +438,6 @@ func (o KeyVaultOutput) ToKeyVaultOutput() KeyVaultOutput {
 
 func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaultOutput {
 	return o
-}
-
-func (o KeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyVault] {
-	return pulumix.Output[*KeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of up to 1024 objects describing access policies, as described below.
@@ -572,12 +547,6 @@ func (o KeyVaultArrayOutput) ToKeyVaultArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o KeyVaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeyVault] {
-	return pulumix.Output[[]*KeyVault]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyVaultArrayOutput) Index(i pulumi.IntInput) KeyVaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeyVault {
 		return vs[0].([]*KeyVault)[vs[1].(int)]
@@ -596,12 +565,6 @@ func (o KeyVaultMapOutput) ToKeyVaultMapOutput() KeyVaultMapOutput {
 
 func (o KeyVaultMapOutput) ToKeyVaultMapOutputWithContext(ctx context.Context) KeyVaultMapOutput {
 	return o
-}
-
-func (o KeyVaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyVault] {
-	return pulumix.Output[map[string]*KeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyVaultMapOutput) MapIndex(k pulumi.StringInput) KeyVaultOutput {

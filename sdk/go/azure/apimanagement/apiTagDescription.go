@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Tag Description within an API Management Service.
@@ -141,12 +140,6 @@ func (i *ApiTagDescription) ToApiTagDescriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionOutput)
 }
 
-func (i *ApiTagDescription) ToOutput(ctx context.Context) pulumix.Output[*ApiTagDescription] {
-	return pulumix.Output[*ApiTagDescription]{
-		OutputState: i.ToApiTagDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiTagDescriptionArrayInput is an input type that accepts ApiTagDescriptionArray and ApiTagDescriptionArrayOutput values.
 // You can construct a concrete instance of `ApiTagDescriptionArrayInput` via:
 //
@@ -170,12 +163,6 @@ func (i ApiTagDescriptionArray) ToApiTagDescriptionArrayOutput() ApiTagDescripti
 
 func (i ApiTagDescriptionArray) ToApiTagDescriptionArrayOutputWithContext(ctx context.Context) ApiTagDescriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionArrayOutput)
-}
-
-func (i ApiTagDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiTagDescription] {
-	return pulumix.Output[[]*ApiTagDescription]{
-		OutputState: i.ToApiTagDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiTagDescriptionMapInput is an input type that accepts ApiTagDescriptionMap and ApiTagDescriptionMapOutput values.
@@ -203,12 +190,6 @@ func (i ApiTagDescriptionMap) ToApiTagDescriptionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiTagDescriptionMapOutput)
 }
 
-func (i ApiTagDescriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiTagDescription] {
-	return pulumix.Output[map[string]*ApiTagDescription]{
-		OutputState: i.ToApiTagDescriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiTagDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ApiTagDescriptionOutput) ElementType() reflect.Type {
@@ -221,12 +202,6 @@ func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutput() ApiTagDescriptionOu
 
 func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutputWithContext(ctx context.Context) ApiTagDescriptionOutput {
 	return o
-}
-
-func (o ApiTagDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiTagDescription] {
-	return pulumix.Output[*ApiTagDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
@@ -263,12 +238,6 @@ func (o ApiTagDescriptionArrayOutput) ToApiTagDescriptionArrayOutputWithContext(
 	return o
 }
 
-func (o ApiTagDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiTagDescription] {
-	return pulumix.Output[[]*ApiTagDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiTagDescriptionArrayOutput) Index(i pulumi.IntInput) ApiTagDescriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiTagDescription {
 		return vs[0].([]*ApiTagDescription)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o ApiTagDescriptionMapOutput) ToApiTagDescriptionMapOutput() ApiTagDescrip
 
 func (o ApiTagDescriptionMapOutput) ToApiTagDescriptionMapOutputWithContext(ctx context.Context) ApiTagDescriptionMapOutput {
 	return o
-}
-
-func (o ApiTagDescriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiTagDescription] {
-	return pulumix.Output[map[string]*ApiTagDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiTagDescriptionMapOutput) MapIndex(k pulumi.StringInput) ApiTagDescriptionOutput {

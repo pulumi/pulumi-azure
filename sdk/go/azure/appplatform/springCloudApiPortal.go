@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud API Portal.
@@ -240,12 +239,6 @@ func (i *SpringCloudApiPortal) ToSpringCloudApiPortalOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalOutput)
 }
 
-func (i *SpringCloudApiPortal) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortal] {
-	return pulumix.Output[*SpringCloudApiPortal]{
-		OutputState: i.ToSpringCloudApiPortalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudApiPortalArrayInput is an input type that accepts SpringCloudApiPortalArray and SpringCloudApiPortalArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalArrayInput` via:
 //
@@ -269,12 +262,6 @@ func (i SpringCloudApiPortalArray) ToSpringCloudApiPortalArrayOutput() SpringClo
 
 func (i SpringCloudApiPortalArray) ToSpringCloudApiPortalArrayOutputWithContext(ctx context.Context) SpringCloudApiPortalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalArrayOutput)
-}
-
-func (i SpringCloudApiPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApiPortal] {
-	return pulumix.Output[[]*SpringCloudApiPortal]{
-		OutputState: i.ToSpringCloudApiPortalArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudApiPortalMapInput is an input type that accepts SpringCloudApiPortalMap and SpringCloudApiPortalMapOutput values.
@@ -302,12 +289,6 @@ func (i SpringCloudApiPortalMap) ToSpringCloudApiPortalMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApiPortalMapOutput)
 }
 
-func (i SpringCloudApiPortalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApiPortal] {
-	return pulumix.Output[map[string]*SpringCloudApiPortal]{
-		OutputState: i.ToSpringCloudApiPortalMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudApiPortalOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudApiPortalOutput) ElementType() reflect.Type {
@@ -320,12 +301,6 @@ func (o SpringCloudApiPortalOutput) ToSpringCloudApiPortalOutput() SpringCloudAp
 
 func (o SpringCloudApiPortalOutput) ToSpringCloudApiPortalOutputWithContext(ctx context.Context) SpringCloudApiPortalOutput {
 	return o
-}
-
-func (o SpringCloudApiPortalOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApiPortal] {
-	return pulumix.Output[*SpringCloudApiPortal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of Spring Cloud Gateway.
@@ -382,12 +357,6 @@ func (o SpringCloudApiPortalArrayOutput) ToSpringCloudApiPortalArrayOutputWithCo
 	return o
 }
 
-func (o SpringCloudApiPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApiPortal] {
-	return pulumix.Output[[]*SpringCloudApiPortal]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudApiPortalArrayOutput) Index(i pulumi.IntInput) SpringCloudApiPortalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApiPortal {
 		return vs[0].([]*SpringCloudApiPortal)[vs[1].(int)]
@@ -406,12 +375,6 @@ func (o SpringCloudApiPortalMapOutput) ToSpringCloudApiPortalMapOutput() SpringC
 
 func (o SpringCloudApiPortalMapOutput) ToSpringCloudApiPortalMapOutputWithContext(ctx context.Context) SpringCloudApiPortalMapOutput {
 	return o
-}
-
-func (o SpringCloudApiPortalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApiPortal] {
-	return pulumix.Output[map[string]*SpringCloudApiPortal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudApiPortalMapOutput) MapIndex(k pulumi.StringInput) SpringCloudApiPortalOutput {

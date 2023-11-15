@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i HubEventHandlerArgs) ToHubEventHandlerOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventHandlerOutput)
 }
 
-func (i HubEventHandlerArgs) ToOutput(ctx context.Context) pulumix.Output[HubEventHandler] {
-	return pulumix.Output[HubEventHandler]{
-		OutputState: i.ToHubEventHandlerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HubEventHandlerArrayInput is an input type that accepts HubEventHandlerArray and HubEventHandlerArrayOutput values.
 // You can construct a concrete instance of `HubEventHandlerArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i HubEventHandlerArray) ToHubEventHandlerArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventHandlerArrayOutput)
 }
 
-func (i HubEventHandlerArray) ToOutput(ctx context.Context) pulumix.Output[[]HubEventHandler] {
-	return pulumix.Output[[]HubEventHandler]{
-		OutputState: i.ToHubEventHandlerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubEventHandlerOutput struct{ *pulumi.OutputState }
 
 func (HubEventHandlerOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o HubEventHandlerOutput) ToHubEventHandlerOutput() HubEventHandlerOutput {
 
 func (o HubEventHandlerOutput) ToHubEventHandlerOutputWithContext(ctx context.Context) HubEventHandlerOutput {
 	return o
-}
-
-func (o HubEventHandlerOutput) ToOutput(ctx context.Context) pulumix.Output[HubEventHandler] {
-	return pulumix.Output[HubEventHandler]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `auth` block as defined below.
@@ -148,12 +129,6 @@ func (o HubEventHandlerArrayOutput) ToHubEventHandlerArrayOutput() HubEventHandl
 
 func (o HubEventHandlerArrayOutput) ToHubEventHandlerArrayOutputWithContext(ctx context.Context) HubEventHandlerArrayOutput {
 	return o
-}
-
-func (o HubEventHandlerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HubEventHandler] {
-	return pulumix.Output[[]HubEventHandler]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubEventHandlerArrayOutput) Index(i pulumi.IntInput) HubEventHandlerOutput {
@@ -199,12 +174,6 @@ func (i HubEventHandlerAuthArgs) ToHubEventHandlerAuthOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventHandlerAuthOutput)
 }
 
-func (i HubEventHandlerAuthArgs) ToOutput(ctx context.Context) pulumix.Output[HubEventHandlerAuth] {
-	return pulumix.Output[HubEventHandlerAuth]{
-		OutputState: i.ToHubEventHandlerAuthOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HubEventHandlerAuthArgs) ToHubEventHandlerAuthPtrOutput() HubEventHandlerAuthPtrOutput {
 	return i.ToHubEventHandlerAuthPtrOutputWithContext(context.Background())
 }
@@ -246,12 +215,6 @@ func (i *hubEventHandlerAuthPtrType) ToHubEventHandlerAuthPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventHandlerAuthPtrOutput)
 }
 
-func (i *hubEventHandlerAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*HubEventHandlerAuth] {
-	return pulumix.Output[*HubEventHandlerAuth]{
-		OutputState: i.ToHubEventHandlerAuthPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubEventHandlerAuthOutput struct{ *pulumi.OutputState }
 
 func (HubEventHandlerAuthOutput) ElementType() reflect.Type {
@@ -276,12 +239,6 @@ func (o HubEventHandlerAuthOutput) ToHubEventHandlerAuthPtrOutputWithContext(ctx
 	}).(HubEventHandlerAuthPtrOutput)
 }
 
-func (o HubEventHandlerAuthOutput) ToOutput(ctx context.Context) pulumix.Output[HubEventHandlerAuth] {
-	return pulumix.Output[HubEventHandlerAuth]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specify the identity ID of the target resource.
 //
 // > **NOTE:** `managedIdentityId` is required if the auth block is defined
@@ -301,12 +258,6 @@ func (o HubEventHandlerAuthPtrOutput) ToHubEventHandlerAuthPtrOutput() HubEventH
 
 func (o HubEventHandlerAuthPtrOutput) ToHubEventHandlerAuthPtrOutputWithContext(ctx context.Context) HubEventHandlerAuthPtrOutput {
 	return o
-}
-
-func (o HubEventHandlerAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HubEventHandlerAuth] {
-	return pulumix.Output[*HubEventHandlerAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubEventHandlerAuthPtrOutput) Elem() HubEventHandlerAuthOutput {
@@ -376,12 +327,6 @@ func (i HubEventListenerArgs) ToHubEventListenerOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventListenerOutput)
 }
 
-func (i HubEventListenerArgs) ToOutput(ctx context.Context) pulumix.Output[HubEventListener] {
-	return pulumix.Output[HubEventListener]{
-		OutputState: i.ToHubEventListenerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HubEventListenerArrayInput is an input type that accepts HubEventListenerArray and HubEventListenerArrayOutput values.
 // You can construct a concrete instance of `HubEventListenerArrayInput` via:
 //
@@ -407,12 +352,6 @@ func (i HubEventListenerArray) ToHubEventListenerArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HubEventListenerArrayOutput)
 }
 
-func (i HubEventListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]HubEventListener] {
-	return pulumix.Output[[]HubEventListener]{
-		OutputState: i.ToHubEventListenerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubEventListenerOutput struct{ *pulumi.OutputState }
 
 func (HubEventListenerOutput) ElementType() reflect.Type {
@@ -425,12 +364,6 @@ func (o HubEventListenerOutput) ToHubEventListenerOutput() HubEventListenerOutpu
 
 func (o HubEventListenerOutput) ToHubEventListenerOutputWithContext(ctx context.Context) HubEventListenerOutput {
 	return o
-}
-
-func (o HubEventListenerOutput) ToOutput(ctx context.Context) pulumix.Output[HubEventListener] {
-	return pulumix.Output[HubEventListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the event hub name to receive the events.
@@ -465,12 +398,6 @@ func (o HubEventListenerArrayOutput) ToHubEventListenerArrayOutput() HubEventLis
 
 func (o HubEventListenerArrayOutput) ToHubEventListenerArrayOutputWithContext(ctx context.Context) HubEventListenerArrayOutput {
 	return o
-}
-
-func (o HubEventListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HubEventListener] {
-	return pulumix.Output[[]HubEventListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubEventListenerArrayOutput) Index(i pulumi.IntInput) HubEventListenerOutput {
@@ -524,12 +451,6 @@ func (i NetworkAclPrivateEndpointArgs) ToNetworkAclPrivateEndpointOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPrivateEndpointOutput)
 }
 
-func (i NetworkAclPrivateEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAclPrivateEndpoint] {
-	return pulumix.Output[NetworkAclPrivateEndpoint]{
-		OutputState: i.ToNetworkAclPrivateEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkAclPrivateEndpointArrayInput is an input type that accepts NetworkAclPrivateEndpointArray and NetworkAclPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `NetworkAclPrivateEndpointArrayInput` via:
 //
@@ -555,12 +476,6 @@ func (i NetworkAclPrivateEndpointArray) ToNetworkAclPrivateEndpointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPrivateEndpointArrayOutput)
 }
 
-func (i NetworkAclPrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAclPrivateEndpoint] {
-	return pulumix.Output[[]NetworkAclPrivateEndpoint]{
-		OutputState: i.ToNetworkAclPrivateEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkAclPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclPrivateEndpointOutput) ElementType() reflect.Type {
@@ -573,12 +488,6 @@ func (o NetworkAclPrivateEndpointOutput) ToNetworkAclPrivateEndpointOutput() Net
 
 func (o NetworkAclPrivateEndpointOutput) ToNetworkAclPrivateEndpointOutputWithContext(ctx context.Context) NetworkAclPrivateEndpointOutput {
 	return o
-}
-
-func (o NetworkAclPrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAclPrivateEndpoint] {
-	return pulumix.Output[NetworkAclPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -610,12 +519,6 @@ func (o NetworkAclPrivateEndpointArrayOutput) ToNetworkAclPrivateEndpointArrayOu
 
 func (o NetworkAclPrivateEndpointArrayOutput) ToNetworkAclPrivateEndpointArrayOutputWithContext(ctx context.Context) NetworkAclPrivateEndpointArrayOutput {
 	return o
-}
-
-func (o NetworkAclPrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAclPrivateEndpoint] {
-	return pulumix.Output[[]NetworkAclPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAclPrivateEndpointArrayOutput) Index(i pulumi.IntInput) NetworkAclPrivateEndpointOutput {
@@ -665,12 +568,6 @@ func (i NetworkAclPublicNetworkArgs) ToNetworkAclPublicNetworkOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPublicNetworkOutput)
 }
 
-func (i NetworkAclPublicNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAclPublicNetwork] {
-	return pulumix.Output[NetworkAclPublicNetwork]{
-		OutputState: i.ToNetworkAclPublicNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkAclPublicNetworkArgs) ToNetworkAclPublicNetworkPtrOutput() NetworkAclPublicNetworkPtrOutput {
 	return i.ToNetworkAclPublicNetworkPtrOutputWithContext(context.Background())
 }
@@ -712,12 +609,6 @@ func (i *networkAclPublicNetworkPtrType) ToNetworkAclPublicNetworkPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclPublicNetworkPtrOutput)
 }
 
-func (i *networkAclPublicNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclPublicNetwork] {
-	return pulumix.Output[*NetworkAclPublicNetwork]{
-		OutputState: i.ToNetworkAclPublicNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkAclPublicNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclPublicNetworkOutput) ElementType() reflect.Type {
@@ -740,12 +631,6 @@ func (o NetworkAclPublicNetworkOutput) ToNetworkAclPublicNetworkPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAclPublicNetwork) *NetworkAclPublicNetwork {
 		return &v
 	}).(NetworkAclPublicNetworkPtrOutput)
-}
-
-func (o NetworkAclPublicNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAclPublicNetwork] {
-	return pulumix.Output[NetworkAclPublicNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
@@ -772,12 +657,6 @@ func (o NetworkAclPublicNetworkPtrOutput) ToNetworkAclPublicNetworkPtrOutput() N
 
 func (o NetworkAclPublicNetworkPtrOutput) ToNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) NetworkAclPublicNetworkPtrOutput {
 	return o
-}
-
-func (o NetworkAclPublicNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclPublicNetwork] {
-	return pulumix.Output[*NetworkAclPublicNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAclPublicNetworkPtrOutput) Elem() NetworkAclPublicNetworkOutput {
@@ -861,12 +740,6 @@ func (i ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput)
 }
 
-func (i ServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: i.ToServiceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceIdentityArgs) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
 	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -908,12 +781,6 @@ func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
 }
 
-func (i *serviceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: i.ToServiceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityOutput) ElementType() reflect.Type {
@@ -936,12 +803,6 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
-}
-
-func (o ServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
@@ -978,12 +839,6 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutput() ServiceIdentityPt
 
 func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
@@ -1083,12 +938,6 @@ func (i ServiceLiveTraceArgs) ToServiceLiveTraceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTraceOutput)
 }
 
-func (i ServiceLiveTraceArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLiveTrace] {
-	return pulumix.Output[ServiceLiveTrace]{
-		OutputState: i.ToServiceLiveTraceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
 	return i.ToServiceLiveTracePtrOutputWithContext(context.Background())
 }
@@ -1130,12 +979,6 @@ func (i *serviceLiveTracePtrType) ToServiceLiveTracePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTracePtrOutput)
 }
 
-func (i *serviceLiveTracePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLiveTrace] {
-	return pulumix.Output[*ServiceLiveTrace]{
-		OutputState: i.ToServiceLiveTracePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceLiveTraceOutput struct{ *pulumi.OutputState }
 
 func (ServiceLiveTraceOutput) ElementType() reflect.Type {
@@ -1158,12 +1001,6 @@ func (o ServiceLiveTraceOutput) ToServiceLiveTracePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLiveTrace) *ServiceLiveTrace {
 		return &v
 	}).(ServiceLiveTracePtrOutput)
-}
-
-func (o ServiceLiveTraceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLiveTrace] {
-	return pulumix.Output[ServiceLiveTrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
@@ -1198,12 +1035,6 @@ func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutput() ServiceLiveTrac
 
 func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
 	return o
-}
-
-func (o ServiceLiveTracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLiveTrace] {
-	return pulumix.Output[*ServiceLiveTrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceLiveTracePtrOutput) Elem() ServiceLiveTraceOutput {
@@ -1293,12 +1124,6 @@ func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ToGetPrivateLin
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput)
 }
 
-func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkResourceSharedPrivateLinkResourceType] {
-	return pulumix.Output[GetPrivateLinkResourceSharedPrivateLinkResourceType]{
-		OutputState: i.ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput is an input type that accepts GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray and GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput` via:
 //
@@ -1324,12 +1149,6 @@ func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray) ToGetPrivateLi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput)
 }
 
-func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkResourceSharedPrivateLinkResourceType] {
-	return pulumix.Output[[]GetPrivateLinkResourceSharedPrivateLinkResourceType]{
-		OutputState: i.ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ElementType() reflect.Type {
@@ -1342,12 +1161,6 @@ func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ToGetPrivateL
 
 func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
 	return o
-}
-
-func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkResourceSharedPrivateLinkResourceType] {
-	return pulumix.Output[GetPrivateLinkResourceSharedPrivateLinkResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the resource type that has been onboarded to private link service.
@@ -1372,12 +1185,6 @@ func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ToGetPri
 
 func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ToGetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutputWithContext(ctx context.Context) GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput {
 	return o
-}
-
-func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateLinkResourceSharedPrivateLinkResourceType] {
-	return pulumix.Output[[]GetPrivateLinkResourceSharedPrivateLinkResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput) Index(i pulumi.IntInput) GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput {
