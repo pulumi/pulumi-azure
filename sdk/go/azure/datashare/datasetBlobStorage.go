@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Share Blob Storage Dataset.
@@ -264,12 +263,6 @@ func (i *DatasetBlobStorage) ToDatasetBlobStorageOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageOutput)
 }
 
-func (i *DatasetBlobStorage) ToOutput(ctx context.Context) pulumix.Output[*DatasetBlobStorage] {
-	return pulumix.Output[*DatasetBlobStorage]{
-		OutputState: i.ToDatasetBlobStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetBlobStorageArrayInput is an input type that accepts DatasetBlobStorageArray and DatasetBlobStorageArrayOutput values.
 // You can construct a concrete instance of `DatasetBlobStorageArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i DatasetBlobStorageArray) ToDatasetBlobStorageArrayOutput() DatasetBlobSt
 
 func (i DatasetBlobStorageArray) ToDatasetBlobStorageArrayOutputWithContext(ctx context.Context) DatasetBlobStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageArrayOutput)
-}
-
-func (i DatasetBlobStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetBlobStorage] {
-	return pulumix.Output[[]*DatasetBlobStorage]{
-		OutputState: i.ToDatasetBlobStorageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetBlobStorageMapInput is an input type that accepts DatasetBlobStorageMap and DatasetBlobStorageMapOutput values.
@@ -326,12 +313,6 @@ func (i DatasetBlobStorageMap) ToDatasetBlobStorageMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageMapOutput)
 }
 
-func (i DatasetBlobStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetBlobStorage] {
-	return pulumix.Output[map[string]*DatasetBlobStorage]{
-		OutputState: i.ToDatasetBlobStorageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutput() DatasetBlobStorag
 
 func (o DatasetBlobStorageOutput) ToDatasetBlobStorageOutputWithContext(ctx context.Context) DatasetBlobStorageOutput {
 	return o
-}
-
-func (o DatasetBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetBlobStorage] {
-	return pulumix.Output[*DatasetBlobStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -401,12 +376,6 @@ func (o DatasetBlobStorageArrayOutput) ToDatasetBlobStorageArrayOutputWithContex
 	return o
 }
 
-func (o DatasetBlobStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetBlobStorage] {
-	return pulumix.Output[[]*DatasetBlobStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetBlobStorageArrayOutput) Index(i pulumi.IntInput) DatasetBlobStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetBlobStorage {
 		return vs[0].([]*DatasetBlobStorage)[vs[1].(int)]
@@ -425,12 +394,6 @@ func (o DatasetBlobStorageMapOutput) ToDatasetBlobStorageMapOutput() DatasetBlob
 
 func (o DatasetBlobStorageMapOutput) ToDatasetBlobStorageMapOutputWithContext(ctx context.Context) DatasetBlobStorageMapOutput {
 	return o
-}
-
-func (o DatasetBlobStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetBlobStorage] {
-	return pulumix.Output[map[string]*DatasetBlobStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetBlobStorageMapOutput) MapIndex(k pulumi.StringInput) DatasetBlobStorageOutput {

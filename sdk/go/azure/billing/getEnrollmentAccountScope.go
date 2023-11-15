@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Enrollment Account Billing Scope.
@@ -105,12 +104,6 @@ func (o GetEnrollmentAccountScopeResultOutput) ToGetEnrollmentAccountScopeResult
 
 func (o GetEnrollmentAccountScopeResultOutput) ToGetEnrollmentAccountScopeResultOutputWithContext(ctx context.Context) GetEnrollmentAccountScopeResultOutput {
 	return o
-}
-
-func (o GetEnrollmentAccountScopeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEnrollmentAccountScopeResult] {
-	return pulumix.Output[GetEnrollmentAccountScopeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEnrollmentAccountScopeResultOutput) BillingAccountName() pulumi.StringOutput {

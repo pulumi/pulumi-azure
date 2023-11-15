@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Profile.
@@ -234,12 +233,6 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
-func (i *Profile) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
-	return pulumix.Output[*Profile]{
-		OutputState: i.ToProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfileArrayInput is an input type that accepts ProfileArray and ProfileArrayOutput values.
 // You can construct a concrete instance of `ProfileArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i ProfileArray) ToProfileArrayOutput() ProfileArrayOutput {
 
 func (i ProfileArray) ToProfileArrayOutputWithContext(ctx context.Context) ProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileArrayOutput)
-}
-
-func (i ProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*Profile] {
-	return pulumix.Output[[]*Profile]{
-		OutputState: i.ToProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProfileMapInput is an input type that accepts ProfileMap and ProfileMapOutput values.
@@ -296,12 +283,6 @@ func (i ProfileMap) ToProfileMapOutputWithContext(ctx context.Context) ProfileMa
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMapOutput)
 }
 
-func (i ProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Profile] {
-	return pulumix.Output[map[string]*Profile]{
-		OutputState: i.ToProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o ProfileOutput) ToProfileOutput() ProfileOutput {
 
 func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOutput {
 	return o
-}
-
-func (o ProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
-	return pulumix.Output[*Profile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `containerNetworkInterface` block as documented below.
@@ -366,12 +341,6 @@ func (o ProfileArrayOutput) ToProfileArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Profile] {
-	return pulumix.Output[[]*Profile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfileArrayOutput) Index(i pulumi.IntInput) ProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Profile {
 		return vs[0].([]*Profile)[vs[1].(int)]
@@ -390,12 +359,6 @@ func (o ProfileMapOutput) ToProfileMapOutput() ProfileMapOutput {
 
 func (o ProfileMapOutput) ToProfileMapOutputWithContext(ctx context.Context) ProfileMapOutput {
 	return o
-}
-
-func (o ProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Profile] {
-	return pulumix.Output[map[string]*Profile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileMapOutput) MapIndex(k pulumi.StringInput) ProfileOutput {

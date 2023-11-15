@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub ServiceBus Queue Endpoint
@@ -277,12 +276,6 @@ func (i *EndpointServicebusQueue) ToEndpointServicebusQueueOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusQueueOutput)
 }
 
-func (i *EndpointServicebusQueue) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebusQueue] {
-	return pulumix.Output[*EndpointServicebusQueue]{
-		OutputState: i.ToEndpointServicebusQueueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointServicebusQueueArrayInput is an input type that accepts EndpointServicebusQueueArray and EndpointServicebusQueueArrayOutput values.
 // You can construct a concrete instance of `EndpointServicebusQueueArrayInput` via:
 //
@@ -306,12 +299,6 @@ func (i EndpointServicebusQueueArray) ToEndpointServicebusQueueArrayOutput() End
 
 func (i EndpointServicebusQueueArray) ToEndpointServicebusQueueArrayOutputWithContext(ctx context.Context) EndpointServicebusQueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusQueueArrayOutput)
-}
-
-func (i EndpointServicebusQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebusQueue] {
-	return pulumix.Output[[]*EndpointServicebusQueue]{
-		OutputState: i.ToEndpointServicebusQueueArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointServicebusQueueMapInput is an input type that accepts EndpointServicebusQueueMap and EndpointServicebusQueueMapOutput values.
@@ -339,12 +326,6 @@ func (i EndpointServicebusQueueMap) ToEndpointServicebusQueueMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusQueueMapOutput)
 }
 
-func (i EndpointServicebusQueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebusQueue] {
-	return pulumix.Output[map[string]*EndpointServicebusQueue]{
-		OutputState: i.ToEndpointServicebusQueueMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointServicebusQueueOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusQueueOutput) ElementType() reflect.Type {
@@ -357,12 +338,6 @@ func (o EndpointServicebusQueueOutput) ToEndpointServicebusQueueOutput() Endpoin
 
 func (o EndpointServicebusQueueOutput) ToEndpointServicebusQueueOutputWithContext(ctx context.Context) EndpointServicebusQueueOutput {
 	return o
-}
-
-func (o EndpointServicebusQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebusQueue] {
-	return pulumix.Output[*EndpointServicebusQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type used to authenticate against the Service Bus Queue endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -421,12 +396,6 @@ func (o EndpointServicebusQueueArrayOutput) ToEndpointServicebusQueueArrayOutput
 	return o
 }
 
-func (o EndpointServicebusQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebusQueue] {
-	return pulumix.Output[[]*EndpointServicebusQueue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointServicebusQueueArrayOutput) Index(i pulumi.IntInput) EndpointServicebusQueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointServicebusQueue {
 		return vs[0].([]*EndpointServicebusQueue)[vs[1].(int)]
@@ -445,12 +414,6 @@ func (o EndpointServicebusQueueMapOutput) ToEndpointServicebusQueueMapOutput() E
 
 func (o EndpointServicebusQueueMapOutput) ToEndpointServicebusQueueMapOutputWithContext(ctx context.Context) EndpointServicebusQueueMapOutput {
 	return o
-}
-
-func (o EndpointServicebusQueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebusQueue] {
-	return pulumix.Output[map[string]*EndpointServicebusQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointServicebusQueueMapOutput) MapIndex(k pulumi.StringInput) EndpointServicebusQueueOutput {

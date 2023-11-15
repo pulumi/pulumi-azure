@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cosmos DB for PostgreSQL Cluster.
@@ -401,12 +400,6 @@ func (i *PostgresqlCluster) ToPostgresqlClusterOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterOutput)
 }
 
-func (i *PostgresqlCluster) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlCluster] {
-	return pulumix.Output[*PostgresqlCluster]{
-		OutputState: i.ToPostgresqlClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PostgresqlClusterArrayInput is an input type that accepts PostgresqlClusterArray and PostgresqlClusterArrayOutput values.
 // You can construct a concrete instance of `PostgresqlClusterArrayInput` via:
 //
@@ -430,12 +423,6 @@ func (i PostgresqlClusterArray) ToPostgresqlClusterArrayOutput() PostgresqlClust
 
 func (i PostgresqlClusterArray) ToPostgresqlClusterArrayOutputWithContext(ctx context.Context) PostgresqlClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterArrayOutput)
-}
-
-func (i PostgresqlClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlCluster] {
-	return pulumix.Output[[]*PostgresqlCluster]{
-		OutputState: i.ToPostgresqlClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PostgresqlClusterMapInput is an input type that accepts PostgresqlClusterMap and PostgresqlClusterMapOutput values.
@@ -463,12 +450,6 @@ func (i PostgresqlClusterMap) ToPostgresqlClusterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterMapOutput)
 }
 
-func (i PostgresqlClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlCluster] {
-	return pulumix.Output[map[string]*PostgresqlCluster]{
-		OutputState: i.ToPostgresqlClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PostgresqlClusterOutput struct{ *pulumi.OutputState }
 
 func (PostgresqlClusterOutput) ElementType() reflect.Type {
@@ -481,12 +462,6 @@ func (o PostgresqlClusterOutput) ToPostgresqlClusterOutput() PostgresqlClusterOu
 
 func (o PostgresqlClusterOutput) ToPostgresqlClusterOutputWithContext(ctx context.Context) PostgresqlClusterOutput {
 	return o
-}
-
-func (o PostgresqlClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlCluster] {
-	return pulumix.Output[*PostgresqlCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password of the administrator login. This is required when `sourceResourceId` is not set.
@@ -625,12 +600,6 @@ func (o PostgresqlClusterArrayOutput) ToPostgresqlClusterArrayOutputWithContext(
 	return o
 }
 
-func (o PostgresqlClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlCluster] {
-	return pulumix.Output[[]*PostgresqlCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PostgresqlClusterArrayOutput) Index(i pulumi.IntInput) PostgresqlClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PostgresqlCluster {
 		return vs[0].([]*PostgresqlCluster)[vs[1].(int)]
@@ -649,12 +618,6 @@ func (o PostgresqlClusterMapOutput) ToPostgresqlClusterMapOutput() PostgresqlClu
 
 func (o PostgresqlClusterMapOutput) ToPostgresqlClusterMapOutputWithContext(ctx context.Context) PostgresqlClusterMapOutput {
 	return o
-}
-
-func (o PostgresqlClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlCluster] {
-	return pulumix.Output[map[string]*PostgresqlCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PostgresqlClusterMapOutput) MapIndex(k pulumi.StringInput) PostgresqlClusterOutput {

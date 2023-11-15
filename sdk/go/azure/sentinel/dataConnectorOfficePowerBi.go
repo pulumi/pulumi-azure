@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Office Power BI Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorOfficePowerBi) ToDataConnectorOfficePowerBiOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficePowerBiOutput)
 }
 
-func (i *DataConnectorOfficePowerBi) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficePowerBi] {
-	return pulumix.Output[*DataConnectorOfficePowerBi]{
-		OutputState: i.ToDataConnectorOfficePowerBiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorOfficePowerBiArrayInput is an input type that accepts DataConnectorOfficePowerBiArray and DataConnectorOfficePowerBiArrayOutput values.
 // You can construct a concrete instance of `DataConnectorOfficePowerBiArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorOfficePowerBiArray) ToDataConnectorOfficePowerBiArrayOutput
 
 func (i DataConnectorOfficePowerBiArray) ToDataConnectorOfficePowerBiArrayOutputWithContext(ctx context.Context) DataConnectorOfficePowerBiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficePowerBiArrayOutput)
-}
-
-func (i DataConnectorOfficePowerBiArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficePowerBi] {
-	return pulumix.Output[[]*DataConnectorOfficePowerBi]{
-		OutputState: i.ToDataConnectorOfficePowerBiArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorOfficePowerBiMapInput is an input type that accepts DataConnectorOfficePowerBiMap and DataConnectorOfficePowerBiMapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorOfficePowerBiMap) ToDataConnectorOfficePowerBiMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficePowerBiMapOutput)
 }
 
-func (i DataConnectorOfficePowerBiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficePowerBi] {
-	return pulumix.Output[map[string]*DataConnectorOfficePowerBi]{
-		OutputState: i.ToDataConnectorOfficePowerBiMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorOfficePowerBiOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOfficePowerBiOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorOfficePowerBiOutput) ToDataConnectorOfficePowerBiOutput() D
 
 func (o DataConnectorOfficePowerBiOutput) ToDataConnectorOfficePowerBiOutputWithContext(ctx context.Context) DataConnectorOfficePowerBiOutput {
 	return o
-}
-
-func (o DataConnectorOfficePowerBiOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficePowerBi] {
-	return pulumix.Output[*DataConnectorOfficePowerBi]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Office Power BI Data Connector resides in. Changing this forces a new Office Power BI Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorOfficePowerBiArrayOutput) ToDataConnectorOfficePowerBiArray
 	return o
 }
 
-func (o DataConnectorOfficePowerBiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficePowerBi] {
-	return pulumix.Output[[]*DataConnectorOfficePowerBi]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorOfficePowerBiArrayOutput) Index(i pulumi.IntInput) DataConnectorOfficePowerBiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOfficePowerBi {
 		return vs[0].([]*DataConnectorOfficePowerBi)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorOfficePowerBiMapOutput) ToDataConnectorOfficePowerBiMapOutp
 
 func (o DataConnectorOfficePowerBiMapOutput) ToDataConnectorOfficePowerBiMapOutputWithContext(ctx context.Context) DataConnectorOfficePowerBiMapOutput {
 	return o
-}
-
-func (o DataConnectorOfficePowerBiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficePowerBi] {
-	return pulumix.Output[map[string]*DataConnectorOfficePowerBi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorOfficePowerBiMapOutput) MapIndex(k pulumi.StringInput) DataConnectorOfficePowerBiOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Template Spec Version.
@@ -115,12 +114,6 @@ func (o GetTemplateSpecVersionResultOutput) ToGetTemplateSpecVersionResultOutput
 
 func (o GetTemplateSpecVersionResultOutput) ToGetTemplateSpecVersionResultOutputWithContext(ctx context.Context) GetTemplateSpecVersionResultOutput {
 	return o
-}
-
-func (o GetTemplateSpecVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTemplateSpecVersionResult] {
-	return pulumix.Output[GetTemplateSpecVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

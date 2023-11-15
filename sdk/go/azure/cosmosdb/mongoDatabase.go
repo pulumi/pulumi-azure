@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mongo Database within a Cosmos DB Account.
@@ -209,12 +208,6 @@ func (i *MongoDatabase) ToMongoDatabaseOutputWithContext(ctx context.Context) Mo
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseOutput)
 }
 
-func (i *MongoDatabase) ToOutput(ctx context.Context) pulumix.Output[*MongoDatabase] {
-	return pulumix.Output[*MongoDatabase]{
-		OutputState: i.ToMongoDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MongoDatabaseArrayInput is an input type that accepts MongoDatabaseArray and MongoDatabaseArrayOutput values.
 // You can construct a concrete instance of `MongoDatabaseArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i MongoDatabaseArray) ToMongoDatabaseArrayOutput() MongoDatabaseArrayOutpu
 
 func (i MongoDatabaseArray) ToMongoDatabaseArrayOutputWithContext(ctx context.Context) MongoDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseArrayOutput)
-}
-
-func (i MongoDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*MongoDatabase] {
-	return pulumix.Output[[]*MongoDatabase]{
-		OutputState: i.ToMongoDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MongoDatabaseMapInput is an input type that accepts MongoDatabaseMap and MongoDatabaseMapOutput values.
@@ -271,12 +258,6 @@ func (i MongoDatabaseMap) ToMongoDatabaseMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDatabaseMapOutput)
 }
 
-func (i MongoDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoDatabase] {
-	return pulumix.Output[map[string]*MongoDatabase]{
-		OutputState: i.ToMongoDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MongoDatabaseOutput struct{ *pulumi.OutputState }
 
 func (MongoDatabaseOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o MongoDatabaseOutput) ToMongoDatabaseOutput() MongoDatabaseOutput {
 
 func (o MongoDatabaseOutput) ToMongoDatabaseOutputWithContext(ctx context.Context) MongoDatabaseOutput {
 	return o
-}
-
-func (o MongoDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*MongoDatabase] {
-	return pulumix.Output[*MongoDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
@@ -340,12 +315,6 @@ func (o MongoDatabaseArrayOutput) ToMongoDatabaseArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o MongoDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MongoDatabase] {
-	return pulumix.Output[[]*MongoDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MongoDatabaseArrayOutput) Index(i pulumi.IntInput) MongoDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MongoDatabase {
 		return vs[0].([]*MongoDatabase)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o MongoDatabaseMapOutput) ToMongoDatabaseMapOutput() MongoDatabaseMapOutpu
 
 func (o MongoDatabaseMapOutput) ToMongoDatabaseMapOutputWithContext(ctx context.Context) MongoDatabaseMapOutput {
 	return o
-}
-
-func (o MongoDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoDatabase] {
-	return pulumix.Output[map[string]*MongoDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MongoDatabaseMapOutput) MapIndex(k pulumi.StringInput) MongoDatabaseOutput {

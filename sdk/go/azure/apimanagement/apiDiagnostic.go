@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Service API Diagnostics Logs.
@@ -383,12 +382,6 @@ func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticOutput)
 }
 
-func (i *ApiDiagnostic) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnostic] {
-	return pulumix.Output[*ApiDiagnostic]{
-		OutputState: i.ToApiDiagnosticOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiDiagnosticArrayInput is an input type that accepts ApiDiagnosticArray and ApiDiagnosticArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticArrayInput` via:
 //
@@ -412,12 +405,6 @@ func (i ApiDiagnosticArray) ToApiDiagnosticArrayOutput() ApiDiagnosticArrayOutpu
 
 func (i ApiDiagnosticArray) ToApiDiagnosticArrayOutputWithContext(ctx context.Context) ApiDiagnosticArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticArrayOutput)
-}
-
-func (i ApiDiagnosticArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiDiagnostic] {
-	return pulumix.Output[[]*ApiDiagnostic]{
-		OutputState: i.ToApiDiagnosticArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiDiagnosticMapInput is an input type that accepts ApiDiagnosticMap and ApiDiagnosticMapOutput values.
@@ -445,12 +432,6 @@ func (i ApiDiagnosticMap) ToApiDiagnosticMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticMapOutput)
 }
 
-func (i ApiDiagnosticMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiDiagnostic] {
-	return pulumix.Output[map[string]*ApiDiagnostic]{
-		OutputState: i.ToApiDiagnosticMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiDiagnosticOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
@@ -463,12 +444,6 @@ func (o ApiDiagnosticOutput) ToApiDiagnosticOutput() ApiDiagnosticOutput {
 
 func (o ApiDiagnosticOutput) ToApiDiagnosticOutputWithContext(ctx context.Context) ApiDiagnosticOutput {
 	return o
-}
-
-func (o ApiDiagnosticOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiDiagnostic] {
-	return pulumix.Output[*ApiDiagnostic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -560,12 +535,6 @@ func (o ApiDiagnosticArrayOutput) ToApiDiagnosticArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ApiDiagnosticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiDiagnostic] {
-	return pulumix.Output[[]*ApiDiagnostic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiDiagnosticArrayOutput) Index(i pulumi.IntInput) ApiDiagnosticOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiDiagnostic {
 		return vs[0].([]*ApiDiagnostic)[vs[1].(int)]
@@ -584,12 +553,6 @@ func (o ApiDiagnosticMapOutput) ToApiDiagnosticMapOutput() ApiDiagnosticMapOutpu
 
 func (o ApiDiagnosticMapOutput) ToApiDiagnosticMapOutputWithContext(ctx context.Context) ApiDiagnosticMapOutput {
 	return o
-}
-
-func (o ApiDiagnosticMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiDiagnostic] {
-	return pulumix.Output[map[string]*ApiDiagnostic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiDiagnosticMapOutput) MapIndex(k pulumi.StringInput) ApiDiagnosticOutput {

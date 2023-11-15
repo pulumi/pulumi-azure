@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Twitter Identity Provider.
@@ -207,12 +206,6 @@ func (i *IdentityProviderTwitter) ToIdentityProviderTwitterOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderTwitterOutput)
 }
 
-func (i *IdentityProviderTwitter) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderTwitter] {
-	return pulumix.Output[*IdentityProviderTwitter]{
-		OutputState: i.ToIdentityProviderTwitterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderTwitterArrayInput is an input type that accepts IdentityProviderTwitterArray and IdentityProviderTwitterArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderTwitterArrayInput` via:
 //
@@ -236,12 +229,6 @@ func (i IdentityProviderTwitterArray) ToIdentityProviderTwitterArrayOutput() Ide
 
 func (i IdentityProviderTwitterArray) ToIdentityProviderTwitterArrayOutputWithContext(ctx context.Context) IdentityProviderTwitterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderTwitterArrayOutput)
-}
-
-func (i IdentityProviderTwitterArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderTwitter] {
-	return pulumix.Output[[]*IdentityProviderTwitter]{
-		OutputState: i.ToIdentityProviderTwitterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderTwitterMapInput is an input type that accepts IdentityProviderTwitterMap and IdentityProviderTwitterMapOutput values.
@@ -269,12 +256,6 @@ func (i IdentityProviderTwitterMap) ToIdentityProviderTwitterMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderTwitterMapOutput)
 }
 
-func (i IdentityProviderTwitterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderTwitter] {
-	return pulumix.Output[map[string]*IdentityProviderTwitter]{
-		OutputState: i.ToIdentityProviderTwitterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderTwitterOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderTwitterOutput) ElementType() reflect.Type {
@@ -287,12 +268,6 @@ func (o IdentityProviderTwitterOutput) ToIdentityProviderTwitterOutput() Identit
 
 func (o IdentityProviderTwitterOutput) ToIdentityProviderTwitterOutputWithContext(ctx context.Context) IdentityProviderTwitterOutput {
 	return o
-}
-
-func (o IdentityProviderTwitterOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderTwitter] {
-	return pulumix.Output[*IdentityProviderTwitter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // App Consumer API key for Twitter.
@@ -329,12 +304,6 @@ func (o IdentityProviderTwitterArrayOutput) ToIdentityProviderTwitterArrayOutput
 	return o
 }
 
-func (o IdentityProviderTwitterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderTwitter] {
-	return pulumix.Output[[]*IdentityProviderTwitter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderTwitterArrayOutput) Index(i pulumi.IntInput) IdentityProviderTwitterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderTwitter {
 		return vs[0].([]*IdentityProviderTwitter)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o IdentityProviderTwitterMapOutput) ToIdentityProviderTwitterMapOutput() I
 
 func (o IdentityProviderTwitterMapOutput) ToIdentityProviderTwitterMapOutputWithContext(ctx context.Context) IdentityProviderTwitterMapOutput {
 	return o
-}
-
-func (o IdentityProviderTwitterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderTwitter] {
-	return pulumix.Output[map[string]*IdentityProviderTwitter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderTwitterMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderTwitterOutput {

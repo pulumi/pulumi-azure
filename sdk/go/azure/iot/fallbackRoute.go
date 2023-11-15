@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Fallback Route
@@ -176,12 +175,6 @@ func (i *FallbackRoute) ToFallbackRouteOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteOutput)
 }
 
-func (i *FallbackRoute) ToOutput(ctx context.Context) pulumix.Output[*FallbackRoute] {
-	return pulumix.Output[*FallbackRoute]{
-		OutputState: i.ToFallbackRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FallbackRouteArrayInput is an input type that accepts FallbackRouteArray and FallbackRouteArrayOutput values.
 // You can construct a concrete instance of `FallbackRouteArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i FallbackRouteArray) ToFallbackRouteArrayOutput() FallbackRouteArrayOutpu
 
 func (i FallbackRouteArray) ToFallbackRouteArrayOutputWithContext(ctx context.Context) FallbackRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteArrayOutput)
-}
-
-func (i FallbackRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*FallbackRoute] {
-	return pulumix.Output[[]*FallbackRoute]{
-		OutputState: i.ToFallbackRouteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FallbackRouteMapInput is an input type that accepts FallbackRouteMap and FallbackRouteMapOutput values.
@@ -238,12 +225,6 @@ func (i FallbackRouteMap) ToFallbackRouteMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRouteMapOutput)
 }
 
-func (i FallbackRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FallbackRoute] {
-	return pulumix.Output[map[string]*FallbackRoute]{
-		OutputState: i.ToFallbackRouteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FallbackRouteOutput struct{ *pulumi.OutputState }
 
 func (FallbackRouteOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o FallbackRouteOutput) ToFallbackRouteOutput() FallbackRouteOutput {
 
 func (o FallbackRouteOutput) ToFallbackRouteOutputWithContext(ctx context.Context) FallbackRouteOutput {
 	return o
-}
-
-func (o FallbackRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*FallbackRoute] {
-	return pulumix.Output[*FallbackRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
@@ -308,12 +283,6 @@ func (o FallbackRouteArrayOutput) ToFallbackRouteArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o FallbackRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FallbackRoute] {
-	return pulumix.Output[[]*FallbackRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FallbackRouteArrayOutput) Index(i pulumi.IntInput) FallbackRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FallbackRoute {
 		return vs[0].([]*FallbackRoute)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o FallbackRouteMapOutput) ToFallbackRouteMapOutput() FallbackRouteMapOutpu
 
 func (o FallbackRouteMapOutput) ToFallbackRouteMapOutputWithContext(ctx context.Context) FallbackRouteMapOutput {
 	return o
-}
-
-func (o FallbackRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FallbackRoute] {
-	return pulumix.Output[map[string]*FallbackRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FallbackRouteMapOutput) MapIndex(k pulumi.StringInput) FallbackRouteOutput {

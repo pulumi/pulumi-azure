@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Query Pack Query.
@@ -264,12 +263,6 @@ func (i *QueryPackQuery) ToQueryPackQueryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackQueryOutput)
 }
 
-func (i *QueryPackQuery) ToOutput(ctx context.Context) pulumix.Output[*QueryPackQuery] {
-	return pulumix.Output[*QueryPackQuery]{
-		OutputState: i.ToQueryPackQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // QueryPackQueryArrayInput is an input type that accepts QueryPackQueryArray and QueryPackQueryArrayOutput values.
 // You can construct a concrete instance of `QueryPackQueryArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i QueryPackQueryArray) ToQueryPackQueryArrayOutput() QueryPackQueryArrayOu
 
 func (i QueryPackQueryArray) ToQueryPackQueryArrayOutputWithContext(ctx context.Context) QueryPackQueryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackQueryArrayOutput)
-}
-
-func (i QueryPackQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]*QueryPackQuery] {
-	return pulumix.Output[[]*QueryPackQuery]{
-		OutputState: i.ToQueryPackQueryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // QueryPackQueryMapInput is an input type that accepts QueryPackQueryMap and QueryPackQueryMapOutput values.
@@ -326,12 +313,6 @@ func (i QueryPackQueryMap) ToQueryPackQueryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackQueryMapOutput)
 }
 
-func (i QueryPackQueryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryPackQuery] {
-	return pulumix.Output[map[string]*QueryPackQuery]{
-		OutputState: i.ToQueryPackQueryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QueryPackQueryOutput struct{ *pulumi.OutputState }
 
 func (QueryPackQueryOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o QueryPackQueryOutput) ToQueryPackQueryOutput() QueryPackQueryOutput {
 
 func (o QueryPackQueryOutput) ToQueryPackQueryOutputWithContext(ctx context.Context) QueryPackQueryOutput {
 	return o
-}
-
-func (o QueryPackQueryOutput) ToOutput(ctx context.Context) pulumix.Output[*QueryPackQuery] {
-	return pulumix.Output[*QueryPackQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The additional properties that can be set for the Log Analytics Query Pack Query.
@@ -416,12 +391,6 @@ func (o QueryPackQueryArrayOutput) ToQueryPackQueryArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o QueryPackQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QueryPackQuery] {
-	return pulumix.Output[[]*QueryPackQuery]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueryPackQueryArrayOutput) Index(i pulumi.IntInput) QueryPackQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueryPackQuery {
 		return vs[0].([]*QueryPackQuery)[vs[1].(int)]
@@ -440,12 +409,6 @@ func (o QueryPackQueryMapOutput) ToQueryPackQueryMapOutput() QueryPackQueryMapOu
 
 func (o QueryPackQueryMapOutput) ToQueryPackQueryMapOutputWithContext(ctx context.Context) QueryPackQueryMapOutput {
 	return o
-}
-
-func (o QueryPackQueryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryPackQuery] {
-	return pulumix.Output[map[string]*QueryPackQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o QueryPackQueryMapOutput) MapIndex(k pulumi.StringInput) QueryPackQueryOutput {
