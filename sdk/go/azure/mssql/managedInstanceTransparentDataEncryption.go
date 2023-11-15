@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the transparent data encryption configuration for a MSSQL Managed Instance
@@ -384,12 +383,6 @@ func (i *ManagedInstanceTransparentDataEncryption) ToManagedInstanceTransparentD
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceTransparentDataEncryptionOutput)
 }
 
-func (i *ManagedInstanceTransparentDataEncryption) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[*ManagedInstanceTransparentDataEncryption]{
-		OutputState: i.ToManagedInstanceTransparentDataEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedInstanceTransparentDataEncryptionArrayInput is an input type that accepts ManagedInstanceTransparentDataEncryptionArray and ManagedInstanceTransparentDataEncryptionArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceTransparentDataEncryptionArrayInput` via:
 //
@@ -413,12 +406,6 @@ func (i ManagedInstanceTransparentDataEncryptionArray) ToManagedInstanceTranspar
 
 func (i ManagedInstanceTransparentDataEncryptionArray) ToManagedInstanceTransparentDataEncryptionArrayOutputWithContext(ctx context.Context) ManagedInstanceTransparentDataEncryptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceTransparentDataEncryptionArrayOutput)
-}
-
-func (i ManagedInstanceTransparentDataEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[[]*ManagedInstanceTransparentDataEncryption]{
-		OutputState: i.ToManagedInstanceTransparentDataEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedInstanceTransparentDataEncryptionMapInput is an input type that accepts ManagedInstanceTransparentDataEncryptionMap and ManagedInstanceTransparentDataEncryptionMapOutput values.
@@ -446,12 +433,6 @@ func (i ManagedInstanceTransparentDataEncryptionMap) ToManagedInstanceTransparen
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceTransparentDataEncryptionMapOutput)
 }
 
-func (i ManagedInstanceTransparentDataEncryptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[map[string]*ManagedInstanceTransparentDataEncryption]{
-		OutputState: i.ToManagedInstanceTransparentDataEncryptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedInstanceTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceTransparentDataEncryptionOutput) ElementType() reflect.Type {
@@ -464,12 +445,6 @@ func (o ManagedInstanceTransparentDataEncryptionOutput) ToManagedInstanceTranspa
 
 func (o ManagedInstanceTransparentDataEncryptionOutput) ToManagedInstanceTransparentDataEncryptionOutputWithContext(ctx context.Context) ManagedInstanceTransparentDataEncryptionOutput {
 	return o
-}
-
-func (o ManagedInstanceTransparentDataEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[*ManagedInstanceTransparentDataEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
@@ -505,12 +480,6 @@ func (o ManagedInstanceTransparentDataEncryptionArrayOutput) ToManagedInstanceTr
 	return o
 }
 
-func (o ManagedInstanceTransparentDataEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[[]*ManagedInstanceTransparentDataEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedInstanceTransparentDataEncryptionArrayOutput) Index(i pulumi.IntInput) ManagedInstanceTransparentDataEncryptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedInstanceTransparentDataEncryption {
 		return vs[0].([]*ManagedInstanceTransparentDataEncryption)[vs[1].(int)]
@@ -529,12 +498,6 @@ func (o ManagedInstanceTransparentDataEncryptionMapOutput) ToManagedInstanceTran
 
 func (o ManagedInstanceTransparentDataEncryptionMapOutput) ToManagedInstanceTransparentDataEncryptionMapOutputWithContext(ctx context.Context) ManagedInstanceTransparentDataEncryptionMapOutput {
 	return o
-}
-
-func (o ManagedInstanceTransparentDataEncryptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedInstanceTransparentDataEncryption] {
-	return pulumix.Output[map[string]*ManagedInstanceTransparentDataEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedInstanceTransparentDataEncryptionMapOutput) MapIndex(k pulumi.StringInput) ManagedInstanceTransparentDataEncryptionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dashboard Grafana.
@@ -282,12 +281,6 @@ func (i *Grafana) ToGrafanaOutputWithContext(ctx context.Context) GrafanaOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaOutput)
 }
 
-func (i *Grafana) ToOutput(ctx context.Context) pulumix.Output[*Grafana] {
-	return pulumix.Output[*Grafana]{
-		OutputState: i.ToGrafanaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GrafanaArrayInput is an input type that accepts GrafanaArray and GrafanaArrayOutput values.
 // You can construct a concrete instance of `GrafanaArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i GrafanaArray) ToGrafanaArrayOutput() GrafanaArrayOutput {
 
 func (i GrafanaArray) ToGrafanaArrayOutputWithContext(ctx context.Context) GrafanaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaArrayOutput)
-}
-
-func (i GrafanaArray) ToOutput(ctx context.Context) pulumix.Output[[]*Grafana] {
-	return pulumix.Output[[]*Grafana]{
-		OutputState: i.ToGrafanaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GrafanaMapInput is an input type that accepts GrafanaMap and GrafanaMapOutput values.
@@ -344,12 +331,6 @@ func (i GrafanaMap) ToGrafanaMapOutputWithContext(ctx context.Context) GrafanaMa
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaMapOutput)
 }
 
-func (i GrafanaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Grafana] {
-	return pulumix.Output[map[string]*Grafana]{
-		OutputState: i.ToGrafanaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GrafanaOutput struct{ *pulumi.OutputState }
 
 func (GrafanaOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o GrafanaOutput) ToGrafanaOutput() GrafanaOutput {
 
 func (o GrafanaOutput) ToGrafanaOutputWithContext(ctx context.Context) GrafanaOutput {
 	return o
-}
-
-func (o GrafanaOutput) ToOutput(ctx context.Context) pulumix.Output[*Grafana] {
-	return pulumix.Output[*Grafana]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
@@ -461,12 +436,6 @@ func (o GrafanaArrayOutput) ToGrafanaArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o GrafanaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Grafana] {
-	return pulumix.Output[[]*Grafana]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GrafanaArrayOutput) Index(i pulumi.IntInput) GrafanaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Grafana {
 		return vs[0].([]*Grafana)[vs[1].(int)]
@@ -485,12 +454,6 @@ func (o GrafanaMapOutput) ToGrafanaMapOutput() GrafanaMapOutput {
 
 func (o GrafanaMapOutput) ToGrafanaMapOutputWithContext(ctx context.Context) GrafanaMapOutput {
 	return o
-}
-
-func (o GrafanaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Grafana] {
-	return pulumix.Output[map[string]*Grafana]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GrafanaMapOutput) MapIndex(k pulumi.StringInput) GrafanaOutput {

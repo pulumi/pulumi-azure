@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Service Plan.
@@ -127,12 +126,6 @@ func (o LookupServicePlanResultOutput) ToLookupServicePlanResultOutput() LookupS
 
 func (o LookupServicePlanResultOutput) ToLookupServicePlanResultOutputWithContext(ctx context.Context) LookupServicePlanResultOutput {
 	return o
-}
-
-func (o LookupServicePlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServicePlanResult] {
-	return pulumix.Output[LookupServicePlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Environment this Service Plan is part of.

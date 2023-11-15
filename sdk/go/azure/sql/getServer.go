@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing SQL Azure Database Server.
@@ -119,12 +118,6 @@ func (o GetServerResultOutput) ToGetServerResultOutput() GetServerResultOutput {
 
 func (o GetServerResultOutput) ToGetServerResultOutputWithContext(ctx context.Context) GetServerResultOutput {
 	return o
-}
-
-func (o GetServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerResult] {
-	return pulumix.Output[GetServerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The administrator username of the SQL Server.

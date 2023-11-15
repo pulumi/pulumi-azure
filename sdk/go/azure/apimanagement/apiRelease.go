@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management API Release.
@@ -191,12 +190,6 @@ func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiRelea
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseOutput)
 }
 
-func (i *ApiRelease) ToOutput(ctx context.Context) pulumix.Output[*ApiRelease] {
-	return pulumix.Output[*ApiRelease]{
-		OutputState: i.ToApiReleaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiReleaseArrayInput is an input type that accepts ApiReleaseArray and ApiReleaseArrayOutput values.
 // You can construct a concrete instance of `ApiReleaseArrayInput` via:
 //
@@ -220,12 +213,6 @@ func (i ApiReleaseArray) ToApiReleaseArrayOutput() ApiReleaseArrayOutput {
 
 func (i ApiReleaseArray) ToApiReleaseArrayOutputWithContext(ctx context.Context) ApiReleaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseArrayOutput)
-}
-
-func (i ApiReleaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiRelease] {
-	return pulumix.Output[[]*ApiRelease]{
-		OutputState: i.ToApiReleaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiReleaseMapInput is an input type that accepts ApiReleaseMap and ApiReleaseMapOutput values.
@@ -253,12 +240,6 @@ func (i ApiReleaseMap) ToApiReleaseMapOutputWithContext(ctx context.Context) Api
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseMapOutput)
 }
 
-func (i ApiReleaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiRelease] {
-	return pulumix.Output[map[string]*ApiRelease]{
-		OutputState: i.ToApiReleaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiReleaseOutput struct{ *pulumi.OutputState }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
@@ -271,12 +252,6 @@ func (o ApiReleaseOutput) ToApiReleaseOutput() ApiReleaseOutput {
 
 func (o ApiReleaseOutput) ToApiReleaseOutputWithContext(ctx context.Context) ApiReleaseOutput {
 	return o
-}
-
-func (o ApiReleaseOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiRelease] {
-	return pulumix.Output[*ApiRelease]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the API Management API. Changing this forces a new API Management API Release to be created.
@@ -308,12 +283,6 @@ func (o ApiReleaseArrayOutput) ToApiReleaseArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ApiReleaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiRelease] {
-	return pulumix.Output[[]*ApiRelease]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiReleaseArrayOutput) Index(i pulumi.IntInput) ApiReleaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiRelease {
 		return vs[0].([]*ApiRelease)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o ApiReleaseMapOutput) ToApiReleaseMapOutput() ApiReleaseMapOutput {
 
 func (o ApiReleaseMapOutput) ToApiReleaseMapOutputWithContext(ctx context.Context) ApiReleaseMapOutput {
 	return o
-}
-
-func (o ApiReleaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiRelease] {
-	return pulumix.Output[map[string]*ApiRelease]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiReleaseMapOutput) MapIndex(k pulumi.StringInput) ApiReleaseOutput {

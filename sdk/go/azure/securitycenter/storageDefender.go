@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Defender for Storage.
@@ -194,12 +193,6 @@ func (i *StorageDefender) ToStorageDefenderOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDefenderOutput)
 }
 
-func (i *StorageDefender) ToOutput(ctx context.Context) pulumix.Output[*StorageDefender] {
-	return pulumix.Output[*StorageDefender]{
-		OutputState: i.ToStorageDefenderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageDefenderArrayInput is an input type that accepts StorageDefenderArray and StorageDefenderArrayOutput values.
 // You can construct a concrete instance of `StorageDefenderArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i StorageDefenderArray) ToStorageDefenderArrayOutput() StorageDefenderArra
 
 func (i StorageDefenderArray) ToStorageDefenderArrayOutputWithContext(ctx context.Context) StorageDefenderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDefenderArrayOutput)
-}
-
-func (i StorageDefenderArray) ToOutput(ctx context.Context) pulumix.Output[[]*StorageDefender] {
-	return pulumix.Output[[]*StorageDefender]{
-		OutputState: i.ToStorageDefenderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StorageDefenderMapInput is an input type that accepts StorageDefenderMap and StorageDefenderMapOutput values.
@@ -256,12 +243,6 @@ func (i StorageDefenderMap) ToStorageDefenderMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDefenderMapOutput)
 }
 
-func (i StorageDefenderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageDefender] {
-	return pulumix.Output[map[string]*StorageDefender]{
-		OutputState: i.ToStorageDefenderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageDefenderOutput struct{ *pulumi.OutputState }
 
 func (StorageDefenderOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o StorageDefenderOutput) ToStorageDefenderOutput() StorageDefenderOutput {
 
 func (o StorageDefenderOutput) ToStorageDefenderOutputWithContext(ctx context.Context) StorageDefenderOutput {
 	return o
-}
-
-func (o StorageDefenderOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageDefender] {
-	return pulumix.Output[*StorageDefender]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
@@ -321,12 +296,6 @@ func (o StorageDefenderArrayOutput) ToStorageDefenderArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o StorageDefenderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StorageDefender] {
-	return pulumix.Output[[]*StorageDefender]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageDefenderArrayOutput) Index(i pulumi.IntInput) StorageDefenderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageDefender {
 		return vs[0].([]*StorageDefender)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o StorageDefenderMapOutput) ToStorageDefenderMapOutput() StorageDefenderMa
 
 func (o StorageDefenderMapOutput) ToStorageDefenderMapOutputWithContext(ctx context.Context) StorageDefenderMapOutput {
 	return o
-}
-
-func (o StorageDefenderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageDefender] {
-	return pulumix.Output[map[string]*StorageDefender]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageDefenderMapOutput) MapIndex(k pulumi.StringInput) StorageDefenderOutput {

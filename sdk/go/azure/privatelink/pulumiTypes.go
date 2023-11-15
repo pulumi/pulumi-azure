@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i EndpointCustomDnsConfigArgs) ToEndpointCustomDnsConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDnsConfigOutput)
 }
 
-func (i EndpointCustomDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointCustomDnsConfig] {
-	return pulumix.Output[EndpointCustomDnsConfig]{
-		OutputState: i.ToEndpointCustomDnsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointCustomDnsConfigArrayInput is an input type that accepts EndpointCustomDnsConfigArray and EndpointCustomDnsConfigArrayOutput values.
 // You can construct a concrete instance of `EndpointCustomDnsConfigArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i EndpointCustomDnsConfigArray) ToEndpointCustomDnsConfigArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDnsConfigArrayOutput)
 }
 
-func (i EndpointCustomDnsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointCustomDnsConfig] {
-	return pulumix.Output[[]EndpointCustomDnsConfig]{
-		OutputState: i.ToEndpointCustomDnsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointCustomDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomDnsConfigOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o EndpointCustomDnsConfigOutput) ToEndpointCustomDnsConfigOutput() Endpoin
 
 func (o EndpointCustomDnsConfigOutput) ToEndpointCustomDnsConfigOutputWithContext(ctx context.Context) EndpointCustomDnsConfigOutput {
 	return o
-}
-
-func (o EndpointCustomDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointCustomDnsConfig] {
-	return pulumix.Output[EndpointCustomDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fully qualified domain name to the `privateDnsZone`.
@@ -130,12 +111,6 @@ func (o EndpointCustomDnsConfigArrayOutput) ToEndpointCustomDnsConfigArrayOutput
 
 func (o EndpointCustomDnsConfigArrayOutput) ToEndpointCustomDnsConfigArrayOutputWithContext(ctx context.Context) EndpointCustomDnsConfigArrayOutput {
 	return o
-}
-
-func (o EndpointCustomDnsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointCustomDnsConfig] {
-	return pulumix.Output[[]EndpointCustomDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCustomDnsConfigOutput {
@@ -193,12 +168,6 @@ func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationOutput)
 }
 
-func (i EndpointIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointIpConfiguration] {
-	return pulumix.Output[EndpointIpConfiguration]{
-		OutputState: i.ToEndpointIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointIpConfigurationArrayInput is an input type that accepts EndpointIpConfigurationArray and EndpointIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `EndpointIpConfigurationArrayInput` via:
 //
@@ -224,12 +193,6 @@ func (i EndpointIpConfigurationArray) ToEndpointIpConfigurationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationArrayOutput)
 }
 
-func (i EndpointIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointIpConfiguration] {
-	return pulumix.Output[[]EndpointIpConfiguration]{
-		OutputState: i.ToEndpointIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EndpointIpConfigurationOutput) ElementType() reflect.Type {
@@ -242,12 +205,6 @@ func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutput() Endpoin
 
 func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutputWithContext(ctx context.Context) EndpointIpConfigurationOutput {
 	return o
-}
-
-func (o EndpointIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointIpConfiguration] {
-	return pulumix.Output[EndpointIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
@@ -284,12 +241,6 @@ func (o EndpointIpConfigurationArrayOutput) ToEndpointIpConfigurationArrayOutput
 
 func (o EndpointIpConfigurationArrayOutput) ToEndpointIpConfigurationArrayOutputWithContext(ctx context.Context) EndpointIpConfigurationArrayOutput {
 	return o
-}
-
-func (o EndpointIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointIpConfiguration] {
-	return pulumix.Output[[]EndpointIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointIpConfigurationArrayOutput) Index(i pulumi.IntInput) EndpointIpConfigurationOutput {
@@ -335,12 +286,6 @@ func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOutput)
 }
 
-func (i EndpointNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterface] {
-	return pulumix.Output[EndpointNetworkInterface]{
-		OutputState: i.ToEndpointNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
 //
@@ -366,12 +311,6 @@ func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
 }
 
-func (i EndpointNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointNetworkInterface]{
-		OutputState: i.ToEndpointNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (EndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -384,12 +323,6 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutput() Endpo
 
 func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterface] {
-	return pulumix.Output[EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Private DNS Zone Config.
@@ -414,12 +347,6 @@ func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutp
 
 func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNetworkInterfaceOutput {
@@ -473,12 +400,6 @@ func (i EndpointPrivateDnsZoneConfigArgs) ToEndpointPrivateDnsZoneConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigOutput)
 }
 
-func (i EndpointPrivateDnsZoneConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneConfig] {
-	return pulumix.Output[EndpointPrivateDnsZoneConfig]{
-		OutputState: i.ToEndpointPrivateDnsZoneConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointPrivateDnsZoneConfigArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigArray and EndpointPrivateDnsZoneConfigArrayOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigArrayInput` via:
 //
@@ -504,12 +425,6 @@ func (i EndpointPrivateDnsZoneConfigArray) ToEndpointPrivateDnsZoneConfigArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigArrayOutput)
 }
 
-func (i EndpointPrivateDnsZoneConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointPrivateDnsZoneConfig] {
-	return pulumix.Output[[]EndpointPrivateDnsZoneConfig]{
-		OutputState: i.ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPrivateDnsZoneConfigOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateDnsZoneConfigOutput) ElementType() reflect.Type {
@@ -522,12 +437,6 @@ func (o EndpointPrivateDnsZoneConfigOutput) ToEndpointPrivateDnsZoneConfigOutput
 
 func (o EndpointPrivateDnsZoneConfigOutput) ToEndpointPrivateDnsZoneConfigOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigOutput {
 	return o
-}
-
-func (o EndpointPrivateDnsZoneConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneConfig] {
-	return pulumix.Output[EndpointPrivateDnsZoneConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Private DNS Zone Config.
@@ -562,12 +471,6 @@ func (o EndpointPrivateDnsZoneConfigArrayOutput) ToEndpointPrivateDnsZoneConfigA
 
 func (o EndpointPrivateDnsZoneConfigArrayOutput) ToEndpointPrivateDnsZoneConfigArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigArrayOutput {
 	return o
-}
-
-func (o EndpointPrivateDnsZoneConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointPrivateDnsZoneConfig] {
-	return pulumix.Output[[]EndpointPrivateDnsZoneConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPrivateDnsZoneConfigArrayOutput) Index(i pulumi.IntInput) EndpointPrivateDnsZoneConfigOutput {
@@ -625,12 +528,6 @@ func (i EndpointPrivateDnsZoneConfigRecordSetArgs) ToEndpointPrivateDnsZoneConfi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigRecordSetOutput)
 }
 
-func (i EndpointPrivateDnsZoneConfigRecordSetArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneConfigRecordSet] {
-	return pulumix.Output[EndpointPrivateDnsZoneConfigRecordSet]{
-		OutputState: i.ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointPrivateDnsZoneConfigRecordSetArrayInput is an input type that accepts EndpointPrivateDnsZoneConfigRecordSetArray and EndpointPrivateDnsZoneConfigRecordSetArrayOutput values.
 // You can construct a concrete instance of `EndpointPrivateDnsZoneConfigRecordSetArrayInput` via:
 //
@@ -656,12 +553,6 @@ func (i EndpointPrivateDnsZoneConfigRecordSetArray) ToEndpointPrivateDnsZoneConf
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneConfigRecordSetArrayOutput)
 }
 
-func (i EndpointPrivateDnsZoneConfigRecordSetArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointPrivateDnsZoneConfigRecordSet] {
-	return pulumix.Output[[]EndpointPrivateDnsZoneConfigRecordSet]{
-		OutputState: i.ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPrivateDnsZoneConfigRecordSetOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateDnsZoneConfigRecordSetOutput) ElementType() reflect.Type {
@@ -674,12 +565,6 @@ func (o EndpointPrivateDnsZoneConfigRecordSetOutput) ToEndpointPrivateDnsZoneCon
 
 func (o EndpointPrivateDnsZoneConfigRecordSetOutput) ToEndpointPrivateDnsZoneConfigRecordSetOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetOutput {
 	return o
-}
-
-func (o EndpointPrivateDnsZoneConfigRecordSetOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneConfigRecordSet] {
-	return pulumix.Output[EndpointPrivateDnsZoneConfigRecordSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fully qualified domain name to the `privateDnsZone`.
@@ -719,12 +604,6 @@ func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ToEndpointPrivateDnsZo
 
 func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ToEndpointPrivateDnsZoneConfigRecordSetArrayOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneConfigRecordSetArrayOutput {
 	return o
-}
-
-func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointPrivateDnsZoneConfigRecordSet] {
-	return pulumix.Output[[]EndpointPrivateDnsZoneConfigRecordSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPrivateDnsZoneConfigRecordSetArrayOutput) Index(i pulumi.IntInput) EndpointPrivateDnsZoneConfigRecordSetOutput {
@@ -774,12 +653,6 @@ func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneGroupOutput)
 }
 
-func (i EndpointPrivateDnsZoneGroupArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneGroup] {
-	return pulumix.Output[EndpointPrivateDnsZoneGroup]{
-		OutputState: i.ToEndpointPrivateDnsZoneGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointPrivateDnsZoneGroupArgs) ToEndpointPrivateDnsZoneGroupPtrOutput() EndpointPrivateDnsZoneGroupPtrOutput {
 	return i.ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(context.Background())
 }
@@ -821,12 +694,6 @@ func (i *endpointPrivateDnsZoneGroupPtrType) ToEndpointPrivateDnsZoneGroupPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateDnsZoneGroupPtrOutput)
 }
 
-func (i *endpointPrivateDnsZoneGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointPrivateDnsZoneGroup] {
-	return pulumix.Output[*EndpointPrivateDnsZoneGroup]{
-		OutputState: i.ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPrivateDnsZoneGroupOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateDnsZoneGroupOutput) ElementType() reflect.Type {
@@ -849,12 +716,6 @@ func (o EndpointPrivateDnsZoneGroupOutput) ToEndpointPrivateDnsZoneGroupPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPrivateDnsZoneGroup) *EndpointPrivateDnsZoneGroup {
 		return &v
 	}).(EndpointPrivateDnsZoneGroupPtrOutput)
-}
-
-func (o EndpointPrivateDnsZoneGroupOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateDnsZoneGroup] {
-	return pulumix.Output[EndpointPrivateDnsZoneGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Private DNS Zone Config.
@@ -884,12 +745,6 @@ func (o EndpointPrivateDnsZoneGroupPtrOutput) ToEndpointPrivateDnsZoneGroupPtrOu
 
 func (o EndpointPrivateDnsZoneGroupPtrOutput) ToEndpointPrivateDnsZoneGroupPtrOutputWithContext(ctx context.Context) EndpointPrivateDnsZoneGroupPtrOutput {
 	return o
-}
-
-func (o EndpointPrivateDnsZoneGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointPrivateDnsZoneGroup] {
-	return pulumix.Output[*EndpointPrivateDnsZoneGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPrivateDnsZoneGroupPtrOutput) Elem() EndpointPrivateDnsZoneGroupOutput {
@@ -997,12 +852,6 @@ func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnection
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionOutput)
 }
 
-func (i EndpointPrivateServiceConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateServiceConnection] {
-	return pulumix.Output[EndpointPrivateServiceConnection]{
-		OutputState: i.ToEndpointPrivateServiceConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointPrivateServiceConnectionArgs) ToEndpointPrivateServiceConnectionPtrOutput() EndpointPrivateServiceConnectionPtrOutput {
 	return i.ToEndpointPrivateServiceConnectionPtrOutputWithContext(context.Background())
 }
@@ -1044,12 +893,6 @@ func (i *endpointPrivateServiceConnectionPtrType) ToEndpointPrivateServiceConnec
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPrivateServiceConnectionPtrOutput)
 }
 
-func (i *endpointPrivateServiceConnectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointPrivateServiceConnection] {
-	return pulumix.Output[*EndpointPrivateServiceConnection]{
-		OutputState: i.ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPrivateServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (EndpointPrivateServiceConnectionOutput) ElementType() reflect.Type {
@@ -1072,12 +915,6 @@ func (o EndpointPrivateServiceConnectionOutput) ToEndpointPrivateServiceConnecti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPrivateServiceConnection) *EndpointPrivateServiceConnection {
 		return &v
 	}).(EndpointPrivateServiceConnectionPtrOutput)
-}
-
-func (o EndpointPrivateServiceConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPrivateServiceConnection] {
-	return pulumix.Output[EndpointPrivateServiceConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
@@ -1131,12 +968,6 @@ func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConne
 
 func (o EndpointPrivateServiceConnectionPtrOutput) ToEndpointPrivateServiceConnectionPtrOutputWithContext(ctx context.Context) EndpointPrivateServiceConnectionPtrOutput {
 	return o
-}
-
-func (o EndpointPrivateServiceConnectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointPrivateServiceConnection] {
-	return pulumix.Output[*EndpointPrivateServiceConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPrivateServiceConnectionPtrOutput) Elem() EndpointPrivateServiceConnectionOutput {
@@ -1260,12 +1091,6 @@ func (i GetEndpointConnectionNetworkInterfaceArgs) ToGetEndpointConnectionNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionNetworkInterfaceOutput)
 }
 
-func (i GetEndpointConnectionNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionNetworkInterface] {
-	return pulumix.Output[GetEndpointConnectionNetworkInterface]{
-		OutputState: i.ToGetEndpointConnectionNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEndpointConnectionNetworkInterfaceArrayInput is an input type that accepts GetEndpointConnectionNetworkInterfaceArray and GetEndpointConnectionNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionNetworkInterfaceArrayInput` via:
 //
@@ -1291,12 +1116,6 @@ func (i GetEndpointConnectionNetworkInterfaceArray) ToGetEndpointConnectionNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionNetworkInterfaceArrayOutput)
 }
 
-func (i GetEndpointConnectionNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionNetworkInterface] {
-	return pulumix.Output[[]GetEndpointConnectionNetworkInterface]{
-		OutputState: i.ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEndpointConnectionNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointConnectionNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -1309,12 +1128,6 @@ func (o GetEndpointConnectionNetworkInterfaceOutput) ToGetEndpointConnectionNetw
 
 func (o GetEndpointConnectionNetworkInterfaceOutput) ToGetEndpointConnectionNetworkInterfaceOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceOutput {
 	return o
-}
-
-func (o GetEndpointConnectionNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionNetworkInterface] {
-	return pulumix.Output[GetEndpointConnectionNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the network interface associated with the private endpoint.
@@ -1339,12 +1152,6 @@ func (o GetEndpointConnectionNetworkInterfaceArrayOutput) ToGetEndpointConnectio
 
 func (o GetEndpointConnectionNetworkInterfaceArrayOutput) ToGetEndpointConnectionNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetEndpointConnectionNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o GetEndpointConnectionNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionNetworkInterface] {
-	return pulumix.Output[[]GetEndpointConnectionNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEndpointConnectionNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionNetworkInterfaceOutput {
@@ -1408,12 +1215,6 @@ func (i GetEndpointConnectionPrivateServiceConnectionArgs) ToGetEndpointConnecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionPrivateServiceConnectionOutput)
 }
 
-func (i GetEndpointConnectionPrivateServiceConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionPrivateServiceConnection] {
-	return pulumix.Output[GetEndpointConnectionPrivateServiceConnection]{
-		OutputState: i.ToGetEndpointConnectionPrivateServiceConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEndpointConnectionPrivateServiceConnectionArrayInput is an input type that accepts GetEndpointConnectionPrivateServiceConnectionArray and GetEndpointConnectionPrivateServiceConnectionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionPrivateServiceConnectionArrayInput` via:
 //
@@ -1439,12 +1240,6 @@ func (i GetEndpointConnectionPrivateServiceConnectionArray) ToGetEndpointConnect
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionPrivateServiceConnectionArrayOutput)
 }
 
-func (i GetEndpointConnectionPrivateServiceConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionPrivateServiceConnection] {
-	return pulumix.Output[[]GetEndpointConnectionPrivateServiceConnection]{
-		OutputState: i.ToGetEndpointConnectionPrivateServiceConnectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEndpointConnectionPrivateServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointConnectionPrivateServiceConnectionOutput) ElementType() reflect.Type {
@@ -1457,12 +1252,6 @@ func (o GetEndpointConnectionPrivateServiceConnectionOutput) ToGetEndpointConnec
 
 func (o GetEndpointConnectionPrivateServiceConnectionOutput) ToGetEndpointConnectionPrivateServiceConnectionOutputWithContext(ctx context.Context) GetEndpointConnectionPrivateServiceConnectionOutput {
 	return o
-}
-
-func (o GetEndpointConnectionPrivateServiceConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionPrivateServiceConnection] {
-	return pulumix.Output[GetEndpointConnectionPrivateServiceConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Name of the private endpoint.
@@ -1502,12 +1291,6 @@ func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) ToGetEndpointC
 
 func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) ToGetEndpointConnectionPrivateServiceConnectionArrayOutputWithContext(ctx context.Context) GetEndpointConnectionPrivateServiceConnectionArrayOutput {
 	return o
-}
-
-func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionPrivateServiceConnection] {
-	return pulumix.Output[[]GetEndpointConnectionPrivateServiceConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEndpointConnectionPrivateServiceConnectionArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionPrivateServiceConnectionOutput {
@@ -1573,12 +1356,6 @@ func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArgs) ToGetService
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceEndpointConnectionsPrivateEndpointConnectionOutput)
 }
 
-func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceEndpointConnectionsPrivateEndpointConnection] {
-	return pulumix.Output[GetServiceEndpointConnectionsPrivateEndpointConnection]{
-		OutputState: i.ToGetServiceEndpointConnectionsPrivateEndpointConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceEndpointConnectionsPrivateEndpointConnectionArrayInput is an input type that accepts GetServiceEndpointConnectionsPrivateEndpointConnectionArray and GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `GetServiceEndpointConnectionsPrivateEndpointConnectionArrayInput` via:
 //
@@ -1604,12 +1381,6 @@ func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArray) ToGetServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput)
 }
 
-func (i GetServiceEndpointConnectionsPrivateEndpointConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceEndpointConnectionsPrivateEndpointConnection] {
-	return pulumix.Output[[]GetServiceEndpointConnectionsPrivateEndpointConnection]{
-		OutputState: i.ToGetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceEndpointConnectionsPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ElementType() reflect.Type {
@@ -1622,12 +1393,6 @@ func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ToGetServi
 
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ToGetServiceEndpointConnectionsPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetServiceEndpointConnectionsPrivateEndpointConnectionOutput {
 	return o
-}
-
-func (o GetServiceEndpointConnectionsPrivateEndpointConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceEndpointConnectionsPrivateEndpointConnection] {
-	return pulumix.Output[GetServiceEndpointConnectionsPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A message indicating if changes on the service provider require any updates or not.
@@ -1677,12 +1442,6 @@ func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) ToGet
 
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) ToGetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput {
 	return o
-}
-
-func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceEndpointConnectionsPrivateEndpointConnection] {
-	return pulumix.Output[[]GetServiceEndpointConnectionsPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceEndpointConnectionsPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) GetServiceEndpointConnectionsPrivateEndpointConnectionOutput {
@@ -1740,12 +1499,6 @@ func (i GetServiceNatIpConfigurationArgs) ToGetServiceNatIpConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNatIpConfigurationOutput)
 }
 
-func (i GetServiceNatIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceNatIpConfiguration] {
-	return pulumix.Output[GetServiceNatIpConfiguration]{
-		OutputState: i.ToGetServiceNatIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceNatIpConfigurationArrayInput is an input type that accepts GetServiceNatIpConfigurationArray and GetServiceNatIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceNatIpConfigurationArrayInput` via:
 //
@@ -1771,12 +1524,6 @@ func (i GetServiceNatIpConfigurationArray) ToGetServiceNatIpConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNatIpConfigurationArrayOutput)
 }
 
-func (i GetServiceNatIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceNatIpConfiguration] {
-	return pulumix.Output[[]GetServiceNatIpConfiguration]{
-		OutputState: i.ToGetServiceNatIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceNatIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceNatIpConfigurationOutput) ElementType() reflect.Type {
@@ -1789,12 +1536,6 @@ func (o GetServiceNatIpConfigurationOutput) ToGetServiceNatIpConfigurationOutput
 
 func (o GetServiceNatIpConfigurationOutput) ToGetServiceNatIpConfigurationOutputWithContext(ctx context.Context) GetServiceNatIpConfigurationOutput {
 	return o
-}
-
-func (o GetServiceNatIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceNatIpConfiguration] {
-	return pulumix.Output[GetServiceNatIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the private link service.
@@ -1834,12 +1575,6 @@ func (o GetServiceNatIpConfigurationArrayOutput) ToGetServiceNatIpConfigurationA
 
 func (o GetServiceNatIpConfigurationArrayOutput) ToGetServiceNatIpConfigurationArrayOutputWithContext(ctx context.Context) GetServiceNatIpConfigurationArrayOutput {
 	return o
-}
-
-func (o GetServiceNatIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceNatIpConfiguration] {
-	return pulumix.Output[[]GetServiceNatIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetServiceNatIpConfigurationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
@@ -119,12 +118,6 @@ func (o LookupHubResultOutput) ToLookupHubResultOutput() LookupHubResultOutput {
 
 func (o LookupHubResultOutput) ToLookupHubResultOutputWithContext(ctx context.Context) LookupHubResultOutput {
 	return o
-}
-
-func (o LookupHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHubResult] {
-	return pulumix.Output[LookupHubResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `apnsCredential` block as defined below.

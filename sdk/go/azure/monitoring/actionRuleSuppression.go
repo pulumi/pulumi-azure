@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Monitor Action Rule which type is suppression.
@@ -241,12 +240,6 @@ func (i *ActionRuleSuppression) ToActionRuleSuppressionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionOutput)
 }
 
-func (i *ActionRuleSuppression) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppression] {
-	return pulumix.Output[*ActionRuleSuppression]{
-		OutputState: i.ToActionRuleSuppressionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionRuleSuppressionArrayInput is an input type that accepts ActionRuleSuppressionArray and ActionRuleSuppressionArrayOutput values.
 // You can construct a concrete instance of `ActionRuleSuppressionArrayInput` via:
 //
@@ -270,12 +263,6 @@ func (i ActionRuleSuppressionArray) ToActionRuleSuppressionArrayOutput() ActionR
 
 func (i ActionRuleSuppressionArray) ToActionRuleSuppressionArrayOutputWithContext(ctx context.Context) ActionRuleSuppressionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionArrayOutput)
-}
-
-func (i ActionRuleSuppressionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionRuleSuppression] {
-	return pulumix.Output[[]*ActionRuleSuppression]{
-		OutputState: i.ToActionRuleSuppressionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionRuleSuppressionMapInput is an input type that accepts ActionRuleSuppressionMap and ActionRuleSuppressionMapOutput values.
@@ -303,12 +290,6 @@ func (i ActionRuleSuppressionMap) ToActionRuleSuppressionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionMapOutput)
 }
 
-func (i ActionRuleSuppressionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionRuleSuppression] {
-	return pulumix.Output[map[string]*ActionRuleSuppression]{
-		OutputState: i.ToActionRuleSuppressionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionOutput) ElementType() reflect.Type {
@@ -321,12 +302,6 @@ func (o ActionRuleSuppressionOutput) ToActionRuleSuppressionOutput() ActionRuleS
 
 func (o ActionRuleSuppressionOutput) ToActionRuleSuppressionOutputWithContext(ctx context.Context) ActionRuleSuppressionOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppression] {
-	return pulumix.Output[*ActionRuleSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `condition` block as defined below.
@@ -383,12 +358,6 @@ func (o ActionRuleSuppressionArrayOutput) ToActionRuleSuppressionArrayOutputWith
 	return o
 }
 
-func (o ActionRuleSuppressionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionRuleSuppression] {
-	return pulumix.Output[[]*ActionRuleSuppression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionRuleSuppressionArrayOutput) Index(i pulumi.IntInput) ActionRuleSuppressionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionRuleSuppression {
 		return vs[0].([]*ActionRuleSuppression)[vs[1].(int)]
@@ -407,12 +376,6 @@ func (o ActionRuleSuppressionMapOutput) ToActionRuleSuppressionMapOutput() Actio
 
 func (o ActionRuleSuppressionMapOutput) ToActionRuleSuppressionMapOutputWithContext(ctx context.Context) ActionRuleSuppressionMapOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionRuleSuppression] {
-	return pulumix.Output[map[string]*ActionRuleSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionMapOutput) MapIndex(k pulumi.StringInput) ActionRuleSuppressionOutput {

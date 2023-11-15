@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i VaultEncryptionArgs) ToVaultEncryptionOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultEncryptionOutput)
 }
 
-func (i VaultEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[VaultEncryption] {
-	return pulumix.Output[VaultEncryption]{
-		OutputState: i.ToVaultEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VaultEncryptionArgs) ToVaultEncryptionPtrOutput() VaultEncryptionPtrOutput {
 	return i.ToVaultEncryptionPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *vaultEncryptionPtrType) ToVaultEncryptionPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultEncryptionPtrOutput)
 }
 
-func (i *vaultEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*VaultEncryption] {
-	return pulumix.Output[*VaultEncryption]{
-		OutputState: i.ToVaultEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultEncryptionOutput struct{ *pulumi.OutputState }
 
 func (VaultEncryptionOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o VaultEncryptionOutput) ToVaultEncryptionPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultEncryption) *VaultEncryption {
 		return &v
 	}).(VaultEncryptionPtrOutput)
-}
-
-func (o VaultEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[VaultEncryption] {
-	return pulumix.Output[VaultEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enabling/Disabling the Double Encryption state.
@@ -186,12 +167,6 @@ func (o VaultEncryptionPtrOutput) ToVaultEncryptionPtrOutput() VaultEncryptionPt
 
 func (o VaultEncryptionPtrOutput) ToVaultEncryptionPtrOutputWithContext(ctx context.Context) VaultEncryptionPtrOutput {
 	return o
-}
-
-func (o VaultEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultEncryption] {
-	return pulumix.Output[*VaultEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultEncryptionPtrOutput) Elem() VaultEncryptionOutput {
@@ -297,12 +272,6 @@ func (i VaultIdentityArgs) ToVaultIdentityOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VaultIdentityOutput)
 }
 
-func (i VaultIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[VaultIdentity] {
-	return pulumix.Output[VaultIdentity]{
-		OutputState: i.ToVaultIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VaultIdentityArgs) ToVaultIdentityPtrOutput() VaultIdentityPtrOutput {
 	return i.ToVaultIdentityPtrOutputWithContext(context.Background())
 }
@@ -344,12 +313,6 @@ func (i *vaultIdentityPtrType) ToVaultIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VaultIdentityPtrOutput)
 }
 
-func (i *vaultIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*VaultIdentity] {
-	return pulumix.Output[*VaultIdentity]{
-		OutputState: i.ToVaultIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultIdentityOutput struct{ *pulumi.OutputState }
 
 func (VaultIdentityOutput) ElementType() reflect.Type {
@@ -372,12 +335,6 @@ func (o VaultIdentityOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultIdentity) *VaultIdentity {
 		return &v
 	}).(VaultIdentityPtrOutput)
-}
-
-func (o VaultIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[VaultIdentity] {
-	return pulumix.Output[VaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
@@ -414,12 +371,6 @@ func (o VaultIdentityPtrOutput) ToVaultIdentityPtrOutput() VaultIdentityPtrOutpu
 
 func (o VaultIdentityPtrOutput) ToVaultIdentityPtrOutputWithContext(ctx context.Context) VaultIdentityPtrOutput {
 	return o
-}
-
-func (o VaultIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultIdentity] {
-	return pulumix.Output[*VaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultIdentityPtrOutput) Elem() VaultIdentityOutput {
@@ -511,12 +462,6 @@ func (i VaultMonitoringArgs) ToVaultMonitoringOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultMonitoringOutput)
 }
 
-func (i VaultMonitoringArgs) ToOutput(ctx context.Context) pulumix.Output[VaultMonitoring] {
-	return pulumix.Output[VaultMonitoring]{
-		OutputState: i.ToVaultMonitoringOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VaultMonitoringArgs) ToVaultMonitoringPtrOutput() VaultMonitoringPtrOutput {
 	return i.ToVaultMonitoringPtrOutputWithContext(context.Background())
 }
@@ -558,12 +503,6 @@ func (i *vaultMonitoringPtrType) ToVaultMonitoringPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VaultMonitoringPtrOutput)
 }
 
-func (i *vaultMonitoringPtrType) ToOutput(ctx context.Context) pulumix.Output[*VaultMonitoring] {
-	return pulumix.Output[*VaultMonitoring]{
-		OutputState: i.ToVaultMonitoringPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultMonitoringOutput struct{ *pulumi.OutputState }
 
 func (VaultMonitoringOutput) ElementType() reflect.Type {
@@ -588,12 +527,6 @@ func (o VaultMonitoringOutput) ToVaultMonitoringPtrOutputWithContext(ctx context
 	}).(VaultMonitoringPtrOutput)
 }
 
-func (o VaultMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[VaultMonitoring] {
-	return pulumix.Output[VaultMonitoring]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
 func (o VaultMonitoringOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllJobFailuresEnabled }).(pulumi.BoolPtrOutput)
@@ -616,12 +549,6 @@ func (o VaultMonitoringPtrOutput) ToVaultMonitoringPtrOutput() VaultMonitoringPt
 
 func (o VaultMonitoringPtrOutput) ToVaultMonitoringPtrOutputWithContext(ctx context.Context) VaultMonitoringPtrOutput {
 	return o
-}
-
-func (o VaultMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultMonitoring] {
-	return pulumix.Output[*VaultMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultMonitoringPtrOutput) Elem() VaultMonitoringOutput {

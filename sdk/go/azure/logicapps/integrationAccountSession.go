@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Session.
@@ -190,12 +189,6 @@ func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionOutput)
 }
 
-func (i *IntegrationAccountSession) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountSession] {
-	return pulumix.Output[*IntegrationAccountSession]{
-		OutputState: i.ToIntegrationAccountSessionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountSessionArrayInput is an input type that accepts IntegrationAccountSessionArray and IntegrationAccountSessionArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountSessionArrayInput` via:
 //
@@ -219,12 +212,6 @@ func (i IntegrationAccountSessionArray) ToIntegrationAccountSessionArrayOutput()
 
 func (i IntegrationAccountSessionArray) ToIntegrationAccountSessionArrayOutputWithContext(ctx context.Context) IntegrationAccountSessionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionArrayOutput)
-}
-
-func (i IntegrationAccountSessionArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountSession] {
-	return pulumix.Output[[]*IntegrationAccountSession]{
-		OutputState: i.ToIntegrationAccountSessionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationAccountSessionMapInput is an input type that accepts IntegrationAccountSessionMap and IntegrationAccountSessionMapOutput values.
@@ -252,12 +239,6 @@ func (i IntegrationAccountSessionMap) ToIntegrationAccountSessionMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionMapOutput)
 }
 
-func (i IntegrationAccountSessionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountSession] {
-	return pulumix.Output[map[string]*IntegrationAccountSession]{
-		OutputState: i.ToIntegrationAccountSessionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountSessionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSessionOutput) ElementType() reflect.Type {
@@ -270,12 +251,6 @@ func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutput() Int
 
 func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutputWithContext(ctx context.Context) IntegrationAccountSessionOutput {
 	return o
-}
-
-func (o IntegrationAccountSessionOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountSession] {
-	return pulumix.Output[*IntegrationAccountSession]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the Logic App Integration Account Session.
@@ -312,12 +287,6 @@ func (o IntegrationAccountSessionArrayOutput) ToIntegrationAccountSessionArrayOu
 	return o
 }
 
-func (o IntegrationAccountSessionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountSession] {
-	return pulumix.Output[[]*IntegrationAccountSession]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAccountSessionArrayOutput) Index(i pulumi.IntInput) IntegrationAccountSessionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountSession {
 		return vs[0].([]*IntegrationAccountSession)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o IntegrationAccountSessionMapOutput) ToIntegrationAccountSessionMapOutput
 
 func (o IntegrationAccountSessionMapOutput) ToIntegrationAccountSessionMapOutputWithContext(ctx context.Context) IntegrationAccountSessionMapOutput {
 	return o
-}
-
-func (o IntegrationAccountSessionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountSession] {
-	return pulumix.Output[map[string]*IntegrationAccountSession]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountSessionMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountSessionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VMware Private Cloud Netapp File Attachment.
@@ -144,12 +143,6 @@ func (i *NetappVolumeAttachment) ToNetappVolumeAttachmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(NetappVolumeAttachmentOutput)
 }
 
-func (i *NetappVolumeAttachment) ToOutput(ctx context.Context) pulumix.Output[*NetappVolumeAttachment] {
-	return pulumix.Output[*NetappVolumeAttachment]{
-		OutputState: i.ToNetappVolumeAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetappVolumeAttachmentArrayInput is an input type that accepts NetappVolumeAttachmentArray and NetappVolumeAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetappVolumeAttachmentArrayInput` via:
 //
@@ -173,12 +166,6 @@ func (i NetappVolumeAttachmentArray) ToNetappVolumeAttachmentArrayOutput() Netap
 
 func (i NetappVolumeAttachmentArray) ToNetappVolumeAttachmentArrayOutputWithContext(ctx context.Context) NetappVolumeAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetappVolumeAttachmentArrayOutput)
-}
-
-func (i NetappVolumeAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetappVolumeAttachment] {
-	return pulumix.Output[[]*NetappVolumeAttachment]{
-		OutputState: i.ToNetappVolumeAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetappVolumeAttachmentMapInput is an input type that accepts NetappVolumeAttachmentMap and NetappVolumeAttachmentMapOutput values.
@@ -206,12 +193,6 @@ func (i NetappVolumeAttachmentMap) ToNetappVolumeAttachmentMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NetappVolumeAttachmentMapOutput)
 }
 
-func (i NetappVolumeAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetappVolumeAttachment] {
-	return pulumix.Output[map[string]*NetappVolumeAttachment]{
-		OutputState: i.ToNetappVolumeAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetappVolumeAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetappVolumeAttachmentOutput) ElementType() reflect.Type {
@@ -224,12 +205,6 @@ func (o NetappVolumeAttachmentOutput) ToNetappVolumeAttachmentOutput() NetappVol
 
 func (o NetappVolumeAttachmentOutput) ToNetappVolumeAttachmentOutputWithContext(ctx context.Context) NetappVolumeAttachmentOutput {
 	return o
-}
-
-func (o NetappVolumeAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetappVolumeAttachment] {
-	return pulumix.Output[*NetappVolumeAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this VMware Private Cloud Netapp File Volume Attachment. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
@@ -263,12 +238,6 @@ func (o NetappVolumeAttachmentArrayOutput) ToNetappVolumeAttachmentArrayOutputWi
 	return o
 }
 
-func (o NetappVolumeAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetappVolumeAttachment] {
-	return pulumix.Output[[]*NetappVolumeAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetappVolumeAttachmentArrayOutput) Index(i pulumi.IntInput) NetappVolumeAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetappVolumeAttachment {
 		return vs[0].([]*NetappVolumeAttachment)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o NetappVolumeAttachmentMapOutput) ToNetappVolumeAttachmentMapOutput() Net
 
 func (o NetappVolumeAttachmentMapOutput) ToNetappVolumeAttachmentMapOutputWithContext(ctx context.Context) NetappVolumeAttachmentMapOutput {
 	return o
-}
-
-func (o NetappVolumeAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetappVolumeAttachment] {
-	return pulumix.Output[map[string]*NetappVolumeAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetappVolumeAttachmentMapOutput) MapIndex(k pulumi.StringInput) NetappVolumeAttachmentOutput {

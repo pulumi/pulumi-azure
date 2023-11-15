@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Linked Storage Account.
@@ -217,12 +216,6 @@ func (i *LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
 }
 
-func (i *LinkedStorageAccount) ToOutput(ctx context.Context) pulumix.Output[*LinkedStorageAccount] {
-	return pulumix.Output[*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedStorageAccountArrayInput is an input type that accepts LinkedStorageAccountArray and LinkedStorageAccountArrayOutput values.
 // You can construct a concrete instance of `LinkedStorageAccountArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i LinkedStorageAccountArray) ToLinkedStorageAccountArrayOutput() LinkedSto
 
 func (i LinkedStorageAccountArray) ToLinkedStorageAccountArrayOutputWithContext(ctx context.Context) LinkedStorageAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountArrayOutput)
-}
-
-func (i LinkedStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedStorageAccount] {
-	return pulumix.Output[[]*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedStorageAccountMapInput is an input type that accepts LinkedStorageAccountMap and LinkedStorageAccountMapOutput values.
@@ -279,12 +266,6 @@ func (i LinkedStorageAccountMap) ToLinkedStorageAccountMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountMapOutput)
 }
 
-func (i LinkedStorageAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedStorageAccount] {
-	return pulumix.Output[map[string]*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutput() LinkedStorage
 
 func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx context.Context) LinkedStorageAccountOutput {
 	return o
-}
-
-func (o LinkedStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedStorageAccount] {
-	return pulumix.Output[*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -341,12 +316,6 @@ func (o LinkedStorageAccountArrayOutput) ToLinkedStorageAccountArrayOutputWithCo
 	return o
 }
 
-func (o LinkedStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedStorageAccount] {
-	return pulumix.Output[[]*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedStorageAccountArrayOutput) Index(i pulumi.IntInput) LinkedStorageAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedStorageAccount {
 		return vs[0].([]*LinkedStorageAccount)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o LinkedStorageAccountMapOutput) ToLinkedStorageAccountMapOutput() LinkedS
 
 func (o LinkedStorageAccountMapOutput) ToLinkedStorageAccountMapOutputWithContext(ctx context.Context) LinkedStorageAccountMapOutput {
 	return o
-}
-
-func (o LinkedStorageAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedStorageAccount] {
-	return pulumix.Output[map[string]*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) LinkedStorageAccountOutput {
