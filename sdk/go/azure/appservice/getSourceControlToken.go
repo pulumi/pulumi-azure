@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -100,12 +99,6 @@ func (o LookupSourceControlTokenResultOutput) ToLookupSourceControlTokenResultOu
 
 func (o LookupSourceControlTokenResultOutput) ToLookupSourceControlTokenResultOutputWithContext(ctx context.Context) LookupSourceControlTokenResultOutput {
 	return o
-}
-
-func (o LookupSourceControlTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSourceControlTokenResult] {
-	return pulumix.Output[LookupSourceControlTokenResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

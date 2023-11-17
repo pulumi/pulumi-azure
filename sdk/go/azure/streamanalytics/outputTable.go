@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output Table.
@@ -293,12 +292,6 @@ func (i *OutputTable) ToOutputTableOutputWithContext(ctx context.Context) Output
 	return pulumi.ToOutputWithContext(ctx, i).(OutputTableOutput)
 }
 
-func (i *OutputTable) ToOutput(ctx context.Context) pulumix.Output[*OutputTable] {
-	return pulumix.Output[*OutputTable]{
-		OutputState: i.ToOutputTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutputTableArrayInput is an input type that accepts OutputTableArray and OutputTableArrayOutput values.
 // You can construct a concrete instance of `OutputTableArrayInput` via:
 //
@@ -322,12 +315,6 @@ func (i OutputTableArray) ToOutputTableArrayOutput() OutputTableArrayOutput {
 
 func (i OutputTableArray) ToOutputTableArrayOutputWithContext(ctx context.Context) OutputTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputTableArrayOutput)
-}
-
-func (i OutputTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputTable] {
-	return pulumix.Output[[]*OutputTable]{
-		OutputState: i.ToOutputTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OutputTableMapInput is an input type that accepts OutputTableMap and OutputTableMapOutput values.
@@ -355,12 +342,6 @@ func (i OutputTableMap) ToOutputTableMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OutputTableMapOutput)
 }
 
-func (i OutputTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputTable] {
-	return pulumix.Output[map[string]*OutputTable]{
-		OutputState: i.ToOutputTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutputTableOutput struct{ *pulumi.OutputState }
 
 func (OutputTableOutput) ElementType() reflect.Type {
@@ -373,12 +354,6 @@ func (o OutputTableOutput) ToOutputTableOutput() OutputTableOutput {
 
 func (o OutputTableOutput) ToOutputTableOutputWithContext(ctx context.Context) OutputTableOutput {
 	return o
-}
-
-func (o OutputTableOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputTable] {
-	return pulumix.Output[*OutputTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of records for a batch operation. Must be between `1` and `100`.
@@ -445,12 +420,6 @@ func (o OutputTableArrayOutput) ToOutputTableArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o OutputTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputTable] {
-	return pulumix.Output[[]*OutputTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OutputTableArrayOutput) Index(i pulumi.IntInput) OutputTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputTable {
 		return vs[0].([]*OutputTable)[vs[1].(int)]
@@ -469,12 +438,6 @@ func (o OutputTableMapOutput) ToOutputTableMapOutput() OutputTableMapOutput {
 
 func (o OutputTableMapOutput) ToOutputTableMapOutputWithContext(ctx context.Context) OutputTableMapOutput {
 	return o
-}
-
-func (o OutputTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputTable] {
-	return pulumix.Output[map[string]*OutputTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutputTableMapOutput) MapIndex(k pulumi.StringInput) OutputTableOutput {

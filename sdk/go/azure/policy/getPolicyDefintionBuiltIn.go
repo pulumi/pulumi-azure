@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a Built-In Policy Definition. Retrieves Policy Definitions from your current subscription by default.
@@ -129,12 +128,6 @@ func (o GetPolicyDefintionBuiltInResultOutput) ToGetPolicyDefintionBuiltInResult
 
 func (o GetPolicyDefintionBuiltInResultOutput) ToGetPolicyDefintionBuiltInResultOutputWithContext(ctx context.Context) GetPolicyDefintionBuiltInResultOutput {
 	return o
-}
-
-func (o GetPolicyDefintionBuiltInResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDefintionBuiltInResult] {
-	return pulumix.Output[GetPolicyDefintionBuiltInResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Description of the Policy.

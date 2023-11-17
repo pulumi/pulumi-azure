@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i CollectorPolicyIpfxEmissionArgs) ToCollectorPolicyIpfxEmissionOutput() C
 
 func (i CollectorPolicyIpfxEmissionArgs) ToCollectorPolicyIpfxEmissionOutputWithContext(ctx context.Context) CollectorPolicyIpfxEmissionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyIpfxEmissionOutput)
-}
-
-func (i CollectorPolicyIpfxEmissionArgs) ToOutput(ctx context.Context) pulumix.Output[CollectorPolicyIpfxEmission] {
-	return pulumix.Output[CollectorPolicyIpfxEmission]{
-		OutputState: i.ToCollectorPolicyIpfxEmissionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CollectorPolicyIpfxEmissionArgs) ToCollectorPolicyIpfxEmissionPtrOutput() CollectorPolicyIpfxEmissionPtrOutput {
@@ -94,12 +87,6 @@ func (i *collectorPolicyIpfxEmissionPtrType) ToCollectorPolicyIpfxEmissionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyIpfxEmissionPtrOutput)
 }
 
-func (i *collectorPolicyIpfxEmissionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicyIpfxEmission] {
-	return pulumix.Output[*CollectorPolicyIpfxEmission]{
-		OutputState: i.ToCollectorPolicyIpfxEmissionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollectorPolicyIpfxEmissionOutput struct{ *pulumi.OutputState }
 
 func (CollectorPolicyIpfxEmissionOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o CollectorPolicyIpfxEmissionOutput) ToCollectorPolicyIpfxEmissionPtrOutpu
 	}).(CollectorPolicyIpfxEmissionPtrOutput)
 }
 
-func (o CollectorPolicyIpfxEmissionOutput) ToOutput(ctx context.Context) pulumix.Output[CollectorPolicyIpfxEmission] {
-	return pulumix.Output[CollectorPolicyIpfxEmission]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
 func (o CollectorPolicyIpfxEmissionOutput) DestinationTypes() pulumi.StringOutput {
 	return o.ApplyT(func(v CollectorPolicyIpfxEmission) string { return v.DestinationTypes }).(pulumi.StringOutput)
@@ -147,12 +128,6 @@ func (o CollectorPolicyIpfxEmissionPtrOutput) ToCollectorPolicyIpfxEmissionPtrOu
 
 func (o CollectorPolicyIpfxEmissionPtrOutput) ToCollectorPolicyIpfxEmissionPtrOutputWithContext(ctx context.Context) CollectorPolicyIpfxEmissionPtrOutput {
 	return o
-}
-
-func (o CollectorPolicyIpfxEmissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicyIpfxEmission] {
-	return pulumix.Output[*CollectorPolicyIpfxEmission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollectorPolicyIpfxEmissionPtrOutput) Elem() CollectorPolicyIpfxEmissionOutput {
@@ -208,12 +183,6 @@ func (i CollectorPolicyIpfxIngestionArgs) ToCollectorPolicyIpfxIngestionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyIpfxIngestionOutput)
 }
 
-func (i CollectorPolicyIpfxIngestionArgs) ToOutput(ctx context.Context) pulumix.Output[CollectorPolicyIpfxIngestion] {
-	return pulumix.Output[CollectorPolicyIpfxIngestion]{
-		OutputState: i.ToCollectorPolicyIpfxIngestionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CollectorPolicyIpfxIngestionArgs) ToCollectorPolicyIpfxIngestionPtrOutput() CollectorPolicyIpfxIngestionPtrOutput {
 	return i.ToCollectorPolicyIpfxIngestionPtrOutputWithContext(context.Background())
 }
@@ -255,12 +224,6 @@ func (i *collectorPolicyIpfxIngestionPtrType) ToCollectorPolicyIpfxIngestionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyIpfxIngestionPtrOutput)
 }
 
-func (i *collectorPolicyIpfxIngestionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicyIpfxIngestion] {
-	return pulumix.Output[*CollectorPolicyIpfxIngestion]{
-		OutputState: i.ToCollectorPolicyIpfxIngestionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollectorPolicyIpfxIngestionOutput struct{ *pulumi.OutputState }
 
 func (CollectorPolicyIpfxIngestionOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o CollectorPolicyIpfxIngestionOutput) ToCollectorPolicyIpfxIngestionPtrOut
 	}).(CollectorPolicyIpfxIngestionPtrOutput)
 }
 
-func (o CollectorPolicyIpfxIngestionOutput) ToOutput(ctx context.Context) pulumix.Output[CollectorPolicyIpfxIngestion] {
-	return pulumix.Output[CollectorPolicyIpfxIngestion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
 func (o CollectorPolicyIpfxIngestionOutput) SourceResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CollectorPolicyIpfxIngestion) []string { return v.SourceResourceIds }).(pulumi.StringArrayOutput)
@@ -308,12 +265,6 @@ func (o CollectorPolicyIpfxIngestionPtrOutput) ToCollectorPolicyIpfxIngestionPtr
 
 func (o CollectorPolicyIpfxIngestionPtrOutput) ToCollectorPolicyIpfxIngestionPtrOutputWithContext(ctx context.Context) CollectorPolicyIpfxIngestionPtrOutput {
 	return o
-}
-
-func (o CollectorPolicyIpfxIngestionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicyIpfxIngestion] {
-	return pulumix.Output[*CollectorPolicyIpfxIngestion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollectorPolicyIpfxIngestionPtrOutput) Elem() CollectorPolicyIpfxIngestionOutput {

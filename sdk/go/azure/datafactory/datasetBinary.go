@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Factory Binary Dataset inside an Azure Data Factory.
@@ -290,12 +289,6 @@ func (i *DatasetBinary) ToDatasetBinaryOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryOutput)
 }
 
-func (i *DatasetBinary) ToOutput(ctx context.Context) pulumix.Output[*DatasetBinary] {
-	return pulumix.Output[*DatasetBinary]{
-		OutputState: i.ToDatasetBinaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetBinaryArrayInput is an input type that accepts DatasetBinaryArray and DatasetBinaryArrayOutput values.
 // You can construct a concrete instance of `DatasetBinaryArrayInput` via:
 //
@@ -319,12 +312,6 @@ func (i DatasetBinaryArray) ToDatasetBinaryArrayOutput() DatasetBinaryArrayOutpu
 
 func (i DatasetBinaryArray) ToDatasetBinaryArrayOutputWithContext(ctx context.Context) DatasetBinaryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryArrayOutput)
-}
-
-func (i DatasetBinaryArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetBinary] {
-	return pulumix.Output[[]*DatasetBinary]{
-		OutputState: i.ToDatasetBinaryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetBinaryMapInput is an input type that accepts DatasetBinaryMap and DatasetBinaryMapOutput values.
@@ -352,12 +339,6 @@ func (i DatasetBinaryMap) ToDatasetBinaryMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBinaryMapOutput)
 }
 
-func (i DatasetBinaryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetBinary] {
-	return pulumix.Output[map[string]*DatasetBinary]{
-		OutputState: i.ToDatasetBinaryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetBinaryOutput struct{ *pulumi.OutputState }
 
 func (DatasetBinaryOutput) ElementType() reflect.Type {
@@ -370,12 +351,6 @@ func (o DatasetBinaryOutput) ToDatasetBinaryOutput() DatasetBinaryOutput {
 
 func (o DatasetBinaryOutput) ToDatasetBinaryOutputWithContext(ctx context.Context) DatasetBinaryOutput {
 	return o
-}
-
-func (o DatasetBinaryOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetBinary] {
-	return pulumix.Output[*DatasetBinary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Binary Dataset.
@@ -456,12 +431,6 @@ func (o DatasetBinaryArrayOutput) ToDatasetBinaryArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o DatasetBinaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetBinary] {
-	return pulumix.Output[[]*DatasetBinary]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetBinaryArrayOutput) Index(i pulumi.IntInput) DatasetBinaryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetBinary {
 		return vs[0].([]*DatasetBinary)[vs[1].(int)]
@@ -480,12 +449,6 @@ func (o DatasetBinaryMapOutput) ToDatasetBinaryMapOutput() DatasetBinaryMapOutpu
 
 func (o DatasetBinaryMapOutput) ToDatasetBinaryMapOutputWithContext(ctx context.Context) DatasetBinaryMapOutput {
 	return o
-}
-
-func (o DatasetBinaryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetBinary] {
-	return pulumix.Output[map[string]*DatasetBinary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetBinaryMapOutput) MapIndex(k pulumi.StringInput) DatasetBinaryOutput {

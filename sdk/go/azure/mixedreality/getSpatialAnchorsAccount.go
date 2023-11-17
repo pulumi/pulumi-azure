@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about an Azure Spatial Anchors Account.
@@ -112,12 +111,6 @@ func (o LookupSpatialAnchorsAccountResultOutput) ToLookupSpatialAnchorsAccountRe
 
 func (o LookupSpatialAnchorsAccountResultOutput) ToLookupSpatialAnchorsAccountResultOutputWithContext(ctx context.Context) LookupSpatialAnchorsAccountResultOutput {
 	return o
-}
-
-func (o LookupSpatialAnchorsAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSpatialAnchorsAccountResult] {
-	return pulumix.Output[LookupSpatialAnchorsAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The domain of the Spatial Anchors Account.

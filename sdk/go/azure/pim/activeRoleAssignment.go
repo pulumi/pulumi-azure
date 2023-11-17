@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Pim Active Role Assignment.
@@ -296,12 +295,6 @@ func (i *ActiveRoleAssignment) ToActiveRoleAssignmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentOutput)
 }
 
-func (i *ActiveRoleAssignment) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignment] {
-	return pulumix.Output[*ActiveRoleAssignment]{
-		OutputState: i.ToActiveRoleAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActiveRoleAssignmentArrayInput is an input type that accepts ActiveRoleAssignmentArray and ActiveRoleAssignmentArrayOutput values.
 // You can construct a concrete instance of `ActiveRoleAssignmentArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i ActiveRoleAssignmentArray) ToActiveRoleAssignmentArrayOutput() ActiveRol
 
 func (i ActiveRoleAssignmentArray) ToActiveRoleAssignmentArrayOutputWithContext(ctx context.Context) ActiveRoleAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentArrayOutput)
-}
-
-func (i ActiveRoleAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveRoleAssignment] {
-	return pulumix.Output[[]*ActiveRoleAssignment]{
-		OutputState: i.ToActiveRoleAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActiveRoleAssignmentMapInput is an input type that accepts ActiveRoleAssignmentMap and ActiveRoleAssignmentMapOutput values.
@@ -358,12 +345,6 @@ func (i ActiveRoleAssignmentMap) ToActiveRoleAssignmentMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveRoleAssignmentMapOutput)
 }
 
-func (i ActiveRoleAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveRoleAssignment] {
-	return pulumix.Output[map[string]*ActiveRoleAssignment]{
-		OutputState: i.ToActiveRoleAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActiveRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ActiveRoleAssignmentOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o ActiveRoleAssignmentOutput) ToActiveRoleAssignmentOutput() ActiveRoleAss
 
 func (o ActiveRoleAssignmentOutput) ToActiveRoleAssignmentOutputWithContext(ctx context.Context) ActiveRoleAssignmentOutput {
 	return o
-}
-
-func (o ActiveRoleAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveRoleAssignment] {
-	return pulumix.Output[*ActiveRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.
@@ -433,12 +408,6 @@ func (o ActiveRoleAssignmentArrayOutput) ToActiveRoleAssignmentArrayOutputWithCo
 	return o
 }
 
-func (o ActiveRoleAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveRoleAssignment] {
-	return pulumix.Output[[]*ActiveRoleAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActiveRoleAssignmentArrayOutput) Index(i pulumi.IntInput) ActiveRoleAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveRoleAssignment {
 		return vs[0].([]*ActiveRoleAssignment)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o ActiveRoleAssignmentMapOutput) ToActiveRoleAssignmentMapOutput() ActiveR
 
 func (o ActiveRoleAssignmentMapOutput) ToActiveRoleAssignmentMapOutputWithContext(ctx context.Context) ActiveRoleAssignmentMapOutput {
 	return o
-}
-
-func (o ActiveRoleAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveRoleAssignment] {
-	return pulumix.Output[map[string]*ActiveRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActiveRoleAssignmentMapOutput) MapIndex(k pulumi.StringInput) ActiveRoleAssignmentOutput {

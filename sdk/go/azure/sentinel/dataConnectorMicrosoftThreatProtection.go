@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Threat Protection Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorMicrosoftThreatProtection) ToDataConnectorMicrosoftThreatP
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatProtectionOutput)
 }
 
-func (i *DataConnectorMicrosoftThreatProtection) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[*DataConnectorMicrosoftThreatProtection]{
-		OutputState: i.ToDataConnectorMicrosoftThreatProtectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorMicrosoftThreatProtectionArrayInput is an input type that accepts DataConnectorMicrosoftThreatProtectionArray and DataConnectorMicrosoftThreatProtectionArrayOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftThreatProtectionArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorMicrosoftThreatProtectionArray) ToDataConnectorMicrosoftThr
 
 func (i DataConnectorMicrosoftThreatProtectionArray) ToDataConnectorMicrosoftThreatProtectionArrayOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatProtectionArrayOutput)
-}
-
-func (i DataConnectorMicrosoftThreatProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[[]*DataConnectorMicrosoftThreatProtection]{
-		OutputState: i.ToDataConnectorMicrosoftThreatProtectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorMicrosoftThreatProtectionMapInput is an input type that accepts DataConnectorMicrosoftThreatProtectionMap and DataConnectorMicrosoftThreatProtectionMapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorMicrosoftThreatProtectionMap) ToDataConnectorMicrosoftThrea
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatProtectionMapOutput)
 }
 
-func (i DataConnectorMicrosoftThreatProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftThreatProtection]{
-		OutputState: i.ToDataConnectorMicrosoftThreatProtectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorMicrosoftThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftThreatProtectionOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorMicrosoftThreatProtectionOutput) ToDataConnectorMicrosoftTh
 
 func (o DataConnectorMicrosoftThreatProtectionOutput) ToDataConnectorMicrosoftThreatProtectionOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatProtectionOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftThreatProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[*DataConnectorMicrosoftThreatProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Microsoft Threat Protection Data Connector resides in. Changing this forces a new Microsoft Threat Protection Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorMicrosoftThreatProtectionArrayOutput) ToDataConnectorMicros
 	return o
 }
 
-func (o DataConnectorMicrosoftThreatProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[[]*DataConnectorMicrosoftThreatProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorMicrosoftThreatProtectionArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftThreatProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftThreatProtection {
 		return vs[0].([]*DataConnectorMicrosoftThreatProtection)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorMicrosoftThreatProtectionMapOutput) ToDataConnectorMicrosof
 
 func (o DataConnectorMicrosoftThreatProtectionMapOutput) ToDataConnectorMicrosoftThreatProtectionMapOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatProtectionMapOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftThreatProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftThreatProtection] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftThreatProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorMicrosoftThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftThreatProtectionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Route Table with a Subnet within a Virtual Network.
@@ -193,12 +192,6 @@ func (i *SubnetRouteTableAssociation) ToSubnetRouteTableAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationOutput)
 }
 
-func (i *SubnetRouteTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*SubnetRouteTableAssociation] {
-	return pulumix.Output[*SubnetRouteTableAssociation]{
-		OutputState: i.ToSubnetRouteTableAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubnetRouteTableAssociationArrayInput is an input type that accepts SubnetRouteTableAssociationArray and SubnetRouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `SubnetRouteTableAssociationArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i SubnetRouteTableAssociationArray) ToSubnetRouteTableAssociationArrayOutp
 
 func (i SubnetRouteTableAssociationArray) ToSubnetRouteTableAssociationArrayOutputWithContext(ctx context.Context) SubnetRouteTableAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationArrayOutput)
-}
-
-func (i SubnetRouteTableAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetRouteTableAssociation] {
-	return pulumix.Output[[]*SubnetRouteTableAssociation]{
-		OutputState: i.ToSubnetRouteTableAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubnetRouteTableAssociationMapInput is an input type that accepts SubnetRouteTableAssociationMap and SubnetRouteTableAssociationMapOutput values.
@@ -255,12 +242,6 @@ func (i SubnetRouteTableAssociationMap) ToSubnetRouteTableAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetRouteTableAssociationMapOutput)
 }
 
-func (i SubnetRouteTableAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetRouteTableAssociation] {
-	return pulumix.Output[map[string]*SubnetRouteTableAssociation]{
-		OutputState: i.ToSubnetRouteTableAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (SubnetRouteTableAssociationOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutput()
 
 func (o SubnetRouteTableAssociationOutput) ToSubnetRouteTableAssociationOutputWithContext(ctx context.Context) SubnetRouteTableAssociationOutput {
 	return o
-}
-
-func (o SubnetRouteTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetRouteTableAssociation] {
-	return pulumix.Output[*SubnetRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -305,12 +280,6 @@ func (o SubnetRouteTableAssociationArrayOutput) ToSubnetRouteTableAssociationArr
 	return o
 }
 
-func (o SubnetRouteTableAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetRouteTableAssociation] {
-	return pulumix.Output[[]*SubnetRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubnetRouteTableAssociationArrayOutput) Index(i pulumi.IntInput) SubnetRouteTableAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetRouteTableAssociation {
 		return vs[0].([]*SubnetRouteTableAssociation)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o SubnetRouteTableAssociationMapOutput) ToSubnetRouteTableAssociationMapOu
 
 func (o SubnetRouteTableAssociationMapOutput) ToSubnetRouteTableAssociationMapOutputWithContext(ctx context.Context) SubnetRouteTableAssociationMapOutput {
 	return o
-}
-
-func (o SubnetRouteTableAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetRouteTableAssociation] {
-	return pulumix.Output[map[string]*SubnetRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) SubnetRouteTableAssociationOutput {

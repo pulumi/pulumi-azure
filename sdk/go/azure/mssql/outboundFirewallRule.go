@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to manage an Azure SQL Outbound Firewall Rule.
@@ -165,12 +164,6 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleOutput)
 }
 
-func (i *OutboundFirewallRule) ToOutput(ctx context.Context) pulumix.Output[*OutboundFirewallRule] {
-	return pulumix.Output[*OutboundFirewallRule]{
-		OutputState: i.ToOutboundFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutboundFirewallRuleArrayInput is an input type that accepts OutboundFirewallRuleArray and OutboundFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `OutboundFirewallRuleArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i OutboundFirewallRuleArray) ToOutboundFirewallRuleArrayOutput() OutboundF
 
 func (i OutboundFirewallRuleArray) ToOutboundFirewallRuleArrayOutputWithContext(ctx context.Context) OutboundFirewallRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleArrayOutput)
-}
-
-func (i OutboundFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundFirewallRule] {
-	return pulumix.Output[[]*OutboundFirewallRule]{
-		OutputState: i.ToOutboundFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OutboundFirewallRuleMapInput is an input type that accepts OutboundFirewallRuleMap and OutboundFirewallRuleMapOutput values.
@@ -227,12 +214,6 @@ func (i OutboundFirewallRuleMap) ToOutboundFirewallRuleMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleMapOutput)
 }
 
-func (i OutboundFirewallRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundFirewallRule] {
-	return pulumix.Output[map[string]*OutboundFirewallRule]{
-		OutputState: i.ToOutboundFirewallRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutboundFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundFirewallRuleOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o OutboundFirewallRuleOutput) ToOutboundFirewallRuleOutput() OutboundFirew
 
 func (o OutboundFirewallRuleOutput) ToOutboundFirewallRuleOutputWithContext(ctx context.Context) OutboundFirewallRuleOutput {
 	return o
-}
-
-func (o OutboundFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundFirewallRule] {
-	return pulumix.Output[*OutboundFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
@@ -277,12 +252,6 @@ func (o OutboundFirewallRuleArrayOutput) ToOutboundFirewallRuleArrayOutputWithCo
 	return o
 }
 
-func (o OutboundFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundFirewallRule] {
-	return pulumix.Output[[]*OutboundFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OutboundFirewallRuleArrayOutput) Index(i pulumi.IntInput) OutboundFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutboundFirewallRule {
 		return vs[0].([]*OutboundFirewallRule)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o OutboundFirewallRuleMapOutput) ToOutboundFirewallRuleMapOutput() Outboun
 
 func (o OutboundFirewallRuleMapOutput) ToOutboundFirewallRuleMapOutputWithContext(ctx context.Context) OutboundFirewallRuleMapOutput {
 	return o
-}
-
-func (o OutboundFirewallRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundFirewallRule] {
-	return pulumix.Output[map[string]*OutboundFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutboundFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) OutboundFirewallRuleOutput {

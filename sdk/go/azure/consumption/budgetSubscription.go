@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Subscription Consumption Budget.
@@ -297,12 +296,6 @@ func (i *BudgetSubscription) ToBudgetSubscriptionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionOutput)
 }
 
-func (i *BudgetSubscription) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscription] {
-	return pulumix.Output[*BudgetSubscription]{
-		OutputState: i.ToBudgetSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BudgetSubscriptionArrayInput is an input type that accepts BudgetSubscriptionArray and BudgetSubscriptionArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i BudgetSubscriptionArray) ToBudgetSubscriptionArrayOutput() BudgetSubscri
 
 func (i BudgetSubscriptionArray) ToBudgetSubscriptionArrayOutputWithContext(ctx context.Context) BudgetSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionArrayOutput)
-}
-
-func (i BudgetSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetSubscription] {
-	return pulumix.Output[[]*BudgetSubscription]{
-		OutputState: i.ToBudgetSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BudgetSubscriptionMapInput is an input type that accepts BudgetSubscriptionMap and BudgetSubscriptionMapOutput values.
@@ -359,12 +346,6 @@ func (i BudgetSubscriptionMap) ToBudgetSubscriptionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriptionMapOutput)
 }
 
-func (i BudgetSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetSubscription] {
-	return pulumix.Output[map[string]*BudgetSubscription]{
-		OutputState: i.ToBudgetSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BudgetSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (BudgetSubscriptionOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o BudgetSubscriptionOutput) ToBudgetSubscriptionOutput() BudgetSubscriptio
 
 func (o BudgetSubscriptionOutput) ToBudgetSubscriptionOutputWithContext(ctx context.Context) BudgetSubscriptionOutput {
 	return o
-}
-
-func (o BudgetSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetSubscription] {
-	return pulumix.Output[*BudgetSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The total amount of cost to track with the budget.
@@ -441,12 +416,6 @@ func (o BudgetSubscriptionArrayOutput) ToBudgetSubscriptionArrayOutputWithContex
 	return o
 }
 
-func (o BudgetSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetSubscription] {
-	return pulumix.Output[[]*BudgetSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetSubscriptionArrayOutput) Index(i pulumi.IntInput) BudgetSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetSubscription {
 		return vs[0].([]*BudgetSubscription)[vs[1].(int)]
@@ -465,12 +434,6 @@ func (o BudgetSubscriptionMapOutput) ToBudgetSubscriptionMapOutput() BudgetSubsc
 
 func (o BudgetSubscriptionMapOutput) ToBudgetSubscriptionMapOutputWithContext(ctx context.Context) BudgetSubscriptionMapOutput {
 	return o
-}
-
-func (o BudgetSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetSubscription] {
-	return pulumix.Output[map[string]*BudgetSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BudgetSubscriptionMapOutput) MapIndex(k pulumi.StringInput) BudgetSubscriptionOutput {

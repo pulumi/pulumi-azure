@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Shared Image within a Shared Image Gallery.
@@ -433,12 +432,6 @@ func (i *SharedImage) ToSharedImageOutputWithContext(ctx context.Context) Shared
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageOutput)
 }
 
-func (i *SharedImage) ToOutput(ctx context.Context) pulumix.Output[*SharedImage] {
-	return pulumix.Output[*SharedImage]{
-		OutputState: i.ToSharedImageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SharedImageArrayInput is an input type that accepts SharedImageArray and SharedImageArrayOutput values.
 // You can construct a concrete instance of `SharedImageArrayInput` via:
 //
@@ -462,12 +455,6 @@ func (i SharedImageArray) ToSharedImageArrayOutput() SharedImageArrayOutput {
 
 func (i SharedImageArray) ToSharedImageArrayOutputWithContext(ctx context.Context) SharedImageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageArrayOutput)
-}
-
-func (i SharedImageArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImage] {
-	return pulumix.Output[[]*SharedImage]{
-		OutputState: i.ToSharedImageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SharedImageMapInput is an input type that accepts SharedImageMap and SharedImageMapOutput values.
@@ -495,12 +482,6 @@ func (i SharedImageMap) ToSharedImageMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageMapOutput)
 }
 
-func (i SharedImageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImage] {
-	return pulumix.Output[map[string]*SharedImage]{
-		OutputState: i.ToSharedImageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SharedImageOutput struct{ *pulumi.OutputState }
 
 func (SharedImageOutput) ElementType() reflect.Type {
@@ -513,12 +494,6 @@ func (o SharedImageOutput) ToSharedImageOutput() SharedImageOutput {
 
 func (o SharedImageOutput) ToSharedImageOutputWithContext(ctx context.Context) SharedImageOutput {
 	return o
-}
-
-func (o SharedImageOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedImage] {
-	return pulumix.Output[*SharedImage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
@@ -664,12 +639,6 @@ func (o SharedImageArrayOutput) ToSharedImageArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o SharedImageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImage] {
-	return pulumix.Output[[]*SharedImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SharedImageArrayOutput) Index(i pulumi.IntInput) SharedImageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedImage {
 		return vs[0].([]*SharedImage)[vs[1].(int)]
@@ -688,12 +657,6 @@ func (o SharedImageMapOutput) ToSharedImageMapOutput() SharedImageMapOutput {
 
 func (o SharedImageMapOutput) ToSharedImageMapOutputWithContext(ctx context.Context) SharedImageMapOutput {
 	return o
-}
-
-func (o SharedImageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImage] {
-	return pulumix.Output[map[string]*SharedImage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharedImageMapOutput) MapIndex(k pulumi.StringInput) SharedImageOutput {

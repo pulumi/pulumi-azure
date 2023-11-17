@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages TagRules on the datadog Monitor.
@@ -209,12 +208,6 @@ func (i *MonitorTagRule) ToMonitorTagRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleOutput)
 }
 
-func (i *MonitorTagRule) ToOutput(ctx context.Context) pulumix.Output[*MonitorTagRule] {
-	return pulumix.Output[*MonitorTagRule]{
-		OutputState: i.ToMonitorTagRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorTagRuleArrayInput is an input type that accepts MonitorTagRuleArray and MonitorTagRuleArrayOutput values.
 // You can construct a concrete instance of `MonitorTagRuleArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i MonitorTagRuleArray) ToMonitorTagRuleArrayOutput() MonitorTagRuleArrayOu
 
 func (i MonitorTagRuleArray) ToMonitorTagRuleArrayOutputWithContext(ctx context.Context) MonitorTagRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleArrayOutput)
-}
-
-func (i MonitorTagRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorTagRule] {
-	return pulumix.Output[[]*MonitorTagRule]{
-		OutputState: i.ToMonitorTagRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorTagRuleMapInput is an input type that accepts MonitorTagRuleMap and MonitorTagRuleMapOutput values.
@@ -271,12 +258,6 @@ func (i MonitorTagRuleMap) ToMonitorTagRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMapOutput)
 }
 
-func (i MonitorTagRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorTagRule] {
-	return pulumix.Output[map[string]*MonitorTagRule]{
-		OutputState: i.ToMonitorTagRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorTagRuleOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagRuleOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o MonitorTagRuleOutput) ToMonitorTagRuleOutput() MonitorTagRuleOutput {
 
 func (o MonitorTagRuleOutput) ToMonitorTagRuleOutputWithContext(ctx context.Context) MonitorTagRuleOutput {
 	return o
-}
-
-func (o MonitorTagRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorTagRule] {
-	return pulumix.Output[*MonitorTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
@@ -331,12 +306,6 @@ func (o MonitorTagRuleArrayOutput) ToMonitorTagRuleArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o MonitorTagRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorTagRule] {
-	return pulumix.Output[[]*MonitorTagRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorTagRuleArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitorTagRule {
 		return vs[0].([]*MonitorTagRule)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o MonitorTagRuleMapOutput) ToMonitorTagRuleMapOutput() MonitorTagRuleMapOu
 
 func (o MonitorTagRuleMapOutput) ToMonitorTagRuleMapOutputWithContext(ctx context.Context) MonitorTagRuleMapOutput {
 	return o
-}
-
-func (o MonitorTagRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorTagRule] {
-	return pulumix.Output[map[string]*MonitorTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorTagRuleMapOutput) MapIndex(k pulumi.StringInput) MonitorTagRuleOutput {

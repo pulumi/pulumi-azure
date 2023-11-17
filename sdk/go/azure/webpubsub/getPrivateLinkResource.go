@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
@@ -113,12 +112,6 @@ func (o GetPrivateLinkResourceResultOutput) ToGetPrivateLinkResourceResultOutput
 
 func (o GetPrivateLinkResourceResultOutput) ToGetPrivateLinkResourceResultOutputWithContext(ctx context.Context) GetPrivateLinkResourceResultOutput {
 	return o
-}
-
-func (o GetPrivateLinkResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateLinkResourceResult] {
-	return pulumix.Output[GetPrivateLinkResourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

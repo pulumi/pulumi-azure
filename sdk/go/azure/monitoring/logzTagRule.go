@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a logz Tag Rule.
@@ -217,12 +216,6 @@ func (i *LogzTagRule) ToLogzTagRuleOutputWithContext(ctx context.Context) LogzTa
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleOutput)
 }
 
-func (i *LogzTagRule) ToOutput(ctx context.Context) pulumix.Output[*LogzTagRule] {
-	return pulumix.Output[*LogzTagRule]{
-		OutputState: i.ToLogzTagRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogzTagRuleArrayInput is an input type that accepts LogzTagRuleArray and LogzTagRuleArrayOutput values.
 // You can construct a concrete instance of `LogzTagRuleArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i LogzTagRuleArray) ToLogzTagRuleArrayOutput() LogzTagRuleArrayOutput {
 
 func (i LogzTagRuleArray) ToLogzTagRuleArrayOutputWithContext(ctx context.Context) LogzTagRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleArrayOutput)
-}
-
-func (i LogzTagRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogzTagRule] {
-	return pulumix.Output[[]*LogzTagRule]{
-		OutputState: i.ToLogzTagRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogzTagRuleMapInput is an input type that accepts LogzTagRuleMap and LogzTagRuleMapOutput values.
@@ -279,12 +266,6 @@ func (i LogzTagRuleMap) ToLogzTagRuleMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleMapOutput)
 }
 
-func (i LogzTagRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzTagRule] {
-	return pulumix.Output[map[string]*LogzTagRule]{
-		OutputState: i.ToLogzTagRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzTagRuleOutput struct{ *pulumi.OutputState }
 
 func (LogzTagRuleOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o LogzTagRuleOutput) ToLogzTagRuleOutput() LogzTagRuleOutput {
 
 func (o LogzTagRuleOutput) ToLogzTagRuleOutputWithContext(ctx context.Context) LogzTagRuleOutput {
 	return o
-}
-
-func (o LogzTagRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzTagRule] {
-	return pulumix.Output[*LogzTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
@@ -344,12 +319,6 @@ func (o LogzTagRuleArrayOutput) ToLogzTagRuleArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o LogzTagRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogzTagRule] {
-	return pulumix.Output[[]*LogzTagRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogzTagRuleArrayOutput) Index(i pulumi.IntInput) LogzTagRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzTagRule {
 		return vs[0].([]*LogzTagRule)[vs[1].(int)]
@@ -368,12 +337,6 @@ func (o LogzTagRuleMapOutput) ToLogzTagRuleMapOutput() LogzTagRuleMapOutput {
 
 func (o LogzTagRuleMapOutput) ToLogzTagRuleMapOutputWithContext(ctx context.Context) LogzTagRuleMapOutput {
 	return o
-}
-
-func (o LogzTagRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzTagRule] {
-	return pulumix.Output[map[string]*LogzTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzTagRuleMapOutput) MapIndex(k pulumi.StringInput) LogzTagRuleOutput {

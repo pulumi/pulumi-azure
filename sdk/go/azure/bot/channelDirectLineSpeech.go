@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Direct Line Speech integration for a Bot Channel
@@ -257,12 +256,6 @@ func (i *ChannelDirectLineSpeech) ToChannelDirectLineSpeechOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSpeechOutput)
 }
 
-func (i *ChannelDirectLineSpeech) ToOutput(ctx context.Context) pulumix.Output[*ChannelDirectLineSpeech] {
-	return pulumix.Output[*ChannelDirectLineSpeech]{
-		OutputState: i.ToChannelDirectLineSpeechOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelDirectLineSpeechArrayInput is an input type that accepts ChannelDirectLineSpeechArray and ChannelDirectLineSpeechArrayOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSpeechArrayInput` via:
 //
@@ -286,12 +279,6 @@ func (i ChannelDirectLineSpeechArray) ToChannelDirectLineSpeechArrayOutput() Cha
 
 func (i ChannelDirectLineSpeechArray) ToChannelDirectLineSpeechArrayOutputWithContext(ctx context.Context) ChannelDirectLineSpeechArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSpeechArrayOutput)
-}
-
-func (i ChannelDirectLineSpeechArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelDirectLineSpeech] {
-	return pulumix.Output[[]*ChannelDirectLineSpeech]{
-		OutputState: i.ToChannelDirectLineSpeechArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelDirectLineSpeechMapInput is an input type that accepts ChannelDirectLineSpeechMap and ChannelDirectLineSpeechMapOutput values.
@@ -319,12 +306,6 @@ func (i ChannelDirectLineSpeechMap) ToChannelDirectLineSpeechMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelDirectLineSpeechMapOutput)
 }
 
-func (i ChannelDirectLineSpeechMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelDirectLineSpeech] {
-	return pulumix.Output[map[string]*ChannelDirectLineSpeech]{
-		OutputState: i.ToChannelDirectLineSpeechMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelDirectLineSpeechOutput struct{ *pulumi.OutputState }
 
 func (ChannelDirectLineSpeechOutput) ElementType() reflect.Type {
@@ -337,12 +318,6 @@ func (o ChannelDirectLineSpeechOutput) ToChannelDirectLineSpeechOutput() Channel
 
 func (o ChannelDirectLineSpeechOutput) ToChannelDirectLineSpeechOutputWithContext(ctx context.Context) ChannelDirectLineSpeechOutput {
 	return o
-}
-
-func (o ChannelDirectLineSpeechOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDirectLineSpeech] {
-	return pulumix.Output[*ChannelDirectLineSpeech]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -399,12 +374,6 @@ func (o ChannelDirectLineSpeechArrayOutput) ToChannelDirectLineSpeechArrayOutput
 	return o
 }
 
-func (o ChannelDirectLineSpeechArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelDirectLineSpeech] {
-	return pulumix.Output[[]*ChannelDirectLineSpeech]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDirectLineSpeechArrayOutput) Index(i pulumi.IntInput) ChannelDirectLineSpeechOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelDirectLineSpeech {
 		return vs[0].([]*ChannelDirectLineSpeech)[vs[1].(int)]
@@ -423,12 +392,6 @@ func (o ChannelDirectLineSpeechMapOutput) ToChannelDirectLineSpeechMapOutput() C
 
 func (o ChannelDirectLineSpeechMapOutput) ToChannelDirectLineSpeechMapOutputWithContext(ctx context.Context) ChannelDirectLineSpeechMapOutput {
 	return o
-}
-
-func (o ChannelDirectLineSpeechMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelDirectLineSpeech] {
-	return pulumix.Output[map[string]*ChannelDirectLineSpeech]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDirectLineSpeechMapOutput) MapIndex(k pulumi.StringInput) ChannelDirectLineSpeechOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Source Control.
@@ -262,12 +261,6 @@ func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) So
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlOutput)
 }
 
-func (i *SourceControl) ToOutput(ctx context.Context) pulumix.Output[*SourceControl] {
-	return pulumix.Output[*SourceControl]{
-		OutputState: i.ToSourceControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SourceControlArrayInput is an input type that accepts SourceControlArray and SourceControlArrayOutput values.
 // You can construct a concrete instance of `SourceControlArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i SourceControlArray) ToSourceControlArrayOutput() SourceControlArrayOutpu
 
 func (i SourceControlArray) ToSourceControlArrayOutputWithContext(ctx context.Context) SourceControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlArrayOutput)
-}
-
-func (i SourceControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControl] {
-	return pulumix.Output[[]*SourceControl]{
-		OutputState: i.ToSourceControlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SourceControlMapInput is an input type that accepts SourceControlMap and SourceControlMapOutput values.
@@ -324,12 +311,6 @@ func (i SourceControlMap) ToSourceControlMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlMapOutput)
 }
 
-func (i SourceControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControl] {
-	return pulumix.Output[map[string]*SourceControl]{
-		OutputState: i.ToSourceControlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceControlOutput struct{ *pulumi.OutputState }
 
 func (SourceControlOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o SourceControlOutput) ToSourceControlOutput() SourceControlOutput {
 
 func (o SourceControlOutput) ToSourceControlOutputWithContext(ctx context.Context) SourceControlOutput {
 	return o
-}
-
-func (o SourceControlOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceControl] {
-	return pulumix.Output[*SourceControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether auto async the Source Control.
@@ -414,12 +389,6 @@ func (o SourceControlArrayOutput) ToSourceControlArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o SourceControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceControl] {
-	return pulumix.Output[[]*SourceControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceControlArrayOutput) Index(i pulumi.IntInput) SourceControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceControl {
 		return vs[0].([]*SourceControl)[vs[1].(int)]
@@ -438,12 +407,6 @@ func (o SourceControlMapOutput) ToSourceControlMapOutput() SourceControlMapOutpu
 
 func (o SourceControlMapOutput) ToSourceControlMapOutputWithContext(ctx context.Context) SourceControlMapOutput {
 	return o
-}
-
-func (o SourceControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceControl] {
-	return pulumix.Output[map[string]*SourceControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceControlMapOutput) MapIndex(k pulumi.StringInput) SourceControlOutput {

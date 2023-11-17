@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an ExpressRoute Circuit Peering.
@@ -414,12 +413,6 @@ func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringOutput)
 }
 
-func (i *ExpressRouteCircuitPeering) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuitPeering] {
-	return pulumix.Output[*ExpressRouteCircuitPeering]{
-		OutputState: i.ToExpressRouteCircuitPeeringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExpressRouteCircuitPeeringArrayInput is an input type that accepts ExpressRouteCircuitPeeringArray and ExpressRouteCircuitPeeringArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitPeeringArrayInput` via:
 //
@@ -443,12 +436,6 @@ func (i ExpressRouteCircuitPeeringArray) ToExpressRouteCircuitPeeringArrayOutput
 
 func (i ExpressRouteCircuitPeeringArray) ToExpressRouteCircuitPeeringArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringArrayOutput)
-}
-
-func (i ExpressRouteCircuitPeeringArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuitPeering] {
-	return pulumix.Output[[]*ExpressRouteCircuitPeering]{
-		OutputState: i.ToExpressRouteCircuitPeeringArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExpressRouteCircuitPeeringMapInput is an input type that accepts ExpressRouteCircuitPeeringMap and ExpressRouteCircuitPeeringMapOutput values.
@@ -476,12 +463,6 @@ func (i ExpressRouteCircuitPeeringMap) ToExpressRouteCircuitPeeringMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringMapOutput)
 }
 
-func (i ExpressRouteCircuitPeeringMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuitPeering] {
-	return pulumix.Output[map[string]*ExpressRouteCircuitPeering]{
-		OutputState: i.ToExpressRouteCircuitPeeringMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExpressRouteCircuitPeeringOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
@@ -494,12 +475,6 @@ func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutput() E
 
 func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitPeeringOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuitPeering] {
-	return pulumix.Output[*ExpressRouteCircuitPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ASN used by Azure.
@@ -601,12 +576,6 @@ func (o ExpressRouteCircuitPeeringArrayOutput) ToExpressRouteCircuitPeeringArray
 	return o
 }
 
-func (o ExpressRouteCircuitPeeringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuitPeering] {
-	return pulumix.Output[[]*ExpressRouteCircuitPeering]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExpressRouteCircuitPeeringArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitPeeringOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteCircuitPeering {
 		return vs[0].([]*ExpressRouteCircuitPeering)[vs[1].(int)]
@@ -625,12 +594,6 @@ func (o ExpressRouteCircuitPeeringMapOutput) ToExpressRouteCircuitPeeringMapOutp
 
 func (o ExpressRouteCircuitPeeringMapOutput) ToExpressRouteCircuitPeeringMapOutputWithContext(ctx context.Context) ExpressRouteCircuitPeeringMapOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitPeeringMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuitPeering] {
-	return pulumix.Output[map[string]*ExpressRouteCircuitPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExpressRouteCircuitPeeringMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitPeeringOutput {

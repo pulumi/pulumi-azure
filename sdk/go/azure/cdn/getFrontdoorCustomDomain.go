@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
@@ -121,12 +120,6 @@ func (o LookupFrontdoorCustomDomainResultOutput) ToLookupFrontdoorCustomDomainRe
 
 func (o LookupFrontdoorCustomDomainResultOutput) ToLookupFrontdoorCustomDomainResultOutputWithContext(ctx context.Context) LookupFrontdoorCustomDomainResultOutput {
 	return o
-}
-
-func (o LookupFrontdoorCustomDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorCustomDomainResult] {
-	return pulumix.Output[LookupFrontdoorCustomDomainResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Front Door Profile which the Front Door Custom Domain is bound to.
